@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<!-- Scroll: Enchant Weapon (A) -->
+	<scrolls id="729" isWeapon="true" isBlessed="false" isSafe="false"
+		grade="4" maxEnchant="0" chance="66" />
+	<!-- Scroll: Enchant Armor (A) -->
+	<scrolls id="730" isWeapon="false" isBlessed="false" isSafe="false"
+		grade="4" maxEnchant="0" chance="66" />
+	<!-- Crystal Scroll: Enchant Weapon (A) -->
+	<scrolls id="731" isWeapon="true" isBlessed="true" isSafe="false"
+		grade="4" maxEnchant="0" chance="66" />
+	<!-- Crystal Scroll: Enchant Armor (A) -->
+	<scrolls id="732" isWeapon="false" isBlessed="true" isSafe="false"
+		grade="4" maxEnchant="0" chance="66" />
+	<!-- Scroll: Enchant Weapon (B) -->
+	<scrolls id="947" isWeapon="true" isBlessed="false" isSafe="false"
+		grade="3" maxEnchant="0" chance="66" />
+	<!-- Scroll: Enchant Armor (B) -->
+	<scrolls id="948" isWeapon="false" isBlessed="false" isSafe="false"
+		grade="3" maxEnchant="0" chance="66" />
+	<!-- Crystal Scroll: Enchant Weapon (B) -->
+	<scrolls id="949" isWeapon="true" isBlessed="true" isSafe="false"
+		grade="3" maxEnchant="0" chance="66" />
+	<!-- Crystal Scroll: Enchant Armor (B) -->
+	<scrolls id="950" isWeapon="false" isBlessed="true" isSafe="false"
+		grade="3" maxEnchant="0" chance="66" />
+	<!-- Scroll: Enchant Weapon (C) -->
+	<scrolls id="951" isWeapon="true" isBlessed="false" isSafe="false"
+		grade="2" maxEnchant="0" chance="66" />
+	<!-- Scroll: Enchant Armor (C) -->
+	<scrolls id="952" isWeapon="false" isBlessed="false" isSafe="false"
+		grade="2" maxEnchant="0" chance="66" />
+	<!-- Crystal Scroll: Enchant Weapon (C) -->
+	<scrolls id="953" isWeapon="true" isBlessed="true" isSafe="false"
+		grade="2" maxEnchant="0" chance="66" />
+	<!-- Crystal Scroll: Enchant Armor (C) -->
+	<scrolls id="954" isWeapon="false" isBlessed="true" isSafe="false"
+		grade="2" maxEnchant="0" chance="66" />
+	<!-- Scroll: Enchant Weapon (D) -->
+	<scrolls id="955" isWeapon="true" isBlessed="false" isSafe="false"
+		grade="1" maxEnchant="0" chance="66" />
+	<!-- Scroll: Enchant Armor (D) -->
+	<scrolls id="956" isWeapon="false" isBlessed="false" isSafe="false"
+		grade="1" maxEnchant="0" chance="66" />
+	<!-- Crystal Scroll: Enchant Weapon (D) -->
+	<scrolls id="957" isWeapon="true" isBlessed="true" isSafe="false"
+		grade="1" maxEnchant="0" chance="66" />
+	<!-- Crystal Scroll: Enchant Armor (D) -->
+	<scrolls id="958" isWeapon="false" isBlessed="true" isSafe="false"
+		grade="1" maxEnchant="0" chance="66" />
+	<!-- Scroll: Enchant Weapon (S) -->
+	<scrolls id="959" isWeapon="true" isBlessed="false" isSafe="false"
+		grade="5" maxEnchant="0" chance="66" />
+	<!-- Scroll: Enchant Armor (S) -->
+	<scrolls id="960" isWeapon="false" isBlessed="false" isSafe="false"
+		grade="5" maxEnchant="0" chance="66" />
+	<!-- Crystal Scroll: Enchant Weapon (S) -->
+	<scrolls id="961" isWeapon="true" isBlessed="true" isSafe="false"
+		grade="5" maxEnchant="0" chance="66" />
+	<!-- Crystal Scroll: Enchant Armor (S) -->
+	<scrolls id="962" isWeapon="false" isBlessed="true" isSafe="false"
+		grade="5" maxEnchant="0" chance="66" />
+	<!-- Blessed Scroll: Enchant Weapon (A) -->
+	<scrolls id="6569" isWeapon="true" isBlessed="true" isSafe="false"
+		grade="4" maxEnchant="0" chance="66" />
+	<!-- Blessed Scroll: Enchant Armor (A) -->
+	<scrolls id="6570" isWeapon="false" isBlessed="true" isSafe="false"
+		grade="4" maxEnchant="0" chance="66" />
+	<!-- Blessed Scroll: Enchant Weapon (B) -->
+	<scrolls id="6571" isWeapon="true" isBlessed="true" isSafe="false"
+		grade="3" maxEnchant="0" chance="66" />
+	<!-- Blessed Scroll: Enchant Armor (B) -->
+	<scrolls id="6572" isWeapon="false" isBlessed="true" isSafe="false"
+		grade="3" maxEnchant="0" chance="66" />
+	<!-- Blessed Scroll: Enchant Weapon (C) -->
+	<scrolls id="6573" isWeapon="true" isBlessed="true" isSafe="false"
+		grade="2" maxEnchant="0" chance="66" />
+	<!-- Blessed Scroll: Enchant Armor (C) -->
+	<scrolls id="6574" isWeapon="false" isBlessed="true" isSafe="false"
+		grade="2" maxEnchant="0" chance="66" />
+	<!-- Blessed Scroll: Enchant Weapon (D) -->
+	<scrolls id="6575" isWeapon="true" isBlessed="true" isSafe="false"
+		grade="1" maxEnchant="0" chance="66" />
+	<!-- Blessed Scroll: Enchant Armor (D) -->
+	<scrolls id="6576" isWeapon="false" isBlessed="true" isSafe="false"
+		grade="1" maxEnchant="0" chance="66" />
+	<!-- Blessed Scroll: Enchant Weapon (S) -->
+	<scrolls id="6577" isWeapon="true" isBlessed="true" isSafe="false"
+		grade="5" maxEnchant="0" chance="66" />
+	<!-- Blessed Scroll: Enchant Armor (S) -->
+	<scrolls id="6578" isWeapon="false" isBlessed="true" isSafe="false"
+		grade="5" maxEnchant="0" chance="66" />
+	<!-- Weapon Enchant Scroll - D Grade -->
+	<scrolls id="22006" isWeapon="true" isBlessed="false" isSafe="false"
+		grade="1" maxEnchant="0" chance="76" />
+	<!-- Weapon Enchant Scroll - C Grade -->
+	<scrolls id="22007" isWeapon="true" isBlessed="false" isSafe="false"
+		grade="2" maxEnchant="0" chance="76" />
+	<!-- Weapon Enchant Scroll - B Grade -->
+	<scrolls id="22008" isWeapon="true" isBlessed="false" isSafe="false"
+		grade="3" maxEnchant="0" chance="76" />
+	<!-- Weapon Enchant Scroll - A Grade -->
+	<scrolls id="22009" isWeapon="true" isBlessed="false" isSafe="false"
+		grade="4" maxEnchant="0" chance="76" />
+	<!-- Armor Enchant Scroll - D Grade -->
+	<scrolls id="22010" isWeapon="false" isBlessed="false" isSafe="false"
+		grade="1" maxEnchant="0" chance="76" />
+	<!-- Armor Enchant Scroll - C Grade -->
+	<scrolls id="22011" isWeapon="false" isBlessed="false" isSafe="false"
+		grade="2" maxEnchant="0" chance="76" />
+	<!-- Armor Enchant Scroll - B Grade -->
+	<scrolls id="22012" isWeapon="false" isBlessed="false" isSafe="false"
+		grade="3" maxEnchant="0" chance="76" />
+	<!-- Armor Enchant Scroll - A Grade -->
+	<scrolls id="22013" isWeapon="false" isBlessed="false" isSafe="false"
+		grade="4" maxEnchant="0" chance="76" />
+	<!-- Ancient Weapon Enchant Crystal - B grade -->
+	<scrolls id="22014" isWeapon="true" isBlessed="false" isSafe="true"
+		grade="3" maxEnchant="16" chance="76" />
+	<!-- Ancient Weapon Enchant Crystal - A grade -->
+	<scrolls id="22015" isWeapon="true" isBlessed="false" isSafe="true"
+		grade="4" maxEnchant="16" chance="76" />
+	<!-- Ancient Armor Enchant Crystal - B grade -->
+	<scrolls id="22016" isWeapon="false" isBlessed="false" isSafe="true"
+		grade="3" maxEnchant="16" chance="76" />
+	<!-- Ancient Armor Enchant Crystal - A grade -->
+	<scrolls id="22017" isWeapon="false" isBlessed="false" isSafe="true"
+		grade="4" maxEnchant="16" chance="76" />
+	<!-- Divine Weapon Enchant Crystal - B grade -->
+	<scrolls id="22018" isWeapon="true" isBlessed="false" isSafe="false"
+		grade="3" maxEnchant="0" chance="100" />
+	<!-- Divine Weapon Enchant Crystal - A grade -->
+	<scrolls id="22019" isWeapon="true" isBlessed="false" isSafe="false"
+		grade="4" maxEnchant="0" chance="100" />
+	<!-- Divine Armor Enchant Crystal - B grade -->
+	<scrolls id="22020" isWeapon="false" isBlessed="false" isSafe="false"
+		grade="3" maxEnchant="0" chance="100" />
+	<!-- Divine Armor Enchant Crystal - A grade -->
+	<scrolls id="22021" isWeapon="false" isBlessed="false" isSafe="false"
+		grade="4" maxEnchant="0" chance="100" />
+	<!-- Master Yogi's Scroll: Enchant Weapon -->
+	<scrolls id="13540" isWeapon="true" isBlessed="false" isSafe="false"
+		grade="0" maxEnchant="0" chance="66" allowedItemID="13539" />
+	<!-- Weapon-Type Enhance Backup Stone (D-Grade) -->
+	<supports id="12362" isWeapon="true" grade="1" maxEnchant="10"
+		chance="20" />
+	<!-- Weapon-Type Enhance Backup Stone (C-Grade) -->
+	<supports id="12363" isWeapon="true" grade="2" maxEnchant="10"
+		chance="18" />
+	<!-- Weapon-Type Enhance Backup Stone (B-Grade) -->
+	<supports id="12364" isWeapon="true" grade="3" maxEnchant="10"
+		chance="15" />
+	<!-- Weapon-Type Enhance Backup Stone (A-Grade) -->
+	<supports id="12365" isWeapon="true" grade="4" maxEnchant="10"
+		chance="12" />
+	<!-- Weapon-Type Enhance Backup Stone (S-Grade) -->
+	<supports id="12366" isWeapon="true" grade="5" maxEnchant="10"
+		chance="10" />
+	<!-- Armor-Type Enhance Backup Stone (D-Grade) -->
+	<supports id="12367" isWeapon="false" grade="1" maxEnchant="10"
+		chance="35" />
+	<!-- Armor-Type Enhance Backup Stone (C-Grade) -->
+	<supports id="12368" isWeapon="false" grade="2" maxEnchant="10"
+		chance="27" />
+	<!-- Armor-Type Enhance Backup Stone (B-Grade) -->
+	<supports id="12369" isWeapon="false" grade="3" maxEnchant="10"
+		chance="23" />
+	<!-- Armor-Type Enhance Backup Stone (A-Grade) -->
+	<supports id="12370" isWeapon="false" grade="4" maxEnchant="10"
+		chance="18" />
+	<!-- Armor-Type Enhance Backup Stone (S-Grade) -->
+	<supports id="12371" isWeapon="false" grade="5" maxEnchant="10"
+		chance="15" />
+	<!-- Agathion Auxiliary Stone: Enchant Weapon (D-Grade) -->
+	<supports id="14702" isWeapon="true" grade="1" maxEnchant="9"
+		chance="20" />
+	<!-- Agathion Auxiliary Stone: Enchant Weapon (C-Grade) -->
+	<supports id="14703" isWeapon="true" grade="2" maxEnchant="9"
+		chance="18" />
+	<!-- Agathion Auxiliary Stone: Enchant Weapon (B-Grade) -->
+	<supports id="14704" isWeapon="true" grade="3" maxEnchant="9"
+		chance="15" />
+	<!-- Agathion Auxiliary Stone: Enchant Weapon (A-Grade) -->
+	<supports id="14705" isWeapon="true" grade="4" maxEnchant="9"
+		chance="12" />
+	<!-- Agathion Auxiliary Stone: Enchant Weapon (S-Grade) -->
+	<supports id="14706" isWeapon="true" grade="5" maxEnchant="9"
+		chance="10" />
+	<!-- Agathion Auxiliary Stone: Enchant Weapon (D-Grade) -->
+	<supports id="14707" isWeapon="false" grade="1" maxEnchant="9"
+		chance="35" />
+	<!-- Agathion Auxiliary Stone: Enchant Weapon (C-Grade) -->
+	<supports id="14708" isWeapon="false" grade="2" maxEnchant="9"
+		chance="27" />
+	<!-- Agathion Auxiliary Stone: Enchant Weapon (B-Grade) -->
+	<supports id="14709" isWeapon="false" grade="3" maxEnchant="9"
+		chance="23" />
+	<!-- Agathion Auxiliary Stone: Enchant Weapon (A-Grade) -->
+	<supports id="14710" isWeapon="false" grade="4" maxEnchant="9"
+		chance="18" />
+	<!-- Agathion Auxiliary Stone: Enchant Weapon (S-Grade) -->
+	<supports id="14711" isWeapon="false" grade="5" maxEnchant="9"
+		chance="15" />
+</list>
