@@ -1,0 +1,51 @@
+ =======================
+ = L2EMU PROJECT TEAM: =
+ =======================
+
+ ==============
+ = Developers =
+ ==============
+ - LordRex
+ - L0ngh0rn
+ - Q.I
+ - Stake
+ - Intrepid
+ - Janko
+ - lewzer
+ 
+ ============================
+ = L2Emu Project GameServer =
+ ============================
+ - LordRex
+ - L0ngh0rn
+ - Stake
+ - Intrepid
+
+ ==========================
+ = L2Emu Project DataPack =
+ ==========================
+ - LordRex
+ - L0ngh0rn
+ - Q.I
+ - Intrepid
+ - Janko
+ - lewzer
+ 
+ ========================
+ = Project Contributors =
+ ========================
+ -
+
+ ============
+ = Contacts =
+ ============
+ - http://www.l2emuproject.net
+
+ ============
+ = Notes =
+ ============
+ * For any troubleshooting or any issue
+  Thank you for choosing L2Emu Project!
+  Special Greetings from the Dev Team :) *
+  
+  L2Emu Project 2010-2011

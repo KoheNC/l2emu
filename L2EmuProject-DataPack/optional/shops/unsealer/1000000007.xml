@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Soul Crystal  -->
+<list>
+	<item id="1">
+		<!-- Red Soul Crystal - Stage 11 -->
+		<production id="5577" count="1"/>
+		<!-- 150kk AA -->
+        <ingredient id="5575" count="150000000"/>
+  
+	</item>
+	<item id="2">
+		<!-- Green Soul Crystal - Stage 11 -->
+		<production id="5578" count="1"/>
+		<!-- 150kk AA -->
+        <ingredient id="5575" count="150000000"/>
+  
+	</item>
+	<item id="3">
+		<!-- Blue Soul Crystal - Stage 11 -->
+		<production id="5579" count="1"/>
+		<!-- 150kk AA -->
+        <ingredient id="5575" count="150000000"/>
+	</item>
+	<item id="4">
+		<!-- Red Soul Crystal - Stage 12 -->
+		<production id="5580" count="1"/>
+		<!-- 150kk AA -->
+        <ingredient id="5575" count="150000000"/>
+	</item>
+	<item id="5">
+		<!-- Green Soul Crystal - Stage 12 -->
+		<production id="5581" count="1"/>
+		<!-- 150kk AA -->
+        <ingredient id="5575" count="150000000"/>
+	</item>
+	<item id="6">
+		<!-- Blue Soul Crystal - Stage 12 -->
+		<production id="5581" count="1"/>
+		<!-- 150kk AA -->
+        <ingredient id="5575" count="150000000"/>
+	</item>
+	<item id="7">
+		<!-- Blue Soul Crystal - Stage 12 -->
+		<production id="5581" count="1"/>
+		<!-- 150kk AA -->
+        <ingredient id="5575" count="150000000"/>
+    </item>
+    <item id="8">
+		<!-- Red Soul Crystal: Grade 13 -->
+		<production id="5908" count="1"/>
+		<!-- 150kk AA -->
+        <ingredient id="5575" count="150000000"/>
+    </item>
+    <item id="9">
+		<!-- Green Soul Crystal: Grade 13 -->
+		<production id="5911" count="1"/>
+		<!-- 150kk AA -->
+        <ingredient id="5575" count="150000000"/>
+    </item>
+     <item id="10">
+		<!-- Blue Soul Crystal: Grade 13 -->
+		<production id="5914" count="1"/>
+		<!-- 150kk AA -->
+        <ingredient id="5575" count="150000000"/>
+    </item>
+	</list>

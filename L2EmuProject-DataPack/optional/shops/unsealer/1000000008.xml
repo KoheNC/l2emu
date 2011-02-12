@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Adena Trader Masks  -->
+<list>
+	<item id="1">
+		<!-- black feather mask -->
+		<production id="8910" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+  
+	</item>
+	<item id="2">
+		<!-- black half mask -->
+		<production id="8911" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+  
+	</item>
+	<item id="3">
+		<!-- single stem flower -->
+		<production id="8912" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+	</item>
+	<item id="4">
+		<!-- buterfly harpin -->
+		<production id="8913" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+	</item>
+	<item id="5">
+		<!-- luxurious gold circlet -->
+		<production id="8914" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+	</item>
+	<item id="6">
+		<!-- luxurios silver circlet -->
+		<production id="8915" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+	</item>
+	<item id="7">
+		<!-- eye patch -->
+		<production id="8916" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="8">
+		<!-- goddess circlet -->
+		<production id="8917" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="9">
+		<!-- leather cap -->
+		<production id="8918" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+     <item id="10">
+		<!-- comodore hat- event use -->
+		<production id="8919" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="11">
+		<!-- angel halo -->
+		<production id="8920" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="12">
+		<!-- demon circlet -->
+		<production id="8921" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="13">
+		<!--  pirate hat-->
+		<production id="8922" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="14">
+		<!-- scar -->
+		<production id="8923" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="15">
+		<!--  santas antlers-->
+		<production id="8936" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="16">
+		<!--  gold circlet - for event-->
+		<production id="9158" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="17">
+		<!-- silver circlet - for event -->
+		<production id="9159" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="18">
+		<!-- diadem -->
+		<production id="8559" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="18">
+		<!--  teddy bear hat-->
+		<production id="8560" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="19">
+		<!-- piggy hat  -->
+		<production id="8561" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="20">
+		<!--  jester hat-->
+		<production id="8562" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="21">
+		<!-- wizard hat -->
+		<production id="8563" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="22">
+		<!--dapper cap  -->
+		<production id="8564" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="23">
+		<!-- romantic chapeu -->
+		<production id="8565" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="24">
+		<!-- iron circlet -->
+		<production id="8566" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="25">
+		<!-- valakas slayer circlet -->
+		<production id="8567" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="26">
+		<!-- antharas slayer circlet -->
+		<production id="8568" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+    <item id="27">
+		<!--  half face mask-->
+		<production id="8569" count="1"/>
+		<!-- 150 Gold Coins -->
+        <ingredient id="15000" count="150"/>
+    </item>
+	</list>

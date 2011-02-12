@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- L2Emu Project -->
+
+<!-- A+S Recipe Seller -->
+
+<list>
+
+
+	 <!-- Tallum Sets -->
+
+  <!-- Sealed Tallum Helmet(100%) -->
+  <item id="1">
+    <ingredient id="5575" count="600000"/>
+    <production id="5429" count="1"/>
+  </item>
+
+  <!-- Sealed Tallum Gloves(100%) -->
+  <item id="2">
+    <ingredient id="5575" count="600000"/>
+    <production id="5395" count="1"/>
+  </item>
+
+  <!-- Sealed Tallum Boots(100%) -->
+  <item id="3">
+    <ingredient id="5575" count="600000"/>
+    <production id="5371" count="1"/>
+  </item>
+
+  <!-- Sealed Tallum Tunic(100%) -->
+  <item id="4">
+    <ingredient id="5575" count="600000"/>
+    <production id="5349" count="1"/>
+  </item>
+
+  <!-- Sealed Tallum Stockings(100%) -->
+  <item id="5">
+    <ingredient id="5575" count="600000"/>
+    <production id="5355" count="1"/>
+  </item>
+
+  <!-- Saled Tallum Leather Armor(100%) -->
+  <item id="6">
+    <ingredient id="5575" count="800000"/>
+    <production id="5333" count="1"/>
+  </item>
+
+  <!-- Sealed Tallum Plate Armor(100%) -->
+  <item id="7">
+    <ingredient id="5575" count="800000"/>
+    <production id="5419" count="1"/>
+  </item>
+
+
+	 <!-- Dark Crystal Sets -->
+
+
+  <!-- Sealed Dark Crystal Helmet(100%) -->
+  <item id="8">
+    <ingredient id="5575" count="600000"/>
+    <production id="5427" count="1"/>
+  </item>
+
+  <!-- Sealed Dark Crystal Gloves(100%) -->
+  <item id="9">
+    <ingredient id="5575" count="600000"/>
+    <production id="5393" count="1"/>
+  </item>
+
+  <!-- Sealed Dark Crystal Boots(100%) -->
+  <item id="10">
+    <ingredient id="5575" count="600000"/>
+    <production id="5369" count="1"/>
+  </item>
+
+  <!-- Saled Dark Crystal Leather Armor 100% -->
+  <item id="11">
+    <ingredient id="5575" count="600000"/>
+    <production id="5333" count="1"/>
+  </item>
+
+  <!-- Sealed Dark Crystalline Leggings(100%) -->
+  <item id="12">
+    <ingredient id="5575" count="600000"/>
+    <production id="5341" count="1"/>
+  </item>
+
+  <!-- Sealed Dark Crystal Shield(100%) -->
+  <item id="13">
+    <ingredient id="5575" count="600000"/>
+    <production id="5365" count="1"/>
+  </item>
+
+  <!-- Sealed Dark Crystal Breastplate(100%) -->
+  <item id="14">
+    <ingredient id="5575" count="600000"/>
+    <production id="5417" count="1"/>
+  </item>
+
+  <!-- Sealed Dark Crystal Gaiters(100%) -->
+  <item id="15">
+    <ingredient id="5575" count="600000"/>
+    <production id="5425" count="1"/>
+  </item>
+
+  <!-- Sealed Dark Crystal Robe(100%) -->
+  <item id="16">
+    <ingredient id="5575" count="800000"/>
+    <production id="5349" count="1"/>
+  </item>
+
+
+
+	 <!-- NightMare Sets -->
+
+
+  <!-- Sealed Helm of Nightmare(100%) -->
+  <item id="17">
+    <ingredient id="5575" count="600000"/>
+    <production id="5431" count="1"/>
+  </item>
+
+  <!-- Sealed Gloves of Nightmare(100%) -->
+  <item id="18">
+    <ingredient id="5575" count="600000"/>
+    <production id="5405" count="1"/>
+  </item>
+
+  <!-- Sealed Boots of Nightmare(100%) -->
+  <item id="19">
+    <ingredient id="5575" count="600000"/>
+    <production id="5381" count="1"/>
+  </item>
+
+  <!-- Leather Armor of Nightmare(100%) -->
+  <item id="20">
+    <ingredient id="5575" count="800000"/>
+    <production id="5337" count="1"/>
+  </item>
+
+  <!-- Sealed Shield of Nightmare(100%) -->
+  <item id="21">
+    <ingredient id="5575" count="600000"/>
+    <production id="5367" count="1"/>
+  </item>  
+
+  <!-- Sealed Robe of Nightmare(100%) -->
+  <item id="22">
+    <ingredient id="5575" count="800000"/>
+    <production id="5351" count="1"/>
+  </item>
+
+  <!-- Sealed Armor of Nightmare(100%) -->
+  <item id="23">
+    <ingredient id="5575" count="800000"/>
+    <production id="5421" count="1"/>
+  </item>
+
+
+	 <!-- Majestic Sets -->
+
+
+
+  <!-- Sealed Majestic Circlet(100%) -->
+  <item id="24">
+    <ingredient id="5575" count="600000"/>
+    <production id="5433" count="1"/>
+  </item>
+
+  <!-- Sealed Majestic Boots(100%) -->
+  <item id="25">
+    <ingredient id="5575" count="600000"/>
+    <production id="5383" count="1"/>
+  </item>
+
+  <!-- Sealed Majestic Gloves(100%) -->
+  <item id="26">
+    <ingredient id="5575" count="600000"/>
+    <production id="5407" count="1"/>
+  </item>
+
+  <!-- Sealed Majestic Leather Armor(100%) -->
+  <item id="27">
+    <ingredient id="5575" count="800000"/>
+    <production id="5339" count="1"/>
+  </item>
+
+  <!-- Sealed Majestic Robe(100%) -->
+  <item id="28">
+    <ingredient id="5575" count="800000"/>
+    <production id="5353" count="1"/>
+  </item>
+
+  <!-- Sealed Majestic Plate Armor(100%) -->
+  <item id="29">
+    <ingredient id="5575" count="800000"/>
+    <production id="5423" count="1"/>
+  </item>
+
+
+
+	 <!-- Phoenix Jewells Sets -->
+
+  <!-- Sealed Phoenix Necklace(100%) -->
+  <item id="30">
+    <ingredient id="5575" count="600000"/>
+    <production id="6330" count="1"/>
+  </item>
+
+  <!-- Sealed Phoenix Earring(100%) -->
+  <item id="31">
+    <ingredient id="5575" count="600000"/>
+    <production id="6332" count="1"/>
+  </item>
+
+  <!-- Sealed Phoenix Ring(100%) -->
+  <item id="32">
+    <ingredient id="5575" count="600000"/>
+    <production id="6334" count="1"/>
+  </item>
+
+	 <!-- Majestic Jewells Sets -->
+
+  <!-- Sealed Majestic Necklace(100%) -->
+  <item id="33">
+    <ingredient id="5575" count="800000"/>
+    <production id="6336" count="1"/>
+  </item>
+
+  <!-- Sealed Majestic Earring(100%) -->
+  <item id="34">
+    <ingredient id="5575" count="800000"/>
+    <production id="6338" count="1"/>
+  </item>
+
+  <!-- Sealed Majestic Ring(100%) -->
+  <item id="35">
+    <ingredient id="5575" count="800000"/>
+    <production id="6340" count="1"/>
+  </item>
+
+	 <!-- Tateossian Jewells Sets -->
+
+  <!-- Sealed Tateossian Earring (100%) -->
+  <item id="36">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6848" count="1"/>
+  </item>
+
+  <!-- Sealed Tateossian Ring(100%) -->
+  <item id="37">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6850" count="1"/>
+  </item>
+
+  <!-- Sealed Tateossian Necklace(100%) -->
+  <item id="38">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6852" count="1"/>
+  </item>
+
+
+	 <!-- Imperial Cruisader Set -->
+
+  <!-- Sealed Imperial Crusader Breastplate (100%) -->
+  <item id="39">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6854" count="1"/>
+  </item>
+
+  <!-- Sealed Imperial Crusader Gaiters (100%) -->
+  <item id="40">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6856" count="1"/>
+  </item>
+
+  <!-- Sealed Imperial Crusader Gauntlets (100%) -->
+  <item id="41">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6858" count="1"/>
+  </item>
+
+  <!-- Sealed Imperial Crusader Boots (100%) -->
+  <item id="42">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6860" count="1"/>
+  </item>
+
+  <!-- Sealed Imperial Crusader Shield (100%) -->
+  <item id="43">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6862" count="1"/>
+  </item>
+
+  <!-- Sealed Imperial Crusader Helmet (100%) -->
+  <item id="44">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6864" count="1"/>
+  </item>
+
+	 <!-- Draconic Set -->
+
+  <!-- Sealed Draconic Leather Armor (100%) -->
+  <item id="45">
+    <ingredient id="5575" count="1600000"/>
+    <production id="6866" count="1"/>
+  </item>
+
+  <!-- Sealed Draconic Leather Gloves (100%) -->
+  <item id="46">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6868" count="1"/>
+  </item>
+
+  <!-- Sealed Draconic Leather Boots (100%) -->
+  <item id="47">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6870" count="1"/>
+  </item>
+
+  <!-- Sealed Draconic Leather Helmet (100%) -->
+  <item id="48">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6872" count="1"/>
+  </item>
+
+	 <!-- Major Arcanar Set -->
+
+  <!-- Sealed Major Arcana Robe (100%) -->
+  <item id="49">
+    <ingredient id="5575" count="1600000"/>
+    <production id="6874" count="1"/>
+  </item>
+
+  <!-- Sealed Major Arcana Gloves (100%) -->
+  <item id="50">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6876" count="1"/>
+  </item>
+
+  <!-- Sealed Major Arcana Boots (100%) -->
+  <item id="51">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6878" count="1"/>
+  </item>
+
+  <!-- Sealed Major Arcana Circlet (100%) -->
+  <item id="52">
+    <ingredient id="5575" count="1200000"/>
+    <production id="6880" count="1"/>
+  </item>
+ 
+</list>

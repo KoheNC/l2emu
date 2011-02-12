@@ -1,0 +1,1 @@
+UPDATE `character_quests` SET `name` = '_192_SevenSignSeriesOfDoubt' WHERE `name` = '192_SevenSignSeriesOfDoubt';

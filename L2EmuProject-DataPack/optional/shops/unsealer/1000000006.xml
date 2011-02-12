@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--NPC S Grade Armors Sealer. -->
+<list maintainEnchantment="true">
+	<item id="1">
+		<!-- Sealed Imperial Crusader Breastplate -->
+		<production id="6674" count="1"/>
+		<!-- Armor (Chest) -->
+        <ingredient id="4047" count="1"/>
+        <ingredient id="5554" count="1"/>
+        <ingredient id="5575" count="1000000"/> 
+	</item>
+	<item id="2">
+		<!-- Sealed Imperial Crusader Gaiters -->
+		<production id="6675" count="1"/>
+		<!-- Legs -->
+        <ingredient id="4047" count="1"/>
+        <ingredient id="5554" count="1"/>
+        <ingredient id="5575" count="1000000"/> 
+	</item>
+	<item id="3">
+		<!-- Sealed Imperial Crusader Gauntlets -->
+		<production id="6676" count="1"/>
+		<!-- gloves -->
+        <ingredient id="1892" count="1"/>
+        <ingredient id="4047" count="1"/>
+        <ingredient id="5575" count="500000"/> 
+	</item>
+	<item id="4">
+		<!--Sealed Imperial Crusader Boots -->
+		<production id="6677" count="1"/>
+		<!-- boots -->
+        <ingredient id="1892" count="1"/>
+        <ingredient id="4047" count="1"/>
+        <ingredient id="5575" count="500000"/> 
+	</item>
+	<item id="5">
+	    <!--Sealed Imperial Crusader Helmet -->
+		<production id="6679" count="1"/>
+	    <!-- Hemlet -->
+        <ingredient id="1892" count="1"/>
+        <ingredient id="4047" count="1"/>
+       <ingredient id="5575" count="500000"/> 
+	</item>
+	<item id="14">
+	<!-- Imperial Crusader Shield -->
+		<production id="6678" count="1"/>
+		
+		<ingredient id="1872" count="25"/>
+		<ingredient id="4043" count="15"/>
+		<ingredient id="1870" count="35"/>
+		</item>
+		<item id="15">
+		<!--Sealed Dark Crystal Shield -->
+		<production id="5292" count="1"/>
+		<ingredient id="1872" count="25"/>
+		<ingredient id="4043" count="15"/>
+		<ingredient id="1870" count="35"/>
+		</item>
+		<item id="16">
+		<!-- Sealed Shield of Nigthmare -->
+		<production id="5315" count="1"/>
+		<ingredient id="1872" count="25"/>
+		<ingredient id="4043" count="15"/>
+		<ingredient id="1870" count="35"/>
+		</item>
+		<item id="17">
+		
+		<!--Sealed Tateossian Earring-->
+		<production id="6724" count="1"/>
+        
+        <!-- Earring -->
+        <ingredient id="4039" count="15"/>
+        <ingredient id="4044" count="20"/>
+        <ingredient id="1866" count="25"/> 
+	</item>
+	<item id="18">
+		<!--Sealed Tateossian Ring-->
+		<production id="6725" count="1"/>
+		
+		<!-- Ring -->
+		<ingredient id="1878" count="20"/>
+		<ingredient id="1876" count="25"/>
+		<ingredient id="1895" count="25"/>
+	</item>
+	<item id="19">
+		<!--Sealed Tateossian Necklace-->
+		<production id="6726" count="1"/>
+		
+		<!-- NeckLace -->
+		<ingredient id="1875" count="20"/>
+		<ingredient id="1880" count="25"/>
+		<ingredient id="4043" count="20"/>
+	</item>
+	
+	    <item id="6">
+	    <!-- Sealed Draconic Leather Armor -->
+	    <production id="6680" count="1"/>
+		<!-- Full Armor -->
+        <ingredient id="4047" count="1"/>
+        <ingredient id="5554" count="2"/>
+        <ingredient id="5575" count="2000000"/> 
+	</item>
+	  <item id="7">
+	    <!-- Sealed Draconic Leather Gloves -->
+	    <production id="6681" count="1"/>
+		<!-- gloves -->
+        <ingredient id="1892" count="1"/>
+        <ingredient id="4047" count="1"/>
+        <ingredient id="5575" count="500000"/> 
+	</item>
+	    <item id="8">
+	    <!-- Sealed Draconic Leather Boots -->
+		<production id="6682" count="1"/>
+		<!-- boots -->
+        <ingredient id="1892" count="1"/>
+        <ingredient id="4047" count="1"/>
+        <ingredient id="5575" count="500000"/> 
+	</item>
+	<item id="9">
+	    <!-- Sealed Draconic Leather Helmet -->
+		<production id="6683" count="1"/>
+		<!-- Hemlet -->
+        <ingredient id="1892" count="1"/>
+        <ingredient id="4047" count="1"/>
+        <ingredient id="5575" count="500000"/> 
+	</item><item id="10">
+	    <!-- Sealed Major Arcana Robe -->
+	    <production id="6684" count="1"/>
+	    <!-- Full Armor -->
+        <ingredient id="4047" count="1"/>
+        <ingredient id="5554" count="2"/>
+        <ingredient id="5575" count="2000000"/> 
+	</item>
+	<item id="11">
+	<!-- Sealed Major Arcana Gloves -->
+		<production id="6685" count="1"/>
+		<!-- gloves -->
+        <ingredient id="1892" count="1"/>
+        <ingredient id="4047" count="1"/>
+        <ingredient id="5575" count="500000"/> 
+	</item>
+	<item id="12">
+	<!-- Sealed Major Arcana Boots -->
+		<production id="6686" count="1"/>
+		<!-- boots -->
+        <ingredient id="1892" count="1"/>
+        <ingredient id="4047" count="1"/>
+        <ingredient id="5575" count="500000"/> 
+	</item>
+	<item id="13">
+	    <!-- Sealed Major Arcana Circlet-->
+		<production id="6687" count="1"/>
+		<!-- Hemlet -->
+        <ingredient id="1892" count="1"/>
+        <ingredient id="4047" count="1"/>
+        <ingredient id="5575" count="500000"/> 
+	</item>
+	</list>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--rare quest items  -->
+<list>
+	<item id="1">
+		<!--hellfire oil -->
+		<production id="6033" count="1"/>
+		<!-- 20 Gold Coins -->
+        <ingredient id="15000" count="20"/>
+ </item>
+ <item id="2">
+		<!-- lunargent -->
+		<production id="6029" count="1"/>
+		<!-- 20 Gold Coins -->
+        <ingredient id="15000" count="20"/>
+ </item>
+	</list>

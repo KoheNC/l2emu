@@ -1,0 +1,1 @@
+UPDATE `character_quests` SET `name` = 'RaceTrackTeleport' WHERE `name` = '1101_teleport_to_race_track';

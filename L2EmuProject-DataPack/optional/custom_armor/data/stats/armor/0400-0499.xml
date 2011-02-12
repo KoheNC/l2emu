@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+<!-- L2Emu Project -->
+<item id='485' name="Tattoo of Power">
+<for>
+<add val='53' order='0x10' stat='pDef'/>
+<mul val='1.33' order='0x30' stat='pAtk'/>
+</for>
+</item>
+<item id='486' name="Tattoo of Fire">
+<for>
+  <add val='73' order='0x10' stat='pDef'/>
+  <add val='15' order='0x40' stat='reflectDam'/>
+  <mul val='1.05' order='0x20' stat='mDef'/>
+  <mul val='1.05' order='0x20' stat='mAtk'/>
+</for>
+</item>
+<item id='487' name="Tattoo of Resolve">
+<for>
+<add val='73' order='0x10' stat='pDef'/>
+<add val='33' order='0x10' stat='pAtk'/>
+<add val="33" order="0x40" stat='runSpd'/>
+<mul val='1.05' order='0x20' stat='pAtkSpd'/>
+</for>
+</item>
+<item id='488' name="Tattoo of Flame">
+<for>
+<add val='139' order='0x10' stat='pDef'/>
+<mul val='1.65' order='0x30' stat='mAtk'/>
+<mul val='1.45' order='0x20' stat='maxHp'/>
+</for>
+</item>
+<item id='489' name="Tattoo of Bravery">
+<for>
+<add val='110' order='0x10' stat='pDef'/>
+<mul val='1.25' order='0x40' stat='rCrit'/>
+<mul val='1.10' order='0x20' stat='pAtk'/>
+<mul val='1.15' order='0x20' stat='maxHp'/>
+</for>
+</item>
+<item id='490' name="Tattoo of Blood">
+<for>
+<add val='132' order='0x10' stat='pDef'/>
+<mul val='1.40' order='0x40' stat='bleedVuln'/>
+<mul val='1.05' order='0x20' stat='pAtkSpd'/>
+<mul val='1.15' order='0x20' stat='mAtkSpd'/>
+</for>
+</item>
+<item id='491' name="Tattoo of Absolute">
+<for>
+<add val='146' order='0x10' stat='pDef'/>
+<mul val='1.15' order='0x20' stat='pAtk'/>
+<mul val='1.23' order='0x20' stat='maxHp'/>
+</for>
+</item>
+<item id='492' name="Tattoo of Soul">
+<for>
+<add val='65' order='0x10' stat='pDef'/>
+<mul val='1.33' order='0x30' stat='pAtkSpd'/>
+</for>
+</item>
+<item id='493' name="Tattoo of Avadon">
+<for>
+<add val='117' order='0x10' stat='pDef'/>
+<mul val='1.33' order='0x30' stat='mAtkSpd'/>
+<mul val='1.10' order='0x20' stat='pAtk'/>
+<mul val='1.01' order='0x10' stat='pAtkSpd'/>
+</for>
+</item>
+<item id='494' name="Tattoo of Doom">
+<for>
+<add val='125' order='0x10' stat='pDef'/>
+<add val='59' order='0x10' stat='pAtk'/>
+</for>
+</item>
+<item id='495' name="Tattoo of Pledge">
+<for>
+<add val='124' order='0x10' stat='pDef'/>
+<using king="Light"/>
+<add val='7' order='0x40' stat='rEvas'/>
+<mul val='1.10' order='0x20' stat='mAtkSpd'/>
+<mul val='2.10' order='0x20' stat='mAtk'/>
+</for>
+</item>
+<item id='496' name="Tattoo of Divine">
+<for>
+<add val='131' order='0x10' stat='pDef'/>
+<mul val='1.35' order='0x20' stat='mAtk'/>
+<mul val='1.80' order='0x30' stat='sleepVuln'/>
+<mul val='1.80' order='0x30' stat='rootVuln'/>
+<mul val='1.80' order='0x30' stat='stunVuln'/>
+</for>
+</item>
+</list>

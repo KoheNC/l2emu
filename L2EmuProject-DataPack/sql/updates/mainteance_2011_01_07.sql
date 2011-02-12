@@ -1,0 +1,1 @@
+UPDATE `character_quests` SET `name` = 'PaganTeleports' WHERE `name` = '1630_PaganTeleporters';

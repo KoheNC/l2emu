@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Adena Trader mana exchange  -->
+<list>
+	<item id="1">
+		<!-- mana potion -->
+		<production id="728" count="10"/>
+		<!-- 10 Gold Coins -->
+        <ingredient id="15000" count="1"/>
+ </item>
+	</list>

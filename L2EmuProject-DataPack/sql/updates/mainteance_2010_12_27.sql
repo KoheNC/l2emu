@@ -1,0 +1,1 @@
+UPDATE `character_quests` SET `name` = 'L2Day' WHERE `name` = '5011_l2day';

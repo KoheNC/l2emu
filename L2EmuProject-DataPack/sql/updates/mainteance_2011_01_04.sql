@@ -1,0 +1,1 @@
+UPDATE `character_quests` SET `name` = 'MobInfo' WHERE `name` = '8002_MobInfo';

@@ -1,0 +1,1 @@
+UPDATE `character_quests` SET `name` = 'NewbieCoupons' WHERE `name` = '5001_NewbieCoupons';

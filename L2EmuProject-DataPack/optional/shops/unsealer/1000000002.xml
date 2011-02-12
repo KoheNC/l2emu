@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Unsealer Npc S Grade Acesssories-->
+<list maintainEnchantment="true">
+	<item id="1">
+		
+		<!--Sealed Tateossian Earring-->
+		<production id="858" count="1"/>
+        
+        <!-- Earring -->
+        <ingredient id="4039" count="15"/>
+        <ingredient id="4044" count="20"/>
+        <ingredient id="1866" count="25"/> 
+		
+		<!-- gets old item -->
+		<ingredient id="6724" count="1"/>
+	</item>
+	<item id="2">
+		<!--Sealed Tateossian Ring-->
+		<production id="889" count="1"/>
+		
+		<!-- Ring -->
+		<ingredient id="1878" count="20"/>
+		<ingredient id="1876" count="25"/>
+		<ingredient id="1895" count="25"/>
+		
+		<!-- gets old item -->
+		<ingredient id="6725" count="1"/>
+	</item>
+	<item id="3">
+		<!--Sealed Tateossian Necklace-->
+		<production id="920" count="1"/>
+		
+		<!-- NeckLace -->
+		<ingredient id="1875" count="20"/>
+		<ingredient id="1880" count="25"/>
+		<ingredient id="4043" count="20"/>
+		
+		<!-- gets old item -->
+		<ingredient id="6726" count="1"/>
+	</item>
+</list>

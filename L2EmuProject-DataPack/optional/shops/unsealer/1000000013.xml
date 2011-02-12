@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--encienty adena exchange  -->
+<list>
+<item id="1">
+		<!--aa for l2day letters -->
+     <ingredient id="3875" count="1"/>
+     <production id="5575" count="1000"/>
+ </item>
+ <item id="2">
+		<!--aa for l2day letters -->
+<ingredient id="3876" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+<item id="3">
+		<!--aa for l2day letters -->
+<ingredient id="3877" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+<item id="4">
+		<!--aa for l2day letters -->
+<ingredient id="3878" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+<item id="5">
+		<!--aa for l2day letters -->
+<ingredient id="3879" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+<item id="6">
+		<!--aa for l2day letters -->
+<ingredient id="3880" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+<item id="7">
+		<!--aa for l2day letters -->
+<ingredient id="3881" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+<item id="8">
+		<!--aa for l2day letters -->
+<ingredient id="3882" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+<item id="9">
+		<!--aa for l2day letters -->
+<ingredient id="3883" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+<item id="10">
+		<!--aa for l2day letters -->
+<ingredient id="3884" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+<item id="11">
+		<!--aa for l2day letters -->
+<ingredient id="3885" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+<item id="12">
+		<!--aa for l2day letters -->
+<ingredient id="3886" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+<item id="13">
+		<!--aa for l2day letters -->
+<ingredient id="3887" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+<item id="14">
+		<!--aa for l2day letters -->
+<ingredient id="3888" count="1"/>
+<production id="5575" count="1000"/>
+ </item>
+</list>

@@ -1,0 +1,1 @@
+UPDATE `character_quests` SET `name` = 'NpcLocationInfo' WHERE `name` = '8001_NpcLocationInfo';

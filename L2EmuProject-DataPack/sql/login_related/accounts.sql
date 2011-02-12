@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS `accounts` (
+  `login` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `lastactive` BIGINT UNSIGNED,
+  `accessLevel` SMALLINT(4) NOT NULL DEFAULT 0,
+  `lastServerId` TINYINT(2) UNSIGNED NOT NULL DEFAULT 0,
+  `birthYear` SMALLINT(4) UNSIGNED NOT NULL DEFAULT 1900,
+  `birthMonth` TINYINT(2) UNSIGNED NOT NULL DEFAULT 1,
+  `birthDay` TINYINT(2) UNSIGNED NOT NULL DEFAULT 1,
+  `lastIP` VARCHAR(20),
+  `pcIp` char(15) DEFAULT NULL,
+  `hop1` char(15) DEFAULT NULL,
+  `hop2` char(15) DEFAULT NULL,
+  `hop3` char(15) DEFAULT NULL,
+  `hop4` char(15) DEFAULT NULL,
+  PRIMARY KEY (`login`)
+) DEFAULT CHARSET=utf8;

@@ -1,0 +1,1 @@
+UPDATE `character_quests` SET `name` = 'KetraOrcSupport' WHERE `name` = '6050_KetraOrcSupport';
