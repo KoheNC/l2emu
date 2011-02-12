@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<instance template="514" name="Sanctum of the Lords of Dawn"
+	xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../templates/instances.xsd">
+	<activityTime val="60" />
+	<emptyDestroyTime val="3600" />
+	<allowSummon val="false" />
+	<spawnPoint x="-89528" y="216056" z="-7516" />
+	<returnTeleport x="172008" y="-17448" z="-4896" />
+	<doorlist>
+		<door doorId="17240101" />
+		<door doorId="17240102" />
+		<door doorId="17240103" />
+		<door doorId="17240104" />
+		<door doorId="17240105" />
+		<door doorId="17240106" />
+		<door doorId="17240107" />
+		<door doorId="17240108" />
+		<door doorId="17240109" />
+		<door doorId="17240110" />
+		<door doorId="17240111" />
+	</doorlist>
+	<spawnList>
+		<spawn npcId="32587" x="-89400" y="216125" z="-7504" heading="40960" />
+		<spawn npcId="32586" x="-89456" y="216184" z="-7504" heading="40960" />
+		<spawn npcId="27371" x="-89696" y="217744" z="-7520" heading="-7320" />
+		<spawn npcId="27372" x="-88858" y="217741" z="-7520" heading="-7320" />
+		<spawn npcId="27373" x="-88856" y="218085" z="-7520" heading="-7320" />
+		<spawn npcId="27374" x="-89699" y="218085" z="-7520" heading="-7320" />
+		<spawn npcId="32598" x="-89549" y="220640" z="-7504" heading="0" />
+		<spawn npcId="27371" x="-88767" y="219596" z="-7524" heading="-7324" />
+		<spawn npcId="27372" x="-88427" y="219596" z="-7524" heading="-7324" />
+		<spawn npcId="27373" x="-88429" y="220765" z="-7524" heading="-7324" />
+		<spawn npcId="27374" x="-88773" y="220765" z="-7524" heading="-7324" />
+		<spawn npcId="27371" x="-87485" y="220463" z="-7528" heading="-7328" />
+		<spawn npcId="27372" x="-86501" y="220463" z="-7528" heading="-7328" />
+		<spawn npcId="27373" x="-86501" y="220804" z="-7528" heading="-7328" />
+		<spawn npcId="27374" x="-87485" y="220804" z="-7528" heading="-7328" />
+		<spawn npcId="32598" x="-84944" y="220640" z="-7504" heading="0" />
+		<spawn npcId="27379" x="-85646" y="219054" z="-7528" heading="-7328" />
+		<spawn npcId="27378" x="-84787" y="219051" z="-7528" heading="-7328" />
+		<spawn npcId="27377" x="-84787" y="219408" z="-7528" heading="-7328" />
+		<spawn npcId="27371" x="-85646" y="219408" z="-7528" heading="-7328" />
+		<spawn npcId="27379" x="-87739" y="216646" z="-7528" heading="-7328" />
+		<spawn npcId="27378" x="-87159" y="216646" z="-7528" heading="-7328" />
+		<spawn npcId="27377" x="-87159" y="217842" z="-7528" heading="-7328" />
+		<spawn npcId="27375" x="-87739" y="217842" z="-7528" heading="-7328" />
+		<spawn npcId="27384" x="-83177" y="217353" z="-7520" heading="32768" />
+		<spawn npcId="27384" x="-83177" y="216137" z="-7520" heading="32768" />
+		<spawn npcId="27384" x="-82588" y="216754" z="-7520" heading="32768" />
+		<spawn npcId="27384" x="-83804" y="216754" z="-7520" heading="32768" />
+		<spawn npcId="27378" x="-87449" y="218109" z="-7490" heading="-7328" />
+		<spawn npcId="27379" x="-85450" y="219164" z="-7490" heading="-7328" />
+		<spawn npcId="27372" x="-86929" y="220637" z="-7490" heading="-7328" />
+		<spawn npcId="27373" x="-88592" y="220136" z="-7490" heading="-7328" />
+		<spawn npcId="27377" x="-87438" y="216937" z="-7490" heading="-7328" />
+		<spawn npcId="32657" x="-84389" y="216038" z="-7490" heading="0" />
+	</spawnList>
+</instance>
