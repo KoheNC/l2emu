@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list SYSTEM "../../templates/skills.dtd">
+<list>
+	<skill id="21200" levels="1" name="Age of the Three Kingdoms">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21201" levels="1" name="Haste">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21202" levels="1"
+		name="Agathion Seal Cancel - Ball Trapping Gnocian">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21203" levels="1"
+		name="Agathion Seal Cancel - Ball Trapping Orodriel">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21204" levels="1" name="Agathion Seal Cancel - Penalty Kick">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21205" levels="1"
+		name="Agathion Seal Cancel - Ball Trapping Gnocian">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21206" levels="1"
+		name="Agathion Seal Cancel - Ball Trapping Orodriel">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21207" levels="1" name="Agathion Seal Cancel - Penalty Kick">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21208" levels="1"
+		name="Agathion Seal Cancel - Ball Trapping Gnocian">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21209" levels="1"
+		name="Agathion Seal Cancel - Ball Trapping Orodriel">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21210" levels="1" name="Agathion Seal Cancel - Penalty Kick">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21211" levels="1" name="Blessing of Victory">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21212" levels="1" name="Agathion Seal Cancel - Granny Tiger">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21213" levels="1"
+		name="Agathion Seal Cancel - Flower Fairy Spirit">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21214" levels="1"
+		name="Agathion Seal Cancel - Cheerleader Orodriel">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21215" levels="1"
+		name="Agathion Seal Cancel - Cheerleader Lana">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21216" levels="1"
+		name="Agathion Seal Cancel - Cheerleader Naonin">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21217" levels="1"
+		name="Agathion Seal Cancel - Cheerleader Mortia">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21218" levels="1"
+		name="Agathion Seal Cancel - Cheerleader Kaurin">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21219" levels="1"
+		name="Agathion Seal Cancel - Cheerleader Meruril">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21220" levels="1" name="Agathion Seal Cancel - Handy">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+	<skill id="21221" levels="1" name="Blessed Resurrection">
+		<!-- auto parser -->
+		<set name="target" val="TARGET_NONE" />
+		<set name="skillType" val="NOTDONE" />
+		<set name="operateType" val="OP_PASSIVE" />
+	</skill>
+</list>
