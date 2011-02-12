@@ -1,0 +1,10 @@
+<html><body>Announce Manager %npcname%:<br>
+Price per announce = <font color="LEVEL">%price_per_announce%</font><br>
+Max announce per day = <font color="LEVEL">%max_announce_per_day%</font><br>
+Your announce :<br>
+<center>
+<multiedit var="new_announcement" width=240 height=30><br>
+<button value="Announce" action="bypass -h npc_%objectId%_make_announce $new_announcement" width=60 height=15 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF"><br>
+<button value="Back" action="bypass -h npc_%objectId%_main_window" width=60 height=15 back="L2UI_CT1.Button_DF_Down" fore="L2UI_CT1.Button_DF">
+</center>
+</body></html>
