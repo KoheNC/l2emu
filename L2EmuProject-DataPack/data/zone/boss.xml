@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list SYSTEM "../templates/zones.dtd">
+<list>
+	<zone id="1" name="Four Sepulcher" type="Boss">
+		<settings boss="FourSepulchers" />
+		<shape type="Rect" zMin="-7263" zMax="-7063">
+			<point x="181198" y="-86516" />
+			<point x="192391" y="-84626" />
+		</shape>
+		<shape type="Rect" zMin="-7263" zMax="-7063">
+			<point x="179511" y="-89903" />
+			<point x="190704" y="-88013" />
+		</shape>
+		<shape type="Rect" zMin="-7263" zMax="-7063">
+			<point x="174498" y="-82751" />
+			<point x="176616" y="-71304" />
+		</shape>
+		<shape type="Rect" zMin="-7263" zMax="-7063">
+			<point x="172183" y="-86660" />
+			<point x="174301" y="-75214" />
+		</shape>
+	</zone>
+	<zone id="2" name="Lair of Zaken" type="Boss">
+		<settings boss="Zaken" />
+		<shape type="Rect" zMin="-4815" zMax="-315">
+			<point x="50797" y="213515" />
+			<point x="57669" y="221683" />
+		</shape>
+	</zone>
+	<zone id="3" name="Lair of Anakim" type="Boss">
+		<settings boss="Anakim" />
+		<shape type="Rect" zMin="-5504" zMax="-5104">
+			<point x="183938" y="-13697" />
+			<point x="186176" y="-8513" />
+		</shape>
+	</zone>
+	<zone id="4" name="Lair of Lilith" type="Boss">
+		<settings boss="Lilith" />
+		<shape type="Rect" zMin="-5504" zMax="-5104">
+			<point x="183938" y="-13697" />
+			<point x="186176" y="-8513" />
+		</shape>
+	</zone>
+	<zone id="5" name="Lair of Antharas" type="Boss">
+		<settings boss="Antharas" />
+		<shape type="Rect" zMin="-8380" zMax="-4880">
+			<point x="173439" y="110431" />
+			<point x="188132" y="119249" />
+		</shape>
+	</zone>
+	<zone id="6" name="Lair of Baium" type="Boss">
+		<settings boss="Baium" noWyvern="true" />
+		<shape type="Rect" zMin="10061" zMax="11061">
+			<point x="111022" y="16177" />
+			<point x="118142" y="15790" />
+		</shape>
+	</zone>
+	<zone id="7" name="Lair of Sailren" type="Boss">
+		<settings boss="Sailren" />
+		<shape type="Rect" zMin="-1975" zMax="-1944">
+			<point x="26095" y="-8084" />
+			<point x="28987" y="-5295" />
+		</shape>
+	</zone>
+	<zone id="8" name="Sunlight Room" type="Boss">
+		<settings boss="SunLightRoom" />
+		<shape type="Rect" zMin="-2952" zMax="-2690">
+			<point x="55794" y="219633" />
+			<point x="56789" y="220629" />
+		</shape>
+	</zone>
+	<zone id="9" name="Lair of Valakas" type="Boss">
+		<settings boss="Valakas" />
+		<shape type="Rect" zMin="-2572" zMax="5428">
+			<point x="196866" y="-130845" />
+			<point x="229176" y="-98508" />
+		</shape>
+	</zone>
+	<zone id="10" name="Altar of Sacrifice" type="Boss">
+		<settings boss="VanHalter" />
+		<shape type="Rect" zMin="-10730" zMax="-10290">
+			<point x="-18176" y="-54972" />
+			<point x="-14614" y="-51620" />
+		</shape>
+	</zone>
+	<zone id="11" name="Lair of Scarlet van Halisha" type="Boss">
+		<settings boss="Frintezza" />
+		<shape type="Cylinder" radius="2100" zMin="-5116" zMax="-2319">
+			<point x="174234" y="-88015" />
+		</shape>
+	</zone>
+	<zone id="12" name="Lair of Baylor" type="Boss">
+		<settings boss="Baylor" />
+		<shape type="Cylinder" radius="4000" zMin="-12650" zMax="-12800">
+			<point x="153569" y="142075" />
+		</shape>
+	</zone>
+	<zone id="13" name="Last Imperial Tomb" type="Boss">
+		<settings boss="LastImperialTomb" noWyvern="true" />
+		<shape type="Rect" zMin="-5300" zMax="-3600">
+			<point x="172176" y="-74106" />
+			<point x="175984" y="-90033" />
+		</shape>
+	</zone>
+	<zone id="14" name="Core Damage Zone" type="CoreBarrier">
+		<settings exitOnDeath="true" hpDamage="200" affected="playable" />
+		<shape type="Poly" zMin="-6519" zMax="-6319">
+			<point x="17869" y="108566" />
+			<point x="18071" y="108774" />
+			<point x="18072" y="109060" />
+			<point x="17865" y="109265" />
+			<point x="17580" y="109264" />
+			<point x="17379" y="109062" />
+			<point x="17379" y="108724" />
+			<point x="17584" y="108569" />
+		</shape>
+	</zone>
+	<zone id="15" name="spore_boss_swamp_poison_zone" type="Danger">
+		<settings exitOnDeath="true" buffRepeat="true" affected="playable" />
+		<skill applyEnter="4148,12;4625,12;4070,1" removeExit="4148;4625;4070" /> <!-- Poison, Swamp, Decrease Atk. Spd -->
+		<shape type="Poly" zMin="-4468" zMax="-4118">
+			<point x="43084" y="15944" />
+			<point x="45140" y="15816" />
+			<point x="45748" y="17200" />
+			<point x="44504" y="18780" />
+			<point x="43284" y="18952" />
+			<point x="42476" y="18164" />
+			<point x="42480" y="16448" />
+		</shape>
+	</zone>
+	<!-- L2EMU_ADD: Beleth Zone by Q.I -->
+	<zone id="16" name="Lair of Beleth" type="Boss">
+		<settings boss="Beleth" />
+		<shape type="Rect" radius="4000" zMin="-9375" zMax="-9325">
+			<point x="18650" y="210700" />
+			<point x="14038" y="215550" />
+		</shape>
+	</zone>
+</list>

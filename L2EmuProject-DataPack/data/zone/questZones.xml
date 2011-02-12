@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list SYSTEM "../templates/zones.dtd">
+<list>
+	<zone id="1" type="Script" name="Emerald Square Secret Door 1 (Ram)">
+		<settings questZoneId="100000" />
+		<shape type="Poly" zMin="-12000" zMax="-11700">
+			<point x="143621" y="142741" />
+			<point x="143720" y="142751" />
+			<point x="143719" y="142764" />
+			<point x="143619" y="142758" />
+		</shape>
+	</zone>
+	<zone id="2" type="Script" name="Emerald Square Secret Door 2">
+		<settings questZoneId="100001" />
+		<shape type="Poly" zMin="-12000" zMax="-11700">
+			<point x="144088" y="142435" />
+			<point x="144086" y="142500" />
+			<point x="144070" y="142492" />
+			<point x="144074" y="142425" />
+		</shape>
+	</zone>
+	<zone id="3" type="Script" name="Emerald Square Secret Door 3">
+		<settings questZoneId="100002" />
+		<shape type="Poly" zMin="-12500" zMax="-12000">
+			<point x="147791" y="143766" />
+			<point x="147802" y="143683" />
+			<point x="147817" y="143685" />
+			<point x="147804" y="143769" />
+		</shape>
+	</zone>
+	<zone id="4" type="Script" name="Emerald Square Secret Door 4">
+		<settings questZoneId="100003" />
+		<shape type="Poly" zMin="-12300" zMax="-12200">
+			<point x="149224" y="143694" />
+			<point x="149279" y="143772" />
+			<point x="149272" y="143785" />
+			<point x="149212" y="143705" />
+		</shape>
+	</zone>
+	<!-- Seed of Destruction - Show Movie -->
+	<zone id="5" type="Script" name="Seed of Destruction (Movie Zone)">
+		<settings questZoneId="100004" />
+		<shape type="Poly" zMin="-12000" zMax="-11000">
+			<point x="-251280" y="211765" />
+			<point x="-250599" y="211765" />
+			<point x="-250599" y="211571" />
+			<point x="-251280" y="211571" />
+		</shape>
+	</zone>
+	<!-- Eye of Kasha Camps -->
+	<zone id="6" type="Script" name="Kasha Camp 1">
+		<settings questZoneId="100005" />
+		<shape type="Poly" zMin="-7660" zMax="7340">
+			<point x="68425" y="-108602" />
+			<point x="66580" y="-106580" />
+			<point x="68460" y="-105477" />
+			<point x="69413" y="-107825" />
+		</shape>
+	</zone>
+	<zone id="7" type="Script" name="Kasha Camp 2">
+		<settings questZoneId="100006" />
+		<shape type="Poly" zMin="-7660" zMax="7340">
+			<point x="61858" y="-108264" />
+			<point x="61659" y="-105789" />
+			<point x="65009" y="-105191" />
+			<point x="64689" y="-108281" />
+		</shape>
+	</zone>
+	<zone id="8" type="Script" name="Kasha Camp 3">
+		<settings questZoneId="100007" />
+		<shape type="Poly" zMin="-7660" zMax="7340">
+			<point x="61410" y="-115841" />
+			<point x="63398" y="-116411" />
+			<point x="63721" y="-118073" />
+			<point x="61156" y="-119221" />
+		</shape>
+	</zone>
+	<zone id="9" type="Script" name="Kasha Camp 4">
+		<settings questZoneId="100008" />
+		<shape type="Poly" zMin="-7660" zMax="7340">
+			<point x="69420" y="-116858" />
+			<point x="67730" y="-117540" />
+			<point x="67055" y="-114813" />
+			<point x="69856" y="-115092" />
+		</shape>
+	</zone>
+	<zone id="10" type="Script" name="Kasha Camp 5">
+		<settings questZoneId="100009" />
+		<shape type="Poly" zMin="-7660" zMax="7340">
+			<point x="68394" y="-119022" />
+			<point x="70826" y="-117302" />
+			<point x="71532" y="-120194" />
+			<point x="69367" y="-120680" />
+		</shape>
+	</zone>
+	<zone id="11" type="Script" name="Kasha Camp 6">
+		<settings questZoneId="100010" />
+		<shape type="Poly" zMin="-7660" zMax="7340">
+			<point x="66530" y="-123548" />
+			<point x="66369" y="-120895" />
+			<point x="68345" y="-120718" />
+			<point x="69003" y="-123898" />
+		</shape>
+	</zone>
+	<zone id="12" type="Script" name="Kasha Camp 7">
+		<settings questZoneId="100011" />
+		<shape type="Poly" zMin="-7660" zMax="7340">
+			<point x="71052" y="-127101" />
+			<point x="68898" y="-125446" />
+			<point x="71026" y="-123568" />
+			<point x="72974" y="-125561" />
+		</shape>
+	</zone>
+	<zone id="13" type="Script" name="Kasha Camp 8">
+		<settings questZoneId="100012" />
+		<shape type="Poly" zMin="-7660" zMax="7340">
+			<point x="72237" y="-129960" />
+			<point x="70383" y="-129591" />
+			<point x="70738" y="-127616" />
+			<point x="72740" y="-127733" />
+		</shape>
+	</zone>
+	<zone id="14" type="Script" name="Kasha Camp 9">
+		<settings questZoneId="100013" />
+		<shape type="Poly" zMin="-7660" zMax="7340">
+			<point x="77274" y="-125876" />
+			<point x="77216" y="-128720" />
+			<point x="74850" y="-128535" />
+			<point x="74493" y="-126201" />
+		</shape>
+	</zone>
+	<zone id="15" type="Script" name="Kasha Camp 10">
+		<settings questZoneId="100014" />
+		<shape type="Poly" zMin="-7660" zMax="7340">
+			<point x="72593" y="-121717" />
+			<point x="74233" y="-120148" />
+			<point x="76051" y="-121450" />
+			<point x="74357" y="-123348" />
+		</shape>
+	</zone>
+	<zone id="16" type="Script" name="Kasha Camp 11">
+		<settings questZoneId="100015" />
+		<shape type="Poly" zMin="-7660" zMax="7340">
+			<point x="75480" y="-116643" />
+			<point x="73751" y="-115590" />
+			<point x="73331" y="-117333" />
+			<point x="74439" y="-118029" />
+		</shape>
+	</zone>
+	<zone id="17" type="Script" name="Kasha Camp 12">
+		<settings questZoneId="100016" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="62885" y="-106065" />
+		</shape>
+	</zone>
+	<zone id="18" type="Script" name="Kasha Camp 13">
+		<settings questZoneId="100017" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="62567" y="-116370" />
+		</shape>
+	</zone>
+	<zone id="19" type="Script" name="Kasha Camp 14">
+		<settings questZoneId="100018" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="68919" y="-106949" />
+		</shape>
+	</zone>
+	<zone id="20" type="Script" name="Kasha Camp 15">
+		<settings questZoneId="100019" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="68187" y="-108140" />
+		</shape>
+	</zone>
+	<zone id="21" type="Script" name="Kasha Camp 16">
+		<settings questZoneId="100020" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="69125" y="-116618" />
+		</shape>
+	</zone>
+	<zone id="22" type="Script" name="Kasha Camp 17">
+		<settings questZoneId="100021" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="74438" y="-116238" />
+		</shape>
+	</zone>
+	<zone id="23" type="Script" name="Kasha Camp 18">
+		<settings questZoneId="100022" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="67604" y="-121335" />
+		</shape>
+	</zone>
+	<zone id="24" type="Script" name="Kasha Camp 19">
+		<settings questZoneId="100023" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="68138" y="-117149" />
+		</shape>
+	</zone>
+	<zone id="25" type="Script" name="Kasha Camp 20">
+		<settings questZoneId="100024" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="69037" y="-119140" />
+		</shape>
+	</zone>
+	<zone id="26" type="Script" name="Kasha Camp 21">
+		<settings questZoneId="100025" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="69825" y="-119930" />
+		</shape>
+	</zone>
+	<zone id="27" type="Script" name="Kasha Camp 22">
+		<settings questZoneId="100026" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="69874" y="-125585" />
+		</shape>
+	</zone>
+	<zone id="28" type="Script" name="Kasha Camp 23">
+		<settings questZoneId="100027" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="70850" y="-128849" />
+		</shape>
+	</zone>
+	<zone id="29" type="Script" name="Kasha Camp 24">
+		<settings questZoneId="100028" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="71668" y="-128236" />
+		</shape>
+	</zone>
+	<zone id="30" type="Script" name="Kasha Camp 25">
+		<settings questZoneId="100029" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="72148" y="-128887" />
+		</shape>
+	</zone>
+	<zone id="31" type="Script" name="Kasha Camp 26">
+		<settings questZoneId="100030" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="75162" y="-127422" />
+		</shape>
+	</zone>
+	<zone id="32" type="Script" name="Kasha Camp 27">
+		<settings questZoneId="100031" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="75779" y="-126464" />
+		</shape>
+	</zone>
+	<zone id="33" type="Script" name="Kasha Camp 28">
+		<settings questZoneId="100032" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="68055" y="-106136" />
+		</shape>
+	</zone>
+	<zone id="34" type="Script" name="Kasha Camp 29">
+		<settings questZoneId="100033" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="68055" y="-106136" />
+		</shape>
+	</zone>
+	<zone id="35" type="Script" name="Kasha Camp 30">
+		<settings questZoneId="100034" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="67905" y="-114994" />
+		</shape>
+	</zone>
+	<zone id="36" type="Script" name="Kasha Camp 31">
+		<settings questZoneId="100035" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="73975" y="-117317" />
+		</shape>
+	</zone>
+	<zone id="37" type="Script" name="Kasha Camp 32">
+		<settings questZoneId="100036" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="74139" y="-120453" />
+		</shape>
+	</zone>
+	<zone id="38" type="Script" name="Kasha Camp 33">
+		<settings questZoneId="100037" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="75369" y="-121389" />
+		</shape>
+	</zone>
+	<zone id="39" type="Script" name="Kasha Camp 34">
+		<settings questZoneId="100038" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="74198" y="-122507" />
+		</shape>
+	</zone>
+	<zone id="40" type="Script" name="Kasha Camp 35">
+		<settings questZoneId="100039" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="66761" y="-122739" />
+		</shape>
+	</zone>
+	<zone id="41" type="Script" name="Kasha Camp 36">
+		<settings questZoneId="100040" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="71110" y="-119010" />
+		</shape>
+	</zone>
+	<zone id="42" type="Script" name="Kasha Camp 37">
+		<settings questZoneId="100041" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="71679" y="-125252" />
+		</shape>
+	</zone>
+	<zone id="43" type="Script" name="Kasha Camp 38">
+		<settings questZoneId="100042" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="76059" y="-128334" />
+		</shape>
+	</zone>
+	<zone id="44" type="Script" name="Kasha Camp 39">
+		<settings questZoneId="100043" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="62991" y="-107283" />
+		</shape>
+	</zone>
+	<zone id="45" type="Script" name="Kasha Camp 40">
+		<settings questZoneId="100044" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="62391" y="-106817" />
+		</shape>
+	</zone>
+	<zone id="46" type="Script" name="Kasha Camp 41">
+		<settings questZoneId="100045" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="63782" y="-106757" />
+		</shape>
+	</zone>
+	<zone id="47" type="Script" name="Kasha Camp 42">
+		<settings questZoneId="100046" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="61685" y="-116607" />
+		</shape>
+	</zone>
+	<zone id="48" type="Script" name="Kasha Camp 43">
+		<settings questZoneId="100047" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="63325" y="-117412" />
+		</shape>
+	</zone>
+	<zone id="49" type="Script" name="Kasha Camp 44">
+		<settings questZoneId="100048" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="62247" y="-118406" />
+		</shape>
+	</zone>
+	<zone id="50" type="Script" name="Kasha Camp 45">
+		<settings questZoneId="100049" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="73281" y="-121833" />
+		</shape>
+	</zone>
+	<zone id="51" type="Script" name="Kasha Camp 46">
+		<settings questZoneId="100050" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="68392" y="-122770" />
+		</shape>
+	</zone>
+	<zone id="52" type="Script" name="Kasha Camp 47">
+		<settings questZoneId="100051" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="67217" y="-123299" />
+		</shape>
+	</zone>
+	<zone id="53" type="Script" name="Kasha Camp 48">
+		<settings questZoneId="100052" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="70317" y="-117886" />
+		</shape>
+	</zone>
+	<zone id="54" type="Script" name="Kasha Camp 49">
+		<settings questZoneId="100053" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="70605" y="-124685" />
+		</shape>
+	</zone>
+	<zone id="55" type="Script" name="Kasha Camp 50">
+		<settings questZoneId="100054" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="71039" y="-126359" />
+		</shape>
+	</zone>
+	<zone id="56" type="Script" name="Kasha Camp 51">
+		<settings questZoneId="100055" />
+		<shape type="Cylinder" radius="45" zMin="-7000" zMax="7000">
+			<point x="71515" y="-129431" />
+		</shape>
+	</zone>
+	<zone id="57" type="Script" name="Den Of Evil">
+		<settings questZoneId="100056" />
+		<shape type="Poly" zMin="-7660" zMax="7340">
+			<point x="70548" y="-135511" />
+			<point x="59313" y="-120307" />
+			<point x="59470" y="-105331" />
+			<point x="69153" y="-95476" />
+			<point x="81395" y="-100367" />
+			<point x="77020" y="-108159" />
+			<point x="81492" y="-130277" />
+		</shape>
+	</zone>
+	<!-- AirShips docks -->
+	<zone id="58" type="Script" name="Seed of Infinity Dock Zone">
+		<settings questZoneId="100057" />
+		<shape type="Poly" zMin="4300" zMax="4800">
+			<point x="-214885" y="212731" />
+			<point x="-213688" y="211209" />
+			<point x="-214304" y="210574" />
+			<point x="-215460" y="211765" />
+		</shape>
+	</zone>
+	<zone id="59" type="Script" name="Seed of Destruction Dock Zone">
+		<settings questZoneId="100058" />
+		<shape type="Poly" zMin="4300" zMax="4600">
+			<point x="-246245" y="251584" />
+			<point x="-245688" y="252441" />
+			<point x="-246411" y="253274" />
+			<point x="-247144" y="252481" />
+		</shape>
+	</zone>
+	<zone id="60" type="Script" name="Keucereus Base North Dock Zone">
+		<settings questZoneId="100059" />
+		<shape type="Poly" zMin="1300" zMax="1700">
+			<point x="-183317" y="238780" />
+			<point x="-182661" y="239055" />
+			<point x="-182836" y="240219" />
+			<point x="-183662" y="239912" />
+		</shape>
+	</zone>
+	<zone id="61" type="Script" name="Keucereus Base South Dock Zone">
+		<settings questZoneId="100060" />
+		<shape type="Poly" zMin="1300" zMax="1700">
+			<point x="-185515" y="245919" />
+			<point x="-184780" y="246075" />
+			<point x="-185206" y="247294" />
+			<point x="-185807" y="247108" />
+		</shape>
+	</zone>
+</list>

@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list SYSTEM "../templates/zones.dtd">
+<list>
+	<zone id="1" name="ToI">
+		<settings noWyvern="true" />
+		<shape type="Rect" zMin="-30000" zMax="30000"> <!-- FIXME -->
+			<point x="109448" y="10233" />
+			<!-- <point x="118547" y="21446"/> allows SUMMON_FRIEND type skills in 
+				ToI 10 -->
+			<point x="118690" y="21446" />
+		</shape>
+	</zone>
+	<zone id="2" name="GM Consultation Service" type="Jail">
+		<settings pvp="Peace" noEscape="true" noSummon="true" />
+		<shape type="Poly" zMin="-2992" zMax="-2792">
+			<point x="-116390" y="-251581" />
+			<point x="-112756" y="-251617" />
+			<point x="-112720" y="-248199" />
+			<point x="-116354" y="-248217" />
+		</shape>
+	</zone>
+	<zone id="3" name="GM Consultation Service 2" type="Jail">
+		<settings noEscape="true" noSummon="true" />
+		<shape type="Poly" zMin="-3050" zMax="-2850">
+			<point x="-115727" y="-251652" />
+			<point x="-113365" y="-251655" />
+			<point x="-113365" y="-248191" />
+			<point x="-115727" y="-248194" />
+		</shape>
+	</zone>
+	<zone id="4" name="GM Consultation Service 3" type="Jail">
+		<settings noEscape="true" noSummon="true" />
+		<shape type="Poly" zMin="-3049" zMax="-2849">
+			<point x="-116299" y="-251426" />
+			<point x="-115745" y="-251426" />
+			<point x="-115745" y="-250840" />
+			<point x="-116296" y="-250840" />
+		</shape>
+	</zone>
+	<zone id="5" name="GM Consultation Service 4" type="Jail">
+		<settings noEscape="true" noSummon="true" />
+		<shape type="Poly" zMin="-3053" zMax="-2853">
+			<point x="-113350" y="-251408" />
+			<point x="-112797" y="-251407" />
+			<point x="-112798" y="-250855" />
+			<point x="-113353" y="-250857" />
+		</shape>
+	</zone>
+	<zone id="6" name="Red Hot Springs Water (Beolin)">
+		<settings abnormal="2000" exitOnDeath="true" affected="pc" /> <!-- Bighead -->
+		<skill removeEnter="4551;4552;4553;4554" /> <!-- Cures Hot Springs Malaria etc. -->
+		<shape type="Poly" zMin="-2203" zMax="-2003">
+			<point x="147435" y="-113588" />
+			<point x="147700" y="-113463" />
+			<point x="147758" y="-113233" />
+			<point x="147657" y="-113037" />
+			<point x="147381" y="-113024" />
+			<point x="147261" y="-113154" />
+			<point x="147241" y="-113389" />
+		</shape>
+	</zone>
+	<zone id="7" name="Green Hot Springs Water (Mist)">
+		<settings abnormal="2000" exitOnDeath="true" affected="pc" /> <!-- Bighead -->
+		<skill removeEnter="4551;4552;4553;4554" /> <!-- Cures Hot Springs Malaria etc. -->
+		<shape type="Poly" zMin="-3878" zMax="-3478">
+			<point x="144938" y="-104969" />
+			<point x="145112" y="-105274" />
+			<point x="145370" y="-105389" />
+			<point x="145680" y="-105145" />
+			<point x="145566" y="-104631" />
+			<point x="145122" y="-104589" />
+		</shape>
+	</zone>
+	<zone id="8" name="Yellow Hot Springs Water (Crocus)">
+		<settings abnormal="2000" exitOnDeath="true" affected="pc" /> <!-- Bighead -->
+		<skill removeEnter="4551;4552;4553;4554" /> <!-- Cures Hot Springs Malaria etc. -->
+		<shape type="Poly" zMin="-3878" zMax="-3478">
+			<point x="140937" y="-105636" />
+			<point x="140987" y="-105415" />
+			<point x="140896" y="-105238" />
+			<point x="140190" y="-105362" />
+			<point x="140194" y="-105722" />
+			<point x="140370" y="-105826" />
+		</shape>
+	</zone>
+	<zone id="9" name="Red Hot Springs Water (Kuber)">
+		<settings abnormal="2000" exitOnDeath="true" affected="pc" /> <!-- Bighead -->
+		<skill removeEnter="4551;4552;4553;4554" /> <!-- Cures Hot Springs Malaria etc. -->
+		<shape type="Poly" zMin="-3878" zMax="-3478">
+			<point x="141546" y="-109783" />
+			<point x="141770" y="-109839" />
+			<point x="141955" y="-109721" />
+			<point x="142053" y="-109412" />
+			<point x="141825" y="-109086" />
+			<point x="141603" y="-109025" />
+			<point x="141317" y="-109164" />
+			<point x="141353" y="-109598" />
+		</shape>
+	</zone>
+	<zone id="10" name="Red Hot Springs Water (Bavarin)">
+		<settings abnormal="2000" exitOnDeath="true" affected="pc" /> <!-- Bighead -->
+		<skill removeEnter="4551;4552;4553;4554" /> <!-- Cures Hot Springs Malaria etc. -->
+		<shape type="Poly" zMin="-2869" zMax="-2469">
+			<point x="156826" y="-109857" />
+			<point x="157135" y="-110033" />
+			<point x="157350" y="-109941" />
+			<point x="157481" y="-109485" />
+			<point x="157221" y="-109182" />
+			<point x="156868" y="-109298" />
+			<point x="156719" y="-109575" />
+		</shape>
+	</zone>
+	<zone id="11" name="Yellow Hot Springs Water">
+		<settings abnormal="2000" exitOnDeath="true" affected="pc" /> <!-- Bighead -->
+		<skill removeEnter="4551;4552;4553;4554" /> <!-- Cures Hot Springs Malaria etc. -->
+		<shape type="Poly" zMin="-2869" zMax="-2469">
+			<point x="152844" y="-108333" />
+			<point x="152914" y="-108080" />
+			<point x="152801" y="-107764" />
+			<point x="152380" y="-107754" />
+			<point x="152232" y="-107922" />
+			<point x="152203" y="-108265" />
+			<point x="152449" y="-108427" />
+			<point x="152658" y="-108472" />
+		</shape>
+	</zone>
+	<zone id="12" name="Green Hot Springs Water (Naff)">
+		<settings abnormal="2000" exitOnDeath="true" affected="pc" /> <!-- Bighead -->
+		<skill removeEnter="4551;4552;4553;4554" /> <!-- Cures Hot Springs Malaria etc. -->
+		<shape type="Poly" zMin="-2869" zMax="-2469">
+			<point x="156119" y="-105830" />
+			<point x="156113" y="-105289" />
+			<point x="155419" y="-105334" />
+			<point x="155335" y="-105543" />
+			<point x="155414" y="-105799" />
+			<point x="155899" y="-105982" />
+		</shape>
+	</zone>
+	<zone id="13" name="Hellbound Desert Zone" type="Damage">
+		<settings exitOnDeath="true" hpDamage="200" buffRepeat="true"
+			noSummon="true" affected="playable" />
+		<skill applyEnter="5399,1" removeExit="5399" /> <!-- 5399: Heat of Desert -->
+		<shape type="Poly" zMin="-3500" zMax="-700">
+			<point x="-22850" y="251314" />
+			<point x="-23552" y="255186" />
+			<point x="-24061" y="257536" />
+			<point x="-20611" y="259200" />
+			<point x="-15865" y="259320" />
+			<point x="-6788" y="260092" />
+			<point x="-1922" y="257918" />
+			<point x="254" y="248450" />
+			<point x="-14208" y="248580" />
+		</shape>
+		<shape type="Poly" zMin="-3700" zMax="-500">
+			<point x="220" y="234480" />
+			<point x="220" y="231674" />
+			<point x="6531" y="232971" />
+			<point x="6715" y="233772" />
+			<point x="10351" y="232862" />
+			<point x="11724" y="233668" />
+			<point x="13169" y="235663" />
+			<point x="13087" y="237786" />
+			<point x="12743" y="239487" />
+			<point x="6068" y="244513" />
+			<point x="5960" y="244734" />
+			<point x="3568" y="246910" />
+			<point x="1398" y="245491" />
+			<point x="-1157" y="238079" />
+			<point x="-1411" y="236427" />
+			<point x="91" y="235699" />
+		</shape>
+		<!-- Zone condition -->
+		<cond>
+			<not>
+				<or>
+					<player active_effect_id="2341" /> <!-- 2341: Caravan's Secret Medicine -->
+					<game night="true" />
+				</or>
+			</not>
+		</cond>
+	</zone>
+	<!-- TODO, find the zone name -->
+	<zone id="14" name="Landing Zone 1">
+		<settings landing="true" />
+		<shape type="Poly" zMin="2668" zMax="2750">
+			<point x="-186945" y="244064" />
+			<point x="-186503" y="244183" />
+			<point x="-186526" y="244273" />
+			<point x="-186998" y="244149" />
+		</shape>
+	</zone>
+	<!-- TODO, find the zone name -->
+	<zone id="15" name="Landing Zone 2">
+		<settings landing="true" />
+		<shape type="Poly" zMin="2612" zMax="2700">
+			<point x="-186707" y="243348" />
+			<point x="-186098" y="243499" />
+			<point x="-186209" y="243886" />
+			<point x="-186836" y="243713" />
+		</shape>
+	</zone>
+	<!-- TODO, find the zone name -->
+	<zone id="16" name="Landing Zone 3">
+		<settings landing="true" />
+		<shape type="Poly" zMin="2548" zMax="2650">
+			<point x="-186388" y="241751" />
+			<point x="-185747" y="241972" />
+			<point x="-186026" y="243171" />
+			<point x="-186755" y="242965" />
+		</shape>
+	</zone>
+	<!-- TODO, find the zone name -->
+	<zone id="17" name="Landing Zone 4">
+		<settings landing="true" />
+		<shape type="Poly" zMin="2612" zMax="2700">
+			<point x="-186067" y="241090" />
+			<point x="-185469" y="241336" />
+			<point x="-185541" y="241652" />
+			<point x="-186173" y="241496" />
+		</shape>
+	</zone>
+	<!-- TODO, find the zone name -->
+	<zone id="18" name="Landing Zone 5">
+		<settings landing="true" />
+		<shape type="Poly" zMin="2818" zMax="2900">
+			<point x="-186158" y="240243" />
+			<point x="-185440" y="240450" />
+			<point x="-185461" y="240566" />
+			<point x="-186182" y="240351" />
+		</shape>
+	</zone>
+	<!-- TODO, find the zone name -->
+	<zone id="19" name="Landing Zone 6">
+		<settings landing="true" />
+		<shape type="Poly" zMin="1532" zMax="1671">
+			<point x="-185611" y="240192" />
+			<point x="-183498" y="240759" />
+			<point x="-183834" y="241948" />
+			<point x="-185906" y="241253" />
+		</shape>
+	</zone>
+	<!-- TODO, find the zone name -->
+	<zone id="20" name="Landing Zone 7">
+		<settings landing="true" />
+		<shape type="Poly" zMin="1676" zMax="1771">
+			<point x="-186102" y="241831" />
+			<point x="-185039" y="242209" />
+			<point x="-185356" y="243326" />
+			<point x="-186447" y="243020" />
+		</shape>
+	</zone>
+	<!-- TODO, find the zone name -->
+	<zone id="21" name="Landing Zone 8">
+		<settings landing="true" />
+		<shape type="Poly" zMin="1564" zMax="1771">
+			<point x="-184942" y="242302" />
+			<point x="-183775" y="242671" />
+			<point x="-184015" y="243618" />
+			<point x="-185256" y="243318" />
+		</shape>
+	</zone>
+	<!-- TODO, find the zone name -->
+	<zone id="22" name="Landing Zone 9">
+		<settings landing="true" />
+		<shape type="Poly" zMin="1532" zMax="1671">
+			<point x="-186637" y="243638" />
+			<point x="-184503" y="244189" />
+			<point x="-184878" y="245409" />
+			<point x="-187009" y="244723" />
+		</shape>
+	</zone>
+	<!-- TODO, find the zone name -->
+	<zone id="23" name="Landing Zone 10">
+		<settings landing="true" />
+		<shape type="Poly" zMin="1735" zMax="1892">
+			<point x="-203218" y="241627" />
+			<point x="-203218" y="242642" />
+			<point x="-203355" y="242648" />
+			<point x="-203376" y="242219" />
+			<point x="-204119" y="242289" />
+			<point x="-204108" y="242617" />
+			<point x="-204305" y="242631" />
+			<point x="-204315" y="242913" />
+			<point x="-204613" y="242930" />
+			<point x="-204624" y="241399" />
+			<point x="-204312" y="241374" />
+			<point x="-204132" y="241677" />
+			<point x="-204114" y="242019" />
+			<point x="-203349" y="241982" />
+			<point x="-203345" y="241646" />
+		</shape>
+	</zone>
+	<!-- Pagans mark -->
+	<zone id="24" name="PaganZone" type="Pagan">
+		<settings affected="playable" />
+		<shape type="Poly" zMin="-10735" zMax="-10720">
+			<point x="-16100" y="-36620" />
+			<point x="-16600" y="-36620" />
+			<point x="-16600" y="-36925" />
+			<point x="-16100" y="-36925" />
+		</shape>
+	</zone>
+	<!-- Seed of Infinity landing zone -->
+	<zone id="25" name="SoI Landing Zone">
+		<settings landing="true" />
+		<shape type="Poly" zMin="4200" zMax="4350">
+			<point x="-212856" y="209893" />
+			<point x="-212808" y="209894" />
+			<point x="-212764" y="209852" />
+			<point x="-212765" y="209798" />
+			<point x="-212812" y="209756" />
+			<point x="-212858" y="209757" />
+			<point x="-212897" y="209802" />
+			<point x="-212896" y="209850" />
+		</shape>
+	</zone>
+	<!-- Seed of Destruction landing zone -->
+	<zone id="26" name="SoD Landing Zone">
+		<settings landing="true" />
+		<shape type="Poly" zMin="4320" zMax="4470">
+			<point x="-246768" y="251968" />
+			<point x="-246880" y="251856" />
+			<point x="-246960" y="251936" />
+			<point x="-246848" y="252048" />
+		</shape>
+	</zone>
+	<zone id="27" name="Nornil's Garden">
+		<skill applyEnter="4322,1;4324,1;4327,1;4329,1" removeExit="4322;4324;4327;4329" />
+		<shape type="Rect" zMin="-13000" zMax="-11000">
+			<point x="-122000" y="70000" />
+			<point x="-105000" y="93000" />
+		</shape>
+	</zone>
+	<!-- Hellbound (No Landing Zone) -->
+	<zone id="28" name="Hellbound">
+		<settings noWyvern="true" />
+		<shape type="Rect" zMin="-30000" zMax="30000">
+			<point x="-32768" y="229376" />
+			<point x="32768" y="262143" />
+		</shape>
+	</zone>
+	<!-- L2EMU_ADD START -->
+	<zone id="29" name="Stacato Nest">
+		<settings exitOnDeath="true" buffRepeat="true" affected="playable" />
+		<skill applyEnter="6171,1" removeExit="6171" />
+		<shape type="Poly" zMin="-6368" zMax="-3296">
+			<point x="73945" y="-57263" />
+			<point x="90046" y="-57259" />
+			<point x="89999" y="-41698" />
+			<point x="73982" y="-41655" />
+		</shape>
+	</zone>
+	<zone id="30" name="Lost Nest Tree 1">
+		<settings exitOnDeath="true" buffRepeat="true" affected="playable" />
+		<skill applyEnter="5621,9" removeExit="5621" />
+		<shape type="Poly" zMin="-3160" zMax="-2660">
+			<point x="20481" y="-17577" />
+			<point x="21868" y="-17768" />
+			<point x="22728" y="-16287" />
+			<point x="21422" y="-15075" />
+			<point x="20282" y="-15490" />
+			<point x="19965" y="-16508" />
+		</shape>
+	</zone>
+	<zone id="31" name="Lost Nest Tree 2">
+		<settings exitOnDeath="true" buffRepeat="true" affected="playable" />
+		<skill applyEnter="5621,9" removeExit="5621" />
+		<shape type="Poly" zMin="-3296" zMax="-2596">
+			<point x="16927" y="-20305" />
+			<point x="18216" y="-19597" />
+			<point x="18131" y="-18320" />
+			<point x="17290" y="-17980" />
+			<point x="16457" y="-18612" />
+			<point x="16310" y="-19917" />
+		</shape>
+	</zone>
+	<zone id="32" name="Lost Nest Tree 3">
+		<settings exitOnDeath="true" buffRepeat="true" affected="playable" />
+		<skill applyEnter="5621,9" removeExit="5621" />
+		<shape type="Poly" zMin="-3320" zMax="-2620">
+			<point x="14312" y="-17248" />
+			<point x="15048" y="-16780" />
+			<point x="15348" y="-16056" />
+			<point x="15140" y="-15352" />
+			<point x="14212" y="-15048" />
+			<point x="13584" y="-15512" />
+		</shape>
+	</zone>
+	<zone id="33" name="Lost Nest Tree 4">
+		<settings exitOnDeath="true" buffRepeat="true" affected="playable" />
+		<skill applyEnter="5621,9" removeExit="5621" />
+		<shape type="Poly" zMin="-2992" zMax="-2292">
+			<point x="18804" y="-10888" />
+			<point x="19520" y="-10108" />
+			<point x="18924" y="-9308" />
+			<point x="17628" y="-9444" />
+			<point x="17480" y="-10268" />
+			<point x="18000" y="-10884" />
+		</shape>
+	</zone>
+	<zone id="34" name="Lost Nest Tree 5">
+		<settings exitOnDeath="true" buffRepeat="true" affected="playable" />
+		<skill applyEnter="5621,9" removeExit="5621" />
+		<shape type="Poly" zMin="-3084" zMax="-2384">
+			<point x="20096" y="-13772" />
+			<point x="20812" y="-12992" />
+			<point x="20216" y="-12192" />
+			<point x="18920" y="-12328" />
+			<point x="18772" y="-13152" />
+			<point x="19292" y="-13768" />
+		</shape>
+	</zone>
+	<zone id="35" name="Lost Nest Tree 6">
+		<settings exitOnDeath="true" buffRepeat="true" affected="playable" />
+		<skill applyEnter="5621,9" removeExit="5621" />
+		<shape type="Poly" zMin="-2616" zMax="-1916">
+			<point x="24012" y="-13092" />
+			<point x="24476" y="-12324" />
+			<point x="24132" y="-11512" />
+			<point x="22836" y="-11648" />
+			<point x="22688" y="-12472" />
+			<point x="23208" y="-13088" />
+		</shape>
+	</zone>
+	<zone id="36" name="Lost Nest Tree 7">
+		<settings exitOnDeath="true" buffRepeat="true" affected="playable" />
+		<skill applyEnter="5621,9" removeExit="5621" />
+		<shape type="Poly" zMin="-2888" zMax="-2188">
+			<point x="23608" y="-19512" />
+			<point x="23736" y="-18792" />
+			<point x="23236" y="-18164" />
+			<point x="22700" y="-18300" />
+			<point x="22552" y="-19124" />
+			<point x="23072" y="-19740" />
+		</shape>
+	</zone>
+	<zone id="37" name="Lost Nest Tree 8">
+		<settings exitOnDeath="true" buffRepeat="true" affected="playable" />
+		<skill applyEnter="5621,9" removeExit="5621" />
+		<shape type="Poly" zMin="-2856" zMax="-2156">
+			<point x="27128" y="-15708" />
+			<point x="27592" y="-14940" />
+			<point x="27248" y="-14128" />
+			<point x="25952" y="-14264" />
+			<point x="25804" y="-15088" />
+			<point x="26324" y="-15704" />
+		</shape>
+	</zone>
+	<zone id="38" name="Kratei Cube PVP">
+		<settings pvp="Arena" />
+		<shape type="Poly" zMin="-8400" zMax="-8000">
+			<point x="-86161" y="-76871" />
+			<point x="-86546" y="-86501" />
+			<point x="-76972" y="-86674" />
+			<point x="-76879" y="-76941" />
+		</shape>
+	</zone>
+	<!-- L2EMU_ADD END -->
+</list>
