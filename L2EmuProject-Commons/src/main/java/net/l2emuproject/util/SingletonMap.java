@@ -30,7 +30,6 @@ public final class SingletonMap<K, V> implements Map<K, V>
 	
 	private boolean _shared = false;
 	
-	@SuppressWarnings("deprecation")
 	private void init()
 	{
 		if (!_initialized)
@@ -39,15 +38,16 @@ public final class SingletonMap<K, V> implements Map<K, V>
 			{
 				if (!_initialized)
 				{
-					_map = new FastMap<K, V>().setShared(_shared);
+					_map = new FastMap<K, V>();
+					if (_shared)
+						((FastMap<K, V>) _map).shared();
 					_initialized = true;
 				}
 			}
 		}
 	}
 	
-	@SuppressWarnings("deprecation")
-	public SingletonMap<K, V> setShared()
+	public SingletonMap<K, V> shared()
 	{
 		_shared = true;
 		
@@ -55,7 +55,7 @@ public final class SingletonMap<K, V> implements Map<K, V>
 		{
 			if (_initialized)
 			{
-				((FastMap<K, V>)_map).setShared(true);
+				((FastMap<K, V>)_map).shared();
 			}
 		}
 		
