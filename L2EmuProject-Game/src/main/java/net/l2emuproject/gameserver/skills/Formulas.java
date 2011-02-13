@@ -2795,16 +2795,20 @@ public final class Formulas
 	{	
 		if (target instanceof L2Attackable)
 		{
-			boolean isBow = activeChar.getActiveWeaponItem().getItemType() == L2WeaponType.BOW;
+			L2Weapon weapon = activeChar.getActiveWeaponItem();
+			if (weapon == null)
+				return damage *= activeChar.calcStat(Stats.PVE_PHYSICAL_DMG, 1, target, skill);
+			
+			boolean isBow = weapon.getItemType() == L2WeaponType.BOW;
 			if (isBow)
 			{
 				if (skill != null)
-					damage *= activeChar.calcStat(Stats.PVE_BOW_SKILL_DMG, 1, null, null);
+					damage *= activeChar.calcStat(Stats.PVE_BOW_SKILL_DMG, 1, target, skill);
 				else
-					damage *= activeChar.calcStat(Stats.PVE_BOW_DMG, 1, null, null);
+					damage *= activeChar.calcStat(Stats.PVE_BOW_DMG, 1, target, skill);
 			}
 			else
-				damage *= activeChar.calcStat(Stats.PVE_PHYSICAL_DMG, 1, null, null);
+				damage *= activeChar.calcStat(Stats.PVE_PHYSICAL_DMG, 1, target, skill);
 		}
 		
 		if (activeChar instanceof L2Playable && target instanceof L2Playable)
