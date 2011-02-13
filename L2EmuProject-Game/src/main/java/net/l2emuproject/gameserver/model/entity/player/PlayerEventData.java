@@ -22,6 +22,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 public final class PlayerEventData extends PlayerExtension
 {
 	private int	_points;
+	private int	_deathPoints;
 
 	public PlayerEventData(L2PcInstance activeChar)
 	{
@@ -38,13 +39,23 @@ public final class PlayerEventData extends PlayerExtension
 		setPoints(getPoints() + points);
 	}
 
-	public final void removePoints(int points)
-	{
-		setPoints(getPoints() - points);
-	}
-
 	public final int getPoints()
 	{
 		return _points;
+	}
+
+	public final void setDeathPoints(int deathPoints)
+	{
+		_deathPoints = deathPoints;
+	}
+
+	public final void giveDeathPoints(int deathPoints)
+	{
+		setDeathPoints(getDeathPoints() + deathPoints);
+	}
+
+	public final int getDeathPoints()
+	{
+		return _deathPoints;
 	}
 }

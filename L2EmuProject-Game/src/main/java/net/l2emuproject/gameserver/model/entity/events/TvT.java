@@ -231,6 +231,9 @@ public final class TvT extends L2Event
 				giveRewards(player);
 			}
 
+			player.getPlayerEventData().setPoints(0);
+			player.getPlayerEventData().setDeathPoints(0);
+
 			// After TvT, teleport back players to Giran.
 			int coords[] =
 			{ 82698, 148638, -3473 };
@@ -263,6 +266,11 @@ public final class TvT extends L2Event
 	@Override
 	protected final void giveRewards(L2PcInstance player)
 	{
+		final int deathPoints = player.getPlayerEventData().getDeathPoints();
+
+		if (deathPoints == 0)
+			Announcements.getInstance().announceToAll("TvT : Player " + player.getName() + " is God-like!");
+
 		for (int i = 0; i < Config.TVT_REWARD_IDS.length; i++)
 		{
 			player.addItem("TvT Reward", Config.TVT_REWARD_IDS[i], Config.TVT_REWARD_COUNT[i], null, false, true);

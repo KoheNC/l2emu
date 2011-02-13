@@ -44,7 +44,9 @@ public final class TvTRestriction extends AbstractRestriction
 		if (TvT.isPlaying(killer) && TvT.isPlaying(target))
 		{
 			TvT.givePoint(killer);
+			killer.getPlayerEventData().givePoints(1);
 			TvT.removePoint(target);
+			target.getPlayerEventData().giveDeathPoints(1);
 			TvT.revive(target);
 		}
 	}
