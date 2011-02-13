@@ -186,14 +186,14 @@ public abstract class SelectorThread<T extends MMOConnection<T, RP, SP>, RP exte
 		{
 			case REJECTED:
 			{
-				punishFlooder(client);
 				_log.warn("Rejected packet (0x" + Integer.toHexString(opcode) + ") from " + client);
+				punishFlooder(client);
 				return false;
 			}
 			case WARNED:
 			{
-				punishFlooder(client);
 				_log.warn("Packet over warn limit (0x" + Integer.toHexString(opcode) + ") from " + client);
+				punishFlooder(client);
 				return true;
 			}
 			default:
