@@ -12,38 +12,44 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver;
+package net.l2emuproject.gameserver.taskmanager;
+
+import java.util.Collection;
 
 import net.l2emuproject.Config;
+import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.model.L2World;
+import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 
-public class OnlinePlayers
+/**
+ * @author lord_rex
+ */
+public final class OnlineStatusTask extends AbstractPeriodicTaskManager
 {
 	private static final class SingletonHolder
 	{
-		private static final OnlinePlayers INSTANCE = new OnlinePlayers();
+		private static final OnlineStatusTask	INSTANCE	= new OnlineStatusTask();
 	}
-	
-	public static OnlinePlayers getInstance()
+
+	public static OnlineStatusTask getInstance()
 	{
 		return SingletonHolder.INSTANCE;
 	}
-	
-	class AnnounceOnline implements Runnable
+
+	private OnlineStatusTask()
 	{
-		@Override
-		public void run()
-		{
-			if (L2World.getInstance().getAllPlayers().size() == 1)
-				Announcements.getInstance().announceToAll("There is " + L2World.getInstance().getAllPlayers().size() + " online player.");
-			else
-				Announcements.getInstance().announceToAll("There are " + L2World.getInstance().getAllPlayers().size() + " online players.");
-			ThreadPoolManager.getInstance().scheduleGeneral(new AnnounceOnline(), Config.ONLINE_PLAYERS_ANNOUNCE_INTERVAL);
-		}
+		super(Config.ONLINE_PLAYERS_ANNOUNCE_INTERVAL);
 	}
-	
-	private OnlinePlayers()
+
+	@Override
+	public final void run()
 	{
-		ThreadPoolManager.getInstance().scheduleGeneral(new AnnounceOnline(), Config.ONLINE_PLAYERS_ANNOUNCE_INTERVAL);
+		final Collection<L2PcInstance> players = L2World.getInstance().getAllPlayers();
+
+		// Announce just if there are more than 2 players on server.
+		if (players.isEmpty() || players.size() == 1)
+			return;
+
+		Announcements.getInstance().announceToAll("Online players: " + players.size());
 	}
 }

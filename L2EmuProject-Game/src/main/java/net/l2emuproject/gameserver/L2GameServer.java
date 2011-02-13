@@ -147,6 +147,7 @@ import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.taskmanager.KnownListUpdateTaskManager;
 import net.l2emuproject.gameserver.taskmanager.LeakTaskManager;
 import net.l2emuproject.gameserver.taskmanager.MovementController;
+import net.l2emuproject.gameserver.taskmanager.OnlineStatusTask;
 import net.l2emuproject.gameserver.taskmanager.PacketBroadcaster;
 import net.l2emuproject.gameserver.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.taskmanager.tasks.TaskManager;
@@ -444,7 +445,7 @@ public class L2GameServer extends Config
 		Class.forName(GmListTable.class.getName());
 		PetitionManager.getInstance();
 		if (Config.ONLINE_PLAYERS_ANNOUNCE_INTERVAL > 0)
-			OnlinePlayers.getInstance();
+			OnlineStatusTask.getInstance();
 		
 		MailManager.getInstance();
 		ClassBalanceTable.getInstance();
