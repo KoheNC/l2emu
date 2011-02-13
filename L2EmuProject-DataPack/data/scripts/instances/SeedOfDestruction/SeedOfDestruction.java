@@ -65,7 +65,7 @@ public final class SeedOfDestruction extends QuestJython
 
 	private static final String		QN							= "SeedOfDestruction";
 	private static final int		INSTANCEID					= 110;															// this is the client number
-	private static final int		MIN_PLAYERS					= 1;
+	private static final int		MIN_PLAYERS					= 36;
 	private static final int		MAX_PLAYERS					= 45;															// prevent too much mob spawn
 
 	// Items

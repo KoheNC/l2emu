@@ -35,7 +35,7 @@ public class SOD_Ai extends L2AttackableAIScript
 	private static final int			SPAWN_PORTAL			= 18696;
 	private static final int			TIAT					= 29163;
 	private static final int			TIAT_GUARDS				= 29162;
-	private static final int			GUARD_SPAWN_CHANCE		= 20;
+	private static final int			GUARD_SPAWN_CHANCE		= 5;
 	private L2Npc						spawner1, spawner2, spawner3, spawner4, guard1, guard2, guard3;
 	private int							SPAWNED_MOB_COUNT		= 0;
 	private int							GUARDS_SPAWNED			= 3;
