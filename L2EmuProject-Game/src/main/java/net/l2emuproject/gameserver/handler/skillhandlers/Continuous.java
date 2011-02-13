@@ -103,7 +103,7 @@ public class Continuous implements ICubicSkillHandler
 					else if (player != null && player.isCursedWeaponEquipped())
 						continue;
 					// Avoiding block checker players get buffed from outside
-					else if(target.getActingPlayer().getBlockCheckerArena() != -1)
+					else if(target.getActingPlayer() != null && target.getActingPlayer().getBlockCheckerArena() != -1)
 						continue;
 				}
 				// TODO: boolean isn't good idea, could cause bugs
