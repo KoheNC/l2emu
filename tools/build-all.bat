@@ -45,13 +45,11 @@ if "%1" == "" (
 
 
 cd ..
-call :execute-maven %ECLIPSE_CLEAN% %CLEAN%
-call :execute-maven-inside l2j-mmocore %COMPILE% %INSTALL% %DEPLOY%
-call :execute-maven-inside l2emuproject-commons %COMPILE% %INSTALL% %DEPLOY%
-call :execute-maven-inside l2emuproject-login %COMPILE% %ASSEMBLY_ASSEMBLY%
-call :execute-maven-inside l2emuproject-game %COMPILE% %INSTALL% %DEPLOY% %ASSEMBLY_ASSEMBLY%
-call :execute-maven-inside l2emuproject-datapack %COMPILE% %ASSEMBLY_ASSEMBLY%
-call :execute-maven %ECLIPSE_ECLIPSE% %ECLIPSE_M2ECLIPSE%
+call :execute-maven-inside l2j-mmocore %CLEAN% %COMPILE% %INSTALL% %DEPLOY%
+call :execute-maven-inside l2emuproject-commons %CLEAN% %COMPILE% %INSTALL% %DEPLOY%
+call :execute-maven-inside l2emuproject-login %CLEAN% %COMPILE% %ASSEMBLY_ASSEMBLY%
+call :execute-maven-inside l2emuproject-game %CLEAN% %COMPILE% %INSTALL% %DEPLOY% %ASSEMBLY_ASSEMBLY%
+call :execute-maven-inside l2emuproject-datapack %CLEAN% %COMPILE% %ASSEMBLY_ASSEMBLY%
 cd tools
 
 echo.
