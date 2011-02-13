@@ -12,8 +12,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<scm>
-		<connection>scm:svn:http://subversion.assembla.com/svn/L2EmuProject/trunk</connection> <!-- we aren't using it anyway -->
-		<developerConnection>scm:svn:http://subversion.assembla.com/svn/L2EmuProject//trunk</developerConnection> <!-- we aren't using it anyway -->
+		<connection>scm:svn:http://l2emu.googlecode.com/svn/trunk</connection> <!-- we aren't using it anyway -->
+		<developerConnection>scm:svn:https://l2emu.googlecode.com/svn/trunk</developerConnection> <!-- we aren't using it anyway -->
 	</scm>
 	<dependencies>
 		<dependency>
