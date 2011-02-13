@@ -574,10 +574,11 @@
 	<skill id="5974" levels="1" name="Tiat Transformation">
 		<!-- Tiat's Transformation -->
 		<set name="reuseDelay" val="7000" />
-		<set name="hitTime" val="7000" />
-		<set name="target" val="TARGET_NONE" />
-		<set name="skillType" val="NOTDONE" />
-		<set name="operateType" val="OP_PASSIVE" />
+		<set name="hitTime" val="7900" />
+		<set name="target" val="TARGET_SELF" />
+		<set name="skillType" val="HEAL" />
+		<set name="power" val="1" />
+		<set name="operateType" val="OP_ACTIVE" />
 	</skill>
 	<skill id="5975" levels="3" name="Dark Attack">
 		<table name="#darkPower"> 5 10 15 </table> <!--Guess -->
