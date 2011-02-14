@@ -27,7 +27,7 @@ import net.l2emuproject.tools.random.Rnd;
  * Chest AI implementation.
  * @author Fulminus
  */
-public class Chests extends L2AttackableAIScript
+public final class Chests extends L2AttackableAIScript
 {
 	private static final int SKILL_DELUXE_KEY = 2229;
 
@@ -55,11 +55,12 @@ public class Chests extends L2AttackableAIScript
 		// firstly, don't forget to call the parent constructor to prepare the event triggering
 		// mechanisms etc.
 		super(questId, name, descr);
+		
 		registerMobs(NPC_IDS);
 	}
 
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public final String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		if (npc instanceof L2ChestInstance)
 		{
@@ -69,10 +70,10 @@ public class Chests extends L2AttackableAIScript
 			{
 				return super.onSkillSee(npc, caster, skill, targets, isPet);
 			}
-			L2ChestInstance chest = (L2ChestInstance) npc;
-			int npcId = chest.getNpcId();
-			int skillId = skill.getId();
-			int skillLevel = skill.getLevel();
+			final L2ChestInstance chest = (L2ChestInstance) npc;
+			final int npcId = chest.getNpcId();
+			final int skillId = skill.getId();
+			final int skillLevel = skill.getLevel();
 
 			// check if the chest and skills used are valid for this script.  Exit if invalid.
 			if (!contains(NPC_IDS, npcId))
@@ -125,12 +126,12 @@ public class Chests extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet)
+	public final String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet)
 	{
 		if (npc instanceof L2ChestInstance)
 		{
-			L2ChestInstance chest = ((L2ChestInstance)npc);
-			int npcId = chest.getNpcId();
+			final L2ChestInstance chest = ((L2ChestInstance)npc);
+			final int npcId = chest.getNpcId();
 			// check if the chest and skills used are valid for this script.  Exit if invalid.
 			if (!contains(NPC_IDS, npcId))
 			{

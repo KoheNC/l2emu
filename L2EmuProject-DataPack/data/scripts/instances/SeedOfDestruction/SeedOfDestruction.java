@@ -17,19 +17,14 @@ package instances.SeedOfDestruction;
 import java.util.Calendar;
 import java.util.Map;
 
-import org.apache.commons.lang.ArrayUtils;
-
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.instancemanager.gracia.SeedOfDestructionManager;
-import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.L2CommandChannel;
 import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.L2World;
-import net.l2emuproject.gameserver.model.actor.L2Attackable;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -39,7 +34,8 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.Util;
-import net.l2emuproject.tools.random.Rnd;
+
+import org.apache.commons.lang.ArrayUtils;
 
 /**
  * @author Gigiikun
@@ -55,6 +51,7 @@ public final class SeedOfDestruction extends QuestJython
 	{
 		private Map<L2Npc, Boolean>	npcList					= new FastMap<L2Npc, Boolean>();
 		private int					killedDevice			= 0;
+		@SuppressWarnings("unused")
 		private int					deviceSpawnedMobCount	= 0;
 
 		public SODWorld()

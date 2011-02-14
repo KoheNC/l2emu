@@ -36,7 +36,7 @@ public final class DeluLizardman extends L2AttackableAIScript
 	{
 		super(questId, name, descr);
 
-		int[] mobs =
+		final int[] mobs =
 		{ SPECIAL_AGENT, SPECIAL_COMMANDER };
 		for (int i : mobs)
 		{
@@ -49,9 +49,9 @@ public final class DeluLizardman extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet)
+	public final String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet)
 	{
-		int npcId = npc.getNpcId();
+		final int npcId = npc.getNpcId();
 
 		switch (npcId)
 		{
@@ -79,9 +79,9 @@ public final class DeluLizardman extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
 	{
-		int npcId = npc.getNpcId();
+		final int npcId = npc.getNpcId();
 
 		switch (npcId)
 		{

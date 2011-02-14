@@ -11,12 +11,6 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
-/*
- * made by lewzer
- * work in progress
- */
-
 package ai.group_template;
 
 import ai.group_template.L2AttackableAIScript;
@@ -30,7 +24,11 @@ import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 
-public class SOD_Ai extends L2AttackableAIScript
+/**
+ * @author lewzer
+ * work in progress
+ */
+public final class SeedOfDestructionAI extends L2AttackableAIScript
 {
 	private static final int			SPAWN_PORTAL			= 18696;
 	private static final int			TIAT					= 29163;
@@ -61,7 +59,7 @@ public class SOD_Ai extends L2AttackableAIScript
 
 	private static final L2CharPosition	MOVE_TO_TIAT			= new L2CharPosition(-250403, 207273, -11952, 16384);
 
-	public SOD_Ai(int questId, String name, String descr)
+	public SeedOfDestructionAI(int questId, String name, String descr)
 	{
 		super(questId, name, descr);
 
@@ -290,8 +288,8 @@ public class SOD_Ai extends L2AttackableAIScript
 	@Override
 	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
 	{
-		int npcID = npc.getNpcId();
-		if (npcID == SPAWN_PORTAL)
+		int npcId = npc.getNpcId();
+		if (npcId == SPAWN_PORTAL)
 		{
 			if (npc.getSpawn().getLocx() == -252022 && npc.getSpawn().getLocy() == 210130)
 			{
@@ -314,15 +312,15 @@ public class SOD_Ai extends L2AttackableAIScript
 				startQuestTimer("respawnPortal4", 120000, npc, null, true);
 			}
 		}
-		else if (ArrayUtils.contains(SPAWN_MOB_IDS, npcID))
+		else if (ArrayUtils.contains(SPAWN_MOB_IDS, npcId))
 		{
 			SPAWNED_MOB_COUNT--;
 		}
-		else if (npcID == TIAT_GUARDS)
+		else if (npcId == TIAT_GUARDS)
 		{
 			GUARDS_SPAWNED--;
 		}
-		else if (npcID == TIAT)
+		else if (npcId == TIAT)
 		{
 			cancelQuestTimer("Spawn1", spawner1, null);
 			cancelQuestTimer("Spawn2", spawner2, null);
@@ -348,6 +346,6 @@ public class SOD_Ai extends L2AttackableAIScript
 
 	public static void main(String[] args)
 	{
-		new SOD_Ai(-1, "SOD_Ai", "ai");
+		new SeedOfDestructionAI(-1, SeedOfDestructionAI.class.getSimpleName(), "ai");
 	}
 }
