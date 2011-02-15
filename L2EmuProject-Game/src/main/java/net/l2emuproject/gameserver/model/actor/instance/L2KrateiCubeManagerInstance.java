@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.model.actor.instance;
 
-import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.games.KrateiCube;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
@@ -42,16 +41,7 @@ public final class L2KrateiCubeManagerInstance extends L2TeleporterInstance
 		}
 		else if (command.equalsIgnoreCase("BackToRooms"))
 		{
-			SkillTable.getInstance().getInfo(1086, 2).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1204, 2).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1059, 3).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1085, 3).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1078, 4).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1068, 3).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1240, 3).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1077, 3).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1242, 3).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1062, 2).getEffects(player, player);
+			KrateiCube.getInstance().giveBuffs(player);
 			KrateiCube.getInstance().randomTeleport(player);
 		}
 		else if (command.equalsIgnoreCase("LeaveKrateiCube"))

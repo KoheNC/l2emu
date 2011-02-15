@@ -395,16 +395,7 @@ public final class KrateiCube extends L2Event
 		{
 			randomTeleport(player);
 			showScore();
-			SkillTable.getInstance().getInfo(1086, 2).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1204, 2).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1059, 3).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1085, 3).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1078, 4).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1068, 3).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1240, 3).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1077, 3).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1242, 3).getEffects(player, player);
-			SkillTable.getInstance().getInfo(1062, 2).getEffects(player, player);
+			giveBuffs(player);
 		}
 
 		openDoors(Rnd.get(1, 4));
@@ -634,6 +625,20 @@ public final class KrateiCube extends L2Event
 		{ TELEPORT_LOCATIONS[i][0], TELEPORT_LOCATIONS[i][1], TELEPORT_LOCATIONS[i][2] };
 
 		teleportPlayer(player, coords, getInstanceId(player));
+	}
+
+	public final void giveBuffs(L2PcInstance player)
+	{
+		SkillTable.getInstance().getInfo(1086, 2).getEffects(player, player);
+		SkillTable.getInstance().getInfo(1204, 2).getEffects(player, player);
+		SkillTable.getInstance().getInfo(1059, 3).getEffects(player, player);
+		SkillTable.getInstance().getInfo(1085, 3).getEffects(player, player);
+		SkillTable.getInstance().getInfo(1078, 4).getEffects(player, player);
+		SkillTable.getInstance().getInfo(1068, 3).getEffects(player, player);
+		SkillTable.getInstance().getInfo(1240, 3).getEffects(player, player);
+		SkillTable.getInstance().getInfo(1077, 3).getEffects(player, player);
+		SkillTable.getInstance().getInfo(1242, 3).getEffects(player, player);
+		SkillTable.getInstance().getInfo(1062, 2).getEffects(player, player);
 	}
 
 	public final void leaveKrateiCube(L2PcInstance player)
