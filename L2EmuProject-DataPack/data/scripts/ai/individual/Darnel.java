@@ -37,7 +37,7 @@ public final class Darnel extends QuestJython
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
 	{
 		if (npc.getNpcId() == DARNEL)
 			addSpawn(GATE, 152761, 145950, -12588, 0, false, 0, false, player.getInstanceId());
