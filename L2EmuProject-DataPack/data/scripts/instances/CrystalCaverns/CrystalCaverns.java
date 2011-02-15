@@ -72,6 +72,11 @@ import net.l2emuproject.tools.random.Rnd;
  * Contributing authors: TGS, Lantoc, Janiii, Gigiikun, RosT
  * Please maintain consistency between the Crystal Caverns scripts.
  */
+
+/**
+* rework by lewzer
+* WORK IN PROGRESS
+*/
 public final class CrystalCaverns extends QuestJython
 {
 	private static final class CrystalGolem
@@ -95,7 +100,6 @@ public final class CrystalCaverns extends QuestJython
 		public int									correctGolems		= 0;
 		public boolean[]							OracleTriggered		=
 																		{ false, false, false };
-		public int									kechisHenchmanSpawn	= 0;
 		public int[]								roomsStatus			=
 																		{ 0, 0, 0, 0 };								// 0: not spawned, 1: spawned, 2: cleared
 		public Map<L2DoorInstance, L2PcInstance>	openedDoors			= new FastMap<L2DoorInstance, L2PcInstance>();
@@ -156,7 +160,6 @@ public final class CrystalCaverns extends QuestJython
 	private static final int		TEARS			= 25534;
 	private static final int		TEARS_COPY		= 25535;
 	private static final int		KECHI			= 25532;
-	private static final int		KECHIGUARD		= 25533;
 	private static final int		BAYLOR			= 29099;
 	private static final int		DARNEL			= 25531;
 	private final static int		ALARMID			= 18474;
@@ -903,8 +906,83 @@ public final class CrystalCaverns extends QuestJython
 					String htmltext = "no.htm";
 					return htmltext;
 				}
-				npc.showChatWindow(player);
-				return null;
+				else
+				{
+					// oracle guides are handled here
+					L2Party party = player.getParty();
+					teleCoord tele = new teleCoord();
+					switch (npc.getNpcId())
+					{
+						case 32275:
+							if (world.status == 22)
+								runSteamRooms(world, STEAM2_SPAWNS, 23);
+							tele.x = 147529;
+							tele.y = 152587;
+							tele.z = -12169;
+							tele.instanceId = world.instanceId;
+							cancelQuestTimers("Timer2");
+							cancelQuestTimers("Timer21");
+							if (checkOracleConditions(player))
+							{
+								for (L2PcInstance partyMember : party.getPartyMembers())
+								{
+									partyMember.stopSkillEffects(5239);
+									SkillTable.getInstance().getInfo(5239, 2).getEffects(partyMember, partyMember);
+									startQuestTimer("Timer3", 600000, npc, partyMember);
+									teleportplayer(partyMember, tele);
+									partyMember.destroyItemByItemId("Quest", RED_CORAL, 1, player, true);
+								}
+							}
+							startQuestTimer("Timer31", 600000, npc, null);
+							break;
+						case 32276:
+							if (world.status == 23)
+								runSteamRooms(world, STEAM3_SPAWNS, 24);
+							tele.x = 150194;
+							tele.y = 152610;
+							tele.z = -12169;
+							tele.instanceId = world.instanceId;
+							cancelQuestTimers("Timer3");
+							cancelQuestTimers("Timer31");
+							if (checkOracleConditions(player))
+							{
+								for (L2PcInstance partyMember : party.getPartyMembers())
+								{
+									partyMember.stopSkillEffects(5239);
+									SkillTable.getInstance().getInfo(5239, 4).getEffects(partyMember, partyMember);
+									startQuestTimer("Timer4", 1200000, npc, partyMember);
+									teleportplayer(partyMember, tele);
+									partyMember.destroyItemByItemId("Quest", RED_CORAL, 1, player, true);
+								}
+							}
+							startQuestTimer("Timer41", 1200000, npc, null);
+							break;
+						case 32277:
+							if (world.status == 24)
+								runSteamRooms(world, STEAM4_SPAWNS, 25);
+							tele.x = 149743;
+							tele.y = 149986;
+							tele.z = -12141;
+							tele.instanceId = world.instanceId;
+							cancelQuestTimers("Timer4");
+							cancelQuestTimers("Timer41");
+							if (checkOracleConditions(player))
+							{
+								for (L2PcInstance partyMember : party.getPartyMembers())
+								{
+									partyMember.stopSkillEffects(5239);
+									SkillTable.getInstance().getInfo(5239, 3).getEffects(partyMember, partyMember);
+									startQuestTimer("Timer5", 900000, npc, partyMember);
+									teleportplayer(partyMember, tele);
+									partyMember.destroyItemByItemId("Quest", RED_CORAL, 1, player, true);
+								}
+							}
+							startQuestTimer("Timer51", 900000, npc, null);
+							break;
+					}
+					npc.showChatWindow(player);
+					return null;
+				}
 			}
 		}
 		else if (npc.getNpcId() == 32274)
@@ -1164,30 +1242,12 @@ public final class CrystalCaverns extends QuestJython
 			{
 				if (npc.isInCombat())
 				{
-					startQuestTimer("spawnGuards", SPAWN[0], npc, null);
 					cancelQuestTimers("checkKechiAttack");
 					closeDoor(DOOR4, npc.getInstanceId());
 					closeDoor(DOOR3, npc.getInstanceId());
 				}
 				else
-					startQuestTimer("checkKechiAttack", 1000, npc, null);
-			}
-			else if (event.equalsIgnoreCase("spawnGuards"))
-			{
-				world.kechisHenchmanSpawn++;
-				world.guards.add(addSpawn(KECHIGUARD, 153622, 149699, -12131, 56890, false, 0, false, world.instanceId));
-				world.guards.add(addSpawn(KECHIGUARD, 153609, 149622, -12131, 64023, false, 0, false, world.instanceId));
-				world.guards.add(addSpawn(KECHIGUARD, 153606, 149428, -12131, 64541, false, 0, false, world.instanceId));
-				world.guards.add(addSpawn(KECHIGUARD, 153601, 149534, -12131, 64901, false, 0, false, world.instanceId));
-				world.guards.add(addSpawn(KECHIGUARD, 153620, 149354, -12131, 1164, false, 0, false, world.instanceId));
-				world.guards.add(addSpawn(KECHIGUARD, 153637, 149776, -12131, 61733, false, 0, false, world.instanceId));
-				world.guards.add(addSpawn(KECHIGUARD, 153638, 149292, -12131, 64071, false, 0, false, world.instanceId));
-				world.guards.add(addSpawn(KECHIGUARD, 153647, 149857, -12131, 59402, false, 0, false, world.instanceId));
-				world.guards.add(addSpawn(KECHIGUARD, 153661, 149227, -12131, 65275, false, 0, false, world.instanceId));
-				if (world.kechisHenchmanSpawn <= 5)
-					startQuestTimer("spawnGuards", SPAWN[world.kechisHenchmanSpawn], npc, null);
-				else
-					cancelQuestTimers("spawnGuards");
+					startQuestTimer("checkKechiAttack", 10000, npc, null);
 			}
 			else if (event.equalsIgnoreCase("EmeraldSteam"))
 			{
@@ -1641,7 +1701,7 @@ public final class CrystalCaverns extends QuestJython
 							openDoor(DOOR3, npc.getInstanceId());
 							openDoor(DOOR4, npc.getInstanceId());
 							L2Npc kechi = addSpawn(KECHI, 154069, 149525, -12158, 51165, false, 0, false, world.instanceId);
-							startQuestTimer("checkKechiAttack", 1000, kechi, null);
+							startQuestTimer("checkKechiAttack", 5000, kechi, null);
 							return "";
 						default:
 							_log.warn("CrystalCavern-SteamCorridor: status " + world.status + " error. OracleOrder not found in " + world.instanceId);
@@ -1657,7 +1717,6 @@ public final class CrystalCaverns extends QuestJython
 				if (npc.getNpcId() == KECHI)
 				{
 					bossCry = BOSS_CRYSTAL_2;
-					cancelQuestTimers("spawnGuards");
 					addSpawn(32280, 154077, 149527, -12159, 0, false, 0, false, world.instanceId);
 				}
 				else if (npc.getNpcId() == DARNEL)
@@ -1716,113 +1775,6 @@ public final class CrystalCaverns extends QuestJython
 			CCWorld world = (CCWorld) tmpworld;
 			if (npcId == CRYSTAL_GOLEM)
 			{
-			}
-			else if (npc.getNpcId() >= 32275 && npc.getNpcId() <= 32277 && world.OracleTriggered[npc.getNpcId() - 32275])
-			{
-				boolean doTeleport = false;
-				teleCoord teleto = new teleCoord();
-				teleto.instanceId = npc.getInstanceId();
-				L2Party party = player.getParty();
-				doTeleport = true;
-				switch (npc.getNpcId())
-				{
-					case 32275:
-						if (world.status == 22)
-							runSteamRooms(world, STEAM2_SPAWNS, 23);
-						teleto.x = 147529;
-						teleto.y = 152587;
-						teleto.z = -12169;
-						cancelQuestTimers("Timer2");
-						cancelQuestTimers("Timer21");
-						if (party != null)
-							for (L2PcInstance partyMember : party.getPartyMembers())
-							{
-								if (partyMember.getInstanceId() == world.instanceId)
-								{
-									partyMember.stopSkillEffects(5239);
-									SkillTable.getInstance().getInfo(5239, 2).getEffects(partyMember, partyMember);
-									startQuestTimer("Timer3", 600000, npc, partyMember);
-								}
-							}
-						else
-						{
-							player.stopSkillEffects(5239);
-							SkillTable.getInstance().getInfo(5239, 2).getEffects(player, player);
-							startQuestTimer("Timer3", 600000, npc, player);
-						}
-						startQuestTimer("Timer31", 600000, npc, null);
-						break;
-					case 32276:
-						if (world.status == 23)
-							runSteamRooms(world, STEAM3_SPAWNS, 24);
-						teleto.x = 150194;
-						teleto.y = 152610;
-						teleto.z = -12169;
-						cancelQuestTimers("Timer3");
-						cancelQuestTimers("Timer31");
-						if (party != null)
-							for (L2PcInstance partyMember : party.getPartyMembers())
-							{
-								if (partyMember.getInstanceId() == world.instanceId)
-								{
-									partyMember.stopSkillEffects(5239);
-									SkillTable.getInstance().getInfo(5239, 4).getEffects(partyMember, partyMember);
-									startQuestTimer("Timer4", 1200000, npc, partyMember);
-								}
-							}
-						else
-						{
-							player.stopSkillEffects(5239);
-							SkillTable.getInstance().getInfo(5239, 4).getEffects(player, player);
-							startQuestTimer("Timer4", 1200000, npc, player);
-						}
-						startQuestTimer("Timer41", 1200000, npc, null);
-						break;
-					case 32277:
-						if (world.status == 24)
-							runSteamRooms(world, STEAM4_SPAWNS, 25);
-						teleto.x = 149743;
-						teleto.y = 149986;
-						teleto.z = -12141;
-						cancelQuestTimers("Timer4");
-						cancelQuestTimers("Timer41");
-						if (party != null)
-							for (L2PcInstance partyMember : party.getPartyMembers())
-							{
-								if (partyMember.getInstanceId() == world.instanceId)
-								{
-									partyMember.stopSkillEffects(5239);
-									SkillTable.getInstance().getInfo(5239, 3).getEffects(partyMember, partyMember);
-									startQuestTimer("Timer5", 900000, npc, partyMember);
-								}
-							}
-						else
-						{
-							player.stopSkillEffects(5239);
-							SkillTable.getInstance().getInfo(5239, 3).getEffects(player, player);
-							startQuestTimer("Timer5", 900000, npc, player);
-						}
-						startQuestTimer("Timer51", 900000, npc, null);
-						break;
-					default:
-						// something is wrong
-						doTeleport = false;
-				}
-				if (doTeleport)
-				{
-					if (!checkOracleConditions(player))
-						return "";
-					else if (player.getParty() != null)
-						for (L2PcInstance partyMember : party.getPartyMembers())
-						{
-							partyMember.destroyItemByItemId("Quest", RED_CORAL, 1, player, true);
-							teleportplayer(partyMember, teleto);
-						}
-					else
-					{
-						teleportplayer(player, teleto);
-					}
-				}
 			}
 			else if (npc.getNpcId() == ORACLE_GUIDE_3)
 			{
