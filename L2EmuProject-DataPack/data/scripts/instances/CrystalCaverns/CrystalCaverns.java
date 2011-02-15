@@ -1,15 +1,15 @@
 /*
  * This program is free software: you can redistribute it and/or modify it under
- * the terms of the GNU General Public License as published by the Free Software
+ * the terms of the GNU General private License as published by the Free Software
  * Foundation, either version 3 of the License, or (at your option) any later
  * version.
  * 
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * FOR A PARTICULAR PURPOSE. See the GNU General private License for more
  * details.
  * 
- * You should have received a copy of the GNU General Public License along with
+ * You should have received a copy of the GNU General private License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
 package instances.CrystalCaverns;
@@ -71,43 +71,40 @@ import net.l2emuproject.tools.random.Rnd;
  * Original sources: theone, L2EmuProject, L2JOfficial, L2JFree
  * Contributing authors: TGS, Lantoc, Janiii, Gigiikun, RosT
  * Please maintain consistency between the Crystal Caverns scripts.
+ * 
+ * Rework by lewzer
+ * WORK IN PROGRESS
  */
-
-/**
-* rework by lewzer
-* WORK IN PROGRESS
-*/
 public final class CrystalCaverns extends QuestJython
 {
 	private static final class CrystalGolem
 	{
-		public L2ItemInstance	foodItem		= null;
-		public boolean			isAtDestination	= false;
-		public L2CharPosition	oldpos			= null;
+		private L2ItemInstance	foodItem		= null;
+		private boolean			isAtDestination	= false;
+		private L2CharPosition	oldpos			= null;
 	}
 
 	private final class CCWorld extends InstanceWorld
 	{
-		public Map<L2Npc, Boolean>					npcList1			= new FastMap<L2Npc, Boolean>();
-		public L2Npc								tears;
-		public boolean								isUsedInvulSkill	= false;
-		public long									dragonScaleStart	= 0;
-		public int									dragonScaleNeed		= 0;
-		public int									cleanedRooms		= 0;
-		public long									endTime				= 0;
-		public List<L2Npc>							copys				= new FastList<L2Npc>();
-		public Map<L2Npc, CrystalGolem>				crystalGolems		= new FastMap<L2Npc, CrystalGolem>();
-		public int									correctGolems		= 0;
-		public boolean[]							OracleTriggered		=
+		private Map<L2Npc, Boolean>					npcList1			= new FastMap<L2Npc, Boolean>();
+		private L2Npc								tears;
+		private boolean								isUsedInvulSkill	= false;
+		private long									dragonScaleStart	= 0;
+		private int									dragonScaleNeed		= 0;
+		private int									cleanedRooms		= 0;
+		private long									endTime				= 0;
+		private List<L2Npc>							copys				= new FastList<L2Npc>();
+		private Map<L2Npc, CrystalGolem>				crystalGolems		= new FastMap<L2Npc, CrystalGolem>();
+		private int									correctGolems		= 0;
+		private boolean[]							OracleTriggered		=
 																		{ false, false, false };
-		public int[]								roomsStatus			=
+		private int[]								roomsStatus			=
 																		{ 0, 0, 0, 0 };								// 0: not spawned, 1: spawned, 2: cleared
-		public Map<L2DoorInstance, L2PcInstance>	openedDoors			= new FastMap<L2DoorInstance, L2PcInstance>();
-		public Map<Integer, Map<L2Npc, Boolean>>	npcList2			= new FastMap<Integer, Map<L2Npc, Boolean>>();
-		public Map<L2Npc, L2Npc>					oracles				= new FastMap<L2Npc, L2Npc>();
-		public List<L2Npc>							keyKeepers			= new FastList<L2Npc>();
-		public List<L2Npc>							guards				= new FastList<L2Npc>();
-		public List<L2Npc>							oracle				= new FastList<L2Npc>();
+		private Map<L2DoorInstance, L2PcInstance>	openedDoors			= new FastMap<L2DoorInstance, L2PcInstance>();
+		private Map<Integer, Map<L2Npc, Boolean>>	npcList2			= new FastMap<Integer, Map<L2Npc, Boolean>>();
+		private Map<L2Npc, L2Npc>					oracles				= new FastMap<L2Npc, L2Npc>();
+		private List<L2Npc>							keyKeepers			= new FastList<L2Npc>();
+		private List<L2Npc>							oracle				= new FastList<L2Npc>();
 		// baylor variables
 		private List<L2PcInstance>					_raiders			= new FastList<L2PcInstance>();
 		private int									_raidStatus			= 0;
@@ -118,7 +115,7 @@ public final class CrystalCaverns extends QuestJython
 		private L2Npc								_baylor				= null;
 		private L2Npc								_alarm				= null;
 
-		public CCWorld(Long time)
+		private CCWorld(Long time)
 		{
 			InstanceManager.getInstance().super();
 			endTime = time;
@@ -134,7 +131,7 @@ public final class CrystalCaverns extends QuestJython
 	private static final int		CONT_CRYSTAL	= 9690;												//Contaminated Crystal
 	private static final int		RED_CORAL		= 9692;												//Red Coral
 	private static final int		CRYSTALFOOD		= 9693;												//Food item for Crystal Golems
-	final private static int		RACE_KEY		= 9694;												// Race Key for Emerald doors
+	private static final int		RACE_KEY		= 9694;												// Race Key for Emerald doors
 	private static final int		BOSS_CRYSTAL_1	= 9695;												//Clear Crystal
 	private static final int		BOSS_CRYSTAL_2	= 9696;												//Clear Crystal
 	private static final int		BOSS_CRYSTAL_3	= 9697;												//Clear Crystal
@@ -162,13 +159,10 @@ public final class CrystalCaverns extends QuestJython
 	private static final int		KECHI			= 25532;
 	private static final int		BAYLOR			= 29099;
 	private static final int		DARNEL			= 25531;
-	private final static int		ALARMID			= 18474;
+	private static final int		ALARMID			= 18474;
 
-	// private static final int[] BOSSCR  = {9695,9696,9697};
 	private static final int[]		CGMOBS			=
 													{ 22311, 22312, 22313, 22314, 22315, 22316, 22317 };
-	private static final int[]		SPAWN			=
-													{ 60000, 120000, 90000, 60000, 50000, 40000 };			// Kechi Hencmans spawn times
 	private static final int[]		MOBLIST			=
 													{
 			22279,
@@ -436,7 +430,7 @@ public final class CrystalCaverns extends QuestJython
 	private static final int		DRAGONSCALETIME	= 3000;
 	private static final int		DRAGONCLAWTIME	= 3000;
 
-	public CrystalCaverns(int questId, String name, String descr)
+	private CrystalCaverns(int questId, String name, String descr)
 	{
 		super(questId, name, descr);
 
