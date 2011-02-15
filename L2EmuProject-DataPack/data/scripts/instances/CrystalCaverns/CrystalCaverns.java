@@ -89,12 +89,13 @@ public final class CrystalCaverns extends QuestJython
 		private Map<L2Npc, Boolean>					npcList1			= new FastMap<L2Npc, Boolean>();
 		private L2Npc								tears;
 		private boolean								isUsedInvulSkill	= false;
-		private long									dragonScaleStart	= 0;
+		private long								dragonScaleStart	= 0;
+		private int									emelardMiniRbKilled	= 0;
 		private int									dragonScaleNeed		= 0;
 		private int									cleanedRooms		= 0;
-		private long									endTime				= 0;
+		private long								endTime				= 0;
 		private List<L2Npc>							copys				= new FastList<L2Npc>();
-		private Map<L2Npc, CrystalGolem>				crystalGolems		= new FastMap<L2Npc, CrystalGolem>();
+		private Map<L2Npc, CrystalGolem>			crystalGolems		= new FastMap<L2Npc, CrystalGolem>();
 		private int									correctGolems		= 0;
 		private boolean[]							OracleTriggered		=
 																		{ false, false, false };
@@ -152,6 +153,7 @@ public final class CrystalCaverns extends QuestJython
 	private static final int		DOLPH			= 22299;
 	private static final int		WEYLIN			= 22298;
 	private static final int		GUARDIAN		= 22303;
+	private static final int		MINI_RB2		= 22302;
 	private static final int		GUARDIAN2		= 22304;
 
 	private static final int		TEARS			= 25534;
@@ -450,6 +452,7 @@ public final class CrystalCaverns extends QuestJython
 		addKillId(DOLPH);
 		addKillId(DARNEL);
 		addKillId(KECHI);
+		addKillId(MINI_RB2);
 		addKillId(GUARDIAN);
 		addKillId(GUARDIAN2);
 		addKillId(TOURMALINE);
@@ -1546,6 +1549,7 @@ public final class CrystalCaverns extends QuestJython
 	@Override
 	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
 	{
+		int npcID = npc.getNpcId();
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof CCWorld)
 		{
@@ -1613,51 +1617,53 @@ public final class CrystalCaverns extends QuestJython
 				else
 					return "";
 			}
-			else if (world.status == 4)
+			else if (world.status == 4 && npcID == TOURMALINE)
 			{
-				if (npc.getNpcId() == TOURMALINE)
-				{
-					world.status = 5;
-					addSpawn(TEROD, 147777, 146780, -12281, 0, false, 0, false, world.instanceId);
-				}
+				world.status = 5;
+				addSpawn(TEROD, 147777, 146780, -12281, 0, false, 0, false, world.instanceId);
 			}
-			else if (world.status == 5)
+			else if (world.status == 5 && npcID == TEROD)
 			{
-				if (npc.getNpcId() == TEROD)
-				{
-					world.status = 6;
-					addSpawn(TOURMALINE, 143694, 142659, -11882, 0, false, 0, false, world.instanceId);
-				}
+				world.status = 6;
+				addSpawn(TOURMALINE, 143694, 142659, -11882, 0, false, 0, false, world.instanceId);
 			}
-			else if (world.status == 6)
+			else if (world.status == 6 && npcID == TOURMALINE)
 			{
-				if (npc.getNpcId() == TOURMALINE)
-				{
-					world.status = 7;
-					addSpawn(DOLPH, 142054, 143288, -11825, 0, false, 0, false, world.instanceId);
-				}
+				world.status = 7;
+				addSpawn(DOLPH, 142054, 143288, -11825, 0, false, 0, false, world.instanceId);
 			}
-			else if (world.status == 7)
+			else if (world.status == 7 && npcID == DOLPH)
 			{
-				if (npc.getNpcId() == DOLPH)
-				{
-					world.status = 8;
-				}
+				world.status = 8;
 			}
 			else if (world.status == 8)
 			{
-				for (int i = 0; i < 4; i++)
+				switch (npcID)
 				{
-					if (world.roomsStatus[i] == 1 && checkKillProgress(i + 1, npc, world))
-					{
-						world.roomsStatus[i] = 2;
-					}
-					if (world.roomsStatus[i] == 2)
-					{
-						world.cleanedRooms++;
-						if (world.cleanedRooms == 21)
+					case GUARDIAN:
+						world.emelardMiniRbKilled++;
+						if (world.emelardMiniRbKilled > 2)
+						{
 							runDarnel(world);
-					}
+							world.cleanedRooms++;
+						}
+						break;
+					case MINI_RB2:
+						world.emelardMiniRbKilled++;
+						if (world.emelardMiniRbKilled > 2)
+						{
+							runDarnel(world);
+							world.cleanedRooms++;
+						}
+						break;
+					case GUARDIAN2:
+						world.emelardMiniRbKilled++;
+						if (world.emelardMiniRbKilled > 2)
+						{
+							runDarnel(world);
+							world.cleanedRooms++;
+						}
+						break;
 				}
 			}
 			else if (world.status >= 22 && world.status <= 25)
@@ -1843,15 +1849,15 @@ public final class CrystalCaverns extends QuestJython
 					int[][] spawns;
 					switch (zone.getId())
 					{
-						case 100001:
+						case 2:
 							spawns = ROOM2_SPAWNS;
 							room = 2;
 							break;
-						case 100002:
+						case 3:
 							spawns = ROOM3_SPAWNS;
 							room = 3;
 							break;
-						case 100003:
+						case 4:
 							spawns = ROOM4_SPAWNS;
 							room = 4;
 							break;
@@ -1870,7 +1876,7 @@ public final class CrystalCaverns extends QuestJython
 									st = newQuestState((L2PcInstance) character);
 								if (st.getQuestItemsCount(RACE_KEY) == 0)
 									return "";
-								if (world.roomsStatus[zone.getId() - 20104] == 0)
+								if (world.roomsStatus[zone.getId() - 1] == 0)
 									runEmeraldRooms(world, spawns, room);
 								door.openMe();
 								st.takeItems(RACE_KEY, 1);
@@ -1898,13 +1904,13 @@ public final class CrystalCaverns extends QuestJython
 					int doorId;
 					switch (zone.getId())
 					{
-						case 100001:
+						case 2:
 							doorId = 24220002;
 							break;
-						case 100002:
+						case 3:
 							doorId = 24220003;
 							break;
-						case 100003:
+						case 4:
 							doorId = 24220004;
 							break;
 						default:
