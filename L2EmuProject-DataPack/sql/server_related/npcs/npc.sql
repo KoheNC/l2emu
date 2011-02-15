@@ -11231,7 +11231,7 @@ INSERT INTO `npc` VALUES
 (32783,32783,'Priest of Blessing',0,'',0,'LineageNPC.a_temple_master_Mhuman','8','24.5',80,'male','L2Npc',40,3862,1494,0,0,40,43,30,21,20,20,0,0,1303,471,607,382,253,0,333,0,0,0,30,132,'',0,0,0,'LAST_HIT',0,0,0,'fighter','false');
 
 REPLACE INTO `npc` VALUES
--- Updated some of SOD npc's from rpgclub
+-- Updated some of SOD npc's from rpgclub by lewzer
 ('29163', '29163', 'Tiat', '0', 'Witch of the Dragon of Darkness', '0', 'LineageMonster4.tiat', '20.00', '104.00', '85', 'female', 'L2GrandBoss', '40', '13091516', '204995', '0.00', '0.00', '60', '57', '73', '76', '70', '80', '0', '0', '12972', '923', '26811', '682', '253', '0', '333', '0', '0', null, '60', '120', 'destruction_clan_tiat', '500', '0', '16', 'FULL_PARTY', '0', '0', '0', 'balanced', 'false'),
 ('29162', '29162', 'Soldiers of Bravery', '0', 'Tiat\'s Bodyguards', '0', 'LineageMonster4.dragon_rider', '8.00', '51.00', '85', 'male', 'L2Monster', '80', '528731', '204995', '0.00', '0.00', '40', '43', '30', '21', '20', '20', '0', '0', '16366', '1007', '7605', '1227', '253', '0', '333', '0', '0', null, '120', '140', 'destruction_clan_tiat', '500', '0', '0', 'LAST_HIT', '0', '0', '0', 'balanced', 'false'),
 ('18677', '18677', 'Dragon Steed Troop Messenger', '0', '', '0', 'LineageMonster4.dragon_peltast', '25.00', '46.50', '73', 'male', 'L2Monster', '40', '4087', '1601', '0.00', '0.00', '40', '43', '30', '21', '20', '20', '0', '0', '1451', '502', '672', '408', '253', '0', '333', '0', '0', null, '60', '60', '', '0', '0', '0', 'LAST_HIT', '0', '0', '0', 'balanced', 'false'),
@@ -11240,7 +11240,10 @@ REPLACE INTO `npc` VALUES
 
 
 REPLACE INTO `npc` VALUES
--- Hall of suffering npc starts from rpgclub
+-- Hall of suffering npc starts from rpgclub by lewzer
 ('22512', '22512', 'Body Severer', '0', '', '0', 'LineageMonster4.bonecreeper', '36.00', '47.00', '78', 'male', 'L2Monster', '40', '4699', '1784', '0.00', '0.00', '40', '43', '30', '21', '20', '20', '72891', '7605', '1770', '556', '820', '451', '253', '0', '333', '0', '0', null, '80', '150', 'soi_clan', '300', '1', '0', 'LAST_HIT', '0', '0', '0', 'balanced', 'false'),
 ('25666', '25666', 'Yehan Klanikus', '0', 'Guide of Darkness', '0', 'LineageMonster4.death_knight_n_raid', '34.32', '62.40', '82', 'male', 'L2RaidBoss', '80', '352979', '1935', '0.00', '0.00', '60', '57', '73', '76', '70', '80', '5044000', '1152586', '8821', '1196', '19989', '972', '253', '0', '333', '13983', '0', null, '80', '120', 'soi_clan', '300', '0', '0', 'LAST_HIT', '0', '0', '0', 'balanced', 'false'),
 ('25665', '25665', 'Yehan Klodekus', '0', 'Soul Destroyer', '0', 'LineageMonster4.death_knight_n_raid', '34.32', '62.40', '82', 'male', 'L2RaidBoss', '80', '352979', '1935', '0.00', '0.00', '60', '57', '73', '76', '70', '80', '5044000', '1152586', '8821', '1196', '19989', '972', '253', '0', '333', '13982', '0', null, '80', '120', 'soi_clan', '300', '0', '0', 'LAST_HIT', '0', '0', '0', 'balanced', 'false');
+REPLACE INTO `npc` VALUES
+-- Crystal caverns instance npc update from rpgclub by lewzer
+('22305', '22305', 'Kechi\'s Captain', '0', '', '0', 'LineageMonster.field_stalker_110p', '36.00', '43.50', '82', 'male', 'L2Monster', '40', '17352', '1935', '26.86', '3.09', '40', '43', '30', '21', '20', '20', '34650', '3789', '13704', '957', '6371', '1166', '253', '1000', '391', '0', '0', '0', '49', '192', 'STEAM_CLAN', '100', '0', '0', 'LAST_HIT', '50', '50', '30', 'balanced', 'false');
