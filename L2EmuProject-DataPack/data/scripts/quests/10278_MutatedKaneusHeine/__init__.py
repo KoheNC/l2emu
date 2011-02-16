@@ -6,7 +6,7 @@ from net.l2emuproject.gameserver.model.quest        import QuestState
 from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
 from net.l2emuproject.tools.random                  import Rnd
 
-qn = "10278_MutatedKaneusHein"
+qn = "10278_MutatedKaneusHeine"
 
 #NPCs
 Gosta = 30916
