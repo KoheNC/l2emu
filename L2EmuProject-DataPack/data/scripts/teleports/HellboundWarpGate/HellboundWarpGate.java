@@ -79,6 +79,17 @@ public final class HellboundWarpGate extends QuestJython
 		}
 	}
 
+	public final void openHbGates()
+	{
+		String longQuest = loadGlobalQuestVar("BloodyHotQuest");
+		if (!longQuest.equalsIgnoreCase("1"))
+		{
+			saveGlobalQuestVar("BloodyHotQuest", "1");
+			longQuest = "1";
+			BLOOD_HOT = Integer.parseInt(longQuest);
+		}
+	}
+
 	@Override
 	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
 	{
@@ -111,7 +122,11 @@ public final class HellboundWarpGate extends QuestJython
 			case KECHI:
 			case DARNEL:
 				if (ENERGY_FROM_MINOR_BOSSES)
+				{
 					HellboundManager.getInstance().addWarpgateEnergy(10000);
+					_log.info("lulz, tasku dave");
+					_log.info("a kiek daba turiu?" + HellboundManager.getInstance().getWarpgateEnergy());
+				}
 				break;
 		}
 		return null;
@@ -130,8 +145,18 @@ public final class HellboundWarpGate extends QuestJython
 		return false;
 	}
 
+	private static final class SingletonHolder
+	{
+		private static final HellboundWarpGate	INSTANCE	= new HellboundWarpGate(1108, QN, "Hellbound WarpGate", "teleports");
+	}
+
+	public static final HellboundWarpGate getInstance()
+	{
+		return SingletonHolder.INSTANCE;
+	}
+
 	public static void main(String[] args)
 	{
-		new HellboundWarpGate(1108, QN, "Hellbound WarpGate", "teleports");
+		HellboundWarpGate.getInstance();
 	}
 }

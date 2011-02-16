@@ -22,7 +22,7 @@ import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.QuestState;
-import quests._131_BirdInACage.BirdInACage;
+import teleports.HellboundWarpGate.HellboundWarpGate;
 
 /**
 * rewritten by lewzer
@@ -71,7 +71,8 @@ public final class ThatsBloodyHot extends Quest
 			st.takeItems(CRYSTAL_SAMPLE, 1);
 			st.giveAdena(254247);
 			st.addExpAndSp(331457, 32524);
-			st.setState(State.STARTED);
+			st.setState(State.COMPLETED);
+			HellboundWarpGate.getInstance().openHbGates();
 			st.exitQuest(false);
 		}
 
