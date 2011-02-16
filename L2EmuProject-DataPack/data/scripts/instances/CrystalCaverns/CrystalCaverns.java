@@ -147,6 +147,8 @@ public final class CrystalCaverns extends QuestJython
 	//mobs
 	private static final int		GK1				= 22275;
 	private static final int		GK2				= 22277;
+	private static final int		BAYLOR_CHEST1	= 29116;
+	private static final int		BAYLOR_CHEST2	= 29117;
 
 	private static final int		TOURMALINE		= 22292;
 	private static final int		TEROD			= 22301;
@@ -353,6 +355,15 @@ public final class CrystalCaverns extends QuestJython
 													{ 22296, 144753, 143650, -11982, 35429 },
 													{ 22296, 147613, 146760, -12271, 56296 } };
 
+	private static int[][]			ROOM1_SPAWNS	=
+													{
+													{ 22288, 143114, 140027, -11888, 15025 },
+													{ 22288, 142173, 140973, -11888, 55698 },
+													{ 22289, 143210, 140577, -11888, 17164 },
+													{ 22289, 142638, 140107, -11888, 6571 },
+													{ 22297, 142547, 140938, -11888, 48556 },
+													{ 22298, 142690, 140479, -11887, 7663 } };
+
 	private static int[][]			ROOM2_SPAWNS	=
 													{
 													{ 22303, 146276, 141483, -11880, 34643 },
@@ -438,9 +449,9 @@ public final class CrystalCaverns extends QuestJython
 
 		addStartNpc(ORACLE_GUIDE_1);
 		addTalkId(ORACLE_GUIDE_1);
-		addTalkId(ORACLE_GUIDE_3);
 		addStartNpc(ORACLE_GUIDE_4);
 		addFirstTalkId(ORACLE_GUIDE_4);
+		addFirstTalkId(ORACLE_GUIDE_3);
 		addTalkId(ORACLE_GUIDE_4);
 		addFirstTalkId(CRYSTAL_GOLEM);
 		addAttackId(TEARS);
@@ -828,7 +839,10 @@ public final class CrystalCaverns extends QuestJython
 			spawned.put(mob, false);
 		}
 		if (room == 1) // spawn Lahm
+		{
 			addSpawn(32359, 142110, 139896, -11888, 8033, false, 0, false, world.instanceId);
+			openDoor(24220001, world.instanceId);
+		}
 		world.npcList2.put(room, spawned);
 		world.roomsStatus[room - 1] = 1;
 	}
@@ -980,6 +994,56 @@ public final class CrystalCaverns extends QuestJython
 					npc.showChatWindow(player);
 					return null;
 				}
+			}
+		}
+		else if (npc.getNpcId() == ORACLE_GUIDE_3)
+		{
+			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+			if (tmpworld instanceof CCWorld)
+			{
+				CCWorld world = (CCWorld) tmpworld;
+				if (world.status < 30 && checkBaylorConditions(player))
+				{
+					world._raiders.clear();
+					L2Party party = player.getParty();
+					if (party == null)
+						world._raiders.add(player);
+					else
+					{
+						for (L2PcInstance partyMember : party.getPartyMembers())
+						{
+							int rnd = Rnd.get(100);
+							partyMember.destroyItemByItemId("Quest", (rnd < 33 ? BOSS_CRYSTAL_1 : (rnd < 67 ? BOSS_CRYSTAL_2 : BOSS_CRYSTAL_3)), 1,
+									partyMember, true);
+							world._raiders.add(partyMember);
+						}
+					}
+					world.status = 30;
+					long time = world.endTime - System.currentTimeMillis();
+					Instance baylorInstance = InstanceManager.getInstance().getInstance(world.instanceId);
+					baylorInstance.setDuration((int) time);
+
+					int radius = 150;
+					int i = 0;
+					int members = world._raiders.size();
+					for (L2PcInstance p : world._raiders)
+					{
+						int x = (int) (radius * Math.cos(i * 2 * Math.PI / members));
+						int y = (int) (radius * Math.sin(i++ * 2 * Math.PI / members));
+						p.teleToLocation(153571 + x, 142075 + y, -12737);
+						L2Summon pet = p.getPet();
+						if (pet != null)
+						{
+							pet.teleToLocation(153571 + x, 142075 + y, -12737, true);
+							pet.broadcastPacket(new ValidateLocation(pet));
+						}
+						p.setIsParalyzed(true);
+						p.broadcastPacket(new ValidateLocation(p));
+					}
+					startQuestTimer("Baylor", 30000, npc, null);
+				}
+				else
+					return "";
 			}
 		}
 		else if (npc.getNpcId() == 32274)
@@ -1261,7 +1325,8 @@ public final class CrystalCaverns extends QuestJython
 			else if (event.equalsIgnoreCase("spawn_oracle"))
 			{
 				addSpawn(32271, 153572, 142075, -9728, 10800, false, 0, false, world.instanceId);
-				addSpawn((Rnd.get(10) < 5 ? 29116 : 29117), npc.getX(), npc.getY(), npc.getZ(), npc.getHeading(), false, 0, false, world.instanceId); // Baylor's Chest
+				addSpawn((Rnd.get(10) < 5 ? BAYLOR_CHEST1 : BAYLOR_CHEST2), npc.getX(), npc.getY(), npc.getZ(), npc.getHeading(), false, 0, false,
+						world.instanceId); // Baylor's Chest
 				addSpawn(ORACLE_GUIDE_4, 153572, 142075, -12738, 10800, false, 0, false, world.instanceId);
 				this.cancelQuestTimer("baylor_despawn", npc, null);
 				this.cancelQuestTimers("baylor_skill");
@@ -1635,6 +1700,7 @@ public final class CrystalCaverns extends QuestJython
 			else if (world.status == 7 && npcID == DOLPH)
 			{
 				world.status = 8;
+				runEmeraldRooms(world, ROOM1_SPAWNS, 1);
 			}
 			else if (world.status == 8)
 			{
@@ -1775,51 +1841,6 @@ public final class CrystalCaverns extends QuestJython
 			CCWorld world = (CCWorld) tmpworld;
 			if (npcId == CRYSTAL_GOLEM)
 			{
-			}
-			else if (npc.getNpcId() == ORACLE_GUIDE_3)
-			{
-				if (world.status < 30 && checkBaylorConditions(player))
-				{
-					world._raiders.clear();
-					L2Party party = player.getParty();
-					if (party == null)
-						world._raiders.add(player);
-					else
-					{
-						for (L2PcInstance partyMember : party.getPartyMembers())
-						{
-							int rnd = Rnd.get(100);
-							partyMember.destroyItemByItemId("Quest", (rnd < 33 ? BOSS_CRYSTAL_1 : (rnd < 67 ? BOSS_CRYSTAL_2 : BOSS_CRYSTAL_3)), 1,
-									partyMember, true);
-							world._raiders.add(partyMember);
-						}
-					}
-				}
-				else
-					return "";
-				world.status = 30;
-				long time = world.endTime - System.currentTimeMillis();
-				Instance baylorInstance = InstanceManager.getInstance().getInstance(world.instanceId);
-				baylorInstance.setDuration((int) time);
-
-				int radius = 150;
-				int i = 0;
-				int members = world._raiders.size();
-				for (L2PcInstance p : world._raiders)
-				{
-					int x = (int) (radius * Math.cos(i * 2 * Math.PI / members));
-					int y = (int) (radius * Math.sin(i++ * 2 * Math.PI / members));
-					p.teleToLocation(153571 + x, 142075 + y, -12737);
-					L2Summon pet = p.getPet();
-					if (pet != null)
-					{
-						pet.teleToLocation(153571 + x, 142075 + y, -12737, true);
-						pet.broadcastPacket(new ValidateLocation(pet));
-					}
-					p.setIsParalyzed(true);
-					p.broadcastPacket(new ValidateLocation(p));
-				}
-				startQuestTimer("Baylor", 30000, npc, null);
 			}
 			else if (npc.getNpcId() == ORACLE_GUIDE_4 && world.status == 31)
 			{
