@@ -2717,11 +2717,22 @@ public final class Formulas
 		switch (type)
 		{
 			case CONFUSION:
+				break;
 			case ROOT:
+				if (Rnd.get(100) < 6)
+					return true;
+				break;
 			case STUN:
+				if (Rnd.get(100) < 11)
+					return true;
+				break;
 			case MUTE:
 			case FEAR:
+				break;
 			case DEBUFF:
+				if (Rnd.get(100) < 31)
+					return true;
+				break;
 			case PARALYZE:
 			case SLEEP:
 			case AGGDEBUFF:
