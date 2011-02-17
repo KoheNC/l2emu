@@ -9258,8 +9258,8 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 			// Sailren
 			else if (SailrenManager.getInstance().checkIfInZone(this))
 			{
-				if (getQuestState("sailren") != null)
-					getQuestState("sailren").exitQuest(true);
+				if (getQuestState(SailrenManager.QN) != null)
+					getQuestState(SailrenManager.QN).exitQuest(true);
 				teleToLocation(TeleportWhereType.Town);
 			}
 		}

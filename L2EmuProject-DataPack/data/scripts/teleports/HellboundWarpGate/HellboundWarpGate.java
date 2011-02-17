@@ -14,6 +14,7 @@
  */
 package teleports.HellboundWarpGate;
 
+import quests._130_PathToHellbound.PathToHellbound;
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -24,15 +25,11 @@ import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 /**
  * @author K4N4BS
  * @since Adapted for L2EmuProject by L0ngh0rn 2011-02-08
- * updated by lewzer
+ * Updated by lewzer
  */
 public final class HellboundWarpGate extends QuestJython
 {
 	public static final String		QN							= "HellboundWarpGate";
-
-	// Quests
-	private static final String		THATS_BLOODY_HOT			= "_133_ThatsBloodyHot";
-	private static final String		PATH_TO_HELLBOUND			= "_130_PathToHellbound";
 
 	// NPCs
 	private static final int[]		WARPGATES					=
@@ -136,7 +133,7 @@ public final class HellboundWarpGate extends QuestJython
 		if (player.isFlying())
 			return false;
 
-		QuestState st = player.getQuestState(PATH_TO_HELLBOUND);
+		QuestState st = player.getQuestState(PathToHellbound.QN);
 		if (st != null && st.getState() == State.COMPLETED)
 			return true;
 

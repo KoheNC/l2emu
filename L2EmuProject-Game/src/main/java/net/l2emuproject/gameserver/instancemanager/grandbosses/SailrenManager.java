@@ -54,6 +54,8 @@ public class SailrenManager extends BossLair
 		return SingletonHolder.INSTANCE;
 	}
 
+	public static final String QN = "Sailren";
+	
 	// Teleport cube location.
 	private final int				_sailrenCubeLocation[][]	=
 																{
@@ -86,7 +88,7 @@ public class SailrenManager extends BossLair
 
 	public SailrenManager()
 	{
-		_questName = "sailren";
+		_questName = QN;
 		_state = new GrandBossState(29065);
 	}
 
