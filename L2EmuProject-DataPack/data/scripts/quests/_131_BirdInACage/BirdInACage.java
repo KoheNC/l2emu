@@ -12,23 +12,19 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
 package quests._131_BirdInACage;
 
-import org.apache.commons.lang.ArrayUtils;
-
-import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.QuestState;
+import net.l2emuproject.gameserver.model.quest.State;
+import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.tools.random.Rnd;
 
 /**
-* rewritten by lewzer
-*/
-
-public final class BirdInACage extends Quest
+ * Rewritten by lewzer
+ */
+public final class BirdInACage extends QuestJython
 {
 	private static final String	QN				= "_131_BirdInACage";
 	// NPC's
@@ -41,6 +37,7 @@ public final class BirdInACage extends Quest
 	public BirdInACage(int questId, String name, String descr)
 	{
 		super(questId, name, descr);
+
 		addStartNpc(KANIS);
 		addTalkId(KANIS);
 		addTalkId(PARME);
@@ -88,13 +85,13 @@ public final class BirdInACage extends Quest
 	{
 		String htmltext = NO_QUEST;
 		QuestState st = player.getQuestState(QN);
-		int npcID = npc.getNpcId();
-		int cond = st.getInt(CONDITION);
+		final int npcId = npc.getNpcId();
+		final int cond = st.getInt(CONDITION);
 		if (st.isCompleted())
 		{
 			return QUEST_DONE;
 		}
-		switch (npcID)
+		switch (npcId)
 		{
 			case KANIS:
 				switch (cond)

@@ -12,23 +12,19 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
 package quests._133_ThatsBloodyHot;
 
-import org.apache.commons.lang.ArrayUtils;
-
-import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.QuestState;
+import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import teleports.HellboundWarpGate.HellboundWarpGate;
 
 /**
-* rewritten by lewzer
-*/
-
-public final class ThatsBloodyHot extends Quest
+ * Rewritten by lewzer
+ */
+public final class ThatsBloodyHot extends QuestJython
 {
 	private static final String	QN				= "_133_ThatsBloodyHot";
 	// NPC's
@@ -60,13 +56,13 @@ public final class ThatsBloodyHot extends Quest
 			st.setState(State.STARTED);
 		}
 
-		if (event.equalsIgnoreCase("32264-07.htm"))
+		else if (event.equalsIgnoreCase("32264-07.htm"))
 		{
 			st.set(CONDITION, 2);
 			st.giveItems(CRYSTAL_SAMPLE, 1);
 		}
 
-		if (event.equals("32292-04.htm"))
+		else if (event.equals("32292-04.htm"))
 		{
 			st.takeItems(CRYSTAL_SAMPLE, 1);
 			st.giveAdena(254247);
@@ -87,14 +83,14 @@ public final class ThatsBloodyHot extends Quest
 
 		if (st == null)
 			return htmltext;
-		int npcID = npc.getNpcId();
-		int cond = st.getInt(CONDITION);
+		final int npcId = npc.getNpcId();
+		final int cond = st.getInt(CONDITION);
 		QuestState qs131 = st.getPlayer().getQuestState("_131_BirdInACage");
 		if (st.isCompleted())
 		{
 			return QUEST_DONE;
 		}
-		switch (npcID)
+		switch (npcId)
 		{
 			case KANIS:
 				switch (cond)
