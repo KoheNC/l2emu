@@ -193,6 +193,7 @@ public final class Util
 		FRONT,
 		SIDE,
 		BACK;
+		// TODO HIGH,LOW
 		
 		public static Direction getDirection(L2Object obj, L2Object src)
 		{

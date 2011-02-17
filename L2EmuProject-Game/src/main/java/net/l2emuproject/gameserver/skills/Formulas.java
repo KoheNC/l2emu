@@ -2706,7 +2706,8 @@ public final class Formulas
 			case SIDE:
 				return 1.05;
 			case BACK:
-				return 1.2;
+				return 1.1;
+			// TODO: support for higher(+3%) and lower(-3%) places.
 		}
 		
 		return 1.0;
