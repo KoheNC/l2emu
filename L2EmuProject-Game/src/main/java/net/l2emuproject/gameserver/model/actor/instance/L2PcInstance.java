@@ -4467,7 +4467,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 		else if (BaylorManager.getInstance().checkIfInZone(this))
 			BaylorManager.getInstance().checkAnnihilated();
 		else if (BelethManager.getInstance().checkIfInZone(this))
-			BaylorManager.getInstance().checkAnnihilated();
+			BelethManager.getInstance().checkAnnihilated();
 		else if (FrintezzaManager.getInstance().checkIfInZone(this))
 			FrintezzaManager.getInstance().checkAnnihilated();
 		else if (LastImperialTombManager.getInstance().checkIfInZone(this))
@@ -9248,6 +9248,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 					getQuestState("baylor").exitQuest(true);
 				teleToLocation(TeleportWhereType.Town);
 			}
+			// Beleth
 			else if (BelethManager.getInstance().checkIfInZone(this))
 			{
 				if (getQuestState("Beleth") != null)
