@@ -124,8 +124,6 @@ public final class HellboundWarpGate extends QuestJython
 				if (ENERGY_FROM_MINOR_BOSSES)
 				{
 					HellboundManager.getInstance().addWarpgateEnergy(10000);
-					_log.info("lulz, tasku dave");
-					_log.info("a kiek daba turiu?" + HellboundManager.getInstance().getWarpgateEnergy());
 				}
 				break;
 		}
