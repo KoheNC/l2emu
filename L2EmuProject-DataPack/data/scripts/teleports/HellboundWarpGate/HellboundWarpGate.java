@@ -24,14 +24,15 @@ import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 /**
  * @author K4N4BS
  * @since Adapted for L2EmuProject by L0ngh0rn 2011-02-08
+ * updated by lewzer
  */
 public final class HellboundWarpGate extends QuestJython
 {
 	public static final String		QN							= "HellboundWarpGate";
 
 	// Quests
-	private static final String		THATS_BLOODY_HOT			= "133_ThatsBloodyHot";
-	private static final String		PATH_TO_HELLBOUND			= "130_PathToHellbound";
+	private static final String		THATS_BLOODY_HOT			= "_133_ThatsBloodyHot";
+	private static final String		PATH_TO_HELLBOUND			= "_130_PathToHellbound";
 
 	// NPCs
 	private static final int[]		WARPGATES					=
@@ -136,8 +137,7 @@ public final class HellboundWarpGate extends QuestJython
 			return false;
 
 		QuestState st = player.getQuestState(PATH_TO_HELLBOUND);
-		QuestState st2 = player.getQuestState(THATS_BLOODY_HOT);
-		if (st != null && st.getState() == State.COMPLETED && st2 != null && st2.getState() == State.COMPLETED)
+		if (st != null && st.getState() == State.COMPLETED)
 			return true;
 
 		return false;

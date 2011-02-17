@@ -1,0 +1,1 @@
+UPDATE `character_quests` SET `name` = '_130_PathToHellbound' WHERE `name` = '130_PathToHellbound';
