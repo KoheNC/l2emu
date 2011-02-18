@@ -38,5 +38,15 @@ public abstract class PartyInstance extends L2Instance
 					teleportPlayer(members, coords, instanceId);
 	}
 
+	protected final void setPartyInstanceTime(L2PcInstance player, int instanceId, long time)
+	{
+		L2Party party = player.getParty();
+
+		if (party != null)
+			for (L2PcInstance members : party.getPartyMembers())
+				if (members != null)
+					setInstanceTime(members, instanceId, time);
+	}
+
 	// TODO: Add more functions...
 }

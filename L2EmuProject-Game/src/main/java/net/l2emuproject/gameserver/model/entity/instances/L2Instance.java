@@ -39,6 +39,11 @@ public abstract class L2Instance extends Quest
 
 	protected abstract void exitInstance(L2PcInstance player);
 
+	protected final void setInstanceTime(L2PcInstance player, int instanceId, long time)
+	{
+		InstanceManager.getInstance().setInstanceTime(player.getObjectId(), instanceId, ((System.currentTimeMillis() + time)));
+	}
+
 	protected final void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
 	{
 		L2Summon pet = player.getPet();

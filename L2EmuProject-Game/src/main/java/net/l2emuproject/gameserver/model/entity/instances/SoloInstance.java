@@ -24,6 +24,6 @@ public abstract class SoloInstance extends L2Instance
 	{
 		super(questId, name, descr, folder);
 	}
-	
+
 	// TODO: Add more functions...
 }
