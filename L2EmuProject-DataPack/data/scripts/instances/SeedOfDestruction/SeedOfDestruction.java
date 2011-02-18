@@ -18,18 +18,18 @@ import java.util.Calendar;
 import java.util.Map;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.instancemanager.gracia.SeedOfDestructionManager;
 import net.l2emuproject.gameserver.model.L2CommandChannel;
+import net.l2emuproject.gameserver.model.L2Party;
 import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.L2World;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.entity.instances.PartyInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
@@ -45,7 +45,7 @@ import org.apache.commons.lang.ArrayUtils;
  * - Traps not done
  * - no random mob spawns after mob kill
  */
-public final class SeedOfDestruction extends QuestJython
+public final class SeedOfDestruction extends PartyInstance
 {
 	private final class SODWorld extends InstanceWorld
 	{
@@ -61,7 +61,11 @@ public final class SeedOfDestruction extends QuestJython
 	}
 
 	private static final String		QN							= "SeedOfDestruction";
-	private static final int		INSTANCEID					= 110;															// this is the client number
+
+	private static final String		TEMPLATE					= "SeedOfDestruction.xml";
+
+	private static final int		INSTANCE_ID					= 110;															// this is the client number
+
 	private static final int		MIN_PLAYERS					= 36;
 	private static final int		MAX_PLAYERS					= 45;															// prevent too much mob spawn
 
@@ -761,9 +765,11 @@ public final class SeedOfDestruction extends QuestJython
 	private static final int		RESET_DAY_1					= 4;
 	private static final int		RESET_DAY_2					= 7;
 
-	public SeedOfDestruction(int questId, String name, String descr)
+	private int						_instanceId					= 0;
+
+	public SeedOfDestruction(int questId, String name, String descr, String folder)
 	{
-		super(questId, name, descr);
+		super(questId, name, descr, folder);
 
 		addStartNpc(ALENOS);
 		addTalkId(ALENOS);
@@ -783,14 +789,8 @@ public final class SeedOfDestruction extends QuestJython
 			addKillId(mobId);
 	}
 
-	private final void openDoor(int doorId, int instanceId)
-	{
-		for (L2DoorInstance door : InstanceManager.getInstance().getInstance(instanceId).getDoors())
-			if (door.getDoorId() == doorId)
-				door.openMe();
-	}
-
-	private final boolean checkConditions(L2PcInstance player)
+	@Override
+	protected final boolean canEnter(L2PcInstance player)
 	{
 		if (player.getParty() == null)
 		{
@@ -829,7 +829,7 @@ public final class SeedOfDestruction extends QuestJython
 				channel.broadcastToChannelMembers(sm);
 				return false;
 			}
-			Long reentertime = InstanceManager.getInstance().getInstanceTime(channelMember.getObjectId(), INSTANCEID);
+			Long reentertime = InstanceManager.getInstance().getInstanceTime(channelMember.getObjectId(), INSTANCE_ID);
 			if (System.currentTimeMillis() < reentertime)
 			{
 				SystemMessage sm = new SystemMessage(2100);
@@ -841,18 +841,9 @@ public final class SeedOfDestruction extends QuestJython
 		return true;
 	}
 
-	private final void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
+	@Override
+	protected final void enterInstance(L2PcInstance player)
 	{
-		player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
-		player.setInstanceId(instanceId);
-		player.teleToLocation(coords[0], coords[1], coords[2]);
-		return;
-	}
-
-	private final int enterInstance(L2PcInstance player)
-	{
-		int instanceId = 0;
-		final String template = "SeedOfDestruction.xml";
 		final int[] coords =
 		{ -242759, 219981, -9986 };
 
@@ -862,50 +853,44 @@ public final class SeedOfDestruction extends QuestJython
 			if (!(world instanceof SODWorld))
 			{
 				player.sendPacket(new SystemMessage(SystemMessageId.ALREADY_ENTERED_ANOTHER_INSTANCE_CANT_ENTER));
-				return 0;
+				return;
 			}
-			teleportPlayer(player, coords, instanceId);
-			return instanceId;
+			teleportPlayer(player, coords, _instanceId);
 		}
 		else
 		{
-			if (!checkConditions(player))
-				return 0;
-			instanceId = InstanceManager.getInstance().createDynamicInstance(template);
+			if (!canEnter(player))
+				return;
+			_instanceId = InstanceManager.getInstance().createDynamicInstance(TEMPLATE);
 			world = new SODWorld();
-			world.instanceId = instanceId;
+			world.instanceId = _instanceId;
 			world.status = 0;
 			InstanceManager.getInstance().addWorld(world);
 			spawnState((SODWorld) world);
 
-			for (L2DoorInstance door : InstanceManager.getInstance().getInstance(instanceId).getDoors())
+			for (L2DoorInstance door : InstanceManager.getInstance().getInstance(_instanceId).getDoors())
 				if (ArrayUtils.contains(ATTACKABLE_DOORS, door.getDoorId()))
 					door.setIsSeedOfDestructionAttackableDoor(true);
 
-			_log.info(QN + " : created " + template + " Instance: " + instanceId + " by player: " + player.getName());
-
-			if (player.getParty() == null || player.getParty().getCommandChannel() == null)
-			{
-				teleportPlayer(player, coords, instanceId);
+			final L2Party party = player.getParty();
+			if (party == null || party.getPartyMembers() == null)
 				world.allowed.add(player.getObjectId());
-			}
 			else
-			{
-				for (L2PcInstance channelMember : player.getParty().getCommandChannel().getMembers())
-				{
-					teleportPlayer(channelMember, coords, instanceId);
+				for (L2PcInstance channelMember : party.getPartyMembers())
 					world.allowed.add(channelMember.getObjectId());
-				}
-			}
-			return instanceId;
+
+			teleportParty(player, coords, _instanceId);
+
+			_log.info(QN + " : created " + TEMPLATE + " Instance: " + _instanceId + " by player: " + player.getName());
 		}
 	}
 
-	private final void exitInstance(L2PcInstance player)
+	@Override
+	protected final void exitInstance(L2PcInstance player)
 	{
-		player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
-		player.setInstanceId(0);
-		player.teleToLocation(-248717, 250260, 4337);
+		final int[] coords =
+		{ -248717, 250260, 4337 };
+		teleportPlayer(player, coords, 0);
 	}
 
 	private final boolean checkKillProgress(L2Npc mob, SODWorld world)
@@ -1010,13 +995,13 @@ public final class SeedOfDestruction extends QuestJython
 				reenter.add(Calendar.DAY_OF_MONTH, 1);
 
 		SystemMessage sm = new SystemMessage(SystemMessageId.INSTANT_ZONE_S1_ENTRY_RESTRICTED);
-		sm.addString(InstanceManager.getInstance().getInstanceIdName(INSTANCEID));
+		sm.addString(InstanceManager.getInstance().getInstanceIdName(INSTANCE_ID));
 
 		// set instance reenter time for all allowed players
 		for (int objectId : world.allowed)
 		{
 			L2PcInstance player = L2World.getInstance().getPlayer(objectId);
-			InstanceManager.getInstance().setInstanceTime(objectId, INSTANCEID, reenter.getTimeInMillis());
+			InstanceManager.getInstance().setInstanceTime(objectId, INSTANCE_ID, reenter.getTimeInMillis());
 			if (player != null && player.isOnline() > 0)
 				player.sendPacket(sm);
 		}
@@ -1193,7 +1178,7 @@ public final class SeedOfDestruction extends QuestJython
 		{
 			final int[] coords =
 			{ -245802, 220528, -12104 };
-			teleportPlayer(player, coords, player.getInstanceId());
+			teleportPlayer(player, coords, _instanceId);
 		}
 
 		return "";
@@ -1201,6 +1186,6 @@ public final class SeedOfDestruction extends QuestJython
 
 	public static void main(String[] args)
 	{
-		new SeedOfDestruction(-1, QN, "instances");
+		new SeedOfDestruction(-1, QN, "Seed of Destruction", "instances");
 	}
 }
