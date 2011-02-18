@@ -29,8 +29,8 @@ public class CharKnownList extends ObjectKnownList
 {
 	protected final L2Character _activeChar;
 	
-	private final Map<Integer, L2Object> _knownObjects = new SingletonMap<Integer, L2Object>().shared();
-	private final Map<Integer, L2PcInstance> _knownPlayers = new SingletonMap<Integer, L2PcInstance>().shared();
+	private final Map<Integer, L2Object> _knownObjects = new SingletonMap<Integer, L2Object>().setShared();
+	private final Map<Integer, L2PcInstance> _knownPlayers = new SingletonMap<Integer, L2PcInstance>().setShared();
 	
 	public CharKnownList(L2Character activeChar)
 	{

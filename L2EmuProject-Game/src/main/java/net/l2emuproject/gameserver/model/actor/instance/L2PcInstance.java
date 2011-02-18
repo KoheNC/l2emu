@@ -610,7 +610,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 
 	protected boolean						_inventoryDisabled		= false;
 
-	protected Map<Integer, L2CubicInstance>	_cubics					= new SingletonMap<Integer, L2CubicInstance>().shared();
+	protected Map<Integer, L2CubicInstance>	_cubics					= new SingletonMap<Integer, L2CubicInstance>().setShared();
 
 	/** The L2NpcInstance corresponding to the last Folk wich one the player talked. */
 	private L2Npc							_lastFolkNpc			= null;
@@ -11460,7 +11460,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 
 	private abstract class ConditionListener
 	{
-		private final Map<Func, Boolean> _values = new SingletonMap<Func, Boolean>().shared();
+		private final Map<Func, Boolean> _values = new SingletonMap<Func, Boolean>().setShared();
 		private final Env _env;
 
 		protected ConditionListener()
