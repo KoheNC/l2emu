@@ -83,7 +83,7 @@
 		<entity fortId="104" />
 		<restart_chaotic x="126520" y="123318" z="-2257" />
 		<restart_owner x="126520" y="123318" z="-2257" />
-		<shape type="Poly" zMin="-2600" zMax="-1100">
+		<shape type="Poly" zMin="-2800" zMax="-1100">
 			<point x="126771" y="125595" />
 			<point x="127833" y="124983" />
 			<point x="128457" y="123902" />
