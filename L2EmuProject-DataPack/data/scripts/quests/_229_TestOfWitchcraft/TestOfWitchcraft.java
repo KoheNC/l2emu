@@ -575,7 +575,8 @@ public final class TestOfWitchcraft extends QuestJython
 	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
 	{
 		QuestState st = player.getQuestState(QN);
-		String htmltext = "";
+		if (st == null)
+			return null;
 		final int npcId = npc.getNpcId();
 		final int cond = st.getInt(CONDITION);
 		if (npcId == DIRE_WYRM && cond == 2 && st.getQuestItemsCount(DIRE_WYRM_FANG) < 20 && st.getQuestItemsCount(IKERS_LIST) > 0)
@@ -683,7 +684,7 @@ public final class TestOfWitchcraft extends QuestJython
 				return "You have trapped the Soul of Drevanul Prince Zeruel";
 			}
 		}
-		return htmltext;
+		return null;
 	}
 
 	public static void main(String[] args)
