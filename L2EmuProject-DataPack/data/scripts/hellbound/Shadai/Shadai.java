@@ -17,10 +17,10 @@ import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
-import net.l2emuproject.gameserver.model.L2Spawn;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
+import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 
 public final class Shadai extends QuestJython

@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.model.itemcontainer;
 import java.util.List;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
-import net.l2emuproject.gameserver.model.L2ItemInstance.ItemLocation;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
 
 
 public class NpcInventory extends Inventory

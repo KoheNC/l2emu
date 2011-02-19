@@ -16,11 +16,11 @@ package ai.individual;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import ai.group_template.L2AttackableAIScript;
 
 /**

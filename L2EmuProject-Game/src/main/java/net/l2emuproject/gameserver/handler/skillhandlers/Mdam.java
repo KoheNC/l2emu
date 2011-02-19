@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ICubicSkillHandler;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2CubicInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.skills.Formulas;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 

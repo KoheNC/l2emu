@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.L2Clan;
-import net.l2emuproject.gameserver.model.L2Clan.SubPledge;
-import net.l2emuproject.gameserver.model.L2ClanMember;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.clan.L2Clan;
+import net.l2emuproject.gameserver.model.clan.L2ClanMember;
+import net.l2emuproject.gameserver.model.clan.L2Clan.SubPledge;
 import net.l2emuproject.gameserver.network.L2GameClient;
 
 public final class PledgeShowMemberListAll extends L2GameServerPacket

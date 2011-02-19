@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.TradeList;
+import net.l2emuproject.gameserver.model.item.TradeList;
 
 public final class TradeOwnAdd extends L2GameServerPacket
 {

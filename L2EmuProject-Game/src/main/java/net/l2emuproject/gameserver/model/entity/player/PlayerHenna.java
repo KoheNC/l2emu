@@ -20,8 +20,8 @@ import java.sql.ResultSet;
 
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.HennaTable;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.HennaInfo;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;

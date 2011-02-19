@@ -19,7 +19,7 @@ import java.util.Map;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.L2Skill;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;

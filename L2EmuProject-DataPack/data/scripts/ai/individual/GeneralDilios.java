@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.l2emuproject.gameserver.datatables.SpawnTable;
-import net.l2emuproject.gameserver.model.L2Spawn;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.tools.random.Rnd;

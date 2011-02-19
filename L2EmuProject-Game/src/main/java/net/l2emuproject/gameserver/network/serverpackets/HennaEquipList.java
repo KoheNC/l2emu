@@ -19,8 +19,8 @@ import java.util.Comparator;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.HennaTreeTable;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.templates.item.L2Henna;
 
 

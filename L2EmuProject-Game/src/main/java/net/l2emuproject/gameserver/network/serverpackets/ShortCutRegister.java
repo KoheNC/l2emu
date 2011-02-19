@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.L2ShortCut;
+import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 /**
  * 
  *

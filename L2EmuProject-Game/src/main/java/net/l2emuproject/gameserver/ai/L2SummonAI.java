@@ -18,11 +18,11 @@ import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
 import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_FOLLOW;
 import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
 import net.l2emuproject.gameserver.model.L2Object;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Character.AIAccessor;
 import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2MerchantSummonInstance;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 
 
 public class L2SummonAI extends L2CharacterAI

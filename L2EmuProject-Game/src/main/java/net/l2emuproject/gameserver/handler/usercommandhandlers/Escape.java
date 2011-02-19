@@ -17,10 +17,10 @@ package net.l2emuproject.gameserver.handler.usercommandhandlers;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.IUserCommandHandler;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance.TeleportMode;
 import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 
 public class Escape implements IUserCommandHandler

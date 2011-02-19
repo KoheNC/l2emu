@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.L2Clan;
-import net.l2emuproject.gameserver.model.L2Skill;
+import net.l2emuproject.gameserver.model.clan.L2Clan;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 
 public class PledgeSkillList extends L2GameServerPacket
 {

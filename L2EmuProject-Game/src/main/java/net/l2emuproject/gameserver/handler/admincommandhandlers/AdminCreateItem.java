@@ -18,8 +18,8 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 

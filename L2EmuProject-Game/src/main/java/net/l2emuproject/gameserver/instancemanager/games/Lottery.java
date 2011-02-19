@@ -24,7 +24,7 @@ import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.lang.L2Math;

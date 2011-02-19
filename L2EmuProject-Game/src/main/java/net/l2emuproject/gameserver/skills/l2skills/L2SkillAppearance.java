@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.skills.l2skills;
 
-import net.l2emuproject.gameserver.model.L2Skill;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 
 public class L2SkillAppearance extends L2Skill

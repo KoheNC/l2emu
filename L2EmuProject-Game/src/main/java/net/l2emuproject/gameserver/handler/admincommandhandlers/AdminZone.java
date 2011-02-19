@@ -28,9 +28,9 @@ import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
 import net.l2emuproject.gameserver.instancemanager.ZoneManager;
-import net.l2emuproject.gameserver.model.Location;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
+import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 
 

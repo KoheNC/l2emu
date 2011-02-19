@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.L2GameClient;
 
 public final class SkillList extends L2GameServerPacket

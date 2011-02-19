@@ -17,9 +17,9 @@ package ai.group_template;
 import org.apache.commons.lang.ArrayUtils;
 
 import net.l2emuproject.gameserver.datatables.SpawnTable;
-import net.l2emuproject.gameserver.model.L2Spawn;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
+import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 
 public class SeeThroughSilentMove extends L2AttackableAIScript
 {

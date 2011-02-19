@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.L2Macro;
+import net.l2emuproject.gameserver.services.macro.L2Macro;
 
 /**
  * packet type id 0xe7

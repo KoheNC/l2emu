@@ -1,6 +1,6 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.ItemInfo;
+import net.l2emuproject.gameserver.model.item.ItemInfo;
 import net.l2emuproject.gameserver.model.itemauction.ItemAuction;
 import net.l2emuproject.gameserver.model.itemauction.ItemAuctionBid;
 import net.l2emuproject.gameserver.model.itemauction.ItemAuctionState;

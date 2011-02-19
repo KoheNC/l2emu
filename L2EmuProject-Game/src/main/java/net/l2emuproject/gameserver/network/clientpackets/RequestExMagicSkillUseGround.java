@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.skills.SkillUsageRequest;
 import net.l2emuproject.tools.geometry.Point3D;
 

@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.Elementals;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.services.attribute.Elementals;
 
 /**
  * @author  Kerberos

@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.instancemanager;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.CrownTable;
-import net.l2emuproject.gameserver.model.L2Clan;
-import net.l2emuproject.gameserver.model.L2ClanMember;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.clan.L2Clan;
+import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.model.entity.Castle;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 
 import org.apache.commons.lang.ArrayUtils;

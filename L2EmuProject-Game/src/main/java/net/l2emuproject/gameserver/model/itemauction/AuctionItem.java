@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.model.itemauction;
 
 import net.l2emuproject.gameserver.datatables.ItemTable;
-import net.l2emuproject.gameserver.model.L2Augmentation;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.services.augmentation.L2Augmentation;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 

@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.L2Party;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.L2GameClient;
 
 public final class PartySmallWindowAll extends L2GameServerPacket

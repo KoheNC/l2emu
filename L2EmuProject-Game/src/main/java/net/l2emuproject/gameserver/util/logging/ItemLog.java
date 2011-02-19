@@ -21,7 +21,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.LogRecord;
 
 import javolution.text.TextBuilder;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.templates.item.AbstractL2ItemType;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.util.logging.L2LogFilter;

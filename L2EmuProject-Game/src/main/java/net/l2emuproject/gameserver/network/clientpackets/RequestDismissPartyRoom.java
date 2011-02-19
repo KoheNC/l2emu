@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.instancemanager.PartyRoomManager;
-import net.l2emuproject.gameserver.model.L2PartyRoom;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.party.L2PartyRoom;
 
 /**
  * Sent when the party room leader clicks "Exit" or "X" button.

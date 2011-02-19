@@ -20,10 +20,10 @@ import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.handler.ISkillHandler;
 import net.l2emuproject.gameserver.items.model.L2ExtractableProductItem;
 import net.l2emuproject.gameserver.items.model.L2ExtractableSkill;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
@@ -44,7 +44,7 @@ public class Extractable implements ISkillHandler
 
 	/**
 	 * 
-	 * @see net.l2emuproject.gameserver.handler.ISkillHandler#useSkill(net.l2emuproject.gameserver.model.actor.L2Character, net.l2emuproject.gameserver.model.L2Skill, net.l2emuproject.gameserver.model.actor.L2Character...)
+	 * @see net.l2emuproject.gameserver.handler.ISkillHandler#useSkill(net.l2emuproject.gameserver.model.actor.L2Character, net.l2emuproject.gameserver.model.skill.L2Skill, net.l2emuproject.gameserver.model.actor.L2Character...)
 	 */
 	@Override
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Character... targets)

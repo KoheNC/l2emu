@@ -18,19 +18,19 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillSpellbookTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
-import net.l2emuproject.gameserver.model.L2CertificationSkillsLearn;
 import net.l2emuproject.gameserver.model.L2PledgeSkillLearn;
-import net.l2emuproject.gameserver.model.L2Skill;
-import net.l2emuproject.gameserver.model.L2SkillLearn;
-import net.l2emuproject.gameserver.model.L2TransformSkillLearn;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2TransformManagerInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
+import net.l2emuproject.gameserver.model.skill.L2CertificationSkillsLearn;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
+import net.l2emuproject.gameserver.model.skill.L2SkillLearn;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.AcquireSkillInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
+import net.l2emuproject.gameserver.services.transformation.L2TransformSkillLearn;
 
 /**
  * This class represents a packet that is sent by the client when a player selects a

@@ -24,9 +24,9 @@ import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ItemsAutoDestroy;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
 import net.l2emuproject.gameserver.model.L2Object;
-import net.l2emuproject.gameserver.model.L2World;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.model.world.L2World;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

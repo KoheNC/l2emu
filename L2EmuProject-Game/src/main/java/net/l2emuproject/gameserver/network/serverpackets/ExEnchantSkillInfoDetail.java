@@ -17,10 +17,10 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.List;
 
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
-import net.l2emuproject.gameserver.model.L2EnchantSkillLearn;
-import net.l2emuproject.gameserver.model.L2EnchantSkillLearn.EnchantSkillDetail;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.model.skill.L2EnchantSkillLearn;
+import net.l2emuproject.gameserver.model.skill.L2EnchantSkillLearn.EnchantSkillDetail;
 
 /**
  * @author KenM

@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Trap;
 import net.l2emuproject.gameserver.model.actor.knownlist.CharKnownList;
 import net.l2emuproject.gameserver.model.actor.knownlist.TrapKnownList;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.taskmanager.AbstractIterativePeriodicTaskManager;

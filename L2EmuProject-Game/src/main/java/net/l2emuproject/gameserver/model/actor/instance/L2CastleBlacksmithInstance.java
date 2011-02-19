@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
-import net.l2emuproject.gameserver.model.L2Clan;
+import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;

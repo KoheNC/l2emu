@@ -14,12 +14,12 @@
  */
 package net.l2emuproject.gameserver.model.entity.player;
 
-import net.l2emuproject.gameserver.model.L2Macro;
-import net.l2emuproject.gameserver.model.L2ShortCut;
 import net.l2emuproject.gameserver.model.L2UIKeysSettings;
-import net.l2emuproject.gameserver.model.MacroList;
-import net.l2emuproject.gameserver.model.ShortCuts;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.services.macro.L2Macro;
+import net.l2emuproject.gameserver.services.macro.MacroList;
+import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
+import net.l2emuproject.gameserver.services.shortcuts.ShortCuts;
 
 public class PlayerSettings extends PlayerExtension
 {

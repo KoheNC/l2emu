@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.RecipeController;
-import net.l2emuproject.gameserver.model.L2RecipeList;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.item.L2RecipeList;
 
 /**
  * format   dddd

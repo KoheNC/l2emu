@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.datatables;
 
 import java.util.ArrayList;
 
-import net.l2emuproject.gameserver.model.L2Skill;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.logging.Log;

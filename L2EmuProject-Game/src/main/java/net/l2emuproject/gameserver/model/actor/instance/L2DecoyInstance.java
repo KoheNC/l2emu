@@ -18,11 +18,11 @@ import java.util.concurrent.Future;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Decoy;
 import net.l2emuproject.gameserver.model.actor.knownlist.CharKnownList;
 import net.l2emuproject.gameserver.model.actor.knownlist.DecoyKnownList;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillDecoy;
 import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;

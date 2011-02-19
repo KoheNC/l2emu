@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model.itemcontainer;
 
-import net.l2emuproject.gameserver.model.L2ItemInstance.ItemLocation;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
 
 public class PcWarehouse extends Warehouse
 {

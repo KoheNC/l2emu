@@ -128,7 +128,6 @@ import net.l2emuproject.gameserver.instancemanager.leaderboards.FishermanManager
 import net.l2emuproject.gameserver.model.AutoChatHandler;
 import net.l2emuproject.gameserver.model.L2Manor;
 import net.l2emuproject.gameserver.model.L2Multisell;
-import net.l2emuproject.gameserver.model.L2World;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.Fort;
@@ -136,6 +135,7 @@ import net.l2emuproject.gameserver.model.entity.Hero;
 import net.l2emuproject.gameserver.model.entity.events.TvT;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
+import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.L2GameSelectorThread;
 import net.l2emuproject.gameserver.script.faenor.FaenorScriptEngine;
 import net.l2emuproject.gameserver.scripting.CompiledScriptCache;

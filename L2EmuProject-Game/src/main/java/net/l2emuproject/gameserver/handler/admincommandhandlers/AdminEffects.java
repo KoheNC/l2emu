@@ -21,11 +21,11 @@ import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerS
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.FrintezzaManager;
 import net.l2emuproject.gameserver.model.L2Object;
-import net.l2emuproject.gameserver.model.L2World;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2ChestInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Earthquake;
 import net.l2emuproject.gameserver.network.serverpackets.ExRedSky;

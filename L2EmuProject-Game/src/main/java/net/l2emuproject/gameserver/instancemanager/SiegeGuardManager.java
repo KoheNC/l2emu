@@ -22,9 +22,9 @@ import javolution.util.FastList;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.model.L2Spawn;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
+import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
 import org.apache.commons.logging.Log;

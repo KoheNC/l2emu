@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.ai;
 
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.L2Spawn;
 import net.l2emuproject.gameserver.model.actor.L2Character.AIAccessor;
+import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.tools.random.Rnd;

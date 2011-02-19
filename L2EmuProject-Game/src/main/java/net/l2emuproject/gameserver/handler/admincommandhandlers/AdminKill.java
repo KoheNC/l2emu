@@ -19,10 +19,10 @@ import java.util.StringTokenizer;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.model.L2Object;
-import net.l2emuproject.gameserver.model.L2World;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControllableMobInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 
 import org.apache.commons.logging.Log;

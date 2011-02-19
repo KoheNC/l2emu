@@ -27,8 +27,8 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.cache.HtmCache;
-import net.l2emuproject.gameserver.model.L2World;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;

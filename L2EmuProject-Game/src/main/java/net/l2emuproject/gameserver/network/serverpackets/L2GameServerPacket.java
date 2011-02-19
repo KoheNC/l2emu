@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import gnu.trove.TIntArrayList;
-import net.l2emuproject.gameserver.model.Elementals;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.clientpackets.L2GameClientPacket;
+import net.l2emuproject.gameserver.services.attribute.Elementals;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

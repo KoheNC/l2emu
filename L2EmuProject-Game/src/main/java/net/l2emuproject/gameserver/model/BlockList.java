@@ -18,6 +18,7 @@ import java.util.Set;
 
 import net.l2emuproject.gameserver.instancemanager.BlockListManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 

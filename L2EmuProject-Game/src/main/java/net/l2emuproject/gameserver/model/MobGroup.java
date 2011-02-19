@@ -21,6 +21,7 @@ import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControllableMobInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.spawn.L2GroupSpawn;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.tools.random.Rnd;
 

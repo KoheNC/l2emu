@@ -21,8 +21,8 @@ import java.sql.SQLException;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.cache.CrestCache;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.model.L2Clan;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 
 

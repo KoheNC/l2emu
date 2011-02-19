@@ -18,11 +18,11 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.PetDataTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
@@ -38,7 +38,7 @@ public class PetFood implements IItemHandler
 	};
 
 	/**
-	 * @see net.l2emuproject.gameserver.handler.IItemHandler#useItem(net.l2emuproject.gameserver.model.actor.instance.L2Playable, net.l2emuproject.gameserver.model.L2ItemInstance)
+	 * @see net.l2emuproject.gameserver.handler.IItemHandler#useItem(net.l2emuproject.gameserver.model.actor.instance.L2Playable, net.l2emuproject.gameserver.model.item.L2ItemInstance)
 	 */
 	@Override
 	public void useItem(L2Playable playable, L2ItemInstance item)

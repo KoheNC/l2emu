@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.Map;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.L2Party;
-import net.l2emuproject.gameserver.model.Location;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.party.L2Party;
+import net.l2emuproject.gameserver.model.world.Location;
 
 /**
  * @author zabbix

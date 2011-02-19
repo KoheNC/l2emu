@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model.actor.shot;
 
-import net.l2emuproject.gameserver.model.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
 import net.l2emuproject.tools.random.Rnd;

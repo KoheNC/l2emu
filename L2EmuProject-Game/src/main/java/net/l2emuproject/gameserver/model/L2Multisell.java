@@ -24,8 +24,10 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.serverpackets.MultiSellList;
+import net.l2emuproject.gameserver.services.attribute.Elementals;
 import net.l2emuproject.gameserver.templates.item.L2Armor;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;

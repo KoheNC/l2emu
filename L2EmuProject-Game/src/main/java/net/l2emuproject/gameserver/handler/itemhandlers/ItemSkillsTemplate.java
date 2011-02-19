@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.L2Playable;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 
 /**
  * Template for item skills handler

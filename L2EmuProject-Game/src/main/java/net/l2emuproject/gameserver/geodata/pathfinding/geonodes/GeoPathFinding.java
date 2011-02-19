@@ -29,8 +29,8 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.geodata.pathfinding.Node;
 import net.l2emuproject.gameserver.geodata.pathfinding.PathFinding;
-import net.l2emuproject.gameserver.model.L2World;
-import net.l2emuproject.gameserver.model.Location;
+import net.l2emuproject.gameserver.model.world.L2World;
+import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.util.L2Arrays;
 import net.l2emuproject.util.LookupTable;
 

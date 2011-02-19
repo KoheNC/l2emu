@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.RecipeController;
-import net.l2emuproject.gameserver.model.L2RecipeList;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.item.L2RecipeList;
 import net.l2emuproject.gameserver.network.serverpackets.RecipeBookItemList;
 
 public class RequestRecipeBookDestroy extends L2GameClientPacket

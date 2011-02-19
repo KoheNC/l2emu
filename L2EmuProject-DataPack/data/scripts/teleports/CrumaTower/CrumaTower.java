@@ -14,11 +14,11 @@
  */
 package teleports.CrumaTower;
 
-import net.l2emuproject.gameserver.model.Location;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
+import net.l2emuproject.gameserver.model.world.Location;
 
 /**
  * @author K4N4BS

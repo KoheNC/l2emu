@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.instancemanager;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.GameTimeController;
-import net.l2emuproject.gameserver.model.L2Spawn;
 import net.l2emuproject.gameserver.model.actor.L2Boss;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2GrandBossInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2RaidBossInstance;
+import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

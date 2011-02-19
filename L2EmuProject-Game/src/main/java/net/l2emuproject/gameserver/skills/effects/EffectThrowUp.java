@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.skills.effects;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.model.L2Effect;
-import net.l2emuproject.gameserver.model.Location;
+import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation;
 import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation.FlyType;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;

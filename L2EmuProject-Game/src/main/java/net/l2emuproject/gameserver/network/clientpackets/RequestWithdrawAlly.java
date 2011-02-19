@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.L2Clan;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 
 public class RequestWithdrawAlly extends L2GameClientPacket

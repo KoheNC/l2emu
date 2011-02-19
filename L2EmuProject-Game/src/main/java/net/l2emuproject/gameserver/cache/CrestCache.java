@@ -28,7 +28,7 @@ import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.model.L2Clan;
+import net.l2emuproject.gameserver.model.clan.L2Clan;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

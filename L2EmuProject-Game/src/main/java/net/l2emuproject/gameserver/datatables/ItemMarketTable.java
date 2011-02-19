@@ -24,8 +24,8 @@ import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.L2ItemMarketModel;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemMarketModel;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

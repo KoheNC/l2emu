@@ -18,12 +18,12 @@ import static net.l2emuproject.gameserver.model.actor.L2Npc.INTERACTION_DISTANCE
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
 import net.l2emuproject.gameserver.model.L2Manor;
 import net.l2emuproject.gameserver.model.L2Object;
 import net.l2emuproject.gameserver.model.actor.instance.L2ManorManagerInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;

@@ -20,7 +20,7 @@ import java.util.StringTokenizer;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.skills.funcs.FuncTemplate;
 import net.l2emuproject.gameserver.templates.item.L2Armor;

@@ -17,8 +17,8 @@ package net.l2emuproject.status.commands;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.L2World;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.status.GameStatusCommand;

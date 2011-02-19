@@ -16,6 +16,7 @@ package net.l2emuproject.gameserver.model;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.serverpackets.RadarControl;
 
 

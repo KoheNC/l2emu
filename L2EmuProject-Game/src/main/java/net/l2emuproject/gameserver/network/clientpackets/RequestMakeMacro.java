@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.L2Macro;
-import net.l2emuproject.gameserver.model.L2Macro.L2MacroCmd;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.macro.L2Macro;
+import net.l2emuproject.gameserver.services.macro.L2Macro.L2MacroCmd;
 
 public class RequestMakeMacro extends L2GameClientPacket
 {

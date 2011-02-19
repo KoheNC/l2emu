@@ -14,8 +14,8 @@
  */
 package vehicles.SoIController;
 
-import net.l2emuproject.gameserver.model.Location;
 import net.l2emuproject.gameserver.model.VehiclePathPoint;
+import net.l2emuproject.gameserver.model.world.Location;
 import vehicles.AirShipController;
 
 public final class SoIController extends AirShipController

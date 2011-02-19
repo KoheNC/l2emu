@@ -24,6 +24,7 @@ import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.effects.CharEffects;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.EffectInfoPacket.EffectInfoPacketList;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;

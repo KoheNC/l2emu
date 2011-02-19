@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.List;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.model.ItemInfo;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
+import net.l2emuproject.gameserver.model.item.ItemInfo;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 
 /**
  * This class ...

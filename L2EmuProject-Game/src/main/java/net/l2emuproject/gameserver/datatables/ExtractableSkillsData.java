@@ -22,7 +22,7 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.items.model.L2ExtractableProductItem;
 import net.l2emuproject.gameserver.items.model.L2ExtractableSkill;
-import net.l2emuproject.gameserver.model.L2Skill;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

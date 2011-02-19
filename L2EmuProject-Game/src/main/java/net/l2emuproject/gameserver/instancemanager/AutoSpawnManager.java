@@ -28,10 +28,10 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.model.L2Spawn;
-import net.l2emuproject.gameserver.model.Location;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.entity.Town;
+import net.l2emuproject.gameserver.model.spawn.L2Spawn;
+import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.tools.random.Rnd;
 

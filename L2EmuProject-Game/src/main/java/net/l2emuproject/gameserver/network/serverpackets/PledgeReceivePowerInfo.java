@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.L2ClanMember;
+import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 
 /**
  * Format : (ch) dSd

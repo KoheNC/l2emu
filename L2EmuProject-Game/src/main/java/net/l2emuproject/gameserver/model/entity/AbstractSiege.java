@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model.entity;
 
-import net.l2emuproject.gameserver.model.L2Clan;
 import net.l2emuproject.gameserver.model.L2SiegeClan;
+import net.l2emuproject.gameserver.model.clan.L2Clan;
 
 /**
  * @author NB4L1

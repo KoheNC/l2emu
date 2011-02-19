@@ -20,8 +20,8 @@ import java.sql.SQLException;
 import java.util.NoSuchElementException;
 
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.L2World;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.status.GameStatusCommand;
 
 public final class Unjail extends GameStatusCommand

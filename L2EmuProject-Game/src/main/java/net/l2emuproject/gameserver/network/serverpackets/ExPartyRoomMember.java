@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
-import net.l2emuproject.gameserver.model.L2Party;
-import net.l2emuproject.gameserver.model.L2PartyRoom;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.party.L2Party;
+import net.l2emuproject.gameserver.model.party.L2PartyRoom;
 
 /**
  * Format:(ch) d d[dsdddd]

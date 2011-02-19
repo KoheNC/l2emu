@@ -21,7 +21,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.L2SummonItem;
+import net.l2emuproject.gameserver.model.item.L2SummonItem;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -33,19 +33,17 @@ import net.l2emuproject.gameserver.instancemanager.PetitionManager;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
-import net.l2emuproject.gameserver.model.L2Clan;
-import net.l2emuproject.gameserver.model.L2ClanMember;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
-import net.l2emuproject.gameserver.model.L2ShortCut;
-import net.l2emuproject.gameserver.model.L2World;
 import net.l2emuproject.gameserver.model.actor.instance.L2ClassMasterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.clan.L2Clan;
+import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.model.entity.Couple;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.entity.FortSiege;
 import net.l2emuproject.gameserver.model.entity.Hero;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.entity.Siege;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
@@ -53,6 +51,7 @@ import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
+import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Die;
@@ -77,6 +76,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.TutorialShowQuestionMark;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.VersionService;
+import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 
 public class EnterWorld extends L2GameClientPacket
 {

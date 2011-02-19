@@ -20,9 +20,9 @@ import java.util.Arrays;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.L2World;
-import net.l2emuproject.gameserver.model.L2WorldRegion;
 import net.l2emuproject.gameserver.model.entity.Castle;
+import net.l2emuproject.gameserver.model.world.L2World;
+import net.l2emuproject.gameserver.model.world.L2WorldRegion;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.model.zone.L2Zone.ZoneType;
 import net.l2emuproject.gameserver.util.Util;

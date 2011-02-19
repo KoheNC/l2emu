@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.Location;
+import net.l2emuproject.gameserver.model.world.Location;
 
 /**
  * Probably the destination coordinates where you should fly your clan's airship.<BR>

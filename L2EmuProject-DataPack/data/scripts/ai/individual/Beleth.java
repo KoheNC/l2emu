@@ -16,12 +16,12 @@ package ai.individual;
 
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.BelethManager;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import ai.group_template.L2AttackableAIScript;
 
 /**

@@ -15,12 +15,12 @@
 package teleports.StakatoNest;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.Location;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
+import net.l2emuproject.gameserver.model.world.Location;
 
 public final class StakatoNest extends QuestJython
 {

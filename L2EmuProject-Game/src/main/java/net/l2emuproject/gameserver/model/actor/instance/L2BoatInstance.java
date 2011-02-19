@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.ai.L2BoatAI;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.Location;
 import net.l2emuproject.gameserver.model.actor.L2Vehicle;
+import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.serverpackets.VehicleDeparture;
 import net.l2emuproject.gameserver.network.serverpackets.VehicleInfo;
 import net.l2emuproject.gameserver.network.serverpackets.VehicleStarted;

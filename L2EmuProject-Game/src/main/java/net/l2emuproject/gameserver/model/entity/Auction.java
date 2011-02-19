@@ -27,10 +27,10 @@ import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.AuctionManager;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
-import net.l2emuproject.gameserver.model.L2Clan;
-import net.l2emuproject.gameserver.model.L2World;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 
 import org.apache.commons.logging.Log;

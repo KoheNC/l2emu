@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.model.actor.stat;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.Elementals;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Character;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
+import net.l2emuproject.gameserver.services.attribute.Elementals;
 import net.l2emuproject.gameserver.skills.Calculator;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.Stats;

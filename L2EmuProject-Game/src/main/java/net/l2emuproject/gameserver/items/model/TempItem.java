@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.items.model;
 
-import net.l2emuproject.gameserver.model.L2ItemInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 
 /**
  * Class explanation:

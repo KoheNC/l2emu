@@ -18,8 +18,8 @@ import java.util.Collection;
 import java.util.Map;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.L2Transformation;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

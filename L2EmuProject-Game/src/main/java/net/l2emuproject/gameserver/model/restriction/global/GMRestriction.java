@@ -19,8 +19,8 @@ import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.datatables.GMSkillTable;
 import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.handler.AdminCommandHandler;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 
 public final class GMRestriction extends AbstractRestriction
 {

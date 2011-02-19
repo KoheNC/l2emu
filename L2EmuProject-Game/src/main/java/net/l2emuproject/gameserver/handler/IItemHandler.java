@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.handler;
 
-import net.l2emuproject.gameserver.model.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.L2Playable;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

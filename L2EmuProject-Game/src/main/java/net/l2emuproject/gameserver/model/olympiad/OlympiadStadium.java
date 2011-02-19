@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.model.olympiad;
 import java.util.Set;
 
 import net.l2emuproject.gameserver.datatables.DoorTable;
-import net.l2emuproject.gameserver.model.Location;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.util.L2FastSet;
 
 

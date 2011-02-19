@@ -31,9 +31,9 @@ import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.ClassId;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
@@ -1457,7 +1457,7 @@ public class AdminSortMultisellItems implements IAdminCommandHandler
 				try
 				{
 
-					for (net.l2emuproject.gameserver.model.L2SkillLearn skill : SkillTreeTable.getInstance().getAllowedSkills(classId))
+					for (net.l2emuproject.gameserver.model.skill.L2SkillLearn skill : SkillTreeTable.getInstance().getAllowedSkills(classId))
 					{
 						try
 						{

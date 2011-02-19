@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.templates.skills;
 
 import java.lang.reflect.Constructor;
 
-import net.l2emuproject.gameserver.model.L2Skill;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillAgathion;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillAppearance;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillChangeWeapon;

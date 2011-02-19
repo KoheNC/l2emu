@@ -18,7 +18,7 @@ import java.io.File;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import net.l2emuproject.gameserver.model.L2Skill;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.skills.conditions.Condition;
 import net.l2emuproject.gameserver.skills.conditions.ConditionParser;
 import net.l2emuproject.gameserver.skills.funcs.FuncTemplate;

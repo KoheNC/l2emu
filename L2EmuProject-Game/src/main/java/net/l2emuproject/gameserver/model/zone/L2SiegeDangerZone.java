@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.model.zone;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.Siege;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 

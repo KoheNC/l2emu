@@ -17,11 +17,11 @@ package net.l2emuproject.gameserver.ai;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.QueenAntManager;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Character.AIAccessor;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.util.Util;
 
 /**

@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.handler;
 
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2CubicInstance;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 
 public interface ICubicSkillHandler extends ISkillHandler
 {

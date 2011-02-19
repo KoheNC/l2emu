@@ -25,13 +25,13 @@ import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.L2Clan;
 import net.l2emuproject.gameserver.model.L2Manor;
-import net.l2emuproject.gameserver.model.L2World;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.itemcontainer.ClanWarehouse;
 import net.l2emuproject.gameserver.model.itemcontainer.ItemContainer;
+import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.tools.random.Rnd;
 

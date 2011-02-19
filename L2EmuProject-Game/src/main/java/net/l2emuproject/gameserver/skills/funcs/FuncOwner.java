@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.skills.funcs;
 
-import net.l2emuproject.gameserver.model.L2Skill;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 
 /**
  * @author NB4L1

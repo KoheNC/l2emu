@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.instancemanager.PartyRoomManager;
-import net.l2emuproject.gameserver.model.L2Party;
-import net.l2emuproject.gameserver.model.L2PartyRoom;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.party.L2Party;
+import net.l2emuproject.gameserver.model.party.L2PartyRoom;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 
 public class RequestWithdrawPartyRoom extends L2GameClientPacket

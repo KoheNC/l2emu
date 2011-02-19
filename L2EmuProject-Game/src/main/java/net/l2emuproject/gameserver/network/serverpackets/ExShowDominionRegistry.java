@@ -19,8 +19,8 @@ import java.util.Calendar;
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager.Territory;
-import net.l2emuproject.gameserver.model.L2Clan;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.clan.L2Clan;
 
 /**
  * format: dSSSdddddddd (dd(d))

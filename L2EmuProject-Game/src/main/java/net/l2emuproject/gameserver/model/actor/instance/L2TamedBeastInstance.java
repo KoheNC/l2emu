@@ -21,10 +21,10 @@ import java.util.concurrent.Future;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.L2ItemInstance;
 import net.l2emuproject.gameserver.model.L2Object;
-import net.l2emuproject.gameserver.model.L2Skill;
 import net.l2emuproject.gameserver.model.actor.L2Character;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.serverpackets.StopMove;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
@@ -299,7 +299,7 @@ public final class L2TamedBeastInstance extends L2FeedableBeastInstance
      *   Next, call super.doCast(skill) in order to actually cast the spell
      *   Finally, return to auto-following the owner.
      * 
-     * @see net.l2emuproject.gameserver.model.actor.L2Character#doCast(net.l2emuproject.gameserver.model.L2Skill)
+     * @see net.l2emuproject.gameserver.model.actor.L2Character#doCast(net.l2emuproject.gameserver.model.skill.L2Skill)
      */
 	protected void sitCastAndFollow(L2Skill skill, L2Character target)
 	{

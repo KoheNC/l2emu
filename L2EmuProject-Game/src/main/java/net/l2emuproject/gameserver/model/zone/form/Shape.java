@@ -18,7 +18,7 @@ import java.lang.reflect.Constructor;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.model.L2Object;
-import net.l2emuproject.gameserver.model.Location;
+import net.l2emuproject.gameserver.model.world.Location;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

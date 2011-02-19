@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.skills;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.L2Skill;
+import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 
 /**
