@@ -223,3 +223,11 @@ INSERT INTO `raidboss_spawnlist` VALUES
 DELETE FROM `raidboss_spawnlist` WHERE `boss_id` IN (25671);
 INSERT INTO `raidboss_spawnlist` VALUES
 (25671,1,79634,-55428,-6104,0,43200,129600,0,312521,9999); -- Queen Shyeed (84)
+
+-- epilogue raid boss spawns by lewzer
+INSERT INTO `raidboss_spawnlist` VALUES
+(25680,1,193462,54520,-4370,0,21600,21601,0,855234,1743), -- Giant marpanak (82)
+(25681,1,186194,61619,-4155,0,21600,21601,0,306364,1743), -- Gorgolos (82)
+(25674,1,85644,217084,-3776,0,21600,21601,0,309427,1743), -- Gwindorr (82)
+(25684,1,187537,60792,-5010,0,21600,21601,0,309427,1743), -- Last Titan Utenus (83)
+(25677,1,81824,183268,-3740,0,21600,21601,0,312522,1743); -- Water Spirit Lian (83)
