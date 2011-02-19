@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.model.actor.knownlist;
 
-import net.l2emuproject.gameserver.model.L2Object;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.world.L2Object;
 
 public final class VehicleKnownList extends CharKnownList
 {

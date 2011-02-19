@@ -22,7 +22,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.stat.CharStat;
 import net.l2emuproject.gameserver.model.entity.Duel;
 import net.l2emuproject.gameserver.model.skill.L2Skill;
-import net.l2emuproject.gameserver.skills.Formulas;
+import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.util.SingletonSet;

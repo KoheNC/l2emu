@@ -40,10 +40,6 @@ import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
 import net.l2emuproject.gameserver.instancemanager.games.Lottery;
-import net.l2emuproject.gameserver.model.L2DropCategory;
-import net.l2emuproject.gameserver.model.L2DropData;
-import net.l2emuproject.gameserver.model.L2NpcCharData;
-import net.l2emuproject.gameserver.model.MobGroupTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2AuctioneerInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2CCHBossInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2ChestInstance;
@@ -75,6 +71,10 @@ import net.l2emuproject.gameserver.model.entity.Town;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.NpcInventory;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.model.npc.L2DropCategory;
+import net.l2emuproject.gameserver.model.npc.L2DropData;
+import net.l2emuproject.gameserver.model.npc.L2NpcCharData;
+import net.l2emuproject.gameserver.model.npc.MobGroupTable;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
@@ -2170,7 +2170,7 @@ public class L2Npc extends L2Character
 	 * <FONT COLOR=#FF0000><B> <U>Caution</U> : This method DOESN'T REMOVE the object from _allObjects of L2World </B></FONT><BR>
 	 * <FONT COLOR=#FF0000><B> <U>Caution</U> : This method DOESN'T SEND Server->Client packets to players</B></FONT><BR><BR>
 	 *
-	 * @see net.l2emuproject.gameserver.model.L2Object#decayMe()
+	 * @see net.l2emuproject.gameserver.model.world.L2Object#decayMe()
 	 */
 	@Override
 	public void onDecay()

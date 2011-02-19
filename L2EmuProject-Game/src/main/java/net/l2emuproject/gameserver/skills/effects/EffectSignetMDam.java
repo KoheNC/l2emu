@@ -30,7 +30,7 @@ import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;
 import net.l2emuproject.gameserver.skills.Env;
-import net.l2emuproject.gameserver.skills.Formulas;
+import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillSignetCasttime;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;

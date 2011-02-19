@@ -23,10 +23,10 @@ import java.util.Map;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.L2Object;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.position.ObjectPosition;
+import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.tools.util.CustomFileNameFilter;
 import net.l2emuproject.util.ValueSortMap;
@@ -193,7 +193,6 @@ public final class Util
 		FRONT,
 		SIDE,
 		BACK;
-		// TODO HIGH,LOW
 		
 		public static Direction getDirection(L2Object obj, L2Object src)
 		{

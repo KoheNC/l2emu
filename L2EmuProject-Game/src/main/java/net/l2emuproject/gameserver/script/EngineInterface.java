@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.script;
 
-import net.l2emuproject.gameserver.model.L2DropData;
+import net.l2emuproject.gameserver.model.npc.L2DropData;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
 /**

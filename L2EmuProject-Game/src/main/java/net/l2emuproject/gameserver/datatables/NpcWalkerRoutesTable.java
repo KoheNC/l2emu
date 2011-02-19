@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 import javolution.util.FastList;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.L2NpcWalkerNode;
+import net.l2emuproject.gameserver.model.npc.L2NpcWalkerNode;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

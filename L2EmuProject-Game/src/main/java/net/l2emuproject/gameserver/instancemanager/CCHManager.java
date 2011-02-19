@@ -21,12 +21,12 @@ import java.util.List;
 import javolution.util.FastList;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.L2Object;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
+import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 
 import org.apache.commons.logging.Log;

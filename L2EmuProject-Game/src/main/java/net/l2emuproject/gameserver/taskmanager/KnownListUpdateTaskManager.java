@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.taskmanager;
 
-import net.l2emuproject.gameserver.model.L2Object;
+import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.model.world.L2World;
 
 /**

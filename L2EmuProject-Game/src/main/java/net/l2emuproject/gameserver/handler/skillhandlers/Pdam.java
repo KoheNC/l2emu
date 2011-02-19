@@ -23,7 +23,7 @@ import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.model.skill.L2Skill.SkillTargetType;
 import net.l2emuproject.gameserver.skills.Env;
-import net.l2emuproject.gameserver.skills.Formulas;
+import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillPdam;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;

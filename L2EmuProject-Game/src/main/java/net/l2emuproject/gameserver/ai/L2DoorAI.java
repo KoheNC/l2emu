@@ -17,11 +17,11 @@ package net.l2emuproject.gameserver.ai;
 import javolution.util.FastMap;
 import javolution.util.FastMap.Entry;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.L2Object;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
+import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.skills.SkillUsageRequest;
 import net.l2emuproject.gameserver.threadmanager.FIFOExecutableQueue;
 

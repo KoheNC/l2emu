@@ -24,7 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation;
 import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation.FlyType;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
-import net.l2emuproject.gameserver.skills.Formulas;
+import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.util.Util;
 

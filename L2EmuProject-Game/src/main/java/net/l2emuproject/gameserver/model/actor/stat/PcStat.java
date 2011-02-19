@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.model.actor.stat;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.PetDataTable;
-import net.l2emuproject.gameserver.model.L2PetData;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2ClassMasterInstance;
@@ -25,6 +24,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
 import net.l2emuproject.gameserver.model.base.Experience;
 import net.l2emuproject.gameserver.model.entity.RecoBonus;
+import net.l2emuproject.gameserver.model.npc.L2PetData;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;

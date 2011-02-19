@@ -15,6 +15,7 @@
 package net.l2emuproject.gameserver.model;
 
 import net.l2emuproject.gameserver.model.actor.L2Npc;
+import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.util.L2FastSet;
 

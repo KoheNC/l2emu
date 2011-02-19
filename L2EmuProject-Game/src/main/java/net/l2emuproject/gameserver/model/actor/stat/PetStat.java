@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.model.actor.stat;
 
 import net.l2emuproject.gameserver.datatables.PetDataTable;
-import net.l2emuproject.gameserver.model.L2PetData;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.base.Experience;
+import net.l2emuproject.gameserver.model.npc.L2PetData;
 import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;

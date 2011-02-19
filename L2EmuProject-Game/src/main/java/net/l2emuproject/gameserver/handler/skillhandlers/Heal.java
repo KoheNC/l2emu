@@ -24,8 +24,8 @@ import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import net.l2emuproject.gameserver.skills.Formulas;
 import net.l2emuproject.gameserver.skills.Stats;
+import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillRecover;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 

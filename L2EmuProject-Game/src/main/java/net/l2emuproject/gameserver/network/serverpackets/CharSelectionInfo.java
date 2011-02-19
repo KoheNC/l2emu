@@ -23,11 +23,11 @@ import java.util.List;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
-import net.l2emuproject.gameserver.model.CharSelectInfoPackage;
-import net.l2emuproject.gameserver.model.CursedWeapon;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
+import net.l2emuproject.gameserver.model.item.CursedWeapon;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
+import net.l2emuproject.gameserver.network.CharSelectInfoPackage;
 import net.l2emuproject.gameserver.network.L2GameClient;
 
 

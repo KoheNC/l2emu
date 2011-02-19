@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.model.L2Object;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 /**
  * This class ...

@@ -28,7 +28,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.CursedWeapon;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Boss;
 import net.l2emuproject.gameserver.model.actor.L2Character;
@@ -38,6 +37,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2FestivalMonsterInstanc
 import net.l2emuproject.gameserver.model.actor.instance.L2GuardInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2RiftInvaderInstance;
+import net.l2emuproject.gameserver.model.item.CursedWeapon;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;

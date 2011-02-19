@@ -22,8 +22,8 @@ import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.services.attribute.Elementals;
 import net.l2emuproject.gameserver.skills.ChanceCondition;
-import net.l2emuproject.gameserver.skills.Formulas;
 import net.l2emuproject.gameserver.skills.IChanceSkillTrigger;
+import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.util.L2Arrays;
 

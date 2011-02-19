@@ -28,7 +28,6 @@ import net.l2emuproject.gameserver.LoginServerThread;
 import net.l2emuproject.gameserver.LoginServerThread.SessionKey;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.CharSelectInfoPackage;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.clientpackets.L2GameClientPacket;

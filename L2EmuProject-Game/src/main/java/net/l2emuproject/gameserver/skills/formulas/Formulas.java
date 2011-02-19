@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.skills;
+package net.l2emuproject.gameserver.skills.formulas;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.GameTimeController;
@@ -47,6 +47,9 @@ import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.skills.Calculator;
+import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.skills.conditions.ConditionPlayerState;
 import net.l2emuproject.gameserver.skills.conditions.ConditionUsingItemType;
 import net.l2emuproject.gameserver.skills.funcs.Func;

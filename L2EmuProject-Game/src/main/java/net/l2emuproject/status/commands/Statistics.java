@@ -18,7 +18,6 @@ import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.L2GameServer;
 import net.l2emuproject.gameserver.LoginServerThread;
 import net.l2emuproject.gameserver.datatables.GmListTable;
-import net.l2emuproject.gameserver.model.L2Object;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.L2Summon;
@@ -26,6 +25,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.status.GameStatusCommand;
 

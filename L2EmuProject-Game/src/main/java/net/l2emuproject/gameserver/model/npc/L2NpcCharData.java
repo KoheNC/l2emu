@@ -11,7 +11,7 @@
  *
  * http://www.gnu.org/copyleft/gpl.html
  */
-package net.l2emuproject.gameserver.model;
+package net.l2emuproject.gameserver.model.npc;
 
 import javolution.util.FastList;
 

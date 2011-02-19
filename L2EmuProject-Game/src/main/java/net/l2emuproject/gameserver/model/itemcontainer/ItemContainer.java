@@ -24,11 +24,11 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.model.GMAudit;
-import net.l2emuproject.gameserver.model.L2Object;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
+import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 

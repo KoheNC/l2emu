@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model.actor.knownlist;
 
-import net.l2emuproject.gameserver.model.L2Object;
 import net.l2emuproject.gameserver.model.actor.L2Trap;
+import net.l2emuproject.gameserver.model.world.L2Object;
 
 public class TrapKnownList extends CharKnownList
 {

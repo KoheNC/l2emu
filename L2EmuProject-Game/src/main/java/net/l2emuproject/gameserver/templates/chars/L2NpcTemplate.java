@@ -22,11 +22,11 @@ import java.util.Set;
 
 import javolution.util.FastList;
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.L2DropCategory;
-import net.l2emuproject.gameserver.model.L2DropData;
-import net.l2emuproject.gameserver.model.L2MinionData;
-import net.l2emuproject.gameserver.model.L2NpcCharData;
 import net.l2emuproject.gameserver.model.base.ClassId;
+import net.l2emuproject.gameserver.model.npc.L2DropCategory;
+import net.l2emuproject.gameserver.model.npc.L2DropData;
+import net.l2emuproject.gameserver.model.npc.L2MinionData;
+import net.l2emuproject.gameserver.model.npc.L2NpcCharData;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
