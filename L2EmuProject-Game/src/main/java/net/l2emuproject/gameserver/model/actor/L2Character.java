@@ -5804,7 +5804,7 @@ public abstract class L2Character extends L2Object
 		if (_skills == null)
 			return new L2Skill[0];
 
-		return (L2Skill[]) _skills.values().toArray();
+		return _skills.values().toArray(new L2Skill[_skills.size()]);
 	}
 
 	/**
