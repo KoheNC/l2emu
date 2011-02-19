@@ -52,7 +52,7 @@ public class ExShowReceivedPost extends L2GameServerPacket
 		writeH(0xab);
 		writeD(_msg.getId());
 		writeD(_msg.isLocked() ? 1 : 0);
-		writeD(0x00); // Unknown
+		writeD(0x00); //Unknown
 		writeS(_msg.getSenderName());
 		writeS(_msg.getSubject());
 		writeS(_msg.getContent());
@@ -62,26 +62,26 @@ public class ExShowReceivedPost extends L2GameServerPacket
 			writeD(_items.length);
 			for (L2ItemInstance item : _items)
 			{
-				writeH(item.getItem().getType2());
-				writeD(0x00); // unknown
+				writeD(0x00);
 				writeD(item.getItemId());
+				writeD(item.getLocationSlot());
 				writeQ(item.getCount());
-				
-				writeD(item.getEnchantLevel());
+				writeH(item.getItem().getType2());
+				writeH(item.getCustomType1());
+				writeH(item.isEquipped() ? 0x01 : 0x00);
+				writeD(item.getItem().getBodyPart());
+				writeH(item.getEnchantLevel());
 				writeH(item.getCustomType2());
-				writeH(0x00); // unknown
-				writeD(0x00); // unknown
-				
 				if (item.isAugmented())
 					writeD(item.getAugmentation().getAugmentationId());
 				else
 					writeD(0x00);
-				
-				writeD(0x00); // unknown
-				
+				writeD(item.getMana());
+				writeD(item.isTimeLimitedItem() ? (int) (item.getRemainingTime() / 1000) : -9999);
 				writeElementalInfo(item);
-				
+				// Enchant Effects
 				writeEnchantEffectInfo();
+				writeD(item.getObjectId());
 			}
 			_items = null;
 		}
@@ -89,9 +89,8 @@ public class ExShowReceivedPost extends L2GameServerPacket
 			writeD(0x00);
 		
 		writeQ(_msg.getReqAdena());
-		
-		writeD(0x01); // Unknown why 1
-		writeD(0x00); // Unknown
+		writeD(_msg.hasAttachments() ? 1 : 0);
+		writeD(_msg.isFourStars() ? 1 : 0);
 		
 		_msg = null;
 	}
