@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.handler;
 
-import gnu.trove.TIntObjectHashMap;
 import net.l2emuproject.gameserver.handler.bypasshandlers.ArenaInfo;
 import net.l2emuproject.gameserver.handler.bypasshandlers.Augment;
 import net.l2emuproject.gameserver.handler.bypasshandlers.Buy;
@@ -51,6 +50,7 @@ import net.l2emuproject.gameserver.handler.bypasshandlers.TerritoryStatus;
 import net.l2emuproject.gameserver.handler.bypasshandlers.TerritoryWar;
 import net.l2emuproject.gameserver.handler.bypasshandlers.WakeBaium;
 import net.l2emuproject.gameserver.handler.bypasshandlers.Wear;
+import net.l2emuproject.util.HandlerRegistry;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -58,11 +58,9 @@ import org.apache.commons.logging.LogFactory;
 /**
  * @author nBd
  */
-public class BypassHandler
+public class BypassHandler extends HandlerRegistry<String, IBypassHandler>
 {
 	private static final Log					_log	= LogFactory.getLog(BypassHandler.class);
-
-	private TIntObjectHashMap<IBypassHandler>	_datatable;
 
 	@SuppressWarnings("synthetic-access")
 	private static final class SingletonHolder
@@ -77,8 +75,6 @@ public class BypassHandler
 
 	private BypassHandler()
 	{
-		_datatable = new TIntObjectHashMap<IBypassHandler>();
-
 		registerBypassHandler(new ArenaInfo());
 		registerBypassHandler(new Augment());
 		registerBypassHandler(new Buy());
@@ -121,32 +117,17 @@ public class BypassHandler
 
 	public void registerBypassHandler(IBypassHandler handler)
 	{
-		for (String element : handler.getBypassList())
-		{
-			if (_log.isDebugEnabled())
-				_log.debug("Adding handler for command " + element);
-
-			_datatable.put(element.toLowerCase().hashCode(), handler);
-		}
+		registerAll(handler, handler.getBypassList());
 	}
 
 	public IBypassHandler getBypassHandler(String BypassCommand)
 	{
-		String command = BypassCommand;
-
-		if (BypassCommand.indexOf(" ") != -1)
-		{
-			command = BypassCommand.substring(0, BypassCommand.indexOf(" "));
-		}
-
-		if (_log.isDebugEnabled())
-			_log.debug("Getting handler for command: " + command + " -> " + (_datatable.get(command.hashCode()) != null));
-
-		return _datatable.get(command.toLowerCase().hashCode());
-	}
-
-	public int size()
-	{
-		return _datatable.size();
+		final String command = BypassCommand.trim();
+		String bypass = command;
+		
+		if (command.indexOf(" ") != -1)
+			bypass = command.substring(0, command.indexOf(" "));
+		
+		return get(bypass);
 	}
 }
