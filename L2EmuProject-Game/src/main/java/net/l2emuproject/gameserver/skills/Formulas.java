@@ -2707,8 +2707,12 @@ public final class Formulas
 				return 1.05;
 			case BACK:
 				return 1.1;
-			// TODO: support for higher(+3%) and lower(-3%) places.
 		}
+		
+		if (attacker.getZ() > target.getZ())
+			return 1.03;
+		else if (attacker.getZ() < target.getZ())
+			return 0.97;
 		
 		return 1.0;
 	}
