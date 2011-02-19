@@ -21,6 +21,7 @@ import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.L2Party;
+import net.l2emuproject.gameserver.model.Location;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
@@ -51,16 +52,17 @@ public final class Kamaloka1 extends Quest
 
 	private static final int		EXIT_ID			= 32496;
 	private static final int		INSTANCEPENALTY	= 86400000;
+	private static final int		MAX_PP_SIZE		= 6;
 	private static final int[]		INSTANCE_ID		=
-													{ 57, 60, 63, 66, 69, 72 };
+													{ 57, 60, 63, 66, 69, 72, 58, 61, 64, 67, 70};
 	private static final int[]		START_ID		=
 													{ 30332, 30071, 30916, 30196, 31981, 31340 };
 	private static final int[]		MIN_LVL			=
-													{ 18, 28, 38, 48, 58, 68 };
+													{ 18, 28, 38, 48, 58, 68, 21, 31, 41, 51, 61};
 	private static final int[]		MAX_LVL			=
-													{ 28, 38, 48, 58, 68, 78 };
+													{ 28, 38, 48, 58, 68, 78, 31, 41, 51, 61, 71 };
 	private static final int[]		RB_ID			=
-													{ 18554, 18558, 18562, 18566, 18571, 18577 };
+													{ 18554, 18558, 18562, 18566, 18571, 18577, 18555, 18559, 18564, 18568, 18573 };
 	private static final String[]	TEMPLATE		=
 													{
 			"Kamaloka-23.xml",
@@ -68,7 +70,12 @@ public final class Kamaloka1 extends Quest
 			"Kamaloka-43.xml",
 			"Kamaloka-53.xml",
 			"Kamaloka-63.xml",
-			"Kamaloka-73.xml"						};
+			"Kamaloka-73.xml",	
+			"Kamaloka-26.xml",
+			"Kamaloka-36.xml",
+			"Kamaloka-46.xml",
+			"Kamaloka-56.xml",
+			"Kamaloka-66.xml"			};
 
 	private static final int[][]	TELEPORT		=
 													{
@@ -77,15 +84,12 @@ public final class Kamaloka1 extends Quest
 													{ -49802, -206141, -8117 },
 													{ -41201, -219859, -8117 },
 													{ -57116, -219857, -8117 },
-													{ -55823, -212935, -8071 } };
-	private static final int[][]	TELEPORT_EXIT	=
-													{
-													{ -13870, 123767, -3117 },
-													{ 18149, 146024, -3100 },
-													{ 108449, 221607, -3598 },
-													{ 80985, 56373, -1560 },
-													{ 85945, -142176, -1341 },
-													{ 42673, -47988, -797 } };
+													{ -55823, -212935, -8071 },
+													{ -55556,-206144,-8117 },
+													{ -41257,-213143,-8117 },
+													{ -41184,-213144,-8117 },
+													{ -57102,-206143,-8117 },
+													{ -41228,-219860,-8117 } };
 
 	public Kamaloka1(int questId, String name, String descr)
 	{
@@ -99,8 +103,6 @@ public final class Kamaloka1 extends Quest
 		for (int rbs : RB_ID)
 			addKillId(rbs);
 
-		addStartNpc(EXIT_ID);
-		addTalkId(EXIT_ID);
 	}
 
 	private static final void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
@@ -112,7 +114,6 @@ public final class Kamaloka1 extends Quest
 
 	private boolean checkConditions(L2PcInstance player, int index)
 	{
-		/*
 			L2Party party = player.getParty();
 			if (party == null)
 			{
@@ -122,6 +123,11 @@ public final class Kamaloka1 extends Quest
 			if (party.getLeader() != player)
 			{
 				player.sendPacket(new SystemMessage(SystemMessageId.ONLY_PARTY_LEADER_CAN_ENTER));
+				return false;
+			}
+			if (party.getMemberCount() > MAX_PP_SIZE)
+			{
+				player.sendPacket(new SystemMessage(SystemMessageId.PARTY_EXCEEDED_THE_LIMIT_CANT_ENTER));
 				return false;
 			}
 			for (L2PcInstance partyMember : party.getPartyMembers())
@@ -148,7 +154,7 @@ public final class Kamaloka1 extends Quest
 					party.broadcastToPartyMembers(sm);
 					return false;
 				}
-			} */
+			} 
 		return true;
 	}
 
@@ -165,7 +171,6 @@ public final class Kamaloka1 extends Quest
 			teleportPlayer(player, TELEPORT[index], world.instanceId);
 			return world.instanceId;
 		}
-		//New instance
 		else
 		{
 			if (!checkConditions(player, index))
@@ -179,26 +184,24 @@ public final class Kamaloka1 extends Quest
 			((Kama1World)world).index = index;
 			_log.info("Kamaloka " + TEMPLATE[index] + " Instance: " + instanceId + " created by player: " + player.getName());
 			//spawnRB((Kama1World) world, index, TELEPORT[index]);
-			for (L2PcInstance partyMember : party.getPartyMembers())
+			if(party == null)
 			{
-				InstanceManager.getInstance().setInstanceTime(partyMember.getObjectId(), INSTANCE_ID[index], ((System.currentTimeMillis() + INSTANCEPENALTY)));
-				teleportPlayer(partyMember, TELEPORT[index], world.instanceId);
-				world.allowed.add(partyMember.getObjectId());
+				teleportPlayer(player, TELEPORT[index], world.instanceId);
+				world.allowed.add(player.getObjectId());
+			}
+			else
+			{
+				for (L2PcInstance partyMember : party.getPartyMembers())
+				{
+					InstanceManager.getInstance().setInstanceTime(partyMember.getObjectId(), INSTANCE_ID[index], ((System.currentTimeMillis() + INSTANCEPENALTY)));
+					teleportPlayer(partyMember, TELEPORT[index], world.instanceId);
+					world.allowed.add(partyMember.getObjectId());
+				}
 			}
 			return instanceId;
 		}
 	}
 
-	protected void exitInstance(L2PcInstance player, L2Npc npc)
-	{
-		player.setInstanceId(0);
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof Kama1World)
-		{
-			Kama1World world = (Kama1World) tmpworld;
-			player.teleToLocation(TELEPORT_EXIT[world.index][0], TELEPORT_EXIT[world.index][1], TELEPORT_EXIT[world.index][2]);
-		}
-	}
 
 	protected void spawnRB(Kama1World world, int index, int[] spawnCoo)
 	{
@@ -218,22 +221,9 @@ public final class Kamaloka1 extends Quest
 	@Override
 	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
 	{
-		if (event.equalsIgnoreCase("1") || event.equalsIgnoreCase("2") || event.equalsIgnoreCase("3") || event.equalsIgnoreCase("4")
-				|| event.equalsIgnoreCase("5") || event.equalsIgnoreCase("6"))
+		if (event.equalsIgnoreCase("0") || event.equalsIgnoreCase("1") || event.equalsIgnoreCase("2") || event.equalsIgnoreCase("3")
+				|| event.equalsIgnoreCase("4") || event.equalsIgnoreCase("5") || event.equalsIgnoreCase("6") || event.equalsIgnoreCase("7") || event.equalsIgnoreCase("8") || event.equalsIgnoreCase("9") || event.equalsIgnoreCase("10"))
 			enterInstance(player, Integer.valueOf(event));
-		return "";
-	}
-
-	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
-	{
-		int npcID = npc.getNpcId();
-		switch (npcID)
-		{
-			case EXIT_ID:
-				exitInstance(player, npc);
-				break;
-		}
 		return "";
 	}
 
