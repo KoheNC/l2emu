@@ -50,7 +50,7 @@ public class L2CommandChannel
 	public L2CommandChannel(L2PcInstance leader)
 	{
 		_commandLeader = leader;
-		_partys = new L2FastSet<L2Party>().setShared(true);
+		_partys = new L2FastSet<L2Party>().shared();
 		_partys.add(leader.getParty());
 		_channelLvl = leader.getParty().getLevel();
 		leader.getParty().setCommandChannel(this);

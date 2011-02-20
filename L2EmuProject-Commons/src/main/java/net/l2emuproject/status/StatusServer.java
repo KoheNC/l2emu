@@ -81,7 +81,7 @@ public abstract class StatusServer extends Thread
 	
 	private final ServerSocket _socket;
 	private final List<Filter> _filters = new FastList<Filter>();
-	private final Set<StatusThread> _threads = new L2FastSet<StatusThread>().setShared(true);
+	private final Set<StatusThread> _threads = new L2FastSet<StatusThread>().shared();
 	
 	protected StatusServer() throws IOException
 	{

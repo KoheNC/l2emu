@@ -218,7 +218,7 @@ public class InstanceManager
 	{
 		public int instanceId;
 		public int templateId = -1;
-		public final L2FastSet<Integer> allowed = new L2FastSet<Integer>().setShared(true);
+		public final L2FastSet<Integer> allowed = new L2FastSet<Integer>().shared();
 		public int status;
 	}
 

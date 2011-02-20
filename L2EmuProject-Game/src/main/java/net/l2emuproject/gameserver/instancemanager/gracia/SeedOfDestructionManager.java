@@ -157,10 +157,10 @@ public final class SeedOfDestructionManager
 	}
 
 	//private final int _tiatKilled = 0;
-	private final L2FastSet<L2Npc>	_energySeeds			= new L2FastSet<L2Npc>().setShared(true);
-	private final L2FastSet<L2Npc>	_teleporters			= new L2FastSet<L2Npc>().setShared(true);
+	private final L2FastSet<L2Npc>	_energySeeds			= new L2FastSet<L2Npc>().shared();
+	private final L2FastSet<L2Npc>	_teleporters			= new L2FastSet<L2Npc>().shared();
 	//private final L2Npc _tiat = null;
-	private final L2FastSet<L2Npc>	_dimensionMovingDevices	= new L2FastSet<L2Npc>().setShared(true);
+	private final L2FastSet<L2Npc>	_dimensionMovingDevices	= new L2FastSet<L2Npc>().shared();
 
 	private byte					_state;
 	private long					_tiatKills;

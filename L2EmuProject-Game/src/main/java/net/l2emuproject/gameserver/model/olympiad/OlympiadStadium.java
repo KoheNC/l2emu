@@ -29,7 +29,7 @@ public final class OlympiadStadium
 {
 	private boolean _freeToUse = true;
 	private final int[] _doorIds = new int[2];
-	private final Set<L2PcInstance> _spectators = new L2FastSet<L2PcInstance>().setShared(true);
+	private final Set<L2PcInstance> _spectators = new L2FastSet<L2PcInstance>().shared();
 	public final Location player1Spawn;
 	public final Location player2Spawn;
 	public final Location buffer1Spawn;

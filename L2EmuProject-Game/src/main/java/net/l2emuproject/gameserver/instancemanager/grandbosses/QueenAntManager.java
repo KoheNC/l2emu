@@ -35,7 +35,7 @@ public final class QueenAntManager
 	private static final L2CharPosition QUEEN_ANT_POS = new L2CharPosition(-21610, 181594, -5734, 0);
 	private static final L2CharPosition QUEEN_ANT_LARVA_POS = new L2CharPosition(-21600, 179482, -5846, 0);
 	
-	private final Set<QueenAntNurseInstance> _nurses = new L2FastSet<QueenAntNurseInstance>().setShared(true);
+	private final Set<QueenAntNurseInstance> _nurses = new L2FastSet<QueenAntNurseInstance>().shared();
 	private QueenAntLarvaInstance _larva;
 	private QueenAntInstance _queenAnt;
 	

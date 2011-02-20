@@ -42,7 +42,7 @@ public final class MinionList
 	private final static Log				_log			= LogFactory.getLog(L2MonsterInstance.class);
 	
 	/** List containing the current spawned minions for this L2MonsterInstance */
-	private final Set<L2MinionInstance> minionReferences = new L2FastSet<L2MinionInstance>().setShared(true);
+	private final Set<L2MinionInstance> minionReferences = new L2FastSet<L2MinionInstance>().shared();
 	private final Map<L2MinionInstance, Long> _respawnTasks = new FastMap<L2MinionInstance, Long>().shared();
 	private final L2MonsterInstance master;
 	

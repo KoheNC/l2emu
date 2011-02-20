@@ -239,14 +239,14 @@ public class Siege extends AbstractSiege
 	// =========================================================
 	// Data Field
 	// Attacker and Defender
-	private final Set<L2SiegeClan> _attackerClans = new L2FastSet<L2SiegeClan>().setShared(true);
+	private final Set<L2SiegeClan> _attackerClans = new L2FastSet<L2SiegeClan>().shared();
 	
-	private final Set<L2SiegeClan> _defenderClans = new L2FastSet<L2SiegeClan>().setShared(true);
-	private final Set<L2SiegeClan> _defenderWaitingClans = new L2FastSet<L2SiegeClan>().setShared(true);
+	private final Set<L2SiegeClan> _defenderClans = new L2FastSet<L2SiegeClan>().shared();
+	private final Set<L2SiegeClan> _defenderWaitingClans = new L2FastSet<L2SiegeClan>().shared();
 	
 	// Castle setting
-	private final Set<L2ControlTowerInstance> _controlTowers = new L2FastSet<L2ControlTowerInstance>().setShared(true);
-	private final Set<L2FlameControlTowerInstance> _flameTowers = new L2FastSet<L2FlameControlTowerInstance>().setShared(true);
+	private final Set<L2ControlTowerInstance> _controlTowers = new L2FastSet<L2ControlTowerInstance>().shared();
+	private final Set<L2FlameControlTowerInstance> _flameTowers = new L2FastSet<L2FlameControlTowerInstance>().shared();
 	
 	private final Castle _castle;
 	private boolean _isInProgress = false;

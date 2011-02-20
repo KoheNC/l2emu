@@ -23,7 +23,7 @@ import net.l2emuproject.util.L2FastSet;
 public final class L2SiegeClan
 {
 	private final int _clanId;
-	private final L2FastSet<L2Npc> _flags = new L2FastSet<L2Npc>().setShared(true);
+	private final L2FastSet<L2Npc> _flags = new L2FastSet<L2Npc>().shared();
 	private SiegeClanType _type;
 
 	public enum SiegeClanType

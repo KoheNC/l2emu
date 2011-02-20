@@ -39,7 +39,7 @@ public final class MovementController extends AbstractPeriodicTaskManager
 		return SingletonHolder.INSTANCE;
 	}
 	
-	private final L2FastSet<L2Character> _movingChars = new L2FastSet<L2Character>().setShared(true);
+	private final L2FastSet<L2Character> _movingChars = new L2FastSet<L2Character>().shared();
 	
 	private final EvtArrivedManager _evtArrivedManager = new EvtArrivedManager();
 	private final EvtArrivedRevalidateManager _evtArrivedRevalidateManager = new EvtArrivedRevalidateManager();

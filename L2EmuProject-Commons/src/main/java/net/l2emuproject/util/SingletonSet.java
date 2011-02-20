@@ -21,8 +21,6 @@ import java.util.Set;
  */
 public final class SingletonSet<E> extends SingletonCollection<E, Set<E>> implements Set<E>
 {
-	private boolean _shared = false;
-	
 	@Override
 	protected Set<E> emptyCollection()
 	{
@@ -32,18 +30,16 @@ public final class SingletonSet<E> extends SingletonCollection<E, Set<E>> implem
 	@Override
 	protected Set<E> initCollection()
 	{
-		return new L2FastSet<E>().setShared(_shared);
+		return new L2FastSet<E>().shared();
 	}
 	
-	public SingletonSet<E> setShared()
+	public SingletonSet<E> shared()
 	{
-		_shared = true;
-		
 		synchronized (this)
 		{
 			if (_initialized)
 			{
-				((L2FastSet<E>)_collection).setShared(true);
+				((L2FastSet<E>)_collection).shared();
 			}
 		}
 		

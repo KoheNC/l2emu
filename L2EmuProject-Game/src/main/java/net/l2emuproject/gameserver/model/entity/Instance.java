@@ -90,8 +90,8 @@ public class Instance
 	private int							_template;
 	private Location					_tp;
 	private String						_name;
-	private final Set<Integer>			_players			= new L2FastSet<Integer>().setShared(true);
-	private final Set<L2Npc>			_npcs				= new L2FastSet<L2Npc>().setShared(true);
+	private final Set<Integer>			_players			= new L2FastSet<Integer>().shared();
+	private final Set<L2Npc>			_npcs				= new L2FastSet<L2Npc>().shared();
 	private final Map<Integer, L2DoorInstance> _doors		= new FastMap<Integer, L2DoorInstance>().shared();
 	private L2DoorInstance[]			_doorArray;
 	private Location					_spawnLoc;

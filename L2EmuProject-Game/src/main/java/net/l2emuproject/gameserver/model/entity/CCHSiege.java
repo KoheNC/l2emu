@@ -71,7 +71,7 @@ public final class CCHSiege extends AbstractSiege
 	{
 		_hideout = hideout;
 		_guardManager = new ContestableHideoutGuardManager(hideout);
-		_attackerClans = new L2FastSet<L2SiegeClan>().setShared(true);
+		_attackerClans = new L2FastSet<L2SiegeClan>().shared();
 		_isInProgress = false;
 		_oldOwner = hideout.getOwnerId();
 		startAutoTask();

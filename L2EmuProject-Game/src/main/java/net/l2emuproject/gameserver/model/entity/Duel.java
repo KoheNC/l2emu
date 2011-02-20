@@ -89,7 +89,7 @@ public class Duel
 		if (_partyDuel) _duelEndTime += 300*1000;
 		else _duelEndTime += 120*1000;
 
-		_playerConditions = new L2FastSet<PlayerCondition>().setShared(true);
+		_playerConditions = new L2FastSet<PlayerCondition>().shared();
 
 		setFinished(false);
 

@@ -123,7 +123,7 @@ public final class PcShots extends CharShots
 		new ShotInfo(22086, 26064, L2Item.CRYSTAL_S); // Soulshot - S-grade
 	}
 	
-	private final Set<Integer> _activeSoulShots = new SingletonSet<Integer>().setShared();
+	private final Set<Integer> _activeSoulShots = new SingletonSet<Integer>().shared();
 	
 	public PcShots(L2PcInstance activeChar)
 	{
