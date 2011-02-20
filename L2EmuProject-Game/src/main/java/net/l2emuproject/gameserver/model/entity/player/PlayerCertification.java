@@ -21,10 +21,10 @@ import java.sql.ResultSet;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 
-public class PlayerCertification extends PlayerExtension
+public final class PlayerCertification extends PlayerExtension
 {
-	public static final String	STORE_CHAR_CERTIFICATION	= "INSERT INTO character_subclass_certification (charId,class_index,certif_level) VALUES (?,?,?)";
-	public static final String	UPDATE_CHAR_CERTIFICATION	= "UPDATE character_subclass_certification SET certif_level=? WHERE charId=? AND class_index=?";
+	private static final String	STORE_CHAR_CERTIFICATION	= "INSERT INTO character_subclass_certification (charId,class_index,certif_level) VALUES (?,?,?)";
+	private static final String	UPDATE_CHAR_CERTIFICATION	= "UPDATE character_subclass_certification SET certif_level=? WHERE charId=? AND class_index=?";
 	private static final String	DELETE_CHAR_CERTIFICATION	= "DELETE FROM character_subclass_certification WHERE charId=?";
 	private static final String	GET_CHAR_CERTIFICATION		= "SELECT certif_level FROM character_subclass_certification WHERE charId=? AND class_index=?";
 
@@ -33,7 +33,7 @@ public class PlayerCertification extends PlayerExtension
 		super(activeChar);
 	}
 
-	public int getCertificationLevel(int classIndex)
+	public final int getCertificationLevel(int classIndex)
 	{
 		Connection con = null;
 		int certificationLevel = -1;
@@ -65,7 +65,7 @@ public class PlayerCertification extends PlayerExtension
 		return certificationLevel;
 	}
 
-	public void storeCertificationLevel(int classIndex)
+	public final void storeCertificationLevel(int classIndex)
 	{
 		Connection con = null;
 		try
@@ -89,7 +89,7 @@ public class PlayerCertification extends PlayerExtension
 		}
 	}
 
-	public void updateCertificationLevel(int classIndex, int level)
+	public final void updateCertificationLevel(int classIndex, int level)
 	{
 		Connection con = null;
 		try
@@ -113,7 +113,7 @@ public class PlayerCertification extends PlayerExtension
 		}
 	}
 
-	public void deleteSubclassCertifications()
+	public final void deleteSubclassCertifications()
 	{
 		Connection con = null;
 		try

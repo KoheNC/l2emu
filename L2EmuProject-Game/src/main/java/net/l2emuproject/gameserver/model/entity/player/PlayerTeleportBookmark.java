@@ -28,7 +28,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExGetBookMarkInfoPacket
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.util.SingletonList;
 
-public class PlayerTeleportBookmark extends PlayerExtension
+public final class PlayerTeleportBookmark extends PlayerExtension
 {
 	private static final String			INSERT_TP_BOOKMARK	= "INSERT INTO character_tpbookmark (charId,Id,x,y,z,icon,tag,name) values (?,?,?,?,?,?,?,?)";
 	private static final String			UPDATE_TP_BOOKMARK	= "UPDATE character_tpbookmark SET icon=?,tag=?,name=? where charId=? AND Id=?";
@@ -43,7 +43,7 @@ public class PlayerTeleportBookmark extends PlayerExtension
 		super(activeChar);
 	}
 
-	public static class TeleportBookmark
+	public static final class TeleportBookmark
 	{
 		public int	_id, _x, _y, _z, _icon;
 		public String	_name, _tag;
@@ -60,7 +60,7 @@ public class PlayerTeleportBookmark extends PlayerExtension
 		}
 	}
 
-	public void teleportBookmarkModify(int Id, int icon, String tag, String name)
+	public final void teleportBookmarkModify(int Id, int icon, String tag, String name)
 	{
 		int count = 0;
 		int size = tpbookmark.size();
@@ -101,7 +101,7 @@ public class PlayerTeleportBookmark extends PlayerExtension
 		getPlayer().sendPacket(new ExGetBookMarkInfoPacket(getPlayer()));
 	}
 
-	public void teleportBookmarkDelete(int Id)
+	public final void teleportBookmarkDelete(int Id)
 	{
 		Connection con = null;
 		try
@@ -140,7 +140,7 @@ public class PlayerTeleportBookmark extends PlayerExtension
 		getPlayer().sendPacket(new ExGetBookMarkInfoPacket(getPlayer()));
 	}
 
-	public void teleportBookmarkGo(int Id)
+	public final void teleportBookmarkGo(int Id)
 	{
 		if (!teleportBookmarkCondition(0))
 			return;
@@ -168,7 +168,7 @@ public class PlayerTeleportBookmark extends PlayerExtension
 		getPlayer().sendPacket(new ExGetBookMarkInfoPacket(getPlayer()));
 	}
 
-	public boolean teleportBookmarkCondition(int type)
+	public final boolean teleportBookmarkCondition(int type)
 	{
 		if (getPlayer().isInCombat())
 		{
@@ -229,7 +229,7 @@ public class PlayerTeleportBookmark extends PlayerExtension
 			return true;
 	}
 
-	public void teleportBookmarkAdd(int x, int y, int z, int icon, String tag, String name)
+	public final void teleportBookmarkAdd(int x, int y, int z, int icon, String tag, String name)
 	{
 		if (!teleportBookmarkCondition(1))
 			return;
@@ -306,7 +306,7 @@ public class PlayerTeleportBookmark extends PlayerExtension
 		getPlayer().sendPacket(new ExGetBookMarkInfoPacket(getPlayer()));
 	}
 
-	public void restoreTeleportBookmark()
+	public final void restoreTeleportBookmark()
 	{
 		Connection con = null;
 		try
@@ -335,12 +335,12 @@ public class PlayerTeleportBookmark extends PlayerExtension
 		}
 	}
 
-	public int getBookMarkSlot()
+	public final int getBookMarkSlot()
 	{
 		return _bookmarkslot;
 	}
 
-	public void setBookMarkSlot(int slot)
+	public final void setBookMarkSlot(int slot)
 	{
 		_bookmarkslot = slot;
 		getPlayer().sendPacket(new ExGetBookMarkInfoPacket(getPlayer()));

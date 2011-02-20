@@ -23,7 +23,7 @@ import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 
-public class PlayerDuel extends PlayerExtension
+public final class PlayerDuel extends PlayerExtension
 {
 	private int		_duelState		= Duel.DUELSTATE_NODUEL;
 	private boolean	_isInDuel		= false;
@@ -35,22 +35,22 @@ public class PlayerDuel extends PlayerExtension
 		super(activeChar);
 	}
 
-	public boolean isInDuel()
+	public final boolean isInDuel()
 	{
 		return _isInDuel;
 	}
 
-	public int getDuelId()
+	public final int getDuelId()
 	{
 		return _duelId;
 	}
 
-	public void setDuelState(int mode)
+	public final void setDuelState(int mode)
 	{
 		_duelState = mode;
 	}
 
-	public int getDuelState()
+	public final int getDuelState()
 	{
 		return _duelState;
 	}
@@ -59,7 +59,7 @@ public class PlayerDuel extends PlayerExtension
 	 * Sets up the duel state using a non 0 duelId.
 	 * @param duelId 0=not in a duel
 	 */
-	public void setIsInDuel(int duelId)
+	public final void setIsInDuel(int duelId)
 	{
 		if (duelId > 0)
 		{
@@ -85,7 +85,7 @@ public class PlayerDuel extends PlayerExtension
 	 * the player is not available for duelling.
 	 * @return S1_CANNOT_DUEL... message
 	 */
-	public SystemMessage getNoDuelReason()
+	public final SystemMessage getNoDuelReason()
 	{
 		// This is somewhat hacky - but that case should never happen anyway...
 		if (_noDuelReason == 0)
@@ -102,7 +102,7 @@ public class PlayerDuel extends PlayerExtension
 	 * To get the reason use getNoDuelReason() after calling this function.
 	 * @return true if the player might join/start a duel.
 	 */
-	public boolean canDuel()
+	public final boolean canDuel()
 	{
 		if (getPlayer().isInCombat() || getPlayer().isInJail())
 		{

@@ -23,7 +23,7 @@ import net.l2emuproject.gameserver.model.actor.stat.PcStat;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.serverpackets.ExVitalityPointInfo;
 
-public class PlayerVitality extends PlayerExtension
+public final class PlayerVitality extends PlayerExtension
 {
 	/** Vitality recovery task */
 	private ScheduledFuture<?>	_vitalityTask;
@@ -33,14 +33,14 @@ public class PlayerVitality extends PlayerExtension
 		super(activeChar);
 	}
 
-	private class VitalityTask implements Runnable
+	private final class VitalityTask implements Runnable
 	{
-		public VitalityTask()
+		private VitalityTask()
 		{
-
 		}
 
-		public void run()
+		@Override
+		public final void run()
 		{
 			if (getPlayer() == null)
 				return;
@@ -56,7 +56,7 @@ public class PlayerVitality extends PlayerExtension
 		}
 	}
 
-	public void startVitalityTask()
+	public final void startVitalityTask()
 	{
 		if (Config.ENABLE_VITALITY && _vitalityTask == null)
 		{
@@ -64,7 +64,7 @@ public class PlayerVitality extends PlayerExtension
 		}
 	}
 
-	public void stopVitalityTask()
+	public final void stopVitalityTask()
 	{
 		if (_vitalityTask != null)
 		{
@@ -73,17 +73,17 @@ public class PlayerVitality extends PlayerExtension
 		}
 	}
 
-	public int getVitalityPoints()
+	public final int getVitalityPoints()
 	{
 		return getPlayer().getStat().getVitalityPoints();
 	}
 
-	public void setVitalityPoints(int points, boolean quiet)
+	public final void setVitalityPoints(int points, boolean quiet)
 	{
 		getPlayer().getStat().setVitalityPoints(points, quiet);
 	}
 
-	public synchronized void updateVitalityPoints(float points, boolean useRates, boolean quiet)
+	public synchronized final void updateVitalityPoints(float points, boolean useRates, boolean quiet)
 	{
 		getPlayer().getStat().updateVitalityPoints(points, useRates, quiet);
 	}

@@ -27,7 +27,7 @@ import net.l2emuproject.gameserver.model.item.L2RecipeList;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.util.SingletonMap;
 
-public class PlayerRecipe extends PlayerExtension
+public final class PlayerRecipe extends PlayerExtension
 {
 	private static final String					INSERT_RECIPE		= "INSERT INTO character_recipebook (charId, id, classIndex, type) values(?,?,?,?)";
 	private static final String					DELETE_RECIPE		= "DELETE FROM character_recipebook WHERE charId=? AND id=? AND classIndex=?";
@@ -42,7 +42,7 @@ public class PlayerRecipe extends PlayerExtension
 		super(activeChar);
 	}
 
-	private void insertNewRecipeData(int recipeId, boolean isDwarf)
+	private final void insertNewRecipeData(int recipeId, boolean isDwarf)
 	{
 		Connection con = null;
 		try
@@ -66,7 +66,7 @@ public class PlayerRecipe extends PlayerExtension
 		}
 	}
 
-	private void deleteRecipeData(int recipeId, boolean isDwarf)
+	private final void deleteRecipeData(int recipeId, boolean isDwarf)
 	{
 		Connection con = null;
 		try
@@ -92,7 +92,7 @@ public class PlayerRecipe extends PlayerExtension
 	/**
 	 * Restore recipe book data for this L2PcInstance.
 	 */
-	public void restoreRecipeBook(boolean loadCommon)
+	public final void restoreRecipeBook(boolean loadCommon)
 	{
 		Connection con = null;
 
@@ -143,7 +143,7 @@ public class PlayerRecipe extends PlayerExtension
 	/**
 	 * Return a table containing all Common L2Recipe of the L2PcInstance.<BR><BR>
 	 */
-	public L2RecipeList[] getCommonRecipeBook()
+	public final L2RecipeList[] getCommonRecipeBook()
 	{
 		return _commonRecipeBook.values().toArray(new L2RecipeList[_commonRecipeBook.values().size()]);
 	}
@@ -151,7 +151,7 @@ public class PlayerRecipe extends PlayerExtension
 	/**
 	 * Return a table containing all Dwarf L2Recipe of the L2PcInstance.<BR><BR>
 	 */
-	public L2RecipeList[] getDwarvenRecipeBook()
+	public final L2RecipeList[] getDwarvenRecipeBook()
 	{
 		return _dwarvenRecipeBook.values().toArray(new L2RecipeList[_dwarvenRecipeBook.values().size()]);
 	}
@@ -162,7 +162,7 @@ public class PlayerRecipe extends PlayerExtension
 	 * @param recipe The L2RecipeList to add to the _recipebook
 	 * @param saveToDb true to save infos into the DB
 	 */
-	public void registerCommonRecipeList(L2RecipeList recipe, boolean saveToDb)
+	public final void registerCommonRecipeList(L2RecipeList recipe, boolean saveToDb)
 	{
 		_commonRecipeBook.put(recipe.getId(), recipe);
 
@@ -176,7 +176,7 @@ public class PlayerRecipe extends PlayerExtension
 	 * @param recipe The L2Recipe to add to the _recipebook
 	 * @param saveToDb true to save infos into the DB
 	 */
-	public void registerDwarvenRecipeList(L2RecipeList recipe, boolean saveToDb)
+	public final void registerDwarvenRecipeList(L2RecipeList recipe, boolean saveToDb)
 	{
 		_dwarvenRecipeBook.put(recipe.getId(), recipe);
 
@@ -190,7 +190,7 @@ public class PlayerRecipe extends PlayerExtension
 	 * @return
 	 * <b>TRUE</b> if player has the recipe on Common or Dwarven Recipe book else returns <b>FALSE</b>
 	 */
-	public boolean hasRecipeList(int recipeId)
+	public final boolean hasRecipeList(int recipeId)
 	{
 		if (_dwarvenRecipeBook.containsKey(recipeId))
 			return true;
@@ -204,7 +204,7 @@ public class PlayerRecipe extends PlayerExtension
 	 * @param recipeId The Identifier of the L2Recipe to remove from the _recipebook
 	 *
 	 */
-	public void unregisterRecipeList(int recipeId)
+	public final void unregisterRecipeList(int recipeId)
 	{
 		if (_dwarvenRecipeBook.remove(recipeId) != null)
 			deleteRecipeData(recipeId, true);
@@ -216,4 +216,3 @@ public class PlayerRecipe extends PlayerExtension
 		getPlayer().getPlayerSettings().getShortCuts().deleteShortCutByTypeAndId(L2ShortCut.TYPE_RECIPE, recipeId);
 	}
 }
-

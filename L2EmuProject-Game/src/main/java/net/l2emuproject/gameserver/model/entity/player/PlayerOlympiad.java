@@ -22,7 +22,7 @@ import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.serverpackets.ExOlympiadMode;
 import net.l2emuproject.gameserver.network.serverpackets.GMHide;
 
-public class PlayerOlympiad extends PlayerExtension
+public final class PlayerOlympiad extends PlayerExtension
 {
 	private boolean	_inOlympiadMode		= false;
 	private boolean	_olympiadStart		= false;
@@ -36,7 +36,7 @@ public class PlayerOlympiad extends PlayerExtension
 		super(activeChar);
 	}
 
-	public void leaveOlympiadObserverMode()
+	public final void leaveOlympiadObserverMode()
 	{
 		getPlayer().setTarget(null);
 		getPlayer().sendPacket(ExOlympiadMode.RETURN);
@@ -58,7 +58,7 @@ public class PlayerOlympiad extends PlayerExtension
 		getPlayer().broadcastUserInfo();
 	}
 
-	public void enterOlympiadObserverMode(Location loc, int id, boolean storeCoords)
+	public final void enterOlympiadObserverMode(Location loc, int id, boolean storeCoords)
 	{
 		if (getPlayer().getPet() != null)
 			getPlayer().getPet().unSummon(getPlayer());
@@ -95,52 +95,52 @@ public class PlayerOlympiad extends PlayerExtension
 		getPlayer().updateInvisibilityStatus();
 	}
 
-	public void setOlympiadSide(int i)
+	public final void setOlympiadSide(int i)
 	{
 		_olympiadSide = i;
 	}
 
-	public int getOlympiadSide()
+	public final int getOlympiadSide()
 	{
 		return _olympiadSide;
 	}
 
-	public void setOlympiadGameId(int id)
+	public final void setOlympiadGameId(int id)
 	{
 		_olympiadGameId = id;
 	}
 
-	public int getOlympiadGameId()
+	public final int getOlympiadGameId()
 	{
 		return _olympiadGameId;
 	}
 
-	public int getOlympiadOpponentId()
+	public final int getOlympiadOpponentId()
 	{
 		return _olympiadOpponentId;
 	}
 
-	public void setOlympiadOpponentId(int value)
+	public final void setOlympiadOpponentId(int value)
 	{
 		_olympiadOpponentId = value;
 	}
 
-	public boolean isInOlympiadMode()
+	public final boolean isInOlympiadMode()
 	{
 		return _inOlympiadMode;
 	}
 
-	public void setIsInOlympiadMode(boolean b)
+	public final void setIsInOlympiadMode(boolean b)
 	{
 		_inOlympiadMode = b;
 	}
 
-	public void setIsOlympiadStart(boolean b)
+	public final void setIsOlympiadStart(boolean b)
 	{
 		_olympiadStart = b;
 	}
 
-	public boolean isOlympiadStart()
+	public final boolean isOlympiadStart()
 	{
 		return _olympiadStart;
 	}

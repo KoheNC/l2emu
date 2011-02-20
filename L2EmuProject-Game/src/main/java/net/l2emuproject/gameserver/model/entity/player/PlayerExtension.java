@@ -21,15 +21,15 @@ import org.apache.commons.logging.LogFactory;
 
 public class PlayerExtension
 {
-	protected static Log	_log		= LogFactory.getLog(PlayerExtension.class);
-	private L2PcInstance	_activeChar	= null;
+	protected static final Log	_log		= LogFactory.getLog(PlayerExtension.class);
+	private L2PcInstance		_activeChar	= null;
 
 	public PlayerExtension(L2PcInstance activeChar)
 	{
 		_activeChar = activeChar;
 	}
 
-	protected L2PcInstance getPlayer()
+	protected final L2PcInstance getPlayer()
 	{
 		return _activeChar;
 	}

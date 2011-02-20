@@ -33,41 +33,41 @@ public abstract class L2Instance extends Quest
 		super(questId, name, descr, folder);
 	}
 
-	protected abstract boolean canEnter(L2PcInstance player);
+	protected abstract boolean canEnter(final L2PcInstance player);
 
-	protected abstract void enterInstance(L2PcInstance player);
+	protected abstract void enterInstance(final L2PcInstance player);
 
-	protected abstract void exitInstance(L2PcInstance player);
+	protected abstract void exitInstance(final L2PcInstance player);
 
-	protected final void setInstanceTime(L2PcInstance player, int instanceId, long time)
+	protected final void setInstanceTime(final L2PcInstance player, final int instanceId, final long time)
 	{
 		InstanceManager.getInstance().setInstanceTime(player.getObjectId(), instanceId, ((System.currentTimeMillis() + time)));
 	}
 
-	protected final void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
+	protected final void teleportPlayer(final L2PcInstance player, final int[] coords, final int instanceId)
 	{
-		L2Summon pet = player.getPet();
+		final L2Summon pet = player.getPet();
 
 		teleport(player, coords, instanceId);
 		if (pet != null)
 			teleport(pet, coords, instanceId);
 	}
 
-	private final void teleport(L2Character cha, int[] coords, int instanceId)
+	private final void teleport(final L2Character cha, final int[] coords, final int instanceId)
 	{
 		cha.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 		cha.setInstanceId(instanceId);
 		cha.teleToLocation(coords[0], coords[1], coords[2], true);
 	}
 
-	protected final void openDoor(int doorId, int instanceId)
+	protected final void openDoor(final int doorId, final int instanceId)
 	{
 		for (L2DoorInstance door : InstanceManager.getInstance().getInstance(instanceId).getDoors())
 			if (door.getDoorId() == doorId)
 				door.openMe();
 	}
 
-	protected final void closeDoor(int doorId, int instanceId)
+	protected final void closeDoor(final int doorId, final int instanceId)
 	{
 		for (L2DoorInstance door : InstanceManager.getInstance().getInstance(instanceId).getDoors())
 			if (door.getDoorId() == doorId)

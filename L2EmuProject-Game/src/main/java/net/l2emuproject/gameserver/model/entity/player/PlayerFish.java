@@ -30,9 +30,9 @@ import net.l2emuproject.gameserver.network.serverpackets.ExFishingEnd;
 import net.l2emuproject.gameserver.network.serverpackets.ExFishingStart;
 import net.l2emuproject.tools.random.Rnd;
 
-public class PlayerFish extends PlayerExtension
+public final class PlayerFish extends PlayerExtension
 {
-	public ScheduledFuture<?>	_taskforfish;
+	private ScheduledFuture<?>	_taskforfish;
 	private boolean				_fishing	= false;
 	private int					_fishx		= 0;
 	private int					_fishy		= 0;
@@ -46,9 +46,10 @@ public class PlayerFish extends PlayerExtension
 		super(activeChar);
 	}
 
-	class LookingForFishTask implements Runnable
+	private final class LookingForFishTask implements Runnable
 	{
 		boolean	_isNoob, _isUpperGrade;
+		@SuppressWarnings("unused")
 		int		_fishType, _fishGutsCheck, _gutsCheckTime;
 		long	_endTaskTime;
 
@@ -61,7 +62,8 @@ public class PlayerFish extends PlayerExtension
 			_isUpperGrade = isUpperGrade;
 		}
 
-		public void run()
+		@Override
+		public final void run()
 		{
 			if (System.currentTimeMillis() >= _endTaskTime)
 			{
@@ -81,7 +83,7 @@ public class PlayerFish extends PlayerExtension
 		}
 	}
 
-	public void startFishing(int x, int y, int z)
+	public final void startFishing(int x, int y, int z)
 	{
 		_fishx = x;
 		_fishy = y;
@@ -112,7 +114,7 @@ public class PlayerFish extends PlayerExtension
 		startLookingForFishTask();
 	}
 
-	public void stopLookingForFishTask()
+	public final void stopLookingForFishTask()
 	{
 		if (_taskforfish != null)
 		{
@@ -121,7 +123,7 @@ public class PlayerFish extends PlayerExtension
 		}
 	}
 
-	public void startLookingForFishTask()
+	public final void startLookingForFishTask()
 	{
 		if (!getPlayer().isDead() && _taskforfish == null)
 		{
@@ -147,7 +149,7 @@ public class PlayerFish extends PlayerExtension
 		}
 	}
 
-	private int getRandomGroup()
+	private final int getRandomGroup()
 	{
 		switch (_lure.getItemId())
 		{
@@ -166,7 +168,7 @@ public class PlayerFish extends PlayerExtension
 		}
 	}
 
-	private int getRandomFishType(int group)
+	private final int getRandomFishType(int group)
 	{
 		int check = Rnd.get(100);
 		int type = 1;
@@ -310,7 +312,7 @@ public class PlayerFish extends PlayerExtension
 		return type;
 	}
 
-	private int getRandomFishLvl()
+	private final int getRandomFishLvl()
 	{
 		L2Effect[] effects = getPlayer().getAllEffects();
 		int skilllvl = getPlayer().getSkillLevel(1315);
@@ -346,12 +348,12 @@ public class PlayerFish extends PlayerExtension
 		return randomlvl;
 	}
 
-	public void startFishCombat(boolean isNoob, boolean isUpperGrade)
+	public final void startFishCombat(boolean isNoob, boolean isUpperGrade)
 	{
 		_fishCombat = new L2Fishing(getPlayer(), _fish, isNoob, isUpperGrade);
 	}
 
-	public void endFishing(boolean win)
+	public final void endFishing(boolean win)
 	{
 		ExFishingEnd efe = new ExFishingEnd(win, getPlayer());
 		getPlayer().broadcastPacket(efe);
@@ -371,42 +373,42 @@ public class PlayerFish extends PlayerExtension
 		stopLookingForFishTask();
 	}
 
-	public L2Fishing getFishCombat()
+	public final L2Fishing getFishCombat()
 	{
 		return _fishCombat;
 	}
 
-	public int getFishx()
+	public final int getFishx()
 	{
 		return _fishx;
 	}
 
-	public int getFishy()
+	public final int getFishy()
 	{
 		return _fishy;
 	}
 
-	public int getFishz()
+	public final int getFishz()
 	{
 		return _fishz;
 	}
 
-	public void setLure(L2ItemInstance lure)
+	public final void setLure(L2ItemInstance lure)
 	{
 		_lure = lure;
 	}
 
-	public L2ItemInstance getLure()
+	public final L2ItemInstance getLure()
 	{
 		return _lure;
 	}
 
-	public boolean isFishing()
+	public final boolean isFishing()
 	{
 		return _fishing;
 	}
 
-	public void setFishing(boolean fishing)
+	public final void setFishing(boolean fishing)
 	{
 		_fishing = fishing;
 	}

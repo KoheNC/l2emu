@@ -29,7 +29,7 @@ import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.util.SingletonList;
 
-public class PlayerTransformation extends PlayerExtension
+public final class PlayerTransformation extends PlayerExtension
 {
 	private static final String	SELECT_CHAR_TRANSFORM	= "SELECT transform_id FROM characters WHERE charId=?";
 	private static final String	UPDATE_CHAR_TRANSFORM	= "UPDATE characters SET transform_id=? WHERE charId=?";
@@ -44,7 +44,7 @@ public class PlayerTransformation extends PlayerExtension
 		super(activeChar);
 	}
 
-	public boolean isTransformationDisabledSkill(L2Skill skill)
+	public final boolean isTransformationDisabledSkill(L2Skill skill)
 	{
 		if (_transformation != null && !containsAllowedTransformSkill(skill.getId()) && !skill.allowOnTransform())
 			return true;
@@ -52,17 +52,17 @@ public class PlayerTransformation extends PlayerExtension
 		return false;
 	}
 
-	public boolean isTransformed()
+	public final boolean isTransformed()
 	{
 		return _transformation != null && !_transformation.isStance();
 	}
 
-	public boolean isInStance()
+	public final boolean isInStance()
 	{
 		return _transformation != null && _transformation.isStance();
 	}
 
-	public void transform(L2Transformation transformation)
+	public final void transform(L2Transformation transformation)
 	{
 		if (_transformation != null)
 		{
@@ -93,7 +93,7 @@ public class PlayerTransformation extends PlayerExtension
 		getPlayer().broadcastUserInfo();
 	}
 
-	public void untransform()
+	public final void untransform()
 	{
 		if (_transformation != null)
 		{
@@ -108,7 +108,7 @@ public class PlayerTransformation extends PlayerExtension
 		}
 	}
 
-	public L2Transformation getTransformation()
+	public final L2Transformation getTransformation()
 	{
 		return _transformation;
 	}
@@ -119,7 +119,7 @@ public class PlayerTransformation extends PlayerExtension
 	 * the transform Id returned will be that of the Zariche, and NOT the Buffalo.
 	 * @return Transformation Id
 	 */
-	public int getTransformationId()
+	public final int getTransformationId()
 	{
 		L2Transformation transformation = getTransformation();
 		if (transformation == null)
@@ -133,7 +133,7 @@ public class PlayerTransformation extends PlayerExtension
 	 * the transform Id returned will be that of the Buffalo, and NOT the Zariche.
 	 * @return Transformation Id
 	 */
-	public int transformId()
+	public final int transformId()
 	{
 		return _transformationId;
 	}
@@ -141,7 +141,7 @@ public class PlayerTransformation extends PlayerExtension
 	/**
 	 * This is a simple query that inserts the transform Id into the character table for future reference.
 	 */
-	public void transformInsertInfo()
+	public final void transformInsertInfo()
 	{
 
 		if (getTransformationId() == L2Transformation.TRANSFORM_AKAMANAH || getTransformationId() == L2Transformation.TRANSFORM_ZARICHE)
@@ -174,7 +174,7 @@ public class PlayerTransformation extends PlayerExtension
 	 * This selects the current
 	 * @return transformation Id
 	 */
-	public int transformSelectInfo()
+	public final int transformSelectInfo()
 	{
 		Connection con = null;
 		try
@@ -202,25 +202,25 @@ public class PlayerTransformation extends PlayerExtension
 		return _transformationId;
 	}
 
-	public void setTransformAllowedSkills(int[] ids)
+	public final void setTransformAllowedSkills(int[] ids)
 	{
 		_transformAllowedSkills.clear();
 		for (int id : ids)
 			addTransformAllowedSkill(id);
 	}
 
-	public void addTransformAllowedSkill(int[] ids)
+	public final void addTransformAllowedSkill(int[] ids)
 	{
 		for (int id : ids)
 			addTransformAllowedSkill(id);
 	}
 
-	public void addTransformAllowedSkill(int id)
+	public final void addTransformAllowedSkill(int id)
 	{
 		_transformAllowedSkills.add(id);
 	}
 
-	public boolean containsAllowedTransformSkill(int id)
+	public final boolean containsAllowedTransformSkill(int id)
 	{
 		return _transformAllowedSkills.contains(id);
 	}

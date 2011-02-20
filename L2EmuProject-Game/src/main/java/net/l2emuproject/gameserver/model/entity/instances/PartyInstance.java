@@ -28,9 +28,9 @@ public abstract class PartyInstance extends L2Instance
 		super(questId, name, descr, folder);
 	}
 
-	protected final void teleportParty(L2PcInstance player, int[] coords, int instanceId)
+	protected final void teleportParty(final L2PcInstance player, final int[] coords, final int instanceId)
 	{
-		L2Party party = player.getParty();
+		final L2Party party = player.getParty();
 
 		if (party != null)
 			for (L2PcInstance members : party.getPartyMembers())
@@ -38,9 +38,9 @@ public abstract class PartyInstance extends L2Instance
 					teleportPlayer(members, coords, instanceId);
 	}
 
-	protected final void setPartyInstanceTime(L2PcInstance player, int instanceId, long time)
+	protected final void setPartyInstanceTime(final L2PcInstance player, final int instanceId, final long time)
 	{
-		L2Party party = player.getParty();
+		final L2Party party = player.getParty();
 
 		if (party != null)
 			for (L2PcInstance members : party.getPartyMembers())

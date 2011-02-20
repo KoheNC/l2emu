@@ -22,7 +22,7 @@ import java.util.Calendar;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 
-public class PlayerBirthday extends PlayerExtension
+public final class PlayerBirthday extends PlayerExtension
 {
 	private static final String	GET_CREATION_DATE	= "SELECT lastClaim,birthDate FROM character_birthdays WHERE charId=?";
 	private static final String	CLAIM_CREATION_DAY	= "UPDATE character_birthdays SET lastClaim=? WHERE charId=?";

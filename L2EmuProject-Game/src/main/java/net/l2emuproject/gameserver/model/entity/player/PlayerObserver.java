@@ -20,7 +20,7 @@ import net.l2emuproject.gameserver.network.serverpackets.GMHide;
 import net.l2emuproject.gameserver.network.serverpackets.ObservationMode;
 import net.l2emuproject.gameserver.network.serverpackets.ObservationReturn;
 
-public class PlayerObserver extends PlayerExtension
+public final class PlayerObserver extends PlayerExtension
 {
 	private int		_obsX;
 	private int		_obsY;
@@ -32,7 +32,7 @@ public class PlayerObserver extends PlayerExtension
 		super(activeChar);
 	}
 
-	public void enterObserverMode(int x, int y, int z)
+	public final void enterObserverMode(int x, int y, int z)
 	{
 		_obsX = getPlayer().getX();
 		_obsY = getPlayer().getY();
@@ -52,7 +52,7 @@ public class PlayerObserver extends PlayerExtension
 		getPlayer().updateInvisibilityStatus();
 	}
 
-	public void leaveObserverMode()
+	public final void leaveObserverMode()
 	{
 		getPlayer().setTarget(null);
 		getPlayer().getPosition().setXYZ(_obsX, _obsY, _obsZ);
@@ -74,32 +74,32 @@ public class PlayerObserver extends PlayerExtension
 		getPlayer().broadcastUserInfo();
 	}
 
-	public int getObsX()
+	public final int getObsX()
 	{
 		return _obsX;
 	}
 
-	public int getObsY()
+	public final int getObsY()
 	{
 		return _obsY;
 	}
 
-	public int getObsZ()
+	public final int getObsZ()
 	{
 		return _obsZ;
 	}
 
-	public boolean inObserverMode()
+	public final boolean inObserverMode()
 	{
 		return _observerMode;
 	}
 
-	public void setIsInObserverMode(boolean b)
+	public final void setIsInObserverMode(boolean b)
 	{
 		_observerMode = b;
 	}
 
-	public void saveCoords()
+	public final void saveCoords()
 	{
 		_obsX = getPlayer().getX();
 		_obsY = getPlayer().getY();
