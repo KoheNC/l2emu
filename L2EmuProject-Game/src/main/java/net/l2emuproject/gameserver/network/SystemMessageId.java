@@ -16335,6 +16335,18 @@ public enum SystemMessageId
 	COUPLE_ACTION_DENIED(3119),
 	
 	/**
+	 * ID: 3144<br>
+	 * Message: "The $s2's attribute was successfully bestowed on $s1, and resistance to $s3 was increased."
+	 */
+	THE_S2_ATTRIBUTE_WAS_SUCCESSFULLY_BESTOWED_ON_S1_RES_TO_S3_INCREASED(3144),
+	
+	/**
+	 * ID: 3163<br>
+	 * Message: "The $s3's attribute was successfully bestowed on +$s1$s2, and resistance to $s4 was increased."
+	 */
+	THE_S3_ATTRIBUTE_BESTOWED_ON_S1_S2_RESISTANCE_TO_S4_INCREASED(3163),
+	
+	/**
 	 * ID: 3164<be>
 	 * Message: $c1 is set to refuse couple actions and cannot be requested for a couple action.
 	 */
@@ -16516,14 +16528,14 @@ public enum SystemMessageId
 	 * Console Message: Although you can't be certain, the air seems laden with the scent of freshly baked bread.<BR>
 	 * Screen Message: Spirit Leaven has been activated.
 	 */
-	SPIRIT_LEAVEN_ACTIVATED(6506),
+	SPIRIT_LEAVEN_ACTIVATED(6506);
 	
 	/**
 	 * ID: 6507<BR>
 	 * Console Message: You feel refreshed. Everything appears clear.<BR>
 	 * Screen Message: Spirit Leaven has disappeared.
 	 */
-	SPIRIT_LEAVEN_DEACTIVATED(6507);
+	// SPIRIT_LEAVEN_DEACTIVATED(6507);
 	
 	private final int _id;
 	private final int _size;

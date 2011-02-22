@@ -21,7 +21,7 @@ import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 
 public class AdminElement implements IAdminCommandHandler
 {
@@ -62,7 +62,7 @@ public class AdminElement implements IAdminCommandHandler
 			{
 				String[] args = command.split(" ");
 
-				byte element = Elementals.getElementId(args[1]);
+				byte element = Attributes.getElementId(args[1]);
 				int value = Integer.parseInt(args[2]);
 				if (element < -1 || element > 5 || value < 0 || value > 600)
 				{
@@ -124,11 +124,11 @@ public class AdminElement implements IAdminCommandHandler
 		if (itemInstance != null)
 		{
 			String old, current;
-			Elementals element = itemInstance.getElementals();
-			if (element == null)
+			Attributes attribute = itemInstance.getAttribute(type);
+			if (attribute == null)
 				old = "None";
 			else
-				old = element.toString();
+				old = attribute.toString();
 
 			// set enchant value
 			player.getInventory().unEquipItemInSlotAndRecord(armorType);

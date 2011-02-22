@@ -290,8 +290,7 @@ public abstract class Inventory extends ItemContainer
 				if (item.isAugmented() && getOwner() instanceof L2PcInstance)
 					item.getAugmentation().removeBonus((L2PcInstance) getOwner());
 				
-				if (item.getElementals() != null)
-					item.getElementals().removeBonus(player);
+				item.removeElementAttrBonus(player);
 
 				itemSkills = ((L2Weapon) it).getSkills();
 				enchant4Skills = ((L2Weapon) it).getEnchant4Skills();
@@ -302,8 +301,7 @@ public abstract class Inventory extends ItemContainer
 				if (item.isAugmented() && getOwner() instanceof L2PcInstance)
 					item.getAugmentation().removeBonus((L2PcInstance) getOwner());
 
-				if (item.getElementals() != null)
-					item.getElementals().removeBonus(player);
+				item.removeElementAttrBonus(player);
 				
 				itemSkills = ((L2Armor) it).getSkills();
 				enchant4Skills = ((L2Armor) it).getEnchant4Skills();
@@ -350,8 +348,7 @@ public abstract class Inventory extends ItemContainer
 				if (item.isAugmented() && getOwner() instanceof L2PcInstance)
 					item.getAugmentation().applyBonus((L2PcInstance) getOwner());
 
-				if (item.getElementals() != null)
-					item.getElementals().applyBonus(player, false);
+				item.updateElementAttrBonus(player);
 
 				itemSkills = ((L2Weapon) it).getSkills();
 
@@ -366,8 +363,7 @@ public abstract class Inventory extends ItemContainer
 				if (item.isAugmented() && getOwner() instanceof L2PcInstance)
 					item.getAugmentation().applyBonus((L2PcInstance) getOwner());
 
-				if (item.getElementals() != null)
-					item.getElementals().applyBonus(player, true);
+				item.updateElementAttrBonus(player);
 
 				if (item.getEnchantLevel() >= 4)
 					enchant4Skills = ((L2Armor) it).getEnchant4Skills();

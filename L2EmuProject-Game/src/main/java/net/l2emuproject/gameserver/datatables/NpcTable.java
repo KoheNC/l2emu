@@ -34,7 +34,7 @@ import net.l2emuproject.gameserver.model.npc.L2DropData;
 import net.l2emuproject.gameserver.model.npc.L2MinionData;
 import net.l2emuproject.gameserver.model.npc.L2NpcCharData;
 import net.l2emuproject.gameserver.model.skill.L2Skill;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.templates.StatsSet;
@@ -163,22 +163,22 @@ public final class NpcTable
 					}
 					switch (npcElementals.getByte("elemAtkType"))
 					{
-						case Elementals.FIRE:
+						case Attributes.FIRE:
 							npcDat.setBaseFire(npcElementals.getInt("elemAtkValue"));
 							break;
-						case Elementals.WATER:
+						case Attributes.WATER:
 							npcDat.setBaseWater(npcElementals.getInt("elemAtkValue"));
 							break;
-						case Elementals.EARTH:
+						case Attributes.EARTH:
 							npcDat.setBaseEarth(npcElementals.getInt("elemAtkValue"));
 							break;
-						case Elementals.WIND:
+						case Attributes.WIND:
 							npcDat.setBaseWind(npcElementals.getInt("elemAtkValue"));
 							break;
-						case Elementals.HOLY:
+						case Attributes.HOLY:
 							npcDat.setBaseHoly(npcElementals.getInt("elemAtkValue"));
 							break;
-						case Elementals.DARK:
+						case Attributes.DARK:
 							npcDat.setBaseDark(npcElementals.getInt("elemAtkValue"));
 							break;
 						default:

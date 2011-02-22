@@ -31,7 +31,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.services.augmentation.L2Augmentation;
 import net.l2emuproject.gameserver.templates.item.L2Armor;
 import net.l2emuproject.gameserver.templates.item.L2Item;
@@ -246,7 +246,7 @@ public final class MultiSellChoose extends L2GameClientPacket
 		_ingredientsList.clear();
 		_ingredientsList = null;
 		ArrayList<L2Augmentation> augmentation = new ArrayList<L2Augmentation>();
-		Elementals elemental = null;
+		Attributes[] elemental = null;
 		/** All ok, remove items and add final product */
 		
 		for (MultiSellIngredient e : entry.getIngredients())
@@ -432,7 +432,8 @@ public final class MultiSellChoose extends L2GameClientPacket
 									product.setAugmentation(new L2Augmentation(augmentation.get(i).getAugmentationId(),
 										augmentation.get(i).getSkill()));
 								if (elemental != null)
-									product.setElementAttr(elemental.getElement(), elemental.getValue());
+									for (Attributes attr : elemental)
+										product.setElementAttr(attr.getElement(), attr.getValue());
 								product.setEnchantLevel(e.getEnchantmentLevel());
 								product.updateDatabase();
 							}

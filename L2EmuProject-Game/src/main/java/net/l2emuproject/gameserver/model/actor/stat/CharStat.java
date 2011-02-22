@@ -18,7 +18,7 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.skill.L2Skill;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.skills.Calculator;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.Stats;
@@ -567,17 +567,17 @@ public class CharStat
 	{
 		switch (attackAttribute)
 		{
-			case Elementals.FIRE:
+			case Attributes.FIRE:
 				return (int) calcStat(Stats.FIRE_POWER, _activeChar.getTemplate().getBaseFire(), null, null);
-			case Elementals.WATER:
+			case Attributes.WATER:
 				return (int) calcStat(Stats.WATER_POWER, _activeChar.getTemplate().getBaseWater(), null, null);
-			case Elementals.WIND:
+			case Attributes.WIND:
 				return (int) calcStat(Stats.WIND_POWER, _activeChar.getTemplate().getBaseWind(), null, null);
-			case Elementals.EARTH:
+			case Attributes.EARTH:
 				return (int) calcStat(Stats.EARTH_POWER, _activeChar.getTemplate().getBaseEarth(), null, null);
-			case Elementals.HOLY:
+			case Attributes.HOLY:
 				return (int) calcStat(Stats.HOLY_POWER, _activeChar.getTemplate().getBaseHoly(), null, null);
-			case Elementals.DARK:
+			case Attributes.DARK:
 				return (int) calcStat(Stats.DARK_POWER, _activeChar.getTemplate().getBaseDark(), null, null);
 			default:
 				return 0;
@@ -588,17 +588,17 @@ public class CharStat
 	{
 		switch (defenseAttribute)
 		{
-			case Elementals.FIRE:
+			case Attributes.FIRE:
 				return (int) calcStat(Stats.FIRE_RES, _activeChar.getTemplate().getBaseFireRes(), null, null);
-			case Elementals.WATER:
+			case Attributes.WATER:
 				return (int) calcStat(Stats.WATER_RES, _activeChar.getTemplate().getBaseWaterRes(), null, null);
-			case Elementals.WIND:
+			case Attributes.WIND:
 				return (int) calcStat(Stats.WIND_RES, _activeChar.getTemplate().getBaseWindRes(), null, null);
-			case Elementals.EARTH:
+			case Attributes.EARTH:
 				return (int) calcStat(Stats.EARTH_RES, _activeChar.getTemplate().getBaseEarthRes(), null, null);
-			case Elementals.HOLY:
+			case Attributes.HOLY:
 				return (int) calcStat(Stats.HOLY_RES, _activeChar.getTemplate().getBaseHolyRes(), null, null);
-			case Elementals.DARK:
+			case Attributes.DARK:
 				return (int) calcStat(Stats.DARK_RES, _activeChar.getTemplate().getBaseDarkRes(), null, null);
 			default:
 				return 0;

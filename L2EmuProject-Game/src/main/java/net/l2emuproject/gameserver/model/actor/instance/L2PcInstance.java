@@ -262,7 +262,7 @@ import net.l2emuproject.gameserver.network.serverpackets.TradeStart;
 import net.l2emuproject.gameserver.network.serverpackets.TutorialCloseHtml;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.services.transformation.L2TransformSkillLearn;
 import net.l2emuproject.gameserver.skills.Env;
@@ -5164,7 +5164,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 		_summon = summon;
 		// update attack element value display
 		if ((_summon == null || _summon instanceof L2SummonInstance)
-				&& getClassId().isSummoner() && getAttackElement() != Elementals.NONE)
+				&& getClassId().isSummoner() && getAttackElement() != Attributes.NONE)
 			sendPacket(new UserInfo(this));
 	}
 

@@ -20,7 +20,7 @@ import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.clientpackets.L2GameClientPacket;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -97,12 +97,12 @@ public abstract class L2GameServerPacket extends SendablePacket<L2GameClient, L2
 		byte attackAttribute = player.getAttackElement();
 		writeH(attackAttribute);
 		writeH(player.getAttackElementValue(attackAttribute));
-		writeH(player.getDefenseElementValue(Elementals.FIRE));
-		writeH(player.getDefenseElementValue(Elementals.WATER));
-		writeH(player.getDefenseElementValue(Elementals.WIND));
-		writeH(player.getDefenseElementValue(Elementals.EARTH));
-		writeH(player.getDefenseElementValue(Elementals.HOLY));
-		writeH(player.getDefenseElementValue(Elementals.DARK));
+		writeH(player.getDefenseElementValue(Attributes.FIRE));
+		writeH(player.getDefenseElementValue(Attributes.WATER));
+		writeH(player.getDefenseElementValue(Attributes.WIND));
+		writeH(player.getDefenseElementValue(Attributes.EARTH));
+		writeH(player.getDefenseElementValue(Attributes.HOLY));
+		writeH(player.getDefenseElementValue(Attributes.DARK));
 	}
 	
 	private static final int[] PAPERDOLL_SLOTS_WITH_JEWELS = initPaperdollSlots(true);

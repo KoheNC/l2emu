@@ -22,7 +22,7 @@ import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
 
@@ -74,14 +74,14 @@ public class L2SkillChangeWeapon extends L2Skill
 
 			int newItemId = 0;
 			int enchantLevel = 0;
-			Elementals elementals = null;
+			Attributes elementals = null;
 
 
 			if (weaponItem.getChangeWeaponId() != 0)
 			{
 				newItemId = weaponItem.getChangeWeaponId();
 				enchantLevel = wpn.getEnchantLevel();
-				elementals = wpn.getElementals();
+				elementals = wpn.getElementals() == null ? null : wpn.getElementals()[0];
 
 
 				if (newItemId == -1)

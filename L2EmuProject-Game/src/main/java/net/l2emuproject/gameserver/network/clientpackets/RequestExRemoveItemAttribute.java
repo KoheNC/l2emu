@@ -29,7 +29,6 @@ public class RequestExRemoveItemAttribute extends L2GameClientPacket
 	private static final String _C__D0_23_REQUESTEXREMOVEITEMATTRIBUTE = "[C] D0:23 RequestExRemoveItemAttribute";
 
 	private int _objectId;
-	@SuppressWarnings("unused")
 	private byte _element;
 
 	@Override
@@ -56,7 +55,7 @@ public class RequestExRemoveItemAttribute extends L2GameClientPacket
 		if (activeChar.reduceAdena("RemoveElement", getPrice(targetItem), activeChar, true))
 		{
 			if (targetItem.isEquipped())
-				targetItem.getElementals().removeBonus(activeChar);
+				targetItem.getAttribute(_element).removeBonus(activeChar);
 			targetItem.clearElementAttr();
 
 			InventoryUpdate iu = new InventoryUpdate();

@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 
 /**
  * @author  Kerberos
@@ -23,16 +23,16 @@ import net.l2emuproject.gameserver.services.attribute.Elementals;
 public final class ExChooseInventoryAttributeItem extends L2GameServerPacket
 {
 	private final int	_itemId;
-	private final byte	_atribute;
+	private final byte	_attribute;
 	private final int	_level;
 
 	public ExChooseInventoryAttributeItem(L2ItemInstance item)
 	{
 		_itemId = item.getItemId();
-		_atribute = Elementals.getItemElement(_itemId);
-		if (_atribute == Elementals.NONE)
+		_attribute = Attributes.getItemElementById(_itemId);
+		if (_attribute == Attributes.NONE)
 			throw new IllegalArgumentException("Undefined Atribute item: " + item);
-		_level = Elementals.getMaxElementLevel(_itemId);
+		_level = Attributes.getMaxAttributeLevelById(_itemId);
 	}
 
 	@Override
@@ -43,12 +43,12 @@ public final class ExChooseInventoryAttributeItem extends L2GameServerPacket
 		writeD(_itemId);
 		// Structure for now
 		// Must be 0x01 for stone/crystal attribute type
-		writeD(_atribute == Elementals.FIRE ? 1 : 0); // Fire
-		writeD(_atribute == Elementals.WATER ? 1 : 0); // Water
-		writeD(_atribute == Elementals.WIND ? 1 : 0); // Wind
-		writeD(_atribute == Elementals.EARTH ? 1 : 0); // Earth
-		writeD(_atribute == Elementals.HOLY ? 1 : 0); // Holy
-		writeD(_atribute == Elementals.DARK ? 1 : 0); // Unholy
+		writeD(_attribute == Attributes.FIRE ? 1 : 0); // Fire
+		writeD(_attribute == Attributes.WATER ? 1 : 0); // Water
+		writeD(_attribute == Attributes.WIND ? 1 : 0); // Wind
+		writeD(_attribute == Attributes.EARTH ? 1 : 0); // Earth
+		writeD(_attribute == Attributes.HOLY ? 1 : 0); // Holy
+		writeD(_attribute == Attributes.DARK ? 1 : 0); // Unholy
 		writeD(_level); // Item max attribute level
 	}
 

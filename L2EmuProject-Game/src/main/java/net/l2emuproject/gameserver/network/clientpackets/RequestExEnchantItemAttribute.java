@@ -15,95 +15,88 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.Shutdown;
-import net.l2emuproject.gameserver.Shutdown.DisableType;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
-import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExAttributeEnchantResult;
+import net.l2emuproject.gameserver.network.serverpackets.ExBrExtraUserInfo;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.AttributeItems;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
-import net.l2emuproject.gameserver.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.tools.random.Rnd;
 
-
 public class RequestExEnchantItemAttribute extends L2GameClientPacket
 {
-	private static final String D0_38_REQUEST_EX_ENCHANT_ITEM_ATTRIBUTE = "[C] D0 38 RequestExEnchantItemAttribute";
-
+	private static final String D0_35_REQUEST_EX_ENCHANT_ITEM_ATTRIBUTE = "[C] D0:35 RequestExEnchantItemAttribute";
+	
 	private int _objectId;
-
+	
 	@Override
 	protected void readImpl()
 	{
 		_objectId = readD();
 	}
-
+	
 	@Override
 	protected void runImpl()
 	{
 		L2PcInstance player = getClient().getActiveChar();
-		if (player == null) return;
-
-		if (_objectId == 0xFFFF || _objectId == 0xFFFFFFFF) // which one should be here?
+		if (player == null)
+			return;
+		
+		if (_objectId == 0xFFFFFFFF)
 		{
 			// Player canceled enchant
 			player.setActiveEnchantAttrItem(null);
 			requestFailed(SystemMessageId.ELEMENTAL_ENHANCE_CANCELED);
 			return;
 		}
-		else if (player.isOnline() == 0)
+		
+		if (player.isOnline() == 0)
 		{
 			player.setActiveEnchantAttrItem(null);
 			return;
 		}
-
-		// Restrict enchant during restart/shutdown (because of an existing exploit)
-		if (Shutdown.isActionDisabled(DisableType.ENCHANT))
+		
+		if (player.getPrivateStoreType() != 0)
 		{
 			requestFailed(SystemMessageId.FUNCTION_INACCESSIBLE_NOW);
+			player.setActiveEnchantAttrItem(null);
 			return;
 		}
-		else if (player.getPrivateStoreType() != L2PcInstance.STORE_PRIVATE_NONE)
-		{
-			requestFailed(SystemMessageId.CANNOT_ADD_ELEMENTAL_POWER_WHILE_OPERATING_PRIVATE_STORE_OR_WORKSHOP);
-			return;
-		}
+		
 		// Restrict enchant during a trade (bug if enchant fails)
-		else if (player.isProcessingTransaction())
+		if (player.getActiveRequester() != null)
 		{
 			// Cancel trade
 			player.cancelActiveTrade();
-			requestFailed(SystemMessageId.CANNOT_PICKUP_OR_USE_ITEM_WHILE_TRADING);
+			player.setActiveEnchantAttrItem(null);
+			player.sendMessage("Enchanting items is not allowed during a trade.");
 			return;
 		}
-
+		
 		L2ItemInstance item = player.getInventory().getItemByObjectId(_objectId);
 		L2ItemInstance stone = player.getActiveEnchantAttrItem();
-		if (item == null || stone == null || item.isWear())
+		if (item == null || stone == null)
 		{
 			player.setActiveEnchantAttrItem(null);
-			requestFailed(SystemMessageId.INAPPROPRIATE_ENCHANT_CONDITION);
 			return;
 		}
-		else if ((item.getLocation() != L2ItemInstance.ItemLocation.INVENTORY) && (item.getLocation() != L2ItemInstance.ItemLocation.PAPERDOLL))
+		if ((item.getLocation() != L2ItemInstance.ItemLocation.INVENTORY) && (item.getLocation() != L2ItemInstance.ItemLocation.PAPERDOLL))
 		{
-			requestFailed(SystemMessageId.INAPPROPRIATE_ENCHANT_CONDITION);
+			player.setActiveEnchantAttrItem(null);
 			return;
 		}
-
-		int itemId = item.getItemId();
-
+		
 		//can't enchant rods, shadow items, adventurers', PvP items, hero items, cloaks, bracelets, underwear (e.g. shirt), belt, necklace, earring, ring
 		if (item.getItem().getItemType() == L2WeaponType.ROD || item.isShadowItem() || item.isPvp() ||
 			(!Config.ENCHANT_HERO_WEAPONS && item.isHeroItem()) || item.isTimeLimitedItem() ||
-			(itemId >= 7816 && itemId <= 7831) || (item.getItem().getItemType() == L2WeaponType.NONE) ||
+			(item.getItem().getItemId() >= 7816 && item.getItem().getItemId() <= 7831) || (item.getItem().getItemType() == L2WeaponType.NONE) ||
 			item.getItem().getItemGradeSPlus() != L2Item.CRYSTAL_S || item.getItem().getBodyPart() == L2Item.SLOT_BACK ||
 			item.getItem().getBodyPart() == L2Item.SLOT_R_BRACELET || item.getItem().getBodyPart() == L2Item.SLOT_UNDERWEAR ||
 			item.getItem().getBodyPart() == L2Item.SLOT_BELT || item.getItem().getBodyPart() == L2Item.SLOT_NECK ||
@@ -113,7 +106,7 @@ public class RequestExEnchantItemAttribute extends L2GameClientPacket
 			player.setActiveEnchantAttrItem(null);
 			return;
 		}
-
+		
 		switch (item.getLocation())
 		{
 			case INVENTORY:
@@ -121,7 +114,6 @@ public class RequestExEnchantItemAttribute extends L2GameClientPacket
 			{
 				if (item.getOwnerId() != player.getObjectId())
 				{
-					requestFailed(SystemMessageId.INAPPROPRIATE_ENCHANT_CONDITION);
 					player.setActiveEnchantAttrItem(null);
 					return;
 				}
@@ -129,253 +121,158 @@ public class RequestExEnchantItemAttribute extends L2GameClientPacket
 			}
 			default:
 			{
-				sendPacket(ActionFailed.STATIC_PACKET);
 				player.setActiveEnchantAttrItem(null);
-				Util.handleIllegalPlayerAction(player, "Player "+player.getName()+" tried to use enchant Exploit!", IllegalPlayerAction.PUNISH_KICK);
+				Util.handleIllegalPlayerAction(player, "Player "+player.getName()+" tried to use enchant Exploit!", Config.DEFAULT_PUNISH);
 				return;
 			}
 		}
-
+		
 		int stoneId = stone.getItemId();
-		Elementals oldElement = item.getElementals();
-		int elementValue = oldElement == null ? 0 : oldElement.getValue();
-		int limit = getLimit(stoneId, item);
-		int powerToAdd = getPowerToAdd(stoneId, elementValue, item);
-		byte elementToAdd = getElementFromItemId(stoneId);
-
+		byte elementToAdd = Attributes.getItemElementById(stoneId);
 		// Armors have the opposite element
 		if (item.isArmor())
-			elementToAdd = Elementals.getOppositeElement(elementToAdd);
-
+			elementToAdd = Attributes.getOppositeElement(elementToAdd);
+		byte opositeElement = Attributes.getOppositeElement(elementToAdd);
+		
+		Attributes oldElement = item.getAttribute(elementToAdd);
+		int elementValue = oldElement == null ? 0 : oldElement.getValue();
+		int limit = getLimit(item, stoneId);
+		int powerToAdd = getPowerToAdd(stoneId, elementValue, item);
+		
+		if ((item.isWeapon() && oldElement != null && oldElement.getElement() != elementToAdd && oldElement.getElement() != -2)
+				|| (item.isArmor() && item.getAttribute(elementToAdd) == null && item.getElementals() != null && item.getElementals().length >= 3))
+		{
+			player.sendPacket(SystemMessageId.ANOTHER_ELEMENTAL_POWER_ALREADY_ADDED);
+			player.setActiveEnchantAttrItem(null);
+			return;
+		}
+		
+		if (item.isArmor() && item.getElementals() != null)
+		{
+			//cant add opposite element
+			for (Attributes elm : item.getElementals())
+			{
+				if (elm.getElement() == opositeElement)
+				{
+					player.setActiveEnchantAttrItem(null);
+					Util.handleIllegalPlayerAction(player, "Player "+player.getName()+" tried to add oposite attribute to item!", Config.DEFAULT_PUNISH);
+					return;
+				}
+			}
+		}
+		
 		int newPower = elementValue + powerToAdd;
 		if (newPower > limit)
 		{
 			newPower = limit;
 			powerToAdd = limit - elementValue;
 		}
-
-		if (oldElement != null && oldElement.getElement() != elementToAdd && oldElement.getElement() != -2)
+		
+		if (powerToAdd <= 0)
 		{
-			requestFailed(SystemMessageId.ANOTHER_ELEMENTAL_POWER_ALREADY_ADDED);
+			player.sendPacket(SystemMessageId.ELEMENTAL_ENHANCE_CANCELED);
 			player.setActiveEnchantAttrItem(null);
 			return;
 		}
-		else if (powerToAdd <= 0)
+		
+		if(!player.destroyItem("AttrEnchant", stone, 1, player, true))
 		{
-			requestFailed(SystemMessageId.ELEMENTAL_ENHANCE_CANCELED);
+			player.sendPacket(SystemMessageId.NOT_ENOUGH_ITEMS);
+			Util.handleIllegalPlayerAction(player, "Player "+player.getName()+" tried to attribute enchant with a stone he doesn't have", Config.DEFAULT_PUNISH);
 			player.setActiveEnchantAttrItem(null);
 			return;
 		}
-
-		if (!player.destroyItem("AttrEnchant", stone, 1, player, true))
+		boolean success = false;
+		switch(Attributes.getItemElemental(stoneId).getItemType())
 		{
-			requestFailed(SystemMessageId.NOT_ENOUGH_ITEMS);
-			player.setActiveEnchantAttrItem(null);
-			return;
+			case STONE:
+			case ROUGHORE:
+				success = Rnd.get(100) < 50;
+				break;
+			case CRYSTAL:
+				success = Rnd.get(100) < 50;
+				break;
+			case JEWEL:
+				success = Rnd.get(100) < 50;
+				break;
+			case ENERGY:
+				success = Rnd.get(100) < 50;
+				break;
 		}
-
-		if (Rnd.get(100) < Config.ENCHANT_CHANCE_ELEMENT)
-		{
+		if (success)
+		{			
 			SystemMessage sm;
 			if (item.getEnchantLevel() == 0)
 			{
-				sm = new SystemMessage(SystemMessageId.ELEMENTAL_POWER_S2_SUCCESSFULLY_ADDED_TO_S1);
+				if (item.isArmor())
+					sm = new SystemMessage(SystemMessageId.THE_S2_ATTRIBUTE_WAS_SUCCESSFULLY_BESTOWED_ON_S1_RES_TO_S3_INCREASED);
+				else
+					sm = new SystemMessage(SystemMessageId.ELEMENTAL_POWER_S2_SUCCESSFULLY_ADDED_TO_S1);
 				sm.addItemName(item);
-				sm.addString(Elementals.getElementName(elementToAdd));
+				sm.addString(Attributes.getElementName(elementToAdd));
 			}
 			else
 			{
-				sm = new SystemMessage(SystemMessageId.ELEMENTAL_POWER_S3_SUCCESSFULLY_ADDED_TO_S1_S2);
+				if (item.isArmor())
+					sm = new SystemMessage(SystemMessageId.THE_S3_ATTRIBUTE_BESTOWED_ON_S1_S2_RESISTANCE_TO_S4_INCREASED);
+				else
+					sm = new SystemMessage(SystemMessageId.ELEMENTAL_POWER_S3_SUCCESSFULLY_ADDED_TO_S1_S2);
 				sm.addNumber(item.getEnchantLevel());
 				sm.addItemName(item);
-				sm.addString(Elementals.getElementName(elementToAdd));
+				sm.addString(Attributes.getElementName(elementToAdd));
 			}
-			sendPacket(sm);
+			player.sendPacket(sm);
 			item.setElementAttr(elementToAdd, newPower);
-
 			if (item.isEquipped())
 				item.updateElementAttrBonus(player);
-
+			
 			// send packets
 			InventoryUpdate iu = new InventoryUpdate();
 			iu.addModifiedItem(item);
-			sendPacket(iu);
+			player.sendPacket(iu);
 		}
 		else
 			player.sendPacket(SystemMessageId.FAILED_ADDING_ELEMENTAL_POWER);
-
-		sendPacket(new ExAttributeEnchantResult(powerToAdd));
-		sendPacket(new UserInfo(player));
-
-		sendAF();
+		
+		player.sendPacket(new ExAttributeEnchantResult(powerToAdd));
+		player.sendPacket(new UserInfo(player));
+		player.sendPacket(new ExBrExtraUserInfo(player));
 		player.setActiveEnchantAttrItem(null);
 	}
-
-	public byte getElementFromItemId(int itemId)
+	
+	public int getLimit(L2ItemInstance item, int sotneId)
 	{
-		byte element = 0;
-		for (int id : Elementals.STONES)
-		{
-			if (id == itemId)
-				return element;
-			element++;
-		}
-		element = 0;
-		for (int id : Elementals.ORES)
-		{
-			if (id == itemId)
-				return element;
-			element++;
-		}
-		element = 0;
-		for (int id : Elementals.CRYSTALS)
-		{
-			if (id == itemId)
-				return element;
-			element++;
-		}
-		element = 0;
-		for (int id : Elementals.JEWELS)
-		{
-			if (id == itemId)
-				return element;
-			element++;
-		}
-		element = 0;
-		for (int id : Elementals.ENERGIES)
-		{
-			if (id == itemId)
-				return element;
-			element++;
-		}
-		return -1;
+		AttributeItems elementItem = Attributes.getItemElemental(sotneId);
+		if (elementItem == null)
+			return 0;
+		
+		if (item.isWeapon())
+			return Attributes.WEAPON_VALUES[elementItem.getItemType().getMaxLevel()];
+		else
+			return Attributes.ARMOR_VALUES[elementItem.getItemType().getMaxLevel()];
 	}
-
-	public int getLimit(int itemId, L2ItemInstance item)
-	{
-		for (int id : Elementals.STONES)
-		{
-			if (id == itemId)
-			{
-				if (item.isWeapon())
-					return Elementals.WEAPON_VALUES[3];
-				return Elementals.ARMOR_VALUES[3];
-			}
-		}
-		for (int id : Elementals.ORES)
-		{
-			if (id == itemId)
-			{
-				if (item.isWeapon())
-					return Elementals.WEAPON_VALUES[3];
-				return Elementals.ARMOR_VALUES[3];
-			}
-		}
-		for (int id : Elementals.CRYSTALS)
-		{
-			if (id == itemId)
-			{
-				if (item.isWeapon())
-					return Elementals.WEAPON_VALUES[6];
-				return Elementals.ARMOR_VALUES[6];
-			}
-		}
-		for (int id : Elementals.JEWELS)
-		{
-			if (id == itemId)
-			{
-				if (item.isWeapon())
-					return Elementals.WEAPON_VALUES[9];
-				return Elementals.ARMOR_VALUES[9];
-			}
-		}
-		for (int id : Elementals.ENERGIES)
-		{
-			if (id == itemId)
-			{
-				if (item.isWeapon())
-					return Elementals.WEAPON_VALUES[12];
-				return Elementals.ARMOR_VALUES[12];
-			}
-		}
-		return 0;
-	}
-
+	
 	public int getPowerToAdd(int stoneId, int oldValue, L2ItemInstance item)
 	{
-		boolean found = false;
-		for (int id : Elementals.STONES)
-		{
-			if (id == stoneId)
-			{
-				found = true;
-				break;
-			}
-		}
-		if (!found)
-		{
-			for (int id : Elementals.ORES)
-			{
-				if (id == stoneId)
-				{
-					found = true;
-					break;
-				}
-			}
-		}
-		if (!found)
-		{
-			for (int id : Elementals.CRYSTALS)
-			{
-				if (id == stoneId)
-				{
-					found = true;
-					break;
-				}
-			}
-		}
-		if (!found)
-		{
-			for (int id : Elementals.JEWELS)
-			{
-				if (id == stoneId)
-				{
-					found = true;
-					break;
-				}
-			}
-		}
-		if (!found)
-		{
-			for (int id : Elementals.ENERGIES)
-			{
-				if (id == stoneId)
-				{
-					found = true;
-					break;
-				}
-			}
-		}
-
-		if (found)
+		if (Attributes.getItemElementById(stoneId) != Attributes.NONE)
 		{
 			if (item.isWeapon())
 			{
 				if (oldValue == 0)
-					return Elementals.FIRST_WEAPON_BONUS;
-
-				return Elementals.NEXT_WEAPON_BONUS;
+					return Attributes.FIRST_WEAPON_BONUS;
+				else
+					return Attributes.NEXT_WEAPON_BONUS;
 			}
 			else if (item.isArmor())
-				return Elementals.ARMOR_BONUS;
+				return Attributes.ARMOR_BONUS;
 		}
-
+		
 		return 0;
 	}
-
+	
 	@Override
 	public String getType()
 	{
-		return D0_38_REQUEST_EX_ENCHANT_ITEM_ATTRIBUTE;
+		return D0_35_REQUEST_EX_ENCHANT_ITEM_ATTRIBUTE;
 	}
 }

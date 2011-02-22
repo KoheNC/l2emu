@@ -20,7 +20,7 @@ import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.skills.ChanceCondition;
 import net.l2emuproject.gameserver.skills.IChanceSkillTrigger;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
@@ -108,12 +108,12 @@ public final class ChanceSkillList
 				event |= ChanceCondition.EVT_CRIT;
 		}
 		
-		onEvent(event, damage, evtInitiator, Elementals.NONE);
+		onEvent(event, damage, evtInitiator, Attributes.NONE);
 	}
 	
 	public void onEvadedHit(L2Character attacker)
 	{
-		onEvent(ChanceCondition.EVT_EVADED_HIT, 0, attacker, Elementals.NONE);
+		onEvent(ChanceCondition.EVT_EVADED_HIT, 0, attacker, Attributes.NONE);
 	}
 	
 	public void onSkillHit(L2Character evtInitiator, boolean ownerWasHit, L2Skill trigger)

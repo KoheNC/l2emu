@@ -29,7 +29,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
 import net.l2emuproject.lang.L2TextBuilder;
 import net.l2emuproject.util.L2Arrays;
@@ -398,7 +398,7 @@ public final class ModuleTester extends Config
 				if (!line.contains("\"element\""))
 					continue;
 				
-				final String name = Elementals.getElementName(Byte.parseByte(getAttributeValue(line, "val")));
+				final String name = Attributes.getElementName(Byte.parseByte(getAttributeValue(line, "val")));
 				
 				if (name.equals("None"))
 				{

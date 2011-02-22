@@ -26,7 +26,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket.ElementalOwner;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.util.ArrayBunch;
@@ -86,7 +86,7 @@ public class TradeList
 			_storeCount = count;
 			_price = price;
 			
-			_elemAtkType = Elementals.NONE;
+			_elemAtkType = Attributes.NONE;
 			_elemAtkPower = 0;
 		}
 

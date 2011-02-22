@@ -27,7 +27,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.serverpackets.MultiSellList;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.templates.item.L2Armor;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
@@ -132,12 +132,12 @@ public final class L2Multisell
 						.getAugmentation().getAugmentationId() : 0) : 0);
 					elementId = (listTemplate.getMaintainEnchantment() ? item.getAttackElementType() : -2);
 					elementValue = (listTemplate.getMaintainEnchantment() ? item.getAttackElementPower() : 0);
-					fireVal = (listTemplate.getMaintainEnchantment() ? item.getElementDefAttr(Elementals.FIRE) : 0);
-					waterVal = (listTemplate.getMaintainEnchantment() ? item.getElementDefAttr(Elementals.WATER) : 0);
-					windVal = (listTemplate.getMaintainEnchantment() ? item.getElementDefAttr(Elementals.WIND) : 0);
-					earthVal = (listTemplate.getMaintainEnchantment() ? item.getElementDefAttr(Elementals.EARTH) : 0);
-					holyVal = (listTemplate.getMaintainEnchantment() ? item.getElementDefAttr(Elementals.HOLY) : 0);
-					darkVal = (listTemplate.getMaintainEnchantment() ? item.getElementDefAttr(Elementals.DARK) : 0);
+					fireVal = (listTemplate.getMaintainEnchantment() ? item.getElementDefAttr(Attributes.FIRE) : 0);
+					waterVal = (listTemplate.getMaintainEnchantment() ? item.getElementDefAttr(Attributes.WATER) : 0);
+					windVal = (listTemplate.getMaintainEnchantment() ? item.getElementDefAttr(Attributes.WIND) : 0);
+					earthVal = (listTemplate.getMaintainEnchantment() ? item.getElementDefAttr(Attributes.EARTH) : 0);
+					holyVal = (listTemplate.getMaintainEnchantment() ? item.getElementDefAttr(Attributes.HOLY) : 0);
+					darkVal = (listTemplate.getMaintainEnchantment() ? item.getElementDefAttr(Attributes.DARK) : 0);
 					mana = (listTemplate.getMaintainEnchantment() ? item.getMana() : 0/*guess*/);
 					
 					// loop through the entries to see which ones we wish to include

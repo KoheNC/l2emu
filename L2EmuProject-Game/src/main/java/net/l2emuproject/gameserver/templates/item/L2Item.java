@@ -22,6 +22,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.conditions.Condition;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
@@ -152,6 +153,8 @@ public abstract class L2Item implements FuncOwner
 	private final boolean				_pvpItem;
 
 	protected final AbstractL2ItemType	_type;
+	
+	protected Attributes[] _elementals = null;
 
 	private Condition[] _preConditions = Condition.EMPTY_ARRAY;
 
@@ -609,6 +612,53 @@ public abstract class L2Item implements FuncOwner
 	{
 		// second param does nothing
 		return checkCondition(pet, true);
+	}
+	
+	/**
+	 * Returns the base elemental of the item
+	 * @return Elementals
+	 */
+	public final Attributes[] getElementals()
+	{
+		return _elementals;
+	}
+	
+	public Attributes getElemental(byte attribute)
+	{
+		for (Attributes elm : _elementals)
+		{
+			if (elm.getElement() == attribute)
+				return elm;
+		}
+		return null;
+	}
+	
+	/**
+	 * Sets the base elemental of the item
+	 */
+	public void setElementals(Attributes element)
+	{
+		if (_elementals == null)
+		{
+			_elementals = new Attributes[1];
+			_elementals[0] = element;
+		}
+		else
+		{
+			Attributes elm = getElemental(element.getElement());
+			if (elm != null)
+			{
+				elm.setValue(element.getValue());
+			}
+			else
+			{
+				elm = element;
+				Attributes[] array = new Attributes[_elementals.length + 1];
+				System.arraycopy(_elementals, 0, array, 0, _elementals.length);
+				array[_elementals.length] = elm;
+				_elementals = array;
+			}
+		}
 	}
 
 	/**

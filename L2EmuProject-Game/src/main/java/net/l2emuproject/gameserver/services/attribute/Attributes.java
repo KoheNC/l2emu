@@ -19,9 +19,18 @@ import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.skills.funcs.FuncAdd;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
+import net.l2emuproject.util.LookupTable;
 
-public final class Elementals implements FuncOwner
+public class Attributes implements FuncOwner
 {
+	private static final LookupTable<AttributeItems> TABLE = new LookupTable<AttributeItems>();
+	
+	static
+	{
+		for (AttributeItems item : AttributeItems.values())
+			TABLE.put(item.getItemId(), item);
+	}
+	
 	public final static byte NONE = -1;
 	public final static byte FIRE = 0;
 	public final static byte WATER = 1;
@@ -29,7 +38,7 @@ public final class Elementals implements FuncOwner
 	public final static byte EARTH = 3;
 	public final static byte HOLY = 4;
 	public final static byte DARK = 5;
-
+	
 	public final static int FIRST_WEAPON_BONUS = 20;
 	public final static int NEXT_WEAPON_BONUS = 5;
 	public final static int ARMOR_BONUS = 6;
@@ -47,7 +56,6 @@ public final class Elementals implements FuncOwner
 		475, // Level 11
 		525, // Level 12
 		600, // Level 13
-		Integer.MAX_VALUE // TODO: Higher stones
 	};
 	
 	public final static int[] ARMOR_VALUES = { 0, // Level 1
@@ -63,62 +71,48 @@ public final class Elementals implements FuncOwner
 		192, // Level 11
 		210, // Level 12
 		240, // Level 13
-		Integer.MAX_VALUE // TODO: Higher stones
 	};
-	
-	
-	
-	public final static int[] STONES = { 9546, 9547, 9549, 9548, 9551, 9550 };
-	
-	public final static int[] CRYSTALS = { 9552, 9553, 9555, 9554, 9557, 9556 };
-	
-	public final static int[] JEWELS = { 9558, 9559, 9561, 9560, 9563, 9562 };
-	
-	public final static int[] ENERGIES = { 9564, 9565, 9567, 9566, 9569, 9568 };
-	
-	public final static int[] ORES = { 10521, 10522, 10524, 10523, 10526, 10525 };
 	
 	private byte _element;
 	private int _value;
 	
-	private boolean _active;
 	
-	public Elementals(byte type, int value)
+	public Attributes(byte type, int value)
 	{
 		_element = type;
 		_value = value;
 	}
-	
+
+	/**
+	 * @param element the _element to set
+	 */
+	public void setElement(byte element)
+	{
+		_element = element;
+	}
+
+	/**
+	 * @return the _element
+	 */
 	public byte getElement()
 	{
 		return _element;
 	}
-	
-	public void setElement(byte type)
+
+	/**
+	 * @param value the _value to set
+	 */
+	public void setValue(int value)
 	{
-		_element = type;
+		_value = value;
 	}
-	
+
+	/**
+	 * @return the _value
+	 */
 	public int getValue()
 	{
 		return _value;
-	}
-	
-	public void setValue(int val)
-	{
-		_value = val;
-	}
-	
-	public static byte getItemElement(int itemId)
-	{
-		// TODO: Implement me...
-		return NONE;
-	}
-	
-	public static int getMaxElementLevel(int itemId)
-	{
-		// TODO: Implement me...
-		return -1;
 	}
 	
 	public static String getElementName(byte element)
@@ -159,9 +153,25 @@ public final class Elementals implements FuncOwner
 		return NONE;
 	}
 	
-	public static byte getOppositeElement(byte element)
+	public static byte getItemElementById(int itemId)
 	{
-		return (byte)((element % 2 == 0) ? (element + 1) : (element - 1));
+		AttributeItems item = TABLE.get(itemId);
+		if (item != null)
+			return item.getAttributeType();
+		return NONE;
+	}
+	
+	public static AttributeItems getItemElemental(int itemId)
+	{
+		return TABLE.get(itemId);
+	}
+	
+	public static int getMaxAttributeLevelById(int itemId)
+	{
+		AttributeItems item = TABLE.get(itemId);
+		if (item != null)
+			return item.getItemType().getMaxLevel();
+		return -1;
 	}
 	
 	public static Stats getResist(byte element)
@@ -206,12 +216,11 @@ public final class Elementals implements FuncOwner
 		}
 	}
 	
-	@Override
-	public String toString()
+	public static byte getOppositeElement(byte element)
 	{
-		return getElementName(_element) + " +" + _value;
+		return (byte)((element % 2 == 0) ? (element + 1) : (element - 1));
 	}
-	
+
 	/**
 	 * Applies the bonuses to the player.
 	 * 
@@ -219,16 +228,10 @@ public final class Elementals implements FuncOwner
 	 */
 	public void applyBonus(L2PcInstance player, boolean isArmor)
 	{
-		// make sure the bonuses are not applied twice..
-		if (_active)
-			return;
-		
 		if (isArmor)
 			player.addStatFunc(new FuncAdd(getResist(_element), 0x40, this, _value, null));
 		else
 			player.addStatFunc(new FuncAdd(getPower(_element), 0x40, this, _value, null));
-		
-		_active = true;
 	}
 	
 	/**
@@ -238,13 +241,7 @@ public final class Elementals implements FuncOwner
 	 */
 	public void removeBonus(L2PcInstance player)
 	{
-		// make sure the bonuses are not removed twice
-		if (!_active)
-			return;
-		
 		player.removeStatsOwner(this);
-		
-		_active = false;
 	}
 	
 	/**
@@ -259,11 +256,17 @@ public final class Elementals implements FuncOwner
 	}
 	
 	@Override
+	public String toString()
+	{
+		return getElementName(_element) + " +" + _value;
+	}
+
+	@Override
 	public String getFuncOwnerName()
 	{
 		return null;
 	}
-	
+
 	@Override
 	public L2Skill getFuncOwnerSkill()
 	{

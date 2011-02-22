@@ -51,7 +51,7 @@ import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket.Elem
 import net.l2emuproject.gameserver.network.serverpackets.SpawnItem;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import net.l2emuproject.gameserver.services.attribute.Elementals;
+import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.services.augmentation.L2Augmentation;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
@@ -133,7 +133,7 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 	/** Augmented Item */
 	private L2Augmentation		_augmentation				= null;
 	/** Elemental Enchant */
-	private Elementals			_elementals					= null;
+	private Attributes[]			_elementals					= null;
 	
 	public ScheduledFuture<?>	_lifeTimeTask;
 	
@@ -906,7 +906,7 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 				byte elem_type = rs.getByte(4);
 				int elem_value = rs.getInt(5);
 				if (elem_type != -1 && elem_value != -1)
-					_elementals = new Elementals(elem_type, elem_value);
+					applyAttribute(elem_type, elem_value);
 				if (aug_attributes != -1 && aug_skillId != -1 && aug_skillLevel != -1)
 					_augmentation = new L2Augmentation(aug_attributes, aug_skillId, aug_skillLevel);
 			}
@@ -920,6 +920,29 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 		finally
 		{
 			L2DatabaseFactory.close(con);
+		}
+	}
+	
+	private void applyAttribute(byte element, int value)
+	{
+		if (_elementals == null)
+		{
+			_elementals = new Attributes[1];
+			_elementals[0] = new Attributes(element, value);
+		}
+		else
+		{
+			Attributes atr = getAttribute(element);
+			if (atr != null)
+				atr.setValue(value);
+			else
+			{
+				atr = new Attributes(element, value);
+				Attributes[] array = new Attributes[_elementals.length+1];
+				System.arraycopy(_elementals, 0, array, 0, _elementals.length);
+				array[_elementals.length] = atr;
+				_elementals = array;
+			}
 		}
 	}
 
@@ -958,8 +981,11 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 			}
 			else
 			{
-				statement.setByte(5, _elementals.getElement());
-				statement.setInt(6, _elementals.getValue());
+				for (Attributes attr : _elementals)
+				{
+					statement.setByte(5, attr.getElement());
+					statement.setInt(6, attr.getValue());
+				}
 			}
 			statement.executeUpdate();
 			statement.close();
@@ -974,51 +1000,68 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 		}
 	}
 
-	public Elementals getElementals()
+	public Attributes[] getElementals()
 	{
 		return _elementals;
+	}
+	
+	public Attributes getAttribute(byte attribute)
+	{
+		if (_elementals == null)
+			return null;
+		for (Attributes elm : _elementals)
+			if (elm.getElement() == attribute)
+				return elm;
+		return null;
 	}
 
 	@Override
 	public byte getAttackElementType()
 	{
-		if (isWeapon() && _elementals != null)
-			return _elementals.getElement();
+		if (!isWeapon())
+			return -2;
+		else if (getItem().getElementals() != null)
+			return getItem().getElementals()[0].getElement();
+		else if (_elementals != null)
+			return _elementals[0].getElement();
 		return -2;
 	}
 
 	@Override
 	public int getAttackElementPower()
 	{
-		if (isWeapon() && _elementals != null)
-			return _elementals.getValue();
+		if (!isWeapon())
+			return 0;
+		else if (getItem().getElementals() != null)
+			return getItem().getElementals()[0].getValue();
+		else if (_elementals != null)
+			return _elementals[0].getValue();
 		return 0;
 	}
 
 	@Override
 	public int getElementDefAttr(byte element)
 	{
-		if (isArmor() && _elementals != null && _elementals.getElement() == element)
-			return _elementals.getValue();
+		if (!isArmor())
+			return 0;
+		else if (getItem().getElementals() != null)
+		{
+			Attributes elm = getItem().getElemental(element);
+			if (elm != null)
+				return elm.getValue();
+		}
+		else if (_elementals != null)
+		{
+			Attributes elm = getAttribute(element);
+			if (elm != null )
+				return elm.getValue();
+		}
 		return 0;
 	}
 
 	public void setElementAttr(byte element, int value)
 	{
-		if (_elementals == null)
-		{
-			_elementals = new Elementals(element, value);
-		}
-		else
-		{
-			_elementals.setElement(element);
-			if (!isWeapon() && value > Elementals.ARMOR_VALUES[12])
-				_elementals.setValue(Elementals.ARMOR_VALUES[12]);
-			else if (value > Elementals.WEAPON_VALUES[12])
-				_elementals.setValue(Elementals.WEAPON_VALUES[12]);
-			else
-				_elementals.setValue(value);
-		}
+		applyAttribute(element, value);
 		updateItemAttributes();
 	}
 
@@ -1026,8 +1069,16 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 	{
 		if (_elementals == null)
 			return;
-
-		_elementals.updateBonus(player, isArmor());
+		for (Attributes attr : _elementals)
+			attr.updateBonus(player, isArmor());
+	}
+	
+	public void removeElementAttrBonus(L2PcInstance player)
+	{
+		if (_elementals == null)
+			return;
+		for (Attributes elm : _elementals)
+			elm.removeBonus(player);
 	}
 
 	public void clearElementAttr()
