@@ -21,24 +21,19 @@ import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 
 import javolution.util.FastMap;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.config.L2Properties;
-import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.PersistentProperties;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
-import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.tools.random.Rnd;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * @author Gigiikun, L2JNightFall Team
@@ -73,11 +68,11 @@ public final class HellboundManager
 
 	private ScheduledFuture<?>					_engine					= null;
 
-	private final Map<HellboundSpawn, L2Npc>	_spawns;
+	private final Map<HellboundSpawns, L2Npc>	_spawns;
 
 	private HellboundManager()
 	{
-		_spawns = new FastMap<HellboundSpawn, L2Npc>();
+		_spawns = new FastMap<HellboundSpawns, L2Npc>();
 		L2Properties props = PersistentProperties.getProperties(HellboundManager.class);
 		loadProperties(props);
 		saveProperties();
@@ -89,7 +84,7 @@ public final class HellboundManager
 
 		loadSpawns();
 
-		registerEngine(new Engine(), 15000);
+		registerEngine(new HellboundEngine(), 15000);
 		ThreadPoolManager.getInstance().scheduleAtFixedRate(new SaveHellbound(), 24 * 60 * 60 * 1000, 24 * 60 * 60 * 1000);
 	}
 
@@ -135,7 +130,7 @@ public final class HellboundManager
 		return _maxTrustPoints;
 	}
 
-	private final void setMaxTrustPoints(int trust)
+	public final void setMaxTrustPoints(int trust)
 	{
 		_maxTrustPoints = trust;
 		if (_maxTrustPoints > 0 && _trustPoints > _maxTrustPoints)
@@ -205,11 +200,11 @@ public final class HellboundManager
 		_spawns.clear();
 	}
 
-	private final void doSpawn()
+	public final void doSpawn()
 	{
 		int added = 0;
 		int deleted = 0;
-		for (HellboundSpawn spawnDat : _spawns.keySet())
+		for (HellboundSpawns spawnDat : _spawns.keySet())
 		{
 			try
 			{
@@ -275,7 +270,7 @@ public final class HellboundManager
 			PreparedStatement statement = con.prepareStatement(LOAD_SPAWNS);
 			ResultSet rset = statement.executeQuery();
 
-			HellboundSpawn spawnDat;
+			HellboundSpawns spawnDat;
 			L2NpcTemplate template;
 
 			while (rset.next())
@@ -283,7 +278,7 @@ public final class HellboundManager
 				template = NpcTable.getInstance().getTemplate(rset.getInt("npc_templateid"));
 				if (template != null)
 				{
-					spawnDat = new HellboundSpawn(template);
+					spawnDat = new HellboundSpawns(template);
 					spawnDat.setAmount(1);
 					spawnDat.setId(rset.getInt("id"));
 					spawnDat.setLocx(rset.getInt("locx"));
@@ -326,160 +321,12 @@ public final class HellboundManager
 		_log.info(getClass().getSimpleName() + " : Loaded " + _spawns.size() + " NPC Spawn Locations.");
 	}
 
-	private static final class HellboundSpawn extends L2Spawn
-	{
-		private int	_minLevel;
-		private int	_maxLevel;
-		private int	_maxTrustLevel;
-		private int	_trustPoints;
-
-		public HellboundSpawn(L2NpcTemplate mobTemplate) throws SecurityException, ClassNotFoundException, NoSuchMethodException
-		{
-			super(mobTemplate);
-		}
-
-		private final int getMinLevel()
-		{
-			return _minLevel;
-		}
-
-		private final void setMinLevel(int level)
-		{
-			_minLevel = level;
-		}
-
-		private final int getMaxLevel()
-		{
-			return _maxLevel;
-		}
-
-		private final void setMaxLevel(int level)
-		{
-			_maxLevel = level;
-		}
-
-		private final void setMaxTrustLevel(int level)
-		{
-			_maxTrustLevel = level;
-		}
-
-		private final void setTrustPoints(int points)
-		{
-			_trustPoints = points;
-		}
-
-		private final void updateTrustOnKill()
-		{
-			if (_trustPoints != 0)
-			{
-				if (_maxTrustLevel <= HellboundManager.getInstance().getHellboundLevel())
-					HellboundManager.getInstance().updateTrustPoints(_trustPoints, true);
-			}
-		}
-
-		@Override
-		public final void decreaseCount(L2Npc oldNpc)
-		{
-			if (getRespawnMaxDelay() > getRespawnMinDelay())
-				setRespawnDelay(Rnd.get(getRespawnMinDelay(), getRespawnMaxDelay()));
-
-			super.decreaseCount(oldNpc);
-			updateTrustOnKill();
-		}
-	}
-
 	private final void registerEngine(Runnable r, int interval)
 	{
 		if (_engine != null)
 			_engine.cancel(false);
 
 		_engine = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(r, interval, interval);
-	}
-
-	private static final class Engine implements Runnable
-	{
-		private static final int[][]	DOOR_LIST		=
-														{
-														{ 19250001, 5 },
-														{ 19250002, 5 },
-														{ 20250001, 9 },
-														{ 20250002, 7 } };
-
-		private static final int[]		MAX_TRUST		=
-														{ 0, 300000, 600000, 1000000, 0 };
-
-		private static final String		ANNOUNCE		= "Hellbound now has reached level: %lvl%";
-
-		private int						_cachedLevel	= -1;
-
-		private final void onLevelChange(int newLevel)
-		{
-			try
-			{
-				HellboundManager.getInstance().setMaxTrustPoints(MAX_TRUST[newLevel]);
-			}
-			catch (ArrayIndexOutOfBoundsException e)
-			{
-				HellboundManager.getInstance().setMaxTrustPoints(0);
-			}
-
-			HellboundManager.getInstance().doSpawn();
-
-			for (int[] doorData : DOOR_LIST)
-			{
-				try
-				{
-					L2DoorInstance door = DoorTable.getInstance().getDoor(doorData[0]);
-					if (door.isOpen())
-					{
-						if (newLevel < doorData[1])
-							door.closeMe();
-					}
-					else
-					{
-						if (newLevel >= doorData[1])
-							door.openMe();
-					}
-				}
-				catch (Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-
-			if (_cachedLevel >= 0)
-				Announcements.getInstance().announceToAll(ANNOUNCE.replace("%lvl%", String.valueOf(newLevel)));
-
-			_cachedLevel = newLevel;
-		}
-
-		@Override
-		public final void run()
-		{
-			int level = HellboundManager.getInstance().getHellboundLevel();
-			if (level == _cachedLevel)
-			{
-				boolean nextLevel = false;
-				switch (level)
-				{
-					case 1:
-					case 2:
-					case 3:
-						if (HellboundManager.getInstance().getTrustPoints() == HellboundManager.getInstance().getMaxTrustPoints())
-							nextLevel = true;
-					default:
-				}
-
-				if (nextLevel)
-				{
-					level++;
-					HellboundManager.getInstance().setHellboundLevel(level);
-					onLevelChange(level);
-				}
-			}
-			else
-				onLevelChange(level); // first run or changed by admin
-		}
 	}
 
 	private static final class SaveHellbound implements Runnable
