@@ -118,7 +118,7 @@ public final class Quarry extends QuestJython
 	@Override
 	public final String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
 	{
-		HellboundManager.getInstance().updateTrustPoints(-TRUST, true);
+		HellboundManager.getInstance().addTrustPoints(-TRUST);
 		npc.setAutoAttackable(false);
 
 		return super.onKill(npc, killer, isPet);
@@ -168,7 +168,7 @@ public final class Quarry extends QuestJython
 				_npc.setAutoAttackable(false);
 				_npc.deleteMe();
 				_npc.getSpawn().decreaseCount(_npc);
-				HellboundManager.getInstance().updateTrustPoints(TRUST, true);
+				HellboundManager.getInstance().addTrustPoints(TRUST);
 			}
 		}
 	}

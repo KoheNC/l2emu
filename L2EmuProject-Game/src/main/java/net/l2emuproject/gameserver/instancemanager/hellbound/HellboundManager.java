@@ -137,18 +137,6 @@ public final class HellboundManager
 			_trustPoints = _maxTrustPoints;
 	}
 
-	public final synchronized void updateTrustPoints(int t, boolean useRates)
-	{
-		if (isWarpgateActive())
-			return;
-
-		final int trust = Math.max(_trustPoints + (useRates ? (int) (Config.RATE_TRUST_POINT * t) : t), 0);
-		if (_maxTrustPoints > 0)
-			_trustPoints = Math.min(trust, _maxTrustPoints);
-		else
-			_trustPoints = trust;
-	}
-
 	public final int getTrustPoints()
 	{
 		return _trustPoints;
@@ -161,7 +149,7 @@ public final class HellboundManager
 
 	public final void addTrustPoints(int trustPoints)
 	{
-		setTrustPoints(getTrustPoints() + trustPoints);
+		setTrustPoints((int) (getTrustPoints() + trustPoints * Config.RATE_TRUST_POINT));
 	}
 
 	public final void removeTrustPoints(int trustPoints)

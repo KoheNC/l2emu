@@ -56,7 +56,7 @@ public final class Kief extends QuestJython
 					{
 						if (player.destroyItemByItemId("Quest", DARION_BADGE, num, npc, true))
 						{
-							HellboundManager.getInstance().updateTrustPoints((int) num * 1, false);
+							HellboundManager.getInstance().addTrustPoints((int) num * 1);
 							return "32354-ok.htm";
 						}
 					}
@@ -87,7 +87,7 @@ public final class Kief extends QuestJython
 				{
 					if (player.destroyItemByItemId("Quest", DIM_LIFE_FORCE, num, npc, true))
 					{
-						HellboundManager.getInstance().updateTrustPoints((int) num * 1, false);
+						HellboundManager.getInstance().addTrustPoints((int) num * 1);
 						return "32354-ok.htm";
 					}
 				}
@@ -103,7 +103,7 @@ public final class Kief extends QuestJython
 				{
 					if (player.destroyItemByItemId("Quest", LIFE_FORCE, num, npc, true))
 					{
-						HellboundManager.getInstance().updateTrustPoints((int) num * 2, false);
+						HellboundManager.getInstance().addTrustPoints((int) num * 2);
 						return "32354-ok.htm";
 					}
 				}
@@ -119,7 +119,7 @@ public final class Kief extends QuestJython
 				{
 					if (player.destroyItemByItemId("Quest", CONTAINED_LIFE_FORCE, num, npc, true))
 					{
-						HellboundManager.getInstance().updateTrustPoints((int) num * 5, false);
+						HellboundManager.getInstance().addTrustPoints((int) num * 5);
 						return "32354-ok.htm";
 					}
 				}

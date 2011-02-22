@@ -65,7 +65,7 @@ public final class Slaves extends L2AttackableAIScript
 		if (npc instanceof L2MinionInstance)
 		{
 			// Slaves does not have spawns and trust can't be handled by manager
-			HellboundManager.getInstance().updateTrustPoints(TRUST, true);
+			HellboundManager.getInstance().addTrustPoints(TRUST);
 		}
 		else
 		{

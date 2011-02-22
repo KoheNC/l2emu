@@ -70,7 +70,7 @@ public final class HellboundSpawns extends L2Spawn
 		if (_trustPoints != 0)
 		{
 			if (_maxTrustLevel <= HellboundManager.getInstance().getHellboundLevel())
-				HellboundManager.getInstance().updateTrustPoints(_trustPoints, true);
+				HellboundManager.getInstance().addTrustPoints(_trustPoints);
 		}
 	}
 
