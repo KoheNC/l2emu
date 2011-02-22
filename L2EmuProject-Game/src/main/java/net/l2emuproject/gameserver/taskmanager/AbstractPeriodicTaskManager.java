@@ -28,9 +28,9 @@ import org.apache.commons.logging.LogFactory;
 /**
  * @author NB4L1
  */
-abstract class AbstractPeriodicTaskManager implements Runnable, StartupHook
+public abstract class AbstractPeriodicTaskManager implements Runnable, StartupHook
 {
-	static final Log _log = LogFactory.getLog(AbstractPeriodicTaskManager.class);
+	protected static final Log _log = LogFactory.getLog(AbstractPeriodicTaskManager.class);
 	
 	private final ReentrantReadWriteLock _lock = new ReentrantReadWriteLock();
 	private final ReentrantReadWriteLock.ReadLock _readLock = _lock.readLock();
@@ -38,7 +38,7 @@ abstract class AbstractPeriodicTaskManager implements Runnable, StartupHook
 	
 	private final int _period;
 	
-	AbstractPeriodicTaskManager(int period)
+	public AbstractPeriodicTaskManager(int period)
 	{
 		_period = period;
 		

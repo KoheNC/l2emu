@@ -26,15 +26,14 @@ public final class Hellbound implements IVoicedCommandHandler
 	@Override
 	public final boolean useVoicedCommand(String command, L2PcInstance activeChar, String params)
 	{
-		if (HellboundManager.getInstance().isWarpgateActive())
+		if (!HellboundManager.getInstance().isWarpgateActive())
 		{
 			activeChar.sendMessage("Hellbound is locked.");
 			return true;
 		}
 
-		final int maxTrust = HellboundManager.getInstance().getMaxTrustPoints();
 		activeChar.sendMessage("Hellbound level: " + HellboundManager.getInstance().getHellboundLevel() + " trust: "
-				+ HellboundManager.getInstance().getTrustPoints() + (maxTrust > 0 ? "/" + maxTrust : ""));
+				+ HellboundManager.getInstance().getTrustPoints());
 		return true;
 	}
 

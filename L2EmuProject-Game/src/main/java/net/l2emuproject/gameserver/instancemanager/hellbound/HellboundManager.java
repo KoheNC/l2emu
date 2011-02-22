@@ -18,14 +18,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Map;
-import java.util.concurrent.ScheduledFuture;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.config.L2Properties;
 import net.l2emuproject.gameserver.PersistentProperties;
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
@@ -64,10 +62,6 @@ public final class HellboundManager
 	private int									_trustPoints			= 0;
 	private int									_warpgateEnergy			= 0;
 
-	private int									_maxTrustPoints			= 0;
-
-	private ScheduledFuture<?>					_engine					= null;
-
 	private final Map<HellboundSpawns, L2Npc>	_spawns;
 
 	private HellboundManager()
@@ -77,25 +71,24 @@ public final class HellboundManager
 		loadProperties(props);
 		saveProperties();
 
+		HellboundEngine.getInstance();
+
 		_log.info(getClass().getSimpleName() + " : Initialized.");
 		_log.info(getClass().getSimpleName() + " : Current Hellbound Level is " + _hellboundLevel + ".");
 		_log.info(getClass().getSimpleName() + " : Current Trust Points are " + _trustPoints + ".");
 		_log.info(getClass().getSimpleName() + " : Warpgates are " + (isWarpgateActive() ? "open." : "closed."));
 
 		loadSpawns();
-
-		registerEngine(new HellboundEngine(), 15000);
-		ThreadPoolManager.getInstance().scheduleAtFixedRate(new SaveHellbound(), 24 * 60 * 60 * 1000, 24 * 60 * 60 * 1000);
 	}
 
-	private final void loadProperties(L2Properties props)
+	public final void loadProperties(L2Properties props)
 	{
 		_hellboundLevel = props.getInteger("hellbound_level", 0);
 		_trustPoints = props.getInteger("trust_points", 0);
 		_warpgateEnergy = props.getInteger("warpgates_energy", 0);
 	}
 
-	private final void saveProperties()
+	public final void saveProperties()
 	{
 		PersistentProperties.addStoreListener(new PersistentProperties.StoreListener()
 		{
@@ -125,18 +118,6 @@ public final class HellboundManager
 		_hellboundLevel = hellboundLevel;
 	}
 
-	public final int getMaxTrustPoints()
-	{
-		return _maxTrustPoints;
-	}
-
-	public final void setMaxTrustPoints(int trust)
-	{
-		_maxTrustPoints = trust;
-		if (_maxTrustPoints > 0 && _trustPoints > _maxTrustPoints)
-			_trustPoints = _maxTrustPoints;
-	}
-
 	public final int getTrustPoints()
 	{
 		return _trustPoints;
@@ -157,34 +138,28 @@ public final class HellboundManager
 		setTrustPoints(getTrustPoints() - trustPoints);
 	}
 
-	public int getWarpgateEnergy()
+	public final int getWarpgateEnergy()
 	{
 		return _warpgateEnergy;
 	}
 
-	public void addWarpgateEnergy(int amount)
+	public final void addWarpgateEnergy(int amount)
 	{
 		_warpgateEnergy += amount;
 	}
 
-	public void subWarpgateEnergy(int amount)
+	public final void subWarpgateEnergy(int amount)
 	{
 		_warpgateEnergy = Math.max(0, _warpgateEnergy - amount);
 	}
 
-	public boolean isWarpgateActive()
+	public final boolean isWarpgateActive()
 	{
 		return getWarpgateEnergy() >= POINTS_TO_OPEN_WARPGATE;
 	}
 
 	public final void cleanUp()
 	{
-		if (_engine != null)
-		{
-			_engine.cancel(true);
-			_engine = null;
-		}
-
 		_spawns.clear();
 	}
 
@@ -277,7 +252,6 @@ public final class HellboundManager
 					spawnDat.setRespawnMaxDelay(rset.getInt("respawn_max_delay"));
 					spawnDat.setMinLevel(rset.getInt("min_hellbound_level"));
 					spawnDat.setMaxLevel(rset.getInt("max_hellbound_level"));
-					spawnDat.setMaxTrustLevel(rset.getInt("max_trust_level"));
 					spawnDat.setTrustPoints(rset.getInt("trust_points"));
 
 					// Random respawn time, if needed
@@ -307,24 +281,5 @@ public final class HellboundManager
 		}
 
 		_log.info(getClass().getSimpleName() + " : Loaded " + _spawns.size() + " NPC Spawn Locations.");
-	}
-
-	private final void registerEngine(Runnable r, int interval)
-	{
-		if (_engine != null)
-			_engine.cancel(false);
-
-		_engine = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(r, interval, interval);
-	}
-
-	private static final class SaveHellbound implements Runnable
-	{
-		@Override
-		public final void run()
-		{
-			L2Properties props = PersistentProperties.getProperties(HellboundManager.class);
-			getInstance().saveProperties();
-			getInstance().loadProperties(props);
-		}
 	}
 }

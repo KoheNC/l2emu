@@ -27,7 +27,6 @@ public final class HellboundSpawns extends L2Spawn
 {
 	private int	_minLevel;
 	private int	_maxLevel;
-	private int	_maxTrustLevel;
 	private int	_trustPoints;
 
 	public HellboundSpawns(L2NpcTemplate mobTemplate) throws SecurityException, ClassNotFoundException, NoSuchMethodException
@@ -55,23 +54,9 @@ public final class HellboundSpawns extends L2Spawn
 		_maxLevel = level;
 	}
 
-	public final void setMaxTrustLevel(int level)
-	{
-		_maxTrustLevel = level;
-	}
-
 	public final void setTrustPoints(int points)
 	{
 		_trustPoints = points;
-	}
-
-	public final void updateTrustOnKill()
-	{
-		if (_trustPoints != 0)
-		{
-			if (_maxTrustLevel <= HellboundManager.getInstance().getHellboundLevel())
-				HellboundManager.getInstance().addTrustPoints(_trustPoints);
-		}
 	}
 
 	@Override
@@ -81,6 +66,6 @@ public final class HellboundSpawns extends L2Spawn
 			setRespawnDelay(Rnd.get(getRespawnMinDelay(), getRespawnMaxDelay()));
 
 		super.decreaseCount(oldNpc);
-		updateTrustOnKill();
+		HellboundManager.getInstance().addTrustPoints(_trustPoints);
 	}
 }

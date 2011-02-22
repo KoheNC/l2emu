@@ -567,3 +567,5 @@ INSERT INTO `hellbound_spawnlist` VALUES
 (null,22336,-9499,251604,-2952,17985,60,60,1,99,0,0),
 (null,22334,-9119,251568,-2936,4778,60,60,1,99,0,0),
 (null,22334,-10633,251038,-2856,38332,60,60,1,99,0,0);
+
+ALTER TABLE `hellbound_spawnlist` DROP COLUMN `max_trust_level`;
