@@ -23,58 +23,47 @@ import net.l2emuproject.gameserver.network.serverpackets.ExPutIntensiveResultFor
  * Fromat(ch) dd
  * @author  -Wooden-
  */
-public class RequestConfirmRefinerItem extends AbstractRefinePacket
+public final class RequestConfirmRefinerItem extends AbstractRefinePacket
 {
-	private static final String _C__D0_2A_REQUESTCONFIRMREFINERITEM = "[C] D0:2A RequestConfirmRefinerItem";
-	
-	private int _targetItemObjId;
-	private int _refinerItemObjId;
-	
+	private static final String	_C__D0_2A_REQUESTCONFIRMREFINERITEM	= "[C] D0:2A RequestConfirmRefinerItem";
+
+	private int					_targetItemObjId;
+	private int					_refinerItemObjId;
+
 	@Override
-	protected void readImpl()
+	protected final void readImpl()
 	{
 		_targetItemObjId = readD();
 		_refinerItemObjId = readD();
 	}
-	
+
 	@Override
-	protected
-	void runImpl()
+	protected final void runImpl()
 	{
 		final L2PcInstance activeChar = getClient().getActiveChar();
-		if (activeChar == null)
-			return;
-		
 		final L2ItemInstance targetItem = activeChar.getInventory().getItemByObjectId(_targetItemObjId);
-		if (targetItem == null)
-			return;
-		
 		final L2ItemInstance refinerItem = activeChar.getInventory().getItemByObjectId(_refinerItemObjId);
-		if (refinerItem == null)
+		if (activeChar == null || refinerItem == null || targetItem == null)
 			return;
-		
+
 		if (!isValid(activeChar, targetItem, refinerItem))
 		{
 			activeChar.sendPacket(SystemMessageId.THIS_IS_NOT_A_SUITABLE_ITEM);
 			return;
 		}
-		
+
 		final int refinerItemId = refinerItem.getItem().getItemId();
 		final int grade = targetItem.getItem().getItemGrade();
 		final LifeStone ls = getLifeStone(refinerItemId);
 		final int gemStoneId = getGemStoneId(grade);
 		final int gemStoneCount = getGemStoneCount(grade, ls.getGrade());
-		
+
 		activeChar.sendPacket(new ExPutIntensiveResultForVariationMake(_refinerItemObjId, refinerItemId, gemStoneId, gemStoneCount));
 	}
-	
-	/**
-	 * @see com.l2jserver.gameserver.BasePacket#getType()
-	 */
+
 	@Override
-	public String getType()
+	public final String getType()
 	{
 		return _C__D0_2A_REQUESTCONFIRMREFINERITEM;
 	}
-	
 }

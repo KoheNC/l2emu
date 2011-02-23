@@ -25,26 +25,24 @@ import net.l2emuproject.gameserver.network.serverpackets.ExPutItemResultForVaria
  */
 public final class RequestConfirmTargetItem extends AbstractRefinePacket
 {
-	private static final String _C__D0_26_REQUESTCONFIRMTARGETITEM = "[C] D0:26 RequestConfirmTargetItem";
-	private int _itemObjId;
-	
+	private static final String	_C__D0_26_REQUESTCONFIRMTARGETITEM	= "[C] D0:26 RequestConfirmTargetItem";
+	private int					_itemObjId;
+
 	@Override
-	protected void readImpl()
+	protected final void readImpl()
 	{
 		_itemObjId = readD();
 	}
-	
+
 	@Override
-	protected void runImpl()
+	protected final void runImpl()
 	{
 		final L2PcInstance activeChar = getClient().getActiveChar();
-		if (activeChar == null)
-			return;
-		
 		final L2ItemInstance item = activeChar.getInventory().getItemByObjectId(_itemObjId);
-		if (item == null)
+
+		if (activeChar == null || item == null)
 			return;
-		
+
 		if (!isValid(activeChar, item))
 		{
 			// Different system message here
@@ -53,19 +51,16 @@ public final class RequestConfirmTargetItem extends AbstractRefinePacket
 				activeChar.sendPacket(SystemMessageId.ONCE_AN_ITEM_IS_AUGMENTED_IT_CANNOT_BE_AUGMENTED_AGAIN);
 				return;
 			}
-			
+
 			activeChar.sendPacket(SystemMessageId.THIS_IS_NOT_A_SUITABLE_ITEM);
 			return;
 		}
-		
+
 		activeChar.sendPacket(new ExPutItemResultForVariationMake(_itemObjId, item.getItemId()));
 	}
-	
-	/**
-	 * @see com.l2jserver.gameserver.BasePacket#getType()
-	 */
+
 	@Override
-	public String getType()
+	public final String getType()
 	{
 		return _C__D0_26_REQUESTCONFIRMTARGETITEM;
 	}
