@@ -225,7 +225,7 @@ full_install()
 	$MYG < ../sql/server_related/spawns/fort_siege_guards.sql  &> /dev/null &> /dev/null
 	$MYG < ../sql/server_related/spawns/fort_spawnlist.sql  &> /dev/null &> /dev/null
 	$MYG < ../sql/server_related/spawns/four_sepulchers_spawnlist.sql  &> /dev/null &> /dev/null
-	$MYG < ../sql/server_related/spawns/hb_naia_spawnlist.sql  &> /dev/null &> /dev/null
+	$MYG < ../sql/server_related/spawns/hellbound_spawnlist.sql  &> /dev/null &> /dev/null
 	$MYG < ../sql/server_related/spawns/lastimperialtomb_spawnlist.sql  &> /dev/null &> /dev/null
 	$MYG < ../sql/server_related/spawns/random_spawn.sql  &> /dev/null &> /dev/null
 	$MYG < ../sql/server_related/spawns/random_spawn_loc.sql  &> /dev/null &> /dev/null
