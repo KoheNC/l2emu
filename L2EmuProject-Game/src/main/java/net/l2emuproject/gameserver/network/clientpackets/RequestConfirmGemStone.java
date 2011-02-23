@@ -26,12 +26,15 @@ import net.l2emuproject.gameserver.network.serverpackets.ExPutCommissionResultFo
 public final class RequestConfirmGemStone extends AbstractRefinePacket
 {
 	private static final String _C__D0_2B_REQUESTCONFIRMGEMSTONE = "[C] D0:2B RequestConfirmGemStone";
-
 	private int _targetItemObjId;
 	private int _refinerItemObjId;
 	private int _gemstoneItemObjId;
 	private long _gemStoneCount;
-
+	
+	/**
+	 * @param buf
+	 * @param client
+	 */
 	@Override
 	protected void readImpl()
 	{
@@ -40,52 +43,51 @@ public final class RequestConfirmGemStone extends AbstractRefinePacket
 		_gemstoneItemObjId = readD();
 		_gemStoneCount= readQ();
 	}
-
+	
+	/**
+	 * @see com.l2jserver.util.network.BaseRecievePacket.ClientBasePacket#runImpl()
+	 */
 	@Override
-	protected void runImpl()
+	protected
+	void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		final L2PcInstance activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
-
 		L2ItemInstance targetItem = activeChar.getInventory().getItemByObjectId(_targetItemObjId);
+		if (targetItem == null)
+			return;
 		L2ItemInstance refinerItem = activeChar.getInventory().getItemByObjectId(_refinerItemObjId);
+		if (refinerItem == null)
+			return;
 		L2ItemInstance gemStoneItem = activeChar.getInventory().getItemByObjectId(_gemstoneItemObjId);
-		if (targetItem == null || refinerItem == null || gemStoneItem == null)
-		{
-			requestFailed(SystemMessageId.AUGMENTATION_FAILED_DUE_TO_INAPPROPRIATE_CONDITIONS);
+		if (gemStoneItem == null)
 			return;
-		}
-
-		if (!isValid(activeChar))
-		{
-			sendAF();
-			return;
-		}
+		
 		// Make sure the item is a gemstone
 		if (!isValid(activeChar, targetItem, refinerItem, gemStoneItem))
 		{
-			requestFailed(SystemMessageId.THIS_IS_NOT_A_SUITABLE_ITEM);
+			activeChar.sendPacket(SystemMessageId.THIS_IS_NOT_A_SUITABLE_ITEM);
 			return;
 		}
-
+		
 		// Check for gemstone count
 		final LifeStone ls = getLifeStone(refinerItem.getItemId());
 		if (ls == null)
 			return;
-
+		
 		if (_gemStoneCount != getGemStoneCount(targetItem.getItem().getItemGrade(), ls.getGrade()))
 		{
-			requestFailed(SystemMessageId.GEMSTONE_QUANTITY_IS_INCORRECT);
+			activeChar.sendPacket(SystemMessageId.GEMSTONE_QUANTITY_IS_INCORRECT);
 			return;
 		}
-
-		sendPacket(new ExPutCommissionResultForVariationMake(_gemstoneItemObjId, _gemStoneCount, gemStoneItem.getItemId()));
-		sendPacket(SystemMessageId.PRESS_THE_AUGMENT_BUTTON_TO_BEGIN);
-
-		sendAF();
+		
+		activeChar.sendPacket(new ExPutCommissionResultForVariationMake(_gemstoneItemObjId, _gemStoneCount, gemStoneItem.getItemId()));
 	}
-
+	
+	/**
+	 * @see com.l2jserver.gameserver.BasePacket#getType()
+	 */
 	@Override
 	public String getType()
 	{
