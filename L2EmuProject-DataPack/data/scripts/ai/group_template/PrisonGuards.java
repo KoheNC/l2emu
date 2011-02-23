@@ -16,6 +16,8 @@ package ai.group_template;
 
 import java.util.Map;
 
+import ai.L2AttackableAIScript;
+
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;

@@ -21,7 +21,7 @@ import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.skill.L2Skill;
-import ai.group_template.L2AttackableAIScript;
+import ai.L2AttackableAIScript;
 
 /**
  * @author Psycho(killer1888) / L2jFree

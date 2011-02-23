@@ -16,6 +16,8 @@ package ai.group_template;
 
 import java.util.Collection;
 
+import ai.L2AttackableAIScript;
+
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;

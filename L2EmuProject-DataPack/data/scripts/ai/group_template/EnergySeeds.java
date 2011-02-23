@@ -14,6 +14,7 @@
  */
 package ai.group_template;
 
+import ai.L2AttackableAIScript;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.instancemanager.gracia.SeedOfDestructionManager;
 import net.l2emuproject.gameserver.model.actor.L2Npc;

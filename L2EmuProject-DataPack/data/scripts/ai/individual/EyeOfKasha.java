@@ -30,7 +30,7 @@ import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.tools.random.Rnd;
-import ai.group_template.L2AttackableAIScript;
+import ai.L2AttackableAIScript;
 
 /**
  * Eye of Kasha AI

@@ -14,20 +14,18 @@
  */
 package instances.Kamaloka;
 
-import org.apache.commons.lang.ArrayUtils;
-
 import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.instancemanager.InstanceManager;
+import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.world.Location;
-import net.l2emuproject.gameserver.model.entity.Instance;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.Util;
+
+import org.apache.commons.lang.ArrayUtils;
 
 /**
 * @author lewzer
@@ -38,8 +36,11 @@ public final class Kamaloka2 extends Quest
 {
 	private class Kama2World extends InstanceWorld
 	{
+		@SuppressWarnings("unused")
 		private L2Npc	RB, GK, mob;
+		@SuppressWarnings("unused")
 		public int		index;
+		@SuppressWarnings("unused")
 		public int		templateId;
 
 		public Kama2World(Long time)

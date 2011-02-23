@@ -14,6 +14,7 @@
  */
 package ai.group_template;
 
+import ai.L2AttackableAIScript;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.ai.L2AttackableAI;

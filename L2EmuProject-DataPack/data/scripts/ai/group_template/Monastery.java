@@ -16,6 +16,8 @@ package ai.group_template;
 
 import java.util.Collection;
 
+import ai.L2AttackableAIScript;
+
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;

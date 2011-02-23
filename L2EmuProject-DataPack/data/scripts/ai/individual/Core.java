@@ -24,7 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.util.L2FastSet;
-import ai.group_template.L2AttackableAIScript;
+import ai.L2AttackableAIScript;
 
 /**
  * Core AI

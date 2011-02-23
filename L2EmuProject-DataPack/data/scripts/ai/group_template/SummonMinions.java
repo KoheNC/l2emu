@@ -14,6 +14,7 @@
  */
 package ai.group_template;
 
+import ai.L2AttackableAIScript;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import javolution.util.FastSet;

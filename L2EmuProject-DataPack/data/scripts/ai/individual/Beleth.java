@@ -22,7 +22,7 @@ import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.skill.L2Skill;
-import ai.group_template.L2AttackableAIScript;
+import ai.L2AttackableAIScript;
 
 /**
  * @author lord_rex

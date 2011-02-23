@@ -16,6 +16,8 @@ package ai.group_template;
 
 import org.apache.commons.lang.ArrayUtils;
 
+import ai.L2AttackableAIScript;
+
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;

@@ -17,7 +17,7 @@ package ai.group_template;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.spawn.L2Spawn;
-import ai.group_template.L2AttackableAIScript;
+import ai.L2AttackableAIScript;
 
 public final class NonWalkingNpcs extends L2AttackableAIScript
 {

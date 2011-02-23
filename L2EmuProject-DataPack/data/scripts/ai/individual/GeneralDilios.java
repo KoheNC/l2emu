@@ -24,7 +24,7 @@ import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.tools.random.Rnd;
-import ai.group_template.L2AttackableAIScript;
+import ai.L2AttackableAIScript;
 
 /**
  * Dilios AI

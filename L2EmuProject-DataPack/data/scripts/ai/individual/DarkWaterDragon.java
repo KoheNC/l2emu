@@ -24,7 +24,7 @@ import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import ai.group_template.L2AttackableAIScript;
+import ai.L2AttackableAIScript;
 
 public class DarkWaterDragon extends L2AttackableAIScript
 {

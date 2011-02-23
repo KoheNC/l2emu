@@ -16,6 +16,8 @@ package ai.group_template;
 
 import java.util.Map;
 
+import ai.L2AttackableAIScript;
+
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;

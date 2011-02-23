@@ -13,7 +13,8 @@
  */
 package ai.group_template;
 
-import ai.group_template.L2AttackableAIScript;
+import ai.L2AttackableAIScript;
+
 import org.apache.commons.lang.ArrayUtils;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.gameserver.ai.CtrlIntention;

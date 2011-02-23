@@ -33,6 +33,7 @@ public final class RequestRefine extends AbstractRefinePacket
 	private int _targetItemObjId;
 	private int _refinerItemObjId;
 	private int _gemStoneItemObjId;
+	@SuppressWarnings("unused")
 	private long _gemStoneCount;
 	
 	@Override

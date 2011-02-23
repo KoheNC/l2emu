@@ -31,7 +31,7 @@ import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import ai.group_template.L2NpcAIScript;
+import ai.L2NpcAIScript;
 
 public final class SanctumOftheLordsOfDawn extends L2NpcAIScript
 {

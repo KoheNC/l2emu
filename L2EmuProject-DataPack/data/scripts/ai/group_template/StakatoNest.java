@@ -31,6 +31,8 @@ import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.lang.ArrayUtils;
 
+import ai.L2AttackableAIScript;
+
 public final class StakatoNest extends L2AttackableAIScript
 {
 	private static final String	QN					= "StakatoNestAI";
