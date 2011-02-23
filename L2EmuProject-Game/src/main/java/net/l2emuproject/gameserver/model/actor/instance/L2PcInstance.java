@@ -104,7 +104,6 @@ import net.l2emuproject.gameserver.instancemanager.lastimperialtomb.LastImperial
 import net.l2emuproject.gameserver.model.BlockList;
 import net.l2emuproject.gameserver.model.L2Effect;
 import net.l2emuproject.gameserver.model.L2FriendList;
-import net.l2emuproject.gameserver.model.L2ManufactureList;
 import net.l2emuproject.gameserver.model.L2Marker;
 import net.l2emuproject.gameserver.model.L2Request;
 import net.l2emuproject.gameserver.model.L2SiegeClan;
@@ -263,6 +262,7 @@ import net.l2emuproject.gameserver.network.serverpackets.TutorialCloseHtml;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
+import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.services.transformation.L2TransformSkillLearn;
 import net.l2emuproject.gameserver.skills.Env;

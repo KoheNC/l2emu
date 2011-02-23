@@ -20,7 +20,6 @@ import net.l2emuproject.gameserver.datatables.PetSkillsTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.L2ManufactureList;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
@@ -37,6 +36,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExAskCoupleAction;
 import net.l2emuproject.gameserver.network.serverpackets.RecipeShopManageList;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
 
 /**
  * This class represents a packet sent by the client when a player uses one of the buttons

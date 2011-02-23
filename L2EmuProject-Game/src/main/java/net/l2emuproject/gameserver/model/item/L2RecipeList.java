@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.model.item;
 
 import net.l2emuproject.gameserver.datatables.ItemTable;
-import net.l2emuproject.gameserver.model.L2RecipeStatInstance;
+import net.l2emuproject.gameserver.services.crafting.L2RecipeStatInstance;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 

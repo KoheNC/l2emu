@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.L2ManufactureItem;
-import net.l2emuproject.gameserver.model.L2ManufactureList;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2RecipeList;
+import net.l2emuproject.gameserver.services.crafting.L2ManufactureItem;
+import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
 
 /**
  * dd d(dd) d(ddd)
