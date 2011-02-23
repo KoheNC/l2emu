@@ -14,11 +14,11 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.RecipeController;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.crafting.RecipeController;
 import net.l2emuproject.gameserver.util.Util;
 
 public class RequestRecipeShopMakeItem extends L2GameClientPacket

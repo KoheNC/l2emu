@@ -19,9 +19,6 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.model.skill.L2EnchantSkillLearn;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
-import net.l2emuproject.gameserver.model.skill.L2EnchantSkillLearn.EnchantSkillDetail;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExBrExtraUserInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ExEnchantSkillInfo;
@@ -29,6 +26,9 @@ import net.l2emuproject.gameserver.network.serverpackets.ExEnchantSkillInfoDetai
 import net.l2emuproject.gameserver.network.serverpackets.ExEnchantSkillResult;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
+import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn;
+import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn.EnchantSkillDetail;
 import net.l2emuproject.tools.random.Rnd;
 
 /**

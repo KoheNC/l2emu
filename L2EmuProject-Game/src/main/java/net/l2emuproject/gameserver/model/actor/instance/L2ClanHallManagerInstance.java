@@ -29,7 +29,6 @@ import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.model.entity.Town;
 import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.AgitDecoInfo;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -37,6 +36,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SortedWareHouseWithdraw
 import net.l2emuproject.gameserver.network.serverpackets.SortedWareHouseWithdrawalList.WarehouseListType;
 import net.l2emuproject.gameserver.network.serverpackets.WareHouseDepositList;
 import net.l2emuproject.gameserver.network.serverpackets.WareHouseWithdrawalList;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.util.IllegalPlayerAction;

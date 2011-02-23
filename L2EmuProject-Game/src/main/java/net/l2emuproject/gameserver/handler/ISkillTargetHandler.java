@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.handler;
 import java.util.List;
 
 import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
-import net.l2emuproject.gameserver.model.skill.L2Skill.SkillTargetType;
+import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
 
 
 /**

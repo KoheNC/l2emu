@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.skills;
 
 import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
 
 /**
  * This interface provides method to handle triggered skills from other objects.<br>

@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.datatables;
 
-import net.l2emuproject.gameserver.model.skill.L2Skill;
+import net.l2emuproject.gameserver.skills.L2Skill;
 
 /**
  * @author Gnacik

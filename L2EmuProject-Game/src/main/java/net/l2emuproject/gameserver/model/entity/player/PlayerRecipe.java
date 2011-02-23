@@ -21,9 +21,9 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.RecipeController;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
+import net.l2emuproject.gameserver.services.crafting.RecipeController;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.util.SingletonMap;
 

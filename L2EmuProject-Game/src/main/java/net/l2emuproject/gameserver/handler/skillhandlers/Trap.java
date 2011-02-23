@@ -18,8 +18,8 @@ import net.l2emuproject.gameserver.handler.ISkillHandler;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2TrapInstance;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 
 public class Trap implements ISkillHandler
@@ -29,7 +29,7 @@ public class Trap implements ISkillHandler
 
 	/**
 	 * 
-	 * @see net.l2emuproject.gameserver.handler.ISkillHandler#useSkill(net.l2emuproject.gameserver.model.actor.L2Character, net.l2emuproject.gameserver.model.skill.L2Skill, net.l2emuproject.gameserver.model.actor.L2Character...)
+	 * @see net.l2emuproject.gameserver.handler.ISkillHandler#useSkill(net.l2emuproject.gameserver.model.actor.L2Character, net.l2emuproject.gameserver.skills.L2Skill, net.l2emuproject.gameserver.model.actor.L2Character...)
 	 */
 	@Override
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Character... targets)

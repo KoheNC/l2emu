@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.skill;
+package net.l2emuproject.gameserver.skills;
 
 import net.l2emuproject.gameserver.handler.SkillHandler;
 import net.l2emuproject.gameserver.model.L2Effect;
@@ -21,8 +21,6 @@ import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
-import net.l2emuproject.gameserver.skills.ChanceCondition;
-import net.l2emuproject.gameserver.skills.IChanceSkillTrigger;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.util.L2Arrays;

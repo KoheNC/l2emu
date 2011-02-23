@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.templates.ValidatingStatsSet;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;

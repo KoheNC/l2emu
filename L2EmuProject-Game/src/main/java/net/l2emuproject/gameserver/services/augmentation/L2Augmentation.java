@@ -18,7 +18,7 @@ import javolution.util.FastList;
 import net.l2emuproject.gameserver.datatables.AugmentationData;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.funcs.FuncAdd;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;

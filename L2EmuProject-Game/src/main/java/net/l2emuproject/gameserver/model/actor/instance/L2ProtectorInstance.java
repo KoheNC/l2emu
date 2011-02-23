@@ -23,9 +23,9 @@ import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.knownlist.CharKnownList;
 import net.l2emuproject.gameserver.model.actor.knownlist.NpcKnownList;
 import net.l2emuproject.gameserver.model.actor.knownlist.ProtectorKnownList;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
 /**

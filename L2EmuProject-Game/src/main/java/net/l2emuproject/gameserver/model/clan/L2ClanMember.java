@@ -21,7 +21,7 @@ import java.sql.SQLException;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
+import net.l2emuproject.gameserver.skills.L2Skill;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
+import net.l2emuproject.gameserver.skills.L2Skill;
 
 public class MagicSkillUse extends L2GameServerPacket
 {

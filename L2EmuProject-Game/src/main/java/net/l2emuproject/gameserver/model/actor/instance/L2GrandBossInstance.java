@@ -19,7 +19,7 @@ import net.l2emuproject.gameserver.model.actor.L2Boss;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.status.CharStatus;
 import net.l2emuproject.gameserver.model.actor.status.GrandBossStatus;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
 /**

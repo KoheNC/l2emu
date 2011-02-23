@@ -35,7 +35,6 @@ import net.l2emuproject.gameserver.model.BlockList;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance.TimeStamp;
 import net.l2emuproject.gameserver.model.itemcontainer.ClanWarehouse;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
@@ -49,6 +48,7 @@ import net.l2emuproject.gameserver.network.serverpackets.PledgeSkillListAdd;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.util.ArrayBunch;
 
 import org.apache.commons.logging.Log;

@@ -21,14 +21,14 @@ import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.status.CharStatus;
 import net.l2emuproject.gameserver.model.actor.status.FolkStatus;
 import net.l2emuproject.gameserver.model.base.ClassId;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
-import net.l2emuproject.gameserver.model.skill.L2SkillLearn;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.AcquireSkillDone;
 import net.l2emuproject.gameserver.network.serverpackets.AcquireSkillList;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.skills.L2SkillLearn;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.lang.L2TextBuilder;
 

@@ -39,8 +39,6 @@ import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
-import net.l2emuproject.gameserver.model.skill.L2Skill.SkillTargetType;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.model.world.Location;
@@ -57,6 +55,8 @@ import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.network.serverpackets.SpecialCamera;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
+import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.tools.random.Rnd;
 

@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.services.crafting;
 
-import net.l2emuproject.gameserver.RecipeController;
 
 public class L2ManufactureItem
 {

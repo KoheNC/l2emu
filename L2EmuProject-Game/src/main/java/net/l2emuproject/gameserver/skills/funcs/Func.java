@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.skills.funcs;
 
-import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.skills.conditions.Condition;
 

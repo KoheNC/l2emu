@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.skills.l2skills;
 
 import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 
 public final class L2SkillRecall extends L2Skill

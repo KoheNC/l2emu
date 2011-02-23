@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.RecipeController;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.RecipeBookItemList;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
+import net.l2emuproject.gameserver.services.crafting.RecipeController;
 
 public class RequestRecipeBookDestroy extends L2GameClientPacket
 {

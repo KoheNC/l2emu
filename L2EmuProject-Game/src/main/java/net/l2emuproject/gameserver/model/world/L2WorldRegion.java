@@ -28,9 +28,9 @@ import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.mapregion.L2MapArea;
 import net.l2emuproject.gameserver.model.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.model.mapregion.L2SpecialMapRegion;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.util.concurrent.L2EntityMap;
 import net.l2emuproject.util.concurrent.L2ReadWriteEntityMap;
 

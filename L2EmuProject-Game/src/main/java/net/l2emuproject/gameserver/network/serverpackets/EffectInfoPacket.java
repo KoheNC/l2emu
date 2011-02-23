@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.model.L2Effect;
 import net.l2emuproject.gameserver.model.actor.L2Playable;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
+import net.l2emuproject.gameserver.skills.L2Skill;
 
 
 /**

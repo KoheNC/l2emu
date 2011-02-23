@@ -141,6 +141,7 @@ import net.l2emuproject.gameserver.scripting.CompiledScriptCache;
 import net.l2emuproject.gameserver.scripting.L2ScriptEngineManager;
 import net.l2emuproject.gameserver.services.SystemService;
 import net.l2emuproject.gameserver.services.VersionService;
+import net.l2emuproject.gameserver.services.crafting.RecipeController;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell;
 import net.l2emuproject.gameserver.taskmanager.AttackStanceTaskManager;
 import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;

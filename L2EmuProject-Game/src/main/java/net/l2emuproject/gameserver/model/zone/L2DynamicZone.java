@@ -19,8 +19,8 @@ import java.util.concurrent.ScheduledFuture;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.conditions.Condition;
 import net.l2emuproject.gameserver.skills.conditions.ConditionParser;
 

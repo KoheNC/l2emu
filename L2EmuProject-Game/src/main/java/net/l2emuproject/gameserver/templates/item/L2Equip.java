@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.templates.item;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.funcs.FuncTemplate;
 import net.l2emuproject.gameserver.templates.StatsSet;
 

@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model;
 
-import net.l2emuproject.gameserver.model.skill.L2Skill.SkillOpType;
-import net.l2emuproject.gameserver.model.skill.L2Skill.SkillTargetType;
+import net.l2emuproject.gameserver.skills.L2Skill.SkillOpType;
+import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import junit.framework.TestCase;

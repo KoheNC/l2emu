@@ -16,13 +16,13 @@ package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
-import net.l2emuproject.gameserver.model.skill.L2SkillLearn;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.AcquireSkillDone;
 import net.l2emuproject.gameserver.network.serverpackets.AcquireSkillList;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.skills.L2SkillLearn;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
 public class L2FishermanInstance extends L2MerchantInstance

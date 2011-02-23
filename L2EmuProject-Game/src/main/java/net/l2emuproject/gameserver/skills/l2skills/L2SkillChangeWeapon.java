@@ -18,11 +18,11 @@ import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
 
@@ -42,7 +42,7 @@ public class L2SkillChangeWeapon extends L2Skill
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.model.skill.L2Skill#useSkill(net.l2emuproject.gameserver.model.actor.L2Character, net.l2emuproject.gameserver.model.actor.L2Character...)
+	 * @see net.l2emuproject.gameserver.skills.L2Skill#useSkill(net.l2emuproject.gameserver.model.actor.L2Character, net.l2emuproject.gameserver.model.actor.L2Character...)
 	 */
 	@Override
 	public void useSkill(L2Character caster, L2Character... targets)

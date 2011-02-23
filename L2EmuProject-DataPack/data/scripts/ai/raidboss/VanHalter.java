@@ -20,7 +20,7 @@ import net.l2emuproject.gameserver.instancemanager.grandbosses.VanHalterManager;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
+import net.l2emuproject.gameserver.skills.L2Skill;
 
 /**
  * @author L0ngh0rn

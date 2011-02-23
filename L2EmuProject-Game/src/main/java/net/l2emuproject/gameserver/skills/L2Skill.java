@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.skill;
+package net.l2emuproject.gameserver.skills;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,17 +45,13 @@ import net.l2emuproject.gameserver.model.entity.Couple;
 import net.l2emuproject.gameserver.model.entity.Siege;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
-import net.l2emuproject.gameserver.model.skill.L2EnchantSkillLearn.EnchantSkillDetail;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation.FlyType;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import net.l2emuproject.gameserver.skills.ChanceCondition;
-import net.l2emuproject.gameserver.skills.Env;
-import net.l2emuproject.gameserver.skills.IChanceSkillTrigger;
-import net.l2emuproject.gameserver.skills.TriggeredSkill;
+import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn.EnchantSkillDetail;
 import net.l2emuproject.gameserver.skills.conditions.Condition;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.skills.funcs.Func;

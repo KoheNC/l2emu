@@ -18,8 +18,8 @@ import java.util.List;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
-import net.l2emuproject.gameserver.model.skill.L2EnchantSkillLearn;
-import net.l2emuproject.gameserver.model.skill.L2EnchantSkillLearn.EnchantSkillDetail;
+import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn;
+import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn.EnchantSkillDetail;
 
 public final class ExEnchantSkillInfo extends L2GameServerPacket
 {

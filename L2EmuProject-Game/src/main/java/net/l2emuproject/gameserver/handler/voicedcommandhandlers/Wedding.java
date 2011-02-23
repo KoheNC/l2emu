@@ -26,7 +26,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance.TeleportMod
 import net.l2emuproject.gameserver.model.entity.Siege;
 import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.network.clientpackets.ConfirmDlgAnswer.Answer
 import net.l2emuproject.gameserver.network.serverpackets.ConfirmDlg;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.AbnormalEffect;
+import net.l2emuproject.gameserver.skills.L2Skill;
 
 /**
  * @author evill33t

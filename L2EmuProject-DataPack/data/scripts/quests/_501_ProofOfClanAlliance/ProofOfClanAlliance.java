@@ -24,12 +24,12 @@ import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
 import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.lang.L2TextBuilder;
 import net.l2emuproject.tools.random.Rnd;
 

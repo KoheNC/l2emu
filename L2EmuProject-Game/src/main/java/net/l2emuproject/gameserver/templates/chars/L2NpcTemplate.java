@@ -28,7 +28,7 @@ import net.l2emuproject.gameserver.model.npc.L2DropData;
 import net.l2emuproject.gameserver.model.npc.L2MinionData;
 import net.l2emuproject.gameserver.model.npc.L2NpcCharData;
 import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.skill.L2Skill;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.templates.StatsSet;
 
