@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.handler.bypasshandlers;
 
 import net.l2emuproject.gameserver.handler.IBypassHandler;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
-import net.l2emuproject.gameserver.model.L2Multisell;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -24,6 +23,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2TransformManagerInstan
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
+import net.l2emuproject.gameserver.services.transactions.L2Multisell;
 
 /**
  * @author lord_rex

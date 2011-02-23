@@ -20,14 +20,14 @@ import java.util.concurrent.ScheduledFuture;
 import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.FishTable;
-import net.l2emuproject.gameserver.model.FishData;
 import net.l2emuproject.gameserver.model.L2Effect;
-import net.l2emuproject.gameserver.model.L2Fishing;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExFishingEnd;
 import net.l2emuproject.gameserver.network.serverpackets.ExFishingStart;
+import net.l2emuproject.gameserver.services.fishing.FishData;
+import net.l2emuproject.gameserver.services.fishing.L2Fishing;
 import net.l2emuproject.tools.random.Rnd;
 
 public final class PlayerFish extends PlayerExtension

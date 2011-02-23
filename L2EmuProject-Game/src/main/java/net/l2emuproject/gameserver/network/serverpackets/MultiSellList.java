@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.datatables.ItemTable;
-import net.l2emuproject.gameserver.model.L2Multisell.MultiSellEntry;
-import net.l2emuproject.gameserver.model.L2Multisell.MultiSellIngredient;
-import net.l2emuproject.gameserver.model.L2Multisell.MultiSellListContainer;
+import net.l2emuproject.gameserver.services.transactions.L2Multisell.MultiSellEntry;
+import net.l2emuproject.gameserver.services.transactions.L2Multisell.MultiSellIngredient;
+import net.l2emuproject.gameserver.services.transactions.L2Multisell.MultiSellListContainer;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 
 public final class MultiSellList extends L2GameServerPacket

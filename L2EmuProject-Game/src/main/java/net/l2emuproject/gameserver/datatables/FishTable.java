@@ -21,7 +21,7 @@ import java.util.List;
 
 import javolution.util.FastList;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.FishData;
+import net.l2emuproject.gameserver.services.fishing.FishData;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
