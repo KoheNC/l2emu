@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package ai.individual;
+package ai.zone.imperial_tomb;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.instancemanager.lastimperialtomb.LastImperialTombManager;
