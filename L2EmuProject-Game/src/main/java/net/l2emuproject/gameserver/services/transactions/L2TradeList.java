@@ -12,9 +12,11 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.item;
+package net.l2emuproject.gameserver.services.transactions;
 
 import java.util.List;
+
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 
 
 import javolution.util.FastList;

@@ -18,11 +18,11 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.item.TradeList;
 import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.TradeOtherAdd;
 import net.l2emuproject.gameserver.network.serverpackets.TradeOwnAdd;
+import net.l2emuproject.gameserver.services.transactions.TradeList;
 
 /**
  * This class represents a packet that is sent by the client when you are adding an item

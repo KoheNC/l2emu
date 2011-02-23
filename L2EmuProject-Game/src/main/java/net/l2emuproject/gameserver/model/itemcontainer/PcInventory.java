@@ -26,13 +26,13 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.model.item.TradeList;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
-import net.l2emuproject.gameserver.model.item.TradeList.TradeItem;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
+import net.l2emuproject.gameserver.services.transactions.TradeList;
+import net.l2emuproject.gameserver.services.transactions.TradeList.TradeItem;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.util.ArrayBunch;
 

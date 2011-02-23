@@ -17,10 +17,10 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.item.L2TradeList;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.BuyList;
 import net.l2emuproject.gameserver.network.serverpackets.ExBuySellListPacket;
+import net.l2emuproject.gameserver.services.transactions.L2TradeList;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

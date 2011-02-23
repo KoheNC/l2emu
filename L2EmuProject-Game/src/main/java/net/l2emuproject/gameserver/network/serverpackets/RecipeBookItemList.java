@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.item.L2RecipeList;
+import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
 
 /**
  * 

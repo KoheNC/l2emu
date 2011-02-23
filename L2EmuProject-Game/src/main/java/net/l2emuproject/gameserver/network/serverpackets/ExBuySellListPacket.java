@@ -19,7 +19,7 @@ import java.util.List;
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.model.item.L2TradeList;
+import net.l2emuproject.gameserver.services.transactions.L2TradeList;
 
 /**
  * @author ShanSoft

@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.item.TradeList;
+import net.l2emuproject.gameserver.services.transactions.TradeList;
 
 /**
  * 3 section to this packet 1)playerinfo which is always sent dd

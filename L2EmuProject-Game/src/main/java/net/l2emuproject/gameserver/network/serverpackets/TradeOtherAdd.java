@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.item.TradeList;
+import net.l2emuproject.gameserver.services.transactions.TradeList;
 
 /**
  * @author Yme
