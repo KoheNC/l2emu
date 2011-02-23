@@ -31,12 +31,14 @@ import net.l2emuproject.tools.random.Rnd;
 
 public final class Quarry extends QuestJython
 {
-	private static final int	SLAVE		= 32299;
-	private static final int	TRUST		= 10;
-	private static final int	ZONE		= 40106;
-	private static final int[]	DROPLIST	=
-											{ 1876, 1885, 9628 };
-	private static final String	MSG			= "Thank you for saving me! Here is a small gift.";
+	private static final int	SLAVE			= 32299;
+	private static final int	TRUST			= 10;
+	private static final int	ZONE			= 40106;
+	private static final int[]	DROPLIST		=
+												{ 1876, 1885, 9628 };
+	private static final String	MSG				= "Thank you for saving me! Here is a small gift.";
+
+	private int					_rescuedSlaves	= 0;
 
 	public Quarry(int questId, String name, String descr)
 	{
@@ -50,6 +52,19 @@ public final class Quarry extends QuestJython
 		addSkillSeeId(SLAVE);
 		addKillId(SLAVE);
 		addEnterZoneId(ZONE);
+
+		loadRescuedSlaves();
+	}
+
+	private final void loadRescuedSlaves()
+	{
+		_rescuedSlaves = Integer.parseInt(loadGlobalQuestVar("rescued_slaves"));
+	}
+
+	private final void saveRescuedSlaves(int slaves)
+	{
+		final int currentSlaves = _rescuedSlaves + slaves;
+		saveGlobalQuestVar("rescued_slaves", String.valueOf(currentSlaves));
 	}
 
 	@Override
@@ -57,6 +72,14 @@ public final class Quarry extends QuestJython
 	{
 		if (event.equalsIgnoreCase("FollowMe"))
 		{
+			if (_rescuedSlaves == 1000)
+			{
+				HellboundManager.getInstance().setHellboundLevel(6);
+				_rescuedSlaves = 0;
+				saveGlobalQuestVar("rescued_slaves", String.valueOf(_rescuedSlaves));
+				return null;
+			}
+
 			npc.getAI().setIntention(CtrlIntention.AI_INTENTION_FOLLOW, player);
 			npc.setTarget(player);
 			npc.setAutoAttackable(true);
@@ -119,6 +142,7 @@ public final class Quarry extends QuestJython
 	public final String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
 	{
 		HellboundManager.getInstance().addTrustPoints(-TRUST);
+		saveRescuedSlaves(-1);
 		npc.setAutoAttackable(false);
 
 		return super.onKill(npc, killer, isPet);
@@ -169,6 +193,7 @@ public final class Quarry extends QuestJython
 				_npc.deleteMe();
 				_npc.getSpawn().decreaseCount(_npc);
 				HellboundManager.getInstance().addTrustPoints(TRUST);
+				saveRescuedSlaves(1);
 			}
 		}
 	}
