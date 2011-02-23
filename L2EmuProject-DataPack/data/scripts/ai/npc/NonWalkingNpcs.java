@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package ai.group_template;
+package ai.npc;
 
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;

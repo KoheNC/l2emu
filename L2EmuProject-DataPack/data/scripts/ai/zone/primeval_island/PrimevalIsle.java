@@ -12,11 +12,12 @@
  * You should have received a copy of the GNU General private License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package ai.group_template;
+package ai.zone.primeval_island;
 
 import java.util.List;
 import java.util.Map;
 
+import ai.DropHerb;
 import ai.L2AttackableAIScript;
 
 import javolution.util.FastList;
