@@ -14,6 +14,7 @@
  */
 package ai.zone.hellbound.Remnants;
 
+import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundEngine;
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -80,13 +81,13 @@ public final class Remnants extends L2AttackableAIScript
 	public final String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
 	{
 		// Updating level in separate thread.
-		HellboundManager.getInstance().setHellboundLevel(5);
+		HellboundManager.getInstance().setHellboundLevel(HellboundEngine.LEVEL_5);
 
 		return super.onKill(npc, killer, isPet);
 	}
 
 	public static void main(String[] args)
 	{
-		new Remnants(-1, Remnants.class.getSimpleName(), "ai");
+		new Remnants(-1, Remnants.class.getSimpleName(), "ai/zone/hellbound");
 	}
 }

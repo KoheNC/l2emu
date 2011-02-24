@@ -16,6 +16,7 @@ package ai.zone.hellbound.Quarry;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundEngine;
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
@@ -53,18 +54,7 @@ public final class Quarry extends QuestJython
 		addKillId(SLAVE);
 		addEnterZoneId(ZONE);
 
-		loadRescuedSlaves();
-	}
-
-	private final void loadRescuedSlaves()
-	{
 		_rescuedSlaves = Integer.parseInt(loadGlobalQuestVar("rescued_slaves"));
-	}
-
-	private final void saveRescuedSlaves(int slaves)
-	{
-		final int currentSlaves = _rescuedSlaves + slaves;
-		saveGlobalQuestVar("rescued_slaves", String.valueOf(currentSlaves));
 	}
 
 	@Override
@@ -74,7 +64,7 @@ public final class Quarry extends QuestJython
 		{
 			if (_rescuedSlaves == 1000)
 			{
-				HellboundManager.getInstance().setHellboundLevel(6);
+				HellboundManager.getInstance().setHellboundLevel(HellboundEngine.LEVEL_6);
 				_rescuedSlaves = 0;
 				saveGlobalQuestVar("rescued_slaves", String.valueOf(_rescuedSlaves));
 				return null;
@@ -142,7 +132,8 @@ public final class Quarry extends QuestJython
 	public final String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
 	{
 		HellboundManager.getInstance().addTrustPoints(-TRUST);
-		saveRescuedSlaves(-1);
+		_rescuedSlaves -= 1;
+		saveGlobalQuestVar("rescued_slaves", String.valueOf(_rescuedSlaves));
 		npc.setAutoAttackable(false);
 
 		return super.onKill(npc, killer, isPet);
@@ -193,7 +184,8 @@ public final class Quarry extends QuestJython
 				_npc.deleteMe();
 				_npc.getSpawn().decreaseCount(_npc);
 				HellboundManager.getInstance().addTrustPoints(TRUST);
-				saveRescuedSlaves(1);
+				_rescuedSlaves += 1;
+				saveGlobalQuestVar("rescued_slaves", String.valueOf(_rescuedSlaves));
 			}
 		}
 	}

@@ -20,6 +20,7 @@ import java.util.concurrent.ScheduledFuture;
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundEngine;
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
@@ -31,16 +32,16 @@ import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
  */
 public final class Outpost extends QuestJython
 {
-	private static final int			CAPTAIN		= 18466;
-	private static final int			DEFENDER	= 22358;
+	private static final int	CAPTAIN		= 18466;
+	private static final int	DEFENDER	= 22358;
 
-	private static final int			TIMEOUT		= 60000;
+	private static final int	TIMEOUT		= 60000;
 
-	private static volatile boolean		_isAttacked	= false;
-	private static long					_lastAttack	= 0;
-	private static L2Npc				_boss		= null;
-	private static List<L2Npc>			_defenders	= new FastList<L2Npc>();
-	private static ScheduledFuture<?>	_checkTask	= null;
+	private volatile boolean	_isAttacked	= false;
+	private long				_lastAttack	= 0;
+	private L2Npc				_boss		= null;
+	private List<L2Npc>			_defenders	= new FastList<L2Npc>();
+	private ScheduledFuture<?>	_checkTask	= null;
 
 	public Outpost(int questId, String name, String descr)
 	{
@@ -95,7 +96,8 @@ public final class Outpost extends QuestJython
 			_checkTask = null;
 		}
 
-		HellboundManager.getInstance().setHellboundLevel(9);
+		if (npc.getNpcId() == CAPTAIN)
+			HellboundManager.getInstance().setHellboundLevel(HellboundEngine.LEVEL_9);
 
 		return super.onKill(npc, killer, isPet);
 	}
@@ -230,6 +232,6 @@ public final class Outpost extends QuestJython
 
 	public static void main(String[] args)
 	{
-		new Outpost(-1, Outpost.class.getSimpleName(), "hellbound");
+		new Outpost(-1, Outpost.class.getSimpleName(), "ai/zones/hellbound");
 	}
 }

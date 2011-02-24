@@ -41,6 +41,19 @@ public final class HellboundEngine extends AbstractPeriodicTaskManager
 		super(15000);
 	}
 
+	public static final byte		LEVEL_0				= 0;
+	public static final byte		LEVEL_1				= 1;
+	public static final byte		LEVEL_2				= 2;
+	public static final byte		LEVEL_3				= 3;
+	public static final byte		LEVEL_4				= 4;
+	public static final byte		LEVEL_5				= 5;
+	public static final byte		LEVEL_6				= 6;
+	public static final byte		LEVEL_7				= 7;
+	public static final byte		LEVEL_8				= 8;
+	public static final byte		LEVEL_9				= 9;
+	public static final byte		LEVEL_10			= 10;
+	public static final byte		LEVEL_11			= 11;
+
 	private static final int		TRUST_POINTS_0_1	= 300000;
 	private static final int		TRUST_POINTS_1_2	= 600000;
 	private static final int		TRUST_POINTS_2_3	= 1000000;
@@ -67,30 +80,30 @@ public final class HellboundEngine extends AbstractPeriodicTaskManager
 			boolean nextLevel = false;
 			switch (level)
 			{
-				case 0:
+				case LEVEL_0:
 					if (trustPoints == TRUST_POINTS_0_1)
 						nextLevel = true;
 					break;
-				case 1:
+				case LEVEL_1:
 					if (trustPoints == TRUST_POINTS_1_2)
 						nextLevel = true;
 					break;
-				case 2:
+				case LEVEL_2:
 					if (trustPoints == TRUST_POINTS_2_3)
 						nextLevel = true;
 					break;
-				case 3:
+				case LEVEL_3:
 					if (trustPoints == TRUST_POINTS_3_4)
 						nextLevel = true;
 					break;
-				case 4:
-				case 5:
-				case 6:
-				case 7:
-				case 8:
-				case 9:
-				case 10:
-				case 11:
+				case LEVEL_4:
+				case LEVEL_5:
+				case LEVEL_6:
+				case LEVEL_7:
+				case LEVEL_8:
+				case LEVEL_9:
+				case LEVEL_10:
+				case LEVEL_11:
 					nextLevel = false;
 					break;
 				default:
@@ -149,15 +162,15 @@ public final class HellboundEngine extends AbstractPeriodicTaskManager
 		final int trustPoints = HellboundManager.getInstance().getTrustPoints();
 
 		if (trustPoints < TRUST_POINTS_0_1)
-			HellboundManager.getInstance().setHellboundLevel(0);
+			HellboundManager.getInstance().setHellboundLevel(LEVEL_0);
 		else if (trustPoints >= TRUST_POINTS_0_1 && trustPoints < TRUST_POINTS_1_2)
-			HellboundManager.getInstance().setHellboundLevel(1);
+			HellboundManager.getInstance().setHellboundLevel(LEVEL_1);
 		else if (trustPoints >= TRUST_POINTS_1_2 && trustPoints < TRUST_POINTS_2_3)
-			HellboundManager.getInstance().setHellboundLevel(2);
+			HellboundManager.getInstance().setHellboundLevel(LEVEL_2);
 		else if (trustPoints >= TRUST_POINTS_2_3 && trustPoints < TRUST_POINTS_3_4)
-			HellboundManager.getInstance().setHellboundLevel(3);
+			HellboundManager.getInstance().setHellboundLevel(LEVEL_3);
 		else if (trustPoints >= TRUST_POINTS_3_4)
-			HellboundManager.getInstance().setHellboundLevel(4);
+			HellboundManager.getInstance().setHellboundLevel(LEVEL_4);
 		else
 			HellboundManager.getInstance().setHellboundLevel(level);
 
