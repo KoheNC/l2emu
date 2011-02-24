@@ -121,6 +121,6 @@ public final class Bernarde extends QuestJython
 
 	public static void main(String[] args)
 	{
-		new Bernarde(-1, Bernarde.class.getSimpleName(), "hellbound");
+		new Bernarde(-1, Bernarde.class.getSimpleName(), "ai/zones/hellbound");
 	}
 }

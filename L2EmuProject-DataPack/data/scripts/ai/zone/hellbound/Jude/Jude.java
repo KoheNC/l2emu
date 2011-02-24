@@ -79,6 +79,6 @@ public final class Jude extends QuestJython
 
 	public static void main(String[] args)
 	{
-		new Jude(-1, Jude.class.getSimpleName(), "hellbound");
+		new Jude(-1, Jude.class.getSimpleName(), "ai/zones/hellbound");
 	}
 }

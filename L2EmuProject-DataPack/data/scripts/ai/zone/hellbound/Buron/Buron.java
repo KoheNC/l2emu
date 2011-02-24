@@ -85,6 +85,6 @@ public final class Buron extends QuestJython
 
 	public static void main(String[] args)
 	{
-		new Buron(-1, Buron.class.getSimpleName(), "hellbound");
+		new Buron(-1, Buron.class.getSimpleName(), "ai/zones/hellbound");
 	}
 }

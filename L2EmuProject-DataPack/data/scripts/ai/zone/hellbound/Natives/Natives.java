@@ -56,6 +56,6 @@ public final class Natives extends QuestJython
 
 	public static void main(String[] args)
 	{
-		new Natives(-1, Natives.class.getSimpleName(), "hellbound");
+		new Natives(-1, Natives.class.getSimpleName(), "ai/zones/hellbound");
 	}
 }

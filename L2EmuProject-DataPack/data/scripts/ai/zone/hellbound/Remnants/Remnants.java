@@ -89,6 +89,6 @@ public final class Remnants extends L2AttackableAIScript
 
 	public static void main(String[] args)
 	{
-		new Remnants(-1, Remnants.class.getSimpleName(), "ai/zone/hellbound");
+		new Remnants(-1, Remnants.class.getSimpleName(), "ai");
 	}
 }

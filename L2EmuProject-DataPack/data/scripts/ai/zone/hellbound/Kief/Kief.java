@@ -158,6 +158,6 @@ public final class Kief extends QuestJython
 
 	public static void main(String[] args)
 	{
-		new Kief(-1, Kief.class.getSimpleName(), "hellbound");
+		new Kief(-1, Kief.class.getSimpleName(), "ai/zones/hellbound");
 	}
 }

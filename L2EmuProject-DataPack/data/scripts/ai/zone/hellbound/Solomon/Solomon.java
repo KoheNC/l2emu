@@ -48,6 +48,6 @@ public final class Solomon extends QuestJython
 
 	public static void main(String[] args)
 	{
-		new Solomon(-1, Solomon.class.getSimpleName(), "hellbound");
+		new Solomon(-1, Solomon.class.getSimpleName(), "ai/zones/hellbound");
 	}
 }

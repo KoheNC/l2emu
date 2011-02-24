@@ -115,6 +115,6 @@ public final class Hude extends QuestJython
 
 	public static void main(String[] args)
 	{
-		new Hude(-1, Hude.class.getSimpleName(), "hellbound");
+		new Hude(-1, Hude.class.getSimpleName(), "ai/zones/hellbound");
 	}
 }

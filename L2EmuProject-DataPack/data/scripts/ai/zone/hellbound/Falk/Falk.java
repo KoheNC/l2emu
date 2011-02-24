@@ -64,6 +64,6 @@ public final class Falk extends QuestJython
 
 	public static void main(String[] args)
 	{
-		new Falk(-1, Falk.class.getSimpleName(), "hellbound");
+		new Falk(-1, Falk.class.getSimpleName(), "ai/zones/hellbound");
 	}
 }
