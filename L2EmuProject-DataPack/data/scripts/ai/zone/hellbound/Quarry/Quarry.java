@@ -22,7 +22,7 @@ import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
+import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
@@ -30,7 +30,7 @@ import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.tools.random.Rnd;
 
-public final class Quarry extends QuestJython
+public final class Quarry extends Quest
 {
 	private static final int	SLAVE			= 32299;
 	private static final int	TRUST			= 10;
@@ -192,6 +192,6 @@ public final class Quarry extends QuestJython
 
 	public static void main(String[] args)
 	{
-		new Quarry(-1, Quarry.class.getSimpleName(), "hellbound");
+		new Quarry(-1, Quarry.class.getSimpleName(), "ai/zones/hellbound");
 	}
 }

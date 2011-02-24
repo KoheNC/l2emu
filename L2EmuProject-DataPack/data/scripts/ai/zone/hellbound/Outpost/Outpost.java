@@ -25,12 +25,12 @@ import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
+import net.l2emuproject.gameserver.model.quest.Quest;
 
 /**
  * @author DS, based on theOne's work
  */
-public final class Outpost extends QuestJython
+public final class Outpost extends Quest
 {
 	private static final int	CAPTAIN		= 18466;
 	private static final int	DEFENDER	= 22358;

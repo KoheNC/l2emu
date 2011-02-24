@@ -81,7 +81,8 @@ public final class Remnants extends L2AttackableAIScript
 	public final String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
 	{
 		// Updating level in separate thread.
-		HellboundManager.getInstance().setHellboundLevel(HellboundEngine.LEVEL_5);
+		if (npc.getNpcId() == DEREK)
+			HellboundManager.getInstance().setHellboundLevel(HellboundEngine.LEVEL_5);
 
 		return super.onKill(npc, killer, isPet);
 	}

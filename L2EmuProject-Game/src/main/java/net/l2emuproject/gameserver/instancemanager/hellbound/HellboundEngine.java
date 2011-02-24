@@ -38,8 +38,10 @@ public final class HellboundEngine extends AbstractPeriodicTaskManager
 
 	public HellboundEngine()
 	{
-		super(15000);
+		super(UPDATE_INTERVAL);
 	}
+
+	private static final int		UPDATE_INTERVAL		= 15000;
 
 	public static final byte		LEVEL_0				= 0;
 	public static final byte		LEVEL_1				= 1;
@@ -122,7 +124,7 @@ public final class HellboundEngine extends AbstractPeriodicTaskManager
 			onLevelChange(level); // first run or changed by admin
 	}
 
-	private final void onLevelChange(int newLevel)
+	private final void onLevelChange(final int newLevel)
 	{
 		HellboundManager.getInstance().doSpawn();
 
@@ -130,7 +132,7 @@ public final class HellboundEngine extends AbstractPeriodicTaskManager
 		{
 			try
 			{
-				L2DoorInstance door = DoorTable.getInstance().getDoor(doorData[0]);
+				final L2DoorInstance door = DoorTable.getInstance().getDoor(doorData[0]);
 				if (door.isOpen())
 				{
 					if (newLevel < doorData[1])
@@ -144,7 +146,7 @@ public final class HellboundEngine extends AbstractPeriodicTaskManager
 			}
 			catch (Exception e)
 			{
-				e.printStackTrace();
+				_log.warn("", e);
 			}
 		}
 
@@ -157,7 +159,7 @@ public final class HellboundEngine extends AbstractPeriodicTaskManager
 		_cachedLevel = newLevel;
 	}
 
-	private final void updateHellboundLevel(int level)
+	private final void updateHellboundLevel(final int level)
 	{
 		final int trustPoints = HellboundManager.getInstance().getTrustPoints();
 
