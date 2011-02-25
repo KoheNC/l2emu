@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.model.quest;
 import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -56,13 +56,13 @@ public class QuestTimer
     private final String _name;
     private final Quest _quest;
     private final L2Npc _npc;
-    private final L2PcInstance _player;
+    private final L2Player _player;
     private final boolean _isRepeating;
     private ScheduledFuture<?> _scheduler;
 
     // =========================================================
     // Constructor
-    public QuestTimer(Quest quest, String name, long time, L2Npc npc, L2PcInstance player, boolean repeating)
+    public QuestTimer(Quest quest, String name, long time, L2Npc npc, L2Player player, boolean repeating)
     {
         _name = name;
         _quest = quest;
@@ -75,7 +75,7 @@ public class QuestTimer
             _scheduler = ThreadPoolManager.getInstance().scheduleGeneral(new ScheduleTimerTask(), time); // Prepare auto end task
     }
 
-    public QuestTimer(Quest quest, String name, long time, L2Npc npc, L2PcInstance player)
+    public QuestTimer(Quest quest, String name, long time, L2Npc npc, L2Player player)
     {
         this(quest, name, time, npc, player, false);
     }
@@ -103,7 +103,7 @@ public class QuestTimer
      * @param npc : Npc instance attached to the desired timer (null if no npc attached)
      * @param player : Player instance attached to the desired timer (null if no player attached)
      */
-    public boolean isMatch(Quest quest, String name, L2Npc npc, L2PcInstance player)
+    public boolean isMatch(Quest quest, String name, L2Npc npc, L2Player player)
     {
         if (quest == null || name == null)
             return false;
@@ -139,7 +139,7 @@ public class QuestTimer
     	return _npc;
     }
     
-    public final L2PcInstance getPlayer()
+    public final L2Player getPlayer()
     {
     	return _player;
     }

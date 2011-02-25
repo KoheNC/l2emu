@@ -17,10 +17,10 @@ package net.l2emuproject.gameserver.world.mapregion;
 import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.Race;
 import net.l2emuproject.gameserver.model.entity.Town;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -97,7 +97,7 @@ public final class L2MapRegionRestart
 		return _name;
 	}
 	
-	private int getNextAccessibleRestartId(L2PcInstance activeChar)
+	private int getNextAccessibleRestartId(L2Player activeChar)
 	{
 		if (activeChar == null)
 			return getRestartId();
@@ -121,7 +121,7 @@ public final class L2MapRegionRestart
 		return getRestartId();
 	}
 	
-	public Location getRandomRestartPoint(L2PcInstance player)
+	public Location getRandomRestartPoint(L2Player player)
 	{
 		final int restartId = getNextAccessibleRestartId(player);
 		
@@ -131,7 +131,7 @@ public final class L2MapRegionRestart
 		return _restartPoints[Rnd.get(_restartPoints.length)];
 	}
 	
-	public Location getRandomChaoticRestartPoint(L2PcInstance player)
+	public Location getRandomChaoticRestartPoint(L2Player player)
 	{
 		final int restartId = getNextAccessibleRestartId(player);
 		

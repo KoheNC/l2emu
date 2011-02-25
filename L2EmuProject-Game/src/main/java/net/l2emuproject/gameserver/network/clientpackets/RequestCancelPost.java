@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.instancemanager.MailManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Message;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
@@ -30,6 +29,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
@@ -50,7 +50,7 @@ public final class RequestCancelPost extends L2GameClientPacket
 	@Override
 	public void runImpl()
 	{
-		final L2PcInstance activeChar = getClient().getActiveChar();
+		final L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null || !Config.ALLOW_MAIL || !Config.ALLOW_ATTACHMENTS)
 			return;
 		
@@ -192,7 +192,7 @@ public final class RequestCancelPost extends L2GameClientPacket
 		su.addAttribute(StatusUpdate.CUR_LOAD, activeChar.getCurrentLoad());
 		activeChar.sendPacket(su);
 		
-		final L2PcInstance receiver = L2World.getInstance().getPlayer(msg.getReceiverId());
+		final L2Player receiver = L2World.getInstance().getPlayer(msg.getReceiverId());
 		if (receiver != null)
 		{
 			SystemMessage sm = new SystemMessage(SystemMessageId.S1_CANCELLED_MAIL);

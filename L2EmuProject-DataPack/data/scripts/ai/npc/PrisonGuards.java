@@ -21,13 +21,13 @@ import ai.L2AttackableAIScript;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 public class PrisonGuards extends L2AttackableAIScript
@@ -82,7 +82,7 @@ public class PrisonGuards extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if (event.equalsIgnoreCase("Respawn"))
 		{
@@ -117,7 +117,7 @@ public class PrisonGuards extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance player, L2Skill skill, L2Object[] targets, boolean isPet)
+	public String onSkillSee(L2Npc npc, L2Player player, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		L2Character caster = isPet ? player.getPet() : player;
 
@@ -134,7 +134,7 @@ public class PrisonGuards extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isPet)
+	public String onAggroRangeEnter(L2Npc npc, L2Player player, boolean isPet)
 	{
 		L2Character target = isPet ? player.getPet() : player;
 
@@ -168,7 +168,7 @@ public class PrisonGuards extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isPet)
+	public String onAttack(L2Npc npc, L2Player player, int damage, boolean isPet)
 	{
 		L2Character attacker = isPet ? player.getPet() : player;
 
@@ -211,7 +211,7 @@ public class PrisonGuards extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		if (_guards.containsKey(npc))
 			startQuestTimer("Respawn", 20000, npc, null);

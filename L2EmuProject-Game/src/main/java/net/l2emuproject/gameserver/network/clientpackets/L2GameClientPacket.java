@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import java.nio.BufferUnderflowException;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -69,7 +69,7 @@ public abstract class L2GameClientPacket extends ReceivablePacket<L2GameClient, 
 		getClient().sendPacket(sm.getSystemMessage());
 	}
 	
-	protected final L2PcInstance getActiveChar()
+	protected final L2Player getActiveChar()
 	{
 		return getClient().getActiveChar();
 	}

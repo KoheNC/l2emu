@@ -26,7 +26,6 @@ import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2GrandBossInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.GrandBossState;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.skills.L2Skill;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Decoy;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
@@ -103,9 +103,9 @@ public final class BelethManager extends BossLair
 	private final class BelethManagerTask implements Runnable
 	{
 		private int				_taskId	= 0;
-		private L2PcInstance	_player;
+		private L2Player	_player;
 
-		private BelethManagerTask(int taskId, L2PcInstance player)
+		private BelethManagerTask(int taskId, L2Player player)
 		{
 			_taskId = taskId;
 			_player = player;
@@ -152,7 +152,7 @@ public final class BelethManager extends BossLair
 		}
 	}
 
-	public void belethManagerTask(int taskId, L2PcInstance player)
+	public void belethManagerTask(int taskId, L2Player player)
 	{
 		ThreadPoolManager.getInstance().scheduleGeneral(new BelethManagerTask(taskId, player), 100);
 	}
@@ -505,14 +505,14 @@ public final class BelethManager extends BossLair
 		}
 	}
 
-	public void teleport(L2PcInstance player, int x, int y, int z)
+	public void teleport(L2Player player, int x, int y, int z)
 	{
 		player.teleToLocation(x, y, z);
 
 		L2Party party = player.getParty();
 		if (party != null)
 		{
-			for (L2PcInstance partyMembers : party.getPartyMembers())
+			for (L2Player partyMembers : party.getPartyMembers())
 			{
 				partyMembers.teleToLocation(x, y, z);
 			}

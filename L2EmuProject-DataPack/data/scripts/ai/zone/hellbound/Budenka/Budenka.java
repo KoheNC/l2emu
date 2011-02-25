@@ -14,9 +14,9 @@
  */
 package ai.zone.hellbound.Budenka;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author DS, based on theOne's work
@@ -35,7 +35,7 @@ public final class Budenka extends QuestJython
 	}
 
 	@Override
-	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		if (player.getInventory().getInventoryItemCount(PREMIUM_CERT, -1, false) > 0)
 			return "32294-premium.htm";

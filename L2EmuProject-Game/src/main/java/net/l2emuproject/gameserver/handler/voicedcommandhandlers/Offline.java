@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.handler.voicedcommandhandlers;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IVoicedCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public class Offline implements IVoicedCommandHandler
@@ -26,22 +26,22 @@ public class Offline implements IVoicedCommandHandler
 		{ "offline" };
 	
 	@Override
-	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String target)
+	public boolean useVoicedCommand(String command, L2Player activeChar, String target)
 	{
 		if (!Config.ALLOW_OFFLINE_TRADE)
 			return false;
 		
 		switch (activeChar.getPrivateStoreType())
 		{
-			case L2PcInstance.STORE_PRIVATE_MANUFACTURE:
+			case L2Player.STORE_PRIVATE_MANUFACTURE:
 			{
 				if (!Config.ALLOW_OFFLINE_TRADE_CRAFT)
 					break;
 			}
 				//$FALL-THROUGH$
-			case L2PcInstance.STORE_PRIVATE_SELL:
-			case L2PcInstance.STORE_PRIVATE_BUY:
-			case L2PcInstance.STORE_PRIVATE_PACKAGE_SELL:
+			case L2Player.STORE_PRIVATE_SELL:
+			case L2Player.STORE_PRIVATE_BUY:
+			case L2Player.STORE_PRIVATE_PACKAGE_SELL:
 			{
 				if (activeChar.isInsideZone(L2Zone.FLAG_PEACE) || activeChar.isGM())
 				{

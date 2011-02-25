@@ -32,7 +32,6 @@ import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.StaticObjects;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2StaticObjectInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
@@ -41,6 +40,7 @@ import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.gameserver.network.serverpackets.PledgeShowInfoUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public class Fort extends Siegeable<FortSiege>
@@ -341,7 +341,7 @@ public class Fort extends Siegeable<FortSiege>
 		{
 			updateClansReputation(clan, true);
 
-			L2PcInstance oldLord = getOwnerClan().getLeader().getPlayerInstance();
+			L2Player oldLord = getOwnerClan().getLeader().getPlayerInstance();
 			if (oldLord != null && oldLord.getMountType() == 2)
 				oldLord.dismount();
 
@@ -575,7 +575,7 @@ public class Fort extends Siegeable<FortSiege>
 		}
 	}
 
-	public boolean updateFunctions(L2PcInstance player, int type, int lvl, int lease, long rate, boolean addNew)
+	public boolean updateFunctions(L2Player player, int type, int lvl, int lease, long rate, boolean addNew)
 	{
 		if (player == null)
 			return false;
@@ -802,8 +802,8 @@ public class Fort extends Siegeable<FortSiege>
 				sm = new SystemMessage(SystemMessageId.S1_CLAN_IS_VICTORIOUS_IN_THE_FORTRESS_BATTLE_OF_S2);
 				sm.addString(clan.getName());
 				sm.addFortId(getFortId());
-				Collection<L2PcInstance> pls = L2World.getInstance().getAllPlayers();
-				for (L2PcInstance player : pls)
+				Collection<L2Player> pls = L2World.getInstance().getAllPlayers();
+				for (L2Player player : pls)
 				{
 					player.sendPacket(sm);
 				}

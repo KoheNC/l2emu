@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This packet is never sent since by the official client since Gracia P2.
@@ -34,7 +34,7 @@ public class ChangeWaitType extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getActiveChar();
+		L2Player player = getActiveChar();
 		if (player != null)
 			Util.handleIllegalPlayerAction(player, player + " sent a deprecated packet!");
 	}

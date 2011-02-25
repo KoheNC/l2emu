@@ -27,7 +27,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2ChestInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2CubicInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
@@ -60,6 +59,7 @@ import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
@@ -712,8 +712,8 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 	{
 		caster.sendPacket(ActionFailed.STATIC_PACKET);
 
-		if (caster instanceof L2PcInstance)
-			((L2PcInstance)caster).sendMessage("Skill not implemented. Skill ID: " + getId() + " " + getSkillType());
+		if (caster instanceof L2Player)
+			((L2Player)caster).sendMessage("Skill not implemented. Skill ID: " + getId() + " " + getSkillType());
 	}
 
 	public final boolean isPotion()
@@ -1557,7 +1557,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 		if (weapon2 != null && (weapon2.getItemType().mask() & weaponsAllowed) != 0)
 			return true;
 
-		if (message && activeChar instanceof L2PcInstance)
+		if (message && activeChar instanceof L2Player)
 		{
 			if (_weaponDependancyMessage == null)
 			{
@@ -1579,8 +1579,8 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 				_weaponDependancyMessage = sb.moveToString().intern();
 			}
 
-			if (activeChar instanceof L2PcInstance)
-				((L2PcInstance)activeChar).sendMessage(_weaponDependancyMessage);
+			if (activeChar instanceof L2Player)
+				((L2Player)activeChar).sendMessage(_weaponDependancyMessage);
 		}
 
 		return false;
@@ -1599,7 +1599,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 
 	public boolean checkCondition(L2Character activeChar, L2Object target)
 	{
-		if (activeChar instanceof L2PcInstance && ((L2PcInstance)activeChar).isGM() && !Config.GM_SKILL_RESTRICTION)
+		if (activeChar instanceof L2Player && ((L2Player)activeChar).isGM() && !Config.GM_SKILL_RESTRICTION)
 			return true;
 
 		Condition preCondition = _preCondition;
@@ -1616,8 +1616,8 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 		if (preCondition.test(env))
 			return true;
 
-		if (activeChar instanceof L2PcInstance)
-			preCondition.sendMessage((L2PcInstance) activeChar, this);
+		if (activeChar instanceof L2Player)
+			preCondition.sendMessage((L2Player) activeChar, this);
 		return false;
 	}
 
@@ -1631,8 +1631,8 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 	 * <BR>
 	 * <B><U> Values of skill type</U> :</B><BR>
 	 * <BR>
-	 * <li>ONE : The skill can only be used on the L2PcInstance targeted, or on
-	 * the caster if it's a L2PcInstance and no L2PcInstance targeted</li> <li>
+	 * <li>ONE : The skill can only be used on the L2Player targeted, or on
+	 * the caster if it's a L2Player and no L2Player targeted</li> <li>
 	 * SELF</li> <li>HOLY, UNDEAD</li> <li>PET</li> <li>AURA, AURA_CLOSE</li>
 	 * <li>AREA</li> <li>MULTIFACE</li> <li>PARTY, CLAN</li> <li>CORPSE_PLAYER,
 	 * CORPSE_MOB, CORPSE_CLAN</li> <li>UNLOCKABLE</li> <li>ITEM</li> <BR>
@@ -1709,7 +1709,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					 */
 				case TARGET_HOLY:
 				{
-					if (activeChar instanceof L2PcInstance)
+					if (activeChar instanceof L2Player)
 					{
 						if (target instanceof L2ArtefactInstance)
 							return new L2Character[] { target };
@@ -1723,7 +1723,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 				}
 				case TARGET_COUPLE:
 				{
-					if (target != null && target instanceof L2PcInstance)
+					if (target != null && target instanceof L2Player)
 					{
 						int _chaid = activeChar.getObjectId();
 						int targetId = target.getObjectId();
@@ -1769,7 +1769,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					{
 						L2Summon targetPet = null;
 						targetPet = (L2Summon) target;
-						if (activeChar instanceof L2PcInstance && activeChar.getPet() != targetPet && !targetPet.isDead() && targetPet.getOwner().getPvpFlag() != 0)
+						if (activeChar instanceof L2Player && activeChar.getPet() != targetPet && !targetPet.isDead() && targetPet.getOwner().getPvpFlag() != 0)
 						{
 							return new L2Character[] { target };
 						}
@@ -1778,7 +1778,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 				}
 				case TARGET_CORPSE_PET:
 				{
-					if (activeChar instanceof L2PcInstance)
+					if (activeChar instanceof L2Player)
 					{
 						target = activeChar.getPet();
 						if (target != null && target.isDead())
@@ -1795,7 +1795,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					int radius = getSkillRadius();
 					boolean srcInPvP = activeChar.isInsideZone(L2Zone.FLAG_PVP) && !activeChar.isInsideZone(L2Zone.FLAG_SIEGE);
 
-					L2PcInstance src = activeChar.getActingPlayer();
+					L2Player src = activeChar.getActingPlayer();
 
 					// Go through the L2Character _knownList
 					for (L2Character cha : activeChar.getKnownList().getKnownCharactersInRadius(radius))
@@ -1810,9 +1810,9 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 							if (src != null)
 							{
 								// check if both attacker and target are L2PcInstances and if they are in same party
-								if (cha instanceof L2PcInstance)
+								if (cha instanceof L2Player)
 								{
-									L2PcInstance player = (L2PcInstance) cha;
+									L2Player player = (L2Player) cha;
 									if (!src.checkPvpSkill(cha, this))
 										continue;
 									if ((src.getParty() != null && player.getParty() != null) && src.getParty().getPartyLeaderOID() == player.getParty().getPartyLeaderOID())
@@ -1827,7 +1827,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 								}
 								else if (cha instanceof L2Summon)
 								{
-									L2PcInstance trg = ((L2Summon) cha).getOwner();
+									L2Player trg = ((L2Summon) cha).getOwner();
 									if (trg == src)
 										continue;
 									if (!src.checkPvpSkill(trg, this))
@@ -1877,7 +1877,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					int radius = getSkillRadius();
 					boolean srcInArena = activeChar.isInsideZone(L2Zone.FLAG_PVP) && !activeChar.isInsideZone(L2Zone.FLAG_SIEGE);
 
-					L2PcInstance src = activeChar.getActingPlayer();
+					L2Player src = activeChar.getActingPlayer();
 
 					// Go through the L2Character _knownList
 					for (L2Character cha : activeChar.getKnownList().getKnownCharactersInRadius(radius))
@@ -1894,9 +1894,9 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 
 								boolean objInPvpZone = cha.isInsideZone(L2Zone.FLAG_PVP) && !cha.isInsideZone(L2Zone.FLAG_SIEGE);
 								// check if both attacker and target are L2PcInstances and if they are in same party
-								if (cha instanceof L2PcInstance)
+								if (cha instanceof L2Player)
 								{
-									L2PcInstance player = (L2PcInstance) cha;
+									L2Player player = (L2Player) cha;
 									if (!src.checkPvpSkill(cha, this))
 										continue;
 									if ((src.getParty() != null && player.getParty() != null) && src.getParty().getPartyLeaderOID() == player.getParty().getPartyLeaderOID())
@@ -1911,7 +1911,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 								}
 								if (cha instanceof L2Summon)
 								{
-									L2PcInstance trg = ((L2Summon) cha).getOwner();
+									L2Player trg = ((L2Summon) cha).getOwner();
 									if (trg == src)
 										continue;
 									if (!src.checkPvpSkill(trg, this))
@@ -1951,7 +1951,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					int radius = getSkillRadius();
 					boolean srcInArena = activeChar.isInsideZone(L2Zone.FLAG_PVP) && !activeChar.isInsideZone(L2Zone.FLAG_SIEGE);
 
-					L2PcInstance src = activeChar.getActingPlayer();
+					L2Player src = activeChar.getActingPlayer();
 
 					// Go through the L2Character _knownList
 					for (L2Character cha : activeChar.getKnownList().getKnownCharactersInRadius(radius))
@@ -1968,9 +1968,9 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 
 								boolean objInPvpZone = cha.isInsideZone(L2Zone.FLAG_PVP) && !cha.isInsideZone(L2Zone.FLAG_SIEGE);
 								// check if both attacker and target are L2PcInstances and if they are in same party
-								if (cha instanceof L2PcInstance)
+								if (cha instanceof L2Player)
 								{
-									L2PcInstance player = (L2PcInstance) cha;
+									L2Player player = (L2Player) cha;
 									if (!src.checkPvpSkill(cha, this))
 										continue;
 									if ((src.getParty() != null && player.getParty() != null) && src.getParty().getPartyLeaderOID() == player.getParty().getPartyLeaderOID())
@@ -1985,7 +1985,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 								}
 								if (cha instanceof L2Summon)
 								{
-									L2PcInstance trg = ((L2Summon) cha).getOwner();
+									L2Player trg = ((L2Summon) cha).getOwner();
 									if (trg == src)
 										continue;
 									if (!src.checkPvpSkill(trg, this))
@@ -2045,7 +2045,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					boolean effectOriginIsL2Playable = (cha instanceof L2Playable);
 					boolean srcIsSummon = (activeChar instanceof L2Summon);
 
-					L2PcInstance src = activeChar.getActingPlayer();
+					L2Player src = activeChar.getActingPlayer();
 
 					int radius = getSkillRadius();
 
@@ -2066,9 +2066,9 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 								continue;
 							if (src != null) // caster is L2Playable and exists
 							{
-								if (obj instanceof L2PcInstance)
+								if (obj instanceof L2Player)
 								{
-									L2PcInstance trg = (L2PcInstance) obj;
+									L2Player trg = (L2Player) obj;
 									if (trg == src)
 										continue;
 									if ((src.getParty() != null && trg.getParty() != null) && src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
@@ -2094,7 +2094,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 								}
 								if (obj instanceof L2Summon)
 								{
-									L2PcInstance trg = ((L2Summon) obj).getOwner();
+									L2Player trg = ((L2Summon) obj).getOwner();
 									if (trg == src)
 										continue;
 
@@ -2165,7 +2165,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 
 					boolean effectOriginIsL2Playable = (cha instanceof L2Playable);
 
-					L2PcInstance src = activeChar.getActingPlayer();
+					L2Player src = activeChar.getActingPlayer();
 
 					int radius = getSkillRadius();
 
@@ -2192,9 +2192,9 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 							if (src != null) // caster is L2Playable and exists
 							{
 								boolean targetInPvP = target.isInsideZone(L2Zone.FLAG_PVP) && !target.isInsideZone(L2Zone.FLAG_SIEGE);
-								if (obj instanceof L2PcInstance)
+								if (obj instanceof L2Player)
 								{
-									L2PcInstance trg = (L2PcInstance) obj;
+									L2Player trg = (L2Player) obj;
 									if (trg == src)
 										continue;
 									if ((src.getParty() != null && trg.getParty() != null) && src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
@@ -2220,7 +2220,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 								}
 								if (obj instanceof L2Summon)
 								{
-									L2PcInstance trg = ((L2Summon) obj).getOwner();
+									L2Player trg = ((L2Summon) obj).getOwner();
 									if (trg == src)
 										continue;
 
@@ -2291,7 +2291,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 
 					boolean effectOriginIsL2Playable = (cha instanceof L2Playable);
 
-					L2PcInstance src = activeChar.getActingPlayer();
+					L2Player src = activeChar.getActingPlayer();
 
 					int radius = getSkillRadius();
 
@@ -2316,9 +2316,9 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 							if (src != null) // caster is L2Playable and exists
 							{
 								boolean targetInPvP = target.isInsideZone(L2Zone.FLAG_PVP) && !target.isInsideZone(L2Zone.FLAG_SIEGE);
-								if (obj instanceof L2PcInstance)
+								if (obj instanceof L2Player)
 								{
-									L2PcInstance trg = (L2PcInstance) obj;
+									L2Player trg = (L2Player) obj;
 									if (trg == src)
 										continue;
 									if ((src.getParty() != null && trg.getParty() != null) && src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
@@ -2344,7 +2344,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 								}
 								if (obj instanceof L2Summon)
 								{
-									L2PcInstance trg = ((L2Summon) obj).getOwner();
+									L2Player trg = ((L2Summon) obj).getOwner();
 									if (trg == src)
 										continue;
 
@@ -2443,16 +2443,16 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 
 					targetList.add(activeChar);
 
-					L2PcInstance player = null;
+					L2Player player = null;
 
 					if (activeChar instanceof L2Summon)
 					{
 						player = ((L2Summon) activeChar).getOwner();
 						targetList.add(player);
 					}
-					else if (activeChar instanceof L2PcInstance)
+					else if (activeChar instanceof L2Player)
 					{
-						player = (L2PcInstance) activeChar;
+						player = (L2Player) activeChar;
 						if (activeChar.getPet() != null)
 							targetList.add(activeChar.getPet());
 					}
@@ -2461,9 +2461,9 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					{
 						// Get all visible objects in a spheric area near the L2Character
 						// Get a list of Party Members
-						List<L2PcInstance> partyList = activeChar.getParty().getPartyMembers();
+						List<L2Player> partyList = activeChar.getParty().getPartyMembers();
 
-						for (L2PcInstance partyMember : partyList)
+						for (L2Player partyMember : partyList)
 						{
 							if (player == null || partyMember == null || partyMember == player)
 								continue;
@@ -2488,8 +2488,8 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 				case TARGET_PARTY_MEMBER:
 				{
 					if ((target != null && target == activeChar) || (target != null && activeChar.getParty() != null && target.getParty() != null && activeChar.getParty().getPartyLeaderOID() == target.getParty().getPartyLeaderOID())
-							|| (target != null && activeChar instanceof L2PcInstance && target instanceof L2Summon && activeChar.getPet() == target)
-							|| (target != null && activeChar instanceof L2Summon && target instanceof L2PcInstance && activeChar == target.getPet()))
+							|| (target != null && activeChar instanceof L2Player && target instanceof L2Summon && activeChar.getPet() == target)
+							|| (target != null && activeChar instanceof L2Summon && target instanceof L2Player && activeChar == target.getPet()))
 					{
 						if (!target.isDead())
 						{
@@ -2509,9 +2509,9 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					{
 						if (!target.isDead())
 						{
-							if (target instanceof L2PcInstance)
+							if (target instanceof L2Player)
 							{
-								L2PcInstance player = (L2PcInstance) target;
+								L2Player player = (L2Player) target;
 								switch (getId())
 								{
 									// FORCE BUFFS may cancel here but there should be a proper condition
@@ -2541,7 +2541,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					if (onlyFirst)
 	                    return new L2Character[]{activeChar};
 
-					final L2PcInstance player = activeChar.getActingPlayer();
+					final L2Player player = activeChar.getActingPlayer();
 
 	                if (player == null)
 	                	return null;
@@ -2559,7 +2559,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 	                if (player.getPlayerOlympiad().isInOlympiadMode() || !(hasClan || hasParty))
 	                	return new L2Character[] { player };
 
-					for (L2PcInstance obj : activeChar.getKnownList().getKnownPlayersInRadius(radius))
+					for (L2Player obj : activeChar.getKnownList().getKnownPlayersInRadius(radius))
 					{
 						if (obj == null)
 							continue;
@@ -2605,7 +2605,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					if (activeChar instanceof L2Playable)
 					{
 						int radius = getSkillRadius();
-						L2PcInstance player = activeChar.getActingPlayer();
+						L2Player player = activeChar.getActingPlayer();
 						if (player == null)
 							return null;
 
@@ -2642,7 +2642,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 								if (obj == player || !(obj instanceof L2Playable) || obj.getActingPlayer() == null)
 									continue;
 
-								L2PcInstance newTarget = obj.getActingPlayer();
+								L2Player newTarget = obj.getActingPlayer();
 
 								if ((newTarget.getAllyId() == 0 || newTarget.getAllyId() != player.getAllyId()) && (newTarget.getClan() == null || newTarget.getClanId() != player.getClanId()))
 									continue;
@@ -2713,12 +2713,12 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 							if (!obj.isAlikeDead())
 							{
 								// Don't add this target if this is a PC->PC pvp casting and pvp condition not met
-								if (activeChar instanceof L2PcInstance && !((L2PcInstance) activeChar).checkPvpSkill(obj, this))
+								if (activeChar instanceof L2Player && !((L2Player) activeChar).checkPvpSkill(obj, this))
 									continue;
 
 								// check if both attacker and target are L2PcInstances and if they are in same party or clan
-								if ((activeChar instanceof L2PcInstance && obj instanceof L2PcInstance)
-										&& (((L2PcInstance) activeChar).getClanId() != ((L2PcInstance) obj).getClanId() || (((L2PcInstance) activeChar).getAllyId() != ((L2PcInstance) obj).getAllyId() && ((activeChar.getParty() != null && obj
+								if ((activeChar instanceof L2Player && obj instanceof L2Player)
+										&& (((L2Player) activeChar).getClanId() != ((L2Player) obj).getClanId() || (((L2Player) activeChar).getAllyId() != ((L2Player) obj).getAllyId() && ((activeChar.getParty() != null && obj
 												.getParty() != null) && activeChar.getParty().getPartyLeaderOID() != obj.getParty().getPartyLeaderOID()))))
 									continue;
 
@@ -2735,7 +2735,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					if (activeChar instanceof L2Playable)
 					{
 						int radius = getSkillRadius();
-						L2PcInstance player = activeChar.getActingPlayer();
+						L2Player player = activeChar.getActingPlayer();
 						if (player == null)
 							return null;
 
@@ -2769,7 +2769,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 							// Get Clan Members
 							for (L2ClanMember member : clan.getMembers())
 							{
-								L2PcInstance newTarget = member.getPlayerInstance();
+								L2Player newTarget = member.getPlayerInstance();
 
 								if (newTarget == null || newTarget == player)
 									continue;
@@ -2846,14 +2846,14 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 				{
 					if (target != null && target.isDead())
 					{
-						L2PcInstance player = null;
+						L2Player player = null;
 
-						if (activeChar instanceof L2PcInstance)
-							player = (L2PcInstance) activeChar;
+						if (activeChar instanceof L2Player)
+							player = (L2Player) activeChar;
 
-						L2PcInstance targetPlayer = null;
-						if (target instanceof L2PcInstance)
-							targetPlayer = (L2PcInstance) target;
+						L2Player targetPlayer = null;
+						if (target instanceof L2Player)
+							targetPlayer = (L2Player) target;
 
 						L2PetInstance targetPet = null;
 						if (target instanceof L2PetInstance)
@@ -2970,10 +2970,10 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 						return new L2Character[] { target };
 
 					boolean srcInArena = (activeChar.isInsideZone(L2Zone.FLAG_PVP) && !activeChar.isInsideZone(L2Zone.FLAG_SIEGE));
-					L2PcInstance src = null;
-					if (activeChar instanceof L2PcInstance)
-						src = (L2PcInstance) activeChar;
-					L2PcInstance trg = null;
+					L2Player src = null;
+					if (activeChar instanceof L2Player)
+						src = (L2Player) activeChar;
+					L2Player trg = null;
 
 					int radius = getSkillRadius();
 					for (L2Object obj : activeChar.getKnownList().getKnownObjects().values())
@@ -2989,9 +2989,9 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 						if (!GeoData.getInstance().canSeeTarget(activeChar, obj))
 							continue;
 
-						if (obj instanceof L2PcInstance && src != null)
+						if (obj instanceof L2Player && src != null)
 						{
-							trg = (L2PcInstance) obj;
+							trg = (L2Player) obj;
 
 							if ((src.getParty() != null && trg.getParty() != null) && src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
 								continue;
@@ -3105,7 +3105,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					if (target instanceof L2Summon)
 					{
 						L2Summon targetSummon = (L2Summon) target;
-						if (activeChar instanceof L2PcInstance && activeChar.getPet() != targetSummon && !targetSummon.isDead() && (targetSummon.getOwner().getPvpFlag() != 0 || targetSummon.getOwner().getKarma() > 0)
+						if (activeChar instanceof L2Player && activeChar.getPet() != targetSummon && !targetSummon.isDead() && (targetSummon.getOwner().getPvpFlag() != 0 || targetSummon.getOwner().getKarma() > 0)
 								|| (targetSummon.getOwner().isInsideZone(L2Zone.FLAG_PVP) && activeChar.isInsideZone(L2Zone.FLAG_PVP)))
 							return new L2Character[] { targetSummon };
 					}
@@ -3157,25 +3157,25 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					if (onlyFirst)
 						return new L2Character[] { activeChar };
 					
-					L2PcInstance player = null;
+					L2Player player = null;
 					
 					if (activeChar instanceof L2Summon)
 					{
 						player = ((L2Summon) activeChar).getOwner();
 						targetList.add(player);
 					}
-					else if (activeChar instanceof L2PcInstance)
+					else if (activeChar instanceof L2Player)
 					{
-						player = (L2PcInstance) activeChar;
+						player = (L2Player) activeChar;
 						if (activeChar.getPet() != null)
 							targetList.add(activeChar.getPet());
 					}
 					
 					if (activeChar.getParty() != null)
 					{
-						List<L2PcInstance> partyList = activeChar.getParty().getPartyMembers();
+						List<L2Player> partyList = activeChar.getParty().getPartyMembers();
 						
-						for (L2PcInstance partyMember : partyList)
+						for (L2Player partyMember : partyList)
 						{
 							if (partyMember == null)
 								continue;
@@ -3196,7 +3196,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 				}
 				default:
 				{
-					if (activeChar instanceof L2PcInstance || _log.isDebugEnabled()) // normally log only player skills errors
+					if (activeChar instanceof L2Player || _log.isDebugEnabled()) // normally log only player skills errors
 						_log.error("Target type of skill Id " + _id + " is not implemented.");
 					return null;
 				}
@@ -3213,7 +3213,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 	{
 		ArrayBunch<L2Character> targetList = new ArrayBunch<L2Character>();
 		L2Object target;
-		L2PcInstance tgOwner;
+		L2Player tgOwner;
 		L2Clan acClan;
 		L2Clan tgClan;
 		L2Party acPt = activeChar.getParty();
@@ -3258,8 +3258,8 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 			return targetList.moveToArray(new L2Character[targetList.size()]);
 		}
 
-		if (activeChar instanceof L2PcInstance)
-			acClan = ((L2PcInstance) activeChar).getClan();
+		if (activeChar instanceof L2Player)
+			acClan = ((L2Player) activeChar).getClan();
 		else if (activeChar instanceof L2Summon)
 			acClan = ((L2Summon) activeChar).getOwner().getClan();
 		else
@@ -3275,9 +3275,9 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 				if (!(Util.checkIfInRange(radius, target, obj, true)))
 					continue;
 
-				if (obj instanceof L2PcInstance)
+				if (obj instanceof L2Player)
 				{
-					tgClan = ((L2PcInstance) obj).getClan();
+					tgClan = ((L2Player) obj).getClan();
 
 					if (acPt != null)
 					{
@@ -3340,7 +3340,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 				if (!(Util.checkIfInRange(radius, target, obj, true)))
 					continue;
 
-				if (obj instanceof L2PcInstance)
+				if (obj instanceof L2Player)
 				{
 					if (acPt != null)
 					{
@@ -3406,7 +3406,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 		ArrayBunch<L2Character> targetList = new ArrayBunch<L2Character>();
 		L2Object target;
 		L2Object FirstTarget;
-		L2PcInstance tgOwner;
+		L2Player tgOwner;
 		L2Clan acClan;
 		L2Clan tgClan;
 		L2Party acPt = activeChar.getParty();
@@ -3476,9 +3476,9 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 				else if (isBehindFromCaster(newHeading, (L2Character) FirstTarget, (L2Character) obj))
 					continue;
 
-				if (obj instanceof L2PcInstance)
+				if (obj instanceof L2Player)
 				{
-					tgClan = ((L2PcInstance) obj).getClan();
+					tgClan = ((L2Player) obj).getClan();
 
 					if (acPt != null)
 					{
@@ -3545,7 +3545,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 				else if (isBehindFromCaster(newHeading, (L2Character) FirstTarget, (L2Character) obj))
 					continue;
 
-				if (obj instanceof L2PcInstance)
+				if (obj instanceof L2Player)
 				{
 					if (acPt != null)
 					{
@@ -3610,7 +3610,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 		return targetList.moveToArray(new L2Character[targetList.size()]);
 	}
 
-    public static final boolean addSummon(L2Character caster, L2PcInstance owner, int radius, boolean isDead)
+    public static final boolean addSummon(L2Character caster, L2Player owner, int radius, boolean isDead)
     {
         final L2Summon summon = owner.getPet();
 
@@ -3632,7 +3632,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 
     }
 
-	private boolean eventCheck(L2PcInstance player, L2PcInstance newTarget)
+	private boolean eventCheck(L2Player player, L2Player newTarget)
 	{
 		if (GlobalRestrictions.isProtected(player, newTarget, this, false))
 			return false;
@@ -3840,7 +3840,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 			for (EffectTemplate et : _effectTemplates)
 				et.getEffect(env);
 
-			if (effected instanceof L2PcInstance)
+			if (effected instanceof L2Player)
 			{
 				SystemMessage sm = new SystemMessage(SystemMessageId.YOU_FEEL_S1_EFFECT);
 				sm.addSkillName(this);

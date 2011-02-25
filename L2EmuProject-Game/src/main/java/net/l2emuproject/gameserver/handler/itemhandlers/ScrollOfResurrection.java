@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.handler.itemhandlers;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.IItemHandler;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
@@ -25,6 +24,7 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 
 /**
@@ -44,10 +44,10 @@ public class ScrollOfResurrection implements IItemHandler
 	@Override
 	public void useItem(L2Playable playable, L2ItemInstance item)
 	{
-		if (!(playable instanceof L2PcInstance))
+		if (!(playable instanceof L2Player))
 			return;
 
-		L2PcInstance activeChar = (L2PcInstance) playable;
+		L2Player activeChar = (L2Player) playable;
 		if (activeChar.isSitting())
 		{
 			activeChar.sendPacket(SystemMessageId.CANT_MOVE_SITTING);
@@ -65,10 +65,10 @@ public class ScrollOfResurrection implements IItemHandler
 
 		if (target != null && target.isDead())
 		{
-			L2PcInstance targetPlayer = null;
+			L2Player targetPlayer = null;
 
-			if (target instanceof L2PcInstance)
-				targetPlayer = (L2PcInstance) target;
+			if (target instanceof L2Player)
+				targetPlayer = (L2Player) target;
 
 			L2PetInstance targetPet = null;
 

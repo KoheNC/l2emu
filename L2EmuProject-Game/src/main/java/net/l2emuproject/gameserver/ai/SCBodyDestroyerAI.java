@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.ai;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Character.AIAccessor;
 
 /**
@@ -39,7 +39,7 @@ public class SCBodyDestroyerAI extends L2AttackableAI
 	@Override
 	protected void onEvtAttacked(L2Character attacker)
 	{
-		if (_firstAttakerObjectId == 0 && attacker instanceof L2PcInstance)
+		if (_firstAttakerObjectId == 0 && attacker instanceof L2Player)
 		{
 			_firstAttakerObjectId = attacker.getObjectId();
 			
@@ -56,7 +56,7 @@ public class SCBodyDestroyerAI extends L2AttackableAI
 	{
 		if (_firstAttakerObjectId > 0)
 		{
-			L2PcInstance player = L2World.getInstance().getPlayer(_firstAttakerObjectId);
+			L2Player player = L2World.getInstance().getPlayer(_firstAttakerObjectId);
 			if (player != null)
 				player.stopSkillEffects(5256);
 			

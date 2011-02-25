@@ -28,7 +28,6 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
@@ -38,6 +37,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 /**
@@ -137,7 +137,7 @@ public class ChamberOfDelusion extends Quest
 			world.manager[i] = addSpawn(GKFINISH, TELEPORT[i][0], TELEPORT[i][1], TELEPORT[i][2], 0, false, 0, false, world.instanceId);
 	}
 	
-	protected final boolean checkConditions(final L2PcInstance player)
+	protected final boolean checkConditions(final L2Player player)
 	{
 		final L2Party party = player.getParty();
 		if(party == null)
@@ -152,7 +152,7 @@ public class ChamberOfDelusion extends Quest
 		}
 		else
 		{
-			for(final L2PcInstance partyMember : party.getPartyMembers())
+			for(final L2Player partyMember : party.getPartyMembers())
 			{
 				if(partyMember.getLevel() < 80)
 				{
@@ -181,14 +181,14 @@ public class ChamberOfDelusion extends Quest
 		return true;
 	}
 	
-	protected final void teleportPlayer(final L2PcInstance player, final TeleCoord teleto)
+	protected final void teleportPlayer(final L2Player player, final TeleCoord teleto)
 	{
 		player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 		player.setInstanceId(teleto.instanceId);
 		player.teleToLocation(teleto.x, teleto.y, teleto.z);
 	}
 	
-	protected final boolean teleportParty(final L2PcInstance player, final TeleCoord teleto)
+	protected final boolean teleportParty(final L2Player player, final TeleCoord teleto)
 	{
 		final L2Party party = player.getParty();
 		if(party == null)
@@ -202,7 +202,7 @@ public class ChamberOfDelusion extends Quest
 			final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
 			if(tmpworld instanceof CDWorld)
 			{
-				for(final L2PcInstance partyMember : party.getPartyMembers())
+				for(final L2Player partyMember : party.getPartyMembers())
 				{
 					if(isPlayerInInstancePartyRange(partyMember, player, (CDWorld)tmpworld))
 						teleportPlayer(partyMember, teleto);
@@ -214,7 +214,7 @@ public class ChamberOfDelusion extends Quest
 	
 
 
-	protected final void teleportrnd(final L2PcInstance player, final CDWorld world)
+	protected final void teleportrnd(final L2Player player, final CDWorld world)
 	{
 		if(world.roomIndexes.size() < 1)
 			return;
@@ -237,7 +237,7 @@ public class ChamberOfDelusion extends Quest
 		sm.addString(InstanceManager.getInstance().getInstanceIdName(world.templateId));
 		for(int objectId : world.allowed)
 		{
-			final L2PcInstance player = L2World.getInstance().getPlayer(objectId);
+			final L2Player player = L2World.getInstance().getPlayer(objectId);
 			if(player != null && player.isOnline() > 0)
 			{
 				InstanceManager.getInstance().setInstanceTime(objectId, world.templateId, reenter.getTimeInMillis());
@@ -246,7 +246,7 @@ public class ChamberOfDelusion extends Quest
 		}
 	}
 	
-	protected final int enterInstance(final L2PcInstance player, final String template)
+	protected final int enterInstance(final L2Player player, final String template)
 	{
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
 		final CDWorld world;
@@ -277,7 +277,7 @@ public class ChamberOfDelusion extends Quest
 			spawnState((CDWorld) world);
 			if(party != null)
 			{
-				for(final L2PcInstance partyMember : party.getPartyMembers())
+				for(final L2Player partyMember : party.getPartyMembers())
 				{
 					world.allowed.add(partyMember.getObjectId());
 					if(partyMember.getQuestState(QN) == null)
@@ -296,7 +296,7 @@ public class ChamberOfDelusion extends Quest
 		}
 	}
 	
-	protected final void changeRoom(final L2PcInstance player, final CDWorld world)
+	protected final void changeRoom(final L2Player player, final CDWorld world)
 	{
 		world.status++;
 		teleportrnd(player, world);
@@ -329,7 +329,7 @@ public class ChamberOfDelusion extends Quest
 		}
 	}
 	
-	protected static final boolean isPlayerInInstancePartyRange(final L2PcInstance player, final L2PcInstance partyLeader, final CDWorld world)
+	protected static final boolean isPlayerInInstancePartyRange(final L2Player player, final L2Player partyLeader, final CDWorld world)
 	{
 		if(Util.checkIfInRange(Config.ALT_PARTY_RANGE, partyLeader, player, true)
 				&& world.allowed.contains(player.getObjectId()))
@@ -337,7 +337,7 @@ public class ChamberOfDelusion extends Quest
 		return false;
 	}
 	
-	protected static final boolean isPlayerThePartyLeaderOfCurrentInstance(final L2PcInstance player, final CDWorld world)
+	protected static final boolean isPlayerThePartyLeaderOfCurrentInstance(final L2Player player, final CDWorld world)
 	{
 		if(player.getParty() != null && player.getParty().getLeader() == player
 				&& world.allowed.contains(player.getObjectId()))
@@ -346,7 +346,7 @@ public class ChamberOfDelusion extends Quest
 	}
 	
 	@Override
-	public String onKill(final L2Npc npc, final L2PcInstance player, final boolean isPet)
+	public String onKill(final L2Npc npc, final L2Player player, final boolean isPet)
 	{
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
 		if(!(tmpworld instanceof CDWorld))
@@ -360,7 +360,7 @@ public class ChamberOfDelusion extends Quest
 			if(party != null)
 			{
 				QuestState st;
-				for(final L2PcInstance partyMember : party.getPartyMembers())
+				for(final L2Player partyMember : party.getPartyMembers())
 				{
 					st = partyMember.getQuestState(QN);
 					if(st != null && isPlayerInInstancePartyRange(partyMember, player, world))
@@ -373,7 +373,7 @@ public class ChamberOfDelusion extends Quest
 	}
 	
 	@Override
-	public final String onAdvEvent(final String event, final L2Npc npc, final L2PcInstance player)
+	public final String onAdvEvent(final String event, final L2Npc npc, final L2Player player)
 	{
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
 		if(!(tmpworld instanceof CDWorld))
@@ -411,7 +411,7 @@ public class ChamberOfDelusion extends Quest
 	}
 	
 	@Override
-	public String onFirstTalk(final L2Npc npc, final L2PcInstance player)
+	public String onFirstTalk(final L2Npc npc, final L2Player player)
 	{
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
 		if(!(tmpworld instanceof CDWorld))
@@ -454,7 +454,7 @@ public class ChamberOfDelusion extends Quest
 	}
 	
 	@Override
-	public String onTalk(final L2Npc npc, final L2PcInstance player)
+	public String onTalk(final L2Npc npc, final L2Player player)
 	{
 		final int npcId = npc.getNpcId();
 		if(npcId == GKSTART)

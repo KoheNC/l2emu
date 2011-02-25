@@ -17,11 +17,11 @@ package net.l2emuproject.gameserver.model.entity;
 import java.util.List;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -101,20 +101,20 @@ public class Entity
 		return Double.MAX_VALUE;
 	}
 
-	protected List<L2PcInstance> getPlayersInside()
+	protected List<L2Player> getPlayersInside()
 	{
-		List<L2PcInstance> lst = new FastList<L2PcInstance>();
+		List<L2Player> lst = new FastList<L2Player>();
 		for (L2Character cha : getZone().getCharactersInside())
 		{
-			if (cha instanceof L2PcInstance)
-				lst.add((L2PcInstance)cha);
+			if (cha instanceof L2Player)
+				lst.add((L2Player)cha);
 		}
 		return lst;
 	}
 
-	protected L2PcInstance getRandomPlayer()
+	protected L2Player getRandomPlayer()
 	{
-		List<L2PcInstance> lst = getPlayersInside();
+		List<L2Player> lst = getPlayersInside();
 		if (!lst.isEmpty())
 		{
 			return lst.get(Rnd.get(lst.size()));
@@ -125,14 +125,14 @@ public class Entity
 	/**
 	 * @param cha
 	 */
-	protected boolean checkBanish(L2PcInstance cha)
+	protected boolean checkBanish(L2Player cha)
 	{
 		return true;
 	}
 
 	public void banishForeigners()
 	{
-		for (L2PcInstance player : getPlayersInside())
+		for (L2Player player : getPlayersInside())
 		{
 			if (checkBanish(player))
 				player.teleToLocation(TeleportWhereType.Town);
@@ -142,7 +142,7 @@ public class Entity
 	public void broadcastToPlayers(String message)
 	{
 		SystemMessage msg = SystemMessage.sendString(message);
-		for (L2PcInstance player : getPlayersInside())
+		for (L2Player player : getPlayersInside())
 		{
 			player.sendPacket(msg);
 		}
@@ -150,7 +150,7 @@ public class Entity
 
 	public void broadcastToPlayers(L2GameServerPacket gsp)
 	{
-		for (L2PcInstance player : getPlayersInside())
+		for (L2Player player : getPlayersInside())
 		{
 			player.sendPacket(gsp);
 		}

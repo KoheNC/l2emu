@@ -23,7 +23,6 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
@@ -32,6 +31,7 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -138,14 +138,14 @@ public class PailakaInjuredDragon extends QuestJython
 		questItemIds = ITEMS;
 	}
 
-	private static final void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
+	private static final void teleportPlayer(L2Player player, int[] coords, int instanceId)
 	{
 		player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 		player.setInstanceId(instanceId);
 		player.teleToLocation(coords[0], coords[1], coords[2], true);
 	}
 
-	private final synchronized void enterInstance(L2PcInstance player)
+	private final synchronized void enterInstance(L2Player player)
 	{
 		//check for existing instances for this player
 		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
@@ -179,7 +179,7 @@ public class PailakaInjuredDragon extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		QuestState st = player.getQuestState(QN);
 		if (st == null)
@@ -276,13 +276,13 @@ public class PailakaInjuredDragon extends QuestJython
 	}
 
 	@Override
-	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		return npc.getNpcId() + ".htm";
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = NO_QUEST;
 
@@ -381,7 +381,7 @@ public class PailakaInjuredDragon extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		QuestState st = player.getQuestState(QN);
 		if (st == null)
@@ -419,7 +419,7 @@ public class PailakaInjuredDragon extends QuestJython
 	@Override
 	public String onExitZone(L2Character character, L2Zone zone)
 	{
-		if (character instanceof L2PcInstance && !character.isDead() && !character.isTeleporting() && ((L2PcInstance) character).isOnline() > 0)
+		if (character instanceof L2Player && !character.isDead() && !character.isTeleporting() && ((L2Player) character).isOnline() > 0)
 		{
 			InstanceWorld world = InstanceManager.getInstance().getWorld(character.getInstanceId());
 			if (world != null && world.templateId == INSTANCE_ID)
@@ -444,7 +444,7 @@ public class PailakaInjuredDragon extends QuestJython
 		{
 			try
 			{
-				teleportPlayer((L2PcInstance) _char, TELEPORT, _instanceId);
+				teleportPlayer((L2Player) _char, TELEPORT, _instanceId);
 			}
 			catch (Exception e)
 			{

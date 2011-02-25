@@ -17,10 +17,10 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.List;
 
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn;
 import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn.EnchantSkillDetail;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author KenM
@@ -42,7 +42,7 @@ public class ExEnchantSkillInfoDetail extends L2GameServerPacket
 	private int					_sp;
 	private final int			_adenaCount;
 
-	public ExEnchantSkillInfoDetail(int type, int skillid, int skilllvl, L2PcInstance ply)
+	public ExEnchantSkillInfoDetail(int type, int skillid, int skilllvl, L2Player ply)
 	{
 		L2EnchantSkillLearn enchantLearn = SkillTreeTable.getInstance().getSkillEnchantmentBySkillId(skillid);
 		EnchantSkillDetail esd = null;

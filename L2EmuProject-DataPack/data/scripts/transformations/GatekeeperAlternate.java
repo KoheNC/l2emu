@@ -14,9 +14,9 @@
  */
 package transformations;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class GatekeeperAlternate extends L2Transformation
 {
@@ -29,7 +29,7 @@ public class GatekeeperAlternate extends L2Transformation
 	}
 
 	@Override
-	public void transformedSkills(L2PcInstance player)
+	public void transformedSkills(L2Player player)
 	{
 		{
 		addSkill(player, 5656, player.getLevel()); // Gatekeeper Aura Flare
@@ -42,7 +42,7 @@ public class GatekeeperAlternate extends L2Transformation
 	}
 
 	@Override
-	public void removeSkills(L2PcInstance player)
+	public void removeSkills(L2Player player)
 	{
 		removeSkill(player, 5656); // Gatekeeper Aura Flare
 		removeSkill(player, 5657); // Gatekeeper Prominence

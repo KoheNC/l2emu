@@ -24,6 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExMoveToLocationAirShip
 import net.l2emuproject.gameserver.network.serverpackets.ExStopMoveAirShip;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Vehicle;
 import net.l2emuproject.tools.geometry.Point3D;
 
@@ -47,7 +48,7 @@ public class L2AirShipInstance extends L2Vehicle
 		return true;
 	}
 
-	public boolean isOwner(L2PcInstance player)
+	public boolean isOwner(L2Player player)
 	{
 		return false;
 	}
@@ -57,7 +58,7 @@ public class L2AirShipInstance extends L2Vehicle
 		return 0;
 	}
 
-	public boolean isCaptain(L2PcInstance player)
+	public boolean isCaptain(L2Player player)
 	{
 		return false;
 	}
@@ -77,7 +78,7 @@ public class L2AirShipInstance extends L2Vehicle
 		return 0;
 	}
 
-	public boolean setCaptain(L2PcInstance player)
+	public boolean setCaptain(L2Player player)
 	{
 		return false;
 	}
@@ -113,7 +114,7 @@ public class L2AirShipInstance extends L2Vehicle
 	}
 
 	@Override
-	public boolean addPassenger(L2PcInstance player)
+	public boolean addPassenger(L2Player player)
 	{
 		if (!super.addPassenger(player))
 			return false;
@@ -128,7 +129,7 @@ public class L2AirShipInstance extends L2Vehicle
 	}
 
 	@Override
-	public void oustPlayer(L2PcInstance player)
+	public void oustPlayer(L2Player player)
 	{
 		super.oustPlayer(player);
 		final Location loc = getOustLoc();
@@ -165,7 +166,7 @@ public class L2AirShipInstance extends L2Vehicle
 	}
 
 	@Override
-	public void sendInfo(L2PcInstance activeChar)
+	public void sendInfo(L2Player activeChar)
 	{
 		activeChar.sendPacket(new ExAirShipInfo(this));
 	}

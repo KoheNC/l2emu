@@ -27,7 +27,6 @@ import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld
 import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
@@ -56,6 +55,7 @@ import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
@@ -101,13 +101,13 @@ public final class CrystalCaverns extends QuestJython
 																		{ false, false, false };
 		private int[]								roomsStatus			=
 																		{ 0, 0, 0, 0 };								// 0: not spawned, 1: spawned, 2: cleared
-		private Map<L2DoorInstance, L2PcInstance>	openedDoors			= new FastMap<L2DoorInstance, L2PcInstance>();
+		private Map<L2DoorInstance, L2Player>	openedDoors			= new FastMap<L2DoorInstance, L2Player>();
 		private Map<Integer, Map<L2Npc, Boolean>>	npcList2			= new FastMap<Integer, Map<L2Npc, Boolean>>();
 		private Map<L2Npc, L2Npc>					oracles				= new FastMap<L2Npc, L2Npc>();
 		private List<L2Npc>							keyKeepers			= new FastList<L2Npc>();
 		private List<L2Npc>							oracle				= new FastList<L2Npc>();
 		// baylor variables
-		private List<L2PcInstance>					_raiders			= new FastList<L2PcInstance>();
+		private List<L2Player>					_raiders			= new FastList<L2Player>();
 		private int									_raidStatus			= 0;
 		private long								_dragonClawStart	= 0;
 		private int									_dragonClawNeed		= 0;
@@ -516,7 +516,7 @@ public final class CrystalCaverns extends QuestJython
 					door.closeMe();
 	}
 
-	private boolean checkConditions(L2PcInstance player)
+	private boolean checkConditions(L2Player player)
 	{
 		L2Party party = player.getParty();
 		if (party == null)
@@ -529,7 +529,7 @@ public final class CrystalCaverns extends QuestJython
 			player.sendPacket(new SystemMessage(SystemMessageId.ONLY_PARTY_LEADER_CAN_ENTER));
 			return false;
 		}
-		for (L2PcInstance partyMember : party.getPartyMembers())
+		for (L2Player partyMember : party.getPartyMembers())
 		{
 			if (partyMember.getLevel() < 78)
 			{
@@ -565,7 +565,7 @@ public final class CrystalCaverns extends QuestJython
 		return true;
 	}
 
-	private boolean checkOracleConditions(L2PcInstance player)
+	private boolean checkOracleConditions(L2Player player)
 	{
 		L2Party party = player.getParty();
 		if (party == null)
@@ -578,7 +578,7 @@ public final class CrystalCaverns extends QuestJython
 			player.sendPacket(new SystemMessage(SystemMessageId.ONLY_PARTY_LEADER_CAN_ENTER));
 			return false;
 		}
-		for (L2PcInstance partyMember : party.getPartyMembers())
+		for (L2Player partyMember : party.getPartyMembers())
 		{
 			L2ItemInstance item = partyMember.getInventory().getItemByItemId(RED_CORAL);
 			if (item == null)
@@ -599,7 +599,7 @@ public final class CrystalCaverns extends QuestJython
 		return true;
 	}
 
-	private boolean checkBaylorConditions(L2PcInstance player)
+	private boolean checkBaylorConditions(L2Player player)
 	{
 		L2Party party = player.getParty();
 		if (party == null)
@@ -612,7 +612,7 @@ public final class CrystalCaverns extends QuestJython
 			player.sendPacket(new SystemMessage(SystemMessageId.ONLY_PARTY_LEADER_CAN_ENTER));
 			return false;
 		}
-		for (L2PcInstance partyMember : party.getPartyMembers())
+		for (L2Player partyMember : party.getPartyMembers())
 		{
 			L2ItemInstance item1 = partyMember.getInventory().getItemByItemId(BOSS_CRYSTAL_1);
 			L2ItemInstance item2 = partyMember.getInventory().getItemByItemId(BOSS_CRYSTAL_2);
@@ -683,7 +683,7 @@ public final class CrystalCaverns extends QuestJython
 		effected.broadcastPacket(new ValidateLocation(effected));
 	}
 
-	private void teleportplayer(L2PcInstance player, teleCoord teleto)
+	private void teleportplayer(L2Player player, teleCoord teleto)
 	{
 		player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 		player.setInstanceId(teleto.instanceId);
@@ -691,7 +691,7 @@ public final class CrystalCaverns extends QuestJython
 		return;
 	}
 
-	private int enterInstance(L2PcInstance player, String template, teleCoord teleto)
+	private int enterInstance(L2Player player, String template, teleCoord teleto)
 	{
 		//check for existing instances for this player
 		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
@@ -732,7 +732,7 @@ public final class CrystalCaverns extends QuestJython
 			}
 			else
 			{
-				for (L2PcInstance partyMember : party.getPartyMembers())
+				for (L2Player partyMember : party.getPartyMembers())
 				{
 					partyMember.sendMessage("Welcome to Crystal Caverns.");
 					InstanceManager.getInstance().setInstanceTime(partyMember.getObjectId(), INSTANCE_ID, ((System.currentTimeMillis() + INSTANCEPENALTY)));
@@ -744,14 +744,14 @@ public final class CrystalCaverns extends QuestJython
 		}
 	}
 
-	private void exitInstance(L2PcInstance player, teleCoord tele)
+	private void exitInstance(L2Player player, teleCoord tele)
 	{
 		player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 		player.setInstanceId(0);
 		player.teleToLocation(tele.x, tele.y, tele.z);
 	}
 
-	private void stopAttack(L2PcInstance player)
+	private void stopAttack(L2Player player)
 	{
 		player.setTarget(null);
 		player.abortAttack();
@@ -889,7 +889,7 @@ public final class CrystalCaverns extends QuestJython
 	}
 
 	@Override
-	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		if (npc.getNpcId() == ORACLE_GUIDE_1)
 		{
@@ -935,7 +935,7 @@ public final class CrystalCaverns extends QuestJython
 							cancelQuestTimers("Timer21");
 							if (checkOracleConditions(player))
 							{
-								for (L2PcInstance partyMember : party.getPartyMembers())
+								for (L2Player partyMember : party.getPartyMembers())
 								{
 									partyMember.stopSkillEffects(5239);
 									SkillTable.getInstance().getInfo(5239, 2).getEffects(partyMember, partyMember);
@@ -957,7 +957,7 @@ public final class CrystalCaverns extends QuestJython
 							cancelQuestTimers("Timer31");
 							if (checkOracleConditions(player))
 							{
-								for (L2PcInstance partyMember : party.getPartyMembers())
+								for (L2Player partyMember : party.getPartyMembers())
 								{
 									partyMember.stopSkillEffects(5239);
 									SkillTable.getInstance().getInfo(5239, 4).getEffects(partyMember, partyMember);
@@ -979,7 +979,7 @@ public final class CrystalCaverns extends QuestJython
 							cancelQuestTimers("Timer41");
 							if (checkOracleConditions(player))
 							{
-								for (L2PcInstance partyMember : party.getPartyMembers())
+								for (L2Player partyMember : party.getPartyMembers())
 								{
 									partyMember.stopSkillEffects(5239);
 									SkillTable.getInstance().getInfo(5239, 3).getEffects(partyMember, partyMember);
@@ -1010,7 +1010,7 @@ public final class CrystalCaverns extends QuestJython
 						world._raiders.add(player);
 					else
 					{
-						for (L2PcInstance partyMember : party.getPartyMembers())
+						for (L2Player partyMember : party.getPartyMembers())
 						{
 							int rnd = Rnd.get(100);
 							partyMember.destroyItemByItemId("Quest", (rnd < 33 ? BOSS_CRYSTAL_1 : (rnd < 67 ? BOSS_CRYSTAL_2 : BOSS_CRYSTAL_3)), 1,
@@ -1026,7 +1026,7 @@ public final class CrystalCaverns extends QuestJython
 					int radius = 150;
 					int i = 0;
 					int members = world._raiders.size();
-					for (L2PcInstance p : world._raiders)
+					for (L2Player p : world._raiders)
 					{
 						int x = (int) (radius * Math.cos(i * 2 * Math.PI / members));
 						int y = (int) (radius * Math.sin(i++ * 2 * Math.PI / members));
@@ -1069,7 +1069,7 @@ public final class CrystalCaverns extends QuestJython
 	}
 
 	@Override
-	public final String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public final String onSkillSee(L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 
 		boolean doReturn = true;
@@ -1164,7 +1164,7 @@ public final class CrystalCaverns extends QuestJython
 	}
 
 	@Override
-	public final String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet, L2Skill skill)
+	public final String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet, L2Skill skill)
 	{
 		if (npc.getNpcId() == TEARS)
 		{
@@ -1209,7 +1209,7 @@ public final class CrystalCaverns extends QuestJython
 				{
 					L2Party party = attacker.getParty();
 					if (party != null)
-						for (L2PcInstance partyMember : party.getPartyMembers())
+						for (L2Player partyMember : party.getPartyMembers())
 							stopAttack(partyMember);
 					else
 						stopAttack(attacker);
@@ -1238,7 +1238,7 @@ public final class CrystalCaverns extends QuestJython
 	}
 
 	@Override
-	public final String onSpellFinished(L2Npc npc, L2PcInstance player, L2Skill skill)
+	public final String onSpellFinished(L2Npc npc, L2Player player, L2Skill skill)
 	{
 		if (npc.getNpcId() == BAYLOR && skill.getId() == 5225)
 		{
@@ -1251,7 +1251,7 @@ public final class CrystalCaverns extends QuestJython
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof CCWorld)
@@ -1372,7 +1372,7 @@ public final class CrystalCaverns extends QuestJython
 				world._camera.decayMe();
 				world._camera = null;
 				npc.setIsParalyzed(false);
-				for (L2PcInstance p : world._raiders)
+				for (L2Player p : world._raiders)
 				{
 					p.setIsParalyzed(false);
 					Throw(npc, p);
@@ -1569,14 +1569,14 @@ public final class CrystalCaverns extends QuestJython
 		return "";
 	}
 
-	private void giveRewards(L2PcInstance player, int instanceId, int bossCry, boolean isBaylor)
+	private void giveRewards(L2Player player, int instanceId, int bossCry, boolean isBaylor)
 	{
 		final int num = 1;
 
 		L2Party party = player.getParty();
 		if (party != null)
 		{
-			for (L2PcInstance partyMember : party.getPartyMembers())
+			for (L2Player partyMember : party.getPartyMembers())
 				if (partyMember.getInstanceId() == instanceId)
 				{
 					QuestState st = partyMember.getQuestState(QN);
@@ -1612,7 +1612,7 @@ public final class CrystalCaverns extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		int npcID = npc.getNpcId();
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
@@ -1653,7 +1653,7 @@ public final class CrystalCaverns extends QuestJython
 					runSteamRooms(world, STEAM1_SPAWNS, 22);
 					L2Party party = player.getParty();
 					if (party != null)
-						for (L2PcInstance partyMember : party.getPartyMembers())
+						for (L2Player partyMember : party.getPartyMembers())
 						{
 							if (partyMember.getInstanceId() == world.instanceId)
 							{
@@ -1760,7 +1760,7 @@ public final class CrystalCaverns extends QuestJython
 							world.status = 26;
 							L2Party party = player.getParty();
 							if (party != null)
-								for (L2PcInstance partyMember : party.getPartyMembers())
+								for (L2Player partyMember : party.getPartyMembers())
 									partyMember.stopSkillEffects(5239);
 							cancelQuestTimers("Timer5");
 							cancelQuestTimers("Timer51");
@@ -1820,7 +1820,7 @@ public final class CrystalCaverns extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		int npcId = npc.getNpcId();
 		QuestState st = player.getQuestState(QN);
@@ -1858,7 +1858,7 @@ public final class CrystalCaverns extends QuestJython
 	@Override
 	public final String onEnterZone(L2Character character, L2Zone zone)
 	{
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
 			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(character.getInstanceId());
 			if (tmpworld instanceof CCWorld)
@@ -1892,16 +1892,16 @@ public final class CrystalCaverns extends QuestJython
 								return "";
 							else
 							{
-								QuestState st = ((L2PcInstance) character).getQuestState(QN);
+								QuestState st = ((L2Player) character).getQuestState(QN);
 								if (st == null)
-									st = newQuestState((L2PcInstance) character);
+									st = newQuestState((L2Player) character);
 								if (st.getQuestItemsCount(RACE_KEY) == 0)
 									return "";
 								if (world.roomsStatus[zone.getId() - 1] == 0)
 									runEmeraldRooms(world, spawns, room);
 								door.openMe();
 								st.takeItems(RACE_KEY, 1);
-								world.openedDoors.put(door, (L2PcInstance) character);
+								world.openedDoors.put(door, (L2Player) character);
 							}
 							break;
 						}
@@ -1914,7 +1914,7 @@ public final class CrystalCaverns extends QuestJython
 	@Override
 	public final String onExitZone(L2Character character, L2Zone zone)
 	{
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
 			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(character.getInstanceId());
 			if (tmpworld instanceof CCWorld)

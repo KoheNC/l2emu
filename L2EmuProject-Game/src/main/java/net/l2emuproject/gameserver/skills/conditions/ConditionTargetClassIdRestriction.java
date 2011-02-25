@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.skills.conditions;
 import java.util.Arrays;
 import java.util.List;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.lang.ArrayUtils;
 
@@ -37,9 +37,9 @@ class ConditionTargetClassIdRestriction extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.target instanceof L2PcInstance))
+		if (!(env.target instanceof L2Player))
 			return false;
 		
-		return Arrays.binarySearch(_classIds, ((L2PcInstance)env.target).getClassId().getId()) >= 0;
+		return Arrays.binarySearch(_classIds, ((L2Player)env.target).getClassId().getId()) >= 0;
 	}
 }

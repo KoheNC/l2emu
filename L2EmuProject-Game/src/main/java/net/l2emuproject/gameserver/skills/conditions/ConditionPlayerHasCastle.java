@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author MrPoke
@@ -37,10 +37,10 @@ final class ConditionPlayerHasCastle extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2PcInstance))
+		if (!(env.player instanceof L2Player))
 			return false;
 		
-		L2Clan clan = ((L2PcInstance)env.player).getClan();
+		L2Clan clan = ((L2Player)env.player).getClan();
 		if (clan == null)
 			return _castle == 0;
 		

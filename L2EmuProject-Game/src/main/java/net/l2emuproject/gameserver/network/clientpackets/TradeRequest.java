@@ -18,12 +18,12 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
 import net.l2emuproject.gameserver.model.BlockList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SendTradeRequest;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  *
@@ -46,7 +46,7 @@ public class TradeRequest extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getClient().getActiveChar();
+		L2Player player = getClient().getActiveChar();
 		if (player == null)
 			return;
 
@@ -75,13 +75,13 @@ public class TradeRequest extends L2GameClientPacket
 			//_log.warn("Player "+player.getName()+" requested trade from player from outside of his knownlist.");
 		}
 
-		if (!(obj instanceof L2PcInstance) || obj.getObjectId() == player.getObjectId())
+		if (!(obj instanceof L2Player) || obj.getObjectId() == player.getObjectId())
 		{
 			requestFailed(SystemMessageId.TARGET_IS_INCORRECT);
 			return;
 		}
 
-		L2PcInstance partner = (L2PcInstance) obj;
+		L2Player partner = (L2Player) obj;
 
 		// cant trade with players from other instance except from multivers
 		if (!player.isSameInstance(partner))

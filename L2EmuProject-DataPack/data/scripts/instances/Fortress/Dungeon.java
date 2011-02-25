@@ -20,7 +20,6 @@ import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.party.L2Party;
@@ -28,6 +27,7 @@ import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 /**
@@ -74,7 +74,7 @@ public class Dungeon extends QuestJython
 	}
 
 	@Override
-	public String onTalk(L2Npc npc, L2PcInstance player)
+	public String onTalk(L2Npc npc, L2Player player)
 	{
 		QuestState st = player.getQuestState("DungeonInstance");
 		if (st == null)
@@ -108,7 +108,7 @@ public class Dungeon extends QuestJython
 			_prisons.put(prison.getFortId(), prison);
 		}
 
-		for (L2PcInstance partyMember : party.getPartyMembers())
+		for (L2Player partyMember : party.getPartyMembers())
 		{
 			//if (partyMember.getQuestState("").isCompleted())
 			partyMember.setInstanceId(prison.getInstanceId());
@@ -121,7 +121,7 @@ public class Dungeon extends QuestJython
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		int npcId = npc.getNpcId();
 		Prison prison = null;

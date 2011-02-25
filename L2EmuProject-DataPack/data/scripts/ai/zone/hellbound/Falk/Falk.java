@@ -14,9 +14,9 @@
  */
 package ai.zone.hellbound.Falk;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author DS, based on theOne's work
@@ -39,13 +39,13 @@ public final class Falk extends QuestJython
 	}
 
 	@Override
-	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		return "32297.htm";
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		if (player.getInventory().getInventoryItemCount(BASIC_CERT, -1, false) > 0 || player.getInventory().getInventoryItemCount(PREMIUM_CERT, -1, false) > 0
 				|| player.getInventory().getInventoryItemCount(STANDART_CERT, -1, false) > 0)

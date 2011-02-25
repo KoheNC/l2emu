@@ -16,12 +16,12 @@ package quests._111_ElrokianHuntersProof;
 
 import org.apache.commons.lang.ArrayUtils;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 /**
@@ -79,7 +79,7 @@ public final class ElrokianHuntersProof extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = NO_QUEST;
 		QuestState st = player.getQuestState(QN);
@@ -96,7 +96,7 @@ public final class ElrokianHuntersProof extends QuestJython
 			if (party != null)
 			{
 				int lvl = st.getPlayer().getLevel();
-				L2PcInstance partyLeader = party.getLeader();
+				L2Player partyLeader = party.getLeader();
 				if (lvl >= 75 && partyLeader == player)
 				{
 					switch (npc.getNpcId())
@@ -192,7 +192,7 @@ public final class ElrokianHuntersProof extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		String htmltext = "";
 		L2Party party = player.getParty();

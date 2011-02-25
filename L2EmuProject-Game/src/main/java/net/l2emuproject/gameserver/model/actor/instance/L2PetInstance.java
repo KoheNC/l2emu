@@ -60,6 +60,7 @@ import net.l2emuproject.gameserver.world.geodata.GeoData;
 import net.l2emuproject.gameserver.world.npc.L2PetData;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -210,7 +211,7 @@ public class L2PetInstance extends L2Summon
 		}
 	}
 
-	public synchronized static L2PetInstance spawnPet(L2NpcTemplate template, L2PcInstance owner, L2ItemInstance control)
+	public synchronized static L2PetInstance spawnPet(L2NpcTemplate template, L2Player owner, L2ItemInstance control)
 	{
 		if (L2World.getInstance().getPet(owner.getObjectId()) != null)
 			return null; // Owner has a pet listed in world
@@ -225,7 +226,7 @@ public class L2PetInstance extends L2Summon
 		return pet;
 	}
 
-	public L2PetInstance(int objectId, L2NpcTemplate template, L2PcInstance owner, L2ItemInstance control)
+	public L2PetInstance(int objectId, L2NpcTemplate template, L2Player owner, L2ItemInstance control)
 	{
 		super(objectId, template, owner);
 		getStat();
@@ -280,7 +281,7 @@ public class L2PetInstance extends L2Summon
 	}
 
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		// Aggression target lock effect
 		if (!player.canChangeLockedTarget(this))
@@ -295,10 +296,10 @@ public class L2PetInstance extends L2Summon
 			if (_log.isDebugEnabled())
 				_log.info("new target selected:" + getObjectId());
 
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 
-			// Send a Server->Client packet StatusUpdate of the L2PetInstance to the L2PcInstance to update its HP bar
+			// Send a Server->Client packet StatusUpdate of the L2PetInstance to the L2Player to update its HP bar
 			StatusUpdate su = new StatusUpdate(getObjectId());
 			su.addAttribute(StatusUpdate.CUR_HP, (int)getCurrentHp());
 			su.addAttribute(StatusUpdate.MAX_HP, getMaxHp());
@@ -313,7 +314,7 @@ public class L2PetInstance extends L2Summon
 			{
 				if (GeoData.getInstance().canSeeTarget(player, this))
 				{
-					// Set the L2PcInstance Intention to AI_INTENTION_ATTACK
+					// Set the L2Player Intention to AI_INTENTION_ATTACK
 					player.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, this);
 					player.onActionRequest();
 				}
@@ -391,7 +392,7 @@ public class L2PetInstance extends L2Summon
 	}
 
 	/**
-	 * Destroys item from inventory and send a Server->Client InventoryUpdate packet to the L2PcInstance.
+	 * Destroys item from inventory and send a Server->Client InventoryUpdate packet to the L2Player.
 	 * 
 	 * @param process : String Identifier of process triggering this action
 	 * @param objectId : int Item Instance identifier of the item to be destroyed
@@ -429,7 +430,7 @@ public class L2PetInstance extends L2Summon
 
 	/**
 	 * Destroy item from inventory by using its <B>itemId</B> and send a Server->Client InventoryUpdate packet to the
-	 * L2PcInstance.
+	 * L2Player.
 	 * 
 	 * @param process : String Identifier of process triggering this action
 	 * @param itemId : int Item identifier of the item to be destroyed
@@ -621,7 +622,7 @@ public class L2PetInstance extends L2Summon
 	}
 
 	@Override
-	public void deleteMe(L2PcInstance owner)
+	public void deleteMe(L2Player owner)
 	{
 		getOwner().removeReviving();
 		getOwner().sendPacket(SystemMessageId.YOUR_PETS_CORPSE_HAS_DECAYED);
@@ -674,12 +675,12 @@ public class L2PetInstance extends L2Summon
 	 * @param process : String Identifier of process triggering this action
 	 * @param itemId : int Item Identifier of the item to be transfered
 	 * @param count : long Quantity of items to be transfered
-	 * @param actor : L2PcInstance Player requesting the item transfer
+	 * @param actor : L2Player Player requesting the item transfer
 	 * @param reference : L2Object Object referencing current action like NPC selling item or previous item in
 	 *            transformation
 	 * @return L2ItemInstance corresponding to the new item or the updated item in inventory
 	 */
-	public L2ItemInstance transferItem(String process, int objectId, long count, Inventory target, L2PcInstance actor,
+	public L2ItemInstance transferItem(String process, int objectId, long count, Inventory target, L2Player actor,
 			L2Object reference)
 	{
 		L2ItemInstance oldItem = getInventory().getItemByObjectId(objectId);
@@ -699,7 +700,7 @@ public class L2PetInstance extends L2Summon
 		// Send target update packet
 		if (target instanceof PcInventory)
 		{
-			L2PcInstance targetPlayer = ((PcInventory)target).getOwner();
+			L2Player targetPlayer = ((PcInventory)target).getOwner();
 			InventoryUpdate playerUI = new InventoryUpdate();
 			if (newItem.getCount() > count)
 				playerUI.addModifiedItem(newItem);
@@ -775,7 +776,7 @@ public class L2PetInstance extends L2Summon
 	 * 
 	 * @param owner The owner from whose invenory we should delete the item
 	 */
-	public void destroyControlItem(L2PcInstance owner, boolean evolve)
+	public void destroyControlItem(L2Player owner, boolean evolve)
 	{
 		// Remove the pet instance from world
 		L2World.getInstance().removePet(owner.getObjectId());
@@ -852,7 +853,7 @@ public class L2PetInstance extends L2Summon
 		return _mountable;
 	}
 
-	private static L2PetInstance restore(L2ItemInstance control, L2NpcTemplate template, L2PcInstance owner)
+	private static L2PetInstance restore(L2ItemInstance control, L2NpcTemplate template, L2Player owner)
 	{
 		Connection con = null;
 		try
@@ -1019,7 +1020,7 @@ public class L2PetInstance extends L2Summon
 	}
 
 	@Override
-	public void unSummon(L2PcInstance owner)
+	public void unSummon(L2Player owner)
 	{
 		stopFeed();
 		getStatus().stopHpMpRegeneration();
@@ -1111,7 +1112,7 @@ public class L2PetInstance extends L2Summon
 		return lvl > 70 ? 7 + (lvl - 70) / 5 : lvl / 10;
 	}
 
-	public void updateRefOwner(L2PcInstance owner)
+	public void updateRefOwner(L2Player owner)
 	{
 		int oldOwnerId = getOwner().getObjectId();
 

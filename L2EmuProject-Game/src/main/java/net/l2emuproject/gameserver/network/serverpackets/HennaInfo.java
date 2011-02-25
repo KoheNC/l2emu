@@ -14,18 +14,18 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.templates.item.L2Henna;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class HennaInfo extends L2GameServerPacket
 {
 	private static final String _S__E5_HennaInfo = "[S] E5 HennaInfo";
 
-	private final L2PcInstance _activeChar;
+	private final L2Player _activeChar;
 	private final L2Henna[] _hennas = new L2Henna[3];
 	private int _count = 0;
 
-	public HennaInfo(L2PcInstance player)
+	public HennaInfo(L2Player player)
 	{
 		_activeChar = player;
 

@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.world.zone;
 
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.network.serverpackets.AgitDecoInfo;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2ClanhallZone extends L2Zone
 {
@@ -34,9 +34,9 @@ public class L2ClanhallZone extends L2Zone
 	@Override
 	protected void onEnter(L2Character character)
 	{
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
-			L2PcInstance player = (L2PcInstance)character;
+			L2Player player = (L2Player)character;
 			// Set as in clan hall
 			player.setInsideZone(FLAG_CLANHALL, true);
 			
@@ -51,7 +51,7 @@ public class L2ClanhallZone extends L2Zone
 	@Override
 	protected void onExit(L2Character character)
 	{
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
 			// Unset clanhall zone
 			character.setInsideZone(FLAG_CLANHALL, false);

@@ -32,6 +32,7 @@ import net.l2emuproject.gameserver.world.knownlist.DefenderKnownList;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Guard;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2DefenderInstance extends L2Guard
 {
@@ -44,7 +45,7 @@ public class L2DefenderInstance extends L2Guard
 	}
 
 	@Override
-	public int getMyTargetSelectedColor(L2PcInstance player)
+	public int getMyTargetSelectedColor(L2Player player)
 	{
 		return player.getLevel() - getLevel();
 	}
@@ -83,7 +84,7 @@ public class L2DefenderInstance extends L2Guard
 	public boolean isAutoAttackable(L2Character attacker)
 	{
 		// Summons and traps are attackable, too
-		L2PcInstance player = L2Object.getActingPlayer(attacker);
+		L2Player player = L2Object.getActingPlayer(attacker);
 		if (player == null)
 			return false;
 
@@ -93,7 +94,7 @@ public class L2DefenderInstance extends L2Guard
 		return false;
 	}
 
-	private int getActiveSiegeId(L2PcInstance player)
+	private int getActiveSiegeId(L2Player player)
 	{
 		if (player == null)
 			return -1;
@@ -108,7 +109,7 @@ public class L2DefenderInstance extends L2Guard
 		return -1;
 	}
 
-	public boolean shouldAttack(L2PcInstance player)
+	public boolean shouldAttack(L2Player player)
 	{
 		final int activeSiegeId = getActiveSiegeId(player);
 
@@ -117,15 +118,15 @@ public class L2DefenderInstance extends L2Guard
 
 		// Check if player is an enemy of this defender npc
 		if (player != null
-				&& ((player.getSiegeState() == L2PcInstance.SIEGE_STATE_DEFENDER && !player.isRegisteredOnThisSiegeField(activeSiegeId))
-						|| (player.getSiegeState() == L2PcInstance.SIEGE_STATE_ATTACKER && !TerritoryWarManager.getInstance()
+				&& ((player.getSiegeState() == L2Player.SIEGE_STATE_DEFENDER && !player.isRegisteredOnThisSiegeField(activeSiegeId))
+						|| (player.getSiegeState() == L2Player.SIEGE_STATE_ATTACKER && !TerritoryWarManager.getInstance()
 								.isAllyField(player, activeSiegeId)) || player.getSiegeState() == 0))
 			return true;
 
 		return false;
 	}
 
-	public boolean shouldDefend(L2PcInstance player)
+	public boolean shouldDefend(L2Player player)
 	{
 		final int activeSiegeId = getActiveSiegeId(player);
 
@@ -134,8 +135,8 @@ public class L2DefenderInstance extends L2Guard
 
 		// Check if player is an enemy of this defender npc
 		if (player != null
-				&& ((player.getSiegeState() == L2PcInstance.SIEGE_STATE_DEFENDER && player.isRegisteredOnThisSiegeField(activeSiegeId)) || (player
-						.getSiegeState() == L2PcInstance.SIEGE_STATE_ATTACKER && TerritoryWarManager.getInstance().isAllyField(player, activeSiegeId))))
+				&& ((player.getSiegeState() == L2Player.SIEGE_STATE_DEFENDER && player.isRegisteredOnThisSiegeField(activeSiegeId)) || (player
+						.getSiegeState() == L2Player.SIEGE_STATE_ATTACKER && TerritoryWarManager.getInstance().isAllyField(player, activeSiegeId))))
 			return true;
 
 		return false;
@@ -171,7 +172,7 @@ public class L2DefenderInstance extends L2Guard
 	* 
 	*/
 	@Override
-	public void onAction(L2PcInstance player, boolean interact)
+	public void onAction(L2Player player, boolean interact)
 	{
 		if (!canTarget(player))
 		{
@@ -179,16 +180,16 @@ public class L2DefenderInstance extends L2Guard
 			return;
 		}
 
-		// Check if the L2PcInstance already target the L2NpcInstance
+		// Check if the L2Player already target the L2NpcInstance
 		if (this != player.getTarget())
 		{
 			if (_log.isDebugEnabled())
 				_log.info("New target selected:" + getObjectId());
 
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 
-			// Send a Server->Client packet StatusUpdate of the L2NpcInstance to the L2PcInstance to update its HP bar
+			// Send a Server->Client packet StatusUpdate of the L2NpcInstance to the L2Player to update its HP bar
 			StatusUpdate su = new StatusUpdate(this);
 			su.addAttribute(StatusUpdate.CUR_HP, (int) getStatus().getCurrentHp());
 			su.addAttribute(StatusUpdate.MAX_HP, getMaxHp());
@@ -210,12 +211,12 @@ public class L2DefenderInstance extends L2Guard
 			{
 				if (!canInteract(player))
 				{
-					// Notify the L2PcInstance AI with AI_INTENTION_INTERACT
+					// Notify the L2Player AI with AI_INTENTION_INTERACT
 					player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
 				}
 			}
 		}
-		//Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+		//Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 

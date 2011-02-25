@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class GiveVitality implements ISkillHandler
 {
@@ -33,9 +33,9 @@ public class GiveVitality implements ISkillHandler
 	{
 		for (L2Object target : targets)
 		{
-			if (target instanceof L2PcInstance)
+			if (target instanceof L2Player)
 			{
-				((L2PcInstance) target).getPlayerVitality().updateVitalityPoints((float)skill.getPower(), false, false);
+				((L2Player) target).getPlayerVitality().updateVitalityPoints((float)skill.getPower(), false, false);
 			}
 		}
 	}

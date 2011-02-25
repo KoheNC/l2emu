@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.entity;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Gnacik
@@ -33,7 +33,7 @@ public final class RecoBonus
 												{ 5, 11, 16, 22, 27, 33, 38, 44, 50, 50 },
 												{ 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 } };
 
-	public static final int getRecoBonus(L2PcInstance activeChar)
+	public static final int getRecoBonus(L2Player activeChar)
 	{
 		if (activeChar != null && activeChar.isOnline() == 1)
 		{
@@ -48,7 +48,7 @@ public final class RecoBonus
 		return 0;
 	}
 
-	public static final double getRecoMultiplier(L2PcInstance activeChar)
+	public static final double getRecoMultiplier(L2Player activeChar)
 	{
 		double _multiplier = 1;
 

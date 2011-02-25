@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Format: (chd) ddd
@@ -28,7 +28,7 @@ public final class ExCubeGameRemovePlayer extends L2GameServerPacket
 {
 	private static final String	_S__FE_97_02_EXCUBEGAMEREMOVEPLAYER	= "[S] FE:97:02 ExCubeGameRemovePlayer";
 
-	private final L2PcInstance	_player;
+	private final L2Player	_player;
 	private final boolean		_isRedTeam;
 
 	/**
@@ -37,7 +37,7 @@ public final class ExCubeGameRemovePlayer extends L2GameServerPacket
 	 * @param player: Player to Remove
 	 * @param isRedTeam: Is Player from Red Team?
 	 */
-	public ExCubeGameRemovePlayer(L2PcInstance player, boolean isRedTeam)
+	public ExCubeGameRemovePlayer(L2Player player, boolean isRedTeam)
 	{
 		_player = player;
 		_isRedTeam = isRedTeam;

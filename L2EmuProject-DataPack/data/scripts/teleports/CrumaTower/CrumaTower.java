@@ -14,11 +14,11 @@
  */
 package teleports.CrumaTower;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author K4N4BS
@@ -43,7 +43,7 @@ public final class CrumaTower extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = null;
 		QuestState st = player.getQuestState(QN);

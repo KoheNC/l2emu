@@ -19,9 +19,9 @@ import java.util.Collection;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import ai.L2AttackableAIScript;
 
@@ -95,7 +95,7 @@ public class Gordon extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		X = WALKS[_isWalkTo - 1][0];
 		Y = WALKS[_isWalkTo - 1][1];
@@ -130,10 +130,10 @@ public class Gordon extends L2AttackableAIScript
 				// check if player have Cursed Weapon and in radius
 				if (npc.getNpcId() == GORDON)
 				{
-					Collection<L2PcInstance> chars = npc.getKnownList().getKnownPlayers().values();
+					Collection<L2Player> chars = npc.getKnownList().getKnownPlayers().values();
 					if (chars != null && chars.size() > 0)
 					{
-						for (L2PcInstance pc : chars)
+						for (L2Player pc : chars)
 						{
 							if (pc.isCursedWeaponEquipped() && pc.isInsideRadius(npc, 5000, false, false))
 							{
@@ -200,7 +200,7 @@ public class Gordon extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isPet)
+	public String onAttack(L2Npc npc, L2Player player, int damage, boolean isPet)
 	{
 		if (npc.getNpcId() == GORDON)
 		{
@@ -218,7 +218,7 @@ public class Gordon extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public String onKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		if (npc.getNpcId() == GORDON)
 		{

@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import java.util.Arrays;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -26,6 +25,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.lang.L2Math;
 
@@ -303,7 +303,7 @@ public abstract class AbstractSystemMessage<T extends AbstractSystemMessage> ext
 	}
 	
 	@Override
-	public void prepareToSend(L2GameClient client, L2PcInstance activeChar)
+	public void prepareToSend(L2GameClient client, L2Player activeChar)
 	{
 		int count = 0;
 		
@@ -392,8 +392,8 @@ public abstract class AbstractSystemMessage<T extends AbstractSystemMessage> ext
 		if (cha instanceof L2Npc)
 			return addNpcName((L2Npc)cha);
 		
-		if (cha instanceof L2PcInstance)
-			return addPcName((L2PcInstance)cha);
+		if (cha instanceof L2Player)
+			return addPcName((L2Player)cha);
 		
 		if (cha instanceof L2Summon)
 			return addNpcName((L2Summon)cha);
@@ -401,7 +401,7 @@ public abstract class AbstractSystemMessage<T extends AbstractSystemMessage> ext
 		return addString(cha.getName());
 	}
 	
-	public T addPcName(L2PcInstance pc)
+	public T addPcName(L2Player pc)
 	{
 		return addString(pc.getAppearance().getVisibleName());
 	}

@@ -25,6 +25,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -45,7 +46,7 @@ public final class L2BirthdayHelperInstance extends L2Npc
 		_leaveTask = ThreadPoolManager.getInstance().scheduleGeneral(new Leaving(), HELPING_LENGTH);
 	}
 
-	public final void setOwner(L2PcInstance player)
+	public final void setOwner(L2Player player)
 	{
 		if (player == null)
 		{
@@ -57,7 +58,7 @@ public final class L2BirthdayHelperInstance extends L2Npc
 	}
 
 	@Override
-	public final void onBypassFeedback(L2PcInstance player, String command)
+	public final void onBypassFeedback(L2Player player, String command)
 	{
 		if (player.getObjectId() != _ownerId)
 			return;
@@ -82,7 +83,7 @@ public final class L2BirthdayHelperInstance extends L2Npc
 	}
 
 	@Override
-	public final void showChatWindow(L2PcInstance player, int val)
+	public final void showChatWindow(L2Player player, int val)
 	{
 		if (player.getObjectId() != _ownerId)
 			val = 3;

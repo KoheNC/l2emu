@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.model.restriction.global;
 
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 
 /**
@@ -28,34 +28,34 @@ import net.l2emuproject.gameserver.world.object.L2Playable;
  */
 public interface GlobalRestriction
 {
-	public boolean isRestricted(L2PcInstance activeChar, Class<? extends GlobalRestriction> callingRestriction);
+	public boolean isRestricted(L2Player activeChar, Class<? extends GlobalRestriction> callingRestriction);
 
-	public boolean isProtected(L2Character activeChar, L2Character target, L2Skill skill, boolean sendMessage, L2PcInstance attacker_, L2PcInstance target_,
+	public boolean isProtected(L2Character activeChar, L2Character target, L2Skill skill, boolean sendMessage, L2Player attacker_, L2Player target_,
 			boolean isOffensive);
 
-	public boolean canInviteToParty(L2PcInstance activeChar, L2PcInstance target);
+	public boolean canInviteToParty(L2Player activeChar, L2Player target);
 	
-	public boolean canRequestRevive(L2PcInstance activeChar);
+	public boolean canRequestRevive(L2Player activeChar);
 
-	public boolean canTeleport(L2PcInstance activeChar);
+	public boolean canTeleport(L2Player activeChar);
 
-	public boolean canUseItemHandler(Class<? extends IItemHandler> clazz, int itemId, L2Playable activeChar, L2ItemInstance item, L2PcInstance player);
+	public boolean canUseItemHandler(Class<? extends IItemHandler> clazz, int itemId, L2Playable activeChar, L2ItemInstance item, L2Player player);
 
-	public boolean canPickUp(L2PcInstance activeChar, L2ItemInstance item, L2PetInstance pet);
+	public boolean canPickUp(L2Player activeChar, L2ItemInstance item, L2PetInstance pet);
 
-	public void playerLoggedIn(L2PcInstance activeChar);
+	public void playerLoggedIn(L2Player activeChar);
 
-	public void playerDisconnected(L2PcInstance activeChar);
+	public void playerDisconnected(L2Player activeChar);
 
-	public void playerKilled(L2Character activeChar, L2PcInstance target, L2PcInstance killer);
+	public void playerKilled(L2Character activeChar, L2Player target, L2Player killer);
 
-	public boolean onBypassFeedback(L2Npc npc, L2PcInstance activeChar, String command);
+	public boolean onBypassFeedback(L2Npc npc, L2Player activeChar, String command);
 
 	public boolean onAction(L2Character target, L2Character activeChar);
 
-	public boolean canUseVoicedCommand(String command, L2PcInstance activeChar, String target);
+	public boolean canUseVoicedCommand(String command, L2Player activeChar, String target);
 
-	public boolean canUseSkill(L2PcInstance player, L2Skill skill);
+	public boolean canUseSkill(L2Player player, L2Skill skill);
 
-	public boolean canBeSummoned(L2PcInstance target);
+	public boolean canBeSummoned(L2Player target);
 }

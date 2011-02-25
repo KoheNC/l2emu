@@ -17,11 +17,11 @@ package net.l2emuproject.gameserver.model.entity;
 import net.l2emuproject.gameserver.datatables.ResidentialSkillTable;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager.Territory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2SiegeZone;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
@@ -79,13 +79,13 @@ public abstract class Siegeable<T extends AbstractSiege> extends Entity
 		for (L2Character player : _zoneTP.getCharactersInside())
 		{
 			// To random spot in defender spawn zone
-			if (player instanceof L2PcInstance)
+			if (player instanceof L2Player)
 				player.teleToLocation(_zoneDS.getRandomLocation(), true);
 		}
 	}
 
 	@Override
-	public boolean checkBanish(L2PcInstance cha)
+	public boolean checkBanish(L2Player cha)
 	{
 		return cha.getClanId() != getOwnerId() && !cha.isGM();
 	}
@@ -149,7 +149,7 @@ public abstract class Siegeable<T extends AbstractSiege> extends Entity
 		return _residentialSkills;
 	}
 
-	public void giveResidentialSkills(L2PcInstance player)
+	public void giveResidentialSkills(L2Player player)
 	{
 		if (_residentialSkills != null)
 		{
@@ -165,7 +165,7 @@ public abstract class Siegeable<T extends AbstractSiege> extends Entity
 						player.addSkill(sk, false);
 	}
 
-	public void removeResidentialSkills(L2PcInstance player)
+	public void removeResidentialSkills(L2Player player)
 	{
 		if (_residentialSkills != null)
 		{

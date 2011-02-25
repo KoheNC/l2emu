@@ -38,7 +38,6 @@ import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.instancemanager.ZoneManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
 import net.l2emuproject.gameserver.model.base.Experience;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
@@ -49,6 +48,7 @@ import net.l2emuproject.gameserver.network.serverpackets.PetInfo;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 import org.apache.commons.logging.Log;
@@ -102,7 +102,7 @@ public class AdminAdmin implements IAdminCommandHandler
 			"admin_reload_class_balance"
 													};
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (command.startsWith("admin_admin"))
 		{
@@ -465,7 +465,7 @@ public class AdminAdmin implements IAdminCommandHandler
 		return ADMIN_COMMANDS;
 	}
 
-	public void showMainPage(L2PcInstance activeChar, String command)
+	public void showMainPage(L2Player activeChar, String command)
 	{
 		int mode = 0;
 		String filename = null;
@@ -503,7 +503,7 @@ public class AdminAdmin implements IAdminCommandHandler
 		activeChar.showHTMLFile(AdminHelpPage.ADMIN_HELP_PAGE + filename + "_menu.htm");
 	}
 
-	public void showConfigPage2(L2PcInstance activeChar)
+	public void showConfigPage2(L2Player activeChar)
 	{
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(activeChar.getObjectId());
 
@@ -552,7 +552,7 @@ public class AdminAdmin implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 
-	public void showConfigPage(L2PcInstance activeChar)
+	public void showConfigPage(L2Player activeChar)
 	{
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
 
@@ -631,7 +631,7 @@ public class AdminAdmin implements IAdminCommandHandler
 	}
 
 	//[L2J_JP_ADD]
-	public void adminSummon(L2PcInstance activeChar, int npcId)
+	public void adminSummon(L2Player activeChar, int npcId)
 	{
 		if (activeChar.getPet() != null)
 		{

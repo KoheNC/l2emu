@@ -15,42 +15,42 @@
 package net.l2emuproject.gameserver.world.knownlist;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.DeleteObject;
 import net.l2emuproject.gameserver.network.serverpackets.SpawnItem;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class PcKnownList extends PlayableKnownList
 {
-	public PcKnownList(L2PcInstance activeChar)
+	public PcKnownList(L2Player activeChar)
 	{
 		super(activeChar);
 	}
 	
 	/**
-	 * Add a visible L2Object to L2PcInstance _knownObjects and _knownPlayer (if necessary) and send Server-Client Packets needed to inform the L2PcInstance of its state and actions in progress.<BR><BR>
+	 * Add a visible L2Object to L2Player _knownObjects and _knownPlayer (if necessary) and send Server-Client Packets needed to inform the L2Player of its state and actions in progress.<BR><BR>
 	 *
 	 * <B><U> object is a L2ItemInstance </U> :</B><BR><BR>
-	 * <li> Send Server-Client Packet DropItem/SpawnItem to the L2PcInstance </li><BR><BR>
+	 * <li> Send Server-Client Packet DropItem/SpawnItem to the L2Player </li><BR><BR>
 	 *
 	 * <B><U> object is a L2DoorInstance </U> :</B><BR><BR>
-	 * <li> Send Server-Client Packets DoorInfo and DoorStatusUpdate to the L2PcInstance </li>
-	 * <li> Send Server->Client packet MoveToPawn/MoveToLocation and AutoAttackStart to the L2PcInstance </li><BR><BR>
+	 * <li> Send Server-Client Packets DoorInfo and DoorStatusUpdate to the L2Player </li>
+	 * <li> Send Server->Client packet MoveToPawn/MoveToLocation and AutoAttackStart to the L2Player </li><BR><BR>
 	 *
 	 * <B><U> object is a L2Npc </U> :</B><BR><BR>
-	 * <li> Send Server-Client Packet NpcInfo to the L2PcInstance </li>
-	 * <li> Send Server->Client packet MoveToPawn/MoveToLocation and AutoAttackStart to the L2PcInstance </li><BR><BR>
+	 * <li> Send Server-Client Packet NpcInfo to the L2Player </li>
+	 * <li> Send Server->Client packet MoveToPawn/MoveToLocation and AutoAttackStart to the L2Player </li><BR><BR>
 	 *
 	 * <B><U> object is a L2Summon </U> :</B><BR><BR>
-	 * <li> Send Server-Client Packet NpcInfo/PetItemList (if the L2PcInstance is the owner) to the L2PcInstance </li>
-	 * <li> Send Server->Client packet MoveToPawn/MoveToLocation and AutoAttackStart to the L2PcInstance </li><BR><BR>
+	 * <li> Send Server-Client Packet NpcInfo/PetItemList (if the L2Player is the owner) to the L2Player </li>
+	 * <li> Send Server->Client packet MoveToPawn/MoveToLocation and AutoAttackStart to the L2Player </li><BR><BR>
 	 *
-	 * <B><U> object is a L2PcInstance </U> :</B><BR><BR>
-	 * <li> Send Server-Client Packet CharInfo to the L2PcInstance </li>
-	 * <li> If the object has a private store, Send Server-Client Packet PrivateStoreMsgSell to the L2PcInstance </li>
-	 * <li> Send Server->Client packet MoveToPawn/MoveToLocation and AutoAttackStart to the L2PcInstance </li><BR><BR>
+	 * <B><U> object is a L2Player </U> :</B><BR><BR>
+	 * <li> Send Server-Client Packet CharInfo to the L2Player </li>
+	 * <li> If the object has a private store, Send Server-Client Packet PrivateStoreMsgSell to the L2Player </li>
+	 * <li> Send Server->Client packet MoveToPawn/MoveToLocation and AutoAttackStart to the L2Player </li><BR><BR>
 	 *
 	 * @param object The L2Object to add to _knownObjects and _knownPlayer
 	 */
@@ -60,7 +60,7 @@ public final class PcKnownList extends PlayableKnownList
 		if (!super.addKnownObject(object))
 			return false;
 		
-		if (object instanceof L2PcInstance && ((L2PcInstance)object).getPlayerObserver().inObserverMode())
+		if (object instanceof L2Player && ((L2Player)object).getPlayerObserver().inObserverMode())
 			return false;
 		
 		sendInfoOf(object);
@@ -72,7 +72,7 @@ public final class PcKnownList extends PlayableKnownList
 	{
 		for (L2Object object : getKnownObjects().values())
 		{
-			if (object instanceof L2PcInstance && ((L2PcInstance)object).getPlayerObserver().inObserverMode())
+			if (object instanceof L2Player && ((L2Player)object).getPlayerObserver().inObserverMode())
 				continue;
 			
 			sendInfoOf(object);
@@ -94,7 +94,7 @@ public final class PcKnownList extends PlayableKnownList
 			
 			if (object instanceof L2Character)
 			{
-				// Update the state of the L2Character object client side by sending Server->Client packet MoveToPawn/MoveToLocation and AutoAttackStart to the L2PcInstance
+				// Update the state of the L2Character object client side by sending Server->Client packet MoveToPawn/MoveToLocation and AutoAttackStart to the L2Player
 				L2Character obj = (L2Character)object;
 				if (obj.getAI() != null)
 					obj.getAI().describeStateToPlayer(getActiveChar());
@@ -103,7 +103,7 @@ public final class PcKnownList extends PlayableKnownList
 	}
 	
 	/**
-	 * Remove a L2Object from L2PcInstance _knownObjects and _knownPlayer (if necessary) and send Server-Client Packet DeleteObject to the L2PcInstance.<BR><BR>
+	 * Remove a L2Object from L2Player _knownObjects and _knownPlayer (if necessary) and send Server-Client Packet DeleteObject to the L2Player.<BR><BR>
 	 *
 	 * @param object The L2Object to remove from _knownObjects and _knownPlayer
 	 *
@@ -114,7 +114,7 @@ public final class PcKnownList extends PlayableKnownList
 		if (!super.removeKnownObject(object))
 			return false;
 		
-		// Send Server-Client Packet DeleteObject to the L2PcInstance
+		// Send Server-Client Packet DeleteObject to the L2Player
 		getActiveChar().sendPacket(new DeleteObject(object));
 		
 		if (Config.TEST_KNOWNLIST && getActiveChar().isGM() && object instanceof L2Npc)
@@ -128,9 +128,9 @@ public final class PcKnownList extends PlayableKnownList
 	// =========================================================
 	// Property - Public
 	@Override
-	public final L2PcInstance getActiveChar()
+	public final L2Player getActiveChar()
 	{
-		return (L2PcInstance)_activeChar;
+		return (L2Player)_activeChar;
 	}
 	
 	@Override

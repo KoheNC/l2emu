@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.player.PlayerTeleportBookmark.TeleportBookmark;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  *
@@ -26,8 +26,8 @@ public class ExGetBookMarkInfoPacket extends L2GameServerPacket
 {
 	private static final String _S__FE_84_EXGETBOOKMARKINFOPACKET = "[S] FE:84 ExGetBookMarkInfoPacket";
 	
-	private final L2PcInstance player;
-	public ExGetBookMarkInfoPacket(L2PcInstance cha)
+	private final L2Player player;
+	public ExGetBookMarkInfoPacket(L2Player cha)
 	{
 		player = cha;
 	}

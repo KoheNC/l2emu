@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.cache.HtmCache;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * <b>The HTML parser in the client knowns these standard and non-standard tags and attributes:</b>
@@ -157,7 +157,7 @@ public abstract class AbstractNpcHtmlMessage extends L2GameServerPacket
 	}
 	
 	@Override
-	public void packetSent(L2GameClient client, L2PcInstance activeChar)
+	public void packetSent(L2GameClient client, L2Player activeChar)
 	{
 		if (_path != null && activeChar != null && activeChar.isGM())
 		{

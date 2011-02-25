@@ -16,11 +16,11 @@ package teleports.HellboundWarpGate;
 
 import quests._130_PathToHellbound.PathToHellbound;
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author K4N4BS
@@ -89,7 +89,7 @@ public final class HellboundWarpGate extends QuestJython
 	}
 
 	@Override
-	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		if (!canEnter(player) && !HellboundManager.getInstance().isWarpgateActive())
 			return "warpgate-locked.htm";
@@ -98,7 +98,7 @@ public final class HellboundWarpGate extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		if (!canEnter(player))
 			return "warpgate-no.htm";
@@ -108,7 +108,7 @@ public final class HellboundWarpGate extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		switch (npc.getNpcId())
 		{
@@ -128,7 +128,7 @@ public final class HellboundWarpGate extends QuestJython
 		return null;
 	}
 
-	private final boolean canEnter(L2PcInstance player)
+	private final boolean canEnter(L2Player player)
 	{
 		if (player.isFlying())
 			return false;

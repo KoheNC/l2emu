@@ -14,9 +14,9 @@
  */
 package transformations;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class DoomWraith extends L2Transformation
 {
@@ -29,7 +29,7 @@ public class DoomWraith extends L2Transformation
 	}
 
 	@Override
-	public void transformedSkills(L2PcInstance player)
+	public void transformedSkills(L2Player player)
 	{
 			int level = -1;
 			if (player.getLevel() >= 55)
@@ -47,7 +47,7 @@ public class DoomWraith extends L2Transformation
 	}
 
 	@Override
-	public void removeSkills(L2PcInstance player)
+	public void removeSkills(L2Player player)
 	{
 		removeSkill(player, 586); // Rolling Attack (2 levels)
 		removeSkill(player, 587); // Earth Storm (2 levels)

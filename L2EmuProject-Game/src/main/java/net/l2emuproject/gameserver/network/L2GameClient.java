@@ -28,7 +28,6 @@ import net.l2emuproject.gameserver.LoginServerThread;
 import net.l2emuproject.gameserver.LoginServerThread.SessionKey;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.clientpackets.L2GameClientPacket;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
@@ -40,6 +39,7 @@ import net.l2emuproject.gameserver.util.TableOptimizer;
 import net.l2emuproject.gameserver.util.TableOptimizer.CharacterRelatedTable;
 import net.l2emuproject.gameserver.util.TableOptimizer.ItemRelatedTable;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 import net.l2emuproject.tools.security.BlowFishKeygen;
 import net.l2emuproject.tools.security.GameCrypt;
@@ -73,7 +73,7 @@ public final class L2GameClient extends MMOConnection<L2GameClient, L2GameClient
 	private GameClientState _state = GameClientState.CONNECTED;
 	private String _accountName;
 	private SessionKey _sessionId;
-	private L2PcInstance _activeChar;
+	private L2Player _activeChar;
 	private boolean _isAuthedGG;
 	private int[] _charSlotMapping;
 	private GameCrypt _crypt;
@@ -129,12 +129,12 @@ public final class L2GameClient extends MMOConnection<L2GameClient, L2GameClient
 		return true;
 	}
 	
-	public L2PcInstance getActiveChar()
+	public L2Player getActiveChar()
 	{
 		return _activeChar;
 	}
 	
-	public void setActiveChar(L2PcInstance pActiveChar)
+	public void setActiveChar(L2Player pActiveChar)
 	{
 		_activeChar = pActiveChar;
 	}
@@ -327,9 +327,9 @@ public final class L2GameClient extends MMOConnection<L2GameClient, L2GameClient
 		}
 	}
 	
-	public L2PcInstance loadCharFromDisk(int charslot)
+	public L2Player loadCharFromDisk(int charslot)
 	{
-		return L2PcInstance.load(getObjectIdForSlot(charslot));
+		return L2Player.load(getObjectIdForSlot(charslot));
 	}
 	
 	/**
@@ -375,7 +375,7 @@ public final class L2GameClient extends MMOConnection<L2GameClient, L2GameClient
 		if (account != null)
 			tb.append(" | Account: ").append(String.format("%-15s", account));
 		
-		L2PcInstance player = getActiveChar();
+		L2Player player = getActiveChar();
 		if (player != null)
 			tb.append(" | Character: ").append(String.format("%-15s", player.getName()));
 		
@@ -509,7 +509,7 @@ public final class L2GameClient extends MMOConnection<L2GameClient, L2GameClient
 	private void sendPacketImpl(L2GameServerPacket sp)
 	{
 		final long begin = System.nanoTime();
-		final L2PcInstance activeChar = getActiveChar();
+		final L2Player activeChar = getActiveChar();
 		
 		try
 		{

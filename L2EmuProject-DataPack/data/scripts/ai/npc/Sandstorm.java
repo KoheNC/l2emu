@@ -15,10 +15,10 @@
 package ai.npc;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.geodata.GeoData;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import ai.L2AttackableAIScript;
 
 /**
@@ -42,7 +42,7 @@ public final class Sandstorm extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isPet)
+	public String onAggroRangeEnter(L2Npc npc, L2Player player, boolean isPet)
 	{
 		if (npc == null)
 			return null;

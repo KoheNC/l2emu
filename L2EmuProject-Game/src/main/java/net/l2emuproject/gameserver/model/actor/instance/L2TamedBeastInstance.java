@@ -28,6 +28,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.geometry.Point3D;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -50,7 +51,7 @@ public final class L2TamedBeastInstance extends L2FeedableBeastInstance
 	private static final int BUFF_INTERVAL = 5000;	// 5 seconds
 	private int _remainingTime = MAX_DURATION;
 	private int _homeX, _homeY, _homeZ;
-	private L2PcInstance _owner;
+	private L2Player _owner;
 	private Future<?> _buffTask = null;
 	private Future<?> _durationCheckTask = null;
 	
@@ -60,7 +61,7 @@ public final class L2TamedBeastInstance extends L2FeedableBeastInstance
 		setHome(this);
 	}
 	
-	public L2TamedBeastInstance(int objectId, L2NpcTemplate template, L2PcInstance owner, int foodSkillId, int x, int y, int z)
+	public L2TamedBeastInstance(int objectId, L2NpcTemplate template, L2Player owner, int foodSkillId, int x, int y, int z)
 	{
 		super(objectId, template);
 
@@ -150,12 +151,12 @@ public final class L2TamedBeastInstance extends L2FeedableBeastInstance
 		return true;
 	}
     
-	public L2PcInstance getOwner()
+	public L2Player getOwner()
 	{
 		return _owner;
 	}
     
-	public void setOwner(L2PcInstance owner)
+	public void setOwner(L2Player owner)
 	{
 		if (owner != null)
 		{
@@ -325,7 +326,7 @@ public final class L2TamedBeastInstance extends L2FeedableBeastInstance
 		public void run()
 		{
 			int foodTypeSkillId = _tamedBeast.getFoodType();
-			L2PcInstance owner = _tamedBeast.getOwner();
+			L2Player owner = _tamedBeast.getOwner();
 			_tamedBeast.setRemainingTime(_tamedBeast.getRemainingTime() - DURATION_CHECK_INTERVAL);
     		
 			// I tried to avoid this as much as possible...but it seems I can't avoid hardcoding
@@ -383,7 +384,7 @@ public final class L2TamedBeastInstance extends L2FeedableBeastInstance
 		@Override
 		public void run()
 		{
-			L2PcInstance owner = _tamedBeast.getOwner();
+			L2Player owner = _tamedBeast.getOwner();
     		
 			// Check if the owner is no longer around...if so, despawn
 			if ((owner == null) || (owner.isOnline()==0) )

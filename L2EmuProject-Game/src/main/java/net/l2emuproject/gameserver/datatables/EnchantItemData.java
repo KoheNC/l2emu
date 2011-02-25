@@ -24,10 +24,10 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.LookupTable;
 
 import org.apache.commons.logging.Log;
@@ -299,7 +299,7 @@ public final class EnchantItemData
 	 * 
 	 * @return
 	 */
-	public final boolean isEnchantable(L2PcInstance activeChar, L2ItemInstance item)
+	public final boolean isEnchantable(L2Player activeChar, L2ItemInstance item)
 	{
 		if (activeChar == null)
 			return false;

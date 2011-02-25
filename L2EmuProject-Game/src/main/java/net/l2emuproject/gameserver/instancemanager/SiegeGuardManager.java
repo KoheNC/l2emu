@@ -22,9 +22,9 @@ import javolution.util.FastList;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
@@ -103,7 +103,7 @@ public class SiegeGuardManager
 
 	/**
 	 * Add a mercenary spawn to the guard list.<BR>
-	 * <B><U>Not to be called from {@link MercTicketManager#addPosition(L2PcInstance)}
+	 * <B><U>Not to be called from {@link MercTicketManager#addPosition(L2Player)}
 	 * or any subsequent methods!</U></B><BR>
 	 * This method is used to build the spawn list just before spawning the
 	 * siege guards in siege (think of it as an alternative to
@@ -142,7 +142,7 @@ public class SiegeGuardManager
 	 * @param gm Game Master (player)
 	 * @param npc any NPC's ID
 	 */
-	public final void addAnyGuard(L2PcInstance gm, int npc, int respawn)
+	public final void addAnyGuard(L2Player gm, int npc, int respawn)
 	{
 		Castle c = CastleManager.getInstance().getCastle(gm);
 		if (c == null)
@@ -181,9 +181,9 @@ public class SiegeGuardManager
 	 * <CODE>addAnyGuard(gm, npc, {@link #DEFAULT_GUARD_RESPAWN})</CODE>
 	 * @param gm Game Master (player)
 	 * @param npc any NPC's ID
-	 * @see #addAnyGuard(L2PcInstance, int, int)
+	 * @see #addAnyGuard(L2Player, int, int)
 	 */
-	public final void addAnyGuard(L2PcInstance gm, int npc)
+	public final void addAnyGuard(L2Player gm, int npc)
 	{
 		addAnyGuard(gm, npc, DEFAULT_GUARD_RESPAWN);
 	}

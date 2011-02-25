@@ -16,12 +16,12 @@ package net.l2emuproject.gameserver.instancemanager;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.CrownTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.logging.Log;
@@ -50,7 +50,7 @@ public final class CrownManager
 				checkCrowns(member.getPlayerInstance());
 	}
 	
-	public static void checkCrowns(L2PcInstance activeChar)
+	public static void checkCrowns(L2Player activeChar)
 	{
 		if (activeChar == null)
 			return;

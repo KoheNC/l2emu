@@ -20,7 +20,6 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.games.KrateiCube;
 import net.l2emuproject.gameserver.model.actor.instance.L2BlueWatcherInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2RedWatcherInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
@@ -60,7 +59,7 @@ public abstract class L2Watcher extends L2Attackable
 
 	protected abstract void handleWatcherAI();
 
-	protected final boolean handleCast(L2Watcher caster, L2PcInstance player, int skillId)
+	protected final boolean handleCast(L2Watcher caster, L2Player player, int skillId)
 	{
 		final int skillLevel = 12;
 

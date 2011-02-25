@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.model.base;
 
 import java.util.EnumSet;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public enum ClassId
@@ -379,7 +379,7 @@ public enum ClassId
 		return subclasses;
 	}
 	
-	public final EnumSet<ClassId> getAvailableSubclasses(L2PcInstance player)
+	public final EnumSet<ClassId> getAvailableSubclasses(L2Player player)
 	{
 		if (_level != ClassLevel.Third)
 			return null;

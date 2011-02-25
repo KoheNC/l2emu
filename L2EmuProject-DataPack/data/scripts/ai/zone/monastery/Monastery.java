@@ -20,7 +20,6 @@ import ai.L2AttackableAIScript;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.skills.L2Skill;
@@ -30,6 +29,7 @@ import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -55,7 +55,7 @@ public class Monastery extends L2AttackableAIScript
     }
 
     @Override
-    public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isPet)
+    public String onAggroRangeEnter(L2Npc npc, L2Player player, boolean isPet)
     {
     	if (contains(BASIC_MOBS, npc.getNpcId()) && !npc.isInCombat() && !npc.isRunning())// && npc.getTarget() == null)
     	{
@@ -93,7 +93,7 @@ public class Monastery extends L2AttackableAIScript
     }
 
     @Override
-    public String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+    public String onSkillSee(L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
     	if (contains(GUARDIAN_AND_BEHOLDER, npc.getNpcId()))
     	{
@@ -123,7 +123,7 @@ public class Monastery extends L2AttackableAIScript
     		Collection<L2Object> objs = npc.getKnownList().getKnownObjects().values();
     		for (L2Object obj : objs)
 			{
-				if (obj instanceof L2PcInstance || obj instanceof L2PetInstance)
+				if (obj instanceof L2Player || obj instanceof L2PetInstance)
 				{
 					if (Util.checkIfInRange(npc.getAggroRange(), npc, obj, true) && !((L2Character) obj).isDead())
 						result.add((L2Playable) obj);
@@ -133,7 +133,7 @@ public class Monastery extends L2AttackableAIScript
     		{
     			for (L2Playable obj : result)
     			{
-    	    		L2PcInstance target = obj.getActingPlayer();
+    	    		L2Player target = obj.getActingPlayer();
     	    		if (target.getActiveWeaponInstance() != null && !npc.isInCombat() && npc.getTarget() == null)
     	    		{
     	    			npc.setTarget(target);
@@ -164,7 +164,7 @@ public class Monastery extends L2AttackableAIScript
 	}
 
     @Override
-    public String onSpellFinished(L2Npc npc, L2PcInstance player, L2Skill skill)
+    public String onSpellFinished(L2Npc npc, L2Player player, L2Skill skill)
     {
     	if (contains(BASIC_MOBS, npc.getNpcId()) && skill.getId() == 4589)
     	{

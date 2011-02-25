@@ -32,8 +32,6 @@ import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.CrownManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.model.BlockList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance.TimeStamp;
 import net.l2emuproject.gameserver.model.itemcontainer.ClanWarehouse;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
@@ -49,6 +47,8 @@ import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.L2Player.TimeStamp;
 import net.l2emuproject.util.ArrayBunch;
 
 import org.apache.commons.logging.Log;
@@ -443,7 +443,7 @@ public class L2Clan
 			return;
 		}
 
-		L2PcInstance exLeader = getLeader().getPlayerInstance();
+		L2Player exLeader = getLeader().getPlayerInstance();
 		SiegeManager.getInstance().removeSiegeSkills(exLeader);
 		exLeader.setClan(this);
 		exLeader.setClanPrivileges(L2Clan.CP_NOTHING);
@@ -455,7 +455,7 @@ public class L2Clan
 		exLeader.setPledgeClass(L2ClanMember.getCurrentPledgeClass(exLeader));
 		exLeader.broadcastUserInfo();
 		exLeader.checkItemRestriction();
-		L2PcInstance newLeader = member.getPlayerInstance();
+		L2Player newLeader = member.getPlayerInstance();
 		newLeader.setClan(this);
 		newLeader.setPledgeClass(L2ClanMember.getCurrentPledgeClass(newLeader));
 		newLeader.setClanPrivileges(L2Clan.CP_ALL);
@@ -513,10 +513,10 @@ public class L2Clan
 		_members.put(member.getObjectId(), member);
 	}
 
-	public void addClanMember(L2PcInstance player)
+	public void addClanMember(L2Player player)
 	{
 		// Using a different constructor, to make it easier to read
-		// L2ClanMember(L2Clan, L2PcInstance)
+		// L2ClanMember(L2Clan, L2Player)
 		//L2ClanMember member = new L2ClanMember(this,player.getName(), player.getLevel(), player.getClassId().getId(), player.getObjectId(), player.getSubPledgeType(), player.getPledgeRank(), player.getTitle(), player.getAppearance().getSex() ? 1 : 0, player.getRace().ordinal());
 		L2ClanMember member = new L2ClanMember(this, player);
 		// store in memory
@@ -531,7 +531,7 @@ public class L2Clan
 		player.broadcastUserInfo();
 	}
 
-	public void updateClanMember(L2PcInstance player)
+	public void updateClanMember(L2Player player)
 	{
 		L2ClanMember member = new L2ClanMember(player);
 		if (player.isClanLeader())
@@ -608,7 +608,7 @@ public class L2Clan
 
 		if (exMember.isOnline())
 		{
-			L2PcInstance player = exMember.getPlayerInstance();
+			L2Player player = exMember.getPlayerInstance();
 			player.setTitle("");
 			player.setApprentice(0);
 			player.setSponsor(0);
@@ -721,9 +721,9 @@ public class L2Clan
 		return limit;
 	}
 
-	public List<L2PcInstance> getOnlineMembersList()
+	public List<L2Player> getOnlineMembersList()
 	{
-		List<L2PcInstance> result = new FastList<L2PcInstance>();
+		List<L2Player> result = new FastList<L2Player>();
 		for (L2ClanMember temp : _members.values())
 		{
 			if (temp != null) {
@@ -735,9 +735,9 @@ public class L2Clan
 		return result;
 	}
 
-	public L2PcInstance[] getOnlineMembers(int exclude)
+	public L2Player[] getOnlineMembers(int exclude)
 	{
-		ArrayBunch<L2PcInstance> result = new ArrayBunch<L2PcInstance>();
+		ArrayBunch<L2Player> result = new ArrayBunch<L2Player>();
 		for (L2ClanMember temp : _members.values())
 		{
 			if (temp != null) {
@@ -746,7 +746,7 @@ public class L2Clan
 			}
 		}
 
-		return result.moveToArray(new L2PcInstance[result.size()]);
+		return result.moveToArray(new L2Player[result.size()]);
 	}
 
 	/**
@@ -1138,7 +1138,7 @@ public class L2Clan
 
 		try
 		{
-			// Retrieve all skills of this L2PcInstance from the database
+			// Retrieve all skills of this L2Player from the database
 			con = L2DatabaseFactory.getInstance().getConnection(con);
 			PreparedStatement statement = con.prepareStatement("SELECT skill_id,skill_level FROM clan_skills WHERE clan_id=?");
 			statement.setInt(1, getClanId());
@@ -1258,7 +1258,7 @@ public class L2Clan
 		}
 	}
 
-	public void addSkillEffects(L2PcInstance cm, boolean notify)
+	public void addSkillEffects(L2Player cm, boolean notify)
 	{
 		if (cm == null)
 			return;
@@ -1305,7 +1305,7 @@ public class L2Clan
 		}
 	}
 
-	public void broadcastCreatureSayToOnlineMembers(CreatureSay packet, L2PcInstance broadcaster)
+	public void broadcastCreatureSayToOnlineMembers(CreatureSay packet, L2Player broadcaster)
 	{
 		for (L2ClanMember member : _members.values())
 		{
@@ -1317,7 +1317,7 @@ public class L2Clan
 		}
 	}
 
-	public void broadcastToOtherOnlineMembers(L2GameServerPacket packet, L2PcInstance player)
+	public void broadcastToOtherOnlineMembers(L2GameServerPacket packet, L2Player player)
 	{
 		for (L2ClanMember member : _members.values())
 		{
@@ -1612,7 +1612,7 @@ public class L2Clan
 		return _subPledges.values().toArray(new SubPledge[_subPledges.values().size()]);
 	}
 
-	public SubPledge createSubPledge(L2PcInstance player, int subPledgeType, int leaderId, String subPledgeName)
+	public SubPledge createSubPledge(L2Player player, int subPledgeType, int leaderId, String subPledgeName)
 	{
 		final int originalSubPledgeType = subPledgeType;
 		SubPledge subPledge = null;
@@ -1756,7 +1756,7 @@ public class L2Clan
 
 		try
 		{
-			// Retrieve all skills of this L2PcInstance from the database
+			// Retrieve all skills of this L2Player from the database
 			con = L2DatabaseFactory.getInstance().getConnection(con);
 			PreparedStatement statement = con.prepareStatement("SELECT privilleges,rank,party FROM clan_privs WHERE clan_id=?");
 			statement.setInt(1, getClanId());
@@ -1817,7 +1817,7 @@ public class L2Clan
 			try
 			{
 				//_log.warning("requested store clan privs in db for rank: "+rank+", privs: "+privs);
-				// Retrieve all skills of this L2PcInstance from the database
+				// Retrieve all skills of this L2Player from the database
 				con = L2DatabaseFactory.getInstance().getConnection(con);
 				PreparedStatement statement = con
 						.prepareStatement("INSERT INTO clan_privs (clan_id,rank,party,privilleges) VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE privilleges = ?");
@@ -1839,7 +1839,7 @@ public class L2Clan
 				L2DatabaseFactory.close(con);
 			}
 
-			L2PcInstance mem;
+			L2Player mem;
 			for (L2ClanMember cm : getMembers())
 			{
 				if (cm.isOnline())
@@ -1865,7 +1865,7 @@ public class L2Clan
 			try
 			{
 				//_log.warning("requested store clan new privs in db for rank: "+rank);
-				// Retrieve all skills of this L2PcInstance from the database
+				// Retrieve all skills of this L2Player from the database
 				con = L2DatabaseFactory.getInstance().getConnection(con);
 				PreparedStatement statement = con.prepareStatement("INSERT INTO clan_privs (clan_id,rank,party,privilleges) VALUES (?,?,?,?)");
 				statement.setInt(1, getClanId());
@@ -2009,7 +2009,7 @@ public class L2Clan
 	 * @param pledgeType
 	 * @return
 	 */
-	public boolean checkClanJoinCondition(L2PcInstance activeChar, L2PcInstance target, int pledgeType)
+	public boolean checkClanJoinCondition(L2Player activeChar, L2Player target, int pledgeType)
 	{
 		if (activeChar == null)
 		{
@@ -2076,7 +2076,7 @@ public class L2Clan
 	 * @param target
 	 * @return
 	 */
-	public static boolean checkAllyJoinCondition(L2PcInstance activeChar, L2PcInstance target)
+	public static boolean checkAllyJoinCondition(L2Player activeChar, L2Player target)
 	{
 		if (activeChar == null)
 			return false;
@@ -2203,7 +2203,7 @@ public class L2Clan
 		_dissolvingExpiryTime = time;
 	}
 
-	public void createAlly(L2PcInstance player, String allyName)
+	public void createAlly(L2Player player, String allyName)
 	{
 		if (null == player)
 			return;
@@ -2265,7 +2265,7 @@ public class L2Clan
 		player.sendMessage("Alliance " + allyName + " has been created.");
 	}
 
-	public void dissolveAlly(L2PcInstance player)
+	public void dissolveAlly(L2Player player)
 	{
 		if (getAllyId() == 0)
 		{
@@ -2306,7 +2306,7 @@ public class L2Clan
 		player.deathPenalty(false, false, false);
 	}
 
-	public boolean levelUpClan(L2PcInstance player)
+	public boolean levelUpClan(L2Player player)
 	{
 		if (!player.isClanLeader())
 		{
@@ -2564,7 +2564,7 @@ public class L2Clan
 
 		if (getLeader().isOnline())
 		{
-			L2PcInstance leader = getLeader().getPlayerInstance();
+			L2Player leader = getLeader().getPlayerInstance();
 			if (4 < level)
 			{
 				SiegeManager.getInstance().addSiegeSkills(leader);
@@ -2592,9 +2592,9 @@ public class L2Clan
 		//clan.broadcastClanStatus();
 	}
 
-	public List<L2PcInstance> getOnlineAllyMembers()
+	public List<L2Player> getOnlineAllyMembers()
 	{
-		List<L2PcInstance> list = new FastList<L2PcInstance>();
+		List<L2Player> list = new FastList<L2Player>();
 		if (getAllyId() == 0)
 		{
 			return list;
@@ -2643,7 +2643,7 @@ public class L2Clan
 	 * @param privs action type (see above)
 	 * @return whether player has these privileges
 	 */
-	public static final boolean checkPrivileges(L2PcInstance player, int privs) {
+	public static final boolean checkPrivileges(L2Player player, int privs) {
 		if (player.getClan() == null)
 			return false;
 		else if (player.isClanLeader())

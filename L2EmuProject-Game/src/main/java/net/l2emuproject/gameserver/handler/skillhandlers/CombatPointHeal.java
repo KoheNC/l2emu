@@ -16,12 +16,12 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
 import net.l2emuproject.gameserver.handler.SkillHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class CombatPointHeal implements ISkillHandler
 {
@@ -45,11 +45,11 @@ public class CombatPointHeal implements ISkillHandler
 			// From CT2 u will receive exact CP, you can't go over it, if you have full CP and you get CP buff, you will receive 0CP restored message
 			cp = Math.min(cp, target.getMaxCp() - target.getStatus().getCurrentCp());
 			
-			if (target instanceof L2PcInstance)
+			if (target instanceof L2Player)
 			{
 				SystemMessage sm = new SystemMessage(SystemMessageId.S1_CP_WILL_BE_RESTORED);
 				sm.addNumber((int)cp);
-				((L2PcInstance)target).sendPacket(sm);
+				((L2Player)target).sendPacket(sm);
 			}
 			
 			target.getStatus().setCurrentCp(cp + target.getStatus().getCurrentCp());

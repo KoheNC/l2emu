@@ -20,7 +20,6 @@ import java.util.Set;
 
 import net.l2emuproject.gameserver.datatables.ShotTable;
 import net.l2emuproject.gameserver.handler.ItemHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExAutoSoulShot;
@@ -30,6 +29,7 @@ import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.SingletonSet;
 
 
@@ -125,7 +125,7 @@ public final class PcShots extends CharShots
 	
 	private final Set<Integer> _activeSoulShots = new SingletonSet<Integer>().shared();
 	
-	public PcShots(L2PcInstance activeChar)
+	public PcShots(L2Player activeChar)
 	{
 		super(activeChar);
 	}
@@ -159,9 +159,9 @@ public final class PcShots extends CharShots
 	}
 	
 	@Override
-	protected L2PcInstance getActiveChar()
+	protected L2Player getActiveChar()
 	{
-		return (L2PcInstance)_activeChar;
+		return (L2Player)_activeChar;
 	}
 	
 	@Override
@@ -250,7 +250,7 @@ public final class PcShots extends CharShots
 		if (item == null)
 			return false;
 		
-		L2PcInstance activeChar = getActiveChar();
+		L2Player activeChar = getActiveChar();
 		
 		// Since CT2.3, Blessed Shots can be used in Olympiad.
 		/*

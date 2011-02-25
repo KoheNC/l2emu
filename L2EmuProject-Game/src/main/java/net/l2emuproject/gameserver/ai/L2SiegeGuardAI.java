@@ -21,7 +21,6 @@ import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
@@ -31,6 +30,7 @@ import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.tools.random.Rnd;
@@ -118,7 +118,7 @@ public class L2SiegeGuardAI extends L2CharacterAI implements Runnable
 	 * <li>The target isn't a Folk or a Door</li>
 	 * <li>The target isn't dead, isn't invulnerable, isn't in silent moving mode AND too far (>100)</li>
 	 * <li>The target is in the actor Aggro range and is at the same height</li>
-	 * <li>The L2PcInstance target has karma (=PK)</li>
+	 * <li>The L2Player target has karma (=PK)</li>
 	 * <li>The L2MonsterInstance target is aggressive</li><BR><BR>
 	 * 
 	 * <B><U> Actor is a L2DefenderInstance</U> :</B><BR><BR>
@@ -126,13 +126,13 @@ public class L2SiegeGuardAI extends L2CharacterAI implements Runnable
 	 * <li>The target isn't dead, isn't invulnerable, isn't in silent moving mode AND too far (>100)</li>
 	 * <li>The target is in the actor Aggro range and is at the same height</li>
 	 * <li>A siege is in progress</li>
-	 * <li>The L2PcInstance target isn't a Defender</li><BR><BR>
+	 * <li>The L2Player target isn't a Defender</li><BR><BR>
 	 * 
 	 * <B><U> Actor is a L2FriendlyMobInstance</U> :</B><BR><BR>
 	 * <li>The target isn't a Folk, a Door or another L2Npc</li>
 	 * <li>The target isn't dead, isn't invulnerable, isn't in silent moving mode AND too far (>100)</li>
 	 * <li>The target is in the actor Aggro range and is at the same height</li>
-	 * <li>The L2PcInstance target has karma (=PK)</li><BR><BR>
+	 * <li>The L2Player target has karma (=PK)</li><BR><BR>
 	 * 
 	 * <B><U> Actor is a L2MonsterInstance</U> :</B><BR><BR>
 	 * <li>The target isn't a Folk, a Door or another L2Npc</li>
@@ -153,7 +153,7 @@ public class L2SiegeGuardAI extends L2CharacterAI implements Runnable
 		if (target.isInvul())
 		{
 			// However EffectInvincible requires to check GMs specially
-			if (target instanceof L2PcInstance && ((L2PcInstance) target).isGM())
+			if (target instanceof L2Player && ((L2Player) target).isGM())
 				return false;
 			if (target instanceof L2Summon && ((L2Summon) target).getOwner().isGM())
 				return false;
@@ -166,7 +166,7 @@ public class L2SiegeGuardAI extends L2CharacterAI implements Runnable
 		// Get the owner if the target is a summon
 		if (target instanceof L2Summon)
 		{
-			L2PcInstance owner = ((L2Summon) target).getOwner();
+			L2Player owner = ((L2Summon) target).getOwner();
 			if (_actor.isInsideRadius(owner, 1000, true, false))
 				target = owner;
 		}
@@ -306,7 +306,7 @@ public class L2SiegeGuardAI extends L2CharacterAI implements Runnable
 
 				if (aggro + _globalAggro > 0)
 				{
-					// Set the L2Character movement type to run and send Server->Client packet ChangeMoveType to all others L2PcInstance
+					// Set the L2Character movement type to run and send Server->Client packet ChangeMoveType to all others L2Player
 					if (!_actor.isRunning())
 						_actor.setRunning();
 
@@ -344,7 +344,7 @@ public class L2SiegeGuardAI extends L2CharacterAI implements Runnable
 			// Check if the actor is running
 			if (_actor.isRunning())
 			{
-				// Set the actor movement type to walk and send Server->Client packet ChangeMoveType to all others L2PcInstance
+				// Set the actor movement type to walk and send Server->Client packet ChangeMoveType to all others L2Player
 				_actor.setWalking();
 
 				// Calculate a new attack timeout
@@ -394,8 +394,8 @@ public class L2SiegeGuardAI extends L2CharacterAI implements Runnable
 
 			if (!(cha instanceof L2Npc))
 			{
-				if (_selfAnalysis.hasHealOrResurrect && cha instanceof L2PcInstance
-						&& ((L2Npc) _actor).getCastle().getSiege().checkIsDefender(((L2PcInstance) cha).getClan()))
+				if (_selfAnalysis.hasHealOrResurrect && cha instanceof L2Player
+						&& ((L2Npc) _actor).getCastle().getSiege().checkIsDefender(((L2Player) cha).getClan()))
 				{
 					// heal friends
 					if (!_actor.isAttackingDisabled() && cha.getStatus().getCurrentHp() < cha.getMaxHp() * 0.6
@@ -499,7 +499,7 @@ public class L2SiegeGuardAI extends L2CharacterAI implements Runnable
 		}
 
 		// never attack defenders
-		if (attackTarget instanceof L2PcInstance && sGuard.getCastle().getSiege().checkIsDefender(((L2PcInstance) attackTarget).getClan()))
+		if (attackTarget instanceof L2Player && sGuard.getCastle().getSiege().checkIsDefender(((L2Player) attackTarget).getClan()))
 		{
 			// Cancel the target
 			sGuard.stopHating(attackTarget);
@@ -709,7 +709,7 @@ public class L2SiegeGuardAI extends L2CharacterAI implements Runnable
 	 * 
 	 * <B><U> Actions</U> :</B><BR><BR>
 	 * <li>Init the attack : Calculate the attack timeout, Set the _globalAggro to 0, Add the attacker to the actor _aggroList</li>
-	 * <li>Set the L2Character movement type to run and send Server->Client packet ChangeMoveType to all others L2PcInstance</li>
+	 * <li>Set the L2Character movement type to run and send Server->Client packet ChangeMoveType to all others L2Player</li>
 	 * <li>Set the Intention to AI_INTENTION_ATTACK</li><BR><BR>
 	 * 
 	 * @param attacker The L2Character that attacks the actor
@@ -728,7 +728,7 @@ public class L2SiegeGuardAI extends L2CharacterAI implements Runnable
 		// Add the attacker to the _aggroList of the actor
 		((L2Attackable) _actor).addDamageHate(attacker, 0, 1);
 
-		// Set the L2Character movement type to run and send Server->Client packet ChangeMoveType to all others L2PcInstance
+		// Set the L2Character movement type to run and send Server->Client packet ChangeMoveType to all others L2Player
 		if (!_actor.isRunning())
 			_actor.setRunning();
 
@@ -779,7 +779,7 @@ public class L2SiegeGuardAI extends L2CharacterAI implements Runnable
 			// Set the actor AI Intention to AI_INTENTION_ATTACK
 			if (getIntention() != CtrlIntention.AI_INTENTION_ATTACK)
 			{
-				// Set the L2Character movement type to run and send Server->Client packet ChangeMoveType to all others L2PcInstance
+				// Set the L2Character movement type to run and send Server->Client packet ChangeMoveType to all others L2Player
 				if (!_actor.isRunning())
 					_actor.setRunning();
 

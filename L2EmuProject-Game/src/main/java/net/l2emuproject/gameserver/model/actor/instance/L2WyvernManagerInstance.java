@@ -19,6 +19,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2WyvernManagerInstance extends L2Npc
 {
@@ -28,7 +29,7 @@ public class L2WyvernManagerInstance extends L2Npc
     }
 
 	@Override
-	public void showChatWindow(L2PcInstance player)
+	public void showChatWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		
@@ -52,7 +53,7 @@ public class L2WyvernManagerInstance extends L2Npc
 		player.sendPacket(html);
 	}
 
-	public boolean isOwnerClan(L2PcInstance player)
+	public boolean isOwnerClan(L2Player player)
 	{
 		return true;
 	}

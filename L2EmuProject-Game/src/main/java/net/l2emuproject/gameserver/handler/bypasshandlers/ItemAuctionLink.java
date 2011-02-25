@@ -20,7 +20,6 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExItemAuctionInfoPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
@@ -30,6 +29,7 @@ import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class ItemAuctionLink implements IBypassHandler
 {
@@ -39,7 +39,7 @@ public class ItemAuctionLink implements IBypassHandler
 														{ "ItemAuction" };
 
 	@Override
-	public boolean useBypass(String command, L2PcInstance activeChar, L2Character target)
+	public boolean useBypass(String command, L2Player activeChar, L2Character target)
 	{
 		if (!(target instanceof L2Npc))
 			return false;

@@ -18,12 +18,12 @@ import java.util.StringTokenizer;
 
 import javolution.text.TextBuilder;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeapon;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -48,7 +48,7 @@ public class AdminCursedWeapons implements IAdminCommandHandler
 	private int						itemId;
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		CursedWeaponsService cwm = CursedWeaponsService.getInstance();
 		int id = 0;
@@ -65,7 +65,7 @@ public class AdminCursedWeapons implements IAdminCommandHandler
 					activeChar.sendMessage("> " + cw.getName() + " (" + cw.getItemId() + ")");
 					if (cw.isActivated())
 					{
-						L2PcInstance pl = cw.getPlayer();
+						L2Player pl = cw.getPlayer();
 						activeChar.sendMessage("  Player holding: " + (pl == null ? "null" : pl.getName()));
 						activeChar.sendMessage("    Player karma: " + cw.getPlayerKarma());
 						activeChar.sendMessage("    Time Remaining: " + (cw.getTimeLeft() / 60000) + " min.");
@@ -95,7 +95,7 @@ public class AdminCursedWeapons implements IAdminCommandHandler
 					replyMSG.append("<table width=270><tr><td>Name:</td><td>" + cw.getName() + "</td></tr>");
 					if (cw.isActivated())
 					{
-						L2PcInstance pl = cw.getPlayer();
+						L2Player pl = cw.getPlayer();
 						replyMSG.append("<tr><td>Weilder:</td><td>" + (pl == null ? "null" : pl.getName()) + "</td></tr>");
 						replyMSG.append("<tr><td>Karma:</td><td>" + String.valueOf(cw.getPlayerKarma()) + "</td></tr>");
 						replyMSG.append("<tr><td>Kills:</td><td>" + String.valueOf(cw.getPlayerPkKills()) + "/" + String.valueOf(cw.getNbKills())
@@ -186,8 +186,8 @@ public class AdminCursedWeapons implements IAdminCommandHandler
 				else
 				{
 					L2Object target = activeChar.getTarget();
-					if (target != null && target instanceof L2PcInstance)
-						((L2PcInstance) target).addItem("AdminCursedWeaponAdd", id, 1, target, true);
+					if (target != null && target instanceof L2Player)
+						((L2Player) target).addItem("AdminCursedWeaponAdd", id, 1, target, true);
 					else
 						activeChar.addItem("AdminCursedWeaponAdd", id, 1, activeChar, true);
 				}

@@ -18,6 +18,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2EffectPointInstance extends L2Npc
 {
@@ -40,14 +41,14 @@ public class L2EffectPointInstance extends L2Npc
 	 * @param player
 	 */
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
 	@Override
-	public void onActionShift(L2PcInstance player)
+	public void onActionShift(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}

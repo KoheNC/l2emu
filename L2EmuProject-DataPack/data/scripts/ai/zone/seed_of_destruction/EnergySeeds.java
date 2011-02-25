@@ -17,12 +17,12 @@ package ai.zone.seed_of_destruction;
 import ai.L2AttackableAIScript;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.instancemanager.gracia.SeedOfDestructionManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 /**
@@ -68,7 +68,7 @@ public final class EnergySeeds extends L2AttackableAIScript
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		Integer[] npcs = new Integer[NPCS_STONES.size()];
 		NPCS_STONES.keySet().toArray(npcs);
@@ -78,7 +78,7 @@ public final class EnergySeeds extends L2AttackableAIScript
 	}
 
 	@Override
-	public final String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public final String onSkillSee(L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		final int npcId = npc.getNpcId();
 		final int skillId = skill.getId();

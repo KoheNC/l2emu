@@ -24,8 +24,8 @@ import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.UITable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.ActionKey;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -37,14 +37,14 @@ public class L2UIKeysSettings
 {
 	private static final Log		_log	= LogFactory.getLog(L2UIKeysSettings.class);
 
-	private final L2PcInstance		_player;
+	private final L2Player		_player;
 
 	Map<Integer, List<ActionKey>>	_storedKeys;
 	Map<Integer, List<Integer>>		_storedCategories;
 
 	boolean							_saved	= true;
 
-	public L2UIKeysSettings(L2PcInstance player)
+	public L2UIKeysSettings(L2Player player)
 	{
 		_player = player;
 		loadFromDB();

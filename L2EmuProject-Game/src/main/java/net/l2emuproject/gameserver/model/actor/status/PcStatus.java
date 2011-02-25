@@ -14,8 +14,6 @@
  */
 package net.l2emuproject.gameserver.model.actor.status;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance.ConditionListenerDependency;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -23,8 +21,10 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.object.L2Summon;
+import net.l2emuproject.gameserver.world.object.L2Player.ConditionListenerDependency;
 import net.l2emuproject.lang.L2Math;
 
 
@@ -32,7 +32,7 @@ public final class PcStatus extends CharStatus
 {
 	private double _currentCp = 0;
 	
-	public PcStatus(L2PcInstance activeChar)
+	public PcStatus(L2Player activeChar)
 	{
 		super(activeChar);
 	}
@@ -161,8 +161,8 @@ public final class PcStatus extends CharStatus
 	}
 	
 	@Override
-	public L2PcInstance getActiveChar()
+	public L2Player getActiveChar()
 	{
-		return (L2PcInstance)_activeChar;
+		return (L2Player)_activeChar;
 	}
 }

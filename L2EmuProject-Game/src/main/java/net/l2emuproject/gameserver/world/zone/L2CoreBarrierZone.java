@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.world.zone;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Taken from L2EP, adapted to current revision
@@ -32,11 +32,11 @@ public class L2CoreBarrierZone extends L2DamageZone
 	{
 		super.checkForDamage(character);
 		
-		if (getHPDamagePerSecond() > 0 && character instanceof L2PcInstance)
+		if (getHPDamagePerSecond() > 0 && character instanceof L2Player)
 		{
 			SystemMessage sm = new SystemMessage(SystemMessageId.S1_DAMAGE_BY_CORE_BARRIER);
 			sm.addNumber(getHPDamagePerSecond());
-			((L2PcInstance) character).sendPacket(sm);
+			((L2Player) character).sendPacket(sm);
 		}
 	}
 }

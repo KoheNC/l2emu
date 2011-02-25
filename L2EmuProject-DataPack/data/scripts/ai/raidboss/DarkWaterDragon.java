@@ -20,10 +20,10 @@ import javolution.util.FastMap;
 import javolution.util.FastSet;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import ai.L2AttackableAIScript;
 
 public class DarkWaterDragon extends L2AttackableAIScript
@@ -37,7 +37,7 @@ public class DarkWaterDragon extends L2AttackableAIScript
 	private static int _HasSpawned1;																//If true, first Shades were already spawned
 	private static FastSet<Integer> secondSpawn = new FastSet<Integer>();							//Used to track if second Shades were already spawned
 	private static FastSet<Integer> myTrackingSet = new FastSet<Integer>();							//Used to track instances of npcs
-	private static FastMap<Integer, L2PcInstance> _idmap = new FastMap<Integer, L2PcInstance>();	//Used to track instances of npcs
+	private static FastMap<Integer, L2Player> _idmap = new FastMap<Integer, L2Player>();	//Used to track instances of npcs
 
 	public DarkWaterDragon(int id, String name, String descr)
 	{
@@ -49,7 +49,7 @@ public class DarkWaterDragon extends L2AttackableAIScript
 		secondSpawn.clear();
 	}
 	@Override
-	public String onAdvEvent (String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent (String event, L2Npc npc, L2Player player)
 	{
 		if (npc != null)
 		{
@@ -125,7 +125,7 @@ public class DarkWaterDragon extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAttack (L2Npc npc, L2PcInstance attacker, int damage, boolean isPet)
+	public String onAttack (L2Npc npc, L2Player attacker, int damage, boolean isPet)
 	{
 		int npcId = npc.getNpcId();
 		int npcObjId = npc.getObjectId();
@@ -184,7 +184,7 @@ public class DarkWaterDragon extends L2AttackableAIScript
 		return super.onAttack(npc, attacker, damage, isPet);
 	}
 	@Override
-	public String onKill (L2Npc npc, L2PcInstance killer, boolean isPet)
+	public String onKill (L2Npc npc, L2Player killer, boolean isPet)
 	{
 		int npcId = npc.getNpcId();
 		int npcObjId = npc.getObjectId();

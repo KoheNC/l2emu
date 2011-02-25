@@ -14,9 +14,9 @@
  */
 package transformations;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class Anakim extends L2Transformation
 {
@@ -29,7 +29,7 @@ public class Anakim extends L2Transformation
 	}
 
 	@Override
-	public void transformedSkills(L2PcInstance player)
+	public void transformedSkills(L2Player player)
 	{
 			int level = -1;
 			if (player.getLevel() >= 82)
@@ -48,7 +48,7 @@ public class Anakim extends L2Transformation
 	}
 
 	@Override
-	public void removeSkills(L2PcInstance player)
+	public void removeSkills(L2Player player)
 	{
 		removeSkill(player, 720); // Anakim Holy Light Burst (2 levels)
 		removeSkill(player, 721); // Anakim Energy Attack (2 levels)

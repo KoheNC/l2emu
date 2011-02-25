@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.model.restriction.global;
 
 import net.l2emuproject.gameserver.instancemanager.MercTicketManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author savormix
@@ -25,7 +25,7 @@ import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 public final class MercenaryTicketRestriction extends AbstractRestriction
 {
 	@Override
-	public boolean canPickUp(L2PcInstance activeChar, L2ItemInstance item, L2PetInstance pet)
+	public boolean canPickUp(L2Player activeChar, L2ItemInstance item, L2PetInstance pet)
 	{
 		if (!MercTicketManager.getInstance().isTicket(item.getItemId()))
 			return true;

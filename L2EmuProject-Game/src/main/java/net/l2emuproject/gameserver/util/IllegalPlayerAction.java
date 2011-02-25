@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.util;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.GmListTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -33,14 +33,14 @@ public final class IllegalPlayerAction implements Runnable
 
 	protected String			_message;
 	protected int				_punishment;
-	protected L2PcInstance		_actor;
+	protected L2Player		_actor;
 
 	public static final int		PUNISH_BROADCAST	= 1;
 	public static final int		PUNISH_KICK			= 2;
 	public static final int		PUNISH_KICKBAN		= 3;
 	public static final int		PUNISH_JAIL			= 4;
 
-	public IllegalPlayerAction(L2PcInstance actor, String message, int punishment)
+	public IllegalPlayerAction(L2Player actor, String message, int punishment)
 	{
 		_message = message;
 		_punishment = punishment;

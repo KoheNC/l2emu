@@ -14,9 +14,9 @@
  */
 package transformations;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class VanguardPaladin extends L2Transformation
 {
@@ -29,7 +29,7 @@ public class VanguardPaladin extends L2Transformation
 	}
 
 	@Override
-	public void transformedSkills(L2PcInstance player)
+	public void transformedSkills(L2Player player)
 	{
 		if (player.getLevel() > 43)
 		{
@@ -60,7 +60,7 @@ public class VanguardPaladin extends L2Transformation
 	}
 
 	@Override
-	public void removeSkills(L2PcInstance player)
+	public void removeSkills(L2Player player)
 	{
 		removeSkill(player, 293); // Two Handed Mastery
 		removeSkill(player, 814); // Full Swing

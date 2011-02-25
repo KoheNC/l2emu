@@ -34,6 +34,7 @@ import net.l2emuproject.gameserver.util.Broadcast;
 import net.l2emuproject.gameserver.world.knownlist.CharKnownList;
 import net.l2emuproject.gameserver.world.knownlist.RaceManagerKnownList;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public class L2RaceManagerInstance extends L2Npc
@@ -241,7 +242,7 @@ public class L2RaceManagerInstance extends L2Npc
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (command.startsWith("BuyTicket") && _state != ACCEPTING_BETS)
 		{
@@ -283,7 +284,7 @@ public class L2RaceManagerInstance extends L2Npc
 		}
 	}
 
-	public void showOdds(L2PcInstance player)
+	public void showOdds(L2Player player)
 	{
 		if (_state == ACCEPTING_BETS) return;
 		int npcId = getTemplate().getNpcId();
@@ -303,7 +304,7 @@ public class L2RaceManagerInstance extends L2Npc
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	public void showMonsterInfo(L2PcInstance player)
+	public void showMonsterInfo(L2Player player)
 	{
 		int npcId = getTemplate().getNpcId();
 		String filename, search;
@@ -321,7 +322,7 @@ public class L2RaceManagerInstance extends L2Npc
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	public void showBuyTicket(L2PcInstance player, int val)
+	public void showBuyTicket(L2Player player, int val)
 	{
 		if (_state != ACCEPTING_BETS) return;
 		int npcId = getTemplate().getNpcId();

@@ -22,12 +22,12 @@ import javolution.util.FastList;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -63,7 +63,7 @@ public final class CCHManager
 		return (getSiege(x, y, z) != null);
 	}
 
-	public static boolean checkIfOkToPlaceFlag(L2PcInstance player, boolean isCheckOnly)
+	public static boolean checkIfOkToPlaceFlag(L2Player player, boolean isCheckOnly)
 	{
 		// Get siege battleground
 		L2Clan clan = player.getClan();
@@ -88,7 +88,7 @@ public final class CCHManager
 		return false;
 	}
 
-	public static boolean checkIfOkToUseStriderSiegeAssault(L2PcInstance player, boolean isCheckOnly)
+	public static boolean checkIfOkToUseStriderSiegeAssault(L2Player player, boolean isCheckOnly)
 	{
 		// Get siege battleground
 		CCHSiege siege = getInstance().getSiege(player);

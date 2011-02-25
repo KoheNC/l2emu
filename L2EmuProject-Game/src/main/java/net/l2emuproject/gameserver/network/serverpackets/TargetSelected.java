@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * format   ddddd
@@ -39,7 +39,7 @@ public class TargetSelected extends L2GameServerPacket
 	/**
 	 * @param _characters
 	 */
-	public TargetSelected(L2PcInstance player, L2Object target)
+	public TargetSelected(L2Player player, L2Object target)
 	{
 		_objectId = player.getObjectId();
 		_targetObjId = target.getObjectId();

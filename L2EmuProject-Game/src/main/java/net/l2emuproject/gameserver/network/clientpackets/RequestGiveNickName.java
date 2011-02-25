@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class represents a packet sent by the client when a player/clan leader requests a
@@ -44,7 +44,7 @@ public class RequestGiveNickName extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null) return;
 
 		if (activeChar.getName().equals(_target) &&
@@ -76,7 +76,7 @@ public class RequestGiveNickName extends L2GameClientPacket
 			requestFailed(SystemMessageId.TARGET_MUST_BE_IN_CLAN);
 			return;
 		}
-		L2PcInstance target = targetMember.getPlayerInstance();
+		L2Player target = targetMember.getPlayerInstance();
 		if (target == null)
 		{
 			requestFailed(SystemMessageId.TARGET_IS_NOT_FOUND_IN_THE_GAME);
@@ -88,7 +88,7 @@ public class RequestGiveNickName extends L2GameClientPacket
 		sendAF();
 	}
 
-	private final void setTitle(L2PcInstance target)
+	private final void setTitle(L2Player target)
 	{
 		target.setTitle(_title);
 		target.sendPacket(SystemMessageId.TITLE_CHANGED);

@@ -26,7 +26,6 @@ import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.cache.HtmCache;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.model.party.L2Party;
@@ -38,6 +37,7 @@ import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.npc.L2DropData;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;
@@ -55,7 +55,7 @@ public final class QuestState
 	private final String _questName;
 	
 	/** Player who engaged the quest */
-	private final L2PcInstance _player;
+	private final L2Player _player;
 	
 	/** State of the quest */
 	private byte _state;
@@ -75,11 +75,11 @@ public final class QuestState
 	 * <LI>Add drops gotten by the quest</LI>
 	 * <BR/>
 	 * @param quest : quest associated with the QuestState
-	 * @param player : L2PcInstance pointing out the player
+	 * @param player : L2Player pointing out the player
 	 * @param state : state of the quest
 	 * @param completed : boolean for completion of the quest
 	 */
-	QuestState(Quest quest, L2PcInstance player, byte state)
+	QuestState(Quest quest, L2Player player, byte state)
 	{
 		_questName = quest.getName();
 		_player = player;
@@ -106,10 +106,10 @@ public final class QuestState
 	}
 	
 	/**
-	 * Return the L2PcInstance
-	 * @return L2PcInstance
+	 * Return the L2Player
+	 * @return L2Player
 	 */
-	public L2PcInstance getPlayer()
+	public L2Player getPlayer()
     {
 		return _player;
 	}
@@ -507,10 +507,10 @@ public final class QuestState
      */
     public void addNotifyOfDeath(L2Character character)
     {
-        if (character == null || !(character instanceof L2PcInstance))
+        if (character == null || !(character instanceof L2Player))
             return;
         
-        ((L2PcInstance)character).addNotifyQuestOfDeath(this);
+        ((L2Player)character).addNotifyQuestOfDeath(this);
     }
 
 	/**
@@ -1132,7 +1132,7 @@ public final class QuestState
 		getPlayer().sendPacket(new TutorialEnableClientEvent(number));
 	}
 
-	public void dropItem(L2MonsterInstance npc, L2PcInstance player, int itemId, int count)
+	public void dropItem(L2MonsterInstance npc, L2Player player, int itemId, int count)
 	{
 		npc.dropItem(player, itemId, count);
 	}

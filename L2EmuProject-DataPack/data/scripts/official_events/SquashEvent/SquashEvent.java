@@ -17,7 +17,6 @@ package official_events.SquashEvent;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
@@ -26,6 +25,7 @@ import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -92,7 +92,7 @@ public class SquashEvent extends QuestJython
 													{ 13017, 5234, 10 } };
 
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet)
+	public String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet)
 	{
 		if (ArrayUtils.contains(SQUASH_LIST, npc.getNpcId()))
 		{
@@ -120,7 +120,7 @@ public class SquashEvent extends QuestJython
 	}
 
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public String onSkillSee(L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		if (ArrayUtils.contains(targets, npc) && ArrayUtils.contains(SQUASH_LIST, npc.getNpcId()) && (skill.getId() == NECTAR_SKILL))
 		{
@@ -144,7 +144,7 @@ public class SquashEvent extends QuestJython
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public String onKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		dropItem(npc, killer);
 
@@ -159,7 +159,7 @@ public class SquashEvent extends QuestJython
 		return null;
 	}
 
-	private static final void dropItem(L2Npc mob, L2PcInstance player)
+	private static final void dropItem(L2Npc mob, L2Player player)
 	{
 		final int npcId = mob.getNpcId();
 		final int chance = Rnd.get(100);
@@ -245,7 +245,7 @@ public class SquashEvent extends QuestJython
 	}
 
 	@Override
-	public String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = "";
 		QuestState st = player.getQuestState(getName());

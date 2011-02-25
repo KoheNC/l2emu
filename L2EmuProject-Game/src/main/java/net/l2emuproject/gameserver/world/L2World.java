@@ -20,13 +20,13 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.tools.geometry.Point3D;
 import net.l2emuproject.util.ArrayBunch;
@@ -88,7 +88,7 @@ public final class L2World
 	private final L2EntityMap<L2Object> _objects = new L2ReadWriteEntityMap<L2Object>(50000);
 	
 	/** all the players in game */
-	private final Map<String, L2PcInstance> _players = new FastMap<String, L2PcInstance>(1000).shared();
+	private final Map<String, L2Player> _players = new FastMap<String, L2Player>(1000).shared();
 	
 	/** pets and their owner id */
 	private final Map<Integer, L2PetInstance> _pets = new FastMap<Integer, L2PetInstance>(100).shared();
@@ -127,7 +127,7 @@ public final class L2World
 				if (object instanceof L2ItemInstance)
 				{
 					L2ItemInstance item = (L2ItemInstance) object;
-					L2PcInstance player = findPlayer(item.getOwnerId());
+					L2Player player = findPlayer(item.getOwnerId());
 					if (player != null)
 						Util.handleIllegalPlayerAction(player, "Duplicate item detected for " + player, IllegalPlayerAction.PUNISH_KICKBAN);
 				}
@@ -156,12 +156,12 @@ public final class L2World
 				removeObject(o); // suggestion by whatev
 	}
 	
-	public void addOnlinePlayer(L2PcInstance player)
+	public void addOnlinePlayer(L2Player player)
 	{
 		_players.put(player.getName().toLowerCase(), player);
 	}
 	
-	public void removeOnlinePlayer(L2PcInstance player)
+	public void removeOnlinePlayer(L2Player player)
 	{
 		_players.remove(player.getName().toLowerCase());
 	}
@@ -181,12 +181,12 @@ public final class L2World
 		return null;
 	}
 	
-	public L2PcInstance findPlayer(int objectId)
+	public L2Player findPlayer(int objectId)
 	{
 		L2Object obj = _objects.get(objectId);
 		
-		if (obj instanceof L2PcInstance)
-			return (L2PcInstance) obj;
+		if (obj instanceof L2Player)
+			return (L2Player) obj;
 		
 		return null;
 	}
@@ -213,7 +213,7 @@ public final class L2World
 	 * <FONT COLOR=#FF0000><B> <U>Caution</U> : Read-only, please! </B></FONT><BR>
 	 * <BR>
 	 */
-	public Collection<L2PcInstance> getAllPlayers()
+	public Collection<L2Player> getAllPlayers()
 	{
 		return _players.values();
 	}
@@ -235,7 +235,7 @@ public final class L2World
 	 * 
 	 * @param name Name of the player to get Instance
 	 */
-	public L2PcInstance getPlayer(String name)
+	public L2Player getPlayer(String name)
 	{
 		return _players.get(name.toLowerCase());
 	}
@@ -246,10 +246,10 @@ public final class L2World
 	 * 
 	 * @param objectId ID of the player to get Instance
 	 */
-	public L2PcInstance getPlayer(int objectId)
+	public L2Player getPlayer(int objectId)
 	{
 		L2Object object = _objects.get(objectId);
-		return object instanceof L2PcInstance ? (L2PcInstance) object : null;
+		return object instanceof L2Player ? (L2Player) object : null;
 	}
 	
 	/**

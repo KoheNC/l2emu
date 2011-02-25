@@ -23,9 +23,9 @@ import java.util.ArrayList;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.LookupTable;
 import net.l2emuproject.util.concurrent.ForEachExecutable;
 
@@ -61,15 +61,15 @@ public final class PcEffects extends CharEffects
 	
 	private final LookupTable<ArrayList<StoredEffect>> _storedEffects = new LookupTable<ArrayList<StoredEffect>>();
 	
-	public PcEffects(L2PcInstance owner)
+	public PcEffects(L2Player owner)
 	{
 		super(owner);
 	}
 	
 	@Override
-	protected L2PcInstance getOwner()
+	protected L2Player getOwner()
 	{
-		return (L2PcInstance)_owner;
+		return (L2Player)_owner;
 	}
 	
 	public void storeEffects(boolean storeActiveEffects)

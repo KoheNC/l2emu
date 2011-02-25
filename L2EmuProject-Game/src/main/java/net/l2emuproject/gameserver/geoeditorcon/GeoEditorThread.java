@@ -20,7 +20,7 @@ import java.net.Socket;
 import java.net.SocketException;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -46,13 +46,13 @@ public class GeoEditorThread extends Thread
 
 	private OutputStream			_out;
 
-	private final FastList<L2PcInstance>	_gms;
+	private final FastList<L2Player>	_gms;
 
 	public GeoEditorThread(Socket ge)
 	{
 		_geSocket = ge;
 		_working = true;
-		_gms = new FastList<L2PcInstance>();
+		_gms = new FastList<L2Player>();
 	}
 
 	@Override
@@ -83,7 +83,7 @@ public class GeoEditorThread extends Thread
 
 				if (_mode == 2 && timer > _sendDelay)
 				{
-					for (L2PcInstance gm : _gms)
+					for (L2Player gm : _gms)
 						if (gm.isOnline() == 1)
 							sendGmPosition(gm);
 						else
@@ -158,7 +158,7 @@ public class GeoEditorThread extends Thread
 		}
 	}
 
-	public void sendGmPosition(L2PcInstance _gm)
+	public void sendGmPosition(L2Player _gm)
 	{
 		sendGmPosition(_gm.getX(), _gm.getY(), (short) _gm.getZ());
 	}
@@ -229,19 +229,19 @@ public class GeoEditorThread extends Thread
 			_sendDelay = value;
 	}
 
-	public void addGM(L2PcInstance gm)
+	public void addGM(L2Player gm)
 	{
 		if (!_gms.contains(gm))
 			_gms.add(gm);
 	}
 
-	public void removeGM(L2PcInstance gm)
+	public void removeGM(L2Player gm)
 	{
 		if (_gms.contains(gm))
 			_gms.remove(gm);
 	}
 
-	public boolean isSend(L2PcInstance gm)
+	public boolean isSend(L2Player gm)
 	{
         return _mode == 1 && _gms.contains(gm);
 	}

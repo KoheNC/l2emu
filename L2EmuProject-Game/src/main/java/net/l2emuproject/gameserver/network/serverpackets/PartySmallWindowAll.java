@@ -14,16 +14,16 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.L2GameClient;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class PartySmallWindowAll extends L2GameServerPacket
 {
 	private static final String _S__4E_PARTYSMALLWINDOWALL = "[S] 4e PartySmallWindowAll [ddd (dsddddddddddd)]";
 	
 	private final L2Party _party;
-	private final L2PcInstance _leader;
+	private final L2Player _leader;
 	
 	public PartySmallWindowAll(L2Party party)
 	{
@@ -32,14 +32,14 @@ public final class PartySmallWindowAll extends L2GameServerPacket
 	}
 	
 	@Override
-	protected void writeImpl(L2GameClient client, L2PcInstance activeChar)
+	protected void writeImpl(L2GameClient client, L2Player activeChar)
 	{
 		writeC(0x4e);
 		writeD(_leader.getObjectId()); // c3 party leader id
 		writeD(_party.getLootDistribution());//c3 party loot type (0,1,2,....)
 		writeD(_party.getPartyMembers().size() - 1);
 		
-		for (L2PcInstance member : _party.getPartyMembers())
+		for (L2Player member : _party.getPartyMembers())
 		{
 			if (member != null && member != activeChar)
 			{

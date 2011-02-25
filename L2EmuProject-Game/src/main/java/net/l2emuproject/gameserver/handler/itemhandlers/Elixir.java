@@ -16,12 +16,12 @@ package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExUseSharedGroupItem;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 
 public class Elixir implements IItemHandler
@@ -74,9 +74,9 @@ public class Elixir implements IItemHandler
 	@Override
 	public synchronized void useItem(L2Playable playable, L2ItemInstance item)
 	{
-		L2PcInstance activeChar; // use activeChar only for L2PcInstance checks where cannot be used PetInstance
-		if (playable instanceof L2PcInstance)
-			activeChar = (L2PcInstance) playable;
+		L2Player activeChar; // use activeChar only for L2Player checks where cannot be used PetInstance
+		if (playable instanceof L2Player)
+			activeChar = (L2Player) playable;
 		else
 		{
 			playable.sendPacket(SystemMessageId.ITEM_NOT_FOR_PETS);
@@ -170,7 +170,7 @@ public class Elixir implements IItemHandler
 	 * @param level
 	 * @return
 	 */
-	public boolean usePotion(L2PcInstance activeChar, int magicId, int skillToCheck, int level)
+	public boolean usePotion(L2Player activeChar, int magicId, int skillToCheck, int level)
 	{
 		boolean check = skillToCheck != 0 ? true : false;
 		L2Skill skill = SkillTable.getInstance().getInfo(magicId, level);

@@ -18,10 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -33,7 +33,7 @@ import org.apache.commons.logging.LogFactory;
 public final class GmListTable
 {
 	private static final Log _log = LogFactory.getLog(GmListTable.class);
-	private static final FastMap<L2PcInstance, Boolean> _allGms = new FastMap<L2PcInstance, Boolean>().shared();
+	private static final FastMap<L2Player, Boolean> _allGms = new FastMap<L2Player, Boolean>().shared();
 	
 	/** Shouldn't be instantiated */
 	private GmListTable()
@@ -46,7 +46,7 @@ public final class GmListTable
 	}
 	
 	/** @return Map containing all GM characters with their hiding status */
-	private static final FastMap<L2PcInstance, Boolean> getAllGms()
+	private static final FastMap<L2Player, Boolean> getAllGms()
 	{
 		return _allGms;
 	}
@@ -56,10 +56,10 @@ public final class GmListTable
 	 * @param includeHidden whether to include hiding GMs
 	 * @return List containing a subset of online GM characters
 	 */
-	public static List<L2PcInstance> getAllGms(boolean includeHidden)
+	public static List<L2Player> getAllGms(boolean includeHidden)
 	{
-		List<L2PcInstance> list = new ArrayList<L2PcInstance>(getAllGms().size());
-		for (FastMap.Entry<L2PcInstance, Boolean> n = getAllGms().head(), end = getAllGms().tail(); (n = n.getNext()) != end;)
+		List<L2Player> list = new ArrayList<L2Player>(getAllGms().size());
+		for (FastMap.Entry<L2Player, Boolean> n = getAllGms().head(), end = getAllGms().tail(); (n = n.getNext()) != end;)
 		{
 			if (includeHidden || !n.getValue())
 				list.add(n.getKey());
@@ -76,7 +76,7 @@ public final class GmListTable
 	public static List<String> getAllGmNames(boolean includeHidden)
 	{
 		List<String> list = new ArrayList<String>(getAllGms().size());
-		for (FastMap.Entry<L2PcInstance, Boolean> n = getAllGms().head(), end = getAllGms().tail(); (n = n.getNext()) != end;)
+		for (FastMap.Entry<L2Player, Boolean> n = getAllGms().head(), end = getAllGms().tail(); (n = n.getNext()) != end;)
 		{
 			if (!n.getValue())
 				list.add(n.getKey().getName());
@@ -86,7 +86,7 @@ public final class GmListTable
 		return list;
 	}
 	
-	public static void addGm(L2PcInstance player, boolean hidden)
+	public static void addGm(L2Player player, boolean hidden)
 	{
 		if (_log.isDebugEnabled())
 			_log.debug("added gm: " + player.getName());
@@ -94,7 +94,7 @@ public final class GmListTable
 		getAllGms().put(player, hidden);
 	}
 	
-	public static void deleteGm(L2PcInstance player)
+	public static void deleteGm(L2Player player)
 	{
 		if (_log.isDebugEnabled())
 			_log.debug("deleted gm: " + player.getName());
@@ -107,9 +107,9 @@ public final class GmListTable
 	 * update it's hiding status to false.
 	 * @param player Any player
 	 */
-	public static void showGm(L2PcInstance player)
+	public static void showGm(L2Player player)
 	{
-		FastMap.Entry<L2PcInstance, Boolean> hide = getAllGms().getEntry(player);
+		FastMap.Entry<L2Player, Boolean> hide = getAllGms().getEntry(player);
 		if (hide != null)
 			hide.setValue(false);
 	}
@@ -119,9 +119,9 @@ public final class GmListTable
 	 * update it's hiding status to true.
 	 * @param player Any player
 	 */
-	public static void hideGm(L2PcInstance player)
+	public static void hideGm(L2Player player)
 	{
-		FastMap.Entry<L2PcInstance, Boolean> hide = getAllGms().getEntry(player);
+		FastMap.Entry<L2Player, Boolean> hide = getAllGms().getEntry(player);
 		if (hide != null)
 			hide.setValue(true);
 	}
@@ -151,7 +151,7 @@ public final class GmListTable
 	 * If the receiver is a GM, all online GMs will be shown.
 	 * @param player a player
 	 */
-	public static void sendListToPlayer(L2PcInstance player)
+	public static void sendListToPlayer(L2Player player)
 	{
 		if (isAnyGmOnline(player.isGM()))
 		{
@@ -170,7 +170,7 @@ public final class GmListTable
 	 */
 	public static void broadcastToGMs(L2GameServerPacket packet)
 	{
-		for (L2PcInstance gm : getAllGms(true))
+		for (L2Player gm : getAllGms(true))
 			gm.sendPacket(packet);
 	}
 	

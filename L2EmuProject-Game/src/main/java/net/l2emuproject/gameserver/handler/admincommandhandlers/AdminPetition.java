@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.services.petition.PetitionService;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class handles commands for GMs to respond to petitions.
@@ -41,7 +41,7 @@ public class AdminPetition implements IAdminCommandHandler
 													};
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		L2Object targetChar = activeChar.getTarget();
 
@@ -94,12 +94,12 @@ public class AdminPetition implements IAdminCommandHandler
 		{
 			try
 			{
-				if (targetChar == null || !(targetChar instanceof L2PcInstance))
+				if (targetChar == null || !(targetChar instanceof L2Player))
 				{
 					activeChar.sendPacket(SystemMessageId.TARGET_IS_INCORRECT); // incorrect target!
 					return false;
 				}
-				L2PcInstance targetPlayer = (L2PcInstance) targetChar;
+				L2Player targetPlayer = (L2Player) targetChar;
 
 				String val = command.substring(15);
 
@@ -114,7 +114,7 @@ public class AdminPetition implements IAdminCommandHandler
 		}
 		else if (command.startsWith("admin_add_peti_chat"))
 		{
-			L2PcInstance player = L2World.getInstance().getPlayer(command.substring(20));
+			L2Player player = L2World.getInstance().getPlayer(command.substring(20));
 			if (player == null)
 			{
 				activeChar.sendPacket(SystemMessageId.TARGET_IS_NOT_FOUND_IN_THE_GAME);

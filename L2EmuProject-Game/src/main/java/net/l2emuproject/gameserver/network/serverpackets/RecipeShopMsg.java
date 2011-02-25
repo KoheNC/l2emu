@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class ...
@@ -24,9 +24,9 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 public class RecipeShopMsg extends L2GameServerPacket
 {
 	private static final String _S__DB_RecipeShopMsg = "[S] db RecipeShopMsg";
-	private final L2PcInstance _activeChar;
+	private final L2Player _activeChar;
 	
-	public RecipeShopMsg(L2PcInstance player)
+	public RecipeShopMsg(L2Player player)
 	{
 		_activeChar = player;
 	}

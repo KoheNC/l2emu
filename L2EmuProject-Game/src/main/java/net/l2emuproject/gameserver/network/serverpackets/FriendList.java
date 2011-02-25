@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.Set;
 
 import net.l2emuproject.gameserver.datatables.CharNameTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Support for "Chat with Friends" dialog. This packet is sent only at login.
@@ -37,7 +37,7 @@ public class FriendList extends L2GameServerPacket
 	private static final String	_S__FA_FRIENDLIST	= "[S] 75 FriendList";
 	private final Set<Integer>		_friends;
 	
-	public FriendList(L2PcInstance character)
+	public FriendList(L2Player character)
 	{
 		_friends = (Set<Integer>) character.getFriendList().getFriendIds();
 	}
@@ -53,7 +53,7 @@ public class FriendList extends L2GameServerPacket
 			for (Integer objId : _friends)
 			{
 				String name = CharNameTable.getInstance().getNameByObjectId(objId);
-				L2PcInstance player = L2World.getInstance().findPlayer(objId);
+				L2Player player = L2World.getInstance().findPlayer(objId);
 				boolean isOnline = (player != null && player.isOnline() == 1) ? true : false;
 				
 				writeD(objId);

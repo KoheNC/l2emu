@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class represents a packet that is sent by the client clicking an object
@@ -55,8 +55,8 @@ public final class Action extends L2GameClientPacket
 			_log.debug("ObjectID: " + _objectId);
 		}
 		
-		// Get the current L2PcInstance of the player
-		L2PcInstance activeChar = getActiveChar();
+		// Get the current L2Player of the player
+		L2Player activeChar = getActiveChar();
 		if (activeChar == null)
 			return;
 		
@@ -83,9 +83,9 @@ public final class Action extends L2GameClientPacket
 			sendAF();
 			return;
 		}
-		else if (obj instanceof L2PcInstance)
+		else if (obj instanceof L2Player)
 		{
-			L2PcInstance target = (L2PcInstance) obj;
+			L2Player target = (L2Player) obj;
 			if (target.getAppearance().isInvisible() && !activeChar.isGM())
 			{
 				sendAF();

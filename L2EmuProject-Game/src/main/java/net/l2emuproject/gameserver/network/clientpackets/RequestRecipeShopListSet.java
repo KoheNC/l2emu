@@ -16,13 +16,13 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.MAX_ADENA;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.RecipeShopMsg;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureItem;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
 import net.l2emuproject.gameserver.services.crafting.RecipeService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -62,13 +62,13 @@ public class RequestRecipeShopListSet extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getClient().getActiveChar();
+		L2Player player = getClient().getActiveChar();
 		if (player == null)
 			return;
 
 		if (_items == null)
 		{
-			player.setPrivateStoreType(L2PcInstance.STORE_PRIVATE_NONE);
+			player.setPrivateStoreType(L2Player.STORE_PRIVATE_NONE);
 			player.broadcastUserInfo();
 			sendAF();
 			return;
@@ -112,7 +112,7 @@ public class RequestRecipeShopListSet extends L2GameClientPacket
 		createList.setStoreName(player.getCreateList() != null ? player.getCreateList().getStoreName() : "");
 		player.setCreateList(createList);
 
-		player.setPrivateStoreType(L2PcInstance.STORE_PRIVATE_MANUFACTURE);
+		player.setPrivateStoreType(L2Player.STORE_PRIVATE_MANUFACTURE);
 		player.sitDown();
 		player.broadcastUserInfo();
 		sendPacket(new RecipeShopMsg(player));

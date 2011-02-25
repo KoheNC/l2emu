@@ -17,6 +17,7 @@ package net.l2emuproject.gameserver.model.actor.instance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Vice
@@ -29,13 +30,13 @@ public class L2FortSiegeNpcInstance extends L2NpcWalkerInstance
 	}
 
 	@Override
-	public void showChatWindow(L2PcInstance player)
+	public void showChatWindow(L2Player player)
 	{
 		showChatWindow(player, 0);
 	}
 
 	@Override
-	public void showChatWindow(L2PcInstance player, int val)
+	public void showChatWindow(L2Player player, int val)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 

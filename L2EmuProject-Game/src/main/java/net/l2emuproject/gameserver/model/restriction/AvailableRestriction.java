@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model.restriction;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Noctarius
@@ -32,14 +32,14 @@ public enum AvailableRestriction
 	PlayerChat()
 	{
 		@Override
-		public void activatedOn(L2PcInstance player)
+		public void activatedOn(L2Player player)
 		{
 			player.sendMessage("You have been chat banned.");
 			player.sendEtcStatusUpdate();
 		}
 
 		@Override
-		public void deactivatedOn(L2PcInstance player)
+		public void deactivatedOn(L2Player player)
 		{
 			player.sendPacket(SystemMessageId.CHATBAN_REMOVED);
 			player.sendEtcStatusUpdate();
@@ -51,11 +51,11 @@ public enum AvailableRestriction
 	{
 	}
 
-	public void activatedOn(L2PcInstance player)
+	public void activatedOn(L2Player player)
 	{
 	}
 
-	public void deactivatedOn(L2PcInstance player)
+	public void deactivatedOn(L2Player player)
 	{
 	}
 

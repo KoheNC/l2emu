@@ -26,7 +26,6 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.GMAudit;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -38,6 +37,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 import org.apache.commons.logging.Log;
@@ -172,7 +172,7 @@ public class AuctionBBSManager extends BaseBBSManager
 	 * .lang.String, net.l2emuproject.gameserver.model.actor.instance.L2PcInstance)
 	 */
 	@Override
-	public void parsecmd(String command, L2PcInstance activeChar)
+	public void parsecmd(String command, L2Player activeChar)
 	{
 		if (command.equals("_bbsauction"))
 		{
@@ -296,7 +296,7 @@ public class AuctionBBSManager extends BaseBBSManager
 		}
 	}
 
-	private void showAuctionPage(L2PcInstance activeChar, int page, String viewOnly, boolean showEnded)
+	private void showAuctionPage(L2Player activeChar, int page, String viewOnly, boolean showEnded)
 	{
 		int index = 0, minIndex = 0, maxIndex = 0;
 		maxIndex = (page == 1 ? page * 9 : (page * 10) - 1);
@@ -392,7 +392,7 @@ public class AuctionBBSManager extends BaseBBSManager
 		separateAndSend(html, activeChar);
 	}
 
-	private void showLotPage(L2PcInstance activeChar, int lotId)
+	private void showLotPage(L2Player activeChar, int lotId)
 	{
 		int count = 0;
 		int currentBid;
@@ -512,7 +512,7 @@ public class AuctionBBSManager extends BaseBBSManager
 		separateAndSend(html, activeChar);
 	}
 
-	private void showBidPage(L2PcInstance activeChar, int lotId)
+	private void showBidPage(L2Player activeChar, int lotId)
 	{
 		LotList lot = null;
 		try
@@ -577,12 +577,12 @@ public class AuctionBBSManager extends BaseBBSManager
 		nhm.setHtml(html.moveToString());
 		activeChar.sendPacket(nhm);
 
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to
+		// Send a Server->Client ActionFailed to the L2Player in order to
 		// avoid that the client wait another packet
 		activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	private void showNewAuctionPage(L2PcInstance activeChar)
+	private void showNewAuctionPage(L2Player activeChar)
 	{
 		NpcHtmlMessage nhm = new NpcHtmlMessage(5);
 		L2TextBuilder html = L2TextBuilder.newInstance("<html><body>");
@@ -621,12 +621,12 @@ public class AuctionBBSManager extends BaseBBSManager
 		nhm.setHtml(html.moveToString());
 		activeChar.sendPacket(nhm);
 
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to
+		// Send a Server->Client ActionFailed to the L2Player in order to
 		// avoid that the client wait another packet
 		activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	private void showInventoryPage(L2PcInstance activeChar, int page, int time, int currency, long startingBid, long increment, long buyNow)
+	private void showInventoryPage(L2Player activeChar, int page, int time, int currency, long startingBid, long increment, long buyNow)
 	{
 		int index = 0, minIndex = 0, maxIndex = 0;
 		maxIndex = (page == 1 ? page * 19 : (page * 20) - 1);
@@ -695,12 +695,12 @@ public class AuctionBBSManager extends BaseBBSManager
 		nhm.setHtml(html.moveToString());
 		activeChar.sendPacket(nhm);
 
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to
+		// Send a Server->Client ActionFailed to the L2Player in order to
 		// avoid that the client wait another packet
 		activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	private void showBuyNowPage(L2PcInstance activeChar, int lotId)
+	private void showBuyNowPage(L2Player activeChar, int lotId)
 	{
 		LotList lot = null;
 		try
@@ -765,12 +765,12 @@ public class AuctionBBSManager extends BaseBBSManager
 		nhm.setHtml(html.moveToString());
 		activeChar.sendPacket(nhm);
 
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to
+		// Send a Server->Client ActionFailed to the L2Player in order to
 		// avoid that the client wait another packet
 		activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	private void showComfirmationPage(L2PcInstance activeChar)
+	private void showComfirmationPage(L2Player activeChar)
 	{
 		NpcHtmlMessage nhm = new NpcHtmlMessage(5);
 		L2TextBuilder html = L2TextBuilder.newInstance();
@@ -781,12 +781,12 @@ public class AuctionBBSManager extends BaseBBSManager
 		nhm.setHtml(html.moveToString());
 		activeChar.sendPacket(nhm);
 
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to
+		// Send a Server->Client ActionFailed to the L2Player in order to
 		// avoid that the client wait another packet
 		activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	private void showBuyNowComfirmationPage(L2PcInstance activeChar)
+	private void showBuyNowComfirmationPage(L2Player activeChar)
 	{
 		NpcHtmlMessage nhm = new NpcHtmlMessage(5);
 		L2TextBuilder html = L2TextBuilder.newInstance();
@@ -797,12 +797,12 @@ public class AuctionBBSManager extends BaseBBSManager
 		nhm.setHtml(html.moveToString());
 		activeChar.sendPacket(nhm);
 
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to
+		// Send a Server->Client ActionFailed to the L2Player in order to
 		// avoid that the client wait another packet
 		activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	private void addAuction(L2PcInstance activeChar, int hours, int currency, long statingBid, long increment, long buyNow, long count, int objectId)
+	private void addAuction(L2Player activeChar, int hours, int currency, long statingBid, long increment, long buyNow, long count, int objectId)
 	{
 		long epochHours = hours * 60 * 60 * 1000;
 		L2ItemInstance item = activeChar.getInventory().getItemByObjectId(objectId);
@@ -860,7 +860,7 @@ public class AuctionBBSManager extends BaseBBSManager
 						try
 						{
 							con = L2DatabaseFactory.getInstance().getConnection(con);
-							for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+							for (L2Player player : L2World.getInstance().getAllPlayers())
 							{
 								if (player.getObjectId().equals(lot.ownerId))
 								{
@@ -884,7 +884,7 @@ public class AuctionBBSManager extends BaseBBSManager
 									+ (!lot.count.equals(1) ? "(" + Util.formatAdena(lot.count.intValue()) + ")" : (itemWon.isEquipable() ? "+" : "Level ") + lot.enchantLevel) + " " + itemWon.getName() + "<br>Check your inventory for "
 									+ Util.formatAdena(bid.bidAmount.intValue()) + " " + ItemTable.getInstance().getTemplate(lot.currency));
 
-							for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+							for (L2Player player : L2World.getInstance().getAllPlayers())
 								if (player.getObjectId().equals(bid.bidderId))
 								{
 									player.sendPacket(SystemMessageId.NEW_MAIL);
@@ -916,7 +916,7 @@ public class AuctionBBSManager extends BaseBBSManager
 					try
 					{
 						con = L2DatabaseFactory.getInstance().getConnection(con);
-						for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+						for (L2Player player : L2World.getInstance().getAllPlayers())
 							if (player.getObjectId().equals(bid.bidderId))
 							{
 								player.sendPacket(SystemMessageId.NEW_MAIL);
@@ -980,7 +980,7 @@ public class AuctionBBSManager extends BaseBBSManager
 
 	}
 
-	private boolean addBid(L2PcInstance activeChar, int lotId, long bidIncrement, int currency, long bidAmount)
+	private boolean addBid(L2Player activeChar, int lotId, long bidIncrement, int currency, long bidAmount)
 	{
 		boolean playerWasOnline = false;
 		long currentBid = getHighestBid(lotId);
@@ -1014,7 +1014,7 @@ public class AuctionBBSManager extends BaseBBSManager
 						prevBidAmount = result.getInt("bidAmount");
 						statement.close();
 
-						for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+						for (L2Player player : L2World.getInstance().getAllPlayers())
 						{
 							if (player.getObjectId().equals(prevBidderId))
 							{
@@ -1217,7 +1217,7 @@ public class AuctionBBSManager extends BaseBBSManager
 		return bid;
 	}
 
-	private void getLotsBiddedOn(L2PcInstance activeChar)
+	private void getLotsBiddedOn(L2Player activeChar)
 	{
 		java.sql.Connection con = null;
 		try
@@ -1279,7 +1279,7 @@ public class AuctionBBSManager extends BaseBBSManager
 	 * net.l2emuproject.gameserver.model.actor.instance.L2PcInstance)
 	 */
 	@Override
-	public void parsewrite(String ar1, String ar2, String ar3, String ar4, String ar5, L2PcInstance activeChar)
+	public void parsewrite(String ar1, String ar2, String ar3, String ar4, String ar5, L2Player activeChar)
 	{
 		if (ar1.equals("Sort"))
 		{

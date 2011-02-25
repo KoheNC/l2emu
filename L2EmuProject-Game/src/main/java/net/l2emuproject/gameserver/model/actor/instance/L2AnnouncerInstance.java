@@ -25,6 +25,7 @@ import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * An Special Custom Instance to Make an Announcer Npc for Players :)
@@ -55,9 +56,9 @@ public class L2AnnouncerInstance extends L2NpcInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
-		// Get the distance between the L2PcInstance and the L2NpcAnnouncerInstance
+		// Get the distance between the L2Player and the L2NpcAnnouncerInstance
 		if (!isInsideRadius(player, INTERACTION_DISTANCE, false, false))
 		{
 			player.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, this);

@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.ai.CtrlEvent;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class represents a packet that is sent by the client once a character has been
@@ -43,7 +43,7 @@ public final class CannotMoveAnymore extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getActiveChar();
+		L2Player player = getActiveChar();
 		if (player == null)
 			return;
 		

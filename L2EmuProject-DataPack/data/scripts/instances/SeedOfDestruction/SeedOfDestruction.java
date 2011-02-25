@@ -23,7 +23,6 @@ import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld
 import net.l2emuproject.gameserver.instancemanager.gracia.SeedOfDestructionManager;
 import net.l2emuproject.gameserver.model.L2CommandChannel;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.instances.PartyInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.QuestState;
@@ -34,6 +33,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.lang.ArrayUtils;
 
@@ -790,7 +790,7 @@ public final class SeedOfDestruction extends PartyInstance
 	}
 
 	@Override
-	protected final boolean canEnter(L2PcInstance player)
+	protected final boolean canEnter(L2Player player)
 	{
 		if (player.getParty() == null)
 		{
@@ -813,7 +813,7 @@ public final class SeedOfDestruction extends PartyInstance
 			player.sendPacket(new SystemMessage(2102));
 			return false;
 		}
-		for (L2PcInstance channelMember : channel.getMembers())
+		for (L2Player channelMember : channel.getMembers())
 		{
 			if (channelMember.getLevel() < 75)
 			{
@@ -842,7 +842,7 @@ public final class SeedOfDestruction extends PartyInstance
 	}
 
 	@Override
-	protected final void enterInstance(L2PcInstance player)
+	protected final void enterInstance(L2Player player)
 	{
 		final int[] coords =
 		{ -242759, 219981, -9986 };
@@ -876,7 +876,7 @@ public final class SeedOfDestruction extends PartyInstance
 			if (party == null || party.getPartyMembers() == null)
 				world.allowed.add(player.getObjectId());
 			else
-				for (L2PcInstance channelMember : party.getPartyMembers())
+				for (L2Player channelMember : party.getPartyMembers())
 					world.allowed.add(channelMember.getObjectId());
 
 			teleportParty(player, coords, _instanceId);
@@ -886,7 +886,7 @@ public final class SeedOfDestruction extends PartyInstance
 	}
 
 	@Override
-	protected final void exitInstance(L2PcInstance player)
+	protected final void exitInstance(L2Player player)
 	{
 		final int[] coords =
 		{ -248717, 250260, 4337 };
@@ -1000,7 +1000,7 @@ public final class SeedOfDestruction extends PartyInstance
 		// set instance reenter time for all allowed players
 		for (int objectId : world.allowed)
 		{
-			L2PcInstance player = L2World.getInstance().getPlayer(objectId);
+			L2Player player = L2World.getInstance().getPlayer(objectId);
 			InstanceManager.getInstance().setInstanceTime(objectId, INSTANCE_ID, reenter.getTimeInMillis());
 			if (player != null && player.isOnline() > 0)
 				player.sendPacket(sm);
@@ -1011,14 +1011,14 @@ public final class SeedOfDestruction extends PartyInstance
 	{
 		for (int objId : world.allowed)
 		{
-			L2PcInstance player = L2World.getInstance().getPlayer(objId);
+			L2Player player = L2World.getInstance().getPlayer(objId);
 			if (player != null)
 				player.sendPacket(message);
 		}
 	}
 
 	@Override
-	public final String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onAggroRangeEnter(L2Npc npc, L2Player player, boolean isPet)
 	{
 		if (npc.getNpcId() == 29167)
 		{
@@ -1033,7 +1033,7 @@ public final class SeedOfDestruction extends PartyInstance
 						world.status++;
 						for (int objId : world.allowed)
 						{
-							L2PcInstance pl = L2World.getInstance().getPlayer(objId);
+							L2Player pl = L2World.getInstance().getPlayer(objId);
 							if (pl != null)
 								pl.showQuestMovie(5);
 						}
@@ -1046,7 +1046,7 @@ public final class SeedOfDestruction extends PartyInstance
 	}
 
 	@Override
-	public final String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet, L2Skill skill)
+	public final String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet, L2Skill skill)
 	{
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof SODWorld)
@@ -1075,7 +1075,7 @@ public final class SeedOfDestruction extends PartyInstance
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof SODWorld)
@@ -1101,7 +1101,7 @@ public final class SeedOfDestruction extends PartyInstance
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof SODWorld)
@@ -1140,7 +1140,7 @@ public final class SeedOfDestruction extends PartyInstance
 					world.status++;
 					for (int objId : world.allowed)
 					{
-						L2PcInstance pl = L2World.getInstance().getPlayer(objId);
+						L2Player pl = L2World.getInstance().getPlayer(objId);
 						if (pl != null)
 							pl.showQuestMovie(6);
 					}
@@ -1154,7 +1154,7 @@ public final class SeedOfDestruction extends PartyInstance
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		final int npcId = npc.getNpcId();
 		final byte state = SeedOfDestructionManager.getInstance().getState();

@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.skills;
 import net.l2emuproject.gameserver.world.object.L2Character;
 
 /**
- * An Env object is just a class to pass parameters to a calculator such as L2PcInstance, L2ItemInstance, Initial value.
+ * An Env object is just a class to pass parameters to a calculator such as L2Player, L2ItemInstance, Initial value.
  */
 public final class Env
 {

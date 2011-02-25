@@ -20,10 +20,10 @@ import java.sql.SQLException;
 
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -39,7 +39,7 @@ public class AdminChangeAccessLevel implements IAdminCommandHandler
 													{ "admin_changelvl" };
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		handleChangeLevel(command, activeChar);
 		return true;
@@ -59,7 +59,7 @@ public class AdminChangeAccessLevel implements IAdminCommandHandler
 	 * @param command
 	 * @param activeChar
 	 */
-	private void handleChangeLevel(String command, L2PcInstance activeChar)
+	private void handleChangeLevel(String command, L2Player activeChar)
 	{
 		String[] parts = command.split(" ");
 		if (parts.length == 2)
@@ -67,8 +67,8 @@ public class AdminChangeAccessLevel implements IAdminCommandHandler
 			try
 			{
 				int lvl = Integer.parseInt(parts[1]);
-				if (activeChar.getTarget() instanceof L2PcInstance)
-					onLineChange(activeChar, (L2PcInstance) activeChar.getTarget(), lvl);
+				if (activeChar.getTarget() instanceof L2Player)
+					onLineChange(activeChar, (L2Player) activeChar.getTarget(), lvl);
 				else
 					activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 			}
@@ -81,7 +81,7 @@ public class AdminChangeAccessLevel implements IAdminCommandHandler
 		{
 			String name = parts[1];
 			int lvl = Integer.parseInt(parts[2]);
-			L2PcInstance player = L2World.getInstance().getPlayer(name);
+			L2Player player = L2World.getInstance().getPlayer(name);
 			if (player != null)
 				onLineChange(activeChar, player, lvl);
 			else
@@ -118,7 +118,7 @@ public class AdminChangeAccessLevel implements IAdminCommandHandler
 	 * @param player
 	 * @param lvl
 	 */
-	private void onLineChange(L2PcInstance activeChar, L2PcInstance player, int lvl)
+	private void onLineChange(L2Player activeChar, L2Player player, int lvl)
 	{
 		player.setAccessLevel(lvl);
 		if (lvl >= 0)

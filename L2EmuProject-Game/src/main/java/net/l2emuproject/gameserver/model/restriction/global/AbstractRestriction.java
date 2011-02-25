@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.model.restriction.global;
 
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 
 import org.apache.commons.logging.Log;
@@ -60,21 +60,21 @@ public abstract class AbstractRestriction implements GlobalRestriction
 
 	@Override
 	@DisabledRestriction
-	public boolean isRestricted(L2PcInstance activeChar, Class<? extends GlobalRestriction> callingRestriction)
+	public boolean isRestricted(L2Player activeChar, Class<? extends GlobalRestriction> callingRestriction)
 	{
 		throw new AbstractMethodError();
 	}
 
 	@Override
 	@DisabledRestriction
-	public boolean canInviteToParty(L2PcInstance activeChar, L2PcInstance target)
+	public boolean canInviteToParty(L2Player activeChar, L2Player target)
 	{
 		throw new AbstractMethodError();
 	}
 
 	@Override
 	@DisabledRestriction
-	public boolean isProtected(L2Character activeChar, L2Character target, L2Skill skill, boolean sendMessage, L2PcInstance attacker_, L2PcInstance target_,
+	public boolean isProtected(L2Character activeChar, L2Character target, L2Skill skill, boolean sendMessage, L2Player attacker_, L2Player target_,
 			boolean isOffensive)
 	{
 		throw new AbstractMethodError();
@@ -82,56 +82,56 @@ public abstract class AbstractRestriction implements GlobalRestriction
 	
 	@Override
 	@DisabledRestriction
-	public boolean canRequestRevive(L2PcInstance activeChar)
+	public boolean canRequestRevive(L2Player activeChar)
 	{
 		throw new AbstractMethodError();
 	}
 
 	@Override
 	@DisabledRestriction
-	public boolean canTeleport(L2PcInstance activeChar)
+	public boolean canTeleport(L2Player activeChar)
 	{
 		throw new AbstractMethodError();
 	}
 
 	@Override
 	@DisabledRestriction
-	public boolean canUseItemHandler(Class<? extends IItemHandler> clazz, int itemId, L2Playable activeChar, L2ItemInstance item, L2PcInstance player)
+	public boolean canUseItemHandler(Class<? extends IItemHandler> clazz, int itemId, L2Playable activeChar, L2ItemInstance item, L2Player player)
 	{
 		throw new AbstractMethodError();
 	}
 
 	@Override
 	@DisabledRestriction
-	public boolean canPickUp(L2PcInstance activeChar, L2ItemInstance item, L2PetInstance pet)
+	public boolean canPickUp(L2Player activeChar, L2ItemInstance item, L2PetInstance pet)
 	{
 		throw new AbstractMethodError();
 	}
 
 	@Override
 	@DisabledRestriction
-	public void playerLoggedIn(L2PcInstance activeChar)
+	public void playerLoggedIn(L2Player activeChar)
 	{
 		throw new AbstractMethodError();
 	}
 
 	@Override
 	@DisabledRestriction
-	public void playerDisconnected(L2PcInstance activeChar)
+	public void playerDisconnected(L2Player activeChar)
 	{
 		throw new AbstractMethodError();
 	}
 
 	@Override
 	@DisabledRestriction
-	public void playerKilled(L2Character activeChar, L2PcInstance target, L2PcInstance killer)
+	public void playerKilled(L2Character activeChar, L2Player target, L2Player killer)
 	{
 		throw new AbstractMethodError();
 	}
 
 	@Override
 	@DisabledRestriction
-	public boolean onBypassFeedback(L2Npc npc, L2PcInstance activeChar, String command)
+	public boolean onBypassFeedback(L2Npc npc, L2Player activeChar, String command)
 	{
 		throw new AbstractMethodError();
 	}
@@ -145,21 +145,21 @@ public abstract class AbstractRestriction implements GlobalRestriction
 
 	@Override
 	@DisabledRestriction
-	public boolean canUseVoicedCommand(String command, L2PcInstance activeChar, String target)
+	public boolean canUseVoicedCommand(String command, L2Player activeChar, String target)
 	{
 		throw new AbstractMethodError();
 	}
 
 	@Override
 	@DisabledRestriction
-	public boolean canUseSkill(L2PcInstance player, L2Skill skill)
+	public boolean canUseSkill(L2Player player, L2Skill skill)
 	{
 		throw new AbstractMethodError();
 	}
 
 	@Override
 	@DisabledRestriction
-	public boolean canBeSummoned(L2PcInstance target)
+	public boolean canBeSummoned(L2Player target)
 	{
 		throw new AbstractMethodError();
 	}

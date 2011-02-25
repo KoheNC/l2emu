@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.skills.conditions;
 import java.util.Arrays;
 import java.util.List;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.lang.ArrayUtils;
 
@@ -41,10 +41,10 @@ final class ConditionPlayerHasClanHall extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2PcInstance))
+		if (!(env.player instanceof L2Player))
 			return false;
 		
-		L2Clan clan = ((L2PcInstance)env.player).getClan();
+		L2Clan clan = ((L2Player)env.player).getClan();
 		if (clan == null)
 			return _clanHall.length == 1 && _clanHall[0] == 0;
 		

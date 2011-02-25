@@ -31,7 +31,6 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ItemTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -49,6 +48,7 @@ import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;
@@ -64,7 +64,7 @@ public class RecipeService
 	private static final String RECIPES_FILE = "recipes.xml";
 
 	private final static Log _log = LogFactory.getLog(RecipeService.class);
-	private static final Map<L2PcInstance, RecipeItemMaker> _activeMakers = Collections.synchronizedMap(new WeakHashMap<L2PcInstance, RecipeItemMaker>());
+	private static final Map<L2Player, RecipeItemMaker> _activeMakers = Collections.synchronizedMap(new WeakHashMap<L2Player, RecipeItemMaker>());
 
 	private final FastMap<Integer, L2RecipeList> _lists;
 	private int[] _itemIds;
@@ -121,7 +121,7 @@ public class RecipeService
 		return _itemIds;
 	}
 
-	public synchronized void requestBookOpen(L2PcInstance player, boolean isDwarvenCraft)
+	public synchronized void requestBookOpen(L2Player player, boolean isDwarvenCraft)
 	{
 		RecipeItemMaker maker = null;
 		if (Config.ALT_GAME_CREATION)
@@ -138,12 +138,12 @@ public class RecipeService
 		player.sendPacket(SystemMessageId.CANT_ALTER_RECIPEBOOK_WHILE_CRAFTING);
 	}
 
-	public synchronized void requestMakeItemAbort(L2PcInstance player)
+	public synchronized void requestMakeItemAbort(L2Player player)
 	{
 		_activeMakers.remove(player); // TODO:  anything else here?
 	}
 
-	public synchronized void requestManufactureItem(L2PcInstance manufacturer, int recipeListId, L2PcInstance player)
+	public synchronized void requestManufactureItem(L2Player manufacturer, int recipeListId, L2Player player)
 	{
 		L2RecipeList recipeList = getValidRecipeList(player, recipeListId);
 
@@ -181,7 +181,7 @@ public class RecipeService
 		}
 	}
 
-	public synchronized void requestMakeItem(L2PcInstance player, int recipeListId)
+	public synchronized void requestMakeItem(L2Player player, int recipeListId)
 	{
 		if (player.getPlayerDuel().isInDuel())
 		{
@@ -383,8 +383,8 @@ public class RecipeService
 		protected boolean				_isValid;
 		protected List<TempItem>		_items			= null;
 		protected final L2RecipeList	_recipeList;
-		protected final L2PcInstance	_player;				// "crafter"
-		protected final L2PcInstance	_target;				// "customer"
+		protected final L2Player	_player;				// "crafter"
+		protected final L2Player	_target;				// "customer"
 		protected final L2Skill			_skill;
 		protected final int				_skillId;
 		protected final int				_skillLevel;
@@ -397,7 +397,7 @@ public class RecipeService
 		protected long					_materialsRefPrice;
 		protected int					_delay;
 
-		public RecipeItemMaker(L2PcInstance pPlayer, L2RecipeList pRecipeList, L2PcInstance pTarget)
+		public RecipeItemMaker(L2Player pPlayer, L2RecipeList pRecipeList, L2Player pTarget)
 		{
 			_player = pPlayer;
 			_target = pTarget;
@@ -1040,7 +1040,7 @@ public class RecipeService
 		}
 	}
 
-	private L2RecipeList getValidRecipeList(L2PcInstance player, int id)
+	private L2RecipeList getValidRecipeList(L2Player player, int id)
 	{
 		L2RecipeList recipeList = getRecipeList(id);
 

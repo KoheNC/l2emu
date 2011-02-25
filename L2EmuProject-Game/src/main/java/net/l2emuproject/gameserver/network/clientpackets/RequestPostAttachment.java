@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.network.clientpackets;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.instancemanager.MailManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Message;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
@@ -32,6 +31,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
@@ -55,7 +55,7 @@ public final class RequestPostAttachment extends L2GameClientPacket
 		if (!Config.ALLOW_MAIL || !Config.ALLOW_ATTACHMENTS)
 			return;
 		
-		final L2PcInstance activeChar = getClient().getActiveChar();
+		final L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 		
@@ -218,7 +218,7 @@ public final class RequestPostAttachment extends L2GameClientPacket
 		activeChar.sendPacket(su);
 		
 		SystemMessage sm;
-		final L2PcInstance sender = L2World.getInstance().getPlayer(msg.getSenderId());
+		final L2Player sender = L2World.getInstance().getPlayer(msg.getSenderId());
 		if (adena > 0)
 		{
 			if (sender != null)

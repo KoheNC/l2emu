@@ -19,12 +19,12 @@ import net.l2emuproject.Config.ChatMode;
 import net.l2emuproject.gameserver.handler.IChatHandler;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.model.BlockList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author  Noctarius
@@ -44,10 +44,10 @@ public class ChatShout implements IChatHandler
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.handler.IChatHandler#useChatHandler(net.l2emuproject.gameserver.character.player.L2PcInstance, net.l2emuproject.gameserver.network.enums.SystemChatChannelId, java.lang.String)
+	 * @see net.l2emuproject.gameserver.handler.IChatHandler#useChatHandler(net.l2emuproject.gameserver.world.object.L2Player.player.L2PcInstance, net.l2emuproject.gameserver.network.enums.SystemChatChannelId, java.lang.String)
 	 */
 	@Override
-	public void useChatHandler(L2PcInstance activeChar, String target, SystemChatChannelId chatType, String text)
+	public void useChatHandler(L2Player activeChar, String target, SystemChatChannelId chatType, String text)
 	{
 		if (!activeChar.getFloodProtector().tryPerformAction(Protected.GLOBAL_CHAT) && !activeChar.isGM())
 		{
@@ -61,7 +61,7 @@ public class ChatShout implements IChatHandler
 		if (Config.DEFAULT_GLOBAL_CHAT == ChatMode.REGION)
 		{
 			L2MapRegion region = MapRegionManager.getInstance().getRegion(activeChar.getX(), activeChar.getY(), activeChar.getZ());
-			for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+			for (L2Player player : L2World.getInstance().getAllPlayers())
 			{
 				if (region == MapRegionManager.getInstance().getRegion(player.getX(), player.getY(), player.getZ())
 						&& !(Config.REGION_CHAT_ALSO_BLOCKED && BlockList.isBlocked(player, activeChar))
@@ -73,7 +73,7 @@ public class ChatShout implements IChatHandler
 		}
 		else if (Config.DEFAULT_GLOBAL_CHAT == ChatMode.GLOBAL || Config.DEFAULT_GLOBAL_CHAT == ChatMode.GM && activeChar.isGM())
 		{
-			for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+			for (L2Player player : L2World.getInstance().getAllPlayers())
 			{
 				if (!(Config.REGION_CHAT_ALSO_BLOCKED
 						&& BlockList.isBlocked(player, activeChar))

@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Kerberos
@@ -32,8 +32,8 @@ class ConditionPlayerInvSize extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (env.player instanceof L2PcInstance)
-			return env.player.getInventory().getSize() <= ((L2PcInstance)env.player).getInventoryLimit() - _size;
+		if (env.player instanceof L2Player)
+			return env.player.getInventory().getSize() <= ((L2Player)env.player).getInventoryLimit() - _size;
 		return true;
 	}
 }

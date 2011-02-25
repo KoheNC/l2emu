@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Format: (chd) dddddd
@@ -35,7 +35,7 @@ public final class ExCubeGameExtendedChangePoints extends L2GameServerPacket
 	private final int			_bluePoints;
 	private final int			_redPoints;
 	private final boolean		_isRedTeam;
-	private final L2PcInstance	_player;
+	private final L2Player	_player;
 	private final int			_playerPoints;
 
 	/**
@@ -48,7 +48,7 @@ public final class ExCubeGameExtendedChangePoints extends L2GameServerPacket
 	 * @param player Player Instance
 	 * @param playerPoints Current Player Points
 	 */
-	public ExCubeGameExtendedChangePoints(int timeLeft, int bluePoints, int redPoints, boolean isRedTeam, L2PcInstance player, int playerPoints)
+	public ExCubeGameExtendedChangePoints(int timeLeft, int bluePoints, int redPoints, boolean isRedTeam, L2Player player, int playerPoints)
 	{
 		_timeLeft = timeLeft;
 		_bluePoints = bluePoints;

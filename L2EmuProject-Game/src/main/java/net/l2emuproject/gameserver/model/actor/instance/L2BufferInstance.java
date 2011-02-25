@@ -24,6 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author lord_rex & NB4L1
@@ -65,7 +66,7 @@ public class L2BufferInstance extends L2NpcInstance
 	}
 
 	@Override
-	public final void onBypassFeedback(L2PcInstance player, String command)
+	public final void onBypassFeedback(L2Player player, String command)
 	{
 		if (command.equalsIgnoreCase("Donator"))
 		{
@@ -210,7 +211,7 @@ public class L2BufferInstance extends L2NpcInstance
 		}
 	}
 
-	private void makeBuff(L2PcInstance player, int skillId, int skillLevel)
+	private void makeBuff(L2Player player, int skillId, int skillLevel)
 	{
 		int priceIndex = 0;
 
@@ -249,7 +250,7 @@ public class L2BufferInstance extends L2NpcInstance
 			broadcastPacket(new MagicSkillUse(this, player, skillId, skillLevel, 100, 0));
 	}
 
-	private void showBufferWindow(L2PcInstance player, int bypassIndex)
+	private void showBufferWindow(L2Player player, int bypassIndex)
 	{
 		String filename = "";
 
@@ -297,7 +298,7 @@ public class L2BufferInstance extends L2NpcInstance
 		showChatWindow(player, filename);
 	}
 
-	private void checkPrice(L2PcInstance player, int priceIndex)
+	private void checkPrice(L2Player player, int priceIndex)
 	{
 		if (player.getInventory().getAdena() < priceIndex)
 		{
@@ -306,7 +307,7 @@ public class L2BufferInstance extends L2NpcInstance
 		}
 	}
 
-	private void checkPlayer(L2PcInstance player)
+	private void checkPlayer(L2Player player)
 	{
 		if (player.isDead() || player.isAlikeDead())
 		{
@@ -315,7 +316,7 @@ public class L2BufferInstance extends L2NpcInstance
 		}
 	}
 
-	private void checkCw(L2PcInstance player)
+	private void checkCw(L2Player player)
 	{
 		// Prevent a cursed weapon wielder of being buffed
 		if (Config.ALLOW_KARMA_PLAYER && player.isCursedWeaponEquipped() || player.isChaotic())
@@ -325,7 +326,7 @@ public class L2BufferInstance extends L2NpcInstance
 		}
 	}
 
-	private void checkLevel(L2PcInstance player)
+	private void checkLevel(L2Player player)
 	{
 		if (player.getLevel() < Config.MIN_PC_LVL_FOR_BUFFS || (player.getLevel() > Config.MAX_PC_LVL_FOR_BUFFS))
 		{

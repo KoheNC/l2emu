@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.instancemanager.grandbosses;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Entity;
 import net.l2emuproject.gameserver.model.entity.GrandBossState;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * 
@@ -49,7 +49,7 @@ public abstract class BossLair extends Entity
 
 	public synchronized boolean isPlayersAnnihilated()
 	{
-		for (L2PcInstance pc : getPlayersInside())
+		for (L2Player pc : getPlayersInside())
 		{
 			if (!pc.isDead())
 				return false;
@@ -75,7 +75,7 @@ public abstract class BossLair extends Entity
 	@Override
 	public void banishForeigners()
 	{
-		for (L2PcInstance player : getPlayersInside())
+		for (L2Player player : getPlayersInside())
 		{
 			if (_questName != null)
 			{

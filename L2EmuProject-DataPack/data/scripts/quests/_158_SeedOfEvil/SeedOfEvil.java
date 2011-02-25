@@ -14,7 +14,6 @@
  */
 package quests._158_SeedOfEvil;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
@@ -22,6 +21,7 @@ import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class SeedOfEvil extends QuestJython
 {
@@ -50,7 +50,7 @@ public final class SeedOfEvil extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		QuestState qs = player.getQuestState(QN);
 		if (qs.isCompleted())
@@ -67,7 +67,7 @@ public final class SeedOfEvil extends QuestJython
 	}
 
 	@Override
-	public final String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet, L2Skill skill)
+	public final String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet, L2Skill skill)
 	{
 		switch (npc.getQuestAttackStatus())
 		{
@@ -85,10 +85,10 @@ public final class SeedOfEvil extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		npc.broadcastPacket(new NpcSay(npc, NERKAS_KILLED));
-		L2PcInstance quester = killer/*npc.getQuestFirstAttacker()*/;
+		L2Player quester = killer/*npc.getQuestFirstAttacker()*/;
 		if (quester == null)
 			return null;
 		QuestState qs = quester.getQuestState(QN);
@@ -106,7 +106,7 @@ public final class SeedOfEvil extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance talker)
+	public final String onTalk(L2Npc npc, L2Player talker)
 	{
 		QuestState qs = talker.getQuestState(QN);
 		if (qs == null)

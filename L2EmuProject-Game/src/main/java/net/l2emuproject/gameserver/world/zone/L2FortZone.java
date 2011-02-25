@@ -16,12 +16,12 @@ package net.l2emuproject.gameserver.world.zone;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.FortSiege;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2FortZone extends SiegeableEntityZone
 {
@@ -41,9 +41,9 @@ public class L2FortZone extends SiegeableEntityZone
 		
 		character.setInsideZone(FLAG_FORT, true);
 		
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
-			L2PcInstance player = (L2PcInstance)character;
+			L2Player player = (L2Player)character;
 			L2Clan clan = player.getClan();
 			if (clan != null)
 			{
@@ -63,15 +63,15 @@ public class L2FortZone extends SiegeableEntityZone
 		
 		character.setInsideZone(FLAG_FORT, false);
 		
-		if (character instanceof L2PcInstance)
-			((L2PcInstance)character).stopFameTask();
+		if (character instanceof L2Player)
+			((L2Player)character).stopFameTask();
 	}
 
 	@Override
 	protected void onDieInside(L2Character character)
 	{
 		// debuff participants only if they die inside siege zone
-		if (character instanceof L2PcInstance && isSiegeInProgress())
+		if (character instanceof L2Player && isSiegeInProgress())
 		{
 			int lvl;
 			L2Effect effect = character.getFirstEffect(5660);

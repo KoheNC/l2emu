@@ -18,8 +18,6 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.ISkillConditionChecker;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance.TeleportMode;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillRecall;
@@ -28,6 +26,8 @@ import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.L2Player.TeleportMode;
 
 public class Recall extends ISkillConditionChecker
 {
@@ -36,9 +36,9 @@ public class Recall extends ISkillConditionChecker
 	@Override
 	public boolean checkConditions(L2Character activeChar, L2Skill skill)
 	{
-		if (activeChar instanceof L2PcInstance)
+		if (activeChar instanceof L2Player)
 		{
-			L2PcInstance player = (L2PcInstance)activeChar;
+			L2Player player = (L2Player)activeChar;
 			
 			// If Alternate rule Karma punishment is set to true, forbid skill Return to player with Karma
 			if (skill.getSkillType() == L2SkillType.RECALL && !Config.ALT_GAME_KARMA_PLAYER_CAN_TELEPORT && player.getKarma() > 0)
@@ -57,9 +57,9 @@ public class Recall extends ISkillConditionChecker
 	@Override
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Character... targets)
 	{
-		if (activeChar instanceof L2PcInstance)
+		if (activeChar instanceof L2Player)
 		{
-			L2PcInstance player = (L2PcInstance)activeChar;
+			L2Player player = (L2Player)activeChar;
 			
 			if (!player.canTeleport(player.hasSkill(skill.getId()) ? TeleportMode.RECALL : TeleportMode.SCROLL_OF_ESCAPE, true))
 			{
@@ -73,9 +73,9 @@ public class Recall extends ISkillConditionChecker
 			if (target == null)
 				continue;
 			
-			if (target instanceof L2PcInstance)
+			if (target instanceof L2Player)
 			{
-				L2PcInstance targetChar = (L2PcInstance)target;
+				L2Player targetChar = (L2Player)target;
 				
 				if (!targetChar.canTeleport(TeleportMode.RECALL))
 				{
@@ -93,13 +93,13 @@ public class Recall extends ISkillConditionChecker
 				{
 					// target is not player OR player is not flying or flymounted
 					// TODO: add check for gracia continent coords
-					if (target instanceof L2PcInstance
-							&& (target.isFlying() || ((L2PcInstance)target).isFlyingMounted()))
+					if (target instanceof L2Player
+							&& (target.isFlying() || ((L2Player)target).isFlyingMounted()))
 						loc = null;
 					// verified on retail - nothing happens
 				}
 			}
-			else if (skill.getSkillType() == L2SkillType.RECALL && target instanceof L2PcInstance)
+			else if (skill.getSkillType() == L2SkillType.RECALL && target instanceof L2Player)
 			{
 				if (target.isInInstance())
 				{
@@ -110,7 +110,7 @@ public class Recall extends ISkillConditionChecker
 				{
 					TeleportWhereType type = ((L2SkillRecall)skill).getRecallType();
 					
-					loc = MapRegionManager.getInstance().getTeleToLocation((L2PcInstance)target, type);
+					loc = MapRegionManager.getInstance().getTeleToLocation((L2Player)target, type);
 				}
 			}
 			
@@ -119,7 +119,7 @@ public class Recall extends ISkillConditionChecker
 				if (skill.getId() != 5226)
 					target.setInstanceId(0);
 				
-				if (target instanceof L2PcInstance)
+				if (target instanceof L2Player)
 					target.getActingPlayer().setIsIn7sDungeon(false);
 				target.teleToLocation(loc, true);
 			}

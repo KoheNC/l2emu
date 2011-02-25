@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Kerberos
@@ -22,10 +22,10 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
  */
 public final class ExValidateLocationInAirShip extends L2GameServerPacket
 {
-	private final L2PcInstance	_activeChar;
+	private final L2Player	_activeChar;
 	private final int			shipId, x, y, z, h;
 
-	public ExValidateLocationInAirShip(L2PcInstance player)
+	public ExValidateLocationInAirShip(L2Player player)
 	{
 		_activeChar = player;
 		shipId = _activeChar.getAirShip().getObjectId();

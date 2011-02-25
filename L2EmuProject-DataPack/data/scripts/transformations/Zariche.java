@@ -14,9 +14,9 @@
  */
 package transformations;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class Zariche extends L2Transformation
 {
@@ -29,7 +29,7 @@ public class Zariche extends L2Transformation
 	}
 
 	@Override
-	public void transformedSkills(L2PcInstance player)
+	public void transformedSkills(L2Player player)
 	{
 		{
 			// Set charachter name to transformed name
@@ -44,7 +44,7 @@ public class Zariche extends L2Transformation
 	}
 
 	@Override
-	public void removeSkills(L2PcInstance player)
+	public void removeSkills(L2Player player)
 	{
 		// set character back to true name.
 		player.getAppearance().setVisibleName(null);

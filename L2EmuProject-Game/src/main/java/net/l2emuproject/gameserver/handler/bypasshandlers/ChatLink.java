@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.handler.bypasshandlers;
 
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class ChatLink implements IBypassHandler
 {
@@ -25,7 +25,7 @@ public class ChatLink implements IBypassHandler
 												{ "Chat" };
 
 	@Override
-	public boolean useBypass(String command, L2PcInstance activeChar, L2Character target)
+	public boolean useBypass(String command, L2Player activeChar, L2Character target)
 	{
 		if (!(target instanceof L2Npc))
 			return false;

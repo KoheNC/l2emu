@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author zabbix
@@ -32,7 +32,7 @@ public class GameGuardQuery extends StaticPacket
     }
     
     @Override
-    public void prepareToSend(final L2GameClient client, final L2PcInstance activeChar)
+    public void prepareToSend(final L2GameClient client, final L2Player activeChar)
     {
         // Lets make user as gg-unauthorized
         // We will set him as ggOK after reply fromclient

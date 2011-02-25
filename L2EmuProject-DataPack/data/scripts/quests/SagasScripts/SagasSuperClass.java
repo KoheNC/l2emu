@@ -18,7 +18,6 @@ import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
@@ -32,6 +31,7 @@ import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 public class SagasSuperClass extends QuestJython
@@ -96,7 +96,7 @@ public class SagasSuperClass extends QuestJython
 		_SpawnList.put(mob, st.getPlayer().getObjectId());
 	}
 
-	public L2Npc FindSpawn(L2PcInstance player, L2Npc npc)
+	public L2Npc FindSpawn(L2Player player, L2Npc npc)
 	{
 		if (npc != null && _SpawnList.containsKey(npc) && _SpawnList.get(npc) == player.getObjectId())
 			return npc;
@@ -115,11 +115,11 @@ public class SagasSuperClass extends QuestJython
 
 	public QuestState findRightState(L2Npc npc)
 	{
-		L2PcInstance player = null;
+		L2Player player = null;
 		QuestState st = null;
 		if (_SpawnList.containsKey(npc))
 		{
-			player = (L2PcInstance) L2World.getInstance().findObject(_SpawnList.get(npc));
+			player = (L2Player) L2World.getInstance().findObject(_SpawnList.get(npc));
 			if (player != null)
 				st = player.getQuestState(qn);
 		}
@@ -150,7 +150,7 @@ public class SagasSuperClass extends QuestJython
 		}
 	}
 
-	public QuestState findQuest(L2PcInstance player)
+	public QuestState findQuest(L2Player player)
 	{
 		QuestState st = player.getQuestState(qn);
 		if (st != null)
@@ -172,7 +172,7 @@ public class SagasSuperClass extends QuestJython
 		return null;
 	}
 
-	public int getClassId(L2PcInstance player)
+	public int getClassId(L2Player player)
 	{
 		if (player.getClassId().getId() == 0x81)
 		{
@@ -181,7 +181,7 @@ public class SagasSuperClass extends QuestJython
 		return classid[0];
 	}
 	
-	public int getPrevClass(L2PcInstance player)
+	public int getPrevClass(L2Player player)
 	{
 		if (player.getClassId().getId() == 0x81)
 		{
@@ -191,7 +191,7 @@ public class SagasSuperClass extends QuestJython
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		QuestState st = player.getQuestState(qn);
 		String htmltext = "";
@@ -498,7 +498,7 @@ public class SagasSuperClass extends QuestJython
 	}
 
 	@Override
-	public String onTalk(L2Npc npc,L2PcInstance player)
+	public String onTalk(L2Npc npc,L2Player player)
 	{
 		String htmltext = "<html><body>You are either not on a quest that involves this NPC, or you don't meet this NPC's minimum quest requirements.</body></html>";
 		QuestState st = player.getQuestState(qn);
@@ -676,7 +676,7 @@ public class SagasSuperClass extends QuestJython
 	}
 
 	@Override
-	public String onFirstTalk(L2Npc npc,L2PcInstance player)
+	public String onFirstTalk(L2Npc npc,L2Player player)
 	{
 		String htmltext = "";
 		QuestState st = player.getQuestState(qn);
@@ -737,7 +737,7 @@ public class SagasSuperClass extends QuestJython
 	}
 
 	@Override
-	public String onAttack(L2Npc npc,L2PcInstance player, int damage, boolean isPet)
+	public String onAttack(L2Npc npc,L2Player player, int damage, boolean isPet)
 	{
 		QuestState st2 = findRightState(npc);
 		if (st2 == null) return super.onAttack(npc, player, damage, isPet);
@@ -773,11 +773,11 @@ public class SagasSuperClass extends QuestJython
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc,L2PcInstance player, L2Skill skill, L2Object[] targets, boolean isPet)
+	public String onSkillSee(L2Npc npc,L2Player player, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		if (_SpawnList.containsKey(npc) && _SpawnList.get(npc) != player.getObjectId())
 		{
-			L2PcInstance quest_player = (L2PcInstance) L2World.getInstance().findObject(_SpawnList.get(npc));
+			L2Player quest_player = (L2Player) L2World.getInstance().findObject(_SpawnList.get(npc));
 			if (quest_player == null)
 				return null;
 			else
@@ -803,7 +803,7 @@ public class SagasSuperClass extends QuestJython
 	}
 
 	@Override
-	public String onKill(L2Npc npc,L2PcInstance player, boolean isPet)
+	public String onKill(L2Npc npc,L2Player player, boolean isPet)
 	{
 		int npcId = npc.getNpcId();
 		QuestState st = player.getQuestState(qn);
@@ -815,7 +815,7 @@ public class SagasSuperClass extends QuestJython
 				if (party != null)
 				{
 					FastList<QuestState> PartyQuestMembers = new FastList<QuestState>();
-					for (L2PcInstance player1 : party.getPartyMembers())
+					for (L2Player player1 : party.getPartyMembers())
 					{
 						QuestState st1 = findQuest(player1);
 						if (st1 != null)

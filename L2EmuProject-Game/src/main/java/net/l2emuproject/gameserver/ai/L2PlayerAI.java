@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.ai;
 import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_CAST;
 import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
 import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_REST;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2StaticObjectInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Character.AIAccessor;
 
 
@@ -36,9 +36,9 @@ public class L2PlayerAI extends L2CharacterAI
 	}
 	
 	@Override
-	public L2PcInstance getActor()
+	public L2Player getActor()
 	{
-		return (L2PcInstance)_actor;
+		return (L2Player)_actor;
 	}
 	
 	@Override
@@ -164,7 +164,7 @@ public class L2PlayerAI extends L2CharacterAI
 		
 		setIntention(AI_INTENTION_IDLE);
 		
-		((L2PcInstance.AIAccessor)_accessor).doPickupItem(target);
+		((L2Player.AIAccessor)_accessor).doPickupItem(target);
 	}
 	
 	private void thinkInteract()
@@ -190,7 +190,7 @@ public class L2PlayerAI extends L2CharacterAI
 		}
 		
 		if (!(target instanceof L2StaticObjectInstance))
-			((L2PcInstance.AIAccessor)_accessor).doInteract((L2Character)target);
+			((L2Player.AIAccessor)_accessor).doInteract((L2Character)target);
 		
 		setIntention(AI_INTENTION_IDLE);
 	}

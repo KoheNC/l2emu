@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -32,7 +32,7 @@ public class AdminCamera implements IAdminCommandHandler
 													{ "admin_camera", "admin_camset", };
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (command.equals("admin_camera"))
 			activeChar.showHTMLFile(AdminHelpPage.ADMIN_HELP_PAGE + "camera_menu.htm");

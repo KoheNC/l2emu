@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
@@ -25,6 +24,7 @@ import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author _drunk_
@@ -37,10 +37,10 @@ public class TakeFort implements ISkillHandler
 	@Override
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Character... targets)
 	{
-		if (!(activeChar instanceof L2PcInstance))
+		if (!(activeChar instanceof L2Player))
 			return;
 
-		L2PcInstance player = (L2PcInstance) activeChar;
+		L2Player player = (L2Player) activeChar;
 
 		L2Object target = player.getTarget();
 
@@ -76,11 +76,11 @@ public class TakeFort implements ISkillHandler
 
 	public static boolean checkIfOkToCastFlagDisplay(L2Character activeChar, Fort fort, boolean isCheckOnly,L2Skill skill, L2Object target)
 	{
-		if (activeChar == null || !(activeChar instanceof L2PcInstance))
+		if (activeChar == null || !(activeChar instanceof L2Player))
 			return false;
 
 		SystemMessage sm;
-		L2PcInstance player = (L2PcInstance) activeChar;
+		L2Player player = (L2Player) activeChar;
 
 		if (fort == null || fort.getFortId() <= 0)
 		{

@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillLearnSkill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class LearnSkill implements ISkillHandler
 {
@@ -37,10 +37,10 @@ public class LearnSkill implements ISkillHandler
 	{
 		L2SkillLearnSkill skill = (L2SkillLearnSkill)skill0;
 		
-		if (!(activeChar instanceof L2PcInstance))
+		if (!(activeChar instanceof L2Player))
 			return;
 		
-		final L2PcInstance player = ((L2PcInstance)activeChar);
+		final L2Player player = ((L2Player)activeChar);
 		
 		for (int i = 0; i < skill.getNewSkillId().length; i++)
 		{

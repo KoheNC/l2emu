@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  *
@@ -25,13 +25,13 @@ public class ExPrivateStoreSetWholeMsg extends L2GameServerPacket
     private final int _objectId;
     private final String _msg;
     
-    public ExPrivateStoreSetWholeMsg(L2PcInstance player, String msg)
+    public ExPrivateStoreSetWholeMsg(L2Player player, String msg)
     {
         _objectId = player.getObjectId();
         _msg = msg;
     }
     
-    public ExPrivateStoreSetWholeMsg(L2PcInstance player)
+    public ExPrivateStoreSetWholeMsg(L2Player player)
     {
         this(player, player.getSellList().getTitle());
     }

@@ -19,8 +19,8 @@ import java.sql.PreparedStatement;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -30,7 +30,7 @@ public class GMAudit
 {
 	private static final Log _log = LogFactory.getLog(GMAudit.class);
 	
-	public static void auditGMAction(L2PcInstance gm, String type, String action, String param)
+	public static void auditGMAction(L2Player gm, String type, String action, String param)
 	{
 		if (Config.GM_AUDIT)
 		{

@@ -30,6 +30,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.L2SkillLearn;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 public class L2NpcInstance extends L2Npc
@@ -56,7 +57,7 @@ public class L2NpcInstance extends L2Npc
 	 * this displays SkillList to the player.
 	 * @param player
 	 */
-	public void showSkillList(L2PcInstance player, ClassId classId, boolean closable)
+	public void showSkillList(L2Player player, ClassId classId, boolean closable)
 	{
 		if (_log.isDebugEnabled())
 			_log.debug("SkillList activated on: " + getObjectId());
@@ -121,7 +122,7 @@ public class L2NpcInstance extends L2Npc
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (player.getPlayerObserver().inObserverMode())
 			return;

@@ -15,18 +15,18 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.datatables.HennaTreeTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.stat.PcStat;
 import net.l2emuproject.gameserver.templates.item.L2Henna;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class HennaItemDrawInfo extends L2GameServerPacket
 {
 	private static final String _S__E4_HennaItemDrawInfo = "[S] e4 HennaItemDrawInfo";
 
-	private L2PcInstance _activeChar;
+	private L2Player _activeChar;
 	private L2Henna _henna;
 
-	public HennaItemDrawInfo(L2Henna henna, L2PcInstance player)
+	public HennaItemDrawInfo(L2Henna henna, L2Player player)
 	{
 		_henna = henna;
 		_activeChar = player;

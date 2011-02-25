@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.PlayerState;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author mkizub
@@ -35,12 +35,12 @@ public final class ConditionPlayerState extends Condition
 	@Override
 	boolean testImpl(Env env)
 	{
-		L2PcInstance player;
+		L2Player player;
 		switch (_check)
 		{
 			case RESTING:
-				if (env.player instanceof L2PcInstance)
-					return ((L2PcInstance)env.player).isSitting() == _required;
+				if (env.player instanceof L2Player)
+					return ((L2Player)env.player).isSitting() == _required;
 				break;
 			case MOVING:
 				return env.player.isMoving() == _required;

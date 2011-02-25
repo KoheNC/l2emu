@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author evill33t/crion
@@ -38,7 +38,7 @@ public final class RequestDispel extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance cha = getClient().getActiveChar();
+		L2Player cha = getClient().getActiveChar();
 		if (cha == null)
 			return;
 		

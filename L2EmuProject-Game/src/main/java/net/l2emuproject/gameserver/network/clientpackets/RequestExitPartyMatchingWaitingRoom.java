@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.instancemanager.PartyRoomManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Sent when the party matching window is closed by the 'X' on the
@@ -37,7 +37,7 @@ public class RequestExitPartyMatchingWaitingRoom extends L2GameClientPacket
     @Override
     protected void runImpl()
     {
-        L2PcInstance activeChar = getActiveChar();
+        L2Player activeChar = getActiveChar();
         if (activeChar == null)
         	return;
 

@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.entity.player;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -22,14 +22,14 @@ import org.apache.commons.logging.LogFactory;
 public class PlayerExtension
 {
 	protected static final Log	_log		= LogFactory.getLog(PlayerExtension.class);
-	private L2PcInstance		_activeChar	= null;
+	private L2Player		_activeChar	= null;
 
-	public PlayerExtension(L2PcInstance activeChar)
+	public PlayerExtension(L2Player activeChar)
 	{
 		_activeChar = activeChar;
 	}
 
-	protected final L2PcInstance getPlayer()
+	protected final L2Player getPlayer()
 	{
 		return _activeChar;
 	}

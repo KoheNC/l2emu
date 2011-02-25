@@ -21,7 +21,6 @@ import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerS
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.FrintezzaManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2ChestInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Earthquake;
 import net.l2emuproject.gameserver.network.serverpackets.ExRedSky;
@@ -38,6 +37,7 @@ import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 
@@ -104,7 +104,7 @@ public class AdminEffects implements IAdminCommandHandler
 			"admin_set_displayeffect"
 			};
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		StringTokenizer st = new StringTokenizer(command);
 		st.nextToken();
@@ -194,7 +194,7 @@ public class AdminEffects implements IAdminCommandHandler
 		{
 			try
 			{
-				for (L2PcInstance player : activeChar.getKnownList().getKnownPlayers().values())
+				for (L2Player player : activeChar.getKnownList().getKnownPlayers().values())
 				{
 					if (!player.isGM())
 					{
@@ -214,7 +214,7 @@ public class AdminEffects implements IAdminCommandHandler
 		{
 			try
 			{
-				for (L2PcInstance player : activeChar.getKnownList().getKnownPlayers().values())
+				for (L2Player player : activeChar.getKnownList().getKnownPlayers().values())
 				{
 					player.stopAbnormalEffect(AbnormalEffect.HOLD_1);
 					player.stopParalyze(false);
@@ -338,7 +338,7 @@ public class AdminEffects implements IAdminCommandHandler
 		{
 			try
 			{
-				for (L2PcInstance player : activeChar.getKnownList().getKnownPlayers().values())
+				for (L2Player player : activeChar.getKnownList().getKnownPlayers().values())
 				{
 					player.setTeam(0);
 					player.broadcastUserInfo();
@@ -354,7 +354,7 @@ public class AdminEffects implements IAdminCommandHandler
 			int teamVal = Integer.parseInt(val);
 			try
 			{
-				for (L2PcInstance player : activeChar.getKnownList().getKnownPlayers().values())
+				for (L2Player player : activeChar.getKnownList().getKnownPlayers().values())
 				{
 					if (activeChar.isInsideRadius(player, 400, false, true))
 					{
@@ -379,9 +379,9 @@ public class AdminEffects implements IAdminCommandHandler
 				String val = st.nextToken();
 				int teamVal = Integer.parseInt(val);
 				L2Object target = activeChar.getTarget();
-				L2PcInstance player = null;
-				if (target instanceof L2PcInstance)
-					player = (L2PcInstance) target;
+				L2Player player = null;
+				if (target instanceof L2Player)
+					player = (L2Player) target;
 				else
 					return false;
 				player.setTeam(teamVal);
@@ -404,10 +404,10 @@ public class AdminEffects implements IAdminCommandHandler
 				{
 					int count = Integer.parseInt(st.nextToken());
 					L2Object target = activeChar.getTarget();
-					L2PcInstance player = null;
-					if (target instanceof L2PcInstance)
+					L2Player player = null;
+					if (target instanceof L2Player)
 					{
-						player = (L2PcInstance) target;
+						player = (L2Player) target;
 						player.setSouls(count);
 					}
 					else
@@ -435,7 +435,7 @@ public class AdminEffects implements IAdminCommandHandler
 					target = st.nextToken();
 					if (target != null)
 					{
-						L2PcInstance player = L2World.getInstance().getPlayer(target);
+						L2Player player = L2World.getInstance().getPlayer(target);
 						if (player != null)
 						{
 							if (performSocial(social, player, activeChar))
@@ -489,7 +489,7 @@ public class AdminEffects implements IAdminCommandHandler
 					target = st.nextToken();
 					if (target != null)
 					{
-						L2PcInstance player = L2World.getInstance().getPlayer(target);
+						L2Player player = L2World.getInstance().getPlayer(target);
 						if (player != null)
 						{
 							if (performSpecial(special, player))
@@ -580,7 +580,7 @@ public class AdminEffects implements IAdminCommandHandler
 					target = st.nextToken();
 					if (target != null)
 					{
-						L2PcInstance player = L2World.getInstance().getPlayer(target);
+						L2Player player = L2World.getInstance().getPlayer(target);
 						if (player != null)
 						{
 							if (performAbnormal(abnormal, player))
@@ -672,7 +672,7 @@ public class AdminEffects implements IAdminCommandHandler
 
 	private boolean performSpecial(int action, L2Object target)
 	{
-		if (target instanceof L2PcInstance)
+		if (target instanceof L2Player)
 		{
 			L2Character character = (L2Character) target;
 			if ((character.getSpecialEffect() & action) == action)
@@ -685,7 +685,7 @@ public class AdminEffects implements IAdminCommandHandler
 			return false;
 	}
 
-	private boolean performSocial(int action, L2Object target, L2PcInstance activeChar)
+	private boolean performSocial(int action, L2Object target, L2Player activeChar)
 	{
 		try
 		{
@@ -701,7 +701,7 @@ public class AdminEffects implements IAdminCommandHandler
 					activeChar.sendPacket(SystemMessageId.NOTHING_HAPPENED);
 					return false;
 				}
-				if (target instanceof L2PcInstance && (action < 2 || action > 16))
+				if (target instanceof L2Player && (action < 2 || action > 16))
 				{
 					activeChar.sendPacket(SystemMessageId.NOTHING_HAPPENED);
 					return false;
@@ -723,7 +723,7 @@ public class AdminEffects implements IAdminCommandHandler
 	 * @param type - atmosphere type (signssky,sky)
 	 * @param state - atmosphere state(night,day)
 	 */
-	private void adminAtmosphere(String type, String state, L2PcInstance activeChar)
+	private void adminAtmosphere(String type, String state, L2Player activeChar)
 	{
 		L2GameServerPacket packet = null;
 
@@ -746,11 +746,11 @@ public class AdminEffects implements IAdminCommandHandler
 		else
 			activeChar.sendMessage("Usage: //atmosphere <signsky dawn|dusk>|<sky day|night|red>");
 		if (packet != null)
-			for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+			for (L2Player player : L2World.getInstance().getAllPlayers())
 				player.sendPacket(packet);
 	}
 
-	private void playAdminSound(L2PcInstance activeChar, String sound)
+	private void playAdminSound(L2Player activeChar, String sound)
 	{
 		PlaySound _snd = new PlaySound(1, sound);
 		activeChar.sendPacket(_snd);
@@ -763,7 +763,7 @@ public class AdminEffects implements IAdminCommandHandler
 		return ADMIN_COMMANDS;
 	}
 
-	private void showMainPage(L2PcInstance activeChar, String command)
+	private void showMainPage(L2Player activeChar, String command)
 	{
 		String filename = "effects_menu";
 		if (command.contains("abnormal"))

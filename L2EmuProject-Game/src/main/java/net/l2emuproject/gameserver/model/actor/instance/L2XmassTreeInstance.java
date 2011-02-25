@@ -22,6 +22,7 @@ import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 
@@ -44,14 +45,14 @@ public class L2XmassTreeInstance extends L2Npc
 		@Override
 		public void run()
 		{
-			for (L2PcInstance player : getKnownList().getKnownPlayers().values())
+			for (L2Player player : getKnownList().getKnownPlayers().values())
 			{
 				int i = Rnd.nextInt(3);
 				handleCast(player, (4262 + i));
 			}
 		}
 
-		private boolean handleCast(L2PcInstance player, int skillId)
+		private boolean handleCast(L2Player player, int skillId)
 		{
 			L2Skill skill = SkillTable.getInstance().getInfo(skillId, 1);
 

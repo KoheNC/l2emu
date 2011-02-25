@@ -2,9 +2,9 @@ package ai.npctest;
 
 import ai.L2NpcAIScript;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Stake
@@ -45,7 +45,7 @@ public final class NpcTest extends L2NpcAIScript
 	@Override
 	public String onNpcRangeEnter(L2Character character, L2Npc npc)
 	{
-		L2PcInstance player = character.getActingPlayer();
+		L2Player player = character.getActingPlayer();
 		if (player != null)
 		{
 			player.sendMessage("You are in " + npc.getName() + "'s hunting area.");

@@ -14,9 +14,9 @@
  */
 package village_master;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author savormix
@@ -37,7 +37,7 @@ public final class Biotin extends QuestJython
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if (event.contains("-01") || event.contains("-02") || event.contains("-03") || event.contains("-04") ||
 				event.contains("-05"))
@@ -47,7 +47,7 @@ public final class Biotin extends QuestJython
 	}
 
 	@Override
-	public String onTalk(L2Npc npc, L2PcInstance talker)
+	public String onTalk(L2Npc npc, L2Player talker)
 	{
 		switch (talker.getClassId())
 		{

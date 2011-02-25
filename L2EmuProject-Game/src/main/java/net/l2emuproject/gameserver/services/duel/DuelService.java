@@ -17,11 +17,11 @@ package net.l2emuproject.gameserver.services.duel;
 import java.util.Map;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.restriction.global.DuelRestriction;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.skills.L2Effect;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -72,7 +72,7 @@ public class DuelService
 		return _duels.get(duelId);
 	}
 
-	public void addDuel(L2PcInstance playerA, L2PcInstance playerB, int partyDuel)
+	public void addDuel(L2Player playerA, L2Player playerB, int partyDuel)
 	{
 		if (playerA == null || playerB == null)
 			return;
@@ -83,7 +83,7 @@ public class DuelService
 		{
 			boolean playerInPvP = false;
 			boolean isRestricted = false;
-			for (L2PcInstance temp : playerA.getParty().getPartyMembers())
+			for (L2Player temp : playerA.getParty().getPartyMembers())
 			{
 				if (temp.getPvpFlag() != 0)
 				{
@@ -98,7 +98,7 @@ public class DuelService
 			}
 			if (!playerInPvP && !isRestricted)
 			{
-				for (L2PcInstance temp : playerB.getParty().getPartyMembers())
+				for (L2Player temp : playerB.getParty().getPartyMembers())
 				{
 					if (temp.getPvpFlag() != 0)
 					{
@@ -115,11 +115,11 @@ public class DuelService
 			// A player has PvP flag
 			if (playerInPvP)
 			{
-				for (L2PcInstance temp : playerA.getParty().getPartyMembers())
+				for (L2Player temp : playerA.getParty().getPartyMembers())
 				{
 					temp.sendMessage(engagedInPvP);
 				}
-				for (L2PcInstance temp : playerB.getParty().getPartyMembers())
+				for (L2Player temp : playerB.getParty().getPartyMembers())
 				{
 					temp.sendMessage(engagedInPvP);
 				}
@@ -127,11 +127,11 @@ public class DuelService
 			}
 			else if (isRestricted)
 			{
-				for (L2PcInstance temp : playerA.getParty().getPartyMembers())
+				for (L2Player temp : playerA.getParty().getPartyMembers())
 				{
 					temp.sendMessage("The duel was canceled because a duelist is in a restricted state."); // TODO
 				}
-				for (L2PcInstance temp : playerB.getParty().getPartyMembers())
+				for (L2Player temp : playerB.getParty().getPartyMembers())
 				{
 					temp.sendMessage("The duel was canceled because a duelist is in a restricted state."); // TODO
 				}
@@ -164,7 +164,7 @@ public class DuelService
 		_duels.remove(duel.getId());
 	}
 
-	public void doSurrender(L2PcInstance player)
+	public void doSurrender(L2Player player)
 	{
 		if (player == null || !player.getPlayerDuel().isInDuel())
 			return;
@@ -176,7 +176,7 @@ public class DuelService
 	 * Updates player states.
 	 * @param player - the dieing player
 	 */
-	public void onPlayerDefeat(L2PcInstance player)
+	public void onPlayerDefeat(L2Player player)
 	{
 		if (player == null || !player.getPlayerDuel().isInDuel())
 			return;
@@ -190,7 +190,7 @@ public class DuelService
 	 * @param player
 	 * @param debuff
 	 */
-	public void onBuff(L2PcInstance player, L2Effect buff)
+	public void onBuff(L2Player player, L2Effect buff)
 	{
 		if (player == null || !player.getPlayerDuel().isInDuel() || buff == null)
 			return;
@@ -203,7 +203,7 @@ public class DuelService
 	 * Removes player from duel.
 	 * @param player - the removed player
 	 */
-	public void onRemoveFromParty(L2PcInstance player)
+	public void onRemoveFromParty(L2Player player)
 	{
 		if (player == null || !player.getPlayerDuel().isInDuel())
 			return;
@@ -217,7 +217,7 @@ public class DuelService
 	 * @param player
 	 * @param packet
 	 */
-	public void broadcastToOppositTeam(L2PcInstance player, L2GameServerPacket packet)
+	public void broadcastToOppositTeam(L2Player player, L2GameServerPacket packet)
 	{
 		if (player == null || !player.getPlayerDuel().isInDuel())
 			return;

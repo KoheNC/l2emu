@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.world.mapregion;
 
 import java.util.Arrays;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.Race;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.form.Shape;
 
 
@@ -39,7 +39,7 @@ public abstract class L2MapRegion
 		_restarts[race.ordinal()] = restartId;
 	}
 	
-	public final int getRestartId(L2PcInstance player)
+	public final int getRestartId(L2Player player)
 	{
 		return getRestartId(player.getRace());
 	}

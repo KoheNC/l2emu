@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExBrExtraUserInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ExVoteSystemInfo;
@@ -22,6 +21,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class RequestVoteNew extends L2GameClientPacket
 {
@@ -36,13 +36,13 @@ public final class RequestVoteNew extends L2GameClientPacket
 	@Override
 	protected final void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 
 		L2Object object = activeChar.getTarget();
 
-		if (!(object instanceof L2PcInstance))
+		if (!(object instanceof L2Player))
 		{
 			if (object == null)
 				requestFailed(SystemMessageId.YOU_MUST_SELECT_A_TARGET);
@@ -51,7 +51,7 @@ public final class RequestVoteNew extends L2GameClientPacket
 			return;
 		}
 
-		L2PcInstance target = (L2PcInstance) object;
+		L2Player target = (L2Player) object;
 
 		if (target.getObjectId() != _targetId)
 			return;

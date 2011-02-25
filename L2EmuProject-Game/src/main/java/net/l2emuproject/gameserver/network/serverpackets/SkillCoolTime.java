@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance.TimeStamp;
 import net.l2emuproject.gameserver.network.L2GameClient;
+import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.L2Player.TimeStamp;
 
 /**
  * @author KenM
@@ -36,7 +36,7 @@ public final class SkillCoolTime extends StaticPacket
 	}
 	
 	@Override
-	protected void writeImpl(L2GameClient client, L2PcInstance activeChar)
+	protected void writeImpl(L2GameClient client, L2Player activeChar)
 	{
 		if (activeChar == null)
 			return;

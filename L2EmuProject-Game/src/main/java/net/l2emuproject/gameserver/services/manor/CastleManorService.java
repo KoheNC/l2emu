@@ -26,13 +26,13 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.itemcontainer.ClanWarehouse;
 import net.l2emuproject.gameserver.model.itemcontainer.ItemContainer;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;
@@ -466,7 +466,7 @@ public class CastleManorService
 			}
 
 			// Sending notification to a clan leader
-			L2PcInstance clanLeader = L2World.getInstance().getPlayer(clan.getLeader().getName());
+			L2Player clanLeader = L2World.getInstance().getPlayer(clan.getLeader().getName());
 			if (clanLeader != null)
 				clanLeader.sendPacket(SystemMessageId.THE_MANOR_INFORMATION_HAS_BEEN_UPDATED);
 
@@ -521,7 +521,7 @@ public class CastleManorService
 			if (notFunc)
 			{
 				L2Clan clan = ClanTable.getInstance().getClan(c.getOwnerId());
-				L2PcInstance clanLeader = null;
+				L2Player clanLeader = null;
 				if (clan != null)
 					clanLeader = L2World.getInstance().getPlayer(clan.getLeader().getName());
 				if (clanLeader != null)

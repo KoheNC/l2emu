@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.communitybbs.Manager;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 
@@ -38,7 +38,7 @@ public class ClanBBSManager extends BaseBBSManager
 	 * @param activeChar
 	 */
 	@Override
-	public void parsecmd(String command, L2PcInstance activeChar)
+	public void parsecmd(String command, L2Player activeChar)
 	{
 		if (command.equals("_bbsclan"))
 		{
@@ -96,7 +96,7 @@ public class ClanBBSManager extends BaseBBSManager
 		}
 	}
 
-	private void clanNotice(L2PcInstance activeChar, int clanId)
+	private void clanNotice(L2Player activeChar, int clanId)
 	{
 		L2Clan cl;
 		
@@ -213,7 +213,7 @@ public class ClanBBSManager extends BaseBBSManager
 	/**
 	 * @param activeChar
 	 */
-	private void clanlist(L2PcInstance activeChar, int index)
+	private void clanlist(L2Player activeChar, int index)
 	{
 		if (index < 1)
 		{
@@ -336,7 +336,7 @@ public class ClanBBSManager extends BaseBBSManager
 	/**
 	 * @param activeChar
 	 */
-	private void clanhome(L2PcInstance activeChar)
+	private void clanhome(L2Player activeChar)
 	{
 		clanhome(activeChar, activeChar.getClan().getClanId());
 	}
@@ -345,7 +345,7 @@ public class ClanBBSManager extends BaseBBSManager
 	 * @param activeChar
 	 * @param clanId
 	 */
-	private void clanhome(L2PcInstance activeChar, int clanId)
+	private void clanhome(L2Player activeChar, int clanId)
 	{
 		L2Clan cl = ClanTable.getInstance().getClan(clanId);
 		if (cl != null)
@@ -444,7 +444,7 @@ public class ClanBBSManager extends BaseBBSManager
 	 * @see net.l2emuproject.gameserver.communitybbs.Manager.BaseBBSManager#parsewrite(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, net.l2emuproject.gameserver.model.actor.instance.L2PcInstance)
 	 */
 	@Override
-	public void parsewrite(String ar1, String ar2, String ar3, String ar4, String ar5, L2PcInstance activeChar)
+	public void parsewrite(String ar1, String ar2, String ar3, String ar4, String ar5, L2Player activeChar)
 	{
 		if (ar1.equals("Set"))
 		{

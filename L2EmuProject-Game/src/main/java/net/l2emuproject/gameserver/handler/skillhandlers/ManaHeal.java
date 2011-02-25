@@ -15,13 +15,13 @@
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class ...
@@ -91,9 +91,9 @@ public class ManaHeal implements ISkillHandler
 
 			target.getStatus().setCurrentMp(mp + target.getStatus().getCurrentMp());
 
-			if (target instanceof L2PcInstance)
+			if (target instanceof L2Player)
 			{
-				if (actChar instanceof L2PcInstance && actChar != target)
+				if (actChar instanceof L2Player && actChar != target)
 				{
 					SystemMessage sm = new SystemMessage(SystemMessageId.S2_MP_RESTORED_BY_C1);
 					sm.addString(actChar.getName());

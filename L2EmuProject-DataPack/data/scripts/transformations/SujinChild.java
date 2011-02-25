@@ -14,9 +14,9 @@
  */
 package transformations;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class SujinChild extends L2Transformation
 {
@@ -30,7 +30,7 @@ public final class SujinChild extends L2Transformation
 	}
 
 	@Override
-	protected final void transformedSkills(L2PcInstance player)
+	protected final void transformedSkills(L2Player player)
 	{
 		// Transform Dispel
 		addSkill(player, 619, 1);
@@ -39,7 +39,7 @@ public final class SujinChild extends L2Transformation
 	}
 
 	@Override
-	protected final void removeSkills(L2PcInstance player)
+	protected final void removeSkills(L2Player player)
 	{
 		// Transform Dispel
 		removeSkill(player, 619);

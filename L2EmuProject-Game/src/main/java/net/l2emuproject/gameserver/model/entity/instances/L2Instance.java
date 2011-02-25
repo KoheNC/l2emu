@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.model.entity.instances;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 
 /**
@@ -33,18 +33,18 @@ public abstract class L2Instance extends Quest
 		super(questId, name, descr, folder);
 	}
 
-	protected abstract boolean canEnter(final L2PcInstance player);
+	protected abstract boolean canEnter(final L2Player player);
 
-	protected abstract void enterInstance(final L2PcInstance player);
+	protected abstract void enterInstance(final L2Player player);
 
-	protected abstract void exitInstance(final L2PcInstance player);
+	protected abstract void exitInstance(final L2Player player);
 
-	protected final void setInstanceTime(final L2PcInstance player, final int instanceId, final long time)
+	protected final void setInstanceTime(final L2Player player, final int instanceId, final long time)
 	{
 		InstanceManager.getInstance().setInstanceTime(player.getObjectId(), instanceId, ((System.currentTimeMillis() + time)));
 	}
 
-	protected final void teleportPlayer(final L2PcInstance player, final int[] coords, final int instanceId)
+	protected final void teleportPlayer(final L2Player player, final int[] coords, final int instanceId)
 	{
 		final L2Summon pet = player.getPet();
 

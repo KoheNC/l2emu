@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.templates.item.L2Henna;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  *
@@ -24,11 +24,11 @@ import net.l2emuproject.gameserver.templates.item.L2Henna;
 public class GMHennaInfo extends L2GameServerPacket
 {
     private final static String S_F0_GMHENNAINFO = "[S] F0 GMHennaInfo";
-    private final L2PcInstance _activeChar;
+    private final L2Player _activeChar;
     private final L2Henna[] _hennas = new L2Henna[3];
     private int _count = 0;
     
-    public GMHennaInfo(L2PcInstance activeChar)
+    public GMHennaInfo(L2Player activeChar)
     {
         _activeChar = activeChar;
         

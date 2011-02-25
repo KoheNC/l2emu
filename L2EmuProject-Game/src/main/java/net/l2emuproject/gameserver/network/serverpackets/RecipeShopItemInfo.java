@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * ddddd
@@ -23,10 +23,10 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 public class RecipeShopItemInfo  extends L2GameServerPacket
 {
 	private static final String _S__DA_RecipeShopItemInfo = "[S] da RecipeShopItemInfo";
-	private final L2PcInstance _crafter;
+	private final L2Player _crafter;
 	private final int _recipeId;
 
-	public RecipeShopItemInfo(L2PcInstance crafter, int recipeId)
+	public RecipeShopItemInfo(L2Player crafter, int recipeId)
 	{
 		_crafter = crafter;
 		_recipeId = recipeId;

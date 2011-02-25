@@ -19,10 +19,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author DS
@@ -45,7 +45,7 @@ public class Mail extends ItemContainer
 	}
 	
 	@Override
-	public L2PcInstance getOwner()
+	public L2Player getOwner()
 	{
 		return null;
 	}

@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.ISkillHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
@@ -27,6 +26,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 
@@ -41,10 +41,10 @@ public class Harvest implements ISkillHandler
 	@Override
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Character... targets)
 	{
-		if (!(activeChar instanceof L2PcInstance))
+		if (!(activeChar instanceof L2Player))
 			return;
 
-		L2PcInstance activePlayer = (L2PcInstance) activeChar;
+		L2Player activePlayer = (L2Player) activeChar;
 		
 		InventoryUpdate iu = Config.FORCE_INVENTORY_UPDATE ? null : new InventoryUpdate();
 
@@ -124,7 +124,7 @@ public class Harvest implements ISkillHandler
 		}
 	}
 
-	private boolean calcSuccess(L2PcInstance activePlayer, L2MonsterInstance target)
+	private boolean calcSuccess(L2Player activePlayer, L2MonsterInstance target)
 	{
 		int basicSuccess = 100;
 		int levelPlayer = activePlayer.getLevel();

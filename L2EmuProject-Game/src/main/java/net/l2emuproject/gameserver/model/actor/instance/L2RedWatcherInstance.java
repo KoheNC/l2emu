@@ -15,6 +15,7 @@
 package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Watcher;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -34,7 +35,7 @@ public final class L2RedWatcherInstance extends L2Watcher
 	@Override
 	protected final void handleWatcherAI()
 	{
-		for (L2PcInstance player : getKnownList().getKnownPlayersInRadius(1000))
+		for (L2Player player : getKnownList().getKnownPlayersInRadius(1000))
 		{
 			if (player == null)
 				continue;

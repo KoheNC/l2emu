@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.model.actor.appearance.PcAppearance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.stat.PcStat;
 import net.l2emuproject.gameserver.model.actor.status.PcStatus;
 import net.l2emuproject.gameserver.model.actor.view.PcView;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * dddddSdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddffffddddSddd   rev420
@@ -32,9 +32,9 @@ public final class GMViewCharacterInfo extends L2GameServerPacket
 {
 	private static final String _S__8F_GMVIEWCHARINFO = "[S] 8F GMViewCharacterInfo";
 	
-	private final L2PcInstance _activeChar;
+	private final L2Player _activeChar;
 	
-	public GMViewCharacterInfo(L2PcInstance character)
+	public GMViewCharacterInfo(L2Player character)
 	{
 		character.getView().refresh();
 		

@@ -15,13 +15,13 @@
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Class handling the Mana damage skill
@@ -86,7 +86,7 @@ public class Manadam implements ISkillHandler
 						target.stopImmobileUntilAttacked(true);
 				}
 
-				if (target instanceof L2PcInstance)
+				if (target instanceof L2Player)
 				{
 					SystemMessage sm = new SystemMessage(SystemMessageId.S2_MP_HAS_BEEN_DRAINED_BY_C1);
 					sm.addCharName(activeChar);
@@ -94,7 +94,7 @@ public class Manadam implements ISkillHandler
 					target.getActingPlayer().sendPacket(sm);
 				}
 
-				if (activeChar instanceof L2PcInstance)
+				if (activeChar instanceof L2Player)
 				{
 					SystemMessage sm2 = new SystemMessage(SystemMessageId.YOUR_OPPONENTS_MP_WAS_REDUCED_BY_S1);
 					sm2.addNumber((int) mp);

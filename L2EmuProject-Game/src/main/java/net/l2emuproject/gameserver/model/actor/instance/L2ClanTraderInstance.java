@@ -22,6 +22,7 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.PledgeShowInfoUpdate;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class L2ClanTraderInstance extends L2Npc
 {
@@ -31,7 +32,7 @@ public final class L2ClanTraderInstance extends L2Npc
 	}
 
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		if (!canTarget(player))
 			return;
@@ -54,7 +55,7 @@ public final class L2ClanTraderInstance extends L2Npc
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(1);
 
@@ -117,13 +118,13 @@ public final class L2ClanTraderInstance extends L2Npc
 		super.onBypassFeedback(player, command);
 	}
 
-	private void sendHtmlMessage(L2PcInstance player, NpcHtmlMessage html)
+	private void sendHtmlMessage(L2Player player, NpcHtmlMessage html)
 	{
 		html.replace("%objectId%", String.valueOf(getObjectId()));
 		player.sendPacket(html);
 	}
 
-	private void showMessageWindow(L2PcInstance player)
+	private void showMessageWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		String filename = "data/html/clantrader/" + getNpcId() + "-no.htm";

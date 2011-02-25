@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2PartyRoom;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Packet is sent when someone joins/leaves a party room,
@@ -35,9 +35,9 @@ public class ExManagePartyRoomMember extends L2GameServerPacket
 	public static final int REMOVED		= 0x02;
 
 	private final int			_type;
-	private final L2PcInstance	_member;
+	private final L2Player	_member;
 
-	public ExManagePartyRoomMember(int changeType, L2PcInstance member)
+	public ExManagePartyRoomMember(int changeType, L2Player member)
 	{
 		_type = changeType;
 		_member = member;

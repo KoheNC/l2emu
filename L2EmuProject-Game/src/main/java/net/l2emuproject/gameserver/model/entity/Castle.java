@@ -38,7 +38,6 @@ import net.l2emuproject.gameserver.instancemanager.CrownManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
@@ -47,6 +46,7 @@ import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.SeedProduction;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2SiegeDangerZone;
 
 
@@ -343,17 +343,17 @@ public class Castle extends Siegeable<Siege>
 		return true;
 	}
 
-	public void closeDoor(L2PcInstance activeChar, int doorId)
+	public void closeDoor(L2Player activeChar, int doorId)
 	{
 		openCloseDoor(activeChar, doorId, false);
 	}
 
-	public void openDoor(L2PcInstance activeChar, int doorId)
+	public void openDoor(L2Player activeChar, int doorId)
 	{
 		openCloseDoor(activeChar, doorId, true);
 	}
 
-	public void openCloseDoor(L2PcInstance activeChar, int doorId, boolean open)
+	public void openCloseDoor(L2Player activeChar, int doorId, boolean open)
 	{
 		if (activeChar.getClanId() != getOwnerId())
 			return;
@@ -390,7 +390,7 @@ public class Castle extends Siegeable<Siege>
 			Announcements.getInstance().announceToAll(clan.getName() + " has lost " + getName() + " castle.");
 			clan.broadcastToOnlineMembers(new PledgeShowInfoUpdate(clan));
 
-			for (L2PcInstance member : clan.getOnlineMembers(0))
+			for (L2Player member : clan.getOnlineMembers(0))
 			{
 				removeResidentialSkills(member);
 			}
@@ -422,14 +422,14 @@ public class Castle extends Siegeable<Siege>
 						CastleManager.getInstance().removeCirclet(_formerOwner, getCastleId());
 				}
 
-				L2PcInstance oldLord = oldOwner.getLeader().getPlayerInstance();
+				L2Player oldLord = oldOwner.getLeader().getPlayerInstance();
 				if (oldLord != null && oldLord.getMountType() == 2)
 					oldLord.dismount();
 
 				oldOwner.setHasCastle(0); // Unset has castle flag for old owner
 				Announcements.getInstance().announceToAll(oldOwner.getName() + " has lost " + getName() + " castle!");
 				
-				for (L2PcInstance member : oldOwner.getOnlineMembers(0))
+				for (L2Player member : oldOwner.getOnlineMembers(0))
 				{
 					removeResidentialSkills(member);
 					member.sendSkillList();
@@ -462,7 +462,7 @@ public class Castle extends Siegeable<Siege>
 		
 		TerritoryWarManager.getInstance().getTerritory(_castleId).setOwnerClan(clan);
 
-		for (L2PcInstance member : clan.getOnlineMembers(0))
+		for (L2Player member : clan.getOnlineMembers(0))
 		{
 			giveResidentialSkills(member);
 		}
@@ -1368,7 +1368,7 @@ public class Castle extends Siegeable<Siege>
 		}
 	}
 
-	public boolean updateFunctions(L2PcInstance player,int type, int lvl, int lease, long rate, boolean addNew)
+	public boolean updateFunctions(L2Player player,int type, int lvl, int lease, long rate, boolean addNew)
 	{
 		if (player == null)
 			return false;

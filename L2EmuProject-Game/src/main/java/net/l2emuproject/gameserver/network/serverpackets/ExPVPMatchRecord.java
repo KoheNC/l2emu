@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This packet represents a dialog shown after the Underground
@@ -94,7 +94,7 @@ public class ExPVPMatchRecord extends L2GameServerPacket
 		private int _kills;
 		private int _deaths;
 
-		public PlayerRecord(L2PcInstance player)
+		public PlayerRecord(L2Player player)
 		{
 			this(player.getName());
 		}

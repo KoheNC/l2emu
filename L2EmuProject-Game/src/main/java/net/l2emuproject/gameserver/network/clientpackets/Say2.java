@@ -22,13 +22,13 @@ import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.handler.ChatHandler;
 import net.l2emuproject.gameserver.handler.IChatHandler;
 import net.l2emuproject.gameserver.handler.VoicedCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 import org.apache.commons.logging.Log;
@@ -61,7 +61,7 @@ public class Say2 extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 
@@ -229,7 +229,7 @@ public class Say2 extends L2GameClientPacket
 	}
 	
 	// L2EmuProject: Addons
-	private void checkText(L2PcInstance activeChar)
+	private void checkText(L2Player activeChar)
 	{
 		if (Config.USE_CHAT_FILTER)
 		{

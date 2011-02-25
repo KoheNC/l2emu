@@ -30,6 +30,7 @@ import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -48,7 +49,7 @@ public final class L2BabyPetInstance extends L2PetInstance
 
 	protected long _buffControlTimestamp = 0;
 
-	public L2BabyPetInstance(int objectId, L2NpcTemplate template, L2PcInstance owner, L2ItemInstance control)
+	public L2BabyPetInstance(int objectId, L2NpcTemplate template, L2Player owner, L2ItemInstance control)
 	{
 		super(objectId, template, owner, control);
 	}
@@ -112,14 +113,14 @@ public final class L2BabyPetInstance extends L2PetInstance
 	}
 	
 	@Override
-	public synchronized void deleteMe(L2PcInstance owner)
+	public synchronized void deleteMe(L2Player owner)
 	{
 		super.deleteMe(owner);
 		stopCastTask();
 	}
 	
 	@Override
-	public synchronized void unSummon(L2PcInstance owner)
+	public synchronized void unSummon(L2Player owner)
 	{
 		stopCastTask();
 		abortCast();
@@ -191,7 +192,7 @@ public final class L2BabyPetInstance extends L2PetInstance
 		public void run()
 		{
 			final L2BabyPetInstance _baby = L2BabyPetInstance.this;
-			L2PcInstance owner = _baby.getOwner();
+			L2Player owner = _baby.getOwner();
 
 			// if the owner is dead, merely wait for the owner to be resurrected
 			// if the pet is still casting from the previous iteration, allow the cast to complete...

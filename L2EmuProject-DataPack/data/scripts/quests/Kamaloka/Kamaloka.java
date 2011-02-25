@@ -16,8 +16,8 @@
 package quests.Kamaloka;
 
 import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
 * @author lewzer
@@ -49,7 +49,7 @@ public final class Kamaloka extends Quest
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = NO_QUEST;
 		int npcID = npc.getNpcId();

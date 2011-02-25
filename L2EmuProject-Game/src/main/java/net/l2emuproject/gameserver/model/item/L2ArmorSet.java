@@ -18,8 +18,8 @@ import java.util.ArrayList;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTable.SkillInfo;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -101,7 +101,7 @@ public final class L2ArmorSet
 	 * @param player whose inventory is being checked
 	 * @return True if player equips whole set
 	 */
-	public boolean containAll(L2PcInstance player)
+	public boolean containAll(L2Player player)
 	{
 		Inventory inv = player.getInventory();
 		
@@ -171,7 +171,7 @@ public final class L2ArmorSet
 		return _skills;
 	}
 	
-	public boolean containShield(L2PcInstance player)
+	public boolean containShield(L2Player player)
 	{
 		Inventory inv = player.getInventory();
 		
@@ -206,7 +206,7 @@ public final class L2ArmorSet
 	 * @param player
 	 * @return
 	 */
-	public boolean isEnchanted6(L2PcInstance player)
+	public boolean isEnchanted6(L2Player player)
 	{
 		// Player don't have full set
 		if (!containAll(player))

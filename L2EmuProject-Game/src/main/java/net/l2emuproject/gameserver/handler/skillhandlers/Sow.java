@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.handler.ISkillHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
@@ -26,6 +25,7 @@ import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 
@@ -40,13 +40,13 @@ public class Sow implements ISkillHandler
 	@Override
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Character... targets)
 	{
-		if (!(activeChar instanceof L2PcInstance))
+		if (!(activeChar instanceof L2Player))
 			return;
 
 		if (targets == null || targets.length == 0)
 			return;
 
-		L2PcInstance activePlayer = (L2PcInstance) activeChar;
+		L2Player activePlayer = (L2Player) activeChar;
 		if (_log.isDebugEnabled())
 			_log.info("Casting sow");
 
@@ -102,7 +102,7 @@ public class Sow implements ISkillHandler
 		}
 	}
 
-	private boolean calcSuccess(L2PcInstance activeChar, L2MonsterInstance target, int seedId)
+	private boolean calcSuccess(L2Player activeChar, L2MonsterInstance target, int seedId)
 	{
 		int basicSuccess = (L2Manor.getInstance().isAlternative(seedId) ? 20 : 90);
 		int minlevelSeed = 0;

@@ -18,13 +18,13 @@ import static net.l2emuproject.gameserver.world.object.L2Npc.INTERACTION_DISTANC
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.ItemRequest;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestPrivateStoreSell extends L2GameClientPacket
 {
@@ -67,7 +67,7 @@ public class RequestPrivateStoreSell extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getClient().getActiveChar();
+		L2Player player = getClient().getActiveChar();
 		if (player == null)
 			return;
 		else if (!getClient().getFloodProtector().tryPerformAction(Protected.TRANSACTION))
@@ -95,13 +95,13 @@ public class RequestPrivateStoreSell extends L2GameClientPacket
 		if (object == null)
 			object = L2World.getInstance().getPlayer(_storePlayerId);
 
-		if (!(object instanceof L2PcInstance))
+		if (!(object instanceof L2Player))
 		{
 			requestFailed(SystemMessageId.TARGET_IS_INCORRECT);
 			return;
 		}
 
-		L2PcInstance storePlayer = (L2PcInstance) object;
+		L2Player storePlayer = (L2Player) object;
 
 		if (!player.isInsideRadius(storePlayer, INTERACTION_DISTANCE, true, false))
 		{
@@ -109,7 +109,7 @@ public class RequestPrivateStoreSell extends L2GameClientPacket
 			return;
 		}
 
-		if (storePlayer.getPrivateStoreType() != L2PcInstance.STORE_PRIVATE_BUY)
+		if (storePlayer.getPrivateStoreType() != L2Player.STORE_PRIVATE_BUY)
 		{
 			sendAF();
 			return;
@@ -136,7 +136,7 @@ public class RequestPrivateStoreSell extends L2GameClientPacket
 
 		if (storeList.getItemCount() == 0)
 		{
-			storePlayer.setPrivateStoreType(L2PcInstance.STORE_PRIVATE_NONE);
+			storePlayer.setPrivateStoreType(L2Player.STORE_PRIVATE_NONE);
 			storePlayer.broadcastUserInfo();
 		}
 

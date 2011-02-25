@@ -15,13 +15,13 @@
 package net.l2emuproject.gameserver.model;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.clientpackets.L2GameClientPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
- * This class manages requests (transactions) between two L2PcInstance.
+ * This class manages requests (transactions) between two L2Player.
  *
  * @author  kriau
  */
@@ -29,13 +29,13 @@ public class L2Request
 {
 	private static final int REQUEST_TIMEOUT = 15; //in secs
 
-	protected L2PcInstance _player;
-	protected L2PcInstance _partner;
+	protected L2Player _player;
+	protected L2Player _partner;
 	protected boolean _isRequestor;
 	protected boolean _isAnswerer;
 	protected L2GameClientPacket _requestPacket;
 
-	public L2Request(L2PcInstance player)
+	public L2Request(L2Player player)
 	{
 		_player = player;
 	}
@@ -49,17 +49,17 @@ public class L2Request
 	}
 
 	/**
-	 * Set the L2PcInstance member of a transaction (ex : FriendInvite, JoinAlly, JoinParty...).<BR><BR>
+	 * Set the L2Player member of a transaction (ex : FriendInvite, JoinAlly, JoinParty...).<BR><BR>
 	 */
-	private synchronized void setPartner(L2PcInstance partner)
+	private synchronized void setPartner(L2Player partner)
 	{
 		_partner = partner;
 	}
 
 	/**
-	 * Return the L2PcInstance member of a transaction (ex : FriendInvite, JoinAlly, JoinParty...).<BR><BR>
+	 * Return the L2Player member of a transaction (ex : FriendInvite, JoinAlly, JoinParty...).<BR><BR>
 	 */
-	public L2PcInstance getPartner()
+	public L2Player getPartner()
 	{
 		return _partner;
 	}
@@ -83,7 +83,7 @@ public class L2Request
 	/**
 	 * Checks if request can be made and in success case puts both PC on request state.<BR><BR>
 	 */
-	public synchronized boolean setRequest(L2PcInstance partner, L2GameClientPacket packet)
+	public synchronized boolean setRequest(L2Player partner, L2GameClientPacket packet)
 	{
 		if (partner == null)
 		{

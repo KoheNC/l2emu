@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class ExJumpToLocation extends L2GameServerPacket
 {
@@ -23,7 +23,7 @@ public class ExJumpToLocation extends L2GameServerPacket
 	private final int _objectId, _x, _y, _z;
 	private final int _tx, _ty, _tz;
 
-	public ExJumpToLocation(L2PcInstance player, int tx, int ty, int tz)
+	public ExJumpToLocation(L2Player player, int tx, int ty, int tz)
 	{
 		_objectId = player.getObjectId();
 		_x = player.getX();
@@ -34,7 +34,7 @@ public class ExJumpToLocation extends L2GameServerPacket
 		_tz = player.getZ();
 	}
 
-	public ExJumpToLocation(L2PcInstance player)
+	public ExJumpToLocation(L2Player player)
 	{
 		_objectId = player.getObjectId();
 		_x = player.getX();

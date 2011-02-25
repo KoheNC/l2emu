@@ -20,10 +20,10 @@ import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author lewzer
@@ -78,7 +78,7 @@ public final class SeedOfDestructionAI extends L2AttackableAIScript
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if (event.equalsIgnoreCase("Spawn1"))
 		{
@@ -249,7 +249,7 @@ public final class SeedOfDestructionAI extends L2AttackableAIScript
 	}
 
 	@Override
-	public final String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet, L2Skill skill)
+	public final String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet, L2Skill skill)
 	{
 		switch (npc.getNpcId())
 		{
@@ -287,7 +287,7 @@ public final class SeedOfDestructionAI extends L2AttackableAIScript
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		int npcId = npc.getNpcId();
 		if (npcId == SPAWN_PORTAL)

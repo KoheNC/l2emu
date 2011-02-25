@@ -16,12 +16,12 @@ package quests._692_HowtoOpposeEvil;
 
 import gnu.trove.TIntObjectHashMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Gigiikun
@@ -150,7 +150,7 @@ public final class HowtoOpposeEvil extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		String htmltext = event;
 		QuestState st = player.getQuestState(QN);
@@ -199,7 +199,7 @@ public final class HowtoOpposeEvil extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		final QuestState st = player.getQuestState(QN);
 		if (st == null)
@@ -245,9 +245,9 @@ public final class HowtoOpposeEvil extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
-		L2PcInstance partyMember = getRandomPartyMember(player, "3");
+		L2Player partyMember = getRandomPartyMember(player, "3");
 		if (partyMember == null)
 			return null;
 		final QuestState st = partyMember.getQuestState(QN);

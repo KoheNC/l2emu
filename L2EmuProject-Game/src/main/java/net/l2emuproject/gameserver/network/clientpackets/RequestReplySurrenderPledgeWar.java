@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestReplySurrenderPledgeWar extends L2GameClientPacket
 {
@@ -33,11 +33,11 @@ public class RequestReplySurrenderPledgeWar extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 
-		L2PcInstance requestor = activeChar.getActiveRequester();
+		L2Player requestor = activeChar.getActiveRequester();
 		if (requestor == null)
 		{
 			sendAF();

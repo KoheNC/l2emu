@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class CreatureSay extends L2GameServerPacket
 {
@@ -49,7 +49,7 @@ public final class CreatureSay extends L2GameServerPacket
 	}
 
 	@Override
-	public final void packetSent(L2GameClient client, L2PcInstance activeChar)
+	public final void packetSent(L2GameClient client, L2Player activeChar)
 	{
 		if (activeChar != null)
 			activeChar.broadcastSnoop(_channel, _charName, _text);

@@ -17,6 +17,7 @@ package net.l2emuproject.gameserver.model.actor.instance;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * NPC that gives information about territory wars
@@ -35,7 +36,7 @@ public class L2MercenaryManagerInstance extends L2Npc
 	}
 
 	@Override
-	public void showChatWindow(L2PcInstance player)
+	public void showChatWindow(L2Player player)
 	{
 		if (player.getLevel() < 40 || player.getClassId().level() < 2)
 			super.showChatWindow(player, 2);

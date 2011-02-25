@@ -19,12 +19,12 @@ import java.util.Locale;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.EventDroplist;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.script.DateRange;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class Christmas extends QuestJython
 {
@@ -100,7 +100,7 @@ public class Christmas extends QuestJython
 	}
 
 	@Override
-	public String onTalk(L2Npc npc, L2PcInstance player)
+	public String onTalk(L2Npc npc, L2Player player)
 	{
 		QuestState st = player.getQuestState(QN);
 		st.setState(State.STARTED);
@@ -109,7 +109,7 @@ public class Christmas extends QuestJython
 	}
 
 	@Override
-	public String onEnterWorld(L2PcInstance player)
+	public String onEnterWorld(L2Player player)
 	{
 		player.sendMessage("Christmas Event: Collect 4 Star Ornaments, 4 Bead Ornaments, 10 Fir Tree Branches, 1 Flower Pot and recieve a gift!");
 		return "";

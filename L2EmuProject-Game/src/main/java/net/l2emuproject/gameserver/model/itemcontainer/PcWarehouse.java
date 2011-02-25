@@ -14,14 +14,14 @@
  */
 package net.l2emuproject.gameserver.model.itemcontainer;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class PcWarehouse extends Warehouse
 {
-	private final L2PcInstance _owner;
+	private final L2Player _owner;
 	
-	public PcWarehouse(L2PcInstance owner)
+	public PcWarehouse(L2Player owner)
 	{
 		_owner = owner;
 	}
@@ -33,7 +33,7 @@ public class PcWarehouse extends Warehouse
 	}
 	
 	@Override
-	public L2PcInstance getOwner()
+	public L2Player getOwner()
 	{
 		return _owner;
 	}

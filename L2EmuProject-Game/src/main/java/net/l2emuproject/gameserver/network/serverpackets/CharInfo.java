@@ -16,22 +16,22 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.model.actor.appearance.PcAppearance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.view.DecoyView;
 import net.l2emuproject.gameserver.model.actor.view.PcLikeView;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.skills.AbnormalEffect;
 import net.l2emuproject.gameserver.world.object.L2Decoy;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class CharInfo extends L2GameServerPacket
 {
 	private static final String	_S__31_CHARINFO	= "[S] 31 CharInfo [dddddsddd dddddddddddd dddddddd hhhh d hhhhhhhhhhhh d hhhh hhhhhhhhhhhhhhhh dddddd dddddddd ffff ddd s ddddd ccccccc h c d c h ddd cc d ccc ddddddddddd]";
 	
-	private final L2PcInstance	_activeChar;
+	private final L2Player	_activeChar;
 	private final PcLikeView	_view;
 	
-	public CharInfo(L2PcInstance cha)
+	public CharInfo(L2Player cha)
 	{
 		_view = cha.getView();
 		_view.refresh();
@@ -53,7 +53,7 @@ public final class CharInfo extends L2GameServerPacket
 	}
 	
 	@Override
-	public void packetSent(L2GameClient client, L2PcInstance attacker)
+	public void packetSent(L2GameClient client, L2Player attacker)
 	{
 		RelationChanged.sendRelationChanged(_activeChar, attacker);
 	}
@@ -220,7 +220,7 @@ public final class CharInfo extends L2GameServerPacket
 	}
 	
 	@Override
-	public boolean canBeSentTo(L2GameClient client, L2PcInstance activeChar)
+	public boolean canBeSentTo(L2GameClient client, L2Player activeChar)
 	{
 		if (activeChar == null)
 			return false;

@@ -33,7 +33,6 @@ import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.instancemanager.ZoneManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -46,6 +45,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
@@ -209,7 +209,7 @@ public class Quest extends ManagedScript
 	 * @param player
 	 * @return QuestState : QuestState created
 	 */
-	public QuestState newQuestState(L2PcInstance player)
+	public QuestState newQuestState(L2Player player)
 	{
 		QuestState qs = new QuestState(this, player, getInitialState());
 		Quest.createQuestInDb(qs);
@@ -255,7 +255,7 @@ public class Quest extends ManagedScript
 	 * @param npc:  npc associated with this timer (can be null)
 	 * @param player: player associated with this timer (can be null)
 	 */
-	public void startQuestTimer(String name, long time, L2Npc npc, L2PcInstance player)
+	public void startQuestTimer(String name, long time, L2Npc npc, L2Player player)
 	{
 		startQuestTimer(name, time, npc, player, false);
 	}
@@ -269,7 +269,7 @@ public class Quest extends ManagedScript
 	 * @param player: player associated with this timer (can be null)
 	 * @param repeatable: indicates if the timer is repeatable or one-time.
 	 */
-	public void startQuestTimer(String name, long time, L2Npc npc, L2PcInstance player, boolean repeating)
+	public void startQuestTimer(String name, long time, L2Npc npc, L2Player player, boolean repeating)
 	{
 		// Add quest timer if timer doesn't already exist
 		FastList<QuestTimer> timers = getQuestTimers(name);
@@ -300,7 +300,7 @@ public class Quest extends ManagedScript
 		}
 	}
 
-	public QuestTimer getQuestTimer(String name, L2Npc npc, L2PcInstance player)
+	public QuestTimer getQuestTimer(String name, L2Npc npc, L2Player player)
 	{
 		FastList<QuestTimer> qt = getQuestTimers(name);
 		if (qt == null || qt.isEmpty())
@@ -352,7 +352,7 @@ public class Quest extends ManagedScript
 		}
 	}
 
-	public void cancelQuestTimer(String name, L2Npc npc, L2PcInstance player)
+	public void cancelQuestTimer(String name, L2Npc npc, L2Player player)
 	{
 		QuestTimer timer = getQuestTimer(name, npc, player);
 		if (timer != null)
@@ -378,7 +378,7 @@ public class Quest extends ManagedScript
 	}
 
 	// these are methods to call from java
-	public final boolean notifyAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet, L2Skill skill)
+	public final boolean notifyAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet, L2Skill skill)
 	{
 		String res = null;
 		try
@@ -406,7 +406,7 @@ public class Quest extends ManagedScript
 		return showResult(qs.getPlayer(), res);
 	}
 
-	public final boolean notifySpellFinished(L2Npc instance, L2PcInstance player, L2Skill skill)
+	public final boolean notifySpellFinished(L2Npc instance, L2Player player, L2Skill skill)
 	{
 		String res = null;
 		try
@@ -434,7 +434,7 @@ public class Quest extends ManagedScript
 		return false;
 	}
 
-	public final boolean notifyEvent(String event, L2Npc npc, L2PcInstance player)
+	public final boolean notifyEvent(String event, L2Npc npc, L2Player player)
 	{
 		String res = null;
 		try
@@ -448,7 +448,7 @@ public class Quest extends ManagedScript
 		return showResult(player, res);
 	}
 	
-	public final boolean notifyEnterWorld(L2PcInstance player)
+	public final boolean notifyEnterWorld(L2Player player)
 	{
 		String res = null;
 		try
@@ -462,7 +462,7 @@ public class Quest extends ManagedScript
 		return showResult(player, res);
 	}
 	
-	public final boolean notifyKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public final boolean notifyKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		String res = null;
 		try
@@ -492,7 +492,7 @@ public class Quest extends ManagedScript
 	}
 
 	// override the default NPC dialogs when a quest defines this for the given NPC
-	public final boolean notifyFirstTalk(L2Npc npc, L2PcInstance player)
+	public final boolean notifyFirstTalk(L2Npc npc, L2Player player)
 	{
 		String res = null;
 		try
@@ -516,7 +516,7 @@ public class Quest extends ManagedScript
 		return true;
 	}
 
-	public final boolean notifyAcquireSkillList(L2Npc npc, L2PcInstance player)
+	public final boolean notifyAcquireSkillList(L2Npc npc, L2Player player)
 	{
 		String res = null;
 		try
@@ -530,7 +530,7 @@ public class Quest extends ManagedScript
 		return showResult(player, res);
 	}
 	
-	public final boolean notifyAcquireSkillInfo(L2Npc npc, L2PcInstance player, L2Skill skill)
+	public final boolean notifyAcquireSkillInfo(L2Npc npc, L2Player player, L2Skill skill)
 	{
 		String res = null;
 		try
@@ -544,7 +544,7 @@ public class Quest extends ManagedScript
 		return showResult(player, res);
 	}
 
-	public final boolean notifyAcquireSkill(L2Npc npc, L2PcInstance player, L2Skill skill)
+	public final boolean notifyAcquireSkill(L2Npc npc, L2Player player, L2Skill skill)
 	{
 		String res = null;
 		try
@@ -562,7 +562,7 @@ public class Quest extends ManagedScript
 		return showResult(player, res);
 	}
 	
-	public final boolean notifySkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public final boolean notifySkillSee(L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		String res = null;
 		try
@@ -576,7 +576,7 @@ public class Quest extends ManagedScript
 		return showResult(caster, res);
 	}
 
-	public final boolean notifyFactionCall(L2Npc npc, L2Npc caller, L2PcInstance attacker, boolean isPet)
+	public final boolean notifyFactionCall(L2Npc npc, L2Npc caller, L2Player attacker, boolean isPet)
 	{
 		String res = null;
 		try
@@ -590,7 +590,7 @@ public class Quest extends ManagedScript
 		return showResult(attacker, res);
 	}
 
-	public final boolean notifyAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final boolean notifyAggroRangeEnter(L2Npc npc, L2Player player, boolean isPet)
 	{
 		String res = null;
 		try
@@ -606,7 +606,7 @@ public class Quest extends ManagedScript
 	
 	public final boolean notifyEnterZone(L2Character character, L2Zone zone)
 	{
-		L2PcInstance player = character.getActingPlayer();
+		L2Player player = character.getActingPlayer();
 		String res = null;
 		try
 		{
@@ -624,7 +624,7 @@ public class Quest extends ManagedScript
 	
 	public final boolean notifyExitZone(L2Character character, L2Zone zone)
 	{
-		L2PcInstance player = character.getActingPlayer();
+		L2Player player = character.getActingPlayer();
 		String res = null;
 		try
 		{
@@ -654,7 +654,7 @@ public class Quest extends ManagedScript
 	}
 	
 	// these are methods that java calls to invoke scripts
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet)
+	public String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet)
 	{
 		switch (npc.getQuestAttackStatus())
 		{
@@ -670,7 +670,7 @@ public class Quest extends ManagedScript
 		return null;
 	}
 
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet, L2Skill skill)
+	public String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet, L2Skill skill)
 	{
 		return onAttack(npc, attacker, damage, isPet);
 	}
@@ -695,7 +695,7 @@ public class Quest extends ManagedScript
 	 * @param player quester
 	 * @return a htm file name (to be shown to player) or null
 	 */
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		// if not overridden by a subclass, then default to the returned value of the simpler (and older) onEvent override
 		// if the player has a state, use it as parameter in the next call, else return null
@@ -708,7 +708,7 @@ public class Quest extends ManagedScript
 
 	/**
 	 * A simple quest event handler. Used when
-	 * <CODE>onAdvEvent(String, L2Npc, L2PcInstance)</CODE> is not overridden.<BR>
+	 * <CODE>onAdvEvent(String, L2Npc, L2Player)</CODE> is not overridden.<BR>
 	 * It is guaranteed that both <CODE>event</CODE> and <CODE>qs</CODE>
 	 * are not <CODE>null</CODE>s and the quest is in progress.
 	 * @param event Timer name or bypass string
@@ -720,42 +720,42 @@ public class Quest extends ManagedScript
 		return null;
 	}
 
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public String onKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		return null;
 	}
 
-	public String onTalk(L2Npc npc, L2PcInstance talker)
+	public String onTalk(L2Npc npc, L2Player talker)
 	{
 		return null;
 	}
 
-	public String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		return null;
 	}
 
-	public String onAcquireSkillList(L2Npc npc, L2PcInstance player)
+	public String onAcquireSkillList(L2Npc npc, L2Player player)
 	{
 		return null;
 	}
 
-	public String onAcquireSkillInfo(L2Npc npc, L2PcInstance player, L2Skill skill)
+	public String onAcquireSkillInfo(L2Npc npc, L2Player player, L2Skill skill)
 	{
 		return null;
 	}
 	
-	public String onAcquireSkill(L2Npc npc, L2PcInstance player, L2Skill skill)
+	public String onAcquireSkill(L2Npc npc, L2Player player, L2Skill skill)
 	{
 		return null;
 	}
 	
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public String onSkillSee(L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		return null;
 	}
 
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, L2Skill skill)
+	public String onSpellFinished(L2Npc npc, L2Player player, L2Skill skill)
 	{
 		return null;
 	}
@@ -765,17 +765,17 @@ public class Quest extends ManagedScript
 		return null;
 	}
 
-	public String onFactionCall(L2Npc npc, L2Npc caller, L2PcInstance attacker, boolean isPet)
+	public String onFactionCall(L2Npc npc, L2Npc caller, L2Player attacker, boolean isPet)
 	{
 		return null;
 	}
 
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isPet)
+	public String onAggroRangeEnter(L2Npc npc, L2Player player, boolean isPet)
 	{
 		return null;
 	}
 	
-	public String onEnterWorld(L2PcInstance player)
+	public String onEnterWorld(L2Player player)
 	{
 		return null;
 	}
@@ -798,11 +798,11 @@ public class Quest extends ManagedScript
 	/**
 	 * Show message error to player who has an access level greater than 0
 	 * 
-	 * @param player : L2PcInstance
+	 * @param player : L2Player
 	 * @param t : Throwable
 	 * @return boolean
 	 */
-	private boolean showError(L2PcInstance player, Throwable t)
+	private boolean showError(L2Player player, Throwable t)
 	{
 		_log.warn(getScriptFile().getAbsolutePath(), t);
 		if (player != null && player.getAccessLevel() > 0)
@@ -828,7 +828,7 @@ public class Quest extends ManagedScript
 	 * @param res : String pointing out the message to show at the player
 	 * @return boolean
 	 */
-	private boolean showResult(L2PcInstance player, String res)
+	private boolean showResult(L2Player player, String res)
 	{
 		if (res == null || player == null)
 			return true;
@@ -870,10 +870,10 @@ public class Quest extends ManagedScript
 	/**
 	 * Add quests to the L2PCInstance of the player.<BR><BR>
 	 * <U><I>Action : </U></I><BR>
-	 * Add state of quests, drops and variables for quests in the HashMap _quest of L2PcInstance
+	 * Add state of quests, drops and variables for quests in the HashMap _quest of L2Player
 	 * @param player : Player who is entering the world
 	 */
-	public final static void playerEnter(L2PcInstance player)
+	public final static void playerEnter(L2Player player)
 	{
 		Connection con = null;
 		try
@@ -1413,9 +1413,9 @@ public class Quest extends ManagedScript
 		}
 	}
 	
-	// returns a random party member's L2PcInstance for the passed player's party
+	// returns a random party member's L2Player for the passed player's party
 	// returns the passed player if he has no party.
-	public L2PcInstance getRandomPartyMember(L2PcInstance player)
+	public L2Player getRandomPartyMember(L2Player player)
 	{
 		// NPE prevention.  If the player is null, there is nothing to return
 		if (player == null)
@@ -1432,10 +1432,10 @@ public class Quest extends ManagedScript
 	 * For any variations on this function, the quest script can always handle things on its own
 	 * @param player: the instance of a player whose party is to be searched
 	 * @param value: the value of the "cond" variable that must be matched
-	 * @return L2PcInstance: L2PcInstance for a random party member that matches the specified
+	 * @return L2Player: L2Player for a random party member that matches the specified
 	 * 			condition, or null if no match.
 	 */
-	public L2PcInstance getRandomPartyMember(L2PcInstance player, String value)
+	public L2Player getRandomPartyMember(L2Player player, String value)
 	{
 		return getRandomPartyMember(player, CONDITION, value);
 	}
@@ -1447,13 +1447,13 @@ public class Quest extends ManagedScript
 	 * @param player: the instance of a player whose party is to be searched
 	 * @param var/value: a tuple specifying a quest condition that must be satisfied for
 	 *	 a party member to be considered.
-	 * @return L2PcInstance: L2PcInstance for a random party member that matches the specified
+	 * @return L2Player: L2Player for a random party member that matches the specified
 	 * 				condition, or null if no match.  If the var is null, any random party
 	 * 				member is returned (i.e. no condition is applied).
 	 * 				The party member must be within 1500 distance from the target of the reference
 	 * 				player, or if no target exists, 1500 distance from the player itself.
 	 */
-	public L2PcInstance getRandomPartyMember(L2PcInstance player, String var, String value)
+	public L2Player getRandomPartyMember(L2Player player, String var, String value)
 	{
 		// if no valid player instance is passed, there is nothing to check...
 		if (player == null)
@@ -1478,14 +1478,14 @@ public class Quest extends ManagedScript
 
 		// if the player is in a party, gather a list of all matching party members (possibly
 		// including this player)
-		FastList<L2PcInstance> candidates = new FastList<L2PcInstance>();
+		FastList<L2Player> candidates = new FastList<L2Player>();
 
 		// get the target for enforcing distance limitations.
 		L2Object target = player.getTarget();
 		if (target == null)
 			target = player;
 
-		for (L2PcInstance partyMember : party.getPartyMembers())
+		for (L2Player partyMember : party.getPartyMembers())
 		{
 			if (partyMember == null)
 				continue;
@@ -1508,11 +1508,11 @@ public class Quest extends ManagedScript
 	 * For any variations on this function, the quest script can always handle things on its own
 	 * @param player: the instance of a player whose party is to be searched
 	 * @param state: the state in which the party member's queststate must be in order to be considered.
-	 * @return L2PcInstance: L2PcInstance for a random party member that matches the specified
+	 * @return L2Player: L2Player for a random party member that matches the specified
 	 * 				condition, or null if no match.  If the var is null, any random party
 	 * 				member is returned (i.e. no condition is applied).
 	 */
-	public L2PcInstance getRandomPartyMemberState(L2PcInstance player, byte state)
+	public L2Player getRandomPartyMemberState(L2Player player, byte state)
 	{
 		// if no valid player instance is passed, there is nothing to check...
 		if (player == null)
@@ -1533,14 +1533,14 @@ public class Quest extends ManagedScript
 
 		// if the player is in a party, gather a list of all matching party members (possibly
 		// including this player)
-		FastList<L2PcInstance> candidates = new FastList<L2PcInstance>();
+		FastList<L2Player> candidates = new FastList<L2Player>();
 
 		// get the target for enforcing distance limitations.
 		L2Object target = player.getTarget();
 		if (target == null)
 			target = player;
 
-		for (L2PcInstance partyMember : party.getPartyMembers())
+		for (L2Player partyMember : party.getPartyMembers())
 		{
 			temp = partyMember.getQuestState(getName());
 			if ((temp != null) && (temp.getState() == state) && partyMember.isInsideRadius(target, 1500, true, false))
@@ -1559,7 +1559,7 @@ public class Quest extends ManagedScript
 	 * @param fileName
 	 * @return String : message sent to client
 	 */
-	public String showHtmlFile(L2PcInstance player, String fileName)
+	public String showHtmlFile(L2Player player, String fileName)
 	{
 		String questName = getName();
 		int questId = getQuestIntId();

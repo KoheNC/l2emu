@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.handler.usercommandhandlers;
 
 import net.l2emuproject.gameserver.handler.IUserCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Support for /dismount command.
@@ -30,7 +30,7 @@ public class DisMount implements IUserCommandHandler
 	 * @see net.l2emuproject.gameserver.handler.IUserCommandHandler#useUserCommand(int, net.l2emuproject.gameserver.model.L2PcInstance)
 	 */
 	@Override
-	public synchronized boolean useUserCommand(int id, L2PcInstance activeChar)
+	public synchronized boolean useUserCommand(int id, L2Player activeChar)
 	{
 		if (id != COMMAND_IDS[0])
 			return false;

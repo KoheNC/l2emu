@@ -19,19 +19,19 @@ import java.util.Comparator;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.HennaTreeTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.templates.item.L2Henna;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public final class HennaEquipList extends L2GameServerPacket
 {
 	private static final String	_S__EE_HennaEquipList	= "[S] EE HennaEquipList";
 
-	private final L2PcInstance	_player;
+	private final L2Player	_player;
 	private final L2Henna[]		_hennas;
 
-	public HennaEquipList(L2PcInstance player)
+	public HennaEquipList(L2Player player)
 	{
 		_player = player;
 		_hennas = HennaTreeTable.getInstance().getAvailableHenna(player).clone();

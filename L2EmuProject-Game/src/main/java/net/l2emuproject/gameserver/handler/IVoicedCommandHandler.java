@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.handler;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -32,7 +32,7 @@ public interface IVoicedCommandHandler
 	 * @param target
 	 * @return <code>true</code> if handler was triggered by the call, <code>false</code> otherwise
 	 */
-	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String target);
+	public boolean useVoicedCommand(String command, L2Player activeChar, String target);
 	
 	/**
 	 * this method is called at initialization to register all the handlers automatically

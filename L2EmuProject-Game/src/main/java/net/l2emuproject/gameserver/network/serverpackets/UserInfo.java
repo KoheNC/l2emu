@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.model.actor.appearance.PcAppearance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.stat.PcStat;
 import net.l2emuproject.gameserver.model.actor.status.PcStatus;
 import net.l2emuproject.gameserver.model.actor.view.PcView;
@@ -25,6 +24,7 @@ import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.skills.AbnormalEffect;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * 0000: 04 03 15 00 00 77 ff 00 00 80 f1 ff ff 00 00 00    .....w..........
@@ -70,13 +70,13 @@ public final class UserInfo extends L2GameServerPacket
 {
 	private static final String _S__04_USERINFO = "[S] 04 UserInfo";
 	
-	private final L2PcInstance _activeChar;
+	private final L2Player _activeChar;
 	private final int _relation;
 	
 	//private int _territoryId;
 	//private boolean _isDisguised;
 	
-	public UserInfo(L2PcInstance cha)
+	public UserInfo(L2Player cha)
 	{
 		cha.getView().refresh();
 		
@@ -102,14 +102,14 @@ public final class UserInfo extends L2GameServerPacket
 	}
 	
 	@Override
-	public void packetSent(L2GameClient client, L2PcInstance activeChar)
+	public void packetSent(L2GameClient client, L2Player activeChar)
 	{
 		_activeChar.sendPacket(new ExBrExtraUserInfo(_activeChar));
 		_activeChar.sendPacket(new ExVitalityPointInfo(_activeChar.getPlayerVitality().getVitalityPoints()));
 	}
 	
 	@Override
-	public boolean canBeSentTo(L2GameClient client, L2PcInstance activeChar)
+	public boolean canBeSentTo(L2GameClient client, L2Player activeChar)
 	{
 		return _activeChar == activeChar;
 	}

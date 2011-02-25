@@ -19,7 +19,7 @@ import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager;
 import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerStateOnCommunity;
 import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -38,7 +38,7 @@ public class AdminGm implements IAdminCommandHandler
 													{ "admin_gm" };
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (command.equals("admin_gm"))
 			handleGm(activeChar);
@@ -52,7 +52,7 @@ public class AdminGm implements IAdminCommandHandler
 		return ADMIN_COMMANDS;
 	}
 
-	private void handleGm(L2PcInstance activeChar)
+	private void handleGm(L2Player activeChar)
 	{
 		if (activeChar.isGM())
 		{

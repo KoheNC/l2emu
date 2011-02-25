@@ -15,9 +15,9 @@
 package ai.npc;
 
 import ai.L2AttackableAIScript;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 /**
@@ -51,7 +51,7 @@ public final class TimakOrc extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet)
+	public String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet)
 	{
 		switch (npc.getNpcId())
 		{
@@ -73,7 +73,7 @@ public final class TimakOrc extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		int npcId = npc.getNpcId();
 

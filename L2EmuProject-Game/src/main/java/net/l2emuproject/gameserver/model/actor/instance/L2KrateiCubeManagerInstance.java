@@ -16,6 +16,7 @@ package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.instancemanager.games.KrateiCube;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author lord_rex
@@ -28,7 +29,7 @@ public final class L2KrateiCubeManagerInstance extends L2TeleporterInstance
 	}
 
 	@Override
-	public final void onBypassFeedback(L2PcInstance player, String command)
+	public final void onBypassFeedback(L2Player player, String command)
 	{
 		if (command.equalsIgnoreCase("Register"))
 		{

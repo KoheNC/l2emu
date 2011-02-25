@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.RecipeShopManageList;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
@@ -38,7 +38,7 @@ public class RequestRecipeShopManageList extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getClient().getActiveChar();
+		L2Player player = getClient().getActiveChar();
 		if (player == null)
 			return;
 
@@ -57,7 +57,7 @@ public class RequestRecipeShopManageList extends L2GameClientPacket
 
 		if (player.getPrivateStoreType() != 0)
 		{
-			player.setPrivateStoreType(L2PcInstance.STORE_PRIVATE_NONE);
+			player.setPrivateStoreType(L2Player.STORE_PRIVATE_NONE);
 			player.broadcastUserInfo();
 			if (player.isSitting())
 				player.standUp();

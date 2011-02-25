@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class ExShowBaseAttributeCancelWindow extends L2GameServerPacket
 {
@@ -25,7 +25,7 @@ public class ExShowBaseAttributeCancelWindow extends L2GameServerPacket
 
 	private final L2ItemInstance[]		_items;
 
-	public ExShowBaseAttributeCancelWindow(L2PcInstance player)
+	public ExShowBaseAttributeCancelWindow(L2Player player)
 	{
 		_items = player.getInventory().getElementItems();
 	}

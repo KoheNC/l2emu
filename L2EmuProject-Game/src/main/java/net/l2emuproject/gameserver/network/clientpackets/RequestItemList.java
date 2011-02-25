@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class represents a packet sent by the client when a player opens the inventory.
@@ -39,7 +39,7 @@ public class RequestItemList extends L2GameClientPacket
     @Override
     protected void runImpl()
 	{
-    	L2PcInstance player = getActiveChar();
+    	L2Player player = getActiveChar();
     	if (player == null) return;
 
     	else if (!player.isInventoryDisabled())

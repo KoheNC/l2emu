@@ -28,6 +28,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 public class L2ItemMarketerInstance extends L2NpcInstance
@@ -59,7 +60,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		List<L2ItemMarketModel> list = null;
 		StringTokenizer st = new StringTokenizer(command, " ");
@@ -283,7 +284,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 		super.onBypassFeedback(player, command);
 	}
 
-	private void showMsgWindow(L2PcInstance player)
+	private void showMsgWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		String filename = "data/html/mods/marketer/main.htm";
@@ -293,7 +294,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 		player.sendPacket(html);
 	}
 
-	private void addItem(L2PcInstance player, L2ItemInstance item, int count, int price)
+	private void addItem(L2Player player, L2ItemInstance item, int count, int price)
 	{
 		L2ItemMarketModel itemModel = new L2ItemMarketModel();
 		itemModel.setOwnerId(player.getObjectId());
@@ -335,7 +336,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 		sendMsg("You added " + count + " <font color=\"LEVEL\">" + item.getItemName() + "</font>.", player);
 	}
 
-	private boolean canAddItem(L2ItemInstance item, int count, List<L2ItemMarketModel> list, L2PcInstance activeChar)
+	private boolean canAddItem(L2ItemInstance item, int count, List<L2ItemMarketModel> list, L2Player activeChar)
 	{
 		if (activeChar != null && activeChar.getActiveTradeList() != null)
 			return false;
@@ -366,12 +367,12 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 		return "Icon." + ItemMarketTable.getInstance().getItemIcon(itemId);
 	}
 
-	private List<L2ItemMarketModel> getItemList(L2PcInstance player)
+	private List<L2ItemMarketModel> getItemList(L2Player player)
 	{
 		return ItemMarketTable.getInstance().getItemsByOwnerId(player.getObjectId());
 	}
 
-	private void buyItem(L2PcInstance player, int itemObjId, int count)
+	private void buyItem(L2Player player, int itemObjId, int count)
 	{
 		L2ItemMarketModel mrktItem = ItemMarketTable.getInstance().getItem(itemObjId);
 		if (mrktItem != null && mrktItem.getCount() >= count)
@@ -573,7 +574,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 		return filteredInventory;
 	}
 
-	private List<L2ItemMarketModel> filterList(List<L2ItemMarketModel> list, L2PcInstance player)
+	private List<L2ItemMarketModel> filterList(List<L2ItemMarketModel> list, L2Player player)
 	{
 		List<L2ItemMarketModel> filteredList = new FastList<L2ItemMarketModel>();
 		if (!list.isEmpty())
@@ -587,7 +588,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 		return filteredList;
 	}
 
-	private void showInvList(L2PcInstance player, int pageId)
+	private void showInvList(L2Player player, int pageId)
 	{
 		int itemsOnPage = ITEMS_PER_PAGE;
 		List<L2ItemInstance> list = filterInventory(player.getInventory().getItems());
@@ -640,7 +641,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 		player.sendPacket(npcReply);
 	}
 
-	private void showItemList(List<L2ItemMarketModel> list, int pageId, L2PcInstance player, int mask)
+	private void showItemList(List<L2ItemMarketModel> list, int pageId, L2Player player, int mask)
 	{
 		int itemsOnPage = ITEMS_PER_PAGE;
 		list = filterList(list, player);
@@ -703,7 +704,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 		player.sendPacket(npcReply);
 	}
 
-	private void showItemInfo(L2ItemMarketModel mrktItem, int mask, int pageId, L2PcInstance player)
+	private void showItemInfo(L2ItemMarketModel mrktItem, int mask, int pageId, L2Player player)
 	{
 		NpcHtmlMessage npcReply = new NpcHtmlMessage(1);
 		L2TextBuilder reply = L2TextBuilder.newInstance("<html><body>");
@@ -733,7 +734,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 		player.sendPacket(npcReply);
 	}
 
-	private void showPrivateItemList(List<L2ItemMarketModel> list, int pageId, L2PcInstance player)
+	private void showPrivateItemList(List<L2ItemMarketModel> list, int pageId, L2Player player)
 	{
 		int itemsOnPage = ITEMS_PER_PAGE;
 		if (list == null || list.isEmpty())
@@ -789,7 +790,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 		player.sendPacket(npcReply);
 	}
 
-	private void sendMsg(String message, L2PcInstance player)
+	private void sendMsg(String message, L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		NpcHtmlMessage npcReply = new NpcHtmlMessage(1);
@@ -801,7 +802,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 		player.sendPacket(npcReply);
 	}
 
-	private void showItemInfo2(L2ItemMarketModel mrktItem, int pageId, L2PcInstance player)
+	private void showItemInfo2(L2ItemMarketModel mrktItem, int pageId, L2Player player)
 	{
 		NpcHtmlMessage npcReply = new NpcHtmlMessage(1);
 		L2TextBuilder reply = L2TextBuilder.newInstance("<html><body>");

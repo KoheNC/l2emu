@@ -25,7 +25,7 @@ import java.util.Map.Entry;
 
 import javolution.util.FastMap;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -77,7 +77,7 @@ public final class RaidPointsManager
 		return pointsByBossId;
 	}
 
-	public static void addPoints(L2PcInstance player, int bossId, int points)
+	public static void addPoints(L2Player player, int bossId, int points)
 	{
 		final Map<Integer, Integer> pointsByBossId = getList(player.getObjectId());
 
@@ -122,7 +122,7 @@ public final class RaidPointsManager
 		return totalPoints;
 	}
 
-	public static Map<Integer, Integer> getList(L2PcInstance player)
+	public static Map<Integer, Integer> getList(L2Player player)
 	{
 		return _list.get(player.getObjectId());
 	}

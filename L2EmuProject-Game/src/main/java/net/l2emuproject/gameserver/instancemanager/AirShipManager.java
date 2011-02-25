@@ -30,10 +30,10 @@ import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.VehiclePathPoint;
 import net.l2emuproject.gameserver.model.actor.instance.L2AirShipInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControllableAirShipInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ExAirShipTeleportList;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class AirShipManager
 {
@@ -213,7 +213,7 @@ public class AirShipManager
 		_teleports.put(dockId, new AirShipTeleportList(locationId, fuelConsumption, tp));
 	}
 
-	public void sendAirShipTeleportList(L2PcInstance player)
+	public void sendAirShipTeleportList(L2Player player)
 	{
 		if (player == null || !player.isInAirShip())
 			return;

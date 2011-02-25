@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2AirShipInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public class ExAirShipStopMove extends L2GameServerPacket
@@ -25,7 +25,7 @@ public class ExAirShipStopMove extends L2GameServerPacket
 
 	private final int _playerId, _airShipId, _x, _y, _z;
 	
-	public ExAirShipStopMove (L2PcInstance player, L2AirShipInstance ship, int x, int y, int z)
+	public ExAirShipStopMove (L2Player player, L2AirShipInstance ship, int x, int y, int z)
 	{
 		_playerId = player.getObjectId();
 		_airShipId = ship.getObjectId();

@@ -25,10 +25,10 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.instancemanager.DayNightSpawnManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2ClassMasterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2WyvernManagerInstance;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Boss;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
@@ -394,7 +394,7 @@ public class SpawnTable
 	 * @param npcId : ID of the NPC to find.
 	 * @return
 	 */
-	public void findNPCInstances(L2PcInstance activeChar, int npcId, int teleportIndex)
+	public void findNPCInstances(L2Player activeChar, int npcId, int teleportIndex)
 	{
 		int index = 0;
 		for (FastMap.Entry<Integer, L2Spawn> entry = _spawnTable.head(), end = _spawnTable.tail();

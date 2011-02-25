@@ -23,9 +23,9 @@ import java.util.Map;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2Integer;
 import net.l2emuproject.util.L2Collections;
 
@@ -114,7 +114,7 @@ public final class CharNameTable
 		return characterInfo == null ? 0 : characterInfo._accessLevel;
 	}
 	
-	public void update(L2PcInstance player)
+	public void update(L2Player player)
 	{
 		update(player.getObjectId(), player.getAccountName(), player.getName(), player.getAccessLevel());
 	}
@@ -130,7 +130,7 @@ public final class CharNameTable
 	
 	public ICharacterInfo getICharacterInfoByObjectId(Integer objectId)
 	{
-		final L2PcInstance player = L2World.getInstance().getPlayer(objectId);
+		final L2Player player = L2World.getInstance().getPlayer(objectId);
 		
 		if (player != null)
 			return player;
@@ -140,7 +140,7 @@ public final class CharNameTable
 	
 	public ICharacterInfo getICharacterInfoByName(String name)
 	{
-		final L2PcInstance player = L2World.getInstance().getPlayer(name);
+		final L2Player player = L2World.getInstance().getPlayer(name);
 		
 		if (player != null)
 			return player;

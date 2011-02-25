@@ -23,6 +23,7 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.DeleteObject;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2ControllableAirShipInstance extends L2AirShipInstance
 {
@@ -34,7 +35,7 @@ public class L2ControllableAirShipInstance extends L2AirShipInstance
 
 	private int					_ownerId;
 	private int					_helmId;
-	private L2PcInstance		_captain	= null;
+	private L2Player		_captain	= null;
 
 	private Future<?>			_consumeFuelTask;
 	private Future<?>			_checkTask;
@@ -66,7 +67,7 @@ public class L2ControllableAirShipInstance extends L2AirShipInstance
 	}
 
 	@Override
-	public boolean isOwner(L2PcInstance player)
+	public boolean isOwner(L2Player player)
 	{
 		if (_ownerId == 0)
 			return false;
@@ -81,7 +82,7 @@ public class L2ControllableAirShipInstance extends L2AirShipInstance
 	}
 
 	@Override
-	public boolean isCaptain(L2PcInstance player)
+	public boolean isCaptain(L2Player player)
 	{
 		return _captain != null && player == _captain;
 	}
@@ -105,7 +106,7 @@ public class L2ControllableAirShipInstance extends L2AirShipInstance
 	}
 
 	@Override
-	public boolean setCaptain(L2PcInstance player)
+	public boolean setCaptain(L2Player player)
 	{
 		if (player == null)
 			_captain = null;
@@ -168,7 +169,7 @@ public class L2ControllableAirShipInstance extends L2AirShipInstance
 	}
 
 	@Override
-	public void oustPlayer(L2PcInstance player)
+	public void oustPlayer(L2Player player)
 	{
 		if (player == _captain)
 			setCaptain(null); // no need to broadcast userinfo here
@@ -177,7 +178,7 @@ public class L2ControllableAirShipInstance extends L2AirShipInstance
 	}
 
 	@Override
-	public void onAction(L2PcInstance player, boolean interact)
+	public void onAction(L2Player player, boolean interact)
 	{
 		super.onAction(player, interact);
 	}
@@ -225,7 +226,7 @@ public class L2ControllableAirShipInstance extends L2AirShipInstance
 	}
 
 	@Override
-	public void sendInfo(L2PcInstance activeChar)
+	public void sendInfo(L2Player activeChar)
 	{
 		super.sendInfo(activeChar);
 		if (_captain != null)

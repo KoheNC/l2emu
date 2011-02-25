@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -37,6 +36,7 @@ import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class MultiSellChoose extends L2GameClientPacket
 {
@@ -76,7 +76,7 @@ public final class MultiSellChoose extends L2GameClientPacket
 		if (_amount < 1 || _amount > 5000)
 			return;
 		
-		L2PcInstance player = getActiveChar();
+		L2Player player = getActiveChar();
 		if (player == null)
 			return;
 		
@@ -106,7 +106,7 @@ public final class MultiSellChoose extends L2GameClientPacket
 		sendAF();
 	}
 	
-	private void doExchange(L2PcInstance player, MultiSellEntry templateEntry, boolean applyTaxes,
+	private void doExchange(L2Player player, MultiSellEntry templateEntry, boolean applyTaxes,
 		boolean maintainEnchantment, int enchantment)
 	{
 		PcInventory inv = player.getInventory();

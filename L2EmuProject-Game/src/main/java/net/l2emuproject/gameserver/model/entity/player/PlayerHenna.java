@@ -20,13 +20,13 @@ import java.sql.ResultSet;
 
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.HennaTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.HennaInfo;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.templates.item.L2Henna;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class PlayerHenna extends PlayerExtension
 {
@@ -43,14 +43,14 @@ public final class PlayerHenna extends PlayerExtension
 	private int					_hennaWIT;
 	private int					_hennaCON;
 
-	public PlayerHenna(L2PcInstance activeChar)
+	public PlayerHenna(L2Player activeChar)
 	{
 		super(activeChar);
 	}
 
 	/**
-	 * Retrieve from the database all Henna of this L2PcInstance,
-	 * <br> add them to _henna and calculate stats of the L2PcInstance.
+	 * Retrieve from the database all Henna of this L2Player,
+	 * <br> add them to _henna and calculate stats of the L2Player.
 	 */
 	public final void restoreHenna()
 	{
@@ -89,12 +89,12 @@ public final class PlayerHenna extends PlayerExtension
 			L2DatabaseFactory.close(con);
 		}
 
-		// Calculate Henna modifiers of this L2PcInstance
+		// Calculate Henna modifiers of this L2Player
 		recalcHennaStats();
 	}
 
 	/**
-	 * Return the number of Henna empty slot of the L2PcInstance.
+	 * Return the number of Henna empty slot of the L2Player.
 	 */
 	public final int getHennaEmptySlots()
 	{
@@ -115,8 +115,8 @@ public final class PlayerHenna extends PlayerExtension
 	}
 
 	/**
-	 * Remove a Henna of the L2PcInstance, save update in the character_hennas table of the database,
-	 * <br> and send Server->Client HennaInfo/UserInfo packet to this L2PcInstance.
+	 * Remove a Henna of the L2Player, save update in the character_hennas table of the database,
+	 * <br> and send Server->Client HennaInfo/UserInfo packet to this L2Player.
 	 */
 	public final boolean removeHenna(int slot)
 	{
@@ -152,13 +152,13 @@ public final class PlayerHenna extends PlayerExtension
 			L2DatabaseFactory.close(con);
 		}
 
-		// Calculate Henna modifiers of this L2PcInstance
+		// Calculate Henna modifiers of this L2Player
 		recalcHennaStats();
 
-		// Send Server->Client HennaInfo packet to this L2PcInstance
+		// Send Server->Client HennaInfo packet to this L2Player
 		getPlayer().sendPacket(new HennaInfo(getPlayer()));
 
-		// Send Server->Client UserInfo packet to this L2PcInstance
+		// Send Server->Client UserInfo packet to this L2Player
 		getPlayer().sendPacket(new UserInfo(getPlayer()));
 
 		// Add the recovered dyes to the player's inventory and notify them.
@@ -178,8 +178,8 @@ public final class PlayerHenna extends PlayerExtension
 	}
 
 	/**
-	 * Add a Henna to the L2PcInstance, save update in the character_hennas table of the database 
-	 * <br> and send Server->Client HennaInfo/UserInfo packet to this L2PcInstance.
+	 * Add a Henna to the L2Player, save update in the character_hennas table of the database 
+	 * <br> and send Server->Client HennaInfo/UserInfo packet to this L2Player.
 	 * <B>Does not do <U>any</U> validation!</B>
 	 */
 	public final void addHenna(L2Henna henna)
@@ -190,7 +190,7 @@ public final class PlayerHenna extends PlayerExtension
 			{
 				_henna[i] = henna;
 
-				// Calculate Henna modifiers of this L2PcInstance
+				// Calculate Henna modifiers of this L2Player
 				recalcHennaStats();
 
 				Connection con = null;
@@ -214,9 +214,9 @@ public final class PlayerHenna extends PlayerExtension
 					L2DatabaseFactory.close(con);
 				}
 
-				// Send Server->Client HennaInfo packet to this L2PcInstance
+				// Send Server->Client HennaInfo packet to this L2Player
 				getPlayer().sendPacket(new HennaInfo(getPlayer()));
-				// Send Server->Client UserInfo packet to this L2PcInstance
+				// Send Server->Client UserInfo packet to this L2Player
 				getPlayer().sendPacket(new UserInfo(getPlayer()));
 				return;
 			}
@@ -249,7 +249,7 @@ public final class PlayerHenna extends PlayerExtension
 	}
 
 	/**
-	 * Calculate Henna modifiers of this L2PcInstance.
+	 * Calculate Henna modifiers of this L2Player.
 	 */
 	private final void recalcHennaStats()
 	{
@@ -287,7 +287,7 @@ public final class PlayerHenna extends PlayerExtension
 	}
 
 	/**
-	 * Return the Henna of this L2PcInstance corresponding to the selected slot.
+	 * Return the Henna of this L2Player corresponding to the selected slot.
 	 */
 	public final L2Henna getHenna(int slot)
 	{
@@ -304,7 +304,7 @@ public final class PlayerHenna extends PlayerExtension
 	}
 
 	/**
-	 * Return the INT Henna modifier of this L2PcInstance.
+	 * Return the INT Henna modifier of this L2Player.
 	 */
 	public final int getHennaStatINT()
 	{
@@ -312,7 +312,7 @@ public final class PlayerHenna extends PlayerExtension
 	}
 
 	/**
-	 * Return the STR Henna modifier of this L2PcInstance.
+	 * Return the STR Henna modifier of this L2Player.
 	 */
 	public final int getHennaStatSTR()
 	{
@@ -320,7 +320,7 @@ public final class PlayerHenna extends PlayerExtension
 	}
 
 	/**
-	 * Return the CON Henna modifier of this L2PcInstance.
+	 * Return the CON Henna modifier of this L2Player.
 	 */
 	public final int getHennaStatCON()
 	{
@@ -328,7 +328,7 @@ public final class PlayerHenna extends PlayerExtension
 	}
 
 	/**
-	 * Return the MEN Henna modifier of this L2PcInstance.
+	 * Return the MEN Henna modifier of this L2Player.
 	 */
 	public final int getHennaStatMEN()
 	{
@@ -336,7 +336,7 @@ public final class PlayerHenna extends PlayerExtension
 	}
 
 	/**
-	 * Return the WIT Henna modifier of this L2PcInstance.
+	 * Return the WIT Henna modifier of this L2Player.
 	 */
 	public final int getHennaStatWIT()
 	{
@@ -344,7 +344,7 @@ public final class PlayerHenna extends PlayerExtension
 	}
 
 	/**
-	 * Return the DEX Henna modifier of this L2PcInstance.
+	 * Return the DEX Henna modifier of this L2Player.
 	 */
 	public final int getHennaStatDEX()
 	{

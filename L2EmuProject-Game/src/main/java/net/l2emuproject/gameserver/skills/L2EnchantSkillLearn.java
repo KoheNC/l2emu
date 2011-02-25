@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javolution.util.FastTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class L2EnchantSkillLearn
 {
@@ -145,7 +145,7 @@ public final class L2EnchantSkillLearn
 			return _spCost;
 		}
 		
-		public byte getRate(L2PcInstance ply)
+		public byte getRate(L2Player ply)
 		{
 			if (ply.getLevel() < 76)
 				return 0;

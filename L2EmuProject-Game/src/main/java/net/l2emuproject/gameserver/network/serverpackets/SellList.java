@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.model.actor.instance.L2MerchantInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -29,12 +29,12 @@ public class SellList extends L2GameServerPacket
 {
 	private static final String			_S__10_SELLLIST	= "[S] 10 SellList";
 	
-	private final L2PcInstance			_activeChar;
+	private final L2Player			_activeChar;
 	private final L2MerchantInstance	_lease;
 	private final long						_money;
 	private final FastList<L2ItemInstance>	_selllist		= new FastList<L2ItemInstance>();
 
-	public SellList(L2PcInstance player)
+	public SellList(L2Player player)
 	{
 		_activeChar = player;
 		_lease = null;
@@ -42,7 +42,7 @@ public class SellList extends L2GameServerPacket
 		doLease();
 	}
 
-	public SellList(L2PcInstance player, L2MerchantInstance lease)
+	public SellList(L2Player player, L2MerchantInstance lease)
 	{
 		_activeChar = player;
 		_lease = lease;

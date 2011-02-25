@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -26,13 +26,13 @@ public class ObservationReturn extends L2GameServerPacket
 {
 	// ddSS
 	private static final String _S__E0_OBSERVRETURN = "[S] E0 ObservationReturn";
-	private final L2PcInstance _activeChar;
+	private final L2Player _activeChar;
 	
 
 	/**
 	 * @param _characters
 	 */
-	public ObservationReturn(L2PcInstance observer)
+	public ObservationReturn(L2Player observer)
 	{
 		_activeChar = observer;
 	}

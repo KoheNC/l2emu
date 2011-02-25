@@ -32,7 +32,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2FeedableBeastInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2FestivalMonsterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2GuardInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2RiftInvaderInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -41,6 +40,7 @@ import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Boss;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -154,7 +154,7 @@ public class CursedWeaponsService
 				}
 			}
 
-			// Retrieve the L2PcInstance from the characters table of the database
+			// Retrieve the L2Player from the characters table of the database
 			con = L2DatabaseFactory.getInstance().getConnection();
 
 			if (Config.ALLOW_CURSED_WEAPONS)
@@ -193,7 +193,7 @@ public class CursedWeaponsService
 
 			//L2DatabaseFactory.close(con);
 
-			// Retrieve the L2PcInstance from the characters table of the database
+			// Retrieve the L2Player from the characters table of the database
 			//con = L2DatabaseFactory.getInstance().getConnection(con);
 
 			for (CursedWeapon cw : _cursedWeapons.values())
@@ -269,7 +269,7 @@ public class CursedWeaponsService
 		_log.info("CursedWeaponsService: loaded " + _cursedWeapons.size() + " cursed weapon(s).");
 	}
 
-	public synchronized void checkDrop(L2Attackable attackable, L2PcInstance player)
+	public synchronized void checkDrop(L2Attackable attackable, L2Player player)
 	{
 		if (Config.ALLOW_CURSED_WEAPONS)
 		{
@@ -288,7 +288,7 @@ public class CursedWeaponsService
 		}
 	}
 
-	public boolean activate(L2PcInstance player, L2ItemInstance item)
+	public boolean activate(L2Player player, L2ItemInstance item)
 	{
 		if (Config.ALLOW_CURSED_WEAPONS)
 		{
@@ -336,7 +336,7 @@ public class CursedWeaponsService
 
 	public static void announce(SystemMessage sm)
 	{
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			if (player == null)
 				continue;
@@ -345,7 +345,7 @@ public class CursedWeaponsService
 		}
 	}
 
-	public void onEnter(L2PcInstance player)
+	public void onEnter(L2Player player)
 	{
 		if (player == null)
 			return;
@@ -368,7 +368,7 @@ public class CursedWeaponsService
 		}
 	}
 
-	public void onExit(L2PcInstance player)
+	public void onExit(L2Player player)
 	{
 		if(player == null)
 			return;

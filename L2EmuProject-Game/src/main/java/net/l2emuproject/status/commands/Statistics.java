@@ -20,12 +20,12 @@ import net.l2emuproject.gameserver.LoginServerThread;
 import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.status.GameStatusCommand;
 
@@ -80,11 +80,11 @@ public final class Statistics extends GameStatusCommand
 			}
 			else if (obj instanceof L2Npc)
 				npcCount++;
-			else if (obj instanceof L2PcInstance)
+			else if (obj instanceof L2Player)
 			{
 				pcCount++;
 				
-				if (((L2PcInstance)obj).isInOfflineMode())
+				if (((L2Player)obj).isInOfflineMode())
 					detachedCount++;
 			}
 			else if (obj instanceof L2Summon)

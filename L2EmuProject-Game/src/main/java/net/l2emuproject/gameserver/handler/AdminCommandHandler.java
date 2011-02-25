@@ -96,8 +96,8 @@ import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminUnblockIp;
 import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminVitality;
 import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminZone;
 import net.l2emuproject.gameserver.model.GMAudit;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.HandlerRegistry;
 import net.l2emuproject.util.logging.ListeningLog;
 import net.l2emuproject.util.logging.ListeningLog.LogListener;
@@ -215,7 +215,7 @@ public final class AdminCommandHandler extends HandlerRegistry<String, IAdminCom
 				_log.warn("Command \"" + element + "\" have no access level definition. Can't be used.");
 	}
 	
-	public void useAdminCommand(final L2PcInstance activeChar, String message0)
+	public void useAdminCommand(final L2Player activeChar, String message0)
 	{
 		final String message = message0.trim();
 		
@@ -310,7 +310,7 @@ public final class AdminCommandHandler extends HandlerRegistry<String, IAdminCom
 		protected static final AdminCommandHandler _instance = new AdminCommandHandler();
 	}
 	
-	private static final ThreadLocal<L2PcInstance> _activeGm = new ThreadLocal<L2PcInstance>();
+	private static final ThreadLocal<L2Player> _activeGm = new ThreadLocal<L2Player>();
 	
 	static
 	{
@@ -318,7 +318,7 @@ public final class AdminCommandHandler extends HandlerRegistry<String, IAdminCom
 			@Override
 			public void write(String s)
 			{
-				final L2PcInstance gm = _activeGm.get();
+				final L2Player gm = _activeGm.get();
 				
 				if (gm != null)
 					gm.sendMessage(s);

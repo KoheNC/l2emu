@@ -23,11 +23,11 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.restriction.global.TvTRestriction;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.Broadcast;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 /**
@@ -46,7 +46,7 @@ public final class TvT extends L2Event
 		return SingletonHolder.INSTANCE;
 	}
 
-	private final Map<Integer, L2PcInstance>	_gamers;
+	private final Map<Integer, L2Player>	_gamers;
 	private final L2EventTeam[]					_teams;
 
 	private int									_instanceId	= 0;
@@ -62,7 +62,7 @@ public final class TvT extends L2Event
 		_announced = 0;
 		_task = new AutoEventTask();
 
-		_gamers = new FastMap<Integer, L2PcInstance>(Config.TVT_PARTICIPANTS_MAX);
+		_gamers = new FastMap<Integer, L2Player>(Config.TVT_PARTICIPANTS_MAX);
 		_teams = new L2EventTeam[2];
 
 		_teams[0] = new L2EventTeam(Config.TVT_FIRST_TEAM_NAME, Config.TVT_FIRST_TEAM_COLOR, Config.TVT_FIRST_TEAM_COORDS);
@@ -175,7 +175,7 @@ public final class TvT extends L2Event
 
 		byte teamId = 0;
 
-		for (L2PcInstance player : _gamers.values())
+		for (L2Player player : _gamers.values())
 		{
 			// Check to which team the player should be added
 			if (_teams[0].getPlayersCount() == _teams[1].getPlayersCount())
@@ -203,7 +203,7 @@ public final class TvT extends L2Event
 	{
 		_status = STATUS_COMBAT;
 
-		for (L2PcInstance player : _gamers.values())
+		for (L2Player player : _gamers.values())
 		{
 			player.setIsPetrified(false);
 			sendMessage(player, "Petrification is ended now you can fight! Battle ends in " + Config.TVT_PERIOD_LENGHT_EVENT / 1000 + " seconds.", 5000);
@@ -224,7 +224,7 @@ public final class TvT extends L2Event
 
 		int winnerTeam = getWinnerTeam();
 
-		for (L2PcInstance player : _gamers.values())
+		for (L2Player player : _gamers.values())
 		{
 			if (getPlayerTeamId(player) == winnerTeam)
 			{
@@ -264,7 +264,7 @@ public final class TvT extends L2Event
 	}
 
 	@Override
-	protected final void giveRewards(L2PcInstance player)
+	protected final void giveRewards(L2Player player)
 	{
 		final int deathPoints = player.getPlayerEventData().getDeathPoints();
 
@@ -279,7 +279,7 @@ public final class TvT extends L2Event
 	}
 
 	@Override
-	protected final boolean canJoin(L2PcInstance player)
+	protected final boolean canJoin(L2Player player)
 	{
 		if (_status != STATUS_REGISTRATION || _gamers.size() >= Config.TVT_PARTICIPANTS_MAX)
 		{
@@ -297,7 +297,7 @@ public final class TvT extends L2Event
 	}
 
 	@Override
-	public final void registerPlayer(L2PcInstance player)
+	public final void registerPlayer(L2Player player)
 	{
 		if (!canJoin(player))
 			return;
@@ -307,7 +307,7 @@ public final class TvT extends L2Event
 	}
 
 	@Override
-	public final void cancelRegistration(L2PcInstance player)
+	public final void cancelRegistration(L2Player player)
 	{
 		if (_gamers.containsKey(player.getObjectId()))
 		{
@@ -317,7 +317,7 @@ public final class TvT extends L2Event
 	}
 
 	@Override
-	public final void removeDisconnected(L2PcInstance player)
+	public final void removeDisconnected(L2Player player)
 	{
 		_gamers.remove(player.getObjectId());
 	}
@@ -341,13 +341,13 @@ public final class TvT extends L2Event
 		}
 	}
 
-	private final void reviveTask(L2PcInstance player)
+	private final void reviveTask(L2Player player)
 	{
 		ThreadPoolManager.getInstance().scheduleGeneral(new ReviveTask(player, _teams[getPlayerTeamId(player)].getCoords(), _instanceId),
 				Config.TVT_REVIVE_DELAY);
 	}
 
-	public static final void revive(L2PcInstance player)
+	public static final void revive(L2Player player)
 	{
 		getInstance().sendMessage(player, "You will be revived in " + Config.TVT_REVIVE_DELAY / 1000 + " seconds!", 5000);
 		getInstance().reviveTask(player);
@@ -365,7 +365,7 @@ public final class TvT extends L2Event
 		}
 	}
 
-	public static final boolean isPlaying(L2PcInstance player)
+	public static final boolean isPlaying(L2Player player)
 	{
 		return isInProgress() && isMember(player.getObjectId());
 	}
@@ -375,7 +375,7 @@ public final class TvT extends L2Event
 		return getInstance()._gamers.containsKey(objectId);
 	}
 
-	public static byte getPlayerTeamId(L2PcInstance player)
+	public static byte getPlayerTeamId(L2Player player)
 	{
 		return (byte) (getInstance()._teams[0].containsPlayer(player) ? 0 : (getInstance()._teams[1].containsPlayer(player) ? 1 : -1));
 	}
@@ -400,14 +400,14 @@ public final class TvT extends L2Event
 		return getInstance()._teams;
 	}
 
-	public static final void givePoint(L2PcInstance killer)
+	public static final void givePoint(L2Player killer)
 	{
 		L2EventTeam team = getInstance()._teams[getPlayerTeamId(killer)];
 		team.addPoint();
 		Announcements.getInstance().announceToAll("TvT : Number " + team.getTeamName() + " team points : " + team.getPoints());
 	}
 
-	public static final void removePoint(L2PcInstance target)
+	public static final void removePoint(L2Player target)
 	{
 		L2EventTeam team = getInstance()._teams[getPlayerTeamId(target)];
 		team.removePoint();

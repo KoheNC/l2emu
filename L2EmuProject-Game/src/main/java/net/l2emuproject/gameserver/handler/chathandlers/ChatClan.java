@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.handler.chathandlers;
 
 import net.l2emuproject.gameserver.handler.IChatHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  *
@@ -38,10 +38,10 @@ public class ChatClan implements IChatHandler
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.handler.IChatHandler#useChatHandler(net.l2emuproject.gameserver.character.player.L2PcInstance, java.lang.String, net.l2emuproject.gameserver.network.enums.SystemChatChannelId, java.lang.String)
+	 * @see net.l2emuproject.gameserver.handler.IChatHandler#useChatHandler(net.l2emuproject.gameserver.world.object.L2Player.player.L2PcInstance, java.lang.String, net.l2emuproject.gameserver.network.enums.SystemChatChannelId, java.lang.String)
 	 */
 	@Override
-	public void useChatHandler(L2PcInstance activeChar, String target, SystemChatChannelId chatType, String text)
+	public void useChatHandler(L2Player activeChar, String target, SystemChatChannelId chatType, String text)
 	{
 		if (activeChar.getClan() == null)
 			return;

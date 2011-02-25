@@ -19,7 +19,6 @@ import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2FortCommanderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeSummonInstance;
@@ -29,6 +28,7 @@ import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.geodata.GeoData;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author littlecrow Implementation of the Fear Effect
@@ -55,9 +55,9 @@ public final class EffectFear extends L2Effect
 	@Override
 	protected boolean onStart()
 	{
-		// Fear skills cannot be used by L2PcInstance to L2PcInstance.
+		// Fear skills cannot be used by L2Player to L2Player.
 		// Heroic Dread, Curse: Fear, Fear, Horror, Sword Symphony, Word of Fear, Mass Curse Fear and Saber Tooth Tiger Fear are the exceptions.
-		if (getEffected() instanceof L2PcInstance && getEffector() instanceof L2PcInstance)
+		if (getEffected() instanceof L2Player && getEffector() instanceof L2Player)
 		{
 			switch (getSkill().getId())
 			{

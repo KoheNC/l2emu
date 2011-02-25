@@ -26,7 +26,7 @@ import net.l2emuproject.gameserver.communitybbs.bb.Forum;
 import net.l2emuproject.gameserver.communitybbs.bb.Post;
 import net.l2emuproject.gameserver.communitybbs.bb.Topic;
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 
@@ -91,7 +91,7 @@ public class TopicBBSManager extends BaseBBSManager
 	 * @see net.l2emuproject.gameserver.communitybbs.Manager.BaseBBSManager#parsewrite(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, net.l2emuproject.gameserver.model.actor.instance.L2PcInstance)
 	 */
 	@Override
-	public void parsewrite(String ar1, String ar2, String ar3, String ar4, String ar5, L2PcInstance activeChar)
+	public void parsewrite(String ar1, String ar2, String ar3, String ar4, String ar5, L2Player activeChar)
 	{
 		if (ar1.equals("crea"))
 		{
@@ -150,7 +150,7 @@ public class TopicBBSManager extends BaseBBSManager
 	 * @see net.l2emuproject.gameserver.communitybbs.Manager.BaseBBSManager#parsecmd(java.lang.String, net.l2emuproject.gameserver.model.actor.instance.L2PcInstance)
 	 */
 	@Override
-	public void parsecmd(String command, L2PcInstance activeChar)
+	public void parsecmd(String command, L2Player activeChar)
 	{
 		if (command.equals("_bbsmemo"))
 		{
@@ -229,7 +229,7 @@ public class TopicBBSManager extends BaseBBSManager
 	 * @param activeChar
 	 * @param idf
 	 */
-	private void showNewTopic(Forum forum, L2PcInstance activeChar, int idf)
+	private void showNewTopic(Forum forum, L2Player activeChar, int idf)
 	{
 		if (forum == null)
 		{
@@ -249,7 +249,7 @@ public class TopicBBSManager extends BaseBBSManager
 	 * @param forum
 	 * @param activeChar
 	 */
-	private void showMemoNewTopics(Forum forum, L2PcInstance activeChar)
+	private void showMemoNewTopics(Forum forum, L2Player activeChar)
 	{
 		final L2TextBuilder html = L2TextBuilder.newInstance();
 		html.append("<html>");
@@ -305,7 +305,7 @@ public class TopicBBSManager extends BaseBBSManager
 	/**
 	 * @param memo
 	 */
-	private void showTopics(Forum forum, L2PcInstance activeChar, int index, int idf)
+	private void showTopics(Forum forum, L2Player activeChar, int index, int idf)
 	{
 		if (forum == null)
 		{
@@ -325,7 +325,7 @@ public class TopicBBSManager extends BaseBBSManager
 	 * @param forum
 	 * @param activeChar
 	 */
-	private void showMemoTopics(Forum forum, L2PcInstance activeChar, int index)
+	private void showMemoTopics(Forum forum, L2Player activeChar, int index)
 	{
 		forum.vload();
 		final L2TextBuilder html = L2TextBuilder.newInstance();

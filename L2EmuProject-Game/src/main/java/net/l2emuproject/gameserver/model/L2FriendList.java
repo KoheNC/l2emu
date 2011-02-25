@@ -18,22 +18,22 @@ import java.util.Set;
 
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.instancemanager.FriendListManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.FriendPacket;
 import net.l2emuproject.gameserver.network.serverpackets.FriendPacket.FriendAction;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author G1ta0
  */
 public final class L2FriendList
 {
-	private final L2PcInstance _owner;
+	private final L2Player _owner;
 	private final Set<Integer> _set;
 	
-	public L2FriendList(L2PcInstance owner)
+	public L2FriendList(L2Player owner)
 	{
 		_owner = owner;
 		_set = FriendListManager.getInstance().getFriendList(owner.getObjectId());
@@ -44,7 +44,7 @@ public final class L2FriendList
 		return _set.contains(objectId);
 	}
 	
-	public boolean contains(L2PcInstance player)
+	public boolean contains(L2Player player)
 	{
 		return player != null && contains(player.getObjectId());
 	}
@@ -54,7 +54,7 @@ public final class L2FriendList
 		return _set;
 	}
 	
-	public boolean canAddAsFriend(L2PcInstance friend)
+	public boolean canAddAsFriend(L2Player friend)
 	{
 		if (friend == null || friend.isOnline() == 0 || friend.getAppearance().isInvisible())
 			_owner.sendPacket(SystemMessageId.THE_USER_YOU_REQUESTED_IS_NOT_IN_GAME);
@@ -72,7 +72,7 @@ public final class L2FriendList
 		return false;
 	}
 	
-	public void add(L2PcInstance friend)
+	public void add(L2Player friend)
 	{
 		if (!canAddAsFriend(friend))
 			return;
@@ -102,7 +102,7 @@ public final class L2FriendList
 			_owner.sendPacket(new SystemMessage(SystemMessageId.C1_HAS_BEEN_DELETED_FROM_YOUR_FRIENDS_LIST).addString(name));
 			_owner.sendPacket(new FriendPacket(FriendAction.REMOVE_FRIEND, objId));
 			
-			L2PcInstance friend = L2World.getInstance().findPlayer(objId);
+			L2Player friend = L2World.getInstance().findPlayer(objId);
 			if (friend != null)
 			{
 				friend.sendPacket(new SystemMessage(SystemMessageId.C1_HAS_BEEN_DELETED_FROM_YOUR_FRIENDS_LIST).addPcName(_owner));

@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.model;
 import java.util.Set;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
@@ -30,6 +29,7 @@ import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Boss;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.L2FastSet;
 
 
@@ -40,14 +40,14 @@ import net.l2emuproject.util.L2FastSet;
 public class L2CommandChannel
 {
 	private Set<L2Party> _partys = null;
-	private L2PcInstance _commandLeader = null;
+	private L2Player _commandLeader = null;
 	private int _channelLvl;
 
 	/**
 	 * Creates a New Command Channel and Add the Leaders party to the CC
 	 * @param leader Command channel leader
 	 */
-	public L2CommandChannel(L2PcInstance leader)
+	public L2CommandChannel(L2Player leader)
 	{
 		_commandLeader = leader;
 		_partys = new L2FastSet<L2Party>().shared();
@@ -157,7 +157,7 @@ public class L2CommandChannel
 					party.broadcastToPartyMembers(gsp);
 	}
 
-	public void broadcastCSToChannelMembers(CreatureSay gsp, L2PcInstance broadcaster)
+	public void broadcastCSToChannelMembers(CreatureSay gsp, L2Player broadcaster)
 	{
 		if (_partys != null)
 			for (L2Party party : _partys)
@@ -165,7 +165,7 @@ public class L2CommandChannel
 					party.broadcastCSToPartyMembers(gsp, broadcaster);
 	}
 
-	public void broadcastToChannelMembers(L2PcInstance exclude, L2GameServerPacket gsp)
+	public void broadcastToChannelMembers(L2Player exclude, L2GameServerPacket gsp)
 	{
 		if (_partys != null)
 			for (L2Party party : _partys)
@@ -179,9 +179,9 @@ public class L2CommandChannel
 	}
 
 	/** @return list of all Members in Command Channel */
-	public FastList<L2PcInstance> getMembers()
+	public FastList<L2Player> getMembers()
 	{
-		FastList<L2PcInstance> members = new FastList<L2PcInstance>();
+		FastList<L2Player> members = new FastList<L2Player>();
 		for (L2Party party : getPartys())
 			members.addAll(party.getPartyMembers());
 		return members;
@@ -205,13 +205,13 @@ public class L2CommandChannel
 	 * Sets the new leader of the Command Channel
 	 * @param leader
 	 */
-	public void setChannelLeader(L2PcInstance leader)
+	public void setChannelLeader(L2Player leader)
 	{
 		_commandLeader = leader;
 	}
 
 	/** @return the leader of the Command Channel */
-	public L2PcInstance getChannelLeader()
+	public L2Player getChannelLeader()
 	{
 		return _commandLeader;
 	}

@@ -26,12 +26,12 @@ import javolution.util.FastMap;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Message;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExNoticePostArrived;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -106,7 +106,7 @@ public class MailManager
 		return _messages.get(msgId);
 	}
 	
-	public final boolean hasUnreadPost(L2PcInstance player)
+	public final boolean hasUnreadPost(L2Player player)
 	{
 		final int objectId = player.getObjectId();
 		for (Message msg : _messages.values())
@@ -183,7 +183,7 @@ public class MailManager
 			L2DatabaseFactory.close(con);
 		}
 		
-		final L2PcInstance receiver = L2World.getInstance().getPlayer(msg.getReceiverId());
+		final L2Player receiver = L2World.getInstance().getPlayer(msg.getReceiverId());
 		if (receiver != null)
 			receiver.sendPacket(new ExNoticePostArrived(true));
 		
@@ -210,7 +210,7 @@ public class MailManager
 			{
 				try
 				{
-					final L2PcInstance sender = L2World.getInstance().getPlayer(msg.getSenderId());
+					final L2Player sender = L2World.getInstance().getPlayer(msg.getSenderId());
 					if (sender != null)
 					{
 						msg.getAttachments().returnToWh(sender.getWarehouse());
@@ -222,7 +222,7 @@ public class MailManager
 					msg.getAttachments().deleteMe();
 					msg.removeAttachments();
 					
-					final L2PcInstance receiver = L2World.getInstance().getPlayer(msg.getReceiverId());
+					final L2Player receiver = L2World.getInstance().getPlayer(msg.getReceiverId());
 					if (receiver != null)
 					{
 						SystemMessage sm = new SystemMessage(SystemMessageId.MAIL_RETURNED);

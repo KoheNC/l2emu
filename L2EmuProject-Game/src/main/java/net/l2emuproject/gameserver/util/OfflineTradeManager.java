@@ -19,13 +19,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.RecipeShopMsg;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureItem;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
 import net.l2emuproject.gameserver.services.transactions.TradeList.TradeItem;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -67,7 +67,7 @@ public final class OfflineTradeManager
 				int privateStoreType = Integer.valueOf(rset.getString(2));
 				String msg = rset.getString(3);
 				
-				L2PcInstance p = L2PcInstance.load(charId);
+				L2Player p = L2Player.load(charId);
 				if (p == null)
 					continue;
 				
@@ -85,16 +85,16 @@ public final class OfflineTradeManager
 				{
 					switch (privateStoreType)
 					{
-						case L2PcInstance.STORE_PRIVATE_PACKAGE_SELL:
-						case L2PcInstance.STORE_PRIVATE_SELL:
+						case L2Player.STORE_PRIVATE_PACKAGE_SELL:
+						case L2Player.STORE_PRIVATE_SELL:
 							p.getSellList().addItem(rset2.getInt(2), rset2.getLong(3), rset2.getLong(4));
 							_itemCount++;
 							break;
-						case L2PcInstance.STORE_PRIVATE_BUY:
+						case L2Player.STORE_PRIVATE_BUY:
 							p.getBuyList().addItemByItemId(rset2.getInt(2), rset2.getLong(3), rset2.getLong(4));
 							_itemCount++;
 							break;
-						case L2PcInstance.STORE_PRIVATE_MANUFACTURE:
+						case L2Player.STORE_PRIVATE_MANUFACTURE:
 							manufactureList.add(new L2ManufactureItem(rset2.getInt(2), rset2.getLong(4)));
 							_recipeCount++;
 							break;
@@ -105,18 +105,18 @@ public final class OfflineTradeManager
 				
 				switch (privateStoreType)
 				{
-					case L2PcInstance.STORE_PRIVATE_PACKAGE_SELL:
+					case L2Player.STORE_PRIVATE_PACKAGE_SELL:
 						p.getSellList().setPackaged(true);
 					//$FALL-THROUGH$
-					case L2PcInstance.STORE_PRIVATE_SELL:
+					case L2Player.STORE_PRIVATE_SELL:
 						p.getSellList().setTitle(msg);
 						p.tryOpenPrivateSellStore(p.getSellList().isPackaged());
 						break;
-					case L2PcInstance.STORE_PRIVATE_BUY:
+					case L2Player.STORE_PRIVATE_BUY:
 						p.getBuyList().setTitle(msg);
 						p.tryOpenPrivateBuyStore();
 						break;
-					case L2PcInstance.STORE_PRIVATE_MANUFACTURE:
+					case L2Player.STORE_PRIVATE_MANUFACTURE:
 						manufactureList.setStoreName(msg);
 						p.setCreateList(manufactureList);
 						p.broadcastPacket(new RecipeShopMsg(p));
@@ -157,7 +157,7 @@ public final class OfflineTradeManager
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection(con);
-			for (L2PcInstance p : L2World.getInstance().getAllPlayers())
+			for (L2Player p : L2World.getInstance().getAllPlayers())
 			{
 				try
 				{
@@ -169,8 +169,8 @@ public final class OfflineTradeManager
 						
 						switch (privateStoreType)
 						{
-							case L2PcInstance.STORE_PRIVATE_SELL:
-							case L2PcInstance.STORE_PRIVATE_PACKAGE_SELL:
+							case L2Player.STORE_PRIVATE_SELL:
+							case L2Player.STORE_PRIVATE_PACKAGE_SELL:
 								tradeList = p.getSellList();
 								for (TradeItem i : tradeList.getItems())
 								{
@@ -185,7 +185,7 @@ public final class OfflineTradeManager
 									_itemCount++;
 								}
 								break;
-							case L2PcInstance.STORE_PRIVATE_BUY:
+							case L2Player.STORE_PRIVATE_BUY:
 								tradeList = p.getBuyList();
 								for (TradeItem i : tradeList.getItems())
 								{
@@ -200,7 +200,7 @@ public final class OfflineTradeManager
 									_itemCount++;
 								}
 								break;
-							case L2PcInstance.STORE_PRIVATE_MANUFACTURE:
+							case L2Player.STORE_PRIVATE_MANUFACTURE:
 								manufactureList = p.getCreateList();
 								for (L2ManufactureItem i : manufactureList.getList())
 								{
@@ -221,15 +221,15 @@ public final class OfflineTradeManager
 						st.setString(2, String.valueOf(privateStoreType));
 						switch (privateStoreType)
 						{
-							case L2PcInstance.STORE_PRIVATE_MANUFACTURE:
+							case L2Player.STORE_PRIVATE_MANUFACTURE:
 								if (manufactureList != null)
 									st.setString(3, manufactureList.getStoreName());
 								else
 									st.setString(3, "");
 								break;
-							case L2PcInstance.STORE_PRIVATE_SELL:
-							case L2PcInstance.STORE_PRIVATE_PACKAGE_SELL:
-							case L2PcInstance.STORE_PRIVATE_BUY:
+							case L2Player.STORE_PRIVATE_SELL:
+							case L2Player.STORE_PRIVATE_PACKAGE_SELL:
+							case L2Player.STORE_PRIVATE_BUY:
 								if (tradeList != null)
 									st.setString(3, tradeList.getTitle());
 								else

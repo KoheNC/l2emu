@@ -26,6 +26,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Evolve;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public class L2ClanHallDoormenInstance extends L2DoormenInstance
@@ -43,7 +44,7 @@ public class L2ClanHallDoormenInstance extends L2DoormenInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (_hasEvolve && command.startsWith("evolve"))
 		{
@@ -94,7 +95,7 @@ public class L2ClanHallDoormenInstance extends L2DoormenInstance
 	}
 
 	@Override
-	public void showMessageWindow(L2PcInstance player)
+	public void showMessageWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 
@@ -140,7 +141,7 @@ public class L2ClanHallDoormenInstance extends L2DoormenInstance
 	}
 
 	@Override
-	protected final void openDoors(L2PcInstance player, String command)
+	protected final void openDoors(L2Player player, String command)
 	{
 		getClanHall().openCloseDoors(true);
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
@@ -150,7 +151,7 @@ public class L2ClanHallDoormenInstance extends L2DoormenInstance
 	}
 
 	@Override
-	protected final void closeDoors(L2PcInstance player, String command)
+	protected final void closeDoors(L2Player player, String command)
 	{
 		getClanHall().openCloseDoors(false);
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
@@ -178,7 +179,7 @@ public class L2ClanHallDoormenInstance extends L2DoormenInstance
 	}
 
 	@Override
-	protected final boolean isOwnerClan(L2PcInstance player)
+	protected final boolean isOwnerClan(L2Player player)
 	{
 		if (player.isGM())
 			return true;

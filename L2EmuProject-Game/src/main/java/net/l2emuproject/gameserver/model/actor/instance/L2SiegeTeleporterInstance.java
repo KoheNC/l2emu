@@ -23,6 +23,7 @@ import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Represents a hireable mercenary teleporter, that can be manually positioned.
@@ -40,7 +41,7 @@ public final class L2SiegeTeleporterInstance extends L2Npc
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		// IDK if needed, must test
 		if (ObjectRestrictions.getInstance().checkRestriction(player, AvailableRestriction.PlayerTeleport))
@@ -84,7 +85,7 @@ public final class L2SiegeTeleporterInstance extends L2Npc
 	}
 
 	@Override
-	public void showChatWindow(L2PcInstance player, int val)
+	public void showChatWindow(L2Player player, int val)
 	{
 		String filename = "data/html/teleporter/castleteleporter-no.htm";
 		if (getCastle() != null && getCastle().getSiege().getIsInProgress() && player.getClanId() == getCastle().getOwnerId())

@@ -24,7 +24,6 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
@@ -38,6 +37,7 @@ import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 /**
@@ -164,7 +164,7 @@ public class HallOfSuffering extends QuestJython
 	// default: 24h
 	private static final int		INSTANCEPENALTY			= 24;
 
-	private boolean checkConditions(L2PcInstance player)
+	private boolean checkConditions(L2Player player)
 	{
 		L2Party party = player.getParty();
 		if (party == null)
@@ -177,7 +177,7 @@ public class HallOfSuffering extends QuestJython
 			player.sendPacket(new SystemMessage(SystemMessageId.ONLY_PARTY_LEADER_CAN_ENTER));
 			return false;
 		}
-		for (L2PcInstance partyMember : party.getPartyMembers())
+		for (L2Player partyMember : party.getPartyMembers())
 		{
 			if (partyMember.getLevel() < 75)
 			{
@@ -205,13 +205,13 @@ public class HallOfSuffering extends QuestJython
 		return true;
 	}
 
-	private void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
+	private void teleportPlayer(L2Player player, int[] coords, int instanceId)
 	{
 		player.setInstanceId(instanceId);
 		player.teleToLocation(coords[0], coords[1], coords[2]);
 	}
 
-	private int enterInstance(L2PcInstance player, String template, int[] coords)
+	private int enterInstance(L2Player player, String template, int[] coords)
 	{
 		int instanceId = 0;
 		//check for existing instances for this player
@@ -252,7 +252,7 @@ public class HallOfSuffering extends QuestJython
 			}
 			else
 			{
-				for (L2PcInstance partyMember : party.getPartyMembers())
+				for (L2Player partyMember : party.getPartyMembers())
 				{
 					teleportPlayer(partyMember, coords, instanceId);
 					world.allowed.add(partyMember.getObjectId());
@@ -341,7 +341,7 @@ public class HallOfSuffering extends QuestJython
 
 		boss.stopAllEffectsExceptThoseThatLastThroughDeath();
 
-		// Send the Server->Client packet StatusUpdate with current HP and MP to all other L2PcInstance to inform
+		// Send the Server->Client packet StatusUpdate with current HP and MP to all other L2Player to inform
 		boss.broadcastStatusUpdate();
 
 		// Notify L2Character AI
@@ -406,7 +406,7 @@ public class HallOfSuffering extends QuestJython
 		}
 	}
 
-	private String getPtLeaderText(L2PcInstance player, HSWorld world)
+	private String getPtLeaderText(L2Player player, HSWorld world)
 	{
 		String htmltext = HtmCache.getInstance().getHtm("/data/scripts/instances/SeedOfInfinity/32530-10.htm");
 		htmltext = htmltext.replaceAll("%ptLeader%", String.valueOf(world.ptLeaderName));
@@ -414,7 +414,7 @@ public class HallOfSuffering extends QuestJython
 	}
 
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public String onSkillSee(L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		if (skill.getSkillType() == L2SkillType.BALANCE_LIFE || skill.getSkillType() == L2SkillType.HEAL || skill.getSkillType() == L2SkillType.HEAL_PERCENT
 				|| skill.getSkillType() == L2SkillType.HEAL_STATIC)
@@ -428,7 +428,7 @@ public class HallOfSuffering extends QuestJython
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof HSWorld)
@@ -489,7 +489,7 @@ public class HallOfSuffering extends QuestJython
 	}
 
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet, L2Skill skill)
+	public String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet, L2Skill skill)
 	{
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof HSWorld)
@@ -506,7 +506,7 @@ public class HallOfSuffering extends QuestJython
 				// set instance reenter time for all allowed players
 				for (int objectId : tmpworld.allowed)
 				{
-					L2PcInstance player = L2World.getInstance().getPlayer(objectId);
+					L2Player player = L2World.getInstance().getPlayer(objectId);
 					if (player != null)
 					{
 						InstanceManager.getInstance().setInstanceTime(objectId, tmpworld.templateId, reenter.getTimeInMillis());
@@ -541,7 +541,7 @@ public class HallOfSuffering extends QuestJython
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof HSWorld)
@@ -580,7 +580,7 @@ public class HallOfSuffering extends QuestJython
 	}
 
 	@Override
-	public String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		if (npc.getNpcId() == TEPIOS)
 		{
@@ -601,7 +601,7 @@ public class HallOfSuffering extends QuestJython
 	}
 
 	@Override
-	public String onTalk(L2Npc npc, L2PcInstance player)
+	public String onTalk(L2Npc npc, L2Player player)
 	{
 		int npcId = npc.getNpcId();
 		QuestState st = player.getQuestState(QN);
@@ -625,7 +625,7 @@ public class HallOfSuffering extends QuestJython
 			else if (player.getParty() != null && player.getParty().getPartyLeaderOID() == player.getObjectId())
 			{
 				((HSWorld) world).isRewarded = true;
-				for (L2PcInstance pl : player.getParty().getPartyMembers())
+				for (L2Player pl : player.getParty().getPartyMembers())
 				{
 					st = pl.getQuestState(QN);
 					st.giveItems(736, 1);

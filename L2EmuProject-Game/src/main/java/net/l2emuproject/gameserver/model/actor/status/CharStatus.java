@@ -17,13 +17,13 @@ package net.l2emuproject.gameserver.model.actor.status;
 import java.util.Set;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.stat.CharStat;
 import net.l2emuproject.gameserver.services.duel.Duel;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.util.SingletonSet;
 
@@ -187,7 +187,7 @@ public class CharStatus
 				return false;
 		}
 		
-		L2PcInstance attackerPlayer = attacker.getActingPlayer();
+		L2Player attackerPlayer = attacker.getActingPlayer();
 		
 		// Additional prevention
 		// Check if player is GM and has sufficient rights to make damage
@@ -364,17 +364,17 @@ public class CharStatus
 	// ========================================================================
 	// Status Listeners
 	
-	private Set<L2PcInstance> _statusListeners;
+	private Set<L2Player> _statusListeners;
 	
-	public final Set<L2PcInstance> getStatusListeners()
+	public final Set<L2Player> getStatusListeners()
 	{
 		if (_statusListeners == null)
-			_statusListeners = new SingletonSet<L2PcInstance>();
+			_statusListeners = new SingletonSet<L2Player>();
 		
 		return _statusListeners;
 	}
 	
-	public final void addStatusListener(L2PcInstance player)
+	public final void addStatusListener(L2Player player)
 	{
 		synchronized (getStatusListeners())
 		{
@@ -383,7 +383,7 @@ public class CharStatus
 		}
 	}
 	
-	public final void removeStatusListener(L2PcInstance player)
+	public final void removeStatusListener(L2Player player)
 	{
 		synchronized (getStatusListeners())
 		{

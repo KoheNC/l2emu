@@ -14,11 +14,11 @@
  */
 package custom.Evolve;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Unknown, transated by Intrepid
@@ -64,7 +64,7 @@ public final class Evolve extends QuestJython
 	}
 
 	@Override
-	public String onTalk(L2Npc npc, L2PcInstance talker)
+	public String onTalk(L2Npc npc, L2Player talker)
 	{
 		String htmlText = NO_QUEST;
 		QuestState st = talker.getQuestState(QN);
@@ -109,7 +109,7 @@ public final class Evolve extends QuestJython
 		return htmlText;
 	}
 
-	private int getControlItem(L2PcInstance player)
+	private int getControlItem(L2Player player)
 	{
 		QuestState st = player.getQuestState(QN);
 		if (st == null)
@@ -128,7 +128,7 @@ public final class Evolve extends QuestJython
 		return item;
 	}
 
-	private boolean getDistance(L2PcInstance player)
+	private boolean getDistance(L2Player player)
 	{
 		boolean isFar = false;
 

@@ -25,7 +25,6 @@ import net.l2emuproject.gameserver.instancemanager.RaidBossSpawnManager;
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.instancemanager.leaderboards.ArenaManager;
 import net.l2emuproject.gameserver.instancemanager.leaderboards.FishermanManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.network.Disconnection;
@@ -39,6 +38,7 @@ import net.l2emuproject.gameserver.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.util.DatabaseBackupManager;
 import net.l2emuproject.gameserver.util.OfflineTradeManager;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -158,7 +158,7 @@ public final class Shutdown extends Thread
 		if (Config.ENABLE_OFFLINE_TRADERS_RESTORE)
 			OfflineTradeManager.getInstance().store();
 		
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			try
 			{

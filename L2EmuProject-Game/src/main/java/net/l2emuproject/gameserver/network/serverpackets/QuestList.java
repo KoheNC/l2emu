@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * 
@@ -40,9 +40,9 @@ public class QuestList extends L2GameServerPacket
 	private static final String _S__98_QUESTLIST = "[S] 80 QuestList";
 
 	private final Quest[] _quests;
-	private final L2PcInstance _activeChar;
+	private final L2Player _activeChar;
 
-	public QuestList(L2PcInstance player)
+	public QuestList(L2Player player)
 	{
 		_activeChar = player;
 		_quests = player.getAllActiveQuests();

@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.network.clientpackets;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.TradeOtherAdd;
 import net.l2emuproject.gameserver.network.serverpackets.TradeOwnAdd;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class represents a packet that is sent by the client when you are adding an item
@@ -47,7 +47,7 @@ public class AddTradeItem extends L2GameClientPacket
     @Override
     protected void runImpl()
     {
-        L2PcInstance player = getActiveChar();
+        L2Player player = getActiveChar();
         if (player == null)
         	return;
 
@@ -66,7 +66,7 @@ public class AddTradeItem extends L2GameClientPacket
             return;
         }
 
-        L2PcInstance partner = trade.getPartner();
+        L2Player partner = trade.getPartner();
         if (partner == null
             || L2World.getInstance().getPlayer(partner.getObjectId()) == null
             || partner.getActiveTradeList() == null)

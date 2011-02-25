@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Kerberos
@@ -24,7 +24,7 @@ public class ExBrExtraUserInfo extends L2GameServerPacket
 	private final int	_charObjId;
 	private final int	_val;
 	
-	public ExBrExtraUserInfo(L2PcInstance player)
+	public ExBrExtraUserInfo(L2Player player)
 	{
 		_charObjId = player.getObjectId();
 		_val = player.getAfroHaircutId();

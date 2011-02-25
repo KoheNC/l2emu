@@ -19,7 +19,6 @@ import java.util.List;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.util.Broadcast;
@@ -27,6 +26,7 @@ import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -106,7 +106,7 @@ public final class StakatoNest extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet)
+	public String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet)
 	{
 		L2MonsterInstance mob = (L2MonsterInstance) npc;
 
@@ -134,7 +134,7 @@ public final class StakatoNest extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public String onKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		L2MonsterInstance monster = (L2MonsterInstance) npc;
 
@@ -177,8 +177,8 @@ public final class StakatoNest extends L2AttackableAIScript
 			case STAKATO_CHIEF:
 				if (killer.isInParty())
 				{
-					List<L2PcInstance> party = killer.getParty().getPartyMembers();
-					for (L2PcInstance member : party)
+					List<L2Player> party = killer.getParty().getPartyMembers();
+					for (L2Player member : party)
 						giveCocoon(member, npc);
 				}
 				else
@@ -190,7 +190,7 @@ public final class StakatoNest extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public String onSkillSee(L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		if (ArrayUtils.contains(COCOONS, npc.getNpcId()) && ArrayUtils.contains(targets, npc) && skill.getId() == GROWTH_ACCELERATOR)
 		{
@@ -202,7 +202,7 @@ public final class StakatoNest extends L2AttackableAIScript
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if ((npc == null) || (player == null))
 			return null;
@@ -226,7 +226,7 @@ public final class StakatoNest extends L2AttackableAIScript
 		return null;
 	}
 
-	private void attackPlayer(L2PcInstance player, L2Npc npc)
+	private void attackPlayer(L2Player player, L2Npc npc)
 	{
 		if (npc != null && player != null)
 		{
@@ -236,7 +236,7 @@ public final class StakatoNest extends L2AttackableAIScript
 		}
 	}
 
-	private void giveCocoon(L2PcInstance player, L2Npc npc)
+	private void giveCocoon(L2Player player, L2Npc npc)
 	{
 		if (Rnd.get(100) > 80)
 			player.addItem("StakatoCocoon", LARGE_COCOON, 1, npc, true);

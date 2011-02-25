@@ -16,9 +16,9 @@ package teleports.EnterLastImperialTomb;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.instancemanager.lastimperialtomb.LastImperialTombManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Psycho(killer1888)
@@ -39,7 +39,7 @@ public final class LastImperialTomb extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance talker)
+	public final String onTalk(L2Npc npc, L2Player talker)
 	{
 		switch (Config.LIT_REGISTRATION_MODE)
 		{

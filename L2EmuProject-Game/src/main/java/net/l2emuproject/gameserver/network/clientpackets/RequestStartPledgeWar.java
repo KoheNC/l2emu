@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestStartPledgeWar extends L2GameClientPacket
 {
@@ -36,7 +36,7 @@ public class RequestStartPledgeWar extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getClient().getActiveChar();
+		L2Player player = getClient().getActiveChar();
 		if (player == null)
 			return;
 
@@ -83,7 +83,7 @@ public class RequestStartPledgeWar extends L2GameClientPacket
 
 		//_log.warn("RequestStartPledgeWar, leader: " + clan.getLeaderName() + " clan: " + _clan.getName());
 
-		//        L2PcInstance leader = L2World.getInstance().getPlayer(clan.getLeaderName());
+		//        L2Player leader = L2World.getInstance().getPlayer(clan.getLeaderName());
 
 		//        if(leader == null)
 		//            return;

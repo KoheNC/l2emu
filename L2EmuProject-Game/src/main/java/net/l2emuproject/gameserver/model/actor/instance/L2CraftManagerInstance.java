@@ -32,6 +32,7 @@ import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -50,7 +51,7 @@ public class L2CraftManagerInstance extends L2NpcInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (command.startsWith("Crystallize")) // List player inventory items for crystallization
 		{
@@ -641,7 +642,7 @@ public class L2CraftManagerInstance extends L2NpcInstance
 					grade==4?"silver":"gold")+"_i00";
 	}
 
-	public void sendOutOfItems(L2PcInstance player, String count, String itemname)
+	public void sendOutOfItems(L2Player player, String count, String itemname)
 	{
 		NpcHtmlMessage npcReply = new NpcHtmlMessage(1);
 
@@ -656,7 +657,7 @@ public class L2CraftManagerInstance extends L2NpcInstance
 		player.sendPacket(npcReply);
 	}
 
-	public void sendCraftedItems(L2PcInstance player, int success, int failed, String itemname)
+	public void sendCraftedItems(L2Player player, int success, int failed, String itemname)
 	{
 		NpcHtmlMessage npcReply = new NpcHtmlMessage(1);
 

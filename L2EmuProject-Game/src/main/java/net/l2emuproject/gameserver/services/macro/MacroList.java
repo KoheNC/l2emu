@@ -24,10 +24,10 @@ import javolution.text.TextBuilder;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.SendMacroList;
 import net.l2emuproject.gameserver.services.macro.L2Macro.L2MacroCmd;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -42,12 +42,12 @@ public class MacroList
 {
 	private final static Log				_log		= LogFactory.getLog(MacroList.class);
 
-	private final L2PcInstance				_owner;
+	private final L2Player				_owner;
 	private int								_revision;
 	private int								_macroId;
 	private final FastMap<Integer, L2Macro>	_macroses	= new FastMap<Integer, L2Macro>();
 
-	public MacroList(L2PcInstance owner)
+	public MacroList(L2Player owner)
 	{
 		_owner = owner;
 		_revision = 1;

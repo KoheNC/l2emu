@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2TrapInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class Trap implements ISkillHandler
 {
@@ -54,8 +54,8 @@ public class Trap implements ISkillHandler
 					if (target.getLevel() <= skill.getPower())
 					{
 						target.setDetected();
-						if (activeChar instanceof L2PcInstance)
-							((L2PcInstance)activeChar).sendMessage("A Trap has been detected!");
+						if (activeChar instanceof L2Player)
+							((L2Player)activeChar).sendMessage("A Trap has been detected!");
 					}
 				}
 				break;
@@ -75,11 +75,11 @@ public class Trap implements ISkillHandler
 					if (target.getLevel() > skill.getPower())
 						continue;
 	
-					L2PcInstance trapOwner = null;
+					L2Player trapOwner = null;
 					trapOwner = target.getOwner();
 	
 					target.unSummon(trapOwner);
-					if (activeChar instanceof L2PcInstance)
+					if (activeChar instanceof L2Player)
 						activeChar.sendPacket(SystemMessageId.A_TRAP_DEVICE_HAS_BEEN_STOPPED);
 				}
 			}

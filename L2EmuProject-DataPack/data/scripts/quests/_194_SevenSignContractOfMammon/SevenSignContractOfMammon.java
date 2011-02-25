@@ -16,12 +16,12 @@ package quests._194_SevenSignContractOfMammon;
 
 import quests._193_SevenSignDyingMessage.SevenSignDyingMessage;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author L0ngh0rn
@@ -63,7 +63,7 @@ public final class SevenSignContractOfMammon extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		String htmltext = event;
 		QuestState st = player.getQuestState(QN);
@@ -169,7 +169,7 @@ public final class SevenSignContractOfMammon extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = NO_QUEST;
 		QuestState st = player.getQuestState(QN);
@@ -304,7 +304,7 @@ public final class SevenSignContractOfMammon extends QuestJython
 		return htmltext;
 	}
 
-	private void transformPlayer(L2PcInstance player, Integer transid)
+	private void transformPlayer(L2Player player, Integer transid)
 	{
 		if (player.getPlayerTransformation().isTransformed())
 			player.getPlayerTransformation().untransform();
@@ -312,7 +312,7 @@ public final class SevenSignContractOfMammon extends QuestJython
 		SkillTable.getInstance().getInfo(transid, 1).getEffects(player, player);
 	}
 
-	private boolean checkPlayer(L2PcInstance player, Integer transid)
+	private boolean checkPlayer(L2Player player, Integer transid)
 	{
 		L2Effect effect = player.getFirstEffect(transid);
 		if (effect != null)

@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.taskmanager.AttackStanceTaskManager;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestStopPledgeWar extends L2GameClientPacket
 {
@@ -37,7 +37,7 @@ public class RequestStopPledgeWar extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getClient().getActiveChar();
+		L2Player player = getClient().getActiveChar();
 		if (player == null)
 			return;
 		L2Clan clan = player.getClan();
@@ -78,7 +78,7 @@ public class RequestStopPledgeWar extends L2GameClientPacket
 		//_log.info("RequestStopPledgeWar: By leader: " + playerClan.getLeaderName() + " of clan: "
 		//	+ playerClan.getName() + " to clan: " + _pledgeName);
 
-		//        L2PcInstance leader = L2World.getInstance().getPlayer(clan.getLeaderName());
+		//        L2Player leader = L2World.getInstance().getPlayer(clan.getLeaderName());
 		//        if(leader != null && leader.isOnline() == 0)
 		//        {
 		//            player.sendMessage("Clan leader isn't online.");

@@ -30,7 +30,6 @@ import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.datatables.HeroSkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
@@ -42,6 +41,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -238,7 +238,7 @@ public class Hero
 			{
 				String name = hero.getString(Olympiad.CHAR_NAME);
 
-				L2PcInstance player = L2World.getInstance().getPlayer(name);
+				L2Player player = L2World.getInstance().getPlayer(name);
 
 				if (player == null)
 					continue;
@@ -320,7 +320,7 @@ public class Hero
 		{
 			String name = hero.getString(Olympiad.CHAR_NAME);
 
-			L2PcInstance player = L2World.getInstance().getPlayer(name);
+			L2Player player = L2World.getInstance().getPlayer(name);
 
 			if (player != null)
 			{

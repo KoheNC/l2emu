@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 
 public final class SpiritShot implements IItemHandler
@@ -27,7 +27,7 @@ public final class SpiritShot implements IItemHandler
 	@Override
 	public void useItem(L2Playable playable, L2ItemInstance item)
 	{
-		if (playable instanceof L2PcInstance)
+		if (playable instanceof L2Player)
 			playable.getShots().chargeSpiritshot(item);
 	}
 

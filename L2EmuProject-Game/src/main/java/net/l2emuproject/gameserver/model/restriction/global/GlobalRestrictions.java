@@ -20,7 +20,6 @@ import java.util.Comparator;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -28,6 +27,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
@@ -191,7 +191,7 @@ public final class GlobalRestrictions
 	 *         because it's already participating in one, or it's just simply in a forbidden state<br>
 	 *         <b>false</b> otherwise
 	 */
-	public static boolean isRestricted(L2PcInstance activeChar, Class<? extends GlobalRestriction> callingRestriction)
+	public static boolean isRestricted(L2Player activeChar, Class<? extends GlobalRestriction> callingRestriction)
 	{
 		// Avoid NPE and wrong usage
 		if (activeChar == null)
@@ -232,7 +232,7 @@ public final class GlobalRestrictions
 	/**
 	 * Called in RequestJoinParty to restrict whether or not player can create a party or get invited to a party.
 	 */
-	public static boolean canInviteToParty(L2PcInstance activeChar, L2PcInstance target)
+	public static boolean canInviteToParty(L2Player activeChar, L2Player target)
 	{
 		for (GlobalRestriction restriction : _restrictions[RestrictionMode.canInviteToParty.ordinal()])
 			if (!restriction.canInviteToParty(activeChar, target))
@@ -246,16 +246,16 @@ public final class GlobalRestrictions
 	 */
 	public static boolean isProtected(L2Character activeChar, L2Character target, L2Skill skill, boolean sendMessage)
 	{
-		final L2PcInstance attacker_ = L2Object.getActingPlayer(activeChar);
-		final L2PcInstance target_ = L2Object.getActingPlayer(target);
+		final L2Player attacker_ = L2Object.getActingPlayer(activeChar);
+		final L2Player target_ = L2Object.getActingPlayer(target);
 
 		final boolean isOffensive = (skill == null || skill.isOffensive());
 
 		return isProtected(activeChar, target, skill, sendMessage, attacker_, target_, isOffensive);
 	}
 
-	private static boolean isProtected(L2Character activeChar, L2Character target, L2Skill skill, boolean sendMessage, L2PcInstance attacker_,
-			L2PcInstance target_, boolean isOffensive)
+	private static boolean isProtected(L2Character activeChar, L2Character target, L2Skill skill, boolean sendMessage, L2Player attacker_,
+			L2Player target_, boolean isOffensive)
 	{
 		if (attacker_ != null && target_ != null && attacker_ != target_)
 		{
@@ -308,7 +308,7 @@ public final class GlobalRestrictions
 	/**
 	 * Called in Die packet, if return false, player can't request for revive.
 	 */
-	public static boolean canRequestRevive(L2PcInstance activeChar)
+	public static boolean canRequestRevive(L2Player activeChar)
 	{
 		if (activeChar.isPendingRevive())
 			return false;
@@ -323,7 +323,7 @@ public final class GlobalRestrictions
 	/**
 	 * This is allows to you to disable the teleport in a special state.
 	 */
-	public static boolean canTeleport(L2PcInstance activeChar)
+	public static boolean canTeleport(L2Player activeChar)
 	{
 		for (GlobalRestriction restriction : _restrictions[RestrictionMode.canTeleport.ordinal()])
 			if (!restriction.canTeleport(activeChar))
@@ -337,7 +337,7 @@ public final class GlobalRestrictions
 	 * 
 	 * Usage: <br>
 	 * public boolean canUseItemHandler(Class<? extends IItemHandler> clazz, int itemId, 
-	 * 		L2Playable activeChar, L2ItemInstance item, L2PcInstance player) {
+	 * 		L2Playable activeChar, L2ItemInstance item, L2Player player) {
 	 * if (clazz == ExampleApple.class) {
 	 *		if (player != null && player.isInExample()) {
 	 *			player.sendMessage("You can't do that...");
@@ -349,7 +349,7 @@ public final class GlobalRestrictions
 	 */
 	public static boolean canUseItemHandler(Class<? extends IItemHandler> clazz, int itemId, L2Playable activeChar, L2ItemInstance item)
 	{
-		final L2PcInstance player = L2Object.getActingPlayer(activeChar);
+		final L2Player player = L2Object.getActingPlayer(activeChar);
 
 		for (GlobalRestriction restriction : _restrictions[RestrictionMode.canUseItemHandler.ordinal()])
 			if (!restriction.canUseItemHandler(clazz, itemId, activeChar, item, player))
@@ -361,7 +361,7 @@ public final class GlobalRestrictions
 	/**
 	 * This is allows to you to disable the item picking up in a special state.
 	 */
-	public static boolean canPickUp(L2PcInstance activeChar, L2ItemInstance item, L2PetInstance pet)
+	public static boolean canPickUp(L2Player activeChar, L2ItemInstance item, L2PetInstance pet)
 	{
 		for (GlobalRestriction restriction : _restrictions[RestrictionMode.canPickUp.ordinal()])
 			if (!restriction.canPickUp(activeChar, item, pet))
@@ -373,7 +373,7 @@ public final class GlobalRestrictions
 	/**
 	 * Called in EnterWorld to restore(if allowed) the players event state.
 	 */
-	public static void playerLoggedIn(L2PcInstance activeChar)
+	public static void playerLoggedIn(L2Player activeChar)
 	{
 		for (GlobalRestriction restriction : _restrictions[RestrictionMode.playerLoggedIn.ordinal()])
 			restriction.playerLoggedIn(activeChar);
@@ -382,7 +382,7 @@ public final class GlobalRestrictions
 	/**
 	 * Called on disconnect to save(if allowed) the players event state.
 	 */
-	public static void playerDisconnected(L2PcInstance activeChar)
+	public static void playerDisconnected(L2Player activeChar)
 	{
 		for (GlobalRestriction restriction : _restrictions[RestrictionMode.playerDisconnected.ordinal()])
 			restriction.playerDisconnected(activeChar);
@@ -391,9 +391,9 @@ public final class GlobalRestrictions
 	/**
 	 * Called in doDie() to run a task when a player is killed.
 	 */
-	public static void playerKilled(L2Character activeChar, L2PcInstance target)
+	public static void playerKilled(L2Character activeChar, L2Player target)
 	{
-		final L2PcInstance killer = L2Object.getActingPlayer(activeChar);
+		final L2Player killer = L2Object.getActingPlayer(activeChar);
 
 		for (GlobalRestriction restriction : _restrictions[RestrictionMode.playerKilled.ordinal()])
 			restriction.playerKilled(activeChar, target, killer);
@@ -402,7 +402,7 @@ public final class GlobalRestrictions
 	/**
 	 * This is a bypass manager restriction.
 	 */
-	public static boolean onBypassFeedback(L2Npc npc, L2PcInstance activeChar, String command)
+	public static boolean onBypassFeedback(L2Npc npc, L2Player activeChar, String command)
 	{
 		for (GlobalRestriction restriction : _restrictions[RestrictionMode.onBypassFeedback.ordinal()])
 			if (restriction.onBypassFeedback(npc, activeChar, command))
@@ -413,12 +413,12 @@ public final class GlobalRestrictions
 
 	/**
 	 * Called when player interacts with a target <br>
-	 * (Usage: L2PcInstance or L2Npc).
+	 * (Usage: L2Player or L2Npc).
 	 */
 	public static boolean onAction(L2Character target, L2Character activeChar)
 	{
-		final L2PcInstance attacker_ = L2Object.getActingPlayer(activeChar);
-		final L2PcInstance target_ = L2Object.getActingPlayer(target);
+		final L2Player attacker_ = L2Object.getActingPlayer(activeChar);
+		final L2Player target_ = L2Object.getActingPlayer(target);
 
 		// if GM is invisible, exclude him from the normal gameplay
 		if (target_ != null && target_.isGM() && target_.getAppearance().isInvisible())
@@ -452,7 +452,7 @@ public final class GlobalRestrictions
 	/**
 	 * Called when a player use a voiced command.
 	 */
-	public static boolean canUseVoicedCommand(String command, L2PcInstance activeChar, String target)
+	public static boolean canUseVoicedCommand(String command, L2Player activeChar, String target)
 	{
 		for (GlobalRestriction restriction : _restrictions[RestrictionMode.canUseVoicedCommand.ordinal()])
 			if (restriction.canUseVoicedCommand(command, activeChar, target))
@@ -464,7 +464,7 @@ public final class GlobalRestrictions
 	/**
 	 * Called in RequestMagicSkillUse to restrict skill usage under event by skillId or skillType.
 	 */
-	public static boolean canUseSkill(L2PcInstance player, L2Skill skill)
+	public static boolean canUseSkill(L2Player player, L2Skill skill)
 	{
 		for (GlobalRestriction restriction : _restrictions[RestrictionMode.canUseSkill.ordinal()])
 			if (restriction.canUseSkill(player, skill))
@@ -476,7 +476,7 @@ public final class GlobalRestrictions
 	/**
 	 * Called in SummonFriend to restrict whether or not the player can be summoned from outside the state.
 	 */
-	public static boolean canBeSummoned(L2PcInstance target)
+	public static boolean canBeSummoned(L2Player target)
 	{
 		for (GlobalRestriction restriction : _restrictions[RestrictionMode.canBeSummoned.ordinal()])
 			if (restriction.canBeSummoned(target))

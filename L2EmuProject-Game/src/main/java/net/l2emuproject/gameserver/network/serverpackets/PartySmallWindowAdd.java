@@ -14,22 +14,22 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class PartySmallWindowAdd extends L2GameServerPacket
 {
 	private static final String _S__4F_PARTYSMALLWINDOWADD = "[S] 4f PartySmallWindowAdd [dddsdddddddddd]";
 	
-	private final L2PcInstance _member;
+	private final L2Player _member;
 	
-	public PartySmallWindowAdd(L2PcInstance member)
+	public PartySmallWindowAdd(L2Player member)
 	{
 		_member = member;
 	}
 	
 	@Override
-	protected final void writeImpl(L2GameClient client, L2PcInstance activeChar)
+	protected final void writeImpl(L2GameClient client, L2Player activeChar)
 	{
 		if (activeChar == null)
 			return;

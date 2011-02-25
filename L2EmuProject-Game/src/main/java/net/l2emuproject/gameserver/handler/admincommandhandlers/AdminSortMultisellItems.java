@@ -31,13 +31,13 @@ import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.ClassId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -255,7 +255,7 @@ public class AdminSortMultisellItems implements IAdminCommandHandler
 
 	private List<Integer>	spellItemList	= null;
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (command.startsWith("admin_sortmulti"))
 		{
@@ -326,7 +326,7 @@ public class AdminSortMultisellItems implements IAdminCommandHandler
 		}
 	}
 
-	private void makeMulti(L2PcInstance actor)
+	private void makeMulti(L2Player actor)
 	{
 		String[] SQL_ITEM_SELECTS =
 		{ "SELECT item_id,price FROM etcitem", "SELECT item_id,price FROM armor", "SELECT item_id,price FROM weapon" };
@@ -1258,7 +1258,7 @@ public class AdminSortMultisellItems implements IAdminCommandHandler
 
 	}
 
-	private void showHelp(L2PcInstance activeChar)
+	private void showHelp(L2Player activeChar)
 	{
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
 		TextBuilder replyMSG = new TextBuilder("<html><title>Multisells from ItemTable</title><body>");

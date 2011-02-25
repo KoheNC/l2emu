@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -22,6 +21,7 @@ import net.l2emuproject.gameserver.network.serverpackets.AskJoinAlly;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class represents a packet sent by the client when a player requests alliance with
@@ -44,7 +44,7 @@ public class RequestJoinAlly extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null) return;
 
 		if (activeChar.getClan() == null)
@@ -62,13 +62,13 @@ public class RequestJoinAlly extends L2GameClientPacket
 		if (obj == null)
 			obj = L2World.getInstance().getPlayer(_objectId);
 
-		if (!(obj instanceof L2PcInstance))
+		if (!(obj instanceof L2Player))
 		{
 			requestFailed(SystemMessageId.YOU_HAVE_INVITED_THE_WRONG_TARGET);
 			return;
 		}
 
-		L2PcInstance target = (L2PcInstance) obj;
+		L2Player target = (L2Player) obj;
 		if (!L2Clan.checkAllyJoinCondition(activeChar, target) ||
 				!activeChar.getRequest().setRequest(target, this))
 		{

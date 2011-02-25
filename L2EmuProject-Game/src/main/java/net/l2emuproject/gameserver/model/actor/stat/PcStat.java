@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.model.actor.stat;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.PetDataTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2ClassMasterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
 import net.l2emuproject.gameserver.model.base.Experience;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.world.npc.L2PetData;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
@@ -56,7 +56,7 @@ public class PcStat extends PlayableStat
 
 	// =========================================================
 	// Constructor
-	public PcStat(L2PcInstance activeChar)
+	public PcStat(L2Player activeChar)
 	{
 		super(activeChar);
 	}
@@ -66,7 +66,7 @@ public class PcStat extends PlayableStat
 	@Override
 	public boolean addExp(long value)
 	{
-		L2PcInstance activeChar = getActiveChar();
+		L2Player activeChar = getActiveChar();
 
 		//Player is Gm and acces level is below or equal to GM_DONT_TAKE_EXPSP and is in party, don't give Xp
 		if (getActiveChar().isGM() && getActiveChar().getAccessLevel() <= Config.GM_DONT_TAKE_EXPSP && getActiveChar().isInParty())
@@ -92,15 +92,15 @@ public class PcStat extends PlayableStat
 	}
 
 	/**
-	 * Add Experience and SP rewards to the L2PcInstance, remove its Karma (if necessary) and Launch increase level task.<BR><BR>
+	 * Add Experience and SP rewards to the L2Player, remove its Karma (if necessary) and Launch increase level task.<BR><BR>
 	 *
 	 * <B><U> Actions </U> :</B><BR><BR>
 	 * <li>Remove Karma when the player kills L2MonsterInstance</li>
-	 * <li>Send a Server->Client packet StatusUpdate to the L2PcInstance</li>
-	 * <li>Send a Server->Client System Message to the L2PcInstance </li>
-	 * <li>If the L2PcInstance increases it's level, send a Server->Client packet SocialAction (broadcast) </li>
-	 * <li>If the L2PcInstance increases it's level, manage the increase level task (Max MP, Max MP, Recommandation, Expertise and beginner skills...) </li>
-	 * <li>If the L2PcInstance increases it's level, send a Server->Client packet UserInfo to the L2PcInstance </li><BR><BR>
+	 * <li>Send a Server->Client packet StatusUpdate to the L2Player</li>
+	 * <li>Send a Server->Client System Message to the L2Player </li>
+	 * <li>If the L2Player increases it's level, send a Server->Client packet SocialAction (broadcast) </li>
+	 * <li>If the L2Player increases it's level, manage the increase level task (Max MP, Max MP, Recommandation, Expertise and beginner skills...) </li>
+	 * <li>If the L2Player increases it's level, send a Server->Client packet UserInfo to the L2Player </li><BR><BR>
 	 *
 	 * @param addToExp The Experience value to add
 	 * @param addToSp The SP value to add
@@ -110,7 +110,7 @@ public class PcStat extends PlayableStat
 	{
 		float ratioTakenByPet = 0;
 		//Player is Gm and acces level is below or equal to GM_DONT_TAKE_EXPSP and is in party, don't give Xp/Sp
-		L2PcInstance activeChar = getActiveChar();
+		L2Player activeChar = getActiveChar();
 		if (activeChar.isGM() && activeChar.getAccessLevel() <= Config.GM_DONT_TAKE_EXPSP && activeChar.isInParty())
 			return false;
 
@@ -204,7 +204,7 @@ public class PcStat extends PlayableStat
 		
 		if (sendMessage)
 		{
-			// Send a Server->Client System Message to the L2PcInstance
+			// Send a Server->Client System Message to the L2Player
 			SystemMessage sm = new SystemMessage(SystemMessageId.EXP_DECREASED_BY_S1);
 			sm.addNumber((int)addToExp);
 			getActiveChar().sendPacket(sm);
@@ -261,12 +261,12 @@ public class PcStat extends PlayableStat
 		su.addAttribute(StatusUpdate.MAX_MP, getMaxMp());
 		getActiveChar().sendPacket(su);
 
-		// Update the overloaded status of the L2PcInstance
+		// Update the overloaded status of the L2Player
 		getActiveChar().refreshOverloaded();
-		// Update the expertise status of the L2PcInstance
+		// Update the expertise status of the L2Player
 		getActiveChar().refreshExpertisePenalty();
 
-		// Send a Server->Client packet UserInfo to the L2PcInstance
+		// Send a Server->Client packet UserInfo to the L2Player
 		getActiveChar().sendPacket(new UserInfo(getActiveChar()));
 
 		return levelIncreased;
@@ -298,9 +298,9 @@ public class PcStat extends PlayableStat
 	// =========================================================
 	// Property - Public
 	@Override
-	public final L2PcInstance getActiveChar()
+	public final L2Player getActiveChar()
 	{
-		return (L2PcInstance) _activeChar;
+		return (L2Player) _activeChar;
 	}
 
 	@Override
@@ -345,7 +345,7 @@ public class PcStat extends PlayableStat
 	@Override
 	public final int getMaxHp()
 	{
-		// Get the Max HP (base+modifier) of the L2PcInstance
+		// Get the Max HP (base+modifier) of the L2Player
 		int val = super.getMaxHp();
 		if (val != _oldMaxHp)
 		{
@@ -362,7 +362,7 @@ public class PcStat extends PlayableStat
 	@Override
 	public final int getMaxMp()
 	{
-		// Get the Max MP (base+modifier) of the L2PcInstance
+		// Get the Max MP (base+modifier) of the L2Player
 		int val = super.getMaxMp();
 
 		if (val != _oldMaxMp)
@@ -380,7 +380,7 @@ public class PcStat extends PlayableStat
 	@Override
 	public final int getMaxCp()
 	{
-		// Get the Max CP (base+modifier) of the L2PcInstance
+		// Get the Max CP (base+modifier) of the L2Player
 		int val = super.getMaxCp();
 
 		if (val != _oldMaxCp)

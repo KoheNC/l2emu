@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  *
@@ -26,7 +26,7 @@ public class NicknameChanged extends L2GameServerPacket
 	private final String _title;
 	private final int _objectId;
 
-	public NicknameChanged(L2PcInstance cha)
+	public NicknameChanged(L2Player cha)
 	{
 		_objectId = cha.getObjectId();
 		_title = cha.getTitle();

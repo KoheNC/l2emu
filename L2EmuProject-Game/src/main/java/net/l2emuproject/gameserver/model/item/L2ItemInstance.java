@@ -31,7 +31,6 @@ import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.instancemanager.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.instancemanager.MercTicketManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.shot.ShotState;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.model.quest.QuestState;
@@ -62,6 +61,7 @@ import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.geodata.GeoData;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.sql.SQLQuery;
 import net.l2emuproject.util.L2Arrays;
 
@@ -204,11 +204,11 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 	 * @param owner_id :
 	 *            int designating the ID of the owner
 	 * @param creator :
-	 *            L2PcInstance Player requesting the item creation
+	 *            L2Player Player requesting the item creation
 	 * @param reference :
 	 *            L2Object Object referencing current action like NPC selling item or previous item in transformation
 	 */
-	public void setOwnerId(String process, int owner_id, L2PcInstance creator, L2Object reference)
+	public void setOwnerId(String process, int owner_id, L2Player creator, L2Object reference)
 	{
 		setOwnerId(owner_id);
 		
@@ -307,7 +307,7 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 	}
 
 	// No logging (function designed for shots only)
-	public void changeCountWithoutTrace(long count, L2PcInstance creator, L2Object reference)
+	public void changeCountWithoutTrace(long count, L2Player creator, L2Object reference)
 	{
 		changeCount(null, count, creator, reference);
 	}
@@ -322,11 +322,11 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 	 * @param count :
 	 *            long
 	 * @param creator :
-	 *            L2PcInstance Player requesting the item creation
+	 *            L2Player Player requesting the item creation
 	 * @param reference :
 	 *            L2Object Object referencing current action like NPC selling item or previous item in transformation
 	 */
-	public void changeCount(String process, long count, L2PcInstance creator, L2Object reference)
+	public void changeCount(String process, long count, L2Player creator, L2Object reference)
 	{
 		if (count == 0)
 			return;
@@ -434,7 +434,7 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 	}
 	
 	@Override
-	public void sendInfo(L2PcInstance activeChar)
+	public void sendInfo(L2Player activeChar)
 	{
 		if (_dropperObjectId != 0)
 			activeChar.sendPacket(new DropItem(this, _dropperObjectId));
@@ -757,7 +757,7 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 	 * 
 	 * @return boolean
 	 */
-	public boolean isAvailable(L2PcInstance player, boolean allowAdena, boolean allowNonTradeable)
+	public boolean isAvailable(L2Player player, boolean allowAdena, boolean allowNonTradeable)
 	{
 		return ((!isEquipped()) // Not equipped
 				&& (getItem().getType2() != 3) // Not Quest Item
@@ -771,7 +771,7 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 	}
 
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		if (player.isFlying() || !GlobalRestrictions.canPickUp(player, this, null))
 			return;
@@ -1065,7 +1065,7 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 		updateItemAttributes();
 	}
 
-	public void updateElementAttrBonus(L2PcInstance player)
+	public void updateElementAttrBonus(L2Player player)
 	{
 		if (_elementals == null)
 			return;
@@ -1073,7 +1073,7 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 			attr.updateBonus(player, isArmor());
 	}
 	
-	public void removeElementAttrBonus(L2PcInstance player)
+	public void removeElementAttrBonus(L2Player player)
 	{
 		if (_elementals == null)
 			return;
@@ -1153,7 +1153,7 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 	{
 		_mana -= amount;
 
-		final L2PcInstance player = L2World.getInstance().getPlayer(getOwnerId());
+		final L2Player player = L2World.getInstance().getPlayer(getOwnerId());
 		if (player != null)
 		{
 			InventoryUpdate iu = new InventoryUpdate();
@@ -1181,7 +1181,7 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 		if (resetConsumingMana)
 			_consumingMana = false;
 		
-		final L2PcInstance player = L2World.getInstance().getPlayer(getOwnerId());
+		final L2Player player = L2World.getInstance().getPlayer(getOwnerId());
 		if (player != null)
 		{
 			SystemMessage sm;
@@ -1719,7 +1719,7 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 
 	public void endOfLife()
 	{
-		L2PcInstance player = ((L2PcInstance)L2World.getInstance().findObject(getOwnerId()));
+		L2Player player = ((L2Player)L2World.getInstance().findObject(getOwnerId()));
 		if (player != null)
 		{
 			if (isEquipped())
@@ -1839,7 +1839,7 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 		final int itemId = getItemId();
 		if (itemId == PcInventory.ADENA_ID || itemId == 6353)
 		{
-			L2PcInstance pc = player.getActingPlayer();
+			L2Player pc = player.getActingPlayer();
 			if (pc != null)
 			{
 				QuestState qs = pc.getQuestState("_255_Tutorial");

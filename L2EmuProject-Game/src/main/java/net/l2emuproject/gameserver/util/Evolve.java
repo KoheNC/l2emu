@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.util;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SummonItemsData;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2SummonItem;
@@ -27,11 +26,12 @@ import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 
 public final class Evolve
 {
-	public static final boolean doEvolve(L2PcInstance player, L2Npc npc, int itemIdtake, int itemIdgive, int petminlvl)
+	public static final boolean doEvolve(L2Player player, L2Npc npc, int itemIdtake, int itemIdgive, int petminlvl)
 	{
 		if (itemIdtake == 0 || itemIdgive == 0 || petminlvl == 0)
 			return false;
@@ -120,10 +120,10 @@ public final class Evolve
 
 	static final class EvolveFeedWait implements Runnable
 	{
-		private final L2PcInstance _activeChar;
+		private final L2Player _activeChar;
 		private final L2PetInstance _petSummon;
 		
-		EvolveFeedWait(L2PcInstance activeChar, L2PetInstance petSummon)
+		EvolveFeedWait(L2Player activeChar, L2PetInstance petSummon)
 		{
 			_activeChar = activeChar;
 			_petSummon = petSummon;
@@ -141,10 +141,10 @@ public final class Evolve
 	
 	static final class EvolveFinalizer implements Runnable
 	{
-		private final L2PcInstance _activeChar;
+		private final L2Player _activeChar;
 		private final L2PetInstance _petSummon;
 		
-		EvolveFinalizer(L2PcInstance activeChar, L2PetInstance petSummon)
+		EvolveFinalizer(L2Player activeChar, L2PetInstance petSummon)
 		{
 			_activeChar = activeChar;
 			_petSummon = petSummon;

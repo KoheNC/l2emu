@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.skills.l2skills;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2SkillAgathion extends L2Skill
 {
@@ -32,10 +32,10 @@ public class L2SkillAgathion extends L2Skill
 	@Override
 	public void useSkill(L2Character caster, L2Character... targets)
 	{
-		if (caster.isAlikeDead() || !(caster instanceof L2PcInstance))
+		if (caster.isAlikeDead() || !(caster instanceof L2Player))
 			return;
 
-		L2PcInstance activeChar = (L2PcInstance) caster;
+		L2Player activeChar = (L2Player) caster;
 		activeChar.setAgathionId(_npcId);
 		activeChar.broadcastUserInfo();
 	}

@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2FortBallistaInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 
@@ -33,7 +33,7 @@ public class BallistaBomb implements ISkillHandler
 	@Override
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Character... targets)
 	{
-		if (!(activeChar instanceof L2PcInstance) || targets.length == 0)
+		if (!(activeChar instanceof L2Player) || targets.length == 0)
 			return;
 		
 		L2Character target = targets[0];

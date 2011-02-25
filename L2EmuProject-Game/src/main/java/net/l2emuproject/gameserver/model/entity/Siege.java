@@ -36,7 +36,6 @@ import net.l2emuproject.gameserver.model.L2SiegeClan;
 import net.l2emuproject.gameserver.model.L2SiegeClan.SiegeClanType;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControlTowerInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2FlameControlTowerInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SiegeInfo;
@@ -48,6 +47,7 @@ import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.gameserver.world.zone.L2SiegeDangerZone;
 import net.l2emuproject.gameserver.world.zone.L2SiegeZone;
@@ -495,7 +495,7 @@ public class Siege extends AbstractSiege
 	public void announceToPlayer(String message, boolean inAreaOnly)
 	{
 		// Get all players
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			if (!inAreaOnly || (inAreaOnly && checkIfInZone(player.getX(), player.getY(), player.getZ())))
 				player.sendMessage(message);
@@ -504,7 +504,7 @@ public class Siege extends AbstractSiege
 
 	public void announceToPlayer(SystemMessage sm, boolean inAreaOnly)
 	{
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			if (!inAreaOnly || (inAreaOnly && checkIfInZone(player.getX(), player.getY(), player.getZ())))
 				player.sendPacket(sm);
@@ -545,7 +545,7 @@ public class Siege extends AbstractSiege
 			if (siegeclan == null)
 				continue;
 			clan = ClanTable.getInstance().getClan(siegeclan.getClanId());
-			for (L2PcInstance member : clan.getOnlineMembers(0))
+			for (L2Player member : clan.getOnlineMembers(0))
 			{
 				if (clear)
 					member.setSiegeState((byte)0);
@@ -560,7 +560,7 @@ public class Siege extends AbstractSiege
 			if (siegeclan == null)
 				continue;
 			clan = ClanTable.getInstance().getClan(siegeclan.getClanId());
-			for (L2PcInstance member : clan.getOnlineMembers(0))
+			for (L2Player member : clan.getOnlineMembers(0))
 			{
 				if (clear)
 					member.setSiegeState((byte)0);
@@ -685,15 +685,15 @@ public class Siege extends AbstractSiege
 		}
 	}
 
-	/** Return list of L2PcInstance registered as attacker in the zone. */
-	public FastList<L2PcInstance> getAttackersInZone()
+	/** Return list of L2Player registered as attacker in the zone. */
+	public FastList<L2Player> getAttackersInZone()
 	{
-		FastList<L2PcInstance> players = new FastList<L2PcInstance>();
+		FastList<L2Player> players = new FastList<L2Player>();
 		L2Clan clan;
 		for(L2SiegeClan siegeclan : getAttackerClans())
 		{
 			clan = ClanTable.getInstance().getClan(siegeclan.getClanId());
-			for (L2PcInstance player : clan.getOnlineMembers(0))
+			for (L2Player player : clan.getOnlineMembers(0))
 			{
 				if (checkIfInZone(player.getX(), player.getY(), player.getZ())) players.add(player);
 			}
@@ -701,16 +701,16 @@ public class Siege extends AbstractSiege
 		return players;
 	}
 
-	/** Return list of L2PcInstance registered as defender but not owner in the zone. */
-	public FastList<L2PcInstance> getDefendersButNotOwnersInZone()
+	/** Return list of L2Player registered as defender but not owner in the zone. */
+	public FastList<L2Player> getDefendersButNotOwnersInZone()
 	{
-		FastList<L2PcInstance> players = new FastList<L2PcInstance>();
+		FastList<L2Player> players = new FastList<L2Player>();
 		L2Clan clan;
 		for(L2SiegeClan siegeclan : getDefenderClans())
 		{
 			clan = ClanTable.getInstance().getClan(siegeclan.getClanId());
 			if (clan.getClanId() == getCastle().getOwnerId()) continue;
-			for (L2PcInstance player : clan.getOnlineMembers(0))
+			for (L2Player player : clan.getOnlineMembers(0))
 			{
 				if (checkIfInZone(player.getX(), player.getY(), player.getZ())) players.add(player);
 			}
@@ -718,12 +718,12 @@ public class Siege extends AbstractSiege
 		return players;
 	}
 
-	/** Return list of L2PcInstance in the zone. */
-	public FastList<L2PcInstance> getPlayersInZone()
+	/** Return list of L2Player in the zone. */
+	public FastList<L2Player> getPlayersInZone()
 	{
-		FastList<L2PcInstance> players = new FastList<L2PcInstance>();
+		FastList<L2Player> players = new FastList<L2Player>();
 
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			// quick check from player states, which don't include siege number however
 			if (!player.isInsideZone(L2Zone.FLAG_SIEGE)) continue;
@@ -733,16 +733,16 @@ public class Siege extends AbstractSiege
 		return players;
 	}
 
-	/** Return list of L2PcInstance owning the castle in the zone. */
-	public FastList<L2PcInstance> getOwnersInZone()
+	/** Return list of L2Player owning the castle in the zone. */
+	public FastList<L2Player> getOwnersInZone()
 	{
-		FastList<L2PcInstance> players = new FastList<L2PcInstance>();
+		FastList<L2Player> players = new FastList<L2Player>();
 		L2Clan clan;
 		for(L2SiegeClan siegeclan : getDefenderClans())
 		{
 			clan = ClanTable.getInstance().getClan(siegeclan.getClanId());
 			if (clan.getClanId() != getCastle().getOwnerId()) continue;
-			for (L2PcInstance player : clan.getOnlineMembers(0))
+			for (L2Player player : clan.getOnlineMembers(0))
 			{
 				if (checkIfInZone(player.getX(), player.getY(), player.getZ())) players.add(player);
 			}
@@ -750,12 +750,12 @@ public class Siege extends AbstractSiege
 		return players;
 	}
 
-	/** Return list of L2PcInstance not registered as attacker or defender in the zone. */
-	public FastList<L2PcInstance> getSpectatorsInZone()
+	/** Return list of L2Player not registered as attacker or defender in the zone. */
+	public FastList<L2Player> getSpectatorsInZone()
 	{
-		FastList<L2PcInstance> players = new FastList<L2PcInstance>();
+		FastList<L2Player> players = new FastList<L2Player>();
 
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			// quick check from player states, which don't include siege number however
 			if (!player.isInsideZone(L2Zone.FLAG_SIEGE) || player.getSiegeState() != 0) continue;
@@ -794,21 +794,21 @@ public class Siege extends AbstractSiege
 	}
 
 	/** Display list of registered clans */
-	public void listRegisterClan(L2PcInstance player)
+	public void listRegisterClan(L2Player player)
 	{
 		player.sendPacket(new SiegeInfo(getCastle()));
 	}
 
 	/**
 	 * Register clan as attacker<BR><BR>
-	 * @param player The L2PcInstance of the player trying to register
+	 * @param player The L2Player of the player trying to register
 	 */
-	public void registerAttacker(L2PcInstance player)
+	public void registerAttacker(L2Player player)
 	{
 		registerAttacker(player, false);
 	}
 
-	public void registerAttacker(L2PcInstance player, boolean force)
+	public void registerAttacker(L2Player player, boolean force)
 	{
 		if(!force)
 		{
@@ -829,14 +829,14 @@ public class Siege extends AbstractSiege
 
 	/**
 	 * Register clan as defender<BR><BR>
-	 * @param player The L2PcInstance of the player trying to register
+	 * @param player The L2Player of the player trying to register
 	 */
-	public void registerDefender(L2PcInstance player)
+	public void registerDefender(L2Player player)
 	{
 		registerDefender(player, false);
 	}
 
-	public void registerDefender(L2PcInstance player, boolean force)
+	public void registerDefender(L2Player player, boolean force)
 	{
 		if(!force)
 		{
@@ -895,7 +895,7 @@ public class Siege extends AbstractSiege
 
 	/**
 	 * Remove clan from siege<BR><BR>
-	 * @param player The L2PcInstance of player/clan being removed
+	 * @param player The L2Player of player/clan being removed
 	 */
 	public void removeSiegeClan(L2Clan clan)
 	{
@@ -906,9 +906,9 @@ public class Siege extends AbstractSiege
 
 	/**
 	 * Remove clan from siege<BR><BR>
-	 * @param player The L2PcInstance of player/clan being removed
+	 * @param player The L2Player of player/clan being removed
 	 */
-	public void removeSiegeClan(L2PcInstance player)
+	public void removeSiegeClan(L2Player player)
 	{
 		removeSiegeClan(player.getClan());
 	}
@@ -934,7 +934,7 @@ public class Siege extends AbstractSiege
 	 */
 	public void teleportPlayer(TeleportWhoType teleportWho, TeleportWhereType teleportWhere)
 	{
-		FastList<L2PcInstance> players;
+		FastList<L2Player> players;
 		switch (teleportWho)
 		{
 			case Owner:
@@ -953,7 +953,7 @@ public class Siege extends AbstractSiege
 				players = getPlayersInZone();
 		}
 
-		for (L2PcInstance player : players)
+		for (L2Player player : players)
 		{
 			if (player.isGM() || player.isInJail()) continue;
 			player.teleToLocation(teleportWhere);
@@ -1001,9 +1001,9 @@ public class Siege extends AbstractSiege
 
 	/**
 	 * Return true if the player can register.<BR><BR>
-	 * @param player The L2PcInstance of the player trying to register
+	 * @param player The L2Player of the player trying to register
 	 */
-	private boolean checkIfCanRegister(L2PcInstance player, int typeId)
+	private boolean checkIfCanRegister(L2Player player, int typeId)
 	{
 		L2Clan clan = player.getClan();
 		if(clan == null || clan.getLevel() < Config.SIEGE_CLAN_MIN_LEVEL)
@@ -1511,11 +1511,11 @@ public class Siege extends AbstractSiege
 
 	public L2Npc getClosestFlag(L2Object obj)
 	{
-		if (( obj != null) && (obj instanceof L2PcInstance))
+		if (( obj != null) && (obj instanceof L2Player))
 		{
-			if (((L2PcInstance)obj).getClan() != null)
+			if (((L2Player)obj).getClan() != null)
 			{
-				L2SiegeClan sc = getAttackerClan(((L2PcInstance)obj).getClan());
+				L2SiegeClan sc = getAttackerClan(((L2Player)obj).getClan());
 				if (sc != null) return sc.getClosestFlag(obj);
 			}
 		}

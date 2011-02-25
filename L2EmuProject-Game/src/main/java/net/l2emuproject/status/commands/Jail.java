@@ -21,8 +21,8 @@ import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2JailZone;
 import net.l2emuproject.status.GameStatusCommand;
 
@@ -46,7 +46,7 @@ public final class Jail extends GameStatusCommand
 		try
 		{
 			String name = st.nextToken();
-			L2PcInstance playerObj = L2World.getInstance().getPlayer(name);
+			L2Player playerObj = L2World.getInstance().getPlayer(name);
 			int delay = 0;
 			try
 			{
@@ -58,7 +58,7 @@ public final class Jail extends GameStatusCommand
 			catch (NoSuchElementException nsee)
 			{
 			}
-			// L2PcInstance playerObj =
+			// L2Player playerObj =
 			// L2World.getInstance().getPlayer(player);
 			
 			if (playerObj != null)

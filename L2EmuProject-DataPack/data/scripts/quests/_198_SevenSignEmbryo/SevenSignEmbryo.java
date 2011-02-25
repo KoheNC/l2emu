@@ -16,7 +16,6 @@ package quests._198_SevenSignEmbryo;
 
 import quests._197_SevenSignTheSacredBookOfSeal.SevenSignTheSacredBookOfSeal;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
@@ -28,6 +27,7 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /*
  * rework by lewzer
@@ -83,14 +83,14 @@ public final class SevenSignEmbryo extends QuestJython
 		{ SCULPTURE, BRACELET, AA };
 	}
 
-	private static final void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
+	private static final void teleportPlayer(L2Player player, int[] coords, int instanceId)
 	{
 		player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 		player.setInstanceId(instanceId);
 		player.teleToLocation(coords[0], coords[1], coords[2], true);
 	}
 
-	private final synchronized void enterInstance(L2PcInstance player)
+	private final synchronized void enterInstance(L2Player player)
 	{
 		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
 		if (world != null)
@@ -120,14 +120,14 @@ public final class SevenSignEmbryo extends QuestJython
 		}
 	}
 
-	protected void exitInstance(L2PcInstance player)
+	protected void exitInstance(L2Player player)
 	{
 		player.setInstanceId(0);
 		player.teleToLocation(146995, 23755, -1984);
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		String htmltext = event;
 		QuestState st = player.getQuestState(QN);
@@ -169,7 +169,7 @@ public final class SevenSignEmbryo extends QuestJython
 		return htmltext;
 	}
 
-	protected void spawnState(EMBRYOWorld world, L2PcInstance player)
+	protected void spawnState(EMBRYOWorld world, L2Player player)
 	{
 		QuestState st = player.getQuestState(QN);
 		world.SHIL = (L2Attackable) addSpawn(SHILENSEVIL1, -23801, -9004, -5385, 0, false, 0, false, world.instanceId);
@@ -188,7 +188,7 @@ public final class SevenSignEmbryo extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = NO_QUEST;
 		QuestState st = player.getQuestState(QN);
@@ -266,7 +266,7 @@ public final class SevenSignEmbryo extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		QuestState st = player.getQuestState(QN);
 

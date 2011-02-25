@@ -23,6 +23,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExCubeGameChangePoints;
 import net.l2emuproject.gameserver.network.serverpackets.ExCubeGameExtendedChangePoints;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 /**
@@ -47,7 +48,7 @@ public class L2BlockInstance extends L2MonsterInstance
 	 * Will change the color of the block and update
 	 * the appearance in the known players clients
 	 */
-	public final void changeColor(L2PcInstance attacker, ArenaParticipantsHolder holder, int team)
+	public final void changeColor(L2Player attacker, ArenaParticipantsHolder holder, int team)
 	{
 		// Do not update color while sending old info
 		synchronized (this)
@@ -103,7 +104,7 @@ public class L2BlockInstance extends L2MonsterInstance
 	@Override
 	public final boolean isAutoAttackable(L2Character attacker)
 	{
-		if (attacker instanceof L2PcInstance)
+		if (attacker instanceof L2Player)
 			return attacker.getActingPlayer() != null && attacker.getActingPlayer().getBlockCheckerArena() > -1;
 		return true;
 	}
@@ -120,7 +121,7 @@ public class L2BlockInstance extends L2MonsterInstance
 		return false;
 	}
 
-	private final void increaseTeamPointsAndSend(L2PcInstance player, int team, BlockCheckerEngine eng)
+	private final void increaseTeamPointsAndSend(L2Player player, int team, BlockCheckerEngine eng)
 	{
 		eng.increasePlayerPoints(player, team);
 
@@ -135,7 +136,7 @@ public class L2BlockInstance extends L2MonsterInstance
 		eng.getHolder().broadCastPacketToTeam(secretPoints);
 	}
 
-	private final void dropItem(int id, BlockCheckerEngine eng, L2PcInstance player)
+	private final void dropItem(int id, BlockCheckerEngine eng, L2Player player)
 	{
 		L2ItemInstance drop = ItemTable.getInstance().createItem("Loot", id, 1, player, this);
 		int x = getX() + Rnd.get(50);

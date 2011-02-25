@@ -33,6 +33,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -56,7 +57,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 		return true;
 	}
 
-	private void sendHtmlMessage(L2PcInstance player, NpcHtmlMessage html)
+	private void sendHtmlMessage(L2Player player, NpcHtmlMessage html)
 	{
 		html.replace("%objectId%", String.valueOf(getObjectId()));
 		html.replace("%npcId%", String.valueOf(getNpcId()));
@@ -64,25 +65,25 @@ public class L2FortManagerInstance extends L2MerchantInstance
 	}
 
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		if (!canTarget(player))
 			return;
 
 		player.setLastFolkNPC(this);
 
-		// Check if the L2PcInstance already target the L2NpcInstance
+		// Check if the L2Player already target the L2NpcInstance
 		if (this != player.getTarget())
 		{
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 		}
 		else
 		{
-			// Calculate the distance between the L2PcInstance and the L2NpcInstance
+			// Calculate the distance between the L2Player and the L2NpcInstance
 			if (!canInteract(player))
 			{
-				// Notify the L2PcInstance AI with AI_INTENTION_INTERACT
+				// Notify the L2Player AI with AI_INTENTION_INTERACT
 				player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
 			}
 			else
@@ -90,13 +91,13 @@ public class L2FortManagerInstance extends L2MerchantInstance
 				showMessageWindow(player);
 			}
 		}
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to
+		// Send a Server->Client ActionFailed to the L2Player in order to
 		// avoid that the client wait another packet
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		// BypassValidation Exploit plug.
 		if (player.getLastFolkNPC().getObjectId() != getObjectId())
@@ -903,7 +904,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 		}
 	}
 
-	private void showMessageWindow(L2PcInstance player)
+	private void showMessageWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		String filename = "data/html/fortress/foreman-no.htm";
@@ -924,10 +925,10 @@ public class L2FortManagerInstance extends L2MerchantInstance
 		player.sendPacket(html);
 	}
 
-	private void doTeleport(L2PcInstance player, int val)
+	private void doTeleport(L2Player player, int val)
 	{
 		if (_log.isDebugEnabled())
-			_log.warn("doTeleport(L2PcInstance player, int val) is called");
+			_log.warn("doTeleport(L2Player player, int val) is called");
 		L2TeleportLocation list = TeleportLocationTable.getInstance().getTemplate(val);
 		if (list != null)
 		{
@@ -945,14 +946,14 @@ public class L2FortManagerInstance extends L2MerchantInstance
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 	
-    private void showVaultWindowDeposit(L2PcInstance player)
+    private void showVaultWindowDeposit(L2Player player)
     {
         player.sendPacket(ActionFailed.STATIC_PACKET);
         player.setActiveWarehouse(player.getClan().getWarehouse());
         player.sendPacket(new WareHouseDepositList(player, WareHouseDepositList.CLAN));
     }
 
-    private void showVaultWindowWithdraw(L2PcInstance player)
+    private void showVaultWindowWithdraw(L2Player player)
     {
         if (L2Clan.checkPrivileges(player, L2Clan.CP_CL_VIEW_WAREHOUSE))
         {
@@ -970,7 +971,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
         }
     }
 
-	protected int validateCondition(L2PcInstance player)
+	protected int validateCondition(L2Player player)
 	{
 		if (getFort() != null && getFort().getFortId() > 0)
 		{

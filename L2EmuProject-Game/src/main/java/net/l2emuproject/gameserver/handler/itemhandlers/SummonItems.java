@@ -21,7 +21,6 @@ import net.l2emuproject.gameserver.datatables.SummonItemsData;
 import net.l2emuproject.gameserver.handler.IItemHandler;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
@@ -34,6 +33,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Broadcast;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
@@ -45,10 +45,10 @@ public class SummonItems implements IItemHandler
 	@Override
 	public void useItem(L2Playable playable, L2ItemInstance item)
 	{
-		if (!(playable instanceof L2PcInstance))
+		if (!(playable instanceof L2Player))
 			return;
 
-		final L2PcInstance activeChar = (L2PcInstance) playable;
+		final L2Player activeChar = (L2Player) playable;
 
 		if (!activeChar.getFloodProtector().tryPerformAction(Protected.ITEMPETSUMMON))
 			return;
@@ -156,10 +156,10 @@ public class SummonItems implements IItemHandler
 
 	static class PetSummonFeedWait implements Runnable
 	{
-		private final L2PcInstance	_activeChar;
+		private final L2Player	_activeChar;
 		private final L2PetInstance	_petSummon;
 
-		PetSummonFeedWait(L2PcInstance activeChar, L2PetInstance petSummon)
+		PetSummonFeedWait(L2Player activeChar, L2PetInstance petSummon)
 		{
 			_activeChar = activeChar;
 			_petSummon = petSummon;
@@ -178,11 +178,11 @@ public class SummonItems implements IItemHandler
 	// TODO: this should be inside skill handler
 	static class PetSummonFinalizer implements Runnable
 	{
-		private final L2PcInstance	_activeChar;
+		private final L2Player	_activeChar;
 		private final L2ItemInstance _item;
 		private final L2NpcTemplate _npcTemplate;
 
-		PetSummonFinalizer(L2PcInstance activeChar, L2NpcTemplate npcTemplate, L2ItemInstance item)
+		PetSummonFinalizer(L2Player activeChar, L2NpcTemplate npcTemplate, L2ItemInstance item)
 		{
 			_activeChar = activeChar;
 			_npcTemplate = npcTemplate;

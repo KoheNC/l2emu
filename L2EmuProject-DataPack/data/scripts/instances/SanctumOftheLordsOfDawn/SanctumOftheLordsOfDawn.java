@@ -24,13 +24,13 @@ import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import ai.L2NpcAIScript;
 
 public final class SanctumOftheLordsOfDawn extends L2NpcAIScript
@@ -166,21 +166,21 @@ public final class SanctumOftheLordsOfDawn extends L2NpcAIScript
 		addTalkId(BLACK);
 	}
 
-	private final void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
+	private final void teleportPlayer(L2Player player, int[] coords, int instanceId)
 	{
 		player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 		player.setInstanceId(instanceId);
 		player.teleToLocation(coords[0], coords[1], coords[2]);
 	}
 
-	private final void exitInstance(L2PcInstance player)
+	private final void exitInstance(L2Player player)
 	{
 		player.setInstanceId(0);
 		player.teleToLocation(-12585, 122305, -2989);
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if (event.equalsIgnoreCase("Group_SHORT_B"))
 		{
@@ -341,7 +341,7 @@ public final class SanctumOftheLordsOfDawn extends L2NpcAIScript
 		return "";
 	}
 
-	private final int enterInstance(L2PcInstance player)
+	private final int enterInstance(L2Player player)
 	{
 		int instanceId = 0;
 		final String template = "SanctumoftheLordsofDawn.xml";
@@ -558,7 +558,7 @@ public final class SanctumOftheLordsOfDawn extends L2NpcAIScript
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		QuestState st = player.getQuestState(QN);
 		if (st == null)
@@ -606,8 +606,8 @@ public final class SanctumOftheLordsOfDawn extends L2NpcAIScript
 	@Override
 	public final String onNpcRangeEnter(L2Character character, L2Npc npc)
 	{
-		final L2PcInstance player = character.getActingPlayer();
-		if (character instanceof L2PcInstance)
+		final L2Player player = character.getActingPlayer();
+		if (character instanceof L2Player)
 		{
 			switch (npc.getNpcId())
 			{

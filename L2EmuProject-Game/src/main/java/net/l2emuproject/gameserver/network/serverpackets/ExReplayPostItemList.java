@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import java.util.List;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Migi, DS
@@ -26,10 +26,10 @@ public final class ExReplayPostItemList extends L2GameServerPacket
 {
 	private static final String			_S__FE_B2_EXPOSTITEMLIST	= "[S] FE:B2 ExPostItemList";
 
-	private final L2PcInstance			_activeChar;
+	private final L2Player			_activeChar;
 	private final List<L2ItemInstance>	_itemList;
 
-	public ExReplayPostItemList(L2PcInstance activeChar)
+	public ExReplayPostItemList(L2Player activeChar)
 	{
 		_activeChar = activeChar;
 		_itemList = _activeChar.getInventory().getAvailableItems(true, false);

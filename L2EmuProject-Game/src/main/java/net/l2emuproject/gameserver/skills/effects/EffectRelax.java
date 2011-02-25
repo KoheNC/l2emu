@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.skills.effects;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class EffectRelax extends L2Effect
 {
@@ -39,10 +39,10 @@ public final class EffectRelax extends L2Effect
 	@Override
 	protected boolean onStart()
 	{
-		if (getEffected() instanceof L2PcInstance)
+		if (getEffected() instanceof L2Player)
 		{
 			setRelax(true);
-			((L2PcInstance)getEffected()).sitDown();
+			((L2Player)getEffected()).sitDown();
 		}
 		else
 			getEffected().getAI().setIntention(CtrlIntention.AI_INTENTION_REST);
@@ -67,7 +67,7 @@ public final class EffectRelax extends L2Effect
 		if (getEffected().isDead())
 			retval = false;
 		
-		L2PcInstance effectedPlayer = getEffected() instanceof L2PcInstance ? (L2PcInstance)getEffected() : null;
+		L2Player effectedPlayer = getEffected() instanceof L2Player ? (L2Player)getEffected() : null;
 		
 		if (effectedPlayer != null)
 		{
@@ -93,8 +93,8 @@ public final class EffectRelax extends L2Effect
 			if (getSkill().isToggle())
 			{
 				getEffected().sendPacket(SystemMessageId.SKILL_REMOVED_DUE_LACK_MP);
-				// if (getEffected() instanceof L2PcInstance)
-				// ((L2PcInstance)getEffected()).standUp();
+				// if (getEffected() instanceof L2Player)
+				// ((L2Player)getEffected()).standUp();
 				retval = false;
 			}
 		}
@@ -109,7 +109,7 @@ public final class EffectRelax extends L2Effect
 	
 	private void setRelax(boolean val)
 	{
-		if (getEffected() instanceof L2PcInstance)
-			((L2PcInstance)getEffected()).setRelax(val);
+		if (getEffected() instanceof L2Player)
+			((L2Player)getEffected()).setRelax(val);
 	}
 }

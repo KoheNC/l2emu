@@ -29,6 +29,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 
@@ -139,7 +140,7 @@ public final class L2FestivalGuideInstance extends L2Npc
     }
     
     @Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
     {
         if (command.startsWith("FestivalDesc"))
         {
@@ -256,7 +257,7 @@ public final class L2FestivalGuideInstance extends L2Npc
                         return;
                     }
                     
-                    List<L2PcInstance> prevParticipants = SevenSignsFestival.getInstance().getPreviousParticipants(_festivalOracle, _festivalType);
+                    List<L2Player> prevParticipants = SevenSignsFestival.getInstance().getPreviousParticipants(_festivalOracle, _festivalType);
                     
                     // Check if there are any past participants.
                     if (prevParticipants == null)
@@ -416,13 +417,13 @@ public final class L2FestivalGuideInstance extends L2Npc
         }
     }
     
-    private void showChatWindow(L2PcInstance player, int val, String suffix, boolean isDescription)
+    private void showChatWindow(L2Player player, int val, String suffix, boolean isDescription)
     {
         String filename = SevenSigns.SEVEN_SIGNS_HTML_PATH + "festival/";
         filename += (isDescription) ? "desc_" : "festival_";
         filename += (suffix != null) ? val + suffix + ".htm" : val + ".htm";
         
-        // Send a Server->Client NpcHtmlMessage containing the text of the L2NpcInstance to the L2PcInstance
+        // Send a Server->Client NpcHtmlMessage containing the text of the L2NpcInstance to the L2Player
         NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
         html.setFile(filename);
         html.replace("%objectId%",String.valueOf(getObjectId()));
@@ -445,7 +446,7 @@ public final class L2FestivalGuideInstance extends L2Npc
         
         player.sendPacket(html);
         
-        // Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+        // Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
         player.sendPacket(ActionFailed.STATIC_PACKET);
     }
     

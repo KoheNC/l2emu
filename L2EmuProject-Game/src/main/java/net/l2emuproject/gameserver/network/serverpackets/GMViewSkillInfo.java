@@ -14,18 +14,18 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class GMViewSkillInfo extends L2GameServerPacket
 {
 	private static final String	_S__91_GMViewSkillInfo	= "[S] 91 GMViewSkillInfo";
 	
-	private final L2PcInstance	_activeChar;
+	private final L2Player	_activeChar;
 	private final L2Skill[]		_skills;
 	
-	public GMViewSkillInfo(L2PcInstance activeChar)
+	public GMViewSkillInfo(L2Player activeChar)
 	{
 		_activeChar = activeChar;
 		_skills = activeChar.getSortedAllSkills(true);

@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2AirShipInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Format: (c) dddd d: dx d: dy d: dz d: AirShip id ??
@@ -30,7 +30,7 @@ public class ExGetOnAirShip extends L2GameServerPacket
 
 	private final int			_playerId, _airShipId, _x, _y, _z;
 
-	public ExGetOnAirShip(L2PcInstance player, L2AirShipInstance ship)
+	public ExGetOnAirShip(L2Player player, L2AirShipInstance ship)
 	{
 		_playerId = player.getObjectId();
 		_airShipId = ship.getObjectId();

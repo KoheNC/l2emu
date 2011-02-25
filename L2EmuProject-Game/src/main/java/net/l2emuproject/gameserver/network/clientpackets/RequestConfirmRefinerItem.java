@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExPutIntensiveResultForVariationMake;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Fromat(ch) dd
@@ -40,7 +40,7 @@ public final class RequestConfirmRefinerItem extends AbstractRefinePacket
 	@Override
 	protected final void runImpl()
 	{
-		final L2PcInstance activeChar = getClient().getActiveChar();
+		final L2Player activeChar = getClient().getActiveChar();
 		final L2ItemInstance targetItem = activeChar.getInventory().getItemByObjectId(_targetItemObjId);
 		final L2ItemInstance refinerItem = activeChar.getInventory().getItemByObjectId(_refinerItemObjId);
 		if (activeChar == null || refinerItem == null || targetItem == null)

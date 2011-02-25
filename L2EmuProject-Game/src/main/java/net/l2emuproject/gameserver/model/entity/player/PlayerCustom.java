@@ -22,7 +22,7 @@ import java.util.Calendar;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class PlayerCustom extends PlayerExtension
 {
@@ -35,7 +35,7 @@ public final class PlayerCustom extends PlayerExtension
 		HERO, NOBLE, DONATOR, DELETE
 	}
 
-	public PlayerCustom(L2PcInstance activeChar)
+	public PlayerCustom(L2Player activeChar)
 	{
 		super(activeChar);
 	}

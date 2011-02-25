@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.skills.l2skills;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -25,6 +24,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  *
@@ -50,10 +50,10 @@ public class L2SkillChangeWeapon extends L2Skill
 		if (caster.isAlikeDead())
 			return;
 
-		if (!(caster instanceof L2PcInstance))
+		if (!(caster instanceof L2Player))
 			return;
 
-		L2PcInstance player = (L2PcInstance) caster;
+		L2Player player = (L2Player) caster;
 
 		L2Weapon weaponItem = player.getActiveWeaponItem();
 

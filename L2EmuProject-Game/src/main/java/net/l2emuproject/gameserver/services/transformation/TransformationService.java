@@ -18,7 +18,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -49,7 +49,7 @@ public class TransformationService
 		_log.info("Loaded: " + getAllTransformations().size() + " transformations.");
 	}
 
-	public boolean transformPlayer(int id, L2PcInstance player)
+	public boolean transformPlayer(int id, L2Player player)
 	{
 		L2Transformation template = getTransformationById(id);
 		if (template != null)

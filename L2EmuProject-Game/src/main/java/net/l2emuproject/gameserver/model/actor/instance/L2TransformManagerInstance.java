@@ -29,6 +29,7 @@ import net.l2emuproject.gameserver.services.transformation.L2TransformSkillLearn
 import net.l2emuproject.gameserver.skills.L2CertificationSkillsLearn;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2TransformManagerInstance extends L2MerchantInstance
 {
@@ -55,7 +56,7 @@ public class L2TransformManagerInstance extends L2MerchantInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (command.startsWith("TransformSkillList"))
 		{
@@ -135,7 +136,7 @@ public class L2TransformManagerInstance extends L2MerchantInstance
 	 * this displays TransformationSkillList to the player.
 	 * @param player
 	 */
-	public void showTransformSkillList(L2PcInstance player, boolean closable)
+	public void showTransformSkillList(L2Player player, boolean closable)
 	{
 		L2TransformSkillLearn[] skills = SkillTreeTable.getInstance().getAvailableTransformSkills(player);
 		AcquireSkillList asl = new AcquireSkillList(AcquireSkillList.SkillType.Usual);
@@ -180,7 +181,7 @@ public class L2TransformManagerInstance extends L2MerchantInstance
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	public void showCertificationSkillsList(L2PcInstance player, boolean closable)
+	public void showCertificationSkillsList(L2Player player, boolean closable)
 	{
 		if (player.getPlayerTransformation().isTransformed())
 			return;
@@ -216,14 +217,14 @@ public class L2TransformManagerInstance extends L2MerchantInstance
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	public void showHtmlFile(L2PcInstance player, String file)
+	public void showHtmlFile(L2Player player, String file)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile("data/html/default/" + file);
 		player.sendPacket(html);
 	}
 
-	public boolean testQuestTransformation(L2PcInstance player)
+	public boolean testQuestTransformation(L2Player player)
 	{
 		if (player == null)
 			return false;

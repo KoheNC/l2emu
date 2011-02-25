@@ -21,6 +21,7 @@ import net.l2emuproject.gameserver.network.serverpackets.VehicleInfo;
 import net.l2emuproject.gameserver.network.serverpackets.VehicleStarted;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Vehicle;
 
 /**
@@ -53,7 +54,7 @@ public class L2BoatInstance extends L2Vehicle
 	}
 
 	@Override
-	public void oustPlayer(L2PcInstance player)
+	public void oustPlayer(L2Player player)
 	{
 		super.oustPlayer(player);
 
@@ -74,7 +75,7 @@ public class L2BoatInstance extends L2Vehicle
 	}
 
 	@Override
-	public void sendInfo(L2PcInstance activeChar)
+	public void sendInfo(L2Player activeChar)
 	{
 		activeChar.sendPacket(new VehicleInfo(this));
 	}

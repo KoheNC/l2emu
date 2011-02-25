@@ -23,11 +23,11 @@ import java.util.Calendar;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -75,7 +75,7 @@ public final class RecommendationService
 	 * @param evaluator Player giving the evaluation
 	 * @param evaluated Player being evaluated
 	 */
-	public void recommend(L2PcInstance evaluator, L2PcInstance evaluated)
+	public void recommend(L2Player evaluator, L2Player evaluated)
 	{
 		if (evaluator == null)
 			return;
@@ -142,7 +142,7 @@ public final class RecommendationService
 	 * evaluation data and the entry is missing.
 	 * @param player The newly created player
 	 */
-	public void onCreate(L2PcInstance player)
+	public void onCreate(L2Player player)
 	{
 		Connection con = null;
 		try
@@ -165,15 +165,15 @@ public final class RecommendationService
 	}
 
 	/**
-	 * Called whenever the character is loaded (<I>{@link L2PcInstance#load(int)}</I> is called.
+	 * Called whenever the character is loaded (<I>{@link L2Player#load(int)}</I> is called.
 	 * <LI>Restore player's evaluation data, <I>create entry if necessary</I></LI>
 	 * <LI>Restore player's evaluated player data (<I>if enabled in config</I>)</LI>
 	 * <LI>Update player's evaluation count and points*</LI><BR>
 	 * <I>* - for each 24 hours since the last evaluation data update for this player,
 	 * player loses 1-3 points</I>
-	 * @param player The loaded L2PcInstance
+	 * @param player The loaded L2Player
 	 */
-	public void onJoin(L2PcInstance player)
+	public void onJoin(L2Player player)
 	{
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -227,12 +227,12 @@ public final class RecommendationService
 	 * @param player Player being evaluated
 	 * @param evalPoints Evaluation point count
 	 */
-	public void onGmEvaluation(L2PcInstance player, int evalPoints)
+	public void onGmEvaluation(L2Player player, int evalPoints)
 	{
 		update(player, player.getEvaluations(), evalPoints);
 	}
 
-	private void update(L2PcInstance player, int recomLeft, int evalPoints)
+	private void update(L2Player player, int recomLeft, int evalPoints)
 	{
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -274,7 +274,7 @@ public final class RecommendationService
 		return getDailyRecommendations(level) / 3;
 	}
 
-	private int getNewEvalPoints(L2PcInstance player)
+	private int getNewEvalPoints(L2Player player)
 	{
 		return getNewEvalPointsQuick(player.getEvalPoints(), getDailyLostPoints(player.getLevel()));
 	}
@@ -303,7 +303,7 @@ public final class RecommendationService
 			try
 			{
 				con = L2DatabaseFactory.getInstance().getConnection();
-				for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+				for (L2Player player : L2World.getInstance().getAllPlayers())
 				{
 					ps = con.prepareStatement(UPDATE_RECOMMENDATION_INFO);
 					rec = getDailyRecommendations(player.getLevel());

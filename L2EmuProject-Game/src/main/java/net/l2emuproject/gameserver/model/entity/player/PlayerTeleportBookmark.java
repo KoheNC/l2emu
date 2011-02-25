@@ -21,10 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExGetBookMarkInfoPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.util.SingletonList;
 
@@ -38,7 +38,7 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 	public int							_bookmarkslot		= 0;																							// The Teleport Bookmark Slot
 	public final List<TeleportBookmark>	tpbookmark			= new SingletonList<TeleportBookmark>();
 
-	public PlayerTeleportBookmark(L2PcInstance activeChar)
+	public PlayerTeleportBookmark(L2Player activeChar)
 	{
 		super(activeChar);
 	}

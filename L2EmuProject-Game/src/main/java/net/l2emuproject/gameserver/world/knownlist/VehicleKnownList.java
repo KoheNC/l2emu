@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.world.knownlist;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class VehicleKnownList extends CharKnownList
 {
@@ -28,7 +28,7 @@ public final class VehicleKnownList extends CharKnownList
 	@Override
 	public final int getDistanceToForgetObject(L2Object object)
 	{
-		if (!(object instanceof L2PcInstance))
+		if (!(object instanceof L2Player))
 			return 0;
 
 		return 8000;
@@ -37,7 +37,7 @@ public final class VehicleKnownList extends CharKnownList
 	@Override
 	public final int getDistanceToWatchObject(L2Object object)
 	{
-		if (!(object instanceof L2PcInstance))
+		if (!(object instanceof L2Player))
 			return 0;
 
 		return 4000;

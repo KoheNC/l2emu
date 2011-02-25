@@ -19,8 +19,8 @@ import java.util.Calendar;
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager.Territory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * format: dSSSdddddddd (dd(d))
@@ -37,7 +37,7 @@ public class ExShowDominionRegistry extends L2GameServerPacket
 	private int					_warTime			= (int) (Calendar.getInstance().getTimeInMillis() / 1000);
 	private int					_currentTime		= (int) (Calendar.getInstance().getTimeInMillis() / 1000);
 
-	public ExShowDominionRegistry(int castleId, L2PcInstance player)
+	public ExShowDominionRegistry(int castleId, L2Player player)
 	{
 		_castleId = castleId;
 		if (TerritoryWarManager.getInstance().getRegisteredClans(castleId) != null)

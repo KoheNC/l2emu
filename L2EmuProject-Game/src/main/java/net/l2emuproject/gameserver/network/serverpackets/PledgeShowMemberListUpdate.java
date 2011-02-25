@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author -Wooden-
@@ -25,7 +25,7 @@ import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 public class PledgeShowMemberListUpdate extends L2GameServerPacket
 {
 	private static final String _S__54_PLEDGESHOWMEMBERLISTUPDATE = "[S] 54 PledgeShowMemberListUpdate";
-	private final L2PcInstance _activeChar;
+	private final L2Player _activeChar;
 	private final int _pledgeType;
 	private int _hasSponsor;
 	private final String _name;
@@ -36,7 +36,7 @@ public class PledgeShowMemberListUpdate extends L2GameServerPacket
 	private final int _race;
 	private final int _sex;
 
-	public PledgeShowMemberListUpdate(L2PcInstance player)
+	public PledgeShowMemberListUpdate(L2Player player)
 	{
 		_activeChar = player;
 		_pledgeType = _activeChar.getSubPledgeType();

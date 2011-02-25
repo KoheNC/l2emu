@@ -18,12 +18,12 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.LoginServerThread;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -40,16 +40,16 @@ public class AdminBan implements IAdminCommandHandler
 	};
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		StringTokenizer st = new StringTokenizer(command, " ");
 		command = st.nextToken();
 		String nameToBan = null;
 		if (st.hasMoreTokens())
 			nameToBan = st.nextToken().trim();
-		L2PcInstance player = null;
+		L2Player player = null;
 		L2Object target = activeChar.getTarget();
-		if (target != null && target instanceof L2PcInstance && target != activeChar)
+		if (target != null && target instanceof L2Player && target != activeChar)
 			player = target.getActingPlayer();
 
 		if (nameToBan == null && player == null)
@@ -148,7 +148,7 @@ public class AdminBan implements IAdminCommandHandler
 		return true;
 	}
 
-	private void sendBanSelect(L2PcInstance gm, String account)
+	private void sendBanSelect(L2Player gm, String account)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(gm.getObjectId());
 		html.setFile("data/html/admin/ban_selection.htm");

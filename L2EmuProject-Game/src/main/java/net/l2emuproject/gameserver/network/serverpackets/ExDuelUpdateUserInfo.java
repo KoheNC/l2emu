@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author  KenM
@@ -22,9 +22,9 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 public class ExDuelUpdateUserInfo extends L2GameServerPacket
 {
     private static final String _S__FE_50_EXDUELUPDATEUSERINFO = "[S] FE:50 ExDuelUpdateUserInfo [sddddddddd]";
-    private final L2PcInstance _activeChar;
+    private final L2Player _activeChar;
 
-    public ExDuelUpdateUserInfo(L2PcInstance cha)
+    public ExDuelUpdateUserInfo(L2Player cha)
     {
         _activeChar = cha;
     }

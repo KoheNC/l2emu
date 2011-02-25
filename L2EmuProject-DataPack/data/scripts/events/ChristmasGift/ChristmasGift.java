@@ -16,12 +16,12 @@ package events.ChristmasGift;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author lord_rex
@@ -69,7 +69,7 @@ public class ChristmasGift extends QuestJython
 	}
 
 	@Override
-	public String onTalk(L2Npc npc, L2PcInstance player)
+	public String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = "<html><body>I have no tasks for you right now.</body></html>";
 

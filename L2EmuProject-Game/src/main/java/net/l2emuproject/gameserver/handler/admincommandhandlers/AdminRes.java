@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControllableMobInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -41,7 +41,7 @@ public class AdminRes implements IAdminCommandHandler
 													{ "admin_res", "admin_res_monster" };
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (command.startsWith("admin_res "))
 			handleRes(activeChar, command.split(" ")[1]);
@@ -61,19 +61,19 @@ public class AdminRes implements IAdminCommandHandler
 		return ADMIN_COMMANDS;
 	}
 
-	private void handleRes(L2PcInstance activeChar)
+	private void handleRes(L2Player activeChar)
 	{
 		handleRes(activeChar, null);
 	}
 
-	private void handleRes(L2PcInstance activeChar, String resParam)
+	private void handleRes(L2Player activeChar, String resParam)
 	{
 		L2Object obj = activeChar.getTarget();
 
 		if (resParam != null)
 		{
 			// Check if a player name was specified as a param.
-			L2PcInstance plyr = L2World.getInstance().getPlayer(resParam);
+			L2Player plyr = L2World.getInstance().getPlayer(resParam);
 
 			if (plyr != null)
 			{
@@ -86,7 +86,7 @@ public class AdminRes implements IAdminCommandHandler
 				{
 					int radius = Integer.parseInt(resParam);
 
-					for (L2PcInstance knownPlayer : activeChar.getKnownList().getKnownPlayersInRadius(radius))
+					for (L2Player knownPlayer : activeChar.getKnownList().getKnownPlayersInRadius(radius))
 						doResurrect(knownPlayer);
 
 					activeChar.sendMessage("Resurrected all players within a " + radius + " unit radius.");
@@ -115,12 +115,12 @@ public class AdminRes implements IAdminCommandHandler
 			_log.debug("GM: " + activeChar.getName() + "(" + activeChar.getObjectId() + ") resurrected character " + obj.getObjectId());
 	}
 
-	private void handleNonPlayerRes(L2PcInstance activeChar)
+	private void handleNonPlayerRes(L2Player activeChar)
 	{
 		handleNonPlayerRes(activeChar, "");
 	}
 
-	private void handleNonPlayerRes(L2PcInstance activeChar, String radiusStr)
+	private void handleNonPlayerRes(L2Player activeChar, String radiusStr)
 	{
 		L2Object obj = activeChar.getTarget();
 
@@ -133,7 +133,7 @@ public class AdminRes implements IAdminCommandHandler
 				radius = Integer.parseInt(radiusStr);
 
 				for (L2Character knownChar : activeChar.getKnownList().getKnownCharactersInRadius(radius))
-					if (!(knownChar instanceof L2PcInstance) && !(knownChar instanceof L2ControllableMobInstance))
+					if (!(knownChar instanceof L2Player) && !(knownChar instanceof L2ControllableMobInstance))
 						doResurrect(knownChar);
 
 				activeChar.sendMessage("Resurrected all non-players within a " + radius + " unit radius.");
@@ -145,7 +145,7 @@ public class AdminRes implements IAdminCommandHandler
 			return;
 		}
 
-		if (obj == null || obj instanceof L2PcInstance || obj instanceof L2ControllableMobInstance)
+		if (obj == null || obj instanceof L2Player || obj instanceof L2ControllableMobInstance)
 		{
 			activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 			return;
@@ -160,8 +160,8 @@ public class AdminRes implements IAdminCommandHandler
 			return;
 
 		// If the target is a player, then restore the XP lost on death.
-		if (targetChar instanceof L2PcInstance)
-			((L2PcInstance) targetChar).restoreExp(100.0);
+		if (targetChar instanceof L2Player)
+			((L2Player) targetChar).restoreExp(100.0);
 
 		// If the target is an NPC, then abort it's auto decay and respawn.
 		else

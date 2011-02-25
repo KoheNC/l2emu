@@ -17,14 +17,14 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public class ShowBoard extends L2GameServerPacket
 {
 	private static final String _S__6E_SHOWBOARD = "[S] 6e ShowBoard";
 
-	public static void notImplementedYet(L2PcInstance activeChar, String command)
+	public static void notImplementedYet(L2Player activeChar, String command)
 	{
 		if (activeChar == null || command == null)
 			return;
@@ -32,7 +32,7 @@ public class ShowBoard extends L2GameServerPacket
 		separateAndSend(activeChar, "<html><body><br><br><center>The command: [" + command + "] isn't implemented yet!</center><br><br></body></html>");
 	}
 	
-	public static void separateAndSend(L2PcInstance activeChar, String html)
+	public static void separateAndSend(L2Player activeChar, String html)
 	{
 		if (activeChar == null || html == null)
 			return;

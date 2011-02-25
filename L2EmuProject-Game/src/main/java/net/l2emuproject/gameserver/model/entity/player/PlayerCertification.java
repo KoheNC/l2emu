@@ -19,7 +19,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class PlayerCertification extends PlayerExtension
 {
@@ -28,7 +28,7 @@ public final class PlayerCertification extends PlayerExtension
 	private static final String	DELETE_CHAR_CERTIFICATION	= "DELETE FROM character_subclass_certification WHERE charId=?";
 	private static final String	GET_CHAR_CERTIFICATION		= "SELECT certif_level FROM character_subclass_certification WHERE charId=? AND class_index=?";
 
-	public PlayerCertification(L2PcInstance activeChar)
+	public PlayerCertification(L2Player activeChar)
 	{
 		super(activeChar);
 	}

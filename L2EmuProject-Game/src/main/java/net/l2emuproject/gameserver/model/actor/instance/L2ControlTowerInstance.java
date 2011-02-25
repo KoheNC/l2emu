@@ -24,6 +24,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.geodata.GeoData;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 
@@ -51,31 +52,31 @@ public class L2ControlTowerInstance extends L2Npc
 	{
 		// Attackable during siege by attacker only
 		return (attacker != null
-		        && attacker instanceof L2PcInstance
+		        && attacker instanceof L2Player
 		        && getCastle() != null
 		        && getCastle().getCastleId() > 0
 		        && getCastle().getSiege().getIsInProgress()
-		        && getCastle().getSiege().checkIsAttacker(((L2PcInstance)attacker).getClan()));
+		        && getCastle().getSiege().checkIsAttacker(((L2Player)attacker).getClan()));
 	}
 
 	@Override
-	public void onForcedAttack(L2PcInstance player)
+	public void onForcedAttack(L2Player player)
 	{
 		onAction(player);
 	}
 
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		if (!canTarget(player)) return;
 
-		// Check if the L2PcInstance already target the L2NpcInstance
+		// Check if the L2Player already target the L2NpcInstance
 		if (this != player.getTarget())
 		{
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 
-			// Send a Server->Client packet StatusUpdate of the L2NpcInstance to the L2PcInstance to update its HP bar
+			// Send a Server->Client packet StatusUpdate of the L2NpcInstance to the L2Player to update its HP bar
 			StatusUpdate su = new StatusUpdate(getObjectId());
 			su.addAttribute(StatusUpdate.CUR_HP, (int)getStatus().getCurrentHp() );
 			su.addAttribute(StatusUpdate.MAX_HP, getMaxHp() );
@@ -86,10 +87,10 @@ public class L2ControlTowerInstance extends L2Npc
 			if (isAutoAttackable(player) && Math.abs(player.getZ() - getZ()) < 100 // Less then max height difference, delete check when geo
 					&& GeoData.getInstance().canSeeTarget(player, this))
 			{
-				// Notify the L2PcInstance AI with AI_INTENTION_INTERACT
+				// Notify the L2Player AI with AI_INTENTION_INTERACT
 				player.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, this);
 
-				// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+				// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 				player.sendPacket(ActionFailed.STATIC_PACKET);
 			}
 		}

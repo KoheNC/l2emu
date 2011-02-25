@@ -25,7 +25,6 @@ import net.l2emuproject.gameserver.instancemanager.ZoneManager;
 import net.l2emuproject.gameserver.model.VehiclePathPoint;
 import net.l2emuproject.gameserver.model.actor.instance.L2AirShipInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControllableAirShipInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2ScriptZone;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
@@ -89,7 +89,7 @@ public abstract class AirShipController extends Quest
 	private static final String				ARRIVAL_MSG					= "The airship has been summoned. It will automatically depart in 5 minutes";
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if ("summon".equalsIgnoreCase(event))
 		{
@@ -244,7 +244,7 @@ public abstract class AirShipController extends Quest
 	}
 
 	@Override
-	public String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		if (player.getQuestState(getName()) == null)
 			newQuestState(player);
@@ -268,7 +268,7 @@ public abstract class AirShipController extends Quest
 				{
 					if (_movieId != 0)
 					{
-						for (L2PcInstance passenger : _dockedShip.getPassengers())
+						for (L2Player passenger : _dockedShip.getPassengers())
 						{
 							if (passenger != null)
 								passenger.showQuestMovie(_movieId);

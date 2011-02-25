@@ -20,7 +20,6 @@ import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.QuestState;
@@ -31,6 +30,7 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 public final class DarkCloudMansion extends QuestJython
@@ -234,7 +234,7 @@ public final class DarkCloudMansion extends QuestJython
 		}
 	}
 
-	private boolean checkConditions(L2PcInstance player)
+	private boolean checkConditions(L2Player player)
 	{
 		if (debug)
 			return true;
@@ -256,7 +256,7 @@ public final class DarkCloudMansion extends QuestJython
 				player.sendPacket(new SystemMessage(SystemMessageId.PARTY_EXCEEDED_THE_LIMIT_CANT_ENTER));
 				return false;
 			}
-			for (L2PcInstance partyMember : party.getPartyMembers())
+			for (L2Player partyMember : party.getPartyMembers())
 			{
 				if (partyMember.getLevel() < 78)
 				{
@@ -278,7 +278,7 @@ public final class DarkCloudMansion extends QuestJython
 		}
 	}
 
-	private void teleportplayer(L2PcInstance player, teleCoord teleto)
+	private void teleportplayer(L2Player player, teleCoord teleto)
 	{
 		player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 		player.setInstanceId(teleto.instanceId);
@@ -286,7 +286,7 @@ public final class DarkCloudMansion extends QuestJython
 		return;
 	}
 
-	protected int enterInstance(L2PcInstance player, String template, teleCoord teleto)
+	protected int enterInstance(L2Player player, String template, teleCoord teleto)
 	{
 		int instanceId = 0;
 		//check for existing instances for this player
@@ -325,7 +325,7 @@ public final class DarkCloudMansion extends QuestJython
 			}
 			else
 			{
-				for (L2PcInstance partyMember : party.getPartyMembers())
+				for (L2Player partyMember : party.getPartyMembers())
 				{
 					if (partyMember.getQuestState(QN) == null)
 						newQuestState(partyMember);
@@ -338,7 +338,7 @@ public final class DarkCloudMansion extends QuestJython
 		}
 	}
 
-	protected void exitInstance(L2PcInstance player, teleCoord tele)
+	protected void exitInstance(L2Player player, teleCoord tele)
 	{
 		player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 		player.setInstanceId(0);
@@ -747,7 +747,7 @@ public final class DarkCloudMansion extends QuestJython
 			_log.info("DarkCloudMansion: finished");
 	}
 
-	protected void checkBelethSample(DMCWorld world, L2Npc npc, L2PcInstance player)
+	protected void checkBelethSample(DMCWorld world, L2Npc npc, L2Player player)
 	{
 		DMCRoom FifthRoom = world.rooms.get("FifthRoom");
 
@@ -868,7 +868,7 @@ public final class DarkCloudMansion extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if (npc == null)
 			return "";
@@ -925,7 +925,7 @@ public final class DarkCloudMansion extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		DMCWorld world;
@@ -986,7 +986,7 @@ public final class DarkCloudMansion extends QuestJython
 	}
 
 	@Override
-	public final String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isPet, L2Skill skill)
+	public final String onAttack(L2Npc npc, L2Player player, int damage, boolean isPet, L2Skill skill)
 	{
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		DMCWorld world;
@@ -1017,7 +1017,7 @@ public final class DarkCloudMansion extends QuestJython
 	}
 
 	@Override
-	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		DMCWorld world;
@@ -1056,7 +1056,7 @@ public final class DarkCloudMansion extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		int npcId = npc.getNpcId();
 		if (npcId == YIYEN)

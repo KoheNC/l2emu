@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.Race;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author mkizub
@@ -33,8 +33,8 @@ class ConditionPlayerRace extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2PcInstance))
+		if (!(env.player instanceof L2Player))
 			return false;
-		return ((L2PcInstance)env.player).getRace() == _race;
+		return ((L2Player)env.player).getRace() == _race;
 	}
 }

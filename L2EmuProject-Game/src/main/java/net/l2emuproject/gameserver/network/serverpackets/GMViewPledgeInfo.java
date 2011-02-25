@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * format   SdSS dddddddd d (Sddddd)
@@ -27,9 +27,9 @@ public class GMViewPledgeInfo extends L2GameServerPacket
 {
 	private static final String _S__A9_GMVIEWPLEDGEINFO = "[S] 90 GMViewPledgeInfo";
 	private final L2Clan _clan;
-	private final L2PcInstance _activeChar;
+	private final L2Player _activeChar;
 	
-	public GMViewPledgeInfo(L2Clan clan, L2PcInstance activeChar)
+	public GMViewPledgeInfo(L2Clan clan, L2Player activeChar)
 	{
 		_clan = clan;
 		_activeChar = activeChar;

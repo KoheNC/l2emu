@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author kerberos
@@ -33,6 +33,6 @@ final class ConditionPlayerSubclass extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		return (env.player instanceof L2PcInstance) ? ((L2PcInstance) env.player).isSubClassActive() == _val : true;
+		return (env.player instanceof L2Player) ? ((L2Player) env.player).isSubClassActive() == _val : true;
 	}
 }

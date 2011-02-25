@@ -20,8 +20,8 @@ import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.ai.L2CharacterAI;
 import net.l2emuproject.gameserver.model.actor.instance.L2GuardInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -49,10 +49,10 @@ public class GuardKnownList extends AttackableKnownList
 		if (!super.addKnownObject(object))
 			return false;
 
-		if (object instanceof L2PcInstance)
+		if (object instanceof L2Player)
 		{
-			// Check if the object added is a L2PcInstance that owns Karma
-			L2PcInstance player = (L2PcInstance) object;
+			// Check if the object added is a L2Player that owns Karma
+			L2Player player = (L2Player) object;
 			
 			if ( (player.getKarma() > 0) )
 			{

@@ -30,6 +30,7 @@ import net.l2emuproject.gameserver.network.serverpackets.TutorialShowHtml;
 import net.l2emuproject.gameserver.network.serverpackets.TutorialShowQuestionMark;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 
@@ -57,7 +58,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 	}
 
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		if (!canTarget(player))
 			return;
@@ -68,10 +69,10 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 			return;
 		}
 
-		// Check if the L2PcInstance already target the L2NpcInstance
+		// Check if the L2Player already target the L2NpcInstance
 		if (getObjectId() != player.getTargetId())
 		{
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 		}
 		else
@@ -186,7 +187,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (Config.ALT_L2J_CLASS_MASTER)
 		{
@@ -278,9 +279,9 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 			html.setHtml(sb.moveToString());
 			player.sendPacket(html);
 
-			// Update the overloaded status of the L2PcInstance
+			// Update the overloaded status of the L2Player
 			player.refreshOverloaded();
-			// Update the expertise status of the L2PcInstance
+			// Update the expertise status of the L2Player
 			player.refreshExpertisePenalty();
 		}
 		else if (command.startsWith("upgrade_hatchling") && Config.ALT_CLASS_MASTER_STRIDER_UPDATE)
@@ -331,7 +332,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 		}
 	}
 
-	private void changeClass(L2PcInstance player, int val)
+	private void changeClass(L2Player player, int val)
 	{
 		if (_log.isDebugEnabled())
 			_log.debug("Changing class to ClassId:" + val);
@@ -346,7 +347,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 		player.broadcastClassIcon();
 	}
 
-	private static boolean checkDestroyAndRewardItems(L2PcInstance player, int newJobLevel)
+	private static boolean checkDestroyAndRewardItems(L2Player player, int newJobLevel)
 	{
 		// Check if player have all required items for class transfer
 		for (Integer _itemId : Config.ALT_CLASS_MASTER_SETTINGS.getRequireItems(newJobLevel).keySet())
@@ -378,7 +379,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 
 	// L2JServer CM methods below
 
-	public static final void onTutorialLink(L2PcInstance player, String request)
+	public static final void onTutorialLink(L2Player player, String request)
 	{
 		if (!Config.ALT_CLASS_MASTER_TUTORIAL
 				|| request == null
@@ -399,7 +400,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 		player.sendPacket(new TutorialCloseHtml());
 	}
 
-	public static final void onTutorialQuestionMark(L2PcInstance player, int number)
+	public static final void onTutorialQuestionMark(L2Player player, int number)
 	{
 		if (!Config.ALT_CLASS_MASTER_TUTORIAL || number != 1001)
 			return;
@@ -407,7 +408,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 		showTutorialHtml(player);
 	}
 
-	public static final void showQuestionMark(L2PcInstance player)
+	public static final void showQuestionMark(L2Player player)
 	{
 		if (!Config.ALT_CLASS_MASTER_TUTORIAL)
 			return;
@@ -419,7 +420,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 		player.sendPacket(new TutorialShowQuestionMark(1001));
 	}
 
-	private static final void showHtmlMenu(L2PcInstance player, int objectId, int level)
+	private static final void showHtmlMenu(L2Player player, int objectId, int level)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(objectId);
 
@@ -481,7 +482,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 		player.sendPacket(html);
 	}
 
-	private static final void showTutorialHtml(L2PcInstance player)
+	private static final void showTutorialHtml(L2Player player)
 	{
 		final ClassId currentClassId = player.getClassId();
 		int newJobLevel = currentClassId.level() + 1;
@@ -524,7 +525,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 		player.sendPacket(new TutorialShowHtml(msg));
 	}
 
-	private static final boolean checkAndChangeClass(L2PcInstance player, int val)
+	private static final boolean checkAndChangeClass(L2Player player, int val)
 	{
 		final ClassId currentClassId = player.getClassId();
 		int newJobLevel = currentClassId.level() + 1;

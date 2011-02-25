@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.status.commands;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.status.GameStatusCommand;
 
 public final class IP extends GameStatusCommand
@@ -36,7 +36,7 @@ public final class IP extends GameStatusCommand
 	{
 		try
 		{
-			L2PcInstance player = L2World.getInstance().getPlayer(params);
+			L2Player player = L2World.getInstance().getPlayer(params);
 			if (player != null)
 			{
 				try

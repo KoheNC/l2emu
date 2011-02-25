@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Psycho(killer1888) / L2jFree
@@ -34,7 +34,7 @@ public final class AdminHellbound implements IAdminCommandHandler
 			"admin_remove_warpgate_points"			};
 
 	@Override
-	public final boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public final boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		StringTokenizer st = new StringTokenizer(command, " ");
 		String cmd = st.nextToken();

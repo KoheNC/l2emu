@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.services.macro.L2Macro;
 import net.l2emuproject.gameserver.services.macro.L2Macro.L2MacroCmd;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestMakeMacro extends L2GameClientPacket
 {
@@ -79,7 +79,7 @@ public class RequestMakeMacro extends L2GameClientPacket
     @Override
     protected void runImpl()
 	{
-		L2PcInstance  player = getClient().getActiveChar();
+		L2Player  player = getClient().getActiveChar();
 		if (player == null)
 		    return;
 		if (_commandsLenght > 255)

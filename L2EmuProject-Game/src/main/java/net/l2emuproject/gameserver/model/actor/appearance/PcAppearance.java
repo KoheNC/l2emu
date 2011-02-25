@@ -20,8 +20,8 @@ import java.sql.ResultSet;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.util.HexUtil;
 
 import org.apache.commons.logging.Log;
@@ -42,7 +42,7 @@ public final class PcAppearance
 
 	// =========================================================
 	// Data Field
-	private L2PcInstance		_owner;
+	private L2Player		_owner;
 	private byte				_face;
 	private byte				_hairColor;
 	private byte				_hairStyle;
@@ -182,7 +182,7 @@ public final class PcAppearance
 		setTitleColor((red & 0xFF) + ((green & 0xFF) << 8) + ((blue & 0xFF) << 16));
 	}
 
-	public void setOwner(L2PcInstance owner)
+	public void setOwner(L2Player owner)
 	{
 		_owner = owner;
 	}

@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.handler.voicedcommandhandlers;
 
 import net.l2emuproject.gameserver.communitybbs.Manager.AuctionBBSManager;
 import net.l2emuproject.gameserver.handler.IVoicedCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * 
@@ -28,7 +28,7 @@ public class Auction implements IVoicedCommandHandler
 	private static final String[]	VOICED_COMMANDS	= { "auction" };
 
 	@Override
-	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String target)
+	public boolean useVoicedCommand(String command, L2Player activeChar, String target)
 	{
 		if (command.equals("auction"))
 		{

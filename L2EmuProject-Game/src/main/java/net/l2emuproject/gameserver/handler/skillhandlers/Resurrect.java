@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
@@ -24,6 +23,7 @@ import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -40,11 +40,11 @@ public class Resurrect implements ISkillHandler
 	@Override
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Character... targets)
 	{
-		L2PcInstance player = null;
-		if (activeChar instanceof L2PcInstance)
-			player = (L2PcInstance) activeChar;
+		L2Player player = null;
+		if (activeChar instanceof L2Player)
+			player = (L2Player) activeChar;
 
-		L2PcInstance targetPlayer;
+		L2Player targetPlayer;
 		FastList<L2Character> targetToRes = new FastList<L2Character>();
 
 		for (L2Character target : targets)
@@ -55,9 +55,9 @@ public class Resurrect implements ISkillHandler
 			if (target.isEradicated())
 				continue;
 			
-			if (target instanceof L2PcInstance)
+			if (target instanceof L2Player)
 			{
-				targetPlayer = (L2PcInstance) target;
+				targetPlayer = (L2Player) target;
 
 				// Check for same party or for same clan, if target is for clan.
 				if (skill.getTargetType() == SkillTargetType.TARGET_CORPSE_CLAN)
@@ -73,18 +73,18 @@ public class Resurrect implements ISkillHandler
 
 		for (L2Character cha : targetToRes)
 		{
-			if (activeChar instanceof L2PcInstance)
+			if (activeChar instanceof L2Player)
 			{
-				if (cha instanceof L2PcInstance)
+				if (cha instanceof L2Player)
 				{
-					((L2PcInstance) cha).reviveRequest((L2PcInstance) activeChar, skill);
+					((L2Player) cha).reviveRequest((L2Player) activeChar, skill);
 				}
 				else if (cha instanceof L2PetInstance)
 				{
 					if (((L2PetInstance) cha).getOwner() == activeChar)
 						cha.doRevive(Formulas.calculateSkillResurrectRestorePercent(skill, activeChar));
 					else
-						((L2PetInstance) cha).getOwner().revivePetRequest((L2PcInstance) activeChar, skill);
+						((L2PetInstance) cha).getOwner().revivePetRequest((L2Player) activeChar, skill);
 				}
 				else
 					cha.doRevive(Formulas.calculateSkillResurrectRestorePercent(skill, activeChar));

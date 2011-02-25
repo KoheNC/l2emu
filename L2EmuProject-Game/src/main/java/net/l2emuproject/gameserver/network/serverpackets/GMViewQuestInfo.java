@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Sh (dd) h (dddd)
@@ -26,9 +26,9 @@ public class GMViewQuestInfo extends L2GameServerPacket
 {
 	private static final String S_99_GMVIEWQUESTINFO = "[S] 99 GMViewQuestInfo";
 
-    private final L2PcInstance _activeChar;
+    private final L2Player _activeChar;
 
-	public GMViewQuestInfo(L2PcInstance cha)
+	public GMViewQuestInfo(L2Player cha)
 	{
 		_activeChar = cha;
 	}

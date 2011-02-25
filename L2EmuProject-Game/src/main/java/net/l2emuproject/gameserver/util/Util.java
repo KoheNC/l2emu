@@ -23,10 +23,10 @@ import java.util.Map;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.position.ObjectPosition;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.tools.util.CustomFileNameFilter;
 import net.l2emuproject.util.ValueSortMap;
@@ -70,12 +70,12 @@ public final class Util
 		interp.cleanup();
 	}
 	
-	public static void handleIllegalPlayerAction(L2PcInstance actor, String message)
+	public static void handleIllegalPlayerAction(L2Player actor, String message)
 	{
 		handleIllegalPlayerAction(actor, message, Config.DEFAULT_PUNISH);
 	}
 	
-	public static void handleIllegalPlayerAction(L2PcInstance actor, String message, int punishment)
+	public static void handleIllegalPlayerAction(L2Player actor, String message, int punishment)
 	{
 		actor.setIllegalWaiting(true);
 		ThreadPoolManager.getInstance().scheduleGeneral(new IllegalPlayerAction(actor, message, punishment), 5000);

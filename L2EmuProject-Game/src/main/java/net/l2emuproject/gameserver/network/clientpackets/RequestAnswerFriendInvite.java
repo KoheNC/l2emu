@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * sample 5F 01 00 00 00 format cdd
@@ -36,10 +36,10 @@ public final class RequestAnswerFriendInvite extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getActiveChar();
+		L2Player activeChar = getActiveChar();
 		if (activeChar == null) return;
 
-		L2PcInstance requestor = activeChar.getActiveRequester();
+		L2Player requestor = activeChar.getActiveRequester();
 		if (requestor == null)
 		{
 			requestFailed(SystemMessageId.THE_USER_YOU_REQUESTED_IS_NOT_IN_GAME);

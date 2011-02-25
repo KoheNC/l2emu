@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Die;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -52,10 +52,10 @@ public class WrappedPack implements IItemHandler
 	@Override
 	public void useItem(L2Playable playable, L2ItemInstance item)
 	{
-		if (!(playable instanceof L2PcInstance) || item == null)
+		if (!(playable instanceof L2Player) || item == null)
 			return;
 
-		L2PcInstance player = playable.getActingPlayer();
+		L2Player player = playable.getActingPlayer();
 		if (!player.destroyItemByItemId("Consume", item.getItemId(), 1, player, true))
 			return;
 

@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class ...
@@ -33,7 +33,7 @@ public class PledgeShowMemberListAdd extends L2GameServerPacket
 	private final int _sex;
 	private final int _race;
 
-	public PledgeShowMemberListAdd(L2PcInstance player)
+	public PledgeShowMemberListAdd(L2Player player)
 	{
 		_name = player.getName();
 		_lvl = player.getLevel();

@@ -34,6 +34,7 @@ import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Merchant;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 /**
@@ -84,7 +85,7 @@ public class L2MerchantInstance extends L2NpcInstance implements L2Merchant
 		return _mpc;
 	}
 
-	public final void showBuySellRefundWindow(L2PcInstance player, int val)
+	public final void showBuySellRefundWindow(L2Player player, int val)
 	{
 		double taxRate = 0;
 		
@@ -113,7 +114,7 @@ public class L2MerchantInstance extends L2NpcInstance implements L2Merchant
 
 	@Deprecated
 	// FIXME 1.4.0 was removed at l2jserver 3696
-	protected final void showSellWindow(L2PcInstance player)
+	protected final void showSellWindow(L2Player player)
 	{
 		if (_log.isDebugEnabled())
 			_log.debug("Showing selllist.");
@@ -126,7 +127,7 @@ public class L2MerchantInstance extends L2NpcInstance implements L2Merchant
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	public final void showRentPetWindow(L2PcInstance player)
+	public final void showRentPetWindow(L2Player player)
 	{
 		if (!Config.LIST_PET_RENT_NPC.contains(getTemplate().getNpcId()))
 			return;
@@ -145,7 +146,7 @@ public class L2MerchantInstance extends L2NpcInstance implements L2Merchant
 		insertObjectIdAndShowChatWindow(player, html1.moveToString());
 	}
 
-	public void tryRentPet(L2PcInstance player, int val)
+	public void tryRentPet(L2Player player, int val)
 	{
 		if (player == null || player.getPet() != null || player.isMounted() || player.isRentedPet() || player.getPlayerTransformation().isTransformed()
 				|| player.isCursedWeaponEquipped())
@@ -188,7 +189,7 @@ public class L2MerchantInstance extends L2NpcInstance implements L2Merchant
 	}
 
 	@Override
-	public final void onActionShift(L2PcInstance player)
+	public final void onActionShift(L2Player player)
 	{
 		if (player.getAccessLevel() >= Config.GM_ACCESSLEVEL)
 		{
@@ -251,7 +252,7 @@ public class L2MerchantInstance extends L2NpcInstance implements L2Merchant
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	public static L2TradeList getTradeList(L2PcInstance player, L2Object target, int listId)
+	public static L2TradeList getTradeList(L2Player player, L2Object target, int listId)
 	{
 		final L2Merchant merchant = L2Object.getActingMerchant(target);
 
@@ -287,7 +288,7 @@ public class L2MerchantInstance extends L2NpcInstance implements L2Merchant
 		return list;
 	}
 
-	public static boolean canShop(L2PcInstance player, L2Object target)
+	public static boolean canShop(L2Player player, L2Object target)
 	{
 		if (!player.getFloodProtector().tryPerformAction(Protected.TRANSACTION))
 		{

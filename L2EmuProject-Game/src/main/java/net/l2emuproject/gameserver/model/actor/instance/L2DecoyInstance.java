@@ -26,6 +26,7 @@ import net.l2emuproject.gameserver.world.knownlist.CharKnownList;
 import net.l2emuproject.gameserver.world.knownlist.DecoyKnownList;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Decoy;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public class L2DecoyInstance extends L2Decoy
@@ -35,7 +36,7 @@ public class L2DecoyInstance extends L2Decoy
     private Future<?> _DecoyLifeTask;
     private Future<?> _HateSpam;
     
-    public L2DecoyInstance(int objectId, L2NpcTemplate template, L2PcInstance owner, L2SkillDecoy skill)
+    public L2DecoyInstance(int objectId, L2NpcTemplate template, L2Player owner, L2SkillDecoy skill)
     {
         super(objectId, template, owner);
         if (skill != null)
@@ -82,10 +83,10 @@ public class L2DecoyInstance extends L2Decoy
     
     static class DecoyLifetime implements Runnable
     {
-        private final L2PcInstance _activeChar;
+        private final L2Player _activeChar;
         private final L2DecoyInstance _Decoy;
         
-        DecoyLifetime(L2PcInstance activeChar, L2DecoyInstance Decoy)
+        DecoyLifetime(L2Player activeChar, L2DecoyInstance Decoy)
         {
             _activeChar = activeChar;
             _Decoy = Decoy;
@@ -124,7 +125,7 @@ public class L2DecoyInstance extends L2Decoy
     }
     
     @Override
-    public void unSummon(L2PcInstance owner)
+    public void unSummon(L2Player owner)
     {
         if (_DecoyLifeTask != null)
         {

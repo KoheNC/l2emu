@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.taskmanager;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.PartyMemberPosition;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Used to revalidate/update/broadcast/execute tasks depending on current coordinates.<br>
@@ -54,9 +54,9 @@ public final class CoordRevalidator extends AbstractFIFOPeriodicTaskManager<L2Ob
 			
 			cha.revalidateZone(true);
 			
-			if (cha instanceof L2PcInstance)
+			if (cha instanceof L2Player)
 			{
-				final L2PcInstance player = (L2PcInstance)cha;
+				final L2Player player = (L2Player)cha;
 				
 				if (player.getParty() != null)
 					player.getParty().broadcastToPartyMembers(player, new PartyMemberPosition(player.getParty()));

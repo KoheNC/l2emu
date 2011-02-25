@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.model.itemcontainer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class ClanWarehouse extends Warehouse
 {
@@ -41,7 +41,7 @@ public final class ClanWarehouse extends Warehouse
 	}
 	
 	@Override
-	public L2PcInstance getOwner()
+	public L2Player getOwner()
 	{
 		return _clan.getLeader().getPlayerInstance();
 	}

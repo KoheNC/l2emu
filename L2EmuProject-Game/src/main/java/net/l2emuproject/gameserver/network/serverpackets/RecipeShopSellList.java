@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureItem;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class ...
@@ -27,9 +27,9 @@ public class RecipeShopSellList extends L2GameServerPacket
 {
     private static final String _S__D9_RecipeShopSellList = "[S] d9 RecipeShopSellList";
 
-    private final L2PcInstance _buyer, _manufacturer;
+    private final L2Player _buyer, _manufacturer;
 
-    public RecipeShopSellList(L2PcInstance buyer, L2PcInstance manufacturer)
+    public RecipeShopSellList(L2Player buyer, L2Player manufacturer)
     {
         _buyer = buyer;
         _manufacturer = manufacturer;

@@ -16,10 +16,10 @@ package quests._126_TheNameOfEvil2;
 
 import net.l2emuproject.gameserver.model.quest.QuestState;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /** 
  * Remade for L2EmuProject by lewzer
@@ -300,7 +300,7 @@ public final class TheNameOfEvil2 extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = NO_QUEST;
 		QuestState st = player.getQuestState(QN);

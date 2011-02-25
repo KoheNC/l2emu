@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.handler.usercommandhandlers;
 
 import net.l2emuproject.gameserver.handler.IUserCommandHandler;
 import net.l2emuproject.gameserver.model.L2CommandChannel;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  *
@@ -34,7 +34,7 @@ public class ChannelLeave implements IUserCommandHandler
 	 * @see net.l2emuproject.gameserver.handler.IUserCommandHandler#useUserCommand(int, net.l2emuproject.gameserver.model.L2PcInstance)
 	 */
 	@Override
-	public boolean useUserCommand(int id, L2PcInstance activeChar)
+	public boolean useUserCommand(int id, L2Player activeChar)
 	{
 		if (id != COMMAND_IDS[0])
 			return false;

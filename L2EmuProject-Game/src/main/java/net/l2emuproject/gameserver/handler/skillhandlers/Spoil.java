@@ -18,12 +18,12 @@ import net.l2emuproject.gameserver.ai.CtrlEvent;
 import net.l2emuproject.gameserver.handler.ISkillConditionChecker;
 import net.l2emuproject.gameserver.model.actor.instance.L2ChestInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author _drunk_
@@ -38,7 +38,7 @@ public class Spoil extends ISkillConditionChecker
 	{
 		if (!(target instanceof L2MonsterInstance) && !(target instanceof L2ChestInstance))
 		{
-			// Send a System Message to the L2PcInstance
+			// Send a System Message to the L2Player
 			activeChar.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
 			return false;
 		}
@@ -49,7 +49,7 @@ public class Spoil extends ISkillConditionChecker
 	@Override
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Character... targets)
 	{
-		if (!(activeChar instanceof L2PcInstance))
+		if (!(activeChar instanceof L2Player))
 			return;
 
 		for (L2Character element : targets)

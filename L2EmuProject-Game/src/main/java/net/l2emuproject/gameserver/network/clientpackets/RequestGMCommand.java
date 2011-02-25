@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.GMHennaInfo;
 import net.l2emuproject.gameserver.network.serverpackets.GMViewCharacterInfo;
@@ -25,6 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.GMViewQuestInfo;
 import net.l2emuproject.gameserver.network.serverpackets.GMViewSkillInfo;
 import net.l2emuproject.gameserver.network.serverpackets.GMViewWarehouseWithdrawList;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class represents a packet that is sent whenever a GM clicks something
@@ -49,7 +49,7 @@ public class RequestGMCommand extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getActiveChar();
+		L2Player activeChar = getActiveChar();
 		if (activeChar == null)
 			return;
 
@@ -59,7 +59,7 @@ public class RequestGMCommand extends L2GameClientPacket
 			return;
 		}
 
-		L2PcInstance player = L2World.getInstance().getPlayer(_targetName);
+		L2Player player = L2World.getInstance().getPlayer(_targetName);
 		if (player == null)
 		{
 			requestFailed(SystemMessageId.TARGET_IS_NOT_FOUND_IN_THE_GAME);

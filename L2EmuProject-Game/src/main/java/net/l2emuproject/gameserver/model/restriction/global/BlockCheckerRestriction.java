@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.model.restriction.global;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.instancemanager.games.HandysBlockCheckerManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author lord_rex
@@ -36,8 +36,8 @@ public final class BlockCheckerRestriction extends AbstractRestriction
 	}
 
 	@Override
-	public final boolean isProtected(L2Character activeChar, L2Character target, L2Skill skill, boolean sendMessage, L2PcInstance attacker_,
-			L2PcInstance target_, boolean isOffensive)
+	public final boolean isProtected(L2Character activeChar, L2Character target, L2Skill skill, boolean sendMessage, L2Player attacker_,
+			L2Player target_, boolean isOffensive)
 	{
 		if (activeChar == null || target == null || attacker_ == null || target_ == null)
 			return false;
@@ -49,14 +49,14 @@ public final class BlockCheckerRestriction extends AbstractRestriction
 	}
 
 	@Override
-	public final void playerDisconnected(L2PcInstance player)
+	public final void playerDisconnected(L2Player player)
 	{
 		if (Config.ENABLE_BLOCK_CHECKER_EVENT && player.getBlockCheckerArena() != -1)
 			HandysBlockCheckerManager.getInstance().onDisconnect(player);
 	}
 
 	@Override
-	public final boolean canBeSummoned(L2PcInstance target)
+	public final boolean canBeSummoned(L2Player target)
 	{
 		if (target.getBlockCheckerArena() != -1)
 			return false;

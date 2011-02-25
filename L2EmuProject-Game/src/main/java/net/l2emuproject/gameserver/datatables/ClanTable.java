@@ -27,7 +27,6 @@ import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.model.entity.Castle;
@@ -39,6 +38,7 @@ import net.l2emuproject.gameserver.network.serverpackets.PledgeShowMemberListAll
 import net.l2emuproject.gameserver.network.serverpackets.PledgeShowMemberListUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -132,7 +132,7 @@ public class ClanTable
 	 * @param player
 	 * @return NULL if clan with same name already exists
 	 */
-	public L2Clan createClan(L2PcInstance player, String clanName)
+	public L2Clan createClan(L2Player player, String clanName)
 	{
 		if (null == player)
 			return null;

@@ -77,13 +77,13 @@ public final class EffectFakeDeath extends L2Effect
 		 * ((L2Npc)obj).getSpawn().getLocy(),
 		 * ((L2Npc)obj).getSpawn().getLocz(),0)); } }
 		 * 
-		 * if (!((L2PcInstance)obj).isDead() && ((L2PcInstance)obj) != null &&
-		 * ((L2PcInstance)obj) != getEffected() &&
-		 * ((L2PcInstance)obj).isInsideRadius(getEffected(),130,true,false))
+		 * if (!((L2Player)obj).isDead() && ((L2Player)obj) != null &&
+		 * ((L2Player)obj) != getEffected() &&
+		 * ((L2Player)obj).isInsideRadius(getEffected(),130,true,false))
 		 * //check if PC you Train is Close to you { if
-		 * (((L2PcInstance)obj).isMoving() && (NPC.getTemplate().aggroRange > 0) &&
+		 * (((L2Player)obj).isMoving() && (NPC.getTemplate().aggroRange > 0) &&
 		 * (Rnd.get(100) < 75)); //If PC is moving give a chance to move agrro
-		 * mobs on him. { NPC.setTarget(((L2PcInstance)obj));
+		 * mobs on him. { NPC.setTarget(((L2Player)obj));
 		 * NPC.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK); //Train
 		 * him! } }
 		 */

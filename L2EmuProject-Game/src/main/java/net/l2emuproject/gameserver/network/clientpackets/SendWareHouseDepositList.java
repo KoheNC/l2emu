@@ -18,7 +18,6 @@ import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.ADENA_
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.ItemContainer;
 import net.l2emuproject.gameserver.model.itemcontainer.PcWarehouse;
@@ -28,6 +27,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class SendWareHouseDepositList extends L2GameClientPacket
 {
@@ -64,7 +64,7 @@ public class SendWareHouseDepositList extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getClient().getActiveChar();
+		L2Player player = getClient().getActiveChar();
 		if (player == null)
 			return;
 		else if (!getClient().getFloodProtector().tryPerformAction(Protected.TRANSACTION))

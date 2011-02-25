@@ -29,12 +29,12 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.instance.L2GrandBossInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.GrandBossState;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -231,7 +231,7 @@ public class AntharasManager extends BossLair
 		private final int					_distance	= 6502500;
 		private int					_taskId		= 0;
 		private L2GrandBossInstance	_antharas	= null;
-		private final List<L2PcInstance>	_players	= getPlayersInside();
+		private final List<L2Player>	_players	= getPlayersInside();
 
 		AntharasSpawn(int taskId, L2GrandBossInstance antharas)
 		{
@@ -315,7 +315,7 @@ public class AntharasManager extends BossLair
 
 				case 2:
 					// Set camera.
-					for (L2PcInstance pc : _players)
+					for (L2Player pc : _players)
 					{
 						if (pc.getPlanDistanceSq(_antharas) <= _distance)
 						{
@@ -344,7 +344,7 @@ public class AntharasManager extends BossLair
 					_antharas.broadcastPacket(sa);
 
 					// Set camera.
-					for (L2PcInstance pc : _players)
+					for (L2Player pc : _players)
 					{
 						if (pc.getPlanDistanceSq(_antharas) <= _distance)
 						{
@@ -369,7 +369,7 @@ public class AntharasManager extends BossLair
 
 				case 4:
 					// Set camera.
-					for (L2PcInstance pc : _players)
+					for (L2Player pc : _players)
 					{
 						if (pc.getPlanDistanceSq(_antharas) <= _distance)
 						{
@@ -398,7 +398,7 @@ public class AntharasManager extends BossLair
 					_antharas.broadcastPacket(sa);
 
 					// set camera.
-					for (L2PcInstance pc : _players)
+					for (L2Player pc : _players)
 					{
 						if (pc.getPlanDistanceSq(_antharas) <= _distance)
 						{
@@ -423,7 +423,7 @@ public class AntharasManager extends BossLair
 
 				case 6:
 					// Set camera.
-					for (L2PcInstance pc : _players)
+					for (L2Player pc : _players)
 					{
 						if (pc.getPlanDistanceSq(_antharas) <= _distance)
 						{
@@ -449,7 +449,7 @@ public class AntharasManager extends BossLair
 				case 7:
 					_antharas.abortCast();
 					// Reset camera.
-					for (L2PcInstance pc : _players)
+					for (L2Player pc : _players)
 					{
 						pc.leaveMovieMode();
 					}

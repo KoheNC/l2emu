@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.handler.chathandlers;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IChatHandler;
 import net.l2emuproject.gameserver.model.BlockList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  *
@@ -43,12 +43,12 @@ public class ChatWhisper implements IChatHandler
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.handler.IChatHandler#useChatHandler(net.l2emuproject.gameserver.character.player.L2PcInstance, net.l2emuproject.gameserver.network.enums.SystemChatChannelId, java.lang.String)
+	 * @see net.l2emuproject.gameserver.handler.IChatHandler#useChatHandler(net.l2emuproject.gameserver.world.object.L2Player.player.L2PcInstance, net.l2emuproject.gameserver.network.enums.SystemChatChannelId, java.lang.String)
 	 */
 	@Override
-	public void useChatHandler(L2PcInstance activeChar, String target, SystemChatChannelId chatType, String text)
+	public void useChatHandler(L2Player activeChar, String target, SystemChatChannelId chatType, String text)
 	{
-		L2PcInstance receiver = L2World.getInstance().getPlayer(target);
+		L2Player receiver = L2World.getInstance().getPlayer(target);
 
 		if (receiver != null)
 		{

@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.RecipeShopSellList;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Packet sent when player clicks "< Previous" button when viewing a selected recipe in the
@@ -37,7 +37,7 @@ public class RequestRecipeShopSellList extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getActiveChar();
+		L2Player player = getActiveChar();
 		if (player == null)
 			return;
 
@@ -47,9 +47,9 @@ public class RequestRecipeShopSellList extends L2GameClientPacket
 			return;
 		}
 
-		final L2PcInstance manufacturer;
+		final L2Player manufacturer;
 		if (player.getTargetId() == _targetId)
-			manufacturer = player.getTarget(L2PcInstance.class);
+			manufacturer = player.getTarget(L2Player.class);
 		else
 			manufacturer = L2World.getInstance().findPlayer(_targetId);
 		if (manufacturer != null)

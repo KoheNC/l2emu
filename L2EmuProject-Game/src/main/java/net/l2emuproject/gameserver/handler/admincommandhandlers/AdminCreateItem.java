@@ -18,10 +18,10 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.templates.item.L2Item;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -37,7 +37,7 @@ public class AdminCreateItem implements IAdminCommandHandler
 													{ "admin_itemcreate", "admin_create_item", "admin_clear_inventory" };
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (command.equals("admin_itemcreate"))
 		{
@@ -88,7 +88,7 @@ public class AdminCreateItem implements IAdminCommandHandler
 		return ADMIN_COMMANDS;
 	}
 
-	private void createItem(L2PcInstance activeChar, int id, long num)
+	private void createItem(L2Player activeChar, int id, long num)
 	{
 		L2Item template = ItemTable.getInstance().getTemplate(id);
 		if (template == null)
@@ -111,7 +111,7 @@ public class AdminCreateItem implements IAdminCommandHandler
 		activeChar.sendPacket(new ItemList(activeChar, false));
 	}
 
-	private void removeAllItems(L2PcInstance activeChar)
+	private void removeAllItems(L2Player activeChar)
 	{
 		for (L2ItemInstance item : activeChar.getInventory().getItems())
 		{

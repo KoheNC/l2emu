@@ -28,7 +28,6 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.config.L2Properties;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.entity.FortSiege;
@@ -39,6 +38,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -81,7 +81,7 @@ public class FortSiegeManager
 
 	// =========================================================
 	// Method - Public
-	public final void addSiegeSkills(L2PcInstance character)
+	public final void addSiegeSkills(L2Player character)
 	{
 		character.addSkill(SkillTable.getInstance().getInfo(246, 1), false);
 		character.addSkill(SkillTable.getInstance().getInfo(247, 1), false);
@@ -93,11 +93,11 @@ public class FortSiegeManager
 	 */
 	public final boolean checkIfOkToSummon(L2Character activeChar, boolean isCheckOnly)
 	{
-		if (!(activeChar instanceof L2PcInstance))
+		if (!(activeChar instanceof L2Player))
 			return false;
 
 		SystemMessage sm = new SystemMessage(SystemMessageId.S1);
-		L2PcInstance player = (L2PcInstance) activeChar;
+		L2Player player = (L2Player) activeChar;
 		Fort fort = FortManager.getInstance().getFort(player);
 
 		if (fort == null || fort.getFortId() <= 0)
@@ -155,7 +155,7 @@ public class FortSiegeManager
 		return register;
 	}
 
-	public final void removeSiegeSkills(L2PcInstance character)
+	public final void removeSiegeSkills(L2Player character)
 	{
 		character.removeSkill(SkillTable.getInstance().getInfo(246, 1));
 		character.removeSkill(SkillTable.getInstance().getInfo(247, 1));
@@ -317,7 +317,7 @@ public class FortSiegeManager
 		return (itemId == 9819);
 	}
 
-	public boolean activateCombatFlag(L2PcInstance player, L2ItemInstance item)
+	public boolean activateCombatFlag(L2Player player, L2ItemInstance item)
 	{
 		if (!checkIfCanPickup(player))
 			return false;
@@ -335,7 +335,7 @@ public class FortSiegeManager
 		return true;
 	}
 
-	public boolean checkIfCanPickup(L2PcInstance player)
+	public boolean checkIfCanPickup(L2Player player)
 	{
 		SystemMessage sm;
 		sm = new SystemMessage(SystemMessageId.THE_FORTRESS_BATTLE_OF_S1_HAS_FINISHED);
@@ -372,11 +372,11 @@ public class FortSiegeManager
 
 	public static boolean checkIfOkToUseStriderSiegeAssault(L2Character activeChar, boolean isCheckOnly)
 	{
-		if (activeChar == null || !(activeChar instanceof L2PcInstance))
+		if (activeChar == null || !(activeChar instanceof L2Player))
 			return false;
 
 		SystemMessage sm = new SystemMessage(SystemMessageId.S1);
-		L2PcInstance player = (L2PcInstance) activeChar;
+		L2Player player = (L2Player) activeChar;
 
 		// Get siege battleground
 		FortSiege siege = FortSiegeManager.getInstance().getSiege(player);
@@ -399,11 +399,11 @@ public class FortSiegeManager
 
 	public static boolean checkIfOkToPlaceFlag(L2Character activeChar, boolean isCheckOnly)
 	{
-		if (activeChar == null || !(activeChar instanceof L2PcInstance))
+		if (activeChar == null || !(activeChar instanceof L2Player))
 			return false;
 
 		SystemMessage sm = new SystemMessage(SystemMessageId.S1);
-		L2PcInstance player = (L2PcInstance) activeChar;
+		L2Player player = (L2Player) activeChar;
 
 		// Get siege battleground
 		FortSiege siege = FortSiegeManager.getInstance().getSiege(player);
@@ -428,7 +428,7 @@ public class FortSiegeManager
 		return false;
 	}
 
-	public void dropCombatFlag(L2PcInstance player)
+	public void dropCombatFlag(L2Player player)
 	{
 		Fort fort = FortManager.getInstance().getFort(player);
 		FastList<CombatFlag> fcf = _flagList.get(fort.getFortId());

@@ -21,7 +21,6 @@ import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.Quest;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -167,7 +167,7 @@ public final class NornilsGarden extends QuestJython
 		}
 	}
 
-	private static final void dropHerb(L2Npc mob, L2PcInstance player, int[][] drop)
+	private static final void dropHerb(L2Npc mob, L2Player player, int[][] drop)
 	{
 		final int chance = Rnd.get(100);
 		for (int i = 0; i < drop.length; i++)
@@ -202,7 +202,7 @@ public final class NornilsGarden extends QuestJython
 			SKILL4.getEffects(ch, ch);
 	}
 
-	private static final void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
+	private static final void teleportPlayer(L2Player player, int[] coords, int instanceId)
 	{
 		QuestState st = player.getQuestState(QN);
 		if (st == null)
@@ -222,7 +222,7 @@ public final class NornilsGarden extends QuestJython
 		player.teleToLocation(coords[0], coords[1], coords[2], true);
 	}
 
-	private void exitInstance(L2PcInstance player)
+	private void exitInstance(L2Player player)
 	{
 		InstanceWorld inst = InstanceManager.getInstance().getWorld(player.getInstanceId());
 		if (inst instanceof NornilsWorld)
@@ -235,7 +235,7 @@ public final class NornilsGarden extends QuestJython
 		}
 	}
 
-	private final synchronized String enterInstance(L2Npc npc, L2PcInstance player)
+	private final synchronized String enterInstance(L2Npc npc, L2Player player)
 	{
 		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
 		if (world != null)
@@ -290,7 +290,7 @@ public final class NornilsGarden extends QuestJython
 			final L2Party party = player.getParty();
 			if (party != null)
 			{
-				for (L2PcInstance partyMember : party.getPartyMembers())
+				for (L2Player partyMember : party.getPartyMembers())
 				{
 					world.allowed.add(partyMember.getObjectId());
 					teleportPlayer(partyMember, SPAWN_PPL, instanceId);
@@ -377,7 +377,7 @@ public final class NornilsGarden extends QuestJython
 		}
 	}
 
-	private void openDoor(QuestState st, L2PcInstance player, int doorId)
+	private void openDoor(QuestState st, L2Player player, int doorId)
 	{
 		st.unset("correct");
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(player.getInstanceId());
@@ -389,7 +389,7 @@ public final class NornilsGarden extends QuestJython
 		}
 	}
 
-	private static final String checkConditions(L2Npc npc, L2PcInstance player)
+	private static final String checkConditions(L2Npc npc, L2Player player)
 	{
 		final L2Party party = player.getParty();
 		// player must be in party
@@ -406,7 +406,7 @@ public final class NornilsGarden extends QuestJython
 		}
 		boolean _kamael = false;
 		// for each party member
-		for (L2PcInstance partyMember : party.getPartyMembers())
+		for (L2Player partyMember : party.getPartyMembers())
 		{
 			// player level must be in range
 			if (partyMember.getLevel() > INSTANCE_LVL_MAX)
@@ -464,7 +464,7 @@ public final class NornilsGarden extends QuestJython
 	@Override
 	public String onEnterZone(L2Character character, L2Zone zone)
 	{
-		if (character instanceof L2PcInstance && !character.isDead() && !character.isTeleporting())
+		if (character instanceof L2Player && !character.isDead() && !character.isTeleporting())
 		{
 			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(character.getInstanceId());
 			if (tmpworld instanceof NornilsWorld)
@@ -489,7 +489,7 @@ public final class NornilsGarden extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		player.sendMessage("On Event");
 
@@ -548,7 +548,7 @@ public final class NornilsGarden extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		if (ArrayUtils.contains(FINAL_GATES, npc.getNpcId()))
 		{
@@ -565,7 +565,7 @@ public final class NornilsGarden extends QuestJython
 	}
 
 	@Override
-	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		QuestState st = player.getQuestState(QN);
 		if (st == null)
@@ -577,7 +577,7 @@ public final class NornilsGarden extends QuestJython
 	}
 
 	@Override
-	public final String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet)
+	public final String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet)
 	{
 		if (npc.getNpcId() == HERB_JAR && !npc.isDead())
 		{
@@ -593,7 +593,7 @@ public final class NornilsGarden extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		QuestState st = player.getQuestState(QN);
 		if (st == null)

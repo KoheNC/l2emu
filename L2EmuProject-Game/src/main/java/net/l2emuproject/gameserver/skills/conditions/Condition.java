@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author mkizub
@@ -59,7 +59,7 @@ public abstract class Condition
 		return 0;
 	}
 	
-	public void sendMessage(L2PcInstance player, FuncOwner funcOwner)
+	public void sendMessage(L2Player player, FuncOwner funcOwner)
 	{
 		int msgId = getMessageId();
 		if (msgId != 0)

@@ -27,6 +27,7 @@ import net.l2emuproject.gameserver.world.knownlist.CharKnownList;
 import net.l2emuproject.gameserver.world.knownlist.NpcKnownList;
 import net.l2emuproject.gameserver.world.knownlist.ProtectorKnownList;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Ederik
@@ -51,7 +52,7 @@ public class L2ProtectorInstance extends L2NpcInstance
 			 * For each known player in range, cast sleep if pvpFlag != 0 or Karma >0
 			 * Skill use is just for buff animation
 			 */
-			for (L2PcInstance player : getKnownList().getKnownPlayers().values())
+			for (L2Player player : getKnownList().getKnownPlayers().values())
 
 			{
 				if ((player.getKarma() > 0 && Config.PROTECTOR_PLAYER_PK) || (player.getPvpFlag() != 0 && Config.PROTECTOR_PLAYER_PVP))
@@ -61,7 +62,7 @@ public class L2ProtectorInstance extends L2NpcInstance
 			}
 		}
 
-		private boolean handleCast(L2PcInstance player, int skillId, int skillLevel)
+		private boolean handleCast(L2Player player, int skillId, int skillLevel)
 		{
 			if (player.isGM() || player.isDead() || !player.isVisible()
 					|| !isInsideRadius(player, getKnownList().getDistanceToWatchObject(player), false, false))

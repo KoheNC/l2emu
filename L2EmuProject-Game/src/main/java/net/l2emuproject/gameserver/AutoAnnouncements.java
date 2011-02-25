@@ -22,8 +22,8 @@ import java.util.List;
 import javolution.util.FastList;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.cache.HtmCache;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 import org.apache.commons.logging.Log;
@@ -215,7 +215,7 @@ public final class AutoAnnouncements
 		_log.info("AutoAnnounce: " + text);
 	}
 
-	public void listAutoAnnouncements(L2PcInstance activeChar)
+	public void listAutoAnnouncements(L2Player activeChar)
 	{
 		String content = HtmCache.getInstance().getHtmForce("data/html/admin/autoannounce.htm");
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);

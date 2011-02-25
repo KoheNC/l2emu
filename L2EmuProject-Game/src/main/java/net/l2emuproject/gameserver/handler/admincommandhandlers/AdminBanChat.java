@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class handles following admin commands:
@@ -38,9 +38,9 @@ public final class AdminBanChat implements IAdminCommandHandler
 	private static final String[] ADMIN_COMMANDS = { "admin_banchat", "admin_unbanchat" };
 	
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
-		L2PcInstance targetPlayer = null;
+		L2Player targetPlayer = null;
 		long banLength = -1;
 		
 		final String[] cmdParams = command.split(" ");
@@ -61,7 +61,7 @@ public final class AdminBanChat implements IAdminCommandHandler
 		}
 		else
 		{
-			targetPlayer = activeChar.getTarget(L2PcInstance.class);
+			targetPlayer = activeChar.getTarget(L2Player.class);
 		}
 		
 		if (targetPlayer == null)

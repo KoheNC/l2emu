@@ -19,8 +19,8 @@ import java.util.StringTokenizer;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.LoginServerThread;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.network.ServerStatusAttributes;
 
 
@@ -47,7 +47,7 @@ public class AdminLogin implements IAdminCommandHandler
 	 * @see net.l2emuproject.gameserver.handler.IAdminCommandHandler#useAdminCommand(java.lang.String, net.l2emuproject.gameserver.model.L2PcInstance)
 	 */
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance GM)
+	public boolean useAdminCommand(String command, L2Player GM)
 	{
 		StringTokenizer st;
 
@@ -96,7 +96,7 @@ public class AdminLogin implements IAdminCommandHandler
 		return true;
 	}
 
-	private void showMenu(L2PcInstance GM)
+	private void showMenu(L2Player GM)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(1);
 		html.setFile(HTML_ROOT + "LoginMenu.html");

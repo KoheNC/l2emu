@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.model.entity.events;
 
 import java.util.Map;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import javolution.util.FastMap;
 
@@ -25,7 +25,7 @@ import javolution.util.FastMap;
  */
 public final class L2EventTeam
 {
-	private final Map<Integer, L2PcInstance>	_players;
+	private final Map<Integer, L2Player>	_players;
 
 	private final String						_teamName;
 	private final int							_color;
@@ -34,7 +34,7 @@ public final class L2EventTeam
 
 	public L2EventTeam(String teamName, int color, int[] coords)
 	{
-		_players = new FastMap<Integer, L2PcInstance>().shared();
+		_players = new FastMap<Integer, L2Player>().shared();
 		_teamName = teamName;
 		_color = color;
 		_coords = coords;
@@ -46,7 +46,7 @@ public final class L2EventTeam
 		return _teamName;
 	}
 
-	public final void addPlayer(L2PcInstance player)
+	public final void addPlayer(L2Player player)
 	{
 		if (player == null)
 			return;
@@ -54,12 +54,12 @@ public final class L2EventTeam
 		_players.put(player.getObjectId(), player);
 	}
 
-	public final void removePlayer(L2PcInstance player)
+	public final void removePlayer(L2Player player)
 	{
 		_players.remove(player.getObjectId());
 	}
 
-	public final boolean containsPlayer(L2PcInstance player)
+	public final boolean containsPlayer(L2Player player)
 	{
 		return _players.containsValue(player);
 	}

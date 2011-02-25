@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author ZaKax
@@ -35,7 +35,7 @@ public class Detection implements ISkillHandler
 		final boolean hasParty;
 		final boolean hasClan;
 		final boolean hasAlly;
-		final L2PcInstance player = activeChar.getActingPlayer();
+		final L2Player player = activeChar.getActingPlayer();
 		if (player != null)
 		{
 			hasParty = player.isInParty();
@@ -49,7 +49,7 @@ public class Detection implements ISkillHandler
 			hasAlly = false;
 		}
 		
-		for (L2PcInstance target : activeChar.getKnownList().getKnownPlayersInRadius(skill.getSkillRadius()))
+		for (L2Player target : activeChar.getKnownList().getKnownPlayersInRadius(skill.getSkillRadius()))
 		{
 			if (target != null && target.getAppearance().isInvisible())
 			{

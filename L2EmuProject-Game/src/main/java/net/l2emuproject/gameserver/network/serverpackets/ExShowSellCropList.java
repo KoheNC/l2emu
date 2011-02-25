@@ -17,10 +17,10 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.List;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -42,7 +42,7 @@ public class ExShowSellCropList extends L2GameServerPacket
 	private final FastMap<Integer, L2ItemInstance>	_cropsItems;
 	private final FastMap<Integer, CropProcure>		_castleCrops;
 
-	public ExShowSellCropList(L2PcInstance player, int manorId, List<CropProcure> crops)
+	public ExShowSellCropList(L2Player player, int manorId, List<CropProcure> crops)
 	{
 		_manorId = manorId;
 		_castleCrops = new FastMap<Integer, CropProcure>();

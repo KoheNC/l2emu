@@ -19,6 +19,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author l3x
@@ -35,7 +36,7 @@ public class L2CastleBlacksmithInstance extends L2NpcInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (CastleManorService.getInstance().isDisabled())
 		{
@@ -56,7 +57,7 @@ public class L2CastleBlacksmithInstance extends L2NpcInstance
 	}
 
 	@Override
-	public void showChatWindow(L2PcInstance player, int val)
+	public void showChatWindow(L2Player player, int val)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		String filename = "data/html/castleblacksmith/castleblacksmith-no.htm";
@@ -83,7 +84,7 @@ public class L2CastleBlacksmithInstance extends L2NpcInstance
 		player.sendPacket(html);
 	}
 
-	private int validateCondition(L2PcInstance player)
+	private int validateCondition(L2Player player)
 	{
 		if (player.isGM())
 			return COND_OWNER;

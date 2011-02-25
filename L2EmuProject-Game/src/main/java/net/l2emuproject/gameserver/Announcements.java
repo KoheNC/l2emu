@@ -27,7 +27,6 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.cache.HtmCache;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
@@ -36,6 +35,7 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.script.DateRange;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 import org.apache.commons.logging.Log;
@@ -79,7 +79,7 @@ public class Announcements
 		}
 	}
 
-	public void showAnnouncements(L2PcInstance activeChar)
+	public void showAnnouncements(L2Player activeChar)
 	{
 		for (int i = 0; i < _announcements.size(); i++)
 		{
@@ -114,7 +114,7 @@ public class Announcements
 		_eventAnnouncements.add(entry);
 	}
 
-	public void listAnnouncements(L2PcInstance activeChar)
+	public void listAnnouncements(L2Player activeChar)
 	{
 		String content = HtmCache.getInstance().getHtmForce("data/html/admin/announce.htm");
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
@@ -209,7 +209,7 @@ public class Announcements
 	{
 		CreatureSay cs = new CreatureSay(0, SystemChatChannelId.Chat_Announce, "", text);
 
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			player.sendPacket(cs);
 		}
@@ -217,7 +217,7 @@ public class Announcements
 
 	public void announceToAll(L2GameServerPacket gsp)
 	{
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			player.sendPacket(gsp);
 		}
@@ -225,7 +225,7 @@ public class Announcements
 	
 	public void announceToAll(SystemMessageId sm)
 	{
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			player.sendPacket(sm);
 		}
@@ -233,7 +233,7 @@ public class Announcements
 	
 	public void announceToInstance(L2GameServerPacket gsp, int instanceId)
 	{
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			if (player.isSameInstance(instanceId))
 				player.sendPacket(gsp);
@@ -267,7 +267,7 @@ public class Announcements
 	public void announceToPlayers(String message)
 	{
 		// Get all players
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 			player.sendMessage(message);
 	}
 

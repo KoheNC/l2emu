@@ -21,12 +21,12 @@ import java.util.Locale;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.datatables.EventDroplist;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.script.DateRange;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Event Code for "TheValentine"
@@ -142,7 +142,7 @@ public class TheValentine extends QuestJython
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		String htmltext = "";
 		htmltext = event;
@@ -150,7 +150,7 @@ public class TheValentine extends QuestJython
 	}
 
 	@Override
-	public String onTalk(L2Npc npc, L2PcInstance player)
+	public String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = QUEEN_OF_HEARTS + "-wrong.htm";
 		QuestState st = player.getQuestState(getName());
@@ -168,7 +168,7 @@ public class TheValentine extends QuestJython
 	}
 
 	@Override
-	public String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = QUEEN_OF_HEARTS + ".htm";
 		QuestState st = player.getQuestState(getName());

@@ -30,7 +30,6 @@ import net.l2emuproject.gameserver.instancemanager.ContestableHideoutGuardManage
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.model.L2SiegeClan;
 import net.l2emuproject.gameserver.model.L2SiegeClan.SiegeClanType;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Siege.TeleportWhoType;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -42,6 +41,7 @@ import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2SiegeZone;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.util.L2FastSet;
@@ -85,14 +85,14 @@ public final class CCHSiege extends AbstractSiege
 	public void announceToPlayer(String message, boolean inAreaOnly)
 	{
 		// Get all players
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 			if (!inAreaOnly || (inAreaOnly && checkIfInZone(player.getX(), player.getY(), player.getZ())))
 				player.sendMessage(message);
 	}
 
 	public void announceToPlayer(SystemMessage sm, boolean inAreaOnly)
 	{
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 			if (!inAreaOnly || (inAreaOnly && checkIfInZone(player.getX(), player.getY(), player.getZ())))
 				player.sendPacket(sm);
 	}
@@ -223,7 +223,7 @@ public final class CCHSiege extends AbstractSiege
 			if (siegeclan == null)
 				continue;
 			clan = ClanTable.getInstance().getClan(siegeclan.getClanId());
-			for (L2PcInstance member : clan.getOnlineMembers(0))
+			for (L2Player member : clan.getOnlineMembers(0))
 			{
 				if (clear)
 					member.setSiegeState((byte) 0);
@@ -281,25 +281,25 @@ public final class CCHSiege extends AbstractSiege
 		}
 	}
 
-	public FastList<L2PcInstance> getAttackersInZone()
+	public FastList<L2Player> getAttackersInZone()
 	{
-		FastList<L2PcInstance> players = new FastList<L2PcInstance>();
+		FastList<L2Player> players = new FastList<L2Player>();
 		L2Clan clan;
 		for (L2SiegeClan siegeclan : _attackerClans)
 		{
 			clan = ClanTable.getInstance().getClan(siegeclan.getClanId());
-			for (L2PcInstance player : clan.getOnlineMembers(0))
+			for (L2Player player : clan.getOnlineMembers(0))
 				if (checkIfInZone(player.getX(), player.getY(), player.getZ()))
 					players.add(player);
 		}
 		return players;
 	}
 
-	public FastList<L2PcInstance> getPlayersInZone()
+	public FastList<L2Player> getPlayersInZone()
 	{
-		FastList<L2PcInstance> players = new FastList<L2PcInstance>();
+		FastList<L2Player> players = new FastList<L2Player>();
 
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			// quick check from player states, which don't include siege number however
 			if (!player.isInsideZone(L2Zone.FLAG_SIEGE))
@@ -311,11 +311,11 @@ public final class CCHSiege extends AbstractSiege
 		return players;
 	}
 
-	public FastList<L2PcInstance> getSpectatorsInZone()
+	public FastList<L2Player> getSpectatorsInZone()
 	{
-		FastList<L2PcInstance> players = new FastList<L2PcInstance>();
+		FastList<L2Player> players = new FastList<L2Player>();
 
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			// quick check from player states, which don't include siege number however
 			if (!player.isInsideZone(L2Zone.FLAG_SIEGE) || player.getSiegeState() != 0)
@@ -336,12 +336,12 @@ public final class CCHSiege extends AbstractSiege
 				return;
 	}
 
-	public void listRegisterClan(L2PcInstance player)
+	public void listRegisterClan(L2Player player)
 	{
 		player.sendPacket(new SiegeInfo(_hideout));
 	}
 
-	public void registerAttacker(L2PcInstance player, boolean force)
+	public void registerAttacker(L2Player player, boolean force)
 	{
 		if ((force && player.getClan() != null) || checkIfCanRegister(player))
 			saveSiegeClan(player.getClan(), false); // Save to database
@@ -376,7 +376,7 @@ public final class CCHSiege extends AbstractSiege
 
 	/**
 	 * Remove clan from siege<BR><BR>
-	 * @param player The L2PcInstance of player/clan being removed
+	 * @param player The L2Player of player/clan being removed
 	 */
 	public void removeSiegeClan(L2Clan clan)
 	{
@@ -387,9 +387,9 @@ public final class CCHSiege extends AbstractSiege
 
 	/**
 	 * Remove clan from siege<BR><BR>
-	 * @param player The L2PcInstance of player/clan being removed
+	 * @param player The L2Player of player/clan being removed
 	 */
-	public void removeSiegeClan(L2PcInstance player)
+	public void removeSiegeClan(L2Player player)
 	{
 		removeSiegeClan(player.getClan());
 	}
@@ -411,7 +411,7 @@ public final class CCHSiege extends AbstractSiege
 	 */
 	public void teleportPlayer(TeleportWhoType teleportWho, TeleportWhereType teleportWhere)
 	{
-		FastList<L2PcInstance> players;
+		FastList<L2Player> players;
 		switch (teleportWho)
 		{
 		case Attacker:
@@ -424,7 +424,7 @@ public final class CCHSiege extends AbstractSiege
 			players = getPlayersInZone();
 		}
 
-		for (L2PcInstance player : players)
+		for (L2Player player : players)
 		{
 			if (player.isGM() || player.isInJail())
 				continue;
@@ -437,7 +437,7 @@ public final class CCHSiege extends AbstractSiege
 		_attackerClans.add(new L2SiegeClan(clanId, SiegeClanType.ATTACKER));
 	}
 
-	private boolean checkIfCanRegister(L2PcInstance player)
+	private boolean checkIfCanRegister(L2Player player)
 	{
 		L2Clan clan = player.getClan();
 		if (clan == null || clan.getLevel() < Config.SIEGE_CLAN_MIN_LEVEL)
@@ -667,9 +667,9 @@ public final class CCHSiege extends AbstractSiege
 
 	public L2Npc getClosestFlag(L2Object obj)
 	{
-		if (obj instanceof L2PcInstance && ((L2PcInstance) obj).getClan() != null)
+		if (obj instanceof L2Player && ((L2Player) obj).getClan() != null)
 		{
-			L2SiegeClan sc = getAttackerClan(((L2PcInstance) obj).getClan());
+			L2SiegeClan sc = getAttackerClan(((L2Player) obj).getClan());
 			if (sc != null)
 				return sc.getClosestFlag(obj);
 		}

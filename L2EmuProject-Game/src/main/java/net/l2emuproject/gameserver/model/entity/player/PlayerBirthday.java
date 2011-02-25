@@ -20,7 +20,7 @@ import java.sql.ResultSet;
 import java.util.Calendar;
 
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class PlayerBirthday extends PlayerExtension
 {
@@ -30,7 +30,7 @@ public final class PlayerBirthday extends PlayerExtension
 	private int					_lastClaim;
 	private Calendar			_createdOn;
 
-	public PlayerBirthday(L2PcInstance activeChar)
+	public PlayerBirthday(L2Player activeChar)
 	{
 		super(activeChar);
 	}

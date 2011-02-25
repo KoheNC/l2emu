@@ -14,11 +14,11 @@
  */
 package net.l2emuproject.gameserver.skills.effects;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author nBd
@@ -43,9 +43,9 @@ public final class EffectCharmOfCourage extends L2Effect
 	@Override
 	protected boolean onStart()
 	{
-		if (getEffected() instanceof L2PcInstance)
+		if (getEffected() instanceof L2Player)
 		{
-			((L2PcInstance)getEffected()).setCharmOfCourage(true);
+			((L2Player)getEffected()).setCharmOfCourage(true);
 			return true;
 		}
 		return false;
@@ -55,6 +55,6 @@ public final class EffectCharmOfCourage extends L2Effect
 	@Override
 	protected void onExit()
 	{
-		((L2PcInstance)getEffected()).setCharmOfCourage(false);
+		((L2Player)getEffected()).setCharmOfCourage(false);
 	}
 }

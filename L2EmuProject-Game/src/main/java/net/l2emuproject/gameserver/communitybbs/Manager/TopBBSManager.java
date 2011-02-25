@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.communitybbs.Manager;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.cache.HtmCache;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 
@@ -31,7 +31,7 @@ public class TopBBSManager extends BaseBBSManager
 	 * @see net.l2emuproject.gameserver.communitybbs.Manager.BaseBBSManager#parsecmd(java.lang.String, net.l2emuproject.gameserver.model.actor.instance.L2PcInstance)
 	 */
 	@Override
-	public void parsecmd(String command, L2PcInstance activeChar)
+	public void parsecmd(String command, L2Player activeChar)
 	{
 		if (command.equals("_bbstop"))
 		{
@@ -73,7 +73,7 @@ public class TopBBSManager extends BaseBBSManager
 	 * @see net.l2emuproject.gameserver.communitybbs.Manager.BaseBBSManager#parsewrite(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, net.l2emuproject.gameserver.model.actor.instance.L2PcInstance)
 	 */
 	@Override
-	public void parsewrite(String ar1, String ar2, String ar3, String ar4, String ar5, L2PcInstance activeChar)
+	public void parsewrite(String ar1, String ar2, String ar3, String ar4, String ar5, L2Player activeChar)
 	{
 
 	}

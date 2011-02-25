@@ -21,6 +21,7 @@ import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * L2FestivalMonsterInstance
@@ -106,18 +107,18 @@ public class L2FestivalMonsterInstance extends L2MonsterInstance
     @Override
     public void doItemDrop(L2Character lastAttacker)
     {
-        L2PcInstance killingChar = null;
+        L2Player killingChar = null;
         
-        if (!(lastAttacker instanceof L2PcInstance))
+        if (!(lastAttacker instanceof L2Player))
             return;
         
-        killingChar = (L2PcInstance)lastAttacker;
+        killingChar = (L2Player)lastAttacker;
         L2Party associatedParty = killingChar.getParty();
         
         if (associatedParty == null)
             return;
         
-        L2PcInstance partyLeader = associatedParty.getPartyMembers().get(0);
+        L2Player partyLeader = associatedParty.getPartyMembers().get(0);
         L2ItemInstance addedOfferings = partyLeader.getInventory().addItem("Sign", SevenSignsFestival.FESTIVAL_OFFERING_ID, _bonusMultiplier, partyLeader, this);
         
         InventoryUpdate iu = new InventoryUpdate();

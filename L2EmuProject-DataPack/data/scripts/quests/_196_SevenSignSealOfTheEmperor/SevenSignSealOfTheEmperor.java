@@ -18,7 +18,6 @@ import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
@@ -28,6 +27,7 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import quests._195_SevenSignSecretRitualOfThePriests.SevenSignSecretRitualOfThePriests;
 
 /**
@@ -107,7 +107,7 @@ public final class SevenSignSealOfTheEmperor extends QuestJython
 		{ STONE, SWORD, WATER, SEAL, STAFF };
 	}
 
-	private static final void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
+	private static final void teleportPlayer(L2Player player, int[] coords, int instanceId)
 	{
 		player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 		player.setInstanceId(instanceId);
@@ -121,7 +121,7 @@ public final class SevenSignSealOfTheEmperor extends QuestJython
 				door.openMe();
 	}
 
-	private final synchronized void enterInstance(L2PcInstance player)
+	private final synchronized void enterInstance(L2Player player)
 	{
 		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
 		if (world != null)
@@ -153,14 +153,14 @@ public final class SevenSignSealOfTheEmperor extends QuestJython
 		}
 	}
 
-	protected void exitInstance(L2PcInstance player)
+	protected void exitInstance(L2Player player)
 	{
 		player.setInstanceId(0);
 		player.teleToLocation(172008, -17448, -4896);
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		String htmltext = event;
 		QuestState st = player.getQuestState(QN);
@@ -283,7 +283,7 @@ public final class SevenSignSealOfTheEmperor extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = NO_QUEST;
 		QuestState st = player.getQuestState(QN);
@@ -407,7 +407,7 @@ public final class SevenSignSealOfTheEmperor extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		QuestState st = player.getQuestState(QN);
 

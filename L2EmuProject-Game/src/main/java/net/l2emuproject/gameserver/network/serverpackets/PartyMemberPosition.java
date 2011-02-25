@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.Map;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author zabbix
@@ -36,7 +36,7 @@ public final class PartyMemberPosition extends L2GameServerPacket
 	private final void reuse(L2Party party)
 	{
 		locations.clear();
-		for (L2PcInstance member : party.getPartyMembers())
+		for (L2Player member : party.getPartyMembers())
 		{
 			if (member == null)
 				continue;

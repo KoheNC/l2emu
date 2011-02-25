@@ -28,6 +28,7 @@ import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 
@@ -44,7 +45,7 @@ public class L2SignsPriestInstance extends L2Npc
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (player.getLastFolkNPC() == null || player.getLastFolkNPC().getObjectId() != getObjectId())
 			return;
@@ -607,7 +608,7 @@ public class L2SignsPriestInstance extends L2Npc
 		}
 	}
 
-	private void showChatWindow(L2PcInstance player, int val, String suffix, boolean isDescription)
+	private void showChatWindow(L2Player player, int val, String suffix, boolean isDescription)
 	{
 		String filename = SevenSigns.SEVEN_SIGNS_HTML_PATH;
 

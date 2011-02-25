@@ -37,7 +37,6 @@ import net.l2emuproject.gameserver.model.L2CommandChannel;
 import net.l2emuproject.gameserver.model.actor.instance.L2ChestInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2GrandBossInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2RaidBossInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
@@ -269,7 +268,7 @@ public class L2Attackable extends L2Npc
 	private RewardItem[]						_harvestItems;
 	private boolean								_seeded;
 	private int									_seedType						= 0;
-	private L2PcInstance						_seeder							= null;
+	private L2Player						_seeder							= null;
 
 	/**
 	 * True if an over-hit enabled skill has successfully landed on the
@@ -300,12 +299,12 @@ public class L2Attackable extends L2Npc
 	private boolean								_absorbed;
 
 	/**
-	 * The table containing all L2PcInstance that successfuly absorbed the soul
+	 * The table containing all L2Player that successfuly absorbed the soul
 	 * of this L2Attackable
 	 */
-	private final Map<L2PcInstance, AbsorberInfo> _absorbersList = new SingletonMap<L2PcInstance, AbsorberInfo>().shared();
+	private final Map<L2Player, AbsorberInfo> _absorbersList = new SingletonMap<L2Player, AbsorberInfo>().shared();
 
-	public Map<L2PcInstance, AbsorberInfo> getAbsorbersList()
+	public Map<L2Player, AbsorberInfo> getAbsorbersList()
 	{
 		return _absorbersList;
 	}
@@ -405,7 +404,7 @@ public class L2Attackable extends L2Npc
 	 * <BR>
 	 * <B><U> Actions</U> :</B><BR>
 	 * <BR>
-	 * <li>Distribute Exp and SP rewards to L2PcInstance (including Summon
+	 * <li>Distribute Exp and SP rewards to L2Player (including Summon
 	 * owner) that hit the L2Attackable and to their Party members</li> <li>
 	 * Notify the Quest Engine of the L2Attackable death if necessary</li> <li>
 	 * Kill the L2NpcInstance (the corpse disappeared after 7 seconds)</li><BR>
@@ -438,7 +437,7 @@ public class L2Attackable extends L2Npc
 		{
 			if (killer != null)
 			{
-				L2PcInstance player = null;
+				L2Player player = null;
 				player = killer.getActingPlayer();
 
 				if (player != null)
@@ -469,15 +468,15 @@ public class L2Attackable extends L2Npc
 	}
 
 	/**
-	 * Distribute Exp and SP rewards to L2PcInstance (including Summon owner)
+	 * Distribute Exp and SP rewards to L2Player (including Summon owner)
 	 * that hit the L2Attackable and to their Party members.<BR>
 	 * <BR>
 	 * <B><U> Actions</U> :</B><BR>
 	 * <BR>
-	 * <li>Get the L2PcInstance owner of the L2SummonInstance (if necessary) and
+	 * <li>Get the L2Player owner of the L2SummonInstance (if necessary) and
 	 * L2Party in progress</li> <li>Calculate the Experience and SP rewards in
 	 * function of the level difference</li> <li>Add Exp and SP rewards to
-	 * L2PcInstance (including Summon penalty) and to Party members in the known
+	 * L2Player (including Summon penalty) and to Party members in the known
 	 * area of the last attacker</li><BR>
 	 * <BR>
 	 * <FONT COLOR=#FF0000><B> <U>Caution</U> : This method DOESN'T GIVE rewards
@@ -589,15 +588,15 @@ public class L2Attackable extends L2Npc
 					// If the attacker is a Pet, get the party of the owner
 					if (attacker instanceof L2PetInstance)
 						attackerParty = attacker.getParty();
-					else if (attacker instanceof L2PcInstance)
+					else if (attacker instanceof L2Player)
 						attackerParty = attacker.getParty();
 					else
 						return;
 
-					// If this attacker is a L2PcInstance with a summoned L2SummonInstance, get Exp Penalty applied for the current summoned L2SummonInstance
-					if (attacker instanceof L2PcInstance && attacker.getPet() instanceof L2SummonInstance)
+					// If this attacker is a L2Player with a summoned L2SummonInstance, get Exp Penalty applied for the current summoned L2SummonInstance
+					if (attacker instanceof L2Player && attacker.getPet() instanceof L2SummonInstance)
 					{
-						penalty = ((L2SummonInstance) ((L2PcInstance) attacker).getPet()).getExpPenalty();
+						penalty = ((L2SummonInstance) ((L2Player) attacker).getPet()).getExpPenalty();
 					}
 
 					// We must avoid "over damage", if any
@@ -610,7 +609,7 @@ public class L2Attackable extends L2Npc
 						// Calculate Exp and SP rewards
 						if (attacker.getKnownList().knowsObject(this))
 						{
-							// Calculate the difference of level between this attacker (L2PcInstance or L2SummonInstance owner) and the L2Attackable
+							// Calculate the difference of level between this attacker (L2Player or L2SummonInstance owner) and the L2Attackable
 							// mob = 24, atk = 10, diff = -14 (full xp)
 							// mob = 24, atk = 28, diff = 4 (some xp)
 							// mob = 24, atk = 50, diff = 26 (no xp)
@@ -622,9 +621,9 @@ public class L2Attackable extends L2Npc
 							sp = tmp[1];
 
 							// Check for an over-hit enabled strike
-							if (attacker instanceof L2PcInstance)
+							if (attacker instanceof L2Player)
 							{
-								L2PcInstance player = (L2PcInstance) attacker;
+								L2Player player = (L2Player) attacker;
 								if (isOverhit() && attacker == getOverhitAttacker())
 								{
 									int overHitExp = (int) calculateOverhitExp(exp);
@@ -635,7 +634,7 @@ public class L2Attackable extends L2Npc
 								}
 							}
 
-							// Distribute the Exp and SP between the L2PcInstance and its L2Summon
+							// Distribute the Exp and SP between the L2Player and its L2Summon
 							if (isChampion())
 							{
 								exp *= Config.CHAMPION_EXP_SP;
@@ -698,7 +697,7 @@ public class L2Attackable extends L2Npc
 							{
 								long addexp = Math.round(attacker.calcStat(Stats.EXPSP_RATE, exp, null, null));
 								int addsp = (int) attacker.calcStat(Stats.EXPSP_RATE, sp, null, null);
-								if (attacker instanceof L2PcInstance && !(this instanceof L2ChestInstance))
+								if (attacker instanceof L2Player && !(this instanceof L2ChestInstance))
 								{
 									// Soul Mastery skill
 									int soulMasteryLevel = attacker.getSkillLevel(L2Skill.SKILL_SOUL_MASTERY);
@@ -706,11 +705,11 @@ public class L2Attackable extends L2Npc
 									{
 										L2Skill skill = SkillTable.getInstance().getInfo(L2Skill.SKILL_SOUL_MASTERY, soulMasteryLevel);
 										if (skill.getExpNeeded() <= addexp)
-											((L2PcInstance) attacker).absorbSoulFromNpc(skill, this);
+											((L2Player) attacker).absorbSoulFromNpc(skill, this);
 									}
-									((L2PcInstance)attacker).addExpAndSp(addexp,addsp, useVitalityRate());
+									((L2Player)attacker).addExpAndSp(addexp,addsp, useVitalityRate());
 									if (addexp > 0)
-										((L2PcInstance)attacker).getPlayerVitality().updateVitalityPoints(getVitalityPoints(damage), true, false);
+										((L2Player)attacker).getPlayerVitality().updateVitalityPoints(getVitalityPoints(damage), true, false);
 								}
 								else
 									attacker.addExpAndSp(addexp,addsp);
@@ -727,27 +726,27 @@ public class L2Attackable extends L2Npc
 						// Get all L2Character that can be rewarded in the party
 						FastList<L2Playable> rewardedMembers = new FastList<L2Playable>();
 
-						// Go through all L2PcInstance in the party
-						List<L2PcInstance> groupMembers;
+						// Go through all L2Player in the party
+						List<L2Player> groupMembers;
 						if (attackerParty.isInCommandChannel())
 							groupMembers = attackerParty.getCommandChannel().getMembers();
 						else
 							groupMembers = attackerParty.getPartyMembers();
 
-						for (L2PcInstance pl : groupMembers)
+						for (L2Player pl : groupMembers)
 						{
 							if (pl == null || pl.isDead())
 								continue;
 
-							// Get the RewardInfo of this L2PcInstance from L2Attackable rewards
+							// Get the RewardInfo of this L2Player from L2Attackable rewards
 							reward2 = rewards.get(pl);
 
-							// If the L2PcInstance is in the L2Attackable rewards add its damages to party damages
+							// If the L2Player is in the L2Attackable rewards add its damages to party damages
 							if (reward2 != null)
 							{
 								if (Util.checkIfInRange(Config.ALT_PARTY_RANGE, this, pl, true))
 								{
-									partyDmg += reward2._dmg; // Add L2PcInstance damages to party damages
+									partyDmg += reward2._dmg; // Add L2Player damages to party damages
 									rewardedMembers.add(pl);
 									if (pl.getLevel() > partyLvl)
 									{
@@ -757,11 +756,11 @@ public class L2Attackable extends L2Npc
 											partyLvl = pl.getLevel();
 									}
 								}
-								rewards.remove(pl); // Remove the L2PcInstance from the L2Attackable rewards
+								rewards.remove(pl); // Remove the L2Player from the L2Attackable rewards
 							}
 							else
 							{
-								// Add L2PcInstance of the party (that have attacked or not) to members that can be rewarded
+								// Add L2Player of the party (that have attacked or not) to members that can be rewarded
 								// and in range of the monster.
 								if (Util.checkIfInRange(Config.ALT_PARTY_RANGE, this, pl, true))
 								{
@@ -821,9 +820,9 @@ public class L2Attackable extends L2Npc
 
 						// Check for an over-hit enabled strike
 						// (When in party, the over-hit exp bonus is given to the whole party and splitted proportionally through the party members)
-						if (attacker instanceof L2PcInstance)
+						if (attacker instanceof L2Player)
 						{
-							L2PcInstance player = (L2PcInstance) attacker;
+							L2Player player = (L2Player) attacker;
 							if (isOverhit() && attacker == getOverhitAttacker())
 							{
 								player.sendPacket(SystemMessageId.OVER_HIT);
@@ -844,7 +843,7 @@ public class L2Attackable extends L2Npc
 							sp = Math.round(sp / 100 * _hpWhenBottled);
 						}
 
-						// Distribute Experience and SP rewards to L2PcInstance Party members in the known area of the last attacker
+						// Distribute Experience and SP rewards to L2Player Party members in the known area of the last attacker
 						if (partyDmg > 0)
 							attackerParty.distributeXpAndSp(exp, sp, rewardedMembers, partyLvl, partyDmg, this);
 					}
@@ -874,7 +873,7 @@ public class L2Attackable extends L2Npc
 		{
 			try
 			{
-				L2PcInstance player = attacker.getActingPlayer();
+				L2Player player = attacker.getActingPlayer();
 				if (player != null)
 				{
 					Quest[] quests = getTemplate().getEventQuests(Quest.QuestEventType.ON_ATTACK);
@@ -922,7 +921,7 @@ public class L2Attackable extends L2Npc
 		ai._damage += damage;
 		ai._hate += aggro;
 
-		L2PcInstance targetPlayer = attacker.getActingPlayer();
+		L2Player targetPlayer = attacker.getActingPlayer();
 		if (targetPlayer != null && aggro == 0)
 		{
 			Quest[] quests = getTemplate().getEventQuests(Quest.QuestEventType.ON_AGGRO_RANGE_ENTER);
@@ -1100,7 +1099,7 @@ public class L2Attackable extends L2Npc
 		AggroInfo ai = getAggroList().get(target);
 		if (ai == null)
 			return 0;
-		if (target instanceof L2PcInstance && (((L2PcInstance)target).getAppearance().isInvisible() || target.isInvul()))
+		if (target instanceof L2Player && (((L2Player)target).getAppearance().isInvisible() || target.isInvul()))
 		{
 			//Remove Object Should Use This Method and Can be Blocked While Interating
 			getAggroList().remove(target);
@@ -1130,12 +1129,12 @@ public class L2Attackable extends L2Npc
 	 * situation <br>
 	 * 
 	 * @param drop The L2DropData count is being calculated for
-	 * @param lastAttacker The L2PcInstance that has killed the L2Attackable
+	 * @param lastAttacker The L2Player that has killed the L2Attackable
 	 * @param deepBlueDrop Factor to divide the drop chance
 	 * @param levelModifier level modifier in %'s (will be subtracted from drop
 	 *            chance)
 	 */
-	private RewardItem calculateRewardItem(L2PcInstance lastAttacker, L2DropData drop, int levelModifier, boolean isSweep)
+	private RewardItem calculateRewardItem(L2Player lastAttacker, L2DropData drop, int levelModifier, boolean isSweep)
 	{
 		// Get default drop chance
 		final long dropChance = calculateDropChance(drop.getChance(), drop, isSweep, levelModifier);
@@ -1280,12 +1279,12 @@ public class L2Attackable extends L2Npc
 	 * Only a max of ONE item from a category is allowed to be dropped.
 	 * 
 	 * @param drop The L2DropData count is being calculated for
-	 * @param lastAttacker The L2PcInstance that has killed the L2Attackable
+	 * @param lastAttacker The L2Player that has killed the L2Attackable
 	 * @param deepBlueDrop Factor to divide the drop chance
 	 * @param levelModifier level modifier in %'s (will be subtracted from drop
 	 *            chance)
 	 */
-	private RewardItem calculateCategorizedRewardItem(L2PcInstance lastAttacker, L2DropCategory categoryDrops, int levelModifier)
+	private RewardItem calculateCategorizedRewardItem(L2Player lastAttacker, L2DropCategory categoryDrops, int levelModifier)
 	{
 		if (categoryDrops == null)
 			return null;
@@ -1325,9 +1324,9 @@ public class L2Attackable extends L2Npc
 	/**
 	 * Calculates the level modifier for drop<br>
 	 * 
-	 * @param lastAttacker The L2PcInstance that has killed the L2Attackable
+	 * @param lastAttacker The L2Player that has killed the L2Attackable
 	 */
-	private int calculateLevelModifierForDrop(L2PcInstance lastAttacker)
+	private int calculateLevelModifierForDrop(L2Player lastAttacker)
 	{
 		if (shouldPunishDeepBlueDrops())
 		{
@@ -1374,9 +1373,9 @@ public class L2Attackable extends L2Npc
 	 * quantity dropped (random)</li> <li>Create this or these L2ItemInstance
 	 * corresponding to each Item Identifier dropped</li> <li>If the autoLoot
 	 * mode is actif and if the L2Character that has killed the L2Attackable is
-	 * a L2PcInstance, give this or these Item(s) to the L2PcInstance that has
+	 * a L2Player, give this or these Item(s) to the L2Player that has
 	 * killed the L2Attackable</li> <li>If the autoLoot mode isn't actif or if
-	 * the L2Character that has killed the L2Attackable is not a L2PcInstance,
+	 * the L2Character that has killed the L2Attackable is not a L2Player,
 	 * add this or these Item(s) in the world as a visible object at the
 	 * position where mob was last</li><BR>
 	 * <BR>
@@ -1388,10 +1387,10 @@ public class L2Attackable extends L2Npc
 		if (lastAttacker == null)
 			return;
 
-		L2PcInstance player = lastAttacker.getActingPlayer();
+		L2Player player = lastAttacker.getActingPlayer();
 
 		if (player == null)
-			return; // Don't drop anything if the last attacker or ownere isn't L2PcInstance
+			return; // Don't drop anything if the last attacker or ownere isn't L2Player
 
 		int levelModifier = calculateLevelModifierForDrop(player); // level modifier in %'s (will be subtracted from drop chance)
 
@@ -1470,7 +1469,7 @@ public class L2Attackable extends L2Npc
 		{
 			int champqty = Rnd.get(Config.CHAMPION_SPCL_QTY) + 1; //quantity should actually vary between 1 and whatever admin specified as max, inclusive.
 
-			// Give this or these Item(s) to the L2PcInstance that has killed the L2Attackable
+			// Give this or these Item(s) to the L2Player that has killed the L2Attackable
 			RewardItem item = new RewardItem(Config.CHAMPION_SPCL_ITEM, champqty);
 
 			player.doAutoLoot(this, item);
@@ -1671,10 +1670,10 @@ public class L2Attackable extends L2Npc
 	 * Event</li> <li>Get the Item quantity dropped (random)</li> <li>Create
 	 * this or these L2ItemInstance corresponding to this Item Identifier</li>
 	 * <li>If the autoLoot mode is actif and if the L2Character that has killed
-	 * the L2Attackable is a L2PcInstance, give this or these Item(s) to the
-	 * L2PcInstance that has killed the L2Attackable</li> <li>If the autoLoot
+	 * the L2Attackable is a L2Player, give this or these Item(s) to the
+	 * L2Player that has killed the L2Attackable</li> <li>If the autoLoot
 	 * mode isn't actif or if the L2Character that has killed the L2Attackable
-	 * is not a L2PcInstance, add this or these Item(s) in the world as a
+	 * is not a L2Player, add this or these Item(s) in the world as a
 	 * visible object at the position where mob was last</li><BR>
 	 * <BR>
 	 * 
@@ -1682,16 +1681,16 @@ public class L2Attackable extends L2Npc
 	 */
 	public void doEventDrop(L2Character lastAttacker)
 	{
-		L2PcInstance player = null;
-		if (lastAttacker instanceof L2PcInstance)
-			player = (L2PcInstance) lastAttacker;
+		L2Player player = null;
+		if (lastAttacker instanceof L2Player)
+			player = (L2Player) lastAttacker;
 		else if (lastAttacker instanceof L2Summon)
 			player = ((L2Summon) lastAttacker).getOwner();
 		else if (lastAttacker instanceof L2Trap)
 			player = ((L2Trap) lastAttacker).getOwner();
 
 		if (player == null)
-			return; // Don't drop anything if the last attacker or ownere isn't L2PcInstance
+			return; // Don't drop anything if the last attacker or ownere isn't L2Player
 
 		if (player.getLevel() - getLevel() > 9)
 			return;
@@ -1712,7 +1711,7 @@ public class L2Attackable extends L2Npc
 	 * Drop reward item.<BR>
 	 * <BR>
 	 */
-	public L2ItemInstance dropItem(L2PcInstance lastAttacker, RewardItem item)
+	public L2ItemInstance dropItem(L2Player lastAttacker, RewardItem item)
 	{
 		int randDropLim = 70;
 
@@ -1749,7 +1748,7 @@ public class L2Attackable extends L2Npc
 		return ditem;
 	}
 
-	public L2ItemInstance dropItem(L2PcInstance lastAttacker, int itemId, int itemCount)
+	public L2ItemInstance dropItem(L2Player lastAttacker, int itemId, int itemCount)
 	{
 		return dropItem(lastAttacker, new RewardItem(itemId, itemCount));
 	}
@@ -1929,14 +1928,14 @@ public class L2Attackable extends L2Npc
 	 * Adds an attacker that successfully absorbed the soul of this L2Attackable
 	 * into the _absorbersList.<BR>
 	 * <BR>
-	 * params: attacker - a valid L2PcInstance condition - an integer indicating
+	 * params: attacker - a valid L2Player condition - an integer indicating
 	 * the event when mob dies. This should be: = 0 - "the crystal scatters"; =
 	 * 1 - "the crystal failed to absorb. nothing happens"; = 2 -
 	 * "the crystal resonates because you got more than 1 crystal on you"; = 3 -
 	 * "the crystal cannot absorb the soul because the mob level is too low"; =
 	 * 4 - "the crystal successfuly absorbed the soul";
 	 */
-	public void addAbsorber(L2PcInstance attacker, int crystalId)
+	public void addAbsorber(L2Player attacker, int crystalId)
 	{
 		// This just works for targets like L2MonsterInstance
 		if (!(this instanceof L2MonsterInstance))
@@ -1979,7 +1978,7 @@ public class L2Attackable extends L2Npc
 	 */
 	private void levelSoulCrystals(L2Character attacker)
 	{
-		// Only L2PcInstance can absorb a soul
+		// Only L2Player can absorb a soul
 		if (!(attacker instanceof L2Playable))
 		{
 			resetAbsorbList();
@@ -2006,7 +2005,7 @@ public class L2Attackable extends L2Npc
 
 			L2NpcTemplate.AbsorbCrystalType absorbType = getTemplate().getAbsorbType();
 
-			L2PcInstance killer = (attacker instanceof L2Summon) ? ((L2Summon) attacker).getOwner() : (L2PcInstance) attacker;
+			L2Player killer = (attacker instanceof L2Summon) ? ((L2Summon) attacker).getOwner() : (L2Player) attacker;
 
 			// If this mob is a boss, then skip some checkings
 			if (!isBossMob)
@@ -2049,7 +2048,7 @@ public class L2Attackable extends L2Npc
 			// 2- Everything is correct, but it failed. Nothing happens. (57.5%)
 			// 3- Everything is correct, the crystal level up. A sound event is played. (32.5%)
 
-			List<L2PcInstance> players;
+			List<L2Player> players;
 
 			if (absorbType == L2NpcTemplate.AbsorbCrystalType.FULL_PARTY && killer.isInParty())
 				players = killer.getParty().getPartyMembers();
@@ -2063,7 +2062,7 @@ public class L2Attackable extends L2Npc
 			else
 				players = Collections.singletonList(killer);
 
-			for (L2PcInstance player : players)
+			for (L2Player player : players)
 			{
 				if (player == null)
 					continue;
@@ -2195,7 +2194,7 @@ public class L2Attackable extends L2Npc
 			}
 	}
 
-	private void exchangeCrystal(L2PcInstance player, int takeid, int giveid, boolean broke)
+	private void exchangeCrystal(L2Player player, int takeid, int giveid, boolean broke)
 	{
 		L2ItemInstance Item = player.getInventory().destroyItemByItemId("SoulCrystal", takeid, 1, player, this);
 		if (Item != null)
@@ -2233,13 +2232,13 @@ public class L2Attackable extends L2Npc
 	}
 
 	/**
-	 * Calculate the Experience and SP to distribute to attacker (L2PcInstance,
+	 * Calculate the Experience and SP to distribute to attacker (L2Player,
 	 * L2SummonInstance or L2Party) of the L2Attackable.<BR>
 	 * <BR>
 	 * 
-	 * @param diff The difference of level between attacker (L2PcInstance,
+	 * @param diff The difference of level between attacker (L2Player,
 	 *            L2SummonInstance or L2Party) and the L2Attackable
-	 * @param damage The damages given by the attacker (L2PcInstance,
+	 * @param damage The damages given by the attacker (L2Player,
 	 *            L2SummonInstance or L2Party)
 	 */
 	private int[] calculateExpAndSp(int diff, int damage)
@@ -2350,7 +2349,7 @@ public class L2Attackable extends L2Npc
 	 * @param id - id of the seed
 	 * @param seeder - player who is sowind the seed
 	 */
-	public void setSeeded(int id, L2PcInstance seeder)
+	public void setSeeded(int id, L2Player seeder)
 	{
 		if (!_seeded)
 		{
@@ -2417,12 +2416,12 @@ public class L2Attackable extends L2Npc
 		_seeded = seeded;
 	}
 
-	public L2PcInstance getSeeder()
+	public L2Player getSeeder()
 	{
 		return _seeder;
 	}
 
-	public void setSeeder(L2PcInstance player)
+	public void setSeeder(L2Player player)
 	{
 		_seeder = player;
 	}

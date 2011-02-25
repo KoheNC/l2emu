@@ -17,16 +17,16 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.List;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class TradeStart extends L2GameServerPacket
 {
 	private static final String			_S__2E_TRADESTART	= "[S] 1E TradeStart";
-	private final L2PcInstance			_activeChar;
+	private final L2Player			_activeChar;
 	private final List<L2ItemInstance>	_itemList;
 
-	public TradeStart(L2PcInstance player)
+	public TradeStart(L2Player player)
 	{
 		_activeChar = player;
 		_itemList = _activeChar.getInventory().getAvailableItems(true, (_activeChar.isGM() && Config.GM_TRADE_RESTRICTED_ITEMS));

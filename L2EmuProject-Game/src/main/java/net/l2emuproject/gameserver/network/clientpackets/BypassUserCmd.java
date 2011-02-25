@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.handler.IUserCommandHandler;
 import net.l2emuproject.gameserver.handler.UserCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class BypassUserCmd extends L2GameClientPacket
 {
@@ -34,7 +34,7 @@ public class BypassUserCmd extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getActiveChar();
+		L2Player player = getActiveChar();
 		if (player == null)
 			return;
 

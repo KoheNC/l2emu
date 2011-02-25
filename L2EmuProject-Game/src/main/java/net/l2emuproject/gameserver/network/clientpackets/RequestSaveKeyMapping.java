@@ -20,9 +20,9 @@ import java.util.Map;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.ActionKey;
 import net.l2emuproject.gameserver.network.L2GameClient.GameClientState;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author mrTJO
@@ -109,7 +109,7 @@ public class RequestSaveKeyMapping extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getClient().getActiveChar();
+		L2Player player = getClient().getActiveChar();
 
 		if (player == null)
 			return;

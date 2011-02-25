@@ -15,17 +15,17 @@
 package net.l2emuproject.gameserver.model;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.RadarControl;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public final class L2Marker
 {
-	private final L2PcInstance			_player;
+	private final L2Player			_player;
 	private final FastList<MapMarker>	_markers;
 
-	public L2Marker(L2PcInstance player)
+	public L2Marker(L2Player player)
 	{
 		_player = player;
 		_markers = new FastList<MapMarker>();

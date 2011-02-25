@@ -16,13 +16,13 @@ package instances;
 
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.entity.instances.PartyInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author lord_rex
@@ -61,7 +61,7 @@ public final class ExampleInstance extends PartyInstance
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		QuestState st = player.getQuestState(QN);
 		if (st == null)
@@ -79,7 +79,7 @@ public final class ExampleInstance extends PartyInstance
 	}
 
 	@Override
-	protected final boolean canEnter(L2PcInstance player)
+	protected final boolean canEnter(L2Player player)
 	{
 		QuestState st = player.getQuestState(QN);
 		if (st == null)
@@ -101,7 +101,7 @@ public final class ExampleInstance extends PartyInstance
 	}
 
 	@Override
-	protected final void enterInstance(L2PcInstance player)
+	protected final void enterInstance(L2Player player)
 	{
 		if (!canEnter(player))
 			return;
@@ -137,7 +137,7 @@ public final class ExampleInstance extends PartyInstance
 	}
 
 	@Override
-	protected final void exitInstance(L2PcInstance player)
+	protected final void exitInstance(L2Player player)
 	{
 		QuestState st = player.getQuestState(QN);
 		if (st == null)

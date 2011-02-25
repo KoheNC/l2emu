@@ -14,13 +14,13 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.templates.item.L2ArmorType;
 import net.l2emuproject.gameserver.templates.item.L2Equip;
 import net.l2emuproject.gameserver.templates.item.L2Item;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author mkizub
@@ -38,9 +38,9 @@ public class ConditionUsingItemType extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2PcInstance))
+		if (!(env.player instanceof L2Player))
 			return false;
-		Inventory inv = ((L2PcInstance)env.player).getInventory();
+		Inventory inv = ((L2Player)env.player).getInventory();
 		
 		//If ConditionUsingItemType is one between Light, Heavy or Magic
 		if (_mask == L2ArmorType.LIGHT.mask() || _mask == L2ArmorType.HEAVY.mask() || _mask == L2ArmorType.MAGIC.mask())

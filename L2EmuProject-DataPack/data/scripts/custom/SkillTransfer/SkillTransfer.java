@@ -15,7 +15,6 @@
 package custom.SkillTransfer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -25,6 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class SkillTransfer extends QuestJython
 {
@@ -178,7 +178,7 @@ public final class SkillTransfer extends QuestJython
 			{ 1418, 1 } }								};
 
 	@Override
-	public final String onAcquireSkillList(L2Npc npc, L2PcInstance player)
+	public final String onAcquireSkillList(L2Npc npc, L2Player player)
 	{
 		if (player == null)
 			return null;
@@ -212,7 +212,7 @@ public final class SkillTransfer extends QuestJython
 	}
 
 	@Override
-	public final String onAcquireSkill(L2Npc npc, L2PcInstance player, L2Skill skill)
+	public final String onAcquireSkill(L2Npc npc, L2Player player, L2Skill skill)
 	{
 		if (player == null || skill == null)
 			return null;
@@ -243,7 +243,7 @@ public final class SkillTransfer extends QuestJython
 	}
 
 	@Override
-	public final String onAcquireSkillInfo(L2Npc npc, L2PcInstance player, L2Skill skill)
+	public final String onAcquireSkillInfo(L2Npc npc, L2Player player, L2Skill skill)
 	{
 		if (player == null || skill == null)
 			return null;
@@ -269,7 +269,7 @@ public final class SkillTransfer extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		String htmltext = "";
 
@@ -345,13 +345,13 @@ public final class SkillTransfer extends QuestJython
 	}
 
 	@Override
-	public final String onEnterWorld(L2PcInstance player)
+	public final String onEnterWorld(L2Player player)
 	{
 		givePormanders(null, player);
 		return null;
 	}
 
-	private final synchronized void givePormanders(L2Npc npc, L2PcInstance player)
+	private final synchronized void givePormanders(L2Npc npc, L2Player player)
 	{
 		final int index = getTransferClassIndex(player);
 		if (index >= 0)
@@ -374,12 +374,12 @@ public final class SkillTransfer extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		return "main.htm";
 	}
 
-	private final int getTransferClassIndex(L2PcInstance player)
+	private final int getTransferClassIndex(L2Player player)
 	{
 		switch (player.getClassId().getId())
 		{

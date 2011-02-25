@@ -18,7 +18,6 @@ import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2CubicInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MerchantSummonInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeSummonInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
 import net.l2emuproject.gameserver.model.base.Experience;
@@ -29,6 +28,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2SkillSummon extends L2Skill
 {
@@ -100,9 +100,9 @@ public class L2SkillSummon extends L2Skill
 	@Override
 	public boolean checkCondition(L2Character activeChar, L2Object target)
 	{
-		if (activeChar instanceof L2PcInstance)
+		if (activeChar instanceof L2Player)
 		{
-			L2PcInstance player = (L2PcInstance)activeChar;
+			L2Player player = (L2Player)activeChar;
 			if (isCubic())
 			{
 				// Player is always able to cast mass cubic skill
@@ -138,10 +138,10 @@ public class L2SkillSummon extends L2Skill
 	@Override
 	public void useSkill(L2Character caster, L2Character... targets)
 	{
-		if (caster.isAlikeDead() || !(caster instanceof L2PcInstance))
+		if (caster.isAlikeDead() || !(caster instanceof L2Player))
 			return;
 		
-		L2PcInstance activeChar = (L2PcInstance)caster;
+		L2Player activeChar = (L2Player)caster;
 		
 		if (_npcId == 0)
 		{
@@ -155,9 +155,9 @@ public class L2SkillSummon extends L2Skill
 			{
 				for (L2Character obj : targets)
 				{
-					if (!(obj instanceof L2PcInstance))
+					if (!(obj instanceof L2Player))
 						continue;
-					L2PcInstance player = ((L2PcInstance)obj);
+					L2Player player = ((L2Player)obj);
 					int mastery = player.getSkillLevel(L2Skill.SKILL_CUBIC_MASTERY);
 					if (mastery < 0)
 						mastery = 0;

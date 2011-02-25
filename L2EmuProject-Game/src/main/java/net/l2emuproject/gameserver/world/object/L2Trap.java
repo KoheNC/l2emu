@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.world.object;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.view.CharLikeView;
 import net.l2emuproject.gameserver.model.actor.view.TrapView;
 import net.l2emuproject.gameserver.network.serverpackets.AbstractNpcInfo;
@@ -28,12 +27,12 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
  */
 public class L2Trap extends L2Character
 {
-	private final L2PcInstance _owner;
+	private final L2Player _owner;
 	/**
 	 * @param objectId
 	 * @param template
 	 */
-	public L2Trap(int objectId, L2CharTemplate template, L2PcInstance owner)
+	public L2Trap(int objectId, L2CharTemplate template, L2Player owner)
 	{
 		super(objectId, template);
 		getKnownList();
@@ -68,16 +67,16 @@ public class L2Trap extends L2Character
 
 	/**
 	 *
-	 * @see net.l2emuproject.gameserver.world.object.net.l2emuproject.gameserver.model.world.L2Object#onAction(net.l2emuproject.gameserver.model.actor.instance.L2PcInstance)
+	 * @see net.l2emuproject.gameserver.world.object.net.l2emuproject.gameserver.model.world.L2Object#onAction(net.l2emuproject.gameserver.world.object.L2Player)
 	 */
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		player.setTarget(this);
 	}
 	
 	@Override
-	public int getMyTargetSelectedColor(L2PcInstance player)
+	public int getMyTargetSelectedColor(L2Player player)
 	{
 		return player.getLevel() - getLevel();
 	}
@@ -124,7 +123,7 @@ public class L2Trap extends L2Character
 	 *
 	 * @param owner
 	 */
-	public void deleteMe(L2PcInstance owner)
+	public void deleteMe(L2Player owner)
 	{
 		decayMe();
 		getKnownList().removeAllKnownObjects();
@@ -136,7 +135,7 @@ public class L2Trap extends L2Character
 	 *
 	 * @param owner
 	 */
-	public synchronized void unSummon(L2PcInstance owner)
+	public synchronized void unSummon(L2Player owner)
 	{
 		if (isVisible() && !isDead())
 		{
@@ -162,13 +161,13 @@ public class L2Trap extends L2Character
 	 *
 	 * @return
 	 */
-	public final L2PcInstance getOwner()
+	public final L2Player getOwner()
 	{
 		return _owner;
 	}
 
 	@Override
-	public L2PcInstance getActingPlayer()
+	public L2Player getActingPlayer()
 	{
 		return _owner;
 	}
@@ -202,7 +201,7 @@ public class L2Trap extends L2Character
 	}
 	
 	@Override
-	public void sendInfo(L2PcInstance activeChar)
+	public void sendInfo(L2Player activeChar)
 	{
 		activeChar.sendPacket(new AbstractNpcInfo.TrapInfo(this));
 	}

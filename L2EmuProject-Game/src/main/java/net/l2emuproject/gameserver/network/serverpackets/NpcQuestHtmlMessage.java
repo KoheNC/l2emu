@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.cache.HtmCache;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.Replaceable;
 
 
@@ -141,7 +141,7 @@ public final class NpcQuestHtmlMessage extends L2GameServerPacket
 	}
 	
 	@Override
-	public void prepareToSend(L2GameClient client, L2PcInstance activeChar)
+	public void prepareToSend(L2GameClient client, L2Player activeChar)
 	{
 		if (activeChar != null)
 		{
@@ -163,7 +163,7 @@ public final class NpcQuestHtmlMessage extends L2GameServerPacket
 	}
 	
 	@Override
-	public boolean canBeSentTo(L2GameClient client, L2PcInstance activeChar)
+	public boolean canBeSentTo(L2GameClient client, L2Player activeChar)
 	{
 		return _replaceable != null;
 	}
@@ -177,7 +177,7 @@ public final class NpcQuestHtmlMessage extends L2GameServerPacket
 	}
 	
 	@Override
-	public void packetSent(L2GameClient client, L2PcInstance activeChar)
+	public void packetSent(L2GameClient client, L2Player activeChar)
 	{
 		if (_path != null && activeChar != null && activeChar.isGM())
 		{

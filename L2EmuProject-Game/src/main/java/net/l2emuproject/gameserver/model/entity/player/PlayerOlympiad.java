@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.model.entity.player;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.actor.instance.L2CubicInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
 import net.l2emuproject.gameserver.network.serverpackets.ExOlympiadMode;
 import net.l2emuproject.gameserver.network.serverpackets.GMHide;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class PlayerOlympiad extends PlayerExtension
 {
@@ -31,7 +31,7 @@ public final class PlayerOlympiad extends PlayerExtension
 	private int		_olympiadOpponentId	= 0;
 	public int		olyBuff				= 0;
 
-	public PlayerOlympiad(L2PcInstance activeChar)
+	public PlayerOlympiad(L2Player activeChar)
 	{
 		super(activeChar);
 	}

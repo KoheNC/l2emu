@@ -14,25 +14,25 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class SkillList extends L2GameServerPacket
 {
 	private static final String	_S__6D_SKILLLIST	= "[S] 58 SkillList";
 	
 	private final L2Skill[]		_skills;
-	//private final L2PcInstance	_activeChar;
+	//private final L2Player	_activeChar;
 	
-	public SkillList(L2PcInstance activeChar)
+	public SkillList(L2Player activeChar)
 	{
 		//_activeChar = activeChar;
 		_skills = activeChar.getSortedAllSkills(activeChar.isGM() && !activeChar.isSubClassActive());
 	}
 	
 	@Override
-	public void packetSent(L2GameClient client, L2PcInstance activeChar)
+	public void packetSent(L2GameClient client, L2Player activeChar)
 	{
 		if (activeChar != null)
 			activeChar.sendSkillCoolTime();

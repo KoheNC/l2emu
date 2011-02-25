@@ -14,13 +14,13 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExAskJoinMPCC;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestExAskJoinMPCC extends L2GameClientPacket
 {
@@ -37,11 +37,11 @@ public class RequestExAskJoinMPCC extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getActiveChar();
+		L2Player activeChar = getActiveChar();
 		if (activeChar == null)
 			return;
 
-		L2PcInstance player = L2World.getInstance().getPlayer(_name);
+		L2Player player = L2World.getInstance().getPlayer(_name);
 		if (player == null)
 		{
 			requestFailed(SystemMessageId.NO_USER_INVITED_TO_COMMAND_CHANNEL);
@@ -95,7 +95,7 @@ public class RequestExAskJoinMPCC extends L2GameClientPacket
 
 	private final void tryInvite(L2Party invited, boolean newCC)
 	{
-		L2PcInstance activeChar = getActiveChar();
+		L2Player activeChar = getActiveChar();
 		if (newCC)
 		{
 			if (!canCreateCC(activeChar))
@@ -105,7 +105,7 @@ public class RequestExAskJoinMPCC extends L2GameClientPacket
 			}
 		}
 
-		L2PcInstance contact = invited.getLeader();
+		L2Player contact = invited.getLeader();
 		if (!contact.isProcessingRequest())
 		{
 			activeChar.onTransactionRequest(contact);
@@ -119,7 +119,7 @@ public class RequestExAskJoinMPCC extends L2GameClientPacket
 			sendPacket(new SystemMessage(SystemMessageId.C1_IS_BUSY_TRY_LATER).addString(contact.getName()));
 	}
 
-	private final boolean canCreateCC(L2PcInstance creator)
+	private final boolean canCreateCC(L2Player creator)
 	{
 		if (creator == null)
 			return false;

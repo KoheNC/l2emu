@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author -Wooden-
@@ -26,7 +26,7 @@ public class ExFishingEnd extends L2GameServerPacket
 	private final boolean _win;
 	L2Character _activeChar;
 	
-	public ExFishingEnd(boolean win, L2PcInstance character)
+	public ExFishingEnd(boolean win, L2Player character)
 	{
 		_win = win;
 		_activeChar = character;

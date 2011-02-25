@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.model.olympiad;
 import java.util.Set;
 
 import net.l2emuproject.gameserver.datatables.DoorTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.L2FastSet;
 
 
@@ -29,7 +29,7 @@ public final class OlympiadStadium
 {
 	private boolean _freeToUse = true;
 	private final int[] _doorIds = new int[2];
-	private final Set<L2PcInstance> _spectators = new L2FastSet<L2PcInstance>().shared();
+	private final Set<L2Player> _spectators = new L2FastSet<L2Player>().shared();
 	public final Location player1Spawn;
 	public final Location player2Spawn;
 	public final Location buffer1Spawn;
@@ -71,19 +71,19 @@ public final class OlympiadStadium
 		DoorTable.getInstance().closeDoors(_doorIds);
 	}
 	
-	protected void addSpectator(int id, L2PcInstance spec, boolean storeCoords)
+	protected void addSpectator(int id, L2Player spec, boolean storeCoords)
 	{
 		spec.getPlayerOlympiad().enterOlympiadObserverMode(player1Spawn, id, storeCoords);
 		
 		_spectators.add(spec);
 	}
 	
-	protected Set<L2PcInstance> getSpectators()
+	protected Set<L2Player> getSpectators()
 	{
 		return _spectators;
 	}
 	
-	protected void removeSpectator(L2PcInstance spec)
+	protected void removeSpectator(L2Player spec)
 	{
 		_spectators.remove(spec);
 	}

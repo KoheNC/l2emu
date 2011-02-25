@@ -19,9 +19,9 @@ import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.ai.L2ControllableMobAI;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControllableMobInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2GroupSpawn;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -150,12 +150,12 @@ public final class MobGroup
 		}
 	}
 
-	public void spawnGroup(L2PcInstance activeChar)
+	public void spawnGroup(L2Player activeChar)
 	{
 		spawnGroup(activeChar.getX(), activeChar.getY(), activeChar.getZ());
 	}
 
-	public void teleportGroup(L2PcInstance player)
+	public void teleportGroup(L2Player player)
 	{
 		removeDead();
 		
@@ -208,7 +208,7 @@ public final class MobGroup
 		getMobs().clear();
 	}
 
-	public void killGroup(L2PcInstance activeChar)
+	public void killGroup(L2Player activeChar)
 	{
 		removeDead();
 		

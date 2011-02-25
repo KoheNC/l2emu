@@ -18,9 +18,9 @@ import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.stat.PcStat;
 import net.l2emuproject.gameserver.network.serverpackets.ExVitalityPointInfo;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public final class PlayerVitality extends PlayerExtension
@@ -28,7 +28,7 @@ public final class PlayerVitality extends PlayerExtension
 	/** Vitality recovery task */
 	private ScheduledFuture<?>	_vitalityTask;
 
-	public PlayerVitality(L2PcInstance activeChar)
+	public PlayerVitality(L2Player activeChar)
 	{
 		super(activeChar);
 	}

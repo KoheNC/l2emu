@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.skills.effects;
 
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
@@ -26,6 +25,7 @@ import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
@@ -49,9 +49,9 @@ public final class EffectClanGate extends L2Effect
 	protected boolean onStart()
 	{
 		L2Character effected = getEffected();
-		L2PcInstance lord;
-		if (effected instanceof L2PcInstance)
-			lord = (L2PcInstance) effected;
+		L2Player lord;
+		if (effected instanceof L2Player)
+			lord = (L2Player) effected;
 		else
 			return false;
 		if (!GlobalRestrictions.canTeleport(lord) || lord.isInsideZone(L2Zone.FLAG_NOSUMMON))
@@ -71,7 +71,7 @@ public final class EffectClanGate extends L2Effect
 	@Override
 	protected void onExit()
 	{
-		L2PcInstance lord = (L2PcInstance) getEffected();
+		L2Player lord = (L2Player) getEffected();
 		Castle c = CastleManager.getInstance().getCastleByOwner(lord.getClan());
 		if (c != null)
 			c.destroyClanGate();

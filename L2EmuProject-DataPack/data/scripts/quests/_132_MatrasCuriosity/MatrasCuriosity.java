@@ -14,12 +14,12 @@
  */
 package quests._132_MatrasCuriosity;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author L0ngh0rn
@@ -59,7 +59,7 @@ public final class MatrasCuriosity extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		String htmltext = event;
 		QuestState st = player.getQuestState(QN);
@@ -78,7 +78,7 @@ public final class MatrasCuriosity extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = NO_QUEST;
 		QuestState st = player.getQuestState(QN);
@@ -142,7 +142,7 @@ public final class MatrasCuriosity extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		QuestState st = player.getQuestState(QN);
 
@@ -154,7 +154,7 @@ public final class MatrasCuriosity extends QuestJython
 			case DEMONPRINCE:
 				if (party != null)
 				{
-					for (L2PcInstance partyMember : party.getPartyMembers())
+					for (L2Player partyMember : party.getPartyMembers())
 					{
 						QuestState stp = partyMember.getQuestState(QN);
 						if (stp == null)
@@ -167,7 +167,7 @@ public final class MatrasCuriosity extends QuestJython
 			case RANKU:
 				if (party != null)
 				{
-					for (L2PcInstance partyMember : party.getPartyMembers())
+					for (L2Player partyMember : party.getPartyMembers())
 					{
 						QuestState stp = partyMember.getQuestState(QN);
 						if (stp == null)

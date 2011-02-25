@@ -22,12 +22,12 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.ZoneManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 import ai.L2AttackableAIScript;
@@ -202,7 +202,7 @@ public class EyeOfKasha extends L2AttackableAIScript
 		{
 			if (isKashaInZone(zone))
 			{
-				if (character instanceof L2PcInstance)
+				if (character instanceof L2Player)
 					ThreadPoolManager.getInstance().scheduleGeneral(new CastTask(character, zone), Rnd.get(2000, 10000));
 			}
 		}
@@ -212,7 +212,7 @@ public class EyeOfKasha extends L2AttackableAIScript
 	@Override
 	public String onExitZone(L2Character character, L2Zone zone)
 	{
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
 			if (character.getFirstEffect(6150) != null)
 				character.stopSkillEffects(6150);
@@ -353,7 +353,7 @@ public class EyeOfKasha extends L2AttackableAIScript
 			return;
 		for (L2Character c : campZone.getCharactersInside())
 		{
-			if (c instanceof L2PcInstance)
+			if (c instanceof L2Player)
 			{
 				switch (message)
 				{
@@ -394,7 +394,7 @@ public class EyeOfKasha extends L2AttackableAIScript
 	}
 
 	/**
-	 * @param character - L2PcInstance player to cast Kasha buffs
+	 * @param character - L2Player player to cast Kasha buffs
 	 * @param kashaZone circle arround Kasha Eye
 	 */
 	private final class CastTask implements Runnable

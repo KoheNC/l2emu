@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.model.actor.shot;
 
 import net.l2emuproject.gameserver.datatables.ShotTable;
 import net.l2emuproject.gameserver.handler.ItemHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 
 /**
@@ -101,7 +101,7 @@ public final class SummonShots extends CharShots
 	
 	private boolean canCharge(ShotType type, L2ItemInstance item)
 	{
-		L2PcInstance activeOwner = getActiveChar().getOwner();
+		L2Player activeOwner = getActiveChar().getOwner();
 		
 		if (item == null || activeOwner == null)
 			return false;

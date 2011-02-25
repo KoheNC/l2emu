@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model.entity.instances;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author lord_rex
@@ -28,22 +28,22 @@ public abstract class PartyInstance extends L2Instance
 		super(questId, name, descr, folder);
 	}
 
-	protected final void teleportParty(final L2PcInstance player, final int[] coords, final int instanceId)
+	protected final void teleportParty(final L2Player player, final int[] coords, final int instanceId)
 	{
 		final L2Party party = player.getParty();
 
 		if (party != null)
-			for (L2PcInstance members : party.getPartyMembers())
+			for (L2Player members : party.getPartyMembers())
 				if (members != null)
 					teleportPlayer(members, coords, instanceId);
 	}
 
-	protected final void setPartyInstanceTime(final L2PcInstance player, final int instanceId, final long time)
+	protected final void setPartyInstanceTime(final L2Player player, final int instanceId, final long time)
 	{
 		final L2Party party = player.getParty();
 
 		if (party != null)
-			for (L2PcInstance members : party.getPartyMembers())
+			for (L2Player members : party.getPartyMembers())
 				if (members != null)
 					setInstanceTime(members, instanceId, time);
 	}

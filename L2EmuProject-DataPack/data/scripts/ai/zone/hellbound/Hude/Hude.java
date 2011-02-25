@@ -15,9 +15,9 @@
 package ai.zone.hellbound.Hude;
 
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author DS, based on theOne's work
@@ -44,7 +44,7 @@ public final class Hude extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if ("scertif".equalsIgnoreCase(event))
 		{
@@ -89,7 +89,7 @@ public final class Hude extends QuestJython
 	}
 
 	@Override
-	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		if (player.getQuestState(getName()) == null)
 			newQuestState(player);

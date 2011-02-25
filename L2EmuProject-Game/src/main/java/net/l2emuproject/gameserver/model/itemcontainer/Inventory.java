@@ -26,7 +26,6 @@ import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTable.SkillInfo;
 import net.l2emuproject.gameserver.model.GMAudit;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ArmorSet;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
@@ -41,6 +40,7 @@ import net.l2emuproject.gameserver.templates.item.L2Weapon;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.lang.ArrayUtils;
 
@@ -270,11 +270,11 @@ public abstract class Inventory extends ItemContainer
 		@Override
 		public void notifyUnequiped(int slot, L2ItemInstance item, boolean noChange)
 		{
-			L2PcInstance player;
+			L2Player player;
 
-			if (getOwner() instanceof L2PcInstance)
+			if (getOwner() instanceof L2Player)
 			{
-				player = (L2PcInstance) getOwner();
+				player = (L2Player) getOwner();
 			}
 			else
 				return;
@@ -287,8 +287,8 @@ public abstract class Inventory extends ItemContainer
 			if (it instanceof L2Weapon)
 			{
 				// Remove augmentation bonuses on unequip
-				if (item.isAugmented() && getOwner() instanceof L2PcInstance)
-					item.getAugmentation().removeBonus((L2PcInstance) getOwner());
+				if (item.isAugmented() && getOwner() instanceof L2Player)
+					item.getAugmentation().removeBonus((L2Player) getOwner());
 				
 				item.removeElementAttrBonus(player);
 
@@ -298,8 +298,8 @@ public abstract class Inventory extends ItemContainer
 			else if (it instanceof L2Armor)
 			{
 				// Remove augmentation bonuses on unequip
-				if (item.isAugmented() && getOwner() instanceof L2PcInstance)
-					item.getAugmentation().removeBonus((L2PcInstance) getOwner());
+				if (item.isAugmented() && getOwner() instanceof L2Player)
+					item.getAugmentation().removeBonus((L2Player) getOwner());
 
 				item.removeElementAttrBonus(player);
 				
@@ -328,11 +328,11 @@ public abstract class Inventory extends ItemContainer
 		@Override
 		public void notifyEquiped(int slot, L2ItemInstance item)
 		{
-			L2PcInstance player;
+			L2Player player;
 
-			if (getOwner() instanceof L2PcInstance)
+			if (getOwner() instanceof L2Player)
 			{
-				player = (L2PcInstance) getOwner();
+				player = (L2Player) getOwner();
 			}
 			else
 				return;
@@ -345,8 +345,8 @@ public abstract class Inventory extends ItemContainer
 			if (it instanceof L2Weapon)
 			{
 				// Apply augmentation bonuses on equip
-				if (item.isAugmented() && getOwner() instanceof L2PcInstance)
-					item.getAugmentation().applyBonus((L2PcInstance) getOwner());
+				if (item.isAugmented() && getOwner() instanceof L2Player)
+					item.getAugmentation().applyBonus((L2Player) getOwner());
 
 				item.updateElementAttrBonus(player);
 
@@ -360,8 +360,8 @@ public abstract class Inventory extends ItemContainer
 				itemSkills = ((L2Armor) it).getSkills();
 
 				// Apply augmentation bonuses on equip
-				if (item.isAugmented() && getOwner() instanceof L2PcInstance)
-					item.getAugmentation().applyBonus((L2PcInstance) getOwner());
+				if (item.isAugmented() && getOwner() instanceof L2Player)
+					item.getAugmentation().applyBonus((L2Player) getOwner());
 
 				item.updateElementAttrBonus(player);
 
@@ -391,10 +391,10 @@ public abstract class Inventory extends ItemContainer
 		@Override
 		public void notifyEquiped(int slot, L2ItemInstance item)
 		{
-			if (!(getOwner() instanceof L2PcInstance))
+			if (!(getOwner() instanceof L2Player))
 				return;
 			
-			L2PcInstance player = (L2PcInstance)getOwner();
+			L2Player player = (L2Player)getOwner();
 			
 			// checks if player worns chest item
 			L2ItemInstance chestItem = getPaperdollItem(PAPERDOLL_CHEST);
@@ -473,10 +473,10 @@ public abstract class Inventory extends ItemContainer
 		@Override
 		public void notifyUnequiped(int slot, L2ItemInstance item, boolean noChange)
 		{
-			if (!(getOwner() instanceof L2PcInstance))
+			if (!(getOwner() instanceof L2Player))
 				return;
 			
-			L2PcInstance player = (L2PcInstance)getOwner();
+			L2Player player = (L2Player)getOwner();
 			
 			boolean remove = false;
 			SkillInfo[] skills = null;
@@ -560,10 +560,10 @@ public abstract class Inventory extends ItemContainer
 		@Override
 		public void notifyUnequiped(int slot, L2ItemInstance item, boolean noChange)
 		{
-			if (!(getOwner() != null && getOwner() instanceof L2PcInstance))
+			if (!(getOwner() != null && getOwner() instanceof L2Player))
 				return;
 
-			L2PcInstance owner = (L2PcInstance) getOwner();
+			L2Player owner = (L2Player) getOwner();
 
 			if (item.getItemId() == 6408)
 				owner.setIsWearingFormalWear(false);
@@ -578,10 +578,10 @@ public abstract class Inventory extends ItemContainer
 		@Override
 		public void notifyEquiped(int slot, L2ItemInstance item)
 		{
-			if (!(getOwner() != null && getOwner() instanceof L2PcInstance))
+			if (!(getOwner() != null && getOwner() instanceof L2Player))
 				return;
 
-			L2PcInstance owner = (L2PcInstance) getOwner();
+			L2Player owner = (L2Player) getOwner();
 
 			// If player equip Formal Wear unequip weapons and abort cast/attack
 			if (item.getItemId() == 6408)
@@ -668,13 +668,13 @@ public abstract class Inventory extends ItemContainer
 	 * 
 	 * @param process : String Identifier of process triggering this action
 	 * @param item : L2ItemInstance to be dropped
-	 * @param actor : L2PcInstance Player requesting the item drop
+	 * @param actor : L2Player Player requesting the item drop
 	 * @param reference : L2Object Object referencing current action like NPC
 	 *            selling item or previous item in transformation
 	 * @return L2ItemInstance corresponding to the destroyed item or the updated
 	 *         item in inventory
 	 */
-	public L2ItemInstance dropItem(String process, L2ItemInstance item, L2PcInstance actor, L2Object reference)
+	public L2ItemInstance dropItem(String process, L2ItemInstance item, L2Player actor, L2Object reference)
 	{
 		if (item == null)
 			return null;
@@ -718,13 +718,13 @@ public abstract class Inventory extends ItemContainer
 	 * @param process : String Identifier of process triggering this action
 	 * @param objectId : int Item Instance identifier of the item to be dropped
 	 * @param count : long Quantity of items to be dropped
-	 * @param actor : L2PcInstance Player requesting the item drop
+	 * @param actor : L2Player Player requesting the item drop
 	 * @param reference : L2Object Object referencing current action like NPC
 	 *            selling item or previous item in transformation
 	 * @return L2ItemInstance corresponding to the destroyed item or the updated
 	 *         item in inventory
 	 */
-	public L2ItemInstance dropItem(String process, int objectId, long count, L2PcInstance actor, L2Object reference)
+	public L2ItemInstance dropItem(String process, int objectId, long count, L2Player actor, L2Object reference)
 	{
 		L2ItemInstance item = getItemByObjectId(objectId);
 		if (item == null)
@@ -1037,8 +1037,8 @@ public abstract class Inventory extends ItemContainer
 		try
 		{
 			unEquipItemInBodySlot(slot);
-			if (getOwner() instanceof L2PcInstance)
-				((L2PcInstance) getOwner()).refreshExpertisePenalty();
+			if (getOwner() instanceof L2Player)
+				((L2Player) getOwner()).refreshExpertisePenalty();
 		}
 		finally
 		{
@@ -1070,8 +1070,8 @@ public abstract class Inventory extends ItemContainer
 		try
 		{
 			unEquipItemInSlot(slot);
-			if (getOwner() instanceof L2PcInstance)
-				((L2PcInstance) getOwner()).refreshExpertisePenalty();
+			if (getOwner() instanceof L2Player)
+				((L2Player) getOwner()).refreshExpertisePenalty();
 		}
 		finally
 		{
@@ -1205,7 +1205,7 @@ public abstract class Inventory extends ItemContainer
 	 */
 	public void equipItem(L2ItemInstance item)
 	{
-		if ((getOwner() instanceof L2PcInstance) && ((L2PcInstance) getOwner()).getPrivateStoreType() != 0)
+		if ((getOwner() instanceof L2Player) && ((L2Player) getOwner()).getPrivateStoreType() != 0)
 			return;
 
 		int targetSlot = item.getItem().getBodyPart();
@@ -1486,9 +1486,9 @@ public abstract class Inventory extends ItemContainer
 
 	public void restoreArmorSetPassiveSkill()
 	{
-		if (!(getOwner() instanceof L2PcInstance))
+		if (!(getOwner() instanceof L2Player))
 			return;
-		L2PcInstance player = (L2PcInstance) getOwner();
+		L2Player player = (L2Player) getOwner();
 
 		L2ItemInstance chestItem = getPaperdollItem(PAPERDOLL_CHEST);
 		if (chestItem == null)
@@ -1504,7 +1504,7 @@ public abstract class Inventory extends ItemContainer
 			{
 				L2Skill skill = info.getSkill();
 				if (skill != null)
-					((L2PcInstance) getOwner()).addSkill(skill, false);
+					((L2Player) getOwner()).addSkill(skill, false);
 				else
 				{
 					_log.warn("Inventory.ArmorSetListener: Incorrect skill: " + info.getId() + ".");
@@ -1536,7 +1536,7 @@ public abstract class Inventory extends ItemContainer
 
 	public void restoreEquipedItemsPassiveSkill()
 	{
-		if (!(getOwner() instanceof L2PcInstance))
+		if (!(getOwner() instanceof L2Player))
 			return;
 		for (int i = 0; i < 19; i++)
 		{

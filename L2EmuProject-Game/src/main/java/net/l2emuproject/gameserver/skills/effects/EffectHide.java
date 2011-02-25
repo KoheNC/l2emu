@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.skills.effects;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.DeleteObject;
 import net.l2emuproject.gameserver.skills.AbnormalEffect;
 import net.l2emuproject.gameserver.skills.Env;
@@ -23,6 +22,7 @@ import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author ZaKaX - nBd
@@ -48,9 +48,9 @@ public class EffectHide extends L2Effect
 	@Override
 	protected boolean onStart()
 	{
-		if (getEffected() instanceof L2PcInstance)
+		if (getEffected() instanceof L2Player)
 		{
-			L2PcInstance activeChar = ((L2PcInstance)getEffected());
+			L2Player activeChar = ((L2Player)getEffected());
 			activeChar.getAppearance().setInvisible();
 
 			if (activeChar.getAI().getNextCtrlIntention() == CtrlIntention.AI_INTENTION_ATTACK)
@@ -70,8 +70,8 @@ public class EffectHide extends L2Effect
 					obj.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 				}
 				
-				if (obj instanceof L2PcInstance)
-					((L2PcInstance)obj).sendPacket(del);
+				if (obj instanceof L2Player)
+					((L2Player)obj).sendPacket(del);
 			}
 		}
 		
@@ -81,9 +81,9 @@ public class EffectHide extends L2Effect
 	@Override
 	protected void onExit()
 	{
-		if (getEffected() instanceof L2PcInstance)
+		if (getEffected() instanceof L2Player)
 		{
-			L2PcInstance activeChar = ((L2PcInstance)getEffected());
+			L2Player activeChar = ((L2Player)getEffected());
 			activeChar.getAppearance().setVisible();
 		}
 	}

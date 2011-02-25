@@ -32,12 +32,12 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.geodata.pathfinding.Node;
 import net.l2emuproject.gameserver.world.geodata.pathfinding.cellnodes.CellPathFinding;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.geometry.Point3D;
 import net.l2emuproject.util.L2Arrays;
 import net.l2emuproject.util.LookupTable;
@@ -280,7 +280,7 @@ final class GeoEngine extends GeoData
 	}
 	
 	@Override
-	public boolean canSeeTargetDebug(L2PcInstance gm, L2Object target)
+	public boolean canSeeTargetDebug(L2Player gm, L2Object target)
 	{
 		int z = gm.getZ() + 45;
 		int z2 = target.getZ() + 45;
@@ -310,7 +310,7 @@ final class GeoEngine extends GeoData
 	}
 	
 	@Override
-	public void addGeoDataBug(L2PcInstance gm, String comment)
+	public void addGeoDataBug(L2Player gm, String comment)
 	{
 		int gx = (gm.getX() - L2World.MAP_MIN_X) >> 4;
 		int gy = (gm.getY() - L2World.MAP_MIN_Y) >> 4;
@@ -470,7 +470,7 @@ final class GeoEngine extends GeoData
 	 * 
 	 * Coordinates here are geodata x,y but z coordinate is world coordinate
 	 */
-	private boolean canSeeDebug(L2PcInstance gm, int x, int y, double z, int tx, int ty, int tz, int instanceId)
+	private boolean canSeeDebug(L2Player gm, int x, int y, double z, int tx, int ty, int tz, int instanceId)
 	{
 		int dx = (tx - x);
 		int dy = (ty - y);

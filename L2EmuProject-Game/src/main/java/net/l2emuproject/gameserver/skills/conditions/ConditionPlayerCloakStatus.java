@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * The Class ConditionPlayerCloakStatus.
@@ -32,9 +32,9 @@ public class ConditionPlayerCloakStatus extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2PcInstance))
+		if (!(env.player instanceof L2Player))
 			return false;
 		
-		return ((L2PcInstance)env.player).getInventory().getCloakStatus() >= _val;
+		return ((L2Player)env.player).getInventory().getCloakStatus() >= _val;
 	}
 }

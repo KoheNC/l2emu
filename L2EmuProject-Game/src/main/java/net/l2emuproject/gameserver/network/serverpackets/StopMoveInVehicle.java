@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Maktakien
@@ -22,13 +22,13 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
  */
 public class StopMoveInVehicle  extends L2GameServerPacket
 {
-	private final L2PcInstance _activeChar;
+	private final L2Player _activeChar;
 	private final int _boatId;
 	/**
 	 * @param player
 	 * @param boatid
 	 */
-	public StopMoveInVehicle(L2PcInstance player, int boatId)
+	public StopMoveInVehicle(L2Player player, int boatId)
 	{
 		_activeChar = player;
 		_boatId = boatId;

@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.GetOffVehicle;
 import net.l2emuproject.gameserver.network.serverpackets.StopMoveInVehicle;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Maktakien
@@ -38,7 +38,7 @@ public final class RequestGetOffVehicle extends L2GameClientPacket
 	@Override
 	protected final void runImpl()
 	{
-		final L2PcInstance activeChar = getClient().getActiveChar();
+		final L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 		if (!activeChar.isInBoat() || activeChar.getBoat().getObjectId() != _boatId || activeChar.getBoat().isMoving()

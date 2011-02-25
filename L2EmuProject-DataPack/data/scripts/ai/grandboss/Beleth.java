@@ -16,12 +16,12 @@ package ai.grandboss;
 
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.BelethManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import ai.L2AttackableAIScript;
 
 /**
@@ -53,7 +53,7 @@ public class Beleth extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet, L2Skill skill)
+	public String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet, L2Skill skill)
 	{
 		QuestState st = attacker.getQuestState(QN);
 		if (st == null)
@@ -96,7 +96,7 @@ public class Beleth extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		switch (npc.getNpcId())
 		{
@@ -117,7 +117,7 @@ public class Beleth extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onFactionCall(L2Npc npc, L2Npc caller, L2PcInstance attacker, boolean isPet)
+	public String onFactionCall(L2Npc npc, L2Npc caller, L2Player attacker, boolean isPet)
 	{
 		// Starts casting skills on a target if not already casting helps avoid "dead" moments.
 		if (!npc.isCastingNow())
@@ -127,7 +127,7 @@ public class Beleth extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = "";
 
@@ -142,7 +142,7 @@ public class Beleth extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onTalk(L2Npc npc, L2PcInstance player)
+	public String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = "";
 		QuestState st = player.getQuestState(QN);

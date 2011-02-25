@@ -31,7 +31,6 @@ import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.AutoChatHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeTeleporterInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
@@ -44,6 +43,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -871,7 +871,7 @@ public class MercTicketManager
 	 * @param player The castle owning clan member
 	 * @param merc The mercenary posting ticket
 	 */
-	public final void reqPosition(final L2PcInstance player, final L2ItemInstance merc)
+	public final void reqPosition(final L2Player player, final L2ItemInstance merc)
 	{
 		if (player == null || merc == null)
 			return;
@@ -909,7 +909,7 @@ public class MercTicketManager
 	 * <LI>A non-dawn mercenary is positioned <I>(when Seal of Strife is unclaimed)</I></LI>
 	 * @param player which confirmed mercenary positioning
 	 */
-	public final void addPosition(L2PcInstance player, Integer itemObjId)
+	public final void addPosition(L2Player player, Integer itemObjId)
 	{
 		L2ItemInstance ticket = player.getInventory().getItemByObjectId(itemObjId);
 		if (ticket == null)
@@ -1063,7 +1063,7 @@ public class MercTicketManager
 	 * @param ticket an item
 	 * @return allow player to pick up this item
 	 */
-	public final boolean canPickUp(L2PcInstance player, L2ItemInstance ticket)
+	public final boolean canPickUp(L2Player player, L2ItemInstance ticket)
 	{
 		// not a mercenary posting ticket
 		if (ticket == null || !isTicket(ticket.getItemId()))

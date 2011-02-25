@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.world.knownlist;
 
 import net.l2emuproject.gameserver.MonsterRace;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2RaceManagerInstance;
 import net.l2emuproject.gameserver.network.serverpackets.DeleteObject;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RaceManagerKnownList extends NpcKnownList
 {
@@ -40,14 +40,14 @@ public class RaceManagerKnownList extends NpcKnownList
 		if (!super.removeKnownObject(object))
 			return false;
 
-		if (object instanceof L2PcInstance)
+		if (object instanceof L2Player)
 		{
 			//_log.debugr("Sending delete monsrac info.");
 			DeleteObject obj = null;
 			for (int i = 0; i < 8; i++)
 			{
 				obj = new DeleteObject(MonsterRace.getInstance().getMonsters()[i]);
-				((L2PcInstance) object).sendPacket(obj);
+				((L2Player) object).sendPacket(obj);
 			}
 		}
 

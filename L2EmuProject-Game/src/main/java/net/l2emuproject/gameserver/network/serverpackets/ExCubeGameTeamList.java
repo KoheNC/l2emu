@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import java.util.List;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Format: (chd) ddd[dS]d[dS]
@@ -40,8 +40,8 @@ public final class ExCubeGameTeamList extends L2GameServerPacket
 	private static final String			_S__FE_97_00_EXCUBEGAMETEAMLIST	= "[S] FE:97:00 ExCubeGameTeamList";
 
 	// Players Lists
-	private final List<L2PcInstance>	_bluePlayers;
-	private final List<L2PcInstance>	_redPlayers;
+	private final List<L2Player>	_bluePlayers;
+	private final List<L2Player>	_redPlayers;
 
 	// Common Values
 	private final int					_roomNumber;
@@ -54,7 +54,7 @@ public final class ExCubeGameTeamList extends L2GameServerPacket
 	 * @param bluePlayers Blue Players List
 	 * @param roomNumber Arena/Room ID
 	 */
-	public ExCubeGameTeamList(List<L2PcInstance> redPlayers, List<L2PcInstance> bluePlayers, int roomNumber)
+	public ExCubeGameTeamList(List<L2Player> redPlayers, List<L2Player> bluePlayers, int roomNumber)
 	{
 		_redPlayers = redPlayers;
 		_bluePlayers = bluePlayers;
@@ -72,13 +72,13 @@ public final class ExCubeGameTeamList extends L2GameServerPacket
 		writeD(0xffffffff);
 
 		writeD(_bluePlayers.size());
-		for (L2PcInstance player : _bluePlayers)
+		for (L2Player player : _bluePlayers)
 		{
 			writeD(player.getObjectId());
 			writeS(player.getName());
 		}
 		writeD(_redPlayers.size());
-		for (L2PcInstance player : _redPlayers)
+		for (L2Player player : _redPlayers)
 		{
 			writeD(player.getObjectId());
 			writeS(player.getName());

@@ -15,13 +15,13 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.model.BlockList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.AskJoinParty;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * sample 29 42 00 00 10 01 00 00 00
@@ -48,10 +48,10 @@ public class RequestJoinParty extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance requestor = getClient().getActiveChar();
+		L2Player requestor = getClient().getActiveChar();
 		if (requestor == null) return;
 
-		L2PcInstance target = L2World.getInstance().getPlayer(_name);
+		L2Player target = L2World.getInstance().getPlayer(_name);
 		if (target == null || (target.getAppearance().isInvisible() && !requestor.isGM()))
 		{
 			requestFailed(SystemMessageId.FIRST_SELECT_USER_TO_INVITE_TO_PARTY);

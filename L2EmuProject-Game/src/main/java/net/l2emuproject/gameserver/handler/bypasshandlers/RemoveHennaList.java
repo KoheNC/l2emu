@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.handler.bypasshandlers;
 
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SymbolMakerInstance;
 import net.l2emuproject.gameserver.network.serverpackets.HennaRemoveList;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RemoveHennaList implements IBypassHandler
 {
@@ -26,7 +26,7 @@ public class RemoveHennaList implements IBypassHandler
 												{ "RemoveList" };
 
 	@Override
-	public boolean useBypass(String command, L2PcInstance activeChar, L2Character target)
+	public boolean useBypass(String command, L2Player activeChar, L2Character target)
 	{
 		if (!(target instanceof L2SymbolMakerInstance))
 			return false;

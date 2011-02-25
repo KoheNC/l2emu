@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.geometry.Point3D;
 
 public final class ValidateLocationInVehicle extends L2GameServerPacket
@@ -30,7 +30,7 @@ public final class ValidateLocationInVehicle extends L2GameServerPacket
 	 * 0x80 ValidateLocationInVehicle         hdd
 	 * @param _characters
 	 */
-	public ValidateLocationInVehicle(L2PcInstance player)
+	public ValidateLocationInVehicle(L2Player player)
 	{
 		_charObjId = player.getObjectId();
 		_boatObjId = player.getBoat().getObjectId();

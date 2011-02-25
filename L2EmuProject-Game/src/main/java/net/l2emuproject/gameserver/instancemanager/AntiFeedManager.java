@@ -18,9 +18,9 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class AntiFeedManager
 {
@@ -66,7 +66,7 @@ public final class AntiFeedManager
 		if (target == null)
 			return false;
 
-		final L2PcInstance targetPlayer = target.getActingPlayer();
+		final L2Player targetPlayer = target.getActingPlayer();
 		if (targetPlayer == null)
 			return false;
 
@@ -75,7 +75,7 @@ public final class AntiFeedManager
 
 		if (Config.ALT_ANTIFEED_DUALBOX && attacker != null)
 		{
-			final L2PcInstance attackerPlayer = attacker.getActingPlayer();
+			final L2Player attackerPlayer = attacker.getActingPlayer();
 			if (attackerPlayer == null)
 				return false;
 

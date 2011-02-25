@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.clientpackets.ConfirmDlgAnswer.AnswerHandler;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 
@@ -71,13 +71,13 @@ public final class ConfirmDlg extends AbstractSystemMessage<ConfirmDlg>
 	}
 	
 	@Override
-	public boolean canBeSentTo(L2GameClient client, L2PcInstance activeChar)
+	public boolean canBeSentTo(L2GameClient client, L2Player activeChar)
 	{
 		return activeChar != null && _answerHandler != null;
 	}
 	
 	@Override
-	public void prepareToSend(L2GameClient client, L2PcInstance activeChar)
+	public void prepareToSend(L2GameClient client, L2Player activeChar)
 	{
 		activeChar.setAnswerHandler(_answerHandler);
 	}

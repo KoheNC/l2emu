@@ -19,7 +19,6 @@ import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundEngine;
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
@@ -27,6 +26,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -58,7 +58,7 @@ public final class Quarry extends Quest
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if (event.equalsIgnoreCase("FollowMe"))
 		{
@@ -89,7 +89,7 @@ public final class Quarry extends Quest
 	}
 
 	@Override
-	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		if (HellboundManager.getInstance().getHellboundLevel() != 5)
 			return "32299.htm";
@@ -103,7 +103,7 @@ public final class Quarry extends Quest
 	}
 
 	@Override
-	public final String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet)
+	public final String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet)
 	{
 		if (!npc.isDead())
 			npc.doDie(attacker);
@@ -112,7 +112,7 @@ public final class Quarry extends Quest
 	}
 
 	@Override
-	public final String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public final String onSkillSee(L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		if (skill.isOffensive() && !npc.isDead() && targets.length > 0)
 		{
@@ -129,7 +129,7 @@ public final class Quarry extends Quest
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		HellboundManager.getInstance().addTrustPoints(-TRUST);
 		_rescuedSlaves -= 1;
@@ -177,8 +177,8 @@ public final class Quarry extends Quest
 		{
 			if (_npc != null && !_npc.isDead())
 			{
-				if (_npc.getTarget() instanceof L2PcInstance)
-					((L2MonsterInstance) _npc).dropItem((L2PcInstance) (_npc.getTarget()), DROPLIST[Rnd.get(DROPLIST.length)], 1);
+				if (_npc.getTarget() instanceof L2Player)
+					((L2MonsterInstance) _npc).dropItem((L2Player) (_npc.getTarget()), DROPLIST[Rnd.get(DROPLIST.length)], 1);
 
 				_npc.setAutoAttackable(false);
 				_npc.deleteMe();

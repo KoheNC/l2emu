@@ -30,6 +30,7 @@ import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author evill33t & squeezed
@@ -42,25 +43,25 @@ public class L2WeddingManagerInstance extends L2Npc
 	}
 
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		if (!canTarget(player))
 			return;
 
 		player.setLastFolkNPC(this);
 
-		// Check if the L2PcInstance already target the L2NpcInstance
+		// Check if the L2Player already target the L2NpcInstance
 		if (this != player.getTarget())
 		{
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 		}
 		else
 		{
-			// Calculate the distance between the L2PcInstance and the L2NpcInstance
+			// Calculate the distance between the L2Player and the L2NpcInstance
 			if (!canInteract(player))
 			{
-				// Notify the L2PcInstance AI with AI_INTENTION_INTERACT
+				// Notify the L2Player AI with AI_INTENTION_INTERACT
 				player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
 			}
 			else
@@ -68,11 +69,11 @@ public class L2WeddingManagerInstance extends L2Npc
 				showMessageWindow(player);
 			}
 		}
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-    private void showMessageWindow(L2PcInstance player)
+    private void showMessageWindow(L2Player player)
     {
         String filename = "data/html/wedding/start.htm";
         String replace = "";
@@ -86,7 +87,7 @@ public class L2WeddingManagerInstance extends L2Npc
     }
     
     @Override
-    public synchronized void onBypassFeedback(final L2PcInstance player, String command)
+    public synchronized void onBypassFeedback(final L2Player player, String command)
     {
         // Standard msg
         String filename = "data/html/wedding/start.htm";
@@ -101,7 +102,7 @@ public class L2WeddingManagerInstance extends L2Npc
         }
 
         L2Object obj = L2World.getInstance().findObject(player.getPartnerId());
-        final L2PcInstance ptarget = obj instanceof L2PcInstance ? (L2PcInstance) obj : null;
+        final L2Player ptarget = obj instanceof L2Player ? (L2Player) obj : null;
         // Partner online ?
         if(ptarget == null || ptarget.isOnline() == 0)
         {
@@ -277,7 +278,7 @@ public class L2WeddingManagerInstance extends L2Npc
         sendHtmlMessage(player, filename, replace);
     }
 
-    private void sendHtmlMessage(L2PcInstance player, String filename, String replace)
+    private void sendHtmlMessage(L2Player player, String filename, String replace)
     {
         NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
         html.setFile(filename);

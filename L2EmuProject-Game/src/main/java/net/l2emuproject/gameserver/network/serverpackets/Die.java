@@ -19,12 +19,12 @@ import net.l2emuproject.gameserver.instancemanager.CCHManager;
 import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.model.L2SiegeClan;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.AbstractSiege;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * sample
@@ -63,9 +63,9 @@ public class Die extends L2GameServerPacket
 			_sweepable = ((L2Attackable) cha).isSweepActive() ? 1 : 0;
 		else
 			_sweepable = 0;
-		if (cha instanceof L2PcInstance)
+		if (cha instanceof L2Player)
 		{
-			L2PcInstance player = cha.getActingPlayer();
+			L2Player player = cha.getActingPlayer();
 			if (!GlobalRestrictions.canRequestRevive(player))
 			{
 				_showVillage = 0;

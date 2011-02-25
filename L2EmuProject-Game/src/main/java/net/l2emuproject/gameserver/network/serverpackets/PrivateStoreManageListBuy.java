@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class PrivateStoreManageListBuy extends L2GameServerPacket
 {
@@ -26,7 +26,7 @@ public final class PrivateStoreManageListBuy extends L2GameServerPacket
 	private final L2ItemInstance[]		_itemList;
 	private final TradeList.TradeItem[]	_buyList;
 
-	public PrivateStoreManageListBuy(L2PcInstance player)
+	public PrivateStoreManageListBuy(L2Player player)
 	{
 		_objId = player.getObjectId();
 		_playerAdena = player.getAdena();

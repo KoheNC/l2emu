@@ -17,10 +17,10 @@ package net.l2emuproject.gameserver.model;
 import java.util.Set;
 
 import net.l2emuproject.gameserver.instancemanager.BlockListManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -28,12 +28,12 @@ import net.l2emuproject.gameserver.world.L2World;
  */
 public final class BlockList
 {
-	private final L2PcInstance _owner;
+	private final L2Player _owner;
 	private final Set<String> _set;
 	
 	private boolean _blockingAll = false;
 	
-	public BlockList(L2PcInstance owner)
+	public BlockList(L2Player owner)
 	{
 		_owner = owner;
 		_set = BlockListManager.getInstance().getBlockList(_owner.getObjectId());
@@ -41,7 +41,7 @@ public final class BlockList
 	
 	public void add(String name)
 	{
-		L2PcInstance player = L2World.getInstance().getPlayer(name);
+		L2Player player = L2World.getInstance().getPlayer(name);
 		if (player == null)
 		{
 			_owner.sendPacket(SystemMessageId.TARGET_IS_NOT_FOUND_IN_THE_GAME);
@@ -79,7 +79,7 @@ public final class BlockList
 			_owner.sendMessage(name + " wasn't on your Ignore List.");
 	}
 	
-	private boolean contains(L2PcInstance player)
+	private boolean contains(L2Player player)
 	{
 		if (player == null || player.isGM())
 			return false;
@@ -87,7 +87,7 @@ public final class BlockList
 		return _blockingAll || _set.contains(player.getName());
 	}
 	
-	public static boolean isBlocked(L2PcInstance listOwner, L2PcInstance player)
+	public static boolean isBlocked(L2Player listOwner, L2Player player)
 	{
 		return listOwner.getBlockList().contains(player);
 	}

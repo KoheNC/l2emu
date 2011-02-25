@@ -33,7 +33,6 @@ import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.ResidentialSkillTable;
 import net.l2emuproject.gameserver.model.TerritoryWard;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
@@ -48,6 +47,7 @@ import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
@@ -114,7 +114,7 @@ public class TerritoryWarManager
 
 	// =========================================================
 	// Method - Public
-	public int getRegisteredTerritoryId(L2PcInstance player)
+	public int getRegisteredTerritoryId(L2Player player)
 	{
 		if (player == null || !_isTWChannelOpen || player.getLevel() < Config.PLAYERMINLEVEL)
 			return 0;
@@ -132,7 +132,7 @@ public class TerritoryWarManager
 		return 0;
 	}
 
-	public boolean isAllyField(L2PcInstance player, int fieldId)
+	public boolean isAllyField(L2Player player, int fieldId)
 	{
 		if (player == null || player.getSiegeSide() == 0)
 			return false;
@@ -260,7 +260,7 @@ public class TerritoryWarManager
 		changeRegistration(castleId, clan.getClanId(), false);
 	}
 
-	public void registerMerc(int castleId, L2PcInstance player)
+	public void registerMerc(int castleId, L2Player player)
 	{
 		if (player == null || player.getLevel() < Config.PLAYERMINLEVEL
 				|| (_registeredMercenaries.get(castleId) != null && _registeredMercenaries.get(castleId).contains(player.getObjectId())))
@@ -283,7 +283,7 @@ public class TerritoryWarManager
 		}
 	}
 
-	public void removeMerc(int castleId, L2PcInstance player)
+	public void removeMerc(int castleId, L2Player player)
 	{
 		if (player == null)
 			return;
@@ -330,7 +330,7 @@ public class TerritoryWarManager
 					for (int wardId : terNew.getOwnedWardIds())
 						if (ResidentialSkillTable.getInstance().getSkills(wardId) != null)
 							for (L2Skill sk : ResidentialSkillTable.getInstance().getSkills(wardId))
-								for (L2PcInstance member : terNew.getOwnerClan().getOnlineMembers(0))
+								for (L2Player member : terNew.getOwnerClan().getOnlineMembers(0))
 									if (!member.getPlayerOlympiad().isInOlympiadMode())
 										member.addSkill(sk, false);
 			}
@@ -351,13 +351,13 @@ public class TerritoryWarManager
 				{
 					if (ResidentialSkillTable.getInstance().getSkills(territoryId) != null)
 						for (L2Skill sk : ResidentialSkillTable.getInstance().getSkills(territoryId))
-							for (L2PcInstance member : terOld.getOwnerClan().getOnlineMembers(0))
+							for (L2Player member : terOld.getOwnerClan().getOnlineMembers(0))
 								member.removeSkill(sk, false);
 					if (!terOld.getOwnedWardIds().isEmpty() && !terOld.getOwnedWardIds().contains(oldOwnerId + 80))
 						for (int wardId : terOld.getOwnedWardIds())
 							if (ResidentialSkillTable.getInstance().getSkills(wardId) != null)
 								for (L2Skill sk : ResidentialSkillTable.getInstance().getSkills(wardId))
-									for (L2PcInstance member : terOld.getOwnerClan().getOnlineMembers(0))
+									for (L2Player member : terOld.getOwnerClan().getOnlineMembers(0))
 										member.removeSkill(sk, false);
 				}
 			}
@@ -430,7 +430,7 @@ public class TerritoryWarManager
 		return null;
 	}
 
-	public TerritoryWard getTerritoryWard(L2PcInstance player)
+	public TerritoryWard getTerritoryWard(L2Player player)
 	{
 		for (TerritoryWard twWard : _territoryWards)
 			if (twWard._playerId == player.getObjectId())
@@ -438,7 +438,7 @@ public class TerritoryWarManager
 		return null;
 	}
 
-	public void dropCombatFlag(L2PcInstance player, boolean isKilled)
+	public void dropCombatFlag(L2Player player, boolean isKilled)
 	{
 		for (TerritoryWard twWard : _territoryWards)
 			if (twWard._playerId == player.getObjectId())
@@ -470,7 +470,7 @@ public class TerritoryWarManager
 			}
 	}
 
-	public void giveTWQuestPoint(L2PcInstance player)
+	public void giveTWQuestPoint(L2Player player)
 	{
 		if (!_participantPoints.containsKey(player.getObjectId()))
 			_participantPoints.put(player.getObjectId(), new Integer[]
@@ -478,12 +478,12 @@ public class TerritoryWarManager
 		_participantPoints.get(player.getObjectId())[2]++;
 	}
 
-	public void giveTWPoint(L2PcInstance killer, int victimSide, int type)
+	public void giveTWPoint(L2Player killer, int victimSide, int type)
 	{
 		if (victimSide == 0)
 			return;
 		if (killer.getParty() != null && type < 5)
-			for (L2PcInstance pl : killer.getParty().getPartyMembers())
+			for (L2Player pl : killer.getParty().getPartyMembers())
 			{
 				if (pl.getSiegeSide() == victimSide || pl.getSiegeSide() == 0 || !Util.checkIfInRange(2000, killer, pl, false))
 					continue;
@@ -503,7 +503,7 @@ public class TerritoryWarManager
 		}
 	}
 
-	public int[] calcReward(L2PcInstance player)
+	public int[] calcReward(L2Player player)
 	{
 		if (_participantPoints.containsKey(player.getObjectId()))
 		{
@@ -541,7 +541,7 @@ public class TerritoryWarManager
 		{ 0, 0 };
 	}
 
-	public void debugReward(L2PcInstance player)
+	public void debugReward(L2Player player)
 	{
 		player.sendMessage("Registred TerrId: " + player.getSiegeSide());
 		if (_participantPoints.containsKey(player.getObjectId()))
@@ -565,7 +565,7 @@ public class TerritoryWarManager
 		}
 	}
 
-	public void resetReward(L2PcInstance player)
+	public void resetReward(L2Player player)
 	{
 		if (_participantPoints.containsKey(player.getObjectId()))
 		{
@@ -935,7 +935,7 @@ public class TerritoryWarManager
 		}
 		for (int castleId : _registeredClans.keySet())
 			for (L2Clan clan : _registeredClans.get(castleId))
-				for (L2PcInstance player : clan.getOnlineMembers(0))
+				for (L2Player player : clan.getOnlineMembers(0))
 				{
 					if (player == null)
 						continue;
@@ -960,7 +960,7 @@ public class TerritoryWarManager
 		for (int castleId : _registeredMercenaries.keySet())
 			for (int objId : _registeredMercenaries.get(castleId))
 			{
-				L2PcInstance player = L2World.getInstance().getPlayer(objId);
+				L2Player player = L2World.getInstance().getPlayer(objId);
 				if (player == null)
 					continue;
 				if (clear)
@@ -981,7 +981,7 @@ public class TerritoryWarManager
 			}
 		for (Territory terr : _territoryList.values())
 			if (terr.getOwnerClan() != null)
-				for (L2PcInstance player : terr.getOwnerClan().getOnlineMembers(0))
+				for (L2Player player : terr.getOwnerClan().getOnlineMembers(0))
 				{
 					if (player == null)
 						continue;
@@ -1018,7 +1018,7 @@ public class TerritoryWarManager
 		{
 			if (isTWInProgress())
 			{
-				for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+				for (L2Player player : L2World.getInstance().getAllPlayers())
 					if (player.getSiegeSide() > 0)
 						giveTWPoint(player, 1000, 6);
 			}
@@ -1186,7 +1186,7 @@ public class TerritoryWarManager
 		// broadcast to clan members
 		for (Territory ter : _territoryList.values())
 			if (ter.getOwnerClan() != null)
-				for (L2PcInstance member : ter.getOwnerClan().getOnlineMembers(0))
+				for (L2Player member : ter.getOwnerClan().getOnlineMembers(0))
 				{
 					member.sendPacket(sm);
 					if (exp > 0 || sp > 0)
@@ -1194,7 +1194,7 @@ public class TerritoryWarManager
 				}
 		for (FastList<L2Clan> list : _registeredClans.values())
 			for (L2Clan c : list)
-				for (L2PcInstance member : c.getOnlineMembers(0))
+				for (L2Player member : c.getOnlineMembers(0))
 				{
 					member.sendPacket(sm);
 					if (exp > 0 || sp > 0)
@@ -1204,7 +1204,7 @@ public class TerritoryWarManager
 		for (FastList<Integer> list : _registeredMercenaries.values())
 			for (int objId : list)
 			{
-				L2PcInstance player = L2World.getInstance().getPlayer(objId);
+				L2Player player = L2World.getInstance().getPlayer(objId);
 				if (player != null && (player.getClan() == null || !checkIsRegistered(-1, player.getClan())))
 				{
 					player.sendPacket(sm);

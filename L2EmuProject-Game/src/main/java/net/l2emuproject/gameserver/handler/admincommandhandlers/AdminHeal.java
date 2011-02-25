@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class handles following admin commands:
@@ -31,7 +31,7 @@ public class AdminHeal implements IAdminCommandHandler
 													{ "admin_heal" };
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (command.equals("admin_heal"))
 		{
@@ -56,7 +56,7 @@ public class AdminHeal implements IAdminCommandHandler
 				}
 				catch (NumberFormatException e)
 				{
-					L2PcInstance target = L2World.getInstance().getPlayer(val);
+					L2Player target = L2World.getInstance().getPlayer(val);
 					
 					if (target != null)
 						handleHeal(target);
@@ -79,7 +79,7 @@ public class AdminHeal implements IAdminCommandHandler
 	private void handleHeal(L2Character target)
 	{
 		target.getStatus().setCurrentHpMp(target.getMaxHp(), target.getMaxMp());
-		if (target instanceof L2PcInstance)
+		if (target instanceof L2Player)
 			target.getStatus().setCurrentCp(target.getMaxCp());
 	}
 }

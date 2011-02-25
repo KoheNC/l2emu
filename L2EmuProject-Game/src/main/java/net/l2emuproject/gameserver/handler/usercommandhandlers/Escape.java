@@ -17,11 +17,11 @@ package net.l2emuproject.gameserver.handler.usercommandhandlers;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.IUserCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance.TeleportMode;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
+import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.L2Player.TeleportMode;
 
 public class Escape implements IUserCommandHandler
 {
@@ -32,7 +32,7 @@ public class Escape implements IUserCommandHandler
 	 * @see net.l2emuproject.gameserver.handler.IUserCommandHandler#useUserCommand(int, net.l2emuproject.gameserver.model.L2PcInstance)
 	 */
 	@Override
-	public boolean useUserCommand(int id, L2PcInstance activeChar)
+	public boolean useUserCommand(int id, L2Player activeChar)
 	{
 		if (!activeChar.canTeleport(TeleportMode.UNSTUCK))
 		{
@@ -76,9 +76,9 @@ public class Escape implements IUserCommandHandler
 
 	static class EscapeFinalizer implements Runnable
 	{
-		private final L2PcInstance	_activeChar;
+		private final L2Player	_activeChar;
 
-		EscapeFinalizer(L2PcInstance activeChar)
+		EscapeFinalizer(L2Player activeChar)
 		{
 			_activeChar = activeChar;
 		}

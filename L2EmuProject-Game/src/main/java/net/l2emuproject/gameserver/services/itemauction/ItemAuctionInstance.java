@@ -32,13 +32,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;
@@ -478,7 +478,7 @@ public final class ItemAuctionInstance
 		if (bid != null)
 		{
 			final L2ItemInstance item = auction.createNewItemInstance();
-			final L2PcInstance player = bid.getPlayer();
+			final L2Player player = bid.getPlayer();
 			if (player != null)
 			{
 				player.getWarehouse().addItem("ItemAuction", item, null, null);

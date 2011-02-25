@@ -23,6 +23,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -37,7 +38,7 @@ public final class L2ObservationInstance extends L2Npc
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (command.startsWith("Chat"))
 		{
@@ -76,7 +77,7 @@ public final class L2ObservationInstance extends L2Npc
 			super.onBypassFeedback(player, command);
 	}
 
-	private void doObserve(L2PcInstance player, String val)
+	private void doObserve(L2Player player, String val)
 	{
 		StringTokenizer st = new StringTokenizer(val);
 		long cost = Long.parseLong(st.nextToken());
@@ -93,7 +94,7 @@ public final class L2ObservationInstance extends L2Npc
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	public void showMessageWindow(L2PcInstance player, int val)
+	public void showMessageWindow(L2Player player, int val)
 	{
 		String filename = null;
 
@@ -119,7 +120,7 @@ public final class L2ObservationInstance extends L2Npc
 	}
 
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		if (!canTarget(player))
 			return;

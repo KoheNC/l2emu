@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.skills.l2skills;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2DecoyInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2SkillDecoy extends L2Skill
 {
@@ -39,13 +39,13 @@ public class L2SkillDecoy extends L2Skill
 	@Override
 	public void useSkill(L2Character caster, L2Character... targets)
 	{
-		if (caster.isAlikeDead() || !(caster instanceof L2PcInstance))
+		if (caster.isAlikeDead() || !(caster instanceof L2Player))
 			return;
 		
 		if (_npcId == 0)
 			return;
 		
-		final L2PcInstance activeChar = (L2PcInstance)caster;
+		final L2Player activeChar = (L2Player)caster;
 		
 		if (activeChar.getPlayerObserver().inObserverMode())
 			return;

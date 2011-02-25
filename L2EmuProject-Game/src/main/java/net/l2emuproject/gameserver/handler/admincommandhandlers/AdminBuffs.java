@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 public class AdminBuffs implements IAdminCommandHandler
@@ -38,7 +38,7 @@ public class AdminBuffs implements IAdminCommandHandler
 	};
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 
 		if (command.startsWith("admin_getbuffs"))
@@ -48,7 +48,7 @@ public class AdminBuffs implements IAdminCommandHandler
 
 			if (st.hasMoreTokens())
 			{
-				L2PcInstance player = null;
+				L2Player player = null;
 				String playername = st.nextToken();
 
 				try
@@ -133,7 +133,7 @@ public class AdminBuffs implements IAdminCommandHandler
 
 				for (L2Character knownChar : activeChar.getKnownList().getKnownCharactersInRadius(radius))
 				{
-					if ((knownChar instanceof L2PcInstance) && !(knownChar.equals(activeChar)))
+					if ((knownChar instanceof L2Player) && !(knownChar.equals(activeChar)))
 						knownChar.stopAllEffects();
 				}
 
@@ -157,7 +157,7 @@ public class AdminBuffs implements IAdminCommandHandler
 		return ADMIN_COMMANDS;
 	}
 
-	public void showBuffs(L2PcInstance activeChar, L2Character target, int page)
+	public void showBuffs(L2Player activeChar, L2Character target, int page)
 	{
 		final L2Effect[] effects = target.getAllEffects();
 
@@ -220,7 +220,7 @@ public class AdminBuffs implements IAdminCommandHandler
 		activeChar.sendPacket(ms);
 	}
 
-	private void removeBuff(L2PcInstance activeChar, int objId, int skillId)
+	private void removeBuff(L2Player activeChar, int objId, int skillId)
 	{
 		L2Character target = null;
 		try
@@ -248,7 +248,7 @@ public class AdminBuffs implements IAdminCommandHandler
 		}
 	}
 
-	private void removeAllBuffs(L2PcInstance activeChar, int objId)
+	private void removeAllBuffs(L2Player activeChar, int objId)
 	{
 		L2Character target = null;
 		try

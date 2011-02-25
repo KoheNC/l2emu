@@ -26,8 +26,8 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.LookupTable;
 
 import org.apache.commons.logging.Log;
@@ -39,14 +39,14 @@ public final class PcSkills
 	private static final Log _log = LogFactory.getLog(PcSkills.class);
 	
 	private final LookupTable<SkillMap> _storedSkills = new LookupTable<SkillMap>();
-	private final L2PcInstance _owner;
+	private final L2Player _owner;
 	
-	public PcSkills(L2PcInstance owner)
+	public PcSkills(L2Player owner)
 	{
 		_owner = owner;
 	}
 	
-	private L2PcInstance getOwner()
+	private L2Player getOwner()
 	{
 		return _owner;
 	}

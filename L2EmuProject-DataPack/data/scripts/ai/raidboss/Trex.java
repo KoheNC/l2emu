@@ -13,10 +13,10 @@
  */
 package ai.raidboss;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import ai.L2AttackableAIScript;
 
 /**
@@ -39,7 +39,7 @@ public class Trex extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance player, L2Skill skill, L2Object[] targets, boolean isPet)
+	public String onSkillSee(L2Npc npc, L2Player player, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		for (L2Object obj : targets)
 		{

@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 
@@ -29,7 +29,7 @@ public final class AllyInfo extends L2GameServerPacket
 	{
 	}
 	
-	public static void sendAllyInfo(final L2PcInstance activeChar)
+	public static void sendAllyInfo(final L2Player activeChar)
 	{
 		if (activeChar == null)
 			return;

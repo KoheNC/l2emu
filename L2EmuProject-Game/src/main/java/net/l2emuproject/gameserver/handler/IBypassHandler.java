@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.handler;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -34,7 +34,7 @@ public interface IBypassHandler
 	 * @param target
 	 * @return success
 	 */
-	public boolean useBypass(String command, L2PcInstance activeChar, L2Character target);
+	public boolean useBypass(String command, L2Player activeChar, L2Character target);
 
 	/**
 	 * this method is called at initialization to register all bypasses automatically

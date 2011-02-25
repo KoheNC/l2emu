@@ -23,6 +23,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.L2SkillLearn;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2StarCollectorInstance extends L2MerchantInstance
 {
@@ -49,7 +50,7 @@ public class L2StarCollectorInstance extends L2MerchantInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (command.startsWith("CollectionSkillList"))
 			showCollectionSkillList(player, false);
@@ -57,7 +58,7 @@ public class L2StarCollectorInstance extends L2MerchantInstance
 			super.onBypassFeedback(player, command);
 	}
 
-	public void showCollectionSkillList(L2PcInstance player, boolean closable)
+	public void showCollectionSkillList(L2Player player, boolean closable)
 	{
 		if (player.getLevel() < 75)
 		{

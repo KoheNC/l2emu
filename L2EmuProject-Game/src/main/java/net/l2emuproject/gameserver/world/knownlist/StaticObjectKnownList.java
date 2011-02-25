@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.world.knownlist;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2StaticObjectInstance;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class StaticObjectKnownList extends CharKnownList
 {
@@ -50,7 +50,7 @@ public class StaticObjectKnownList extends CharKnownList
 	{
 		if (object instanceof L2DefenderInstance)
 			return 800;
-		if (!(object instanceof L2PcInstance))
+		if (!(object instanceof L2Player))
 			return 0;
 		return 4000;
 	}
@@ -60,7 +60,7 @@ public class StaticObjectKnownList extends CharKnownList
 	{
 		if (object instanceof L2DefenderInstance)
 			return 600;
-		if (!(object instanceof L2PcInstance))
+		if (!(object instanceof L2Player))
 			return 0;
 		return 2000;
 	}

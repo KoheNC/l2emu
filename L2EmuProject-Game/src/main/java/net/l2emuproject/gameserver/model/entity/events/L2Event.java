@@ -19,10 +19,10 @@ import java.util.List;
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
@@ -98,31 +98,31 @@ public abstract class L2Event
 
 	public abstract void endEvent();
 
-	protected abstract void giveRewards(L2PcInstance player);
+	protected abstract void giveRewards(L2Player player);
 
-	protected abstract boolean canJoin(L2PcInstance player);
+	protected abstract boolean canJoin(L2Player player);
 
-	public abstract void registerPlayer(L2PcInstance player);
+	public abstract void registerPlayer(L2Player player);
 
-	public abstract void cancelRegistration(L2PcInstance player);
+	public abstract void cancelRegistration(L2Player player);
 
-	public abstract void removeDisconnected(L2PcInstance player);
+	public abstract void removeDisconnected(L2Player player);
 
 	protected abstract void initInstance();
 
-	protected final void sendMessage(L2PcInstance player, String text, int time)
+	protected final void sendMessage(L2Player player, String text, int time)
 	{
 		player.sendPacket(new ExShowScreenMessage(text, time));
 		player.sendMessage(text);
 	}
 
-	protected final void teleportPlayer(L2PcInstance player, int coords[], int instanceId)
+	protected final void teleportPlayer(L2Player player, int coords[], int instanceId)
 	{
 		player.setInstanceId(instanceId);
 		player.teleToLocation(coords[0], coords[1], coords[2], true);
 	}
 
-	protected final void setTeamColor(L2PcInstance player, int color)
+	protected final void setTeamColor(L2Player player, int color)
 	{
 		player.getAppearance().setNameColor(color);
 		player.getAppearance().setTitleColor(color);
@@ -131,11 +131,11 @@ public abstract class L2Event
 
 	protected final class ReviveTask implements Runnable
 	{
-		private final L2PcInstance	_player;
+		private final L2Player	_player;
 		private final int[]			_coords;
 		private final int			_instanceId;
 
-		public ReviveTask(L2PcInstance player, int[] coords, int instanceId)
+		public ReviveTask(L2Player player, int[] coords, int instanceId)
 		{
 			_player = player;
 			_coords = coords;

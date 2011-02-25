@@ -14,10 +14,10 @@
  */
 package custom.NonTalkingNPCs;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class NonTalkingNPCs extends QuestJython
 {
@@ -58,7 +58,7 @@ public final class NonTalkingNPCs extends QuestJython
 	}
 
 	@Override
-	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		return "";

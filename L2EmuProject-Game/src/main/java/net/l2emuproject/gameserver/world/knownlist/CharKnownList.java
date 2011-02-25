@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.world.knownlist;
 
 import java.util.Map;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.L2Collections;
 import net.l2emuproject.util.SingletonMap;
 
@@ -30,7 +30,7 @@ public class CharKnownList extends ObjectKnownList
 	protected final L2Character _activeChar;
 	
 	private final Map<Integer, L2Object> _knownObjects = new SingletonMap<Integer, L2Object>().shared();
-	private final Map<Integer, L2PcInstance> _knownPlayers = new SingletonMap<Integer, L2PcInstance>().shared();
+	private final Map<Integer, L2Player> _knownPlayers = new SingletonMap<Integer, L2Player>().shared();
 	
 	public CharKnownList(L2Character activeChar)
 	{
@@ -54,8 +54,8 @@ public class CharKnownList extends ObjectKnownList
 		if (getKnownObjects().put(object.getObjectId(), object) != null)
 			return false;
 		
-		if (object instanceof L2PcInstance)
-			getKnownPlayers().put(object.getObjectId(), (L2PcInstance)object);
+		if (object instanceof L2Player)
+			getKnownPlayers().put(object.getObjectId(), (L2Player)object);
 		
 		return true;
 	}
@@ -65,7 +65,7 @@ public class CharKnownList extends ObjectKnownList
 		return object != null && (getActiveChar() == object || _knownObjects != null && _knownObjects.containsKey(object.getObjectId()));
 	}
 	
-	public final boolean knowsThePlayer(L2PcInstance player)
+	public final boolean knowsThePlayer(L2Player player)
 	{
 		return player != null && (getActiveChar() == player || _knownPlayers != null && _knownPlayers.containsKey(player.getObjectId()));
 	}
@@ -76,7 +76,7 @@ public class CharKnownList extends ObjectKnownList
 		return getKnownObjects().get(objectId);
 	}
 	
-	public final L2PcInstance getKnownPlayer(int objectId)
+	public final L2Player getKnownPlayer(int objectId)
 	{
 		return getKnownPlayers().get(objectId);
 	}
@@ -112,7 +112,7 @@ public class CharKnownList extends ObjectKnownList
 		if (getKnownObjects().remove(object.getObjectId()) == null)
 			return false;
 		
-		if (object instanceof L2PcInstance)
+		if (object instanceof L2Player)
 			getKnownPlayers().remove(object.getObjectId());
 		
 		// If object is targeted by the L2Character, cancel Attack or Cast
@@ -166,18 +166,18 @@ public class CharKnownList extends ObjectKnownList
 		return _knownObjects;
 	}
 	
-	public final Map<Integer, L2PcInstance> getKnownPlayers()
+	public final Map<Integer, L2Player> getKnownPlayers()
 	{
 		return _knownPlayers;
 	}
 	
-	public final Iterable<L2PcInstance> getKnownPlayersInRadius(final int radius)
+	public final Iterable<L2Player> getKnownPlayersInRadius(final int radius)
 	{
-		return L2Collections.filteredIterable(L2PcInstance.class, getKnownPlayers().values(),
-			new L2Collections.Filter<L2PcInstance>()
+		return L2Collections.filteredIterable(L2Player.class, getKnownPlayers().values(),
+			new L2Collections.Filter<L2Player>()
 			{
 				@Override
-				public boolean accept(L2PcInstance player)
+				public boolean accept(L2Player player)
 				{
 					return Util.checkIfInRange(radius, getActiveChar(), player, true);
 				}

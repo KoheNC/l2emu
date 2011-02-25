@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestBuySellUIClose extends L2GameClientPacket
 {
@@ -30,7 +30,7 @@ public class RequestBuySellUIClose extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		final L2PcInstance activeChar = getClient().getActiveChar();
+		final L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null || activeChar.isInventoryDisabled())
 			return;
 		

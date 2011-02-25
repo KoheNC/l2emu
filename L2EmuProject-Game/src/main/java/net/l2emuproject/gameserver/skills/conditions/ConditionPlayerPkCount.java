@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * The Class ConditionPlayerPkCount.
@@ -37,9 +37,9 @@ public final class ConditionPlayerPkCount extends Condition
 	@Override
 	public final boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2PcInstance))
+		if (!(env.player instanceof L2Player))
 			return false;
 
-		return ((L2PcInstance) env.player).getPkKills() <= _pk;
+		return ((L2Player) env.player).getPkKills() <= _pk;
 	}
 }

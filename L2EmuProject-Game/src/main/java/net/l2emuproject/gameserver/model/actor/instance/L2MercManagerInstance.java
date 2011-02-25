@@ -19,6 +19,7 @@ import java.util.StringTokenizer;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class L2MercManagerInstance extends L2MerchantInstance
 {
@@ -32,7 +33,7 @@ public final class L2MercManagerInstance extends L2MerchantInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		int condition = validateCondition(player);
 		if (condition <= COND_ALL_FALSE)
@@ -63,7 +64,7 @@ public final class L2MercManagerInstance extends L2MerchantInstance
 	}
 
 	@Override
-	public void showChatWindow(L2PcInstance player)
+	public void showChatWindow(L2Player player)
 	{
 		String filename = "data/html/mercmanager/mercmanager-no.htm";
 
@@ -81,7 +82,7 @@ public final class L2MercManagerInstance extends L2MerchantInstance
 		player.sendPacket(html);
 	}
 
-	private int validateCondition(L2PcInstance player)
+	private int validateCondition(L2Player player)
 	{
 		if (getCastle() != null && getCastle().getCastleId() > 0)
 		{

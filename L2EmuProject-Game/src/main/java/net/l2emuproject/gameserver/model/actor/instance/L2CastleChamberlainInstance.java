@@ -42,6 +42,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 /**
@@ -73,7 +74,7 @@ public class L2CastleChamberlainInstance extends L2MerchantInstance
 		NO_AUTH.setFile("data/html/chamberlain/chamberlain-noprivs.htm");
 	}
 
-	private void sendHtmlMessage(L2PcInstance player, NpcHtmlMessage html)
+	private void sendHtmlMessage(L2Player player, NpcHtmlMessage html)
 	{
 		html.replace("%objectId%", String.valueOf(getObjectId()));
 		html.replace("%npcId%", String.valueOf(getNpcId()));
@@ -81,7 +82,7 @@ public class L2CastleChamberlainInstance extends L2MerchantInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		// BypassValidation Exploit plug.
 		if (player.getLastFolkNPC().getObjectId() != getObjectId())
@@ -1550,7 +1551,7 @@ public class L2CastleChamberlainInstance extends L2MerchantInstance
 	}
 
 	@Override
-	public void showChatWindow(L2PcInstance player)
+	public void showChatWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		String filename = "data/html/chamberlain/chamberlain-no.htm";
@@ -1665,10 +1666,10 @@ public class L2CastleChamberlainInstance extends L2MerchantInstance
 		return null;
 	}
 
-	private void doTeleport(L2PcInstance player, int val)
+	private void doTeleport(L2Player player, int val)
 	{
 		if (_log.isDebugEnabled())
-			_log.warn("doTeleport(L2PcInstance player, int val) is called");
+			_log.warn("doTeleport(L2Player player, int val) is called");
 		L2TeleportLocation list = TeleportLocationTable.getInstance().getTemplate(val);
 		if (list != null)
 		{
@@ -1685,7 +1686,7 @@ public class L2CastleChamberlainInstance extends L2MerchantInstance
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	private boolean siegeBlocksFunction(L2PcInstance player)
+	private boolean siegeBlocksFunction(L2Player player)
 	{
 		if (getCastle().getSiege().getIsInProgress()) {
 			NpcHtmlMessage siege = new NpcHtmlMessage(getObjectId());
@@ -1697,7 +1698,7 @@ public class L2CastleChamberlainInstance extends L2MerchantInstance
 		return false;
 	}
 
-	private boolean validatePrivileges(L2PcInstance player, int privilege)
+	private boolean validatePrivileges(L2Player player, int privilege)
 	{
 		if (!L2Clan.checkPrivileges(player, L2Clan.CP_CS_DISMISS))
 		{
@@ -1707,7 +1708,7 @@ public class L2CastleChamberlainInstance extends L2MerchantInstance
 		return true;
 	}
 
-	protected int validateCondition(L2PcInstance player)
+	protected int validateCondition(L2Player player)
 	{
 		if (getCastle() != null && getCastle().getCastleId() > 0 && player.getClan() != null
 				&& getCastle().getOwnerId() == player.getClanId())

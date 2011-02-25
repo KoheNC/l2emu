@@ -22,8 +22,8 @@ import java.util.Map;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.templates.item.L2Henna;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -97,7 +97,7 @@ public class HennaTreeTable
 		}
 	}
 	
-	public L2Henna[] getAvailableHenna(L2PcInstance player)
+	public L2Henna[] getAvailableHenna(L2Player player)
 	{
 		return _hennaTrees.get(player.getClassId().getId());
 	}
@@ -112,7 +112,7 @@ public class HennaTreeTable
 	 * @param activeChar a player (if it is null, returns false)
 	 * @param symbolId henna dye ID
 	 */
-	public final boolean isDrawable(L2PcInstance player, int symbolId)
+	public final boolean isDrawable(L2Player player, int symbolId)
 	{
 		if (player == null)
 			return false;

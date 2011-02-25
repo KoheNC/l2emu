@@ -16,6 +16,7 @@ package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 
 /**
@@ -44,7 +45,7 @@ public class L2LevelChangerInstance extends L2NpcInstance
 	 * For Decrease Character level
 	 */
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		// For Decrease Character level
 		if (command.startsWith("CustomDecreaseCharLevel"))
@@ -56,7 +57,7 @@ public class L2LevelChangerInstance extends L2NpcInstance
 	/**
 	 * Custom Change (decrease/increase) character level
 	 */
-	private boolean changeCharLevel(L2PcInstance player, int deltaLevel, boolean increase)
+	private boolean changeCharLevel(L2Player player, int deltaLevel, boolean increase)
 	{
 		if (!Config.ALLOW_NPC_CHANGELEVEL)
 		{

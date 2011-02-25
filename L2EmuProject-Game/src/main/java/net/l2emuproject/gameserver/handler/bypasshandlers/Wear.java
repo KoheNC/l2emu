@@ -19,12 +19,12 @@ import java.util.StringTokenizer;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ShopPreviewList;
 import net.l2emuproject.gameserver.services.transactions.L2TradeList;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * TODO: Check wear is working or not...
@@ -35,7 +35,7 @@ public class Wear implements IBypassHandler
 												{ "Wear" };
 
 	@Override
-	public boolean useBypass(String command, L2PcInstance activeChar, L2Character target)
+	public boolean useBypass(String command, L2Player activeChar, L2Character target)
 	{
 		if (!(target instanceof L2Npc))
 			return false;
@@ -61,7 +61,7 @@ public class Wear implements IBypassHandler
 		return false;
 	}
 
-	private static final void showWearWindow(L2PcInstance player, int val)
+	private static final void showWearWindow(L2Player player, int val)
 	{
 		player.tempInventoryDisable();
 

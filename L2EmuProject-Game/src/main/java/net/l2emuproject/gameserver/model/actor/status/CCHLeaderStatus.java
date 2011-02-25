@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.model.actor.status;
 
 import net.l2emuproject.gameserver.instancemanager.CCHManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2CCHBossInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author savormix
@@ -36,7 +36,7 @@ public final class CCHLeaderStatus extends AttackableStatus
 	{
 		super.reduceHp0(value, attacker, awake, isDOT, isConsume);
 		
-		final L2PcInstance player = L2Object.getActingPlayer(attacker);
+		final L2Player player = L2Object.getActingPlayer(attacker);
 		if (player == null)
 			return;
 		

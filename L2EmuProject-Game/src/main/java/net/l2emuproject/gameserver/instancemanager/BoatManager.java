@@ -22,11 +22,11 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.VehiclePathPoint;
 import net.l2emuproject.gameserver.model.actor.instance.L2BoatInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class BoatManager
 {
@@ -154,8 +154,8 @@ public class BoatManager
 	public void broadcastPacket(VehiclePathPoint point1, VehiclePathPoint point2, L2GameServerPacket packet)
 	{
 		double dx, dy;
-		final Collection<L2PcInstance> players = L2World.getInstance().getAllPlayers();
-		for (L2PcInstance player : players)
+		final Collection<L2Player> players = L2World.getInstance().getAllPlayers();
+		for (L2Player player : players)
 		{
 			if (player == null)
 				continue;
@@ -180,8 +180,8 @@ public class BoatManager
 	public void broadcastPackets(VehiclePathPoint point1, VehiclePathPoint point2, L2GameServerPacket... packets)
 	{
 		double dx, dy;
-		final Collection<L2PcInstance> players = L2World.getInstance().getAllPlayers();
-		for (L2PcInstance player : players)
+		final Collection<L2Player> players = L2World.getInstance().getAllPlayers();
+		for (L2Player player : players)
 		{
 			if (player == null)
 				continue;

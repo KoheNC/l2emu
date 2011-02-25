@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.restriction.global;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
@@ -23,7 +23,7 @@ import net.l2emuproject.gameserver.world.zone.L2Zone;
 public final class JailRestriction extends AbstractRestriction
 {
 	@Override
-	public final boolean isRestricted(L2PcInstance activeChar, Class<? extends GlobalRestriction> callingRestriction)
+	public final boolean isRestricted(L2Player activeChar, Class<? extends GlobalRestriction> callingRestriction)
 	{
 		if (isInJail(activeChar))
 		{
@@ -35,7 +35,7 @@ public final class JailRestriction extends AbstractRestriction
 	}
 	
 	@Override
-	public final boolean canInviteToParty(L2PcInstance activeChar, L2PcInstance target)
+	public final boolean canInviteToParty(L2Player activeChar, L2Player target)
 	{
 		if (isInJail(activeChar) || isInJail(target))
 		{
@@ -47,7 +47,7 @@ public final class JailRestriction extends AbstractRestriction
 	}
 	
 	@Override
-	public final boolean canTeleport(L2PcInstance activeChar)
+	public final boolean canTeleport(L2Player activeChar)
 	{
 		// Check to see if player is in jail
 		if (isInJail(activeChar))
@@ -59,7 +59,7 @@ public final class JailRestriction extends AbstractRestriction
 		return true;
 	}
 	
-	private boolean isInJail(L2PcInstance player)
+	private boolean isInJail(L2Player player)
 	{
 		return player.isInJail() || player.isInsideZone(L2Zone.FLAG_JAIL);
 	}

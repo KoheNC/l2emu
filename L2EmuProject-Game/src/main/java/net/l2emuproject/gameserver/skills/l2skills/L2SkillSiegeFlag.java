@@ -19,7 +19,6 @@ import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.Fort;
@@ -27,6 +26,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2SkillSiegeFlag extends L2Skill
 {
@@ -42,10 +42,10 @@ public class L2SkillSiegeFlag extends L2Skill
 
 	public void useSkill(L2Character activeChar, L2Object[] targets)
 	{
-		if (!(activeChar instanceof L2PcInstance))
+		if (!(activeChar instanceof L2Player))
 			return;
 
-		L2PcInstance player = (L2PcInstance) activeChar;
+		L2Player player = (L2Player) activeChar;
 
 		if (player.getClan() == null || player.getClan().getLeaderId() != player.getObjectId())
 			return;

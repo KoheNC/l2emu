@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.effects.EffectFusion;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author kombat, Forsaiken
@@ -39,7 +39,7 @@ final class ConditionForceBuff extends Condition
 	@Override
 	boolean testImpl(Env env)
 	{
-		L2PcInstance player = env.player.getActingPlayer();
+		L2Player player = env.player.getActingPlayer();
 		
 		if (player.isGM() && player.getActiveClass() == player.getBaseClass())
 			return true;

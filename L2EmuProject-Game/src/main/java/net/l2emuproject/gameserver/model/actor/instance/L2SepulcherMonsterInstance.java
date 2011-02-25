@@ -24,6 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -232,7 +233,7 @@ public class L2SepulcherMonsterInstance extends L2MonsterInstance
 		case 25342:
 		case 25346:
 		case 25349:
-			L2PcInstance pc = killer.getActingPlayer();
+			L2Player pc = killer.getActingPlayer();
 			if (pc != null)
 				giveCup(pc);
 			if (_onDeadEventTask != null)
@@ -260,7 +261,7 @@ public class L2SepulcherMonsterInstance extends L2MonsterInstance
 		super.deleteMe();
 	}
 
-	private void giveCup(L2PcInstance player)
+	private void giveCup(L2Player player)
 	{
 		String questId = "620_FourGoblets";
 		int cupId = 0;
@@ -284,7 +285,7 @@ public class L2SepulcherMonsterInstance extends L2MonsterInstance
 
 		if (player.getParty() != null)
 		{
-			for (L2PcInstance mem : player.getParty().getPartyMembers())
+			for (L2Player mem : player.getParty().getPartyMembers())
 			{
 				QuestState qs = mem.getQuestState(questId);
 				if(qs != null && (qs.isStarted() || qs.isCompleted())

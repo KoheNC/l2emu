@@ -22,7 +22,6 @@ import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2TamedBeastInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
@@ -32,6 +31,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 /**
@@ -331,7 +331,7 @@ public class FeedableBeasts extends L2AttackableAIScript
 		_GrowthCapableMobs.put(21505, temp);
 	}
 
-	public void spawnNext(L2Npc npc, int growthLevel, L2PcInstance player, int food)
+	public void spawnNext(L2Npc npc, int growthLevel, L2Player player, int food)
 	{
 		int npcId = npc.getNpcId();
 		int nextNpcId = 0;
@@ -456,7 +456,7 @@ public class FeedableBeasts extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAdvEvent (String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent (String event, L2Npc npc, L2Player player)
 	{
 		if (event.equalsIgnoreCase("polymorph Mad Cow") && npc != null && player != null)
 		{
@@ -483,7 +483,7 @@ public class FeedableBeasts extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onSkillSee (L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public String onSkillSee (L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		// this behavior is only run when the target of skill is the passed npc (chest)
 		// i.e. when the player is attempting to open the chest using a skill
@@ -573,7 +573,7 @@ public class FeedableBeasts extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onKill (L2Npc npc, L2PcInstance killer, boolean isPet)
+	public String onKill (L2Npc npc, L2Player killer, boolean isPet)
 	{
 		// remove the feedinfo of the mob that got killed, if any
 		if (_FeedInfo.containsKey(npc.getObjectId()))

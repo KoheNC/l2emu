@@ -14,9 +14,9 @@
  */
 package transformations;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class LilimKnightNormal extends L2Transformation
 {
@@ -29,7 +29,7 @@ public class LilimKnightNormal extends L2Transformation
 	}
 
 	@Override
-	public void transformedSkills(L2PcInstance player)
+	public void transformedSkills(L2Player player)
 	{
 		int level = -1;
 		if (player.getLevel() >= 60)
@@ -49,7 +49,7 @@ public class LilimKnightNormal extends L2Transformation
 	}
 
 	@Override
-	public void removeSkills(L2PcInstance player)
+	public void removeSkills(L2Player player)
 	{
 		removeSkill(player, 568); // Attack Buster (4 levels)
 		removeSkill(player, 569); // Attack Storm (4 levels)

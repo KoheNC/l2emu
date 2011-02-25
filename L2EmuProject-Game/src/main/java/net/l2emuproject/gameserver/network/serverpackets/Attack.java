@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.lang.ArrayUtils;
 
@@ -56,7 +56,7 @@ public final class Attack extends L2GameServerPacket
 			if (crit)
 				flags |= HITFLAG_CRIT;
 			// dirty fix for lags on olympiad
-			if (shld > 0 && !(target instanceof L2PcInstance && ((L2PcInstance)target).getPlayerOlympiad().isInOlympiadMode()))
+			if (shld > 0 && !(target instanceof L2Player && ((L2Player)target).getPlayerOlympiad().isInOlympiadMode()))
 				flags |= HITFLAG_SHLD;
 			return flags;
 		}

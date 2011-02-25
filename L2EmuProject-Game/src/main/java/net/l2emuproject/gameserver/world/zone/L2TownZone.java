@@ -20,10 +20,10 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.network.serverpackets.AgitDecoInfo;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public class L2TownZone extends L2Zone
@@ -45,7 +45,7 @@ public class L2TownZone extends L2Zone
 		{
 			case 1: // PvP allowed for siege participants
 			{
-				if (character instanceof L2PcInstance && ((L2PcInstance)character).getSiegeState() != 0)
+				if (character instanceof L2Player && ((L2Player)character).getSiegeState() != 0)
 					flag = FLAG_PVP;
 				break;
 			}
@@ -68,7 +68,7 @@ public class L2TownZone extends L2Zone
 		
 		// Players must always see deco, not only inside clan hall.
 		// retail server behavior
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
 			ClanHall[] townHalls = ClanHallManager.getInstance().getTownClanHalls(getTownId());
 			if (townHalls != null)

@@ -29,7 +29,6 @@ import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.datatables.EventDroplist;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -43,6 +42,7 @@ import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -348,7 +348,7 @@ public class SavingSanta extends QuestJython
 	}
 
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public String onSkillSee(L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		if (_isWaitingForPlayerSkill && skill.getId() > 21013 && skill.getId() < 21017)
 		{
@@ -359,12 +359,12 @@ public class SavingSanta extends QuestJython
 	}
 
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, L2Skill skill)
+	public String onSpellFinished(L2Npc npc, L2Player player, L2Skill skill)
 	{
 		if (skill.getId() == 6100)
 		{
 			_isWaitingForPlayerSkill = false;
-			for (L2PcInstance pl : npc.getKnownList().getKnownPlayersInRadius(600))
+			for (L2Player pl : npc.getKnownList().getKnownPlayersInRadius(600))
 			{
 				if (pl.getFirstEffect(23019) == null)
 					continue;
@@ -400,7 +400,7 @@ public class SavingSanta extends QuestJython
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		String htmltext = "";
 
@@ -461,7 +461,7 @@ public class SavingSanta extends QuestJython
 				if (_isSantaFree)
 				{
 					startQuestTimer("SantaSpawn", 120000, null, null);
-					for (L2PcInstance pl : L2World.getInstance().getAllPlayers())
+					for (L2Player pl : L2World.getInstance().getAllPlayers())
 					{
 						if (pl.isOnline() > 0 && pl.getLevel() >= 20 && pl.isInCombat() && !pl.isInsideZone(L2Zone.FLAG_PEACE) && !pl.isFlyingMounted())
 						{
@@ -554,8 +554,8 @@ public class SavingSanta extends QuestJython
 				startQuestTimer("SantaBlessings", 15000, null, null);
 				for (L2Npc santaHelper : _santaHelpers)
 				{
-					Collection<L2PcInstance> playerList = santaHelper.getKnownList().getKnownPlayers().values();
-					for (L2PcInstance playerx : playerList)
+					Collection<L2Player> playerList = santaHelper.getKnownList().getKnownPlayers().values();
+					for (L2Player playerx : playerList)
 					{
 						if (playerx.getClassId().isMage())
 						{
@@ -809,7 +809,7 @@ public class SavingSanta extends QuestJython
 	}
 
 	@Override
-	public String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = "";
 		QuestState st = player.getQuestState(getName());

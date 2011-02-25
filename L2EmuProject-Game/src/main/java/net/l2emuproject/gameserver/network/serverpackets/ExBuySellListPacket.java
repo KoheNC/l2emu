@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.List;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.services.transactions.L2TradeList;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author ShanSoft
@@ -34,7 +34,7 @@ public final class ExBuySellListPacket extends L2GameServerPacket
 	private L2ItemInstance[]		_refundList					= null;
 	private boolean					_done;
 
-	public ExBuySellListPacket(L2PcInstance player, L2TradeList list, double taxRate, boolean done)
+	public ExBuySellListPacket(L2Player player, L2TradeList list, double taxRate, boolean done)
 	{
 		for (L2ItemInstance item : list.getItems())
 		{

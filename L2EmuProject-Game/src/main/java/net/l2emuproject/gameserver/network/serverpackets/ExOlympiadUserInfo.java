@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author godson
@@ -25,14 +25,14 @@ public final class ExOlympiadUserInfo extends L2GameServerPacket
 	private static final String _S__FE_29_OLYMPIADUSERINFO = "[S] FE:7A ExOlympiadUserInfo";
 	
 	private final int _side; // 1 = right, 2 = left
-	private final L2PcInstance _player;
+	private final L2Player _player;
 	
-	public ExOlympiadUserInfo(L2PcInstance player)
+	public ExOlympiadUserInfo(L2Player player)
 	{
 		this(player, player.getPlayerOlympiad().getOlympiadSide());
 	}
 	
-	public ExOlympiadUserInfo(L2PcInstance player, int side)
+	public ExOlympiadUserInfo(L2Player player, int side)
 	{
 		_player = player;
 		_side = side;

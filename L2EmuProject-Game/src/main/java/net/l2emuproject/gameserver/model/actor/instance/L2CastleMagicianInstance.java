@@ -21,6 +21,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 
@@ -52,7 +53,7 @@ public class L2CastleMagicianInstance extends L2NpcInstance
 	}
 
 	@Override
-	public void showChatWindow(L2PcInstance player, int val)
+	public void showChatWindow(L2Player player, int val)
 	{
 		player.sendPacket( ActionFailed.STATIC_PACKET );
 		String filename = "data/html/castlemagician/magician-no.htm";
@@ -79,7 +80,7 @@ public class L2CastleMagicianInstance extends L2NpcInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (command.equals("gotoleader"))
 		{
@@ -131,7 +132,7 @@ public class L2CastleMagicianInstance extends L2NpcInstance
 			super.onBypassFeedback(player, command);
 	}
 
-	protected int validateCondition(L2PcInstance player)
+	protected int validateCondition(L2Player player)
 	{
 		if (player.isGM()) return COND_OWNER;
 		if (getCastle() != null && getCastle().getCastleId() > 0)

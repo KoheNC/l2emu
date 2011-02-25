@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 
 /**
@@ -27,7 +27,7 @@ public final class RelationChanged extends L2GameServerPacket
 	public static final int		RELATION_PARTY1			= 0x00001;					// party member
 	public static final int		RELATION_PARTY2			= 0x00002;					// party member
 	public static final int		RELATION_PARTY3			= 0x00004;					// party member
-	public static final int		RELATION_PARTY4			= 0x00008;					// party member (for information, see L2PcInstance.getRelation())
+	public static final int		RELATION_PARTY4			= 0x00008;					// party member (for information, see L2Player.getRelation())
 	public static final int		RELATION_PARTYLEADER	= 0x00010;					// true if is party leader
 	public static final int		RELATION_HAS_PARTY		= 0x00020;					// true if is in party
 	public static final int		RELATION_CLAN_MEMBER	= 0x00040;					// true if is in clan
@@ -40,7 +40,7 @@ public final class RelationChanged extends L2GameServerPacket
 	public static final int		RELATION_MUTUAL_WAR		= 0x04000;					// double fist
 	public static final int		RELATION_TERRITORY_WAR	= 0x80000;					// show Territory War icon
 
-	public static void sendRelationChanged(L2PcInstance target, L2PcInstance attacker)
+	public static void sendRelationChanged(L2Player target, L2Player attacker)
 	{
 		if (target == null || attacker == null)
 			return;
@@ -58,7 +58,7 @@ public final class RelationChanged extends L2GameServerPacket
 	private final int	_karma;
 	private final int	_pvpFlag;
 
-	public RelationChanged(L2Playable target, int relation, L2PcInstance attacker)
+	public RelationChanged(L2Playable target, int relation, L2Player attacker)
 	{
 		_objId = target.getObjectId();
 		_relation = relation;

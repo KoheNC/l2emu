@@ -18,7 +18,6 @@ import gnu.trove.TIntObjectHashMap;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2RaidBossInstance;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.entity.Instance;
@@ -31,6 +30,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.SkillHolder;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -141,14 +141,14 @@ public final class AwlUnderFoot extends QuestJython
 			addAttackId(i);
 	}
 
-	private String checkConditions(L2PcInstance player)
+	private String checkConditions(L2Player player)
 	{
 		L2Party party = player.getParty();
 		if (party == null)
 			return "FortressWarden-03.htm";
 		if (party.getLeader() != player)
 			return getHtm("FortressWarden-04.htm").replace("%leader%", party.getLeader().getName());
-		for (L2PcInstance partyMember : party.getPartyMembers())
+		for (L2Player partyMember : party.getPartyMembers())
 		{
 			QuestState st = partyMember.getQuestState(QN);
 			if (st == null || st.getInt(CONDITION) < 1)
@@ -159,13 +159,13 @@ public final class AwlUnderFoot extends QuestJython
 		return null;
 	}
 
-	private void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
+	private void teleportPlayer(L2Player player, int[] coords, int instanceId)
 	{
 		player.setInstanceId(instanceId);
 		player.teleToLocation(coords[0], coords[1], coords[2]);
 	}
 
-	private String enterInstance(L2PcInstance player, String template, int[] coords, FortDungeon dungeon, String ret)
+	private String enterInstance(L2Player player, String template, int[] coords, FortDungeon dungeon, String ret)
 	{
 		//check for existing instances for this player
 		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
@@ -210,7 +210,7 @@ public final class AwlUnderFoot extends QuestJython
 			}
 			else
 			{
-				for (L2PcInstance partyMember : party.getPartyMembers())
+				for (L2Player partyMember : party.getPartyMembers())
 				{
 					teleportPlayer(partyMember, coords, instanceId);
 					world.allowed.add(partyMember.getObjectId());
@@ -259,7 +259,7 @@ public final class AwlUnderFoot extends QuestJython
 		}
 	}
 
-	private String checkFortCondition(L2PcInstance player, L2Npc npc, boolean isEnter)
+	private String checkFortCondition(L2Player player, L2Npc npc, boolean isEnter)
 	{
 		Fort fortress = npc.getFort();
 		FortDungeon dungeon = _fortDungeons.get(npc.getNpcId());
@@ -277,7 +277,7 @@ public final class AwlUnderFoot extends QuestJython
 		return null;
 	}
 
-	private void rewardPlayer(L2PcInstance player)
+	private void rewardPlayer(L2Player player)
 	{
 		QuestState st = player.getQuestState(QN);
 		if (st.getInt(CONDITION) == 1)
@@ -288,7 +288,7 @@ public final class AwlUnderFoot extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		String htmltext = event;
 		if (event.equalsIgnoreCase("enter"))
@@ -322,7 +322,7 @@ public final class AwlUnderFoot extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = NO_QUEST;
 		QuestState st = player.getQuestState(QN);
@@ -364,7 +364,7 @@ public final class AwlUnderFoot extends QuestJython
 	}
 
 	@Override
-	public final String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isPet)
+	public final String onAttack(L2Npc npc, L2Player player, int damage, boolean isPet)
 	{
 		L2Playable attacker = (isPet ? player.getPet() : player);
 		if (attacker.getLevel() - npc.getLevel() >= 9)
@@ -376,7 +376,7 @@ public final class AwlUnderFoot extends QuestJython
 			}
 			else if (player.getParty() != null)
 			{
-				for (L2PcInstance pmember : player.getParty().getPartyMembers())
+				for (L2Player pmember : player.getParty().getPartyMembers())
 				{
 					if (pmember.getBuffCount() > 0 || pmember.getDanceCount(true, true) > 0)
 					{
@@ -390,7 +390,7 @@ public final class AwlUnderFoot extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof FAUWorld)
@@ -399,7 +399,7 @@ public final class AwlUnderFoot extends QuestJython
 			if (ArrayUtils.contains(RAIDS3, npc.getNpcId()))
 			{
 				if (player.getParty() != null)
-					for (L2PcInstance pl : player.getParty().getPartyMembers())
+					for (L2Player pl : player.getParty().getPartyMembers())
 						rewardPlayer(pl);
 				else
 					rewardPlayer(player);

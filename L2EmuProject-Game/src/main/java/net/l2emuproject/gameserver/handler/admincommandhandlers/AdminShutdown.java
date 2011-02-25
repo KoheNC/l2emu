@@ -19,9 +19,9 @@ import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.ShutdownMode;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class handles following admin commands:
@@ -35,7 +35,7 @@ public class AdminShutdown implements IAdminCommandHandler
 													{ "admin_server_shutdown", "admin_server_restart", "admin_server_abort" };
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (command.startsWith("admin_server_shutdown"))
 		{
@@ -75,7 +75,7 @@ public class AdminShutdown implements IAdminCommandHandler
 		return ADMIN_COMMANDS;
 	}
 
-	private void sendHtmlForm(L2PcInstance activeChar)
+	private void sendHtmlForm(L2Player activeChar)
 	{
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
 		adminReply.setFile("data/html/admin/shutdown.htm");
@@ -89,12 +89,12 @@ public class AdminShutdown implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private void serverShutdown(L2PcInstance activeChar, int seconds, boolean restart)
+	private void serverShutdown(L2Player activeChar, int seconds, boolean restart)
 	{
 		Shutdown.start(activeChar.getName() + "(" + activeChar.getObjectId() + ")", seconds, restart ? ShutdownMode.RESTART : ShutdownMode.SHUTDOWN);
 	}
 	
-	private void serverAbort(L2PcInstance activeChar)
+	private void serverAbort(L2Player activeChar)
 	{
 		Shutdown.abort(activeChar.getName() + "(" + activeChar.getObjectId() + ")");
 	}

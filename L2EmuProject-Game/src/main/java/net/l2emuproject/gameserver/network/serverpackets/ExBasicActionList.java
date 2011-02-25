@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author KenM/Crion
@@ -241,7 +241,7 @@ public class ExBasicActionList extends L2GameServerPacket
 		return _S__FE_5E_EXBASICACTIONLIST;
 	}
 
-	public static void sendTo(L2PcInstance player)
+	public static void sendTo(L2Player player)
 	{
 		L2Transformation trans = player.getPlayerTransformation().getTransformation();
 		if (trans == null || !trans.hidesActionButtons())

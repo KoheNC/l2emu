@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.mmocore.network.InvalidPacketException;
 
@@ -38,7 +38,7 @@ public final class ConfirmDlgAnswer extends L2GameClientPacket
 	@Override
 	protected void runImpl() throws InvalidPacketException
 	{
-		L2PcInstance cha = getActiveChar();
+		L2Player cha = getActiveChar();
 		if (cha == null)
 			return;
 		

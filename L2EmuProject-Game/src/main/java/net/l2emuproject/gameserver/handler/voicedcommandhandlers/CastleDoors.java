@@ -18,9 +18,9 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IVoicedCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class CastleDoors implements IVoicedCommandHandler
 {
@@ -28,7 +28,7 @@ public class CastleDoors implements IVoicedCommandHandler
 													{ "open", "close" };
 
 	@Override
-	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String target)
+	public boolean useVoicedCommand(String command, L2Player activeChar, String target)
 	{
 		if (command.startsWith("open") && target.equals("doors") && (activeChar.isClanLeader()))
 		{

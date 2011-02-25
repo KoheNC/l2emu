@@ -21,7 +21,6 @@ import net.l2emuproject.gameserver.handler.IBypassHandler;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2MercenaryManagerInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExBrExtraUserInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowDominionRegistry;
@@ -30,6 +29,7 @@ import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class TerritoryWar implements IBypassHandler
 {
@@ -37,7 +37,7 @@ public class TerritoryWar implements IBypassHandler
 												{ "Territory", "TW_Multisell", "TW_Buy_List", "TW_Buy", "CalcRewards", "ReceiveRewards" };
 
 	@Override
-	public boolean useBypass(String command, L2PcInstance activeChar, L2Character target)
+	public boolean useBypass(String command, L2Player activeChar, L2Character target)
 	{
 		if (!(target instanceof L2Npc))
 			return false;

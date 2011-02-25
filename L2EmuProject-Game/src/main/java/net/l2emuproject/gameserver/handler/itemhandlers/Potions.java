@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.handler.itemhandlers;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -26,6 +25,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 
@@ -65,10 +65,10 @@ public class Potions implements IItemHandler
 	@Override
 	public void useItem(L2Playable playable, L2ItemInstance item)
 	{
-		L2PcInstance activeChar; // use activeChar only for L2PcInstance checks where cannot be used PetInstance
+		L2Player activeChar; // use activeChar only for L2Player checks where cannot be used PetInstance
 		boolean res = false;
-		if (playable instanceof L2PcInstance)
-			activeChar = (L2PcInstance) playable;
+		if (playable instanceof L2Player)
+			activeChar = (L2Player) playable;
 		else if (playable instanceof L2PetInstance)
 			activeChar = ((L2PetInstance) playable).getOwner();
 		else
@@ -252,7 +252,7 @@ public class Potions implements IItemHandler
 	
 	private boolean isUseable(L2Playable playable, L2ItemInstance item, int skillid)
 	{
-		L2PcInstance activeChar = ((playable instanceof L2PcInstance) ? ((L2PcInstance) playable) : ((L2Summon) playable).getOwner());
+		L2Player activeChar = ((playable instanceof L2Player) ? ((L2Player) playable) : ((L2Summon) playable).getOwner());
 		if (activeChar.isSkillDisabled(skillid))
 		{
 			SystemMessage sm = new SystemMessage(SystemMessageId.S1_PREPARED_FOR_REUSE);
@@ -296,9 +296,9 @@ public class Potions implements IItemHandler
 				// activeChar.doCast(skill);
 			}
 			
-			if (activeChar instanceof L2PcInstance)
+			if (activeChar instanceof L2Player)
 			{
-				L2PcInstance player = (L2PcInstance) activeChar;
+				L2Player player = (L2Player) activeChar;
 				
 				if (!(player.isSitting() && !skill.isPotion()))
 					return true;

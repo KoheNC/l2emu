@@ -18,8 +18,8 @@ import java.util.Collection;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Announcements;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author lord_rex
@@ -44,7 +44,7 @@ public final class OnlineStatusTask extends AbstractPeriodicTaskManager
 	@Override
 	public final void run()
 	{
-		final Collection<L2PcInstance> players = L2World.getInstance().getAllPlayers();
+		final Collection<L2Player> players = L2World.getInstance().getAllPlayers();
 
 		// Announce just if there are more than 2 players on server.
 		if (players.isEmpty() || players.size() == 1)

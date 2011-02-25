@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.services.itemauction;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Forsaiken
@@ -56,7 +56,7 @@ public final class ItemAuctionBid
 		return _lastBid <= 0;
 	}
 
-	final L2PcInstance getPlayer()
+	final L2Player getPlayer()
 	{
 		return L2World.getInstance().getPlayer(_playerObjId);
 	}

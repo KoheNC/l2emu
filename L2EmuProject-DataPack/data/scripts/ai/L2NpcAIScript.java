@@ -9,7 +9,6 @@ import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -17,6 +16,7 @@ import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Stake
@@ -112,7 +112,7 @@ public class L2NpcAIScript extends Quest
 
 	private boolean notifyNpcRangeEnter(final L2Character character, final L2Npc npc)
 	{
-		final L2PcInstance player = character.getActingPlayer();
+		final L2Player player = character.getActingPlayer();
 		String res = null;
 		try
 		{
@@ -224,11 +224,11 @@ public class L2NpcAIScript extends Quest
 	/**
 	 * The same method as in Quest, but those are private methods, and better to keep them private
 	 * <br/>to avoid possible unnecessary vtables
-	 * @param player : L2PcInstance
+	 * @param player : L2Player
 	 * @param t : Throwable
 	 * @return boolean
 	 */
-	private boolean showError(final L2PcInstance player, final Throwable t)
+	private boolean showError(final L2Player player, final Throwable t)
 	{
 		_log.warn(getScriptFile().getAbsolutePath(), t);
 		if (player != null && player.getAccessLevel() > 0)
@@ -250,7 +250,7 @@ public class L2NpcAIScript extends Quest
 	 * @param res : String pointing out the message to show at the player
 	 * @return boolean
 	 */
-	private boolean showResult(final L2PcInstance player, final String res)
+	private boolean showResult(final L2Player player, final String res)
 	{
 		if (res == null || player == null)
 		{

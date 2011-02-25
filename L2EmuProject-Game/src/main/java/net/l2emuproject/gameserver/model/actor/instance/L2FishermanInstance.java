@@ -24,6 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.L2SkillLearn;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2FishermanInstance extends L2MerchantInstance
 {
@@ -49,7 +50,7 @@ public class L2FishermanInstance extends L2MerchantInstance
         return "data/html/fisherman/" + pom + ".htm";
     }
 
-    public static void showSkillList(L2PcInstance player, boolean closable)
+    public static void showSkillList(L2Player player, boolean closable)
     {
         L2SkillLearn[] skills = SkillTreeTable.getInstance().getAvailableFishingSkills(player);
         AcquireSkillList asl = new AcquireSkillList(AcquireSkillList.SkillType.Fishing);

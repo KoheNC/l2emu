@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.handler.chathandlers;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IChatHandler;
 import net.l2emuproject.gameserver.model.BlockList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  *
@@ -40,16 +40,16 @@ public class ChatAll implements IChatHandler
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.handler.IChatHandler#useChatHandler(net.l2emuproject.gameserver.character.player.L2PcInstance, net.l2emuproject.gameserver.network.enums.SystemChatChannelId, java.lang.String)
+	 * @see net.l2emuproject.gameserver.handler.IChatHandler#useChatHandler(net.l2emuproject.gameserver.world.object.L2Player.player.L2PcInstance, net.l2emuproject.gameserver.network.enums.SystemChatChannelId, java.lang.String)
 	 */
 	@Override
-	public void useChatHandler(L2PcInstance activeChar, String target, SystemChatChannelId chatType, String text)
+	public void useChatHandler(L2Player activeChar, String target, SystemChatChannelId chatType, String text)
 	{
 		String name = (activeChar.isGM() && Config.GM_NAME_HAS_BRACELETS)? "[GM]" + activeChar.getAppearance().getVisibleName() : activeChar.getAppearance().getVisibleName();
 		
 		CreatureSay cs = new CreatureSay(activeChar.getObjectId(), chatType, name, text);
 
-		for (L2PcInstance player : activeChar.getKnownList().getKnownPlayers().values())
+		for (L2Player player : activeChar.getKnownList().getKnownPlayers().values())
 		{
 			if (player != null && activeChar.isInsideRadius(player, 1250, false, true)
 					&& !(Config.REGION_CHAT_ALSO_BLOCKED && BlockList.isBlocked(player, activeChar)))

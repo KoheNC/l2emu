@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author lord_rex
@@ -28,10 +28,10 @@ public final class AdminHTMLShow implements IAdminCommandHandler
 													{ "admin_html_show_message", "admin_html_show_file" };
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
-		L2PcInstance target = (L2PcInstance) activeChar.getTarget();
-		if (target instanceof L2PcInstance)
+		L2Player target = (L2Player) activeChar.getTarget();
+		if (target instanceof L2Player)
 		{
 			StringTokenizer st = new StringTokenizer(command);
 			st.nextToken();

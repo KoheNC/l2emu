@@ -15,6 +15,7 @@
 package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2CastleWyvernManagerInstance extends L2WyvernManagerInstance
 {
@@ -24,7 +25,7 @@ public class L2CastleWyvernManagerInstance extends L2WyvernManagerInstance
 	}
 
 	@Override
-	public final boolean isOwnerClan(L2PcInstance player)
+	public final boolean isOwnerClan(L2Player player)
 	{
 		if (player.isGM())
 			return true;

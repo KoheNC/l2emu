@@ -18,11 +18,11 @@ import net.l2emuproject.gameserver.handler.IItemHandler;
 import net.l2emuproject.gameserver.instancemanager.games.HandysBlockCheckerManager;
 import net.l2emuproject.gameserver.instancemanager.games.HandysBlockCheckerManager.ArenaParticipantsHolder;
 import net.l2emuproject.gameserver.model.actor.instance.L2BlockInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 
 public final class EventItem implements IItemHandler
@@ -33,10 +33,10 @@ public final class EventItem implements IItemHandler
 	@Override
 	public final void useItem(L2Playable playable, L2ItemInstance item)
 	{
-		if (!(playable instanceof L2PcInstance))
+		if (!(playable instanceof L2Player))
 			return;
 
-		final L2PcInstance activeChar = (L2PcInstance) playable;
+		final L2Player activeChar = (L2Player) playable;
 
 		final int itemId = item.getItemId();
 		switch (itemId)
@@ -52,7 +52,7 @@ public final class EventItem implements IItemHandler
 		}
 	}
 
-	private final void useBlockCheckerItem(final L2PcInstance castor, L2ItemInstance item)
+	private final void useBlockCheckerItem(final L2Player castor, L2ItemInstance item)
 	{
 		final int blockCheckerArena = castor.getBlockCheckerArena();
 		if (blockCheckerArena == -1)
@@ -79,7 +79,7 @@ public final class EventItem implements IItemHandler
 		if (holder != null)
 		{
 			final int team = holder.getPlayerTeam(castor);
-			for (final L2PcInstance pc : block.getKnownList().getKnownPlayersInRadius(sk.getEffectRange()))
+			for (final L2Player pc : block.getKnownList().getKnownPlayersInRadius(sk.getEffectRange()))
 			{
 				final int enemyTeam = holder.getPlayerTeam(pc);
 				if (enemyTeam != -1 && enemyTeam != team)

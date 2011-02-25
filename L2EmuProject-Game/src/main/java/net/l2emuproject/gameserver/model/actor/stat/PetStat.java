@@ -90,7 +90,7 @@ public class PetStat extends SummonStat
 		su.addAttribute(StatusUpdate.MAX_MP, getMaxMp());
 		getActiveChar().broadcastPacket(su);
 
-		// Send a Server->Client packet PetInfo to the L2PcInstance
+		// Send a Server->Client packet PetInfo to the L2Player
 		getActiveChar().broadcastFullInfo();
 		
 		if (getActiveChar().getControlItem() != null)

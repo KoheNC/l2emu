@@ -15,13 +15,13 @@
 package net.l2emuproject.gameserver.skills.funcs;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.skills.conditions.Condition;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class FuncEnchant extends Func
 {
@@ -38,7 +38,7 @@ public final class FuncEnchant extends Func
 		int enchant = item.getEnchantLevel();
 		
 		if (Config.ALT_OLY_ENCHANT_LIMIT >= 0)
-			if (env.player instanceof L2PcInstance && ((L2PcInstance)env.player).getPlayerOlympiad().isInOlympiadMode())
+			if (env.player instanceof L2Player && ((L2Player)env.player).getPlayerOlympiad().isInOlympiadMode())
 				enchant = Math.min(Config.ALT_OLY_ENCHANT_LIMIT, enchant);
 		
 		if (enchant > 0)

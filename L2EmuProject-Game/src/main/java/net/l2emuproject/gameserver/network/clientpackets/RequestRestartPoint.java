@@ -24,7 +24,6 @@ import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.L2SiegeClan;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
 import net.l2emuproject.gameserver.model.entity.Castle;
@@ -37,6 +36,7 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Die;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2JailZone;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
@@ -60,9 +60,9 @@ public class RequestRestartPoint extends L2GameClientPacket
 
 	private class DeathTask implements Runnable
 	{
-		private final L2PcInstance	activeChar;
+		private final L2Player	activeChar;
 
-		public DeathTask(L2PcInstance _activeChar)
+		public DeathTask(L2Player _activeChar)
 		{
 			activeChar = _activeChar;
 		}
@@ -231,7 +231,7 @@ public class RequestRestartPoint extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 

@@ -14,16 +14,16 @@
  */
 package net.l2emuproject.gameserver.skills.effects;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author DS
  * 
- * Effect will generate charges for L2PcInstance targets
+ * Effect will generate charges for L2Player targets
  * Number of charges in "value", maximum number in "count" effect variables
  */
 public class EffectIncreaseCharges extends L2Effect
@@ -36,10 +36,10 @@ public class EffectIncreaseCharges extends L2Effect
 	@Override
 	public boolean onStart()
 	{
-		if (getEffected() == null || !(getEffected() instanceof L2PcInstance))
+		if (getEffected() == null || !(getEffected() instanceof L2Player))
 			return false;
 
-		((L2PcInstance) getEffected()).increaseCharges((int) calc(), getCount());
+		((L2Player) getEffected()).increaseCharges((int) calc(), getCount());
 
 		return true;
 	}

@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.party.L2PartyRoom;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Format:(ch) d d[dsdddd]
@@ -50,9 +50,9 @@ public class ExPartyRoomMember extends L2GameServerPacket
 
 		writeD(_leader);
 		writeD(_room.getMemberCount());
-		L2PcInstance leader = _room.getLeader();
+		L2Player leader = _room.getLeader();
 		L2Party party = _room.getParty();
-		for (L2PcInstance member : _room.getMembers())
+		for (L2Player member : _room.getMembers())
 		{
 			writeD(member.getObjectId());
 			writeS(member.getName());

@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.skills.conditions;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Gigiikun
@@ -72,10 +72,10 @@ final class ConditionSiegeZone extends Condition
 
 	private boolean checkIfOk(L2Character activeChar, Castle castle, int value)
 	{
-		if (activeChar == null || !(activeChar instanceof L2PcInstance))
+		if (activeChar == null || !(activeChar instanceof L2Player))
 			return false;
 
-		L2PcInstance player = (L2PcInstance) activeChar;
+		L2Player player = (L2Player) activeChar;
 
 		if ((castle == null || castle.getCastleId() <= 0))
 		{
@@ -88,13 +88,13 @@ final class ConditionSiegeZone extends Condition
 				return true;
 		}
 		else if (castle.getSiege().getAttackerClan(player.getClan()) != null && (value & COND_CAST_ATTACK) != 0
-				&& player.isRegisteredOnThisSiegeField(castle.getCastleId()) && player.getSiegeState() == L2PcInstance.SIEGE_STATE_ATTACKER)
+				&& player.isRegisteredOnThisSiegeField(castle.getCastleId()) && player.getSiegeState() == L2Player.SIEGE_STATE_ATTACKER)
 			return true;
 		else if (castle.getSiege().getDefenderClan(player.getClan()) != null && (value & COND_CAST_DEFEND) != 0
-				&& player.isRegisteredOnThisSiegeField(castle.getCastleId()) && player.getSiegeState() == L2PcInstance.SIEGE_STATE_DEFENDER)
+				&& player.isRegisteredOnThisSiegeField(castle.getCastleId()) && player.getSiegeState() == L2Player.SIEGE_STATE_DEFENDER)
 			return true;
 		else if (castle.getSiege().getAttackerClan(player.getClan()) == null && castle.getSiege().getDefenderClan(player.getClan()) == null
-				&& (value & COND_CAST_NEUTRAL) != 0 && player.getSiegeState() == L2PcInstance.SIEGE_STATE_NOT_INVOLVED)
+				&& (value & COND_CAST_NEUTRAL) != 0 && player.getSiegeState() == L2Player.SIEGE_STATE_NOT_INVOLVED)
 			return true;
 
 		return false;
@@ -102,10 +102,10 @@ final class ConditionSiegeZone extends Condition
 
 	private boolean checkIfOk(L2Character activeChar, Fort fort, int value)
 	{
-		if (activeChar == null || !(activeChar instanceof L2PcInstance))
+		if (activeChar == null || !(activeChar instanceof L2Player))
 			return false;
 
-		L2PcInstance player = (L2PcInstance) activeChar;
+		L2Player player = (L2Player) activeChar;
 
 		if ((fort == null || fort.getFortId() <= 0))
 		{
@@ -118,13 +118,13 @@ final class ConditionSiegeZone extends Condition
 				return true;
 		}
 		else if (fort.getSiege().getAttackerClan(player.getClan()) != null && (value & COND_FORT_ATTACK) != 0
-				&& player.isRegisteredOnThisSiegeField(fort.getFortId()) && player.getSiegeState() == L2PcInstance.SIEGE_STATE_ATTACKER)
+				&& player.isRegisteredOnThisSiegeField(fort.getFortId()) && player.getSiegeState() == L2Player.SIEGE_STATE_ATTACKER)
 			return true;
 		else if (fort.getSiege().getDefenderClan(player.getClan()) != null && (value & COND_FORT_DEFEND) != 0
-				&& player.isRegisteredOnThisSiegeField(fort.getFortId()) && player.getSiegeState() == L2PcInstance.SIEGE_STATE_DEFENDER)
+				&& player.isRegisteredOnThisSiegeField(fort.getFortId()) && player.getSiegeState() == L2Player.SIEGE_STATE_DEFENDER)
 			return true;
 		else if (fort.getSiege().getAttackerClan(player.getClan()) == null && fort.getSiege().getDefenderClan(player.getClan()) == null
-				&& (value & COND_FORT_NEUTRAL) != 0 && player.getSiegeState() == L2PcInstance.SIEGE_STATE_NOT_INVOLVED)
+				&& (value & COND_FORT_NEUTRAL) != 0 && player.getSiegeState() == L2Player.SIEGE_STATE_NOT_INVOLVED)
 			return true;
 
 		return false;
@@ -132,10 +132,10 @@ final class ConditionSiegeZone extends Condition
 
 	private boolean checkIfOk(L2Character activeChar, ClanHall ch, int value)
 	{
-		if (activeChar == null || !(activeChar instanceof L2PcInstance))
+		if (activeChar == null || !(activeChar instanceof L2Player))
 			return false;
 
-		L2PcInstance player = activeChar.getActingPlayer();
+		L2Player player = activeChar.getActingPlayer();
 
 		if (ch == null || ch.getSiege() == null)
 		{

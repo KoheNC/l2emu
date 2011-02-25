@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.network.L2GameClient;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Shows the Siege Info<BR>
@@ -70,7 +70,7 @@ public class SiegeInfo extends L2GameServerPacket
 	}
 
 	@Override
-	protected final void writeImpl(L2GameClient client, L2PcInstance activeChar)
+	protected final void writeImpl(L2GameClient client, L2Player activeChar)
 	{
 		if (activeChar == null)
 			return;

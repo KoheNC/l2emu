@@ -17,10 +17,10 @@ package ai.raidboss;
 import org.apache.commons.lang.ArrayUtils;
 
 import net.l2emuproject.gameserver.instancemanager.grandbosses.VanHalterManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author L0ngh0rn
@@ -50,7 +50,7 @@ public final class VanHalter extends QuestJython
 	}
 
 	@Override
-	public final String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet, L2Skill skill)
+	public final String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet, L2Skill skill)
 	{
 		if (npc.getNpcId() == ANDREAS_VAN_HALTER && ((npc.getStatus().getCurrentHp() / npc.getMaxHp()) * 100 <= 20))
 			VanHalterManager.getInstance().callRoyalGuardHelper();
@@ -58,7 +58,7 @@ public final class VanHalter extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		final int npcId = npc.getNpcId();
 		if (ArrayUtils.contains(TRIOLS, npcId))

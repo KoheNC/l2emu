@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.Stats;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Format: (ch)ddddddd
@@ -33,7 +33,7 @@ import net.l2emuproject.gameserver.skills.Stats;
 public final class ExStorageMaxCount extends L2GameServerPacket
 {
 	private static final String	_S__FE_2E_EXSTORAGEMAXCOUNT	= "[S] FE:2E ExStorageMaxCount";
-	private final L2PcInstance	_activeChar;
+	private final L2Player	_activeChar;
 	private final int			_inventory;
 	private final int			_warehouse;
 	private final int			_clan;
@@ -44,7 +44,7 @@ public final class ExStorageMaxCount extends L2GameServerPacket
 	private final int			_inventoryExtraSlots;
 	private final int			_inventoryQuestItems;
 
-	public ExStorageMaxCount(L2PcInstance character)
+	public ExStorageMaxCount(L2Player character)
 	{
 		_activeChar = character;
 		_inventory = _activeChar.getInventoryLimit();

@@ -20,13 +20,13 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.ICubicSkillHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2ClanHallManagerInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2CubicInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 
 public class Continuous implements ICubicSkillHandler
@@ -52,9 +52,9 @@ public class Continuous implements ICubicSkillHandler
 	@Override
 	public void useSkill(L2Character activeChar, L2Skill skill, L2Character... targets)
 	{
-		L2PcInstance player = null;
-		if (activeChar instanceof L2PcInstance)
-			player = (L2PcInstance) activeChar;
+		L2Player player = null;
+		if (activeChar instanceof L2Player)
+			player = (L2Player) activeChar;
 
 		if (skill.getEffectId() != 0)
 		{
@@ -98,7 +98,7 @@ public class Continuous implements ICubicSkillHandler
 			{
 				if (target != activeChar)
 				{
-					if (target instanceof L2PcInstance && ((L2PcInstance) target).isCursedWeaponEquipped())
+					if (target instanceof L2Player && ((L2Player) target).isCursedWeaponEquipped())
 						continue;
 					else if (player != null && player.isCursedWeaponEquipped())
 						continue;
@@ -107,8 +107,8 @@ public class Continuous implements ICubicSkillHandler
 						continue;
 				}
 				// TODO: boolean isn't good idea, could cause bugs
-				else if (skill.getId() == 2168 && activeChar instanceof L2PcInstance)
-					((L2PcInstance) activeChar).setCharmOfLuck(true);
+				else if (skill.getId() == 2168 && activeChar instanceof L2Player)
+					((L2Player) activeChar).setCharmOfLuck(true);
 			}
 
 			if (skill.isOffensive())

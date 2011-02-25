@@ -20,9 +20,9 @@ import java.sql.ResultSet;
 
 import javolution.util.FastList;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -102,7 +102,7 @@ public class CoupleService
 		return null;
 	}
 
-	public void createCouple(L2PcInstance player1, L2PcInstance player2)
+	public void createCouple(L2Player player1, L2Player player2)
 	{
 		if (player1 != null && player2 != null)
 		{
@@ -127,8 +127,8 @@ public class CoupleService
 		Couple couple = getCouples().get(index);
 		if (couple != null)
 		{
-			L2PcInstance player1 = L2World.getInstance().getPlayer(couple.getPlayer1Id());
-			L2PcInstance player2 = L2World.getInstance().getPlayer(couple.getPlayer2Id());
+			L2Player player1 = L2World.getInstance().getPlayer(couple.getPlayer1Id());
+			L2Player player2 = L2World.getInstance().getPlayer(couple.getPlayer2Id());
 			L2ItemInstance item = null;
 			if (player1 != null)
 			{

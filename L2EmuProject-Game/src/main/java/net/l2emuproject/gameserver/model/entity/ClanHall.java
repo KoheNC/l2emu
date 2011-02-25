@@ -30,13 +30,13 @@ import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.PledgeShowInfoUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.auction.AuctionService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public class ClanHall extends Siegeable<CCHSiege>
@@ -407,7 +407,7 @@ public class ClanHall extends Siegeable<CCHSiege>
 	}
 
 	/** Open or Close Door */
-	public void openCloseDoor(L2PcInstance activeChar, int doorId, boolean open)
+	public void openCloseDoor(L2Player activeChar, int doorId, boolean open)
 	{
 		if (activeChar != null && activeChar.getClanId() == getOwnerId())
 			openCloseDoor(doorId, open);
@@ -429,7 +429,7 @@ public class ClanHall extends Siegeable<CCHSiege>
 		}
 	}
 
-	public void openCloseDoors(L2PcInstance activeChar, boolean open)
+	public void openCloseDoors(L2Player activeChar, boolean open)
 	{
 		if (activeChar != null && activeChar.getClanId() == getOwnerId())
 			openCloseDoors(open);
@@ -450,7 +450,7 @@ public class ClanHall extends Siegeable<CCHSiege>
 	}
 
 	@Override
-	public boolean checkBanish(L2PcInstance cha)
+	public boolean checkBanish(L2Player cha)
 	{
 		return cha.getClanId() != getOwnerId();
 	}
@@ -509,7 +509,7 @@ public class ClanHall extends Siegeable<CCHSiege>
 		}
 	}
 
-	public boolean updateFunctions(L2PcInstance player, int type, int lvl, int lease, long rate, boolean addNew)
+	public boolean updateFunctions(L2Player player, int type, int lvl, int lease, long rate, boolean addNew)
 	{
 		if (player == null)
 			return false;

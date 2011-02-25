@@ -17,11 +17,11 @@ package net.l2emuproject.gameserver.network.clientpackets;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.TradeDone;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class represents a packet sent by the client when a player clicks either "Yes"
@@ -42,7 +42,7 @@ public class AnswerTradeRequest extends L2GameClientPacket
     @Override
     protected void runImpl()
     {
-        L2PcInstance player = getActiveChar(), partner = null;
+        L2Player player = getActiveChar(), partner = null;
         if (player == null)
         	return;
         
@@ -96,7 +96,7 @@ public class AnswerTradeRequest extends L2GameClientPacket
         }
 	}
     
-    private final void clearRequestStatus(L2PcInstance player, L2PcInstance partner)
+    private final void clearRequestStatus(L2Player player, L2Player partner)
     {
     	if (player != null)
     		player.setActiveRequester(null);

@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.SevenSignsFestival;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.templates.StatsSet;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Seven Signs Record Update
@@ -36,10 +36,10 @@ public class SSQStatus extends L2GameServerPacket
 {
 	private static final String	_S__F5_SSQStatus	= "[S] F5 RecordUpdate";
 	
-	private final L2PcInstance		_activeChar;
+	private final L2Player		_activeChar;
 	private final int					_page;
 
-	public SSQStatus(L2PcInstance player, int recordPage)
+	public SSQStatus(L2Player player, int recordPage)
 	{
 		_activeChar = player;
 		_page = recordPage;

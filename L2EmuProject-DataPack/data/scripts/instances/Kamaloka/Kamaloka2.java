@@ -17,13 +17,13 @@ package instances.Kamaloka;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.lang.ArrayUtils;
 
@@ -225,14 +225,14 @@ public final class Kamaloka2 extends Quest
 
 	}
 
-	private static final void teleportPlayer(L2PcInstance player, int[] coords, int instanceId)
+	private static final void teleportPlayer(L2Player player, int[] coords, int instanceId)
 	{
 		player.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 		player.setInstanceId(instanceId);
 		player.teleToLocation(coords[0], coords[1], coords[2], true);
 	}
 
-	private boolean checkConditions(L2PcInstance player, int index)
+	private boolean checkConditions(L2Player player, int index)
 	{
 			L2Party party = player.getParty();
 			if (party == null)
@@ -250,7 +250,7 @@ public final class Kamaloka2 extends Quest
 				player.sendPacket(new SystemMessage(SystemMessageId.PARTY_EXCEEDED_THE_LIMIT_CANT_ENTER));
 				return false;
 			}
-			for (L2PcInstance partyMember : party.getPartyMembers())
+			for (L2Player partyMember : party.getPartyMembers())
 			{
 				if (partyMember.getLevel() < MIN_LVL[index] || partyMember.getLevel() > MAX_LVL[index])
 				{
@@ -278,7 +278,7 @@ public final class Kamaloka2 extends Quest
 		return true;
 	}
 
-	private int enterInstance(L2PcInstance player, int index)
+	private int enterInstance(L2Player player, int index)
 	{
 		InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
 		if (world != null)
@@ -311,7 +311,7 @@ public final class Kamaloka2 extends Quest
 			}
 			else
 			{
-				for (L2PcInstance partyMember : party.getPartyMembers())
+				for (L2Player partyMember : party.getPartyMembers())
 				{
 					InstanceManager.getInstance().setInstanceTime(partyMember.getObjectId(), INSTANCE_ID[index], ((System.currentTimeMillis() + INSTANCEPENALTY)));
 					teleportPlayer(partyMember, TELEPORT[index], world.instanceId);
@@ -343,7 +343,7 @@ public final class Kamaloka2 extends Quest
 
 	}
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if (event.equalsIgnoreCase("0") || event.equalsIgnoreCase("1") || event.equalsIgnoreCase("2") || event.equalsIgnoreCase("3")
 				|| event.equalsIgnoreCase("4") || event.equalsIgnoreCase("5") || event.equalsIgnoreCase("6"))
@@ -352,7 +352,7 @@ public final class Kamaloka2 extends Quest
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof Kama2World)

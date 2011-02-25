@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.ISkillConditionChecker;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
@@ -27,6 +26,7 @@ import net.l2emuproject.gameserver.skills.l2skills.L2SkillSweep;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author _drunk_
@@ -47,14 +47,14 @@ public class Sweep extends ISkillConditionChecker
 			{
 				if (!((L2Attackable)target).isSpoil())
 				{
-					// Send a System Message to the L2PcInstance
+					// Send a System Message to the L2Player
 					activeChar.sendPacket(SystemMessageId.SWEEPER_FAILED_TARGET_NOT_SPOILED);
 					return false;
 				}
 				
-				if (activeChar.getObjectId() != spoilerId && !((L2PcInstance)activeChar).isInLooterParty(spoilerId))
+				if (activeChar.getObjectId() != spoilerId && !((L2Player)activeChar).isInLooterParty(spoilerId))
 				{
-					// Send a System Message to the L2PcInstance
+					// Send a System Message to the L2Player
 					activeChar.sendPacket(SystemMessageId.SWEEP_NOT_ALLOWED);
 					return false;
 				}
@@ -67,14 +67,14 @@ public class Sweep extends ISkillConditionChecker
 	@Override
 	public void useSkill(L2Character activeChar, L2Skill tmpSkill, L2Character... targets)
 	{
-		if (!(activeChar instanceof L2PcInstance))
+		if (!(activeChar instanceof L2Player))
 		{
 			return;
 		}
 
 		L2SkillSweep skill = (L2SkillSweep) tmpSkill;
 
-		L2PcInstance player = (L2PcInstance) activeChar;
+		L2Player player = (L2Player) activeChar;
 		InventoryUpdate iu = Config.FORCE_INVENTORY_UPDATE ? null : new InventoryUpdate();
 		boolean send = false;
 

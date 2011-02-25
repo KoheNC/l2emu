@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.handler.chathandlers;
 
 import net.l2emuproject.gameserver.handler.IChatHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  *
@@ -38,7 +38,7 @@ public class ChatCommander implements IChatHandler
 	}
 
 	@Override
-	public void useChatHandler(L2PcInstance activeChar, String target, SystemChatChannelId chatType, String text)
+	public void useChatHandler(L2Player activeChar, String target, SystemChatChannelId chatType, String text)
 	{
 		if (activeChar == null)
 			return;

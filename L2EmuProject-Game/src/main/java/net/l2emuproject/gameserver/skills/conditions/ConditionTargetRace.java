@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.Race;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 final class ConditionTargetRace extends Condition
 {
@@ -30,9 +30,9 @@ final class ConditionTargetRace extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.target instanceof L2PcInstance))
+		if (!(env.target instanceof L2Player))
 			return false;
 		
-		return ((L2PcInstance) env.target).getRace() == _race;
+		return ((L2Player) env.target).getRace() == _race;
 	}
 }

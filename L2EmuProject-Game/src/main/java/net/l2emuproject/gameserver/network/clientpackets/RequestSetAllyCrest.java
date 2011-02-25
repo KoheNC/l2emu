@@ -22,9 +22,9 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.cache.CrestCache;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -54,7 +54,7 @@ public class RequestSetAllyCrest extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 
@@ -112,7 +112,7 @@ public class RequestSetAllyCrest extends L2GameClientPacket
 			if (c.getAllyId() == activeChar.getAllyId())
 			{
 				c.setAllyCrestId(newId);
-				for (L2PcInstance member : c.getOnlineMembers(0))
+				for (L2Player member : c.getOnlineMembers(0))
 					member.broadcastUserInfo();
 			}
 		}

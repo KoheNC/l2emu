@@ -15,13 +15,13 @@
 package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class AdminElement implements IAdminCommandHandler
 {
@@ -37,7 +37,7 @@ public class AdminElement implements IAdminCommandHandler
 	};
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		int armorType = -1;
 
@@ -88,16 +88,16 @@ public class AdminElement implements IAdminCommandHandler
 		return ADMIN_COMMANDS;
 	}
 
-	private void setElement(L2PcInstance activeChar, byte type, int value, int armorType)
+	private void setElement(L2Player activeChar, byte type, int value, int armorType)
 	{
 		// get the target
 		L2Object target = activeChar.getTarget();
 		if (target == null)
 			target = activeChar;
-		L2PcInstance player = null;
-		if (target instanceof L2PcInstance)
+		L2Player player = null;
+		if (target instanceof L2Player)
 		{
-			player = (L2PcInstance) target;
+			player = (L2Player) target;
 		}
 		else
 		{

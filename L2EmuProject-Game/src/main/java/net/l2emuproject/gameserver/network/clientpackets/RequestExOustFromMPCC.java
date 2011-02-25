@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author -Wooden-
@@ -37,7 +37,7 @@ public class RequestExOustFromMPCC extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 
@@ -52,7 +52,7 @@ public class RequestExOustFromMPCC extends L2GameClientPacket
 			return;
 		}
 
-		L2PcInstance target = L2World.getInstance().getPlayer(_name);
+		L2Player target = L2World.getInstance().getPlayer(_name);
 		if (target == null || !target.isInParty() || !target.getParty().isInCommandChannel())
 		{
 			requestFailed(SystemMessageId.INCORRECT_TARGET);

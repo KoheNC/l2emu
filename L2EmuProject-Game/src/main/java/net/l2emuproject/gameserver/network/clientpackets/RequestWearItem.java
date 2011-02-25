@@ -18,7 +18,6 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2MerchantInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -28,6 +27,7 @@ import net.l2emuproject.gameserver.services.transactions.L2TradeList;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.world.object.L2Merchant;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class ...
@@ -51,9 +51,9 @@ public class RequestWearItem extends L2GameClientPacket
 
 	private static class RemoveWearItemsTask implements Runnable
 	{
-		private final L2PcInstance _activeChar;
+		private final L2Player _activeChar;
 		
-		public RemoveWearItemsTask(L2PcInstance activeChar)
+		public RemoveWearItemsTask(L2Player activeChar)
 		{
 			_activeChar = activeChar;
 		}
@@ -95,7 +95,7 @@ public class RequestWearItem extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		final L2PcInstance player = getClient().getActiveChar();
+		final L2Player player = getClient().getActiveChar();
 		if (player == null)
 			return;
 		
@@ -202,7 +202,7 @@ public class RequestWearItem extends L2GameClientPacket
 		su.addAttribute(StatusUpdate.CUR_LOAD, player.getCurrentLoad());
 		sendPacket(su);
 
-		// Send a Server->Client packet UserInfo to this L2PcInstance and CharInfo to all L2PcInstance in its _knownPlayers
+		// Send a Server->Client packet UserInfo to this L2Player and CharInfo to all L2Player in its _knownPlayers
 		player.broadcastUserInfo();
 
 		// All weared items should be removed in ALLOW_WEAR_DELAY sec.

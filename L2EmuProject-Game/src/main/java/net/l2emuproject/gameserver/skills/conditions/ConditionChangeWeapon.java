@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author nBd
@@ -39,7 +39,7 @@ class ConditionChangeWeapon extends Condition
 	@Override
 	boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2PcInstance))
+		if (!(env.player instanceof L2Player))
 			return false;
 		
 		if (_required)

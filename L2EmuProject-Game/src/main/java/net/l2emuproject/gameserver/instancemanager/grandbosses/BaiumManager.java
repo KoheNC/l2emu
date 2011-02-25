@@ -29,13 +29,13 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.instance.L2GrandBossInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.GrandBossState;
 import net.l2emuproject.gameserver.network.serverpackets.Earthquake;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -257,7 +257,7 @@ public class BaiumManager extends BossLair
 		_npcBaium = NpcBaium;
 
 		// Get target from statue,to kill a player of make Baium awake.
-		L2PcInstance target = (L2PcInstance) _npcBaium.getTarget();
+		L2Player target = (L2Player) _npcBaium.getTarget();
 
 		// Do spawn.
 		L2Spawn baiumSpawn = _monsterSpawn.get(BAIUM);
@@ -557,10 +557,10 @@ public class BaiumManager extends BossLair
 	// Kill pc
 	private class KillPc implements Runnable
 	{
-		private final L2PcInstance		_target;
+		private final L2Player		_target;
 		private final L2GrandBossInstance	_boss;
 
-		public KillPc(L2PcInstance target, L2GrandBossInstance boss)
+		public KillPc(L2Player target, L2GrandBossInstance boss)
 		{
 			_target = target;
 			_boss = boss;

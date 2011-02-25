@@ -21,12 +21,12 @@ import java.util.StringTokenizer;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.status.GameStatusCommand;
 
 public final class Give extends GameStatusCommand
@@ -50,7 +50,7 @@ public final class Give extends GameStatusCommand
 		String playername = st.nextToken();
 		try
 		{
-			L2PcInstance player = L2World.getInstance().getPlayer(playername);
+			L2Player player = L2World.getInstance().getPlayer(playername);
 			int itemId = Integer.parseInt(st.nextToken());
 			int amount = Integer.parseInt(st.nextToken());
 			

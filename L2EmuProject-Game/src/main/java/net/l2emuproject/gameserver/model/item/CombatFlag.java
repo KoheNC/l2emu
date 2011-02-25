@@ -16,16 +16,16 @@ package net.l2emuproject.gameserver.model.item;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class CombatFlag
 {
-	protected L2PcInstance	_player		= null;
+	protected L2Player	_player		= null;
 	public int				playerId	= 0;
 	private L2ItemInstance	_item		= null;
 
@@ -66,7 +66,7 @@ public class CombatFlag
 		}
 	}
 
-	public boolean activate(L2PcInstance player, L2ItemInstance item)
+	public boolean activate(L2Player player, L2ItemInstance item)
 	{
 		if (player.isMounted())
 		{

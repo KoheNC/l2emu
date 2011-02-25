@@ -14,16 +14,16 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.templates.item.L2Henna;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class HennaRemoveList extends L2GameServerPacket
 {
 	private static final String _S__E2_HennaRemoveList = "[S] ee HennaRemoveList";
 
-	private L2PcInstance _player;
+	private L2Player _player;
 
-	public HennaRemoveList(L2PcInstance player)
+	public HennaRemoveList(L2Player player)
 	{
 		_player = player;
 	}

@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.restriction.global;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author NB4L1
@@ -22,7 +22,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 public final class DuelRestriction extends AbstractRestriction
 {
 	@Override
-	public final boolean isRestricted(L2PcInstance activeChar, Class<? extends GlobalRestriction> callingRestriction)
+	public final boolean isRestricted(L2Player activeChar, Class<? extends GlobalRestriction> callingRestriction)
 	{
 		if (activeChar.getPlayerDuel().isInDuel())
 		{
@@ -34,7 +34,7 @@ public final class DuelRestriction extends AbstractRestriction
 	}
 	
 	@Override
-	public final boolean canInviteToParty(L2PcInstance activeChar, L2PcInstance target)
+	public final boolean canInviteToParty(L2Player activeChar, L2Player target)
 	{
 		if (activeChar.getPlayerDuel().isInDuel() || target.getPlayerDuel().isInDuel())
 			return false;
@@ -43,7 +43,7 @@ public final class DuelRestriction extends AbstractRestriction
 	}
 	
 	@Override
-	public final boolean canTeleport(L2PcInstance activeChar)
+	public final boolean canTeleport(L2Player activeChar)
 	{
 		// Check to see if player is in a duel
 		if (activeChar.getPlayerDuel().isInDuel())

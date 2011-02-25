@@ -25,12 +25,12 @@ import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.GrandBossState;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -189,7 +189,7 @@ public class SailrenManager extends BossLair
 	}
 
 	// Whether it is permitted to enter the sailren's lair is confirmed.
-	public int canIntoSailrenLair(L2PcInstance pc)
+	public int canIntoSailrenLair(L2Player pc)
 	{
 		if ((!Config.FWS_ENABLESINGLEPLAYER) && (pc.getParty() == null))
 			return 4;
@@ -219,7 +219,7 @@ public class SailrenManager extends BossLair
 	}
 
 	// Teleporting player to sailren's lair.
-	public void entryToSailrenLair(L2PcInstance pc)
+	public void entryToSailrenLair(L2Player pc)
 	{
 		int driftx;
 		int drifty;
@@ -239,8 +239,8 @@ public class SailrenManager extends BossLair
 		}
 		else
 		{
-			List<L2PcInstance> members = new FastList<L2PcInstance>(); // list of member of teleport candidate.
-			for (L2PcInstance mem : pc.getParty().getPartyMembers())
+			List<L2Player> members = new FastList<L2Player>(); // list of member of teleport candidate.
+			for (L2Player mem : pc.getParty().getPartyMembers())
 			{
 				// teleporting it within alive and the range of recognition of the leader of the party.
 				if (!mem.isDead() && Util.checkIfInRange(700, pc, mem, true))
@@ -248,7 +248,7 @@ public class SailrenManager extends BossLair
 					members.add(mem);
 				}
 			}
-			for (L2PcInstance mem : members)
+			for (L2Player mem : members)
 			{
 				driftx = Rnd.get(-80, 80);
 				drifty = Rnd.get(-80, 80);

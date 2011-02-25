@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.restriction.global;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author savormix
@@ -22,7 +22,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 public final class EradicationRestriction extends AbstractRestriction
 {
 	@Override
-	public final boolean canRequestRevive(L2PcInstance activeChar)
+	public final boolean canRequestRevive(L2Player activeChar)
 	{
 		return !activeChar.isEradicated();
 	}

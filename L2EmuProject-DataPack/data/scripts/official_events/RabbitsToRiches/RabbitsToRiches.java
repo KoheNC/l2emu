@@ -26,7 +26,6 @@ import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
@@ -41,6 +40,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -244,7 +244,7 @@ public class RabbitsToRiches extends QuestJython
 	}
 
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public String onSkillSee(L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		if (npc.isInsideRadius(caster, 100, false, false) && npc.getNpcId() == 13097 && skill.getId() == 629)
 			spawnChests(npc);
@@ -254,7 +254,7 @@ public class RabbitsToRiches extends QuestJython
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if (isDigit(event) && npc != null)
 		{
@@ -407,7 +407,7 @@ public class RabbitsToRiches extends QuestJython
 	}
 
 	@Override
-	public String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		switch (npc.getNpcId())
 		{
@@ -426,7 +426,7 @@ public class RabbitsToRiches extends QuestJython
 		return "";
 	}
 
-	private void dropReward(L2Npc npc, L2PcInstance player)
+	private void dropReward(L2Npc npc, L2Player player)
 	{
 		if (npc.isInvul())
 		{
@@ -506,7 +506,7 @@ public class RabbitsToRiches extends QuestJython
 		npc.reduceCurrentHp(9999, npc, null);
 	}
 
-	private void shout(L2Npc npc, L2PcInstance player, int id)
+	private void shout(L2Npc npc, L2Player player, int id)
 	{
 		player.sendCreatureMessage(SystemChatChannelId.Chat_Normal, npc.getName(), TEXT[id]);
 	}
@@ -521,7 +521,7 @@ public class RabbitsToRiches extends QuestJython
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public String onKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		if (killer.getLevel() - npc.getLevel() <= 9)
 		{

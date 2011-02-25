@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.world.object;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.view.CharLikeView;
 import net.l2emuproject.gameserver.model.actor.view.DecoyView;
 import net.l2emuproject.gameserver.network.serverpackets.CharInfo;
@@ -24,9 +23,9 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
 public abstract class L2Decoy extends L2Character
 {
-	private final L2PcInstance _owner;
+	private final L2Player _owner;
 	
-	public L2Decoy(int objectId, L2CharTemplate template, L2PcInstance owner)
+	public L2Decoy(int objectId, L2CharTemplate template, L2Player owner)
 	{
 		super(objectId, template);
 		getKnownList();
@@ -57,7 +56,7 @@ public abstract class L2Decoy extends L2Character
 	}
 	
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		player.setTarget(this);
 	}
@@ -90,14 +89,14 @@ public abstract class L2Decoy extends L2Character
 		return getTemplate().getLevel();
 	}
 	
-	public void deleteMe(L2PcInstance owner)
+	public void deleteMe(L2Player owner)
 	{
 		decayMe();
 		getKnownList().removeAllKnownObjects();
 		owner.setDecoy(null);
 	}
 	
-	public synchronized void unSummon(L2PcInstance owner)
+	public synchronized void unSummon(L2Player owner)
 	{
 		if (isVisible() && !isDead())
 		{
@@ -109,13 +108,13 @@ public abstract class L2Decoy extends L2Character
 		}
 	}
 	
-	public final L2PcInstance getOwner()
+	public final L2Player getOwner()
 	{
 		return _owner;
 	}
 	
 	@Override
-	public L2PcInstance getActingPlayer()
+	public L2Player getActingPlayer()
 	{
 		return _owner;
 	}
@@ -127,7 +126,7 @@ public abstract class L2Decoy extends L2Character
 	}
 	
 	@Override
-	public void sendInfo(L2PcInstance activeChar)
+	public void sendInfo(L2Player activeChar)
 	{
 		activeChar.sendPacket(new CharInfo(this));
 	}

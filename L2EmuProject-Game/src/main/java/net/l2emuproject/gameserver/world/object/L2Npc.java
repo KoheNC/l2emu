@@ -50,7 +50,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2FestivalGuideInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2FishermanInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MerchantInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2TeleporterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2TrainerInstance;
@@ -192,7 +191,7 @@ public class L2Npc extends L2Character
 
 	// In case quests are going to use non-L2Attackables in the future
 	private int						_questAttackStatus;
-	private L2PcInstance			_questFirstAttacker;
+	private L2Player			_questFirstAttacker;
 
 	// doesn't affect damage at all (retail)
 	private int						_weaponEnchant			= 0;
@@ -284,9 +283,9 @@ public class L2Npc extends L2Character
 	public static class DestroyTemporalSummon implements Runnable
 	{
 		L2Summon		_summon;
-		L2PcInstance	_player;
+		L2Player	_player;
 
-		public DestroyTemporalSummon(L2Summon summon, L2PcInstance player)
+		public DestroyTemporalSummon(L2Summon summon, L2Player player)
 		{
 			_summon = summon;
 			_player = player;
@@ -546,7 +545,7 @@ public class L2Npc extends L2Character
 		return false;
 	}
 
-	protected boolean canTarget(L2PcInstance player)
+	protected boolean canTarget(L2Player player)
 	{
 		if (player.isOutOfControl())
 		{
@@ -567,7 +566,7 @@ public class L2Npc extends L2Character
 		return true;
 	}
 
-	public boolean canInteract(L2PcInstance player)
+	public boolean canInteract(L2Player player)
 	{
 		// TODO: NPC busy check etc...
 
@@ -590,15 +589,15 @@ public class L2Npc extends L2Character
 	 * Manage actions when a player click on the L2Npc.<BR><BR>
 	 *
 	 * <B><U> Actions on first click on the L2Npc (Select it)</U> :</B><BR><BR>
-	 * <li>Set the L2Npc as target of the L2PcInstance player (if necessary)</li>
-	 * <li>Send a Server->Client packet MyTargetSelected to the L2PcInstance player (display the select window)</li>
-	 * <li>If L2Npc is autoAttackable, send a Server->Client packet StatusUpdate to the L2PcInstance in order to update L2Npc HP bar </li>
+	 * <li>Set the L2Npc as target of the L2Player player (if necessary)</li>
+	 * <li>Send a Server->Client packet MyTargetSelected to the L2Player player (display the select window)</li>
+	 * <li>If L2Npc is autoAttackable, send a Server->Client packet StatusUpdate to the L2Player in order to update L2Npc HP bar </li>
 	 * <li>Send a Server->Client packet ValidateLocation to correct the L2Npc position and heading on the client </li><BR><BR>
 	 *
 	 * <B><U> Actions on second click on the L2Npc (Attack it/Intercat with it)</U> :</B><BR><BR>
-	 * <li>Send a Server->Client packet MyTargetSelected to the L2PcInstance player (display the select window)</li>
-	 * <li>If L2Npc is autoAttackable, notify the L2PcInstance AI with AI_INTENTION_ATTACK (after a height verification)</li>
-	 * <li>If L2Npc is NOT autoAttackable, notify the L2PcInstance AI with AI_INTENTION_INTERACT (after a distance verification) and show message</li><BR><BR>
+	 * <li>Send a Server->Client packet MyTargetSelected to the L2Player player (display the select window)</li>
+	 * <li>If L2Npc is autoAttackable, notify the L2Player AI with AI_INTENTION_ATTACK (after a height verification)</li>
+	 * <li>If L2Npc is NOT autoAttackable, notify the L2Player AI with AI_INTENTION_INTERACT (after a distance verification) and show message</li><BR><BR>
 	 *
 	 * <FONT COLOR=#FF0000><B> <U>Caution</U> : Each group of Server->Client packet must be terminated by a ActionFailed packet in order to avoid
 	 * that client wait an other packet</B></FONT><BR><BR>
@@ -610,11 +609,11 @@ public class L2Npc extends L2Character
 	 * <li> L2ArtefactInstance : Manage only fisrt click to select Artefact</li><BR><BR>
 	 * <li> L2GuardInstance : </li><BR><BR>
 	 *
-	 * @param player The L2PcInstance that start an action on the L2Npc
+	 * @param player The L2Player that start an action on the L2Npc
 	 *
 	 */
 	@Override
-	public void onAction(L2PcInstance player, boolean interact)
+	public void onAction(L2Player player, boolean interact)
 	{
 		if (!canTarget(player))
 			return;
@@ -623,19 +622,19 @@ public class L2Npc extends L2Character
 
 		try
 		{
-			// Check if the L2PcInstance already target the L2Npc
+			// Check if the L2Player already target the L2Npc
 			if (this != player.getTarget())
 			{
 				if (_log.isDebugEnabled())
 					_log.debug("new target selected:" + getObjectId());
 
-				// Set the target of the L2PcInstance player
+				// Set the target of the L2Player player
 				player.setTarget(this);
 
 				// Check if the player is attackable (without a forced attack)
 				if (isAutoAttackable(player))
 				{
-					// Send a Server->Client packet StatusUpdate of the L2Npc to the L2PcInstance to update its HP bar
+					// Send a Server->Client packet StatusUpdate of the L2Npc to the L2Player to update its HP bar
 					StatusUpdate su = new StatusUpdate(getObjectId());
 					su.addAttribute(StatusUpdate.CUR_HP, (int) getStatus().getCurrentHp());
 					su.addAttribute(StatusUpdate.MAX_HP, getMaxHp());
@@ -650,27 +649,27 @@ public class L2Npc extends L2Character
 					// Check the height difference
 					if (Math.abs(player.getZ() - getZ()) < 400) // this max heigth difference might need some tweaking
 					{
-						// Set the L2PcInstance Intention to AI_INTENTION_ATTACK
+						// Set the L2Player Intention to AI_INTENTION_ATTACK
 						player.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, this);
 						// player.startAttack(this);
 					}
 					else
 					{
-						// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+						// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 						player.sendPacket(ActionFailed.STATIC_PACKET);
 					}
 				}
 				else if (!isAutoAttackable(player))
 				{
-					// Calculate the distance between the L2PcInstance and the L2Npc
+					// Calculate the distance between the L2Player and the L2Npc
 					if (!canInteract(player))
 					{
-						// Notify the L2PcInstance AI with AI_INTENTION_INTERACT
+						// Notify the L2Player AI with AI_INTENTION_INTERACT
 						player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
 					}
 					else
 					{
-						// Send a Server->Client packet SocialAction to the all L2PcInstance on the _knownPlayer of the L2Npc
+						// Send a Server->Client packet SocialAction to the all L2Player on the _knownPlayer of the L2Npc
 						// to display a social action of the L2Npc on their client
 						broadcastRandomAnimation(true);
 
@@ -702,7 +701,7 @@ public class L2Npc extends L2Character
 	}
 
 	@Override
-	public int getMyTargetSelectedColor(L2PcInstance player)
+	public int getMyTargetSelectedColor(L2Player player)
 	{
 		if (isAutoAttackable(player))
 			return player.getLevel() - getLevel();
@@ -713,10 +712,10 @@ public class L2Npc extends L2Character
 	/**
 	 * Manage and Display the GM console to modify the L2Npc (GM only).<BR><BR>
 	 *
-	 * <B><U> Actions (If the L2PcInstance is a GM only)</U> :</B><BR><BR>
-	 * <li>Set the L2Npc as target of the L2PcInstance player (if necessary)</li>
-	 * <li>Send a Server->Client packet MyTargetSelected to the L2PcInstance player (display the select window)</li>
-	 * <li>If L2Npc is autoAttackable, send a Server->Client packet StatusUpdate to the L2PcInstance in order to update L2Npc HP bar </li>
+	 * <B><U> Actions (If the L2Player is a GM only)</U> :</B><BR><BR>
+	 * <li>Set the L2Npc as target of the L2Player player (if necessary)</li>
+	 * <li>Send a Server->Client packet MyTargetSelected to the L2Player player (display the select window)</li>
+	 * <li>If L2Npc is autoAttackable, send a Server->Client packet StatusUpdate to the L2Player in order to update L2Npc HP bar </li>
 	 * <li>Send a Server->Client NpcHtmlMessage() containing the GM console about this L2Npc </li><BR><BR>
 	 *
 	 * <FONT COLOR=#FF0000><B> <U>Caution</U> : Each group of Server->Client packet must be terminated by a ActionFailed packet in order to avoid
@@ -729,18 +728,18 @@ public class L2Npc extends L2Character
 	 *
 	 */
 	@Override
-	public void onActionShift(L2PcInstance player)
+	public void onActionShift(L2Player player)
 	{
-		// Check if the L2PcInstance is a GM
+		// Check if the L2Player is a GM
 		if (player.getAccessLevel() >= Config.GM_ACCESSLEVEL)
 		{
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 
 			// Check if the player is attackable (without a forced attack)
 			if (isAutoAttackable(player))
 			{
-				// Send a Server->Client packet StatusUpdate of the L2Npc to the L2PcInstance to update its HP bar
+				// Send a Server->Client packet StatusUpdate of the L2Npc to the L2Player to update its HP bar
 				StatusUpdate su = new StatusUpdate(getObjectId());
 				su.addAttribute(StatusUpdate.CUR_HP, (int) getStatus().getCurrentHp());
 				su.addAttribute(StatusUpdate.MAX_HP, getMaxHp());
@@ -849,13 +848,13 @@ public class L2Npc extends L2Character
 		// Allow to see the stats of npc if option is activated and if not a box
 		else if (Config.ALT_GAME_VIEWNPC && !(this instanceof L2ChestInstance))
 		{
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 
 			// Check if the player is attackable (without a forced attack)
 			if (isAutoAttackable(player))
 			{
-				// Send a Server->Client packet StatusUpdate of the L2Npc to the L2PcInstance to update its HP bar
+				// Send a Server->Client packet StatusUpdate of the L2Npc to the L2Player to update its HP bar
 				StatusUpdate su = new StatusUpdate(getObjectId());
 				su.addAttribute(StatusUpdate.CUR_HP, (int) getStatus().getCurrentHp());
 				su.addAttribute(StatusUpdate.MAX_HP, getMaxHp());
@@ -913,7 +912,7 @@ public class L2Npc extends L2Character
 			player.sendPacket(html);
 		}
 
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
@@ -977,7 +976,7 @@ public class L2Npc extends L2Character
 	 * @param command The command string received from client
 	 *
 	 */
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		//if (canInteract(player))
 		{
@@ -1009,7 +1008,7 @@ public class L2Npc extends L2Character
 	 * @param player Target player
 	 * @param buffTemplate Name of buff template
 	 */
-	public void makeBuffs(L2PcInstance player, String buffTemplate)
+	public void makeBuffs(L2Player player, String buffTemplate)
 	{
 		int _templateId = 0;
 
@@ -1033,7 +1032,7 @@ public class L2Npc extends L2Character
 	 * @param player Target player/servitor owner
 	 * @param _templateId Id of buff template
 	 */
-	public void makeBuffs(L2PcInstance player, int _templateId, boolean servitor)
+	public void makeBuffs(L2Player player, int _templateId, boolean servitor)
 	{
 		if (player == null)
 			return;
@@ -1150,15 +1149,15 @@ public class L2Npc extends L2Character
 	}
 
 	/**
-	 * Send a Server->Client packet NpcHtmlMessage to the L2PcInstance in order to display the message of the L2Npc.<BR><BR>
+	 * Send a Server->Client packet NpcHtmlMessage to the L2Player in order to display the message of the L2Npc.<BR><BR>
 	 *
-	 * @param player The L2PcInstance who talks with the L2Npc
+	 * @param player The L2Player who talks with the L2Npc
 	 * @param content The text of the L2NpcMessage
 	 *
 	 */
-	public void insertObjectIdAndShowChatWindow(L2PcInstance player, String content)
+	public void insertObjectIdAndShowChatWindow(L2Player player, String content)
 	{
-		// Send a Server->Client packet NpcHtmlMessage to the L2PcInstance in order to display the message of the L2Npc
+		// Send a Server->Client packet NpcHtmlMessage to the L2Player in order to display the message of the L2Npc
 		content = content.replaceAll("%objectId%", String.valueOf(getObjectId()));
 		NpcHtmlMessage npcReply = new NpcHtmlMessage(getObjectId());
 		npcReply.setHtml(content);
@@ -1200,13 +1199,13 @@ public class L2Npc extends L2Character
 	 * Open a choose quest window on client with all quests available of the L2Npc.<BR><BR>
 	 *
 	 * <B><U> Actions</U> :</B><BR><BR>
-	 * <li>Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2PcInstance </li><BR><BR>
+	 * <li>Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2Player </li><BR><BR>
 	 *
-	 * @param player The L2PcInstance that talk with the L2Npc
+	 * @param player The L2Player that talk with the L2Npc
 	 * @param quests The table containing quests of the L2Npc
 	 *
 	 */
-	public void showQuestChooseWindow(L2PcInstance player, Quest[] quests)
+	public void showQuestChooseWindow(L2Player player, Quest[] quests)
 	{
 		L2TextBuilder sb = L2TextBuilder.newInstance();
 		sb.append("<html><body>");
@@ -1227,7 +1226,7 @@ public class L2Npc extends L2Character
 
 		sb.append("</body></html>");
 
-		// Send a Server->Client packet NpcHtmlMessage to the L2PcInstance in order to display the message of the L2Npc
+		// Send a Server->Client packet NpcHtmlMessage to the L2Player in order to display the message of the L2Npc
 		insertObjectIdAndShowChatWindow(player, sb.moveToString());
 	}
 
@@ -1236,14 +1235,14 @@ public class L2Npc extends L2Character
 	 *
 	 * <B><U> Actions</U> :</B><BR><BR>
 	 * <li>Get the text of the quest state in the folder data/scripts/quests/questId/stateId.htm </li>
-	 * <li>Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2PcInstance </li>
-	 * <li>Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet </li><BR><BR>
+	 * <li>Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2Player </li>
+	 * <li>Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet </li><BR><BR>
 	 *
-	 * @param player The L2PcInstance that talk with the L2Npc
+	 * @param player The L2Player that talk with the L2Npc
 	 * @param questId The Identifier of the quest to display the message
 	 *
 	 */
-	public void showQuestWindow(L2PcInstance player, String questId)
+	public void showQuestWindow(L2Player player, String questId)
 	{
 		String content = null;
 
@@ -1318,21 +1317,21 @@ public class L2Npc extends L2Character
 			}
 		}
 
-		// Send a Server->Client packet NpcHtmlMessage to the L2PcInstance in order to display the message of the L2Npc
+		// Send a Server->Client packet NpcHtmlMessage to the L2Player in order to display the message of the L2Npc
 		if (content != null)
 			insertObjectIdAndShowChatWindow(player, content);
 
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
 	/**
 	 * Collect awaiting quests/start points and display a QuestChooseWindow (if several available) or QuestWindow.<BR><BR>
 	 *
-	 * @param player The L2PcInstance that talk with the L2Npc
+	 * @param player The L2Player that talk with the L2Npc
 	 *
 	 */
-	public void showQuestWindow(L2PcInstance player)
+	public void showQuestWindow(L2Player player)
 	{
 		// Collect awaiting quests and start points
 		FastList<Quest> options = new FastList<Quest>();
@@ -1382,10 +1381,10 @@ public class L2Npc extends L2Character
 	 *
 	 * <B><U> Actions</U> :</B><BR><BR>
 	 * <li>Get the text of the selected HTML file in function of the npcId and of the page number </li>
-	 * <li>Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2PcInstance </li>
-	 * <li>Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet </li><BR>
+	 * <li>Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2Player </li>
+	 * <li>Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet </li><BR>
 	 *
-	 * @param player The L2PcInstance that talk with the L2Npc
+	 * @param player The L2Player that talk with the L2Npc
 	 * @param val The number of the page of the L2Npc to display
 	 *
 	 */
@@ -1394,10 +1393,10 @@ public class L2Npc extends L2Character
 	 *
 	 * <B><U> Actions</U> :</B><BR><BR>
 	 * <li>Get the text of the selected HTML file in function of the npcId and of the page number </li>
-	 * <li>Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2PcInstance </li>
-	 * <li>Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet </li><BR>
+	 * <li>Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2Player </li>
+	 * <li>Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet </li><BR>
 	 *
-	 * @param player The L2PcInstance that talk with the L2Npc
+	 * @param player The L2Player that talk with the L2Npc
 	 * @param val The number of the page of the L2Npc to display
 	 *
 	 */
@@ -1409,7 +1408,7 @@ public class L2Npc extends L2Character
 	// 23 - current lottery jackpot
 	// 24 - Previous winning numbers/Prize claim
 	// >24 - check lottery ticket by item object id
-	public void showLotoWindow(L2PcInstance player, int val)
+	public void showLotoWindow(L2Player player, int val)
 	{
 		int npcId = getTemplate().getNpcId();
 		String filename;
@@ -1633,11 +1632,11 @@ public class L2Npc extends L2Character
 		html.replace("%enddate%", "" + DateFormat.getDateInstance().format(Lottery.getInstance().getEndDate()));
 		player.sendPacket(html);
 
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	public void makeCPRecovery(L2PcInstance player)
+	public void makeCPRecovery(L2Player player)
 	{
 		if (getNpcId() != 31225 && getNpcId() != 31226)
 			return;
@@ -1672,10 +1671,10 @@ public class L2Npc extends L2Character
 	 *
 	 * <FONT COLOR=#FF0000><B> Newbie Helper Buff list is define in buff templates sql table as "SupportMagic"</B></FONT><BR><BR>
 	 *
-	 * @param player The L2PcInstance that talk with the L2Npc
+	 * @param player The L2Player that talk with the L2Npc
 	 *
 	 */
-	public void makeSupportMagic(L2PcInstance player, String cmd, boolean servitor)
+	public void makeSupportMagic(L2Player player, String cmd, boolean servitor)
 	{
 		// Prevent a cursed weapon weilder of being buffed
 		if (!cwCheck(player))
@@ -1721,7 +1720,7 @@ public class L2Npc extends L2Character
 		makeBuffs(player, _newbieBuffsId, servitor);
 	}
 
-	public void giveBlessingSupport(L2PcInstance player)
+	public void giveBlessingSupport(L2Player player)
 	{
 		if (player == null)
 			return;
@@ -1746,7 +1745,7 @@ public class L2Npc extends L2Character
 			doCast(skill);
 	}
 
-	public void showChatWindow(L2PcInstance player)
+	public void showChatWindow(L2Player player)
 	{
 		showChatWindow(player, 0);
 	}
@@ -1757,7 +1756,7 @@ public class L2Npc extends L2Character
 	 * @param type
 	 * @return boolean
 	 */
-	private boolean showPkDenyChatWindow(L2PcInstance player, String type)
+	private boolean showPkDenyChatWindow(L2Player player, String type)
 	{
 		String html = HtmCache.getInstance().getHtm("data/html/" + type + "/" + getNpcId() + "-pk.htm");
 
@@ -1778,14 +1777,14 @@ public class L2Npc extends L2Character
 	 *
 	 * <B><U> Actions</U> :</B><BR><BR>
 	 * <li>Get the text of the selected HTML file in function of the npcId and of the page number </li>
-	 * <li>Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2PcInstance </li>
-	 * <li>Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet </li><BR>
+	 * <li>Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2Player </li>
+	 * <li>Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet </li><BR>
 	 *
-	 * @param player The L2PcInstance that talk with the L2Npc
+	 * @param player The L2Player that talk with the L2Npc
 	 * @param val The number of the page of the L2Npc to display
 	 *
 	 */
-	public void showChatWindow(L2PcInstance player, int val)
+	public void showChatWindow(L2Player player, int val)
 	{
 		if (!cwCheck(player) && !(player.getTarget() instanceof L2ClanHallManagerInstance || player.getTarget() instanceof L2DoormenInstance))
 		{
@@ -2039,7 +2038,7 @@ public class L2Npc extends L2Character
 			break;
 		}
 
-		// Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2PcInstance
+		// Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2Player
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);
 
@@ -2056,7 +2055,7 @@ public class L2Npc extends L2Character
 		}
 		player.sendPacket(html);
 
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
@@ -2065,19 +2064,19 @@ public class L2Npc extends L2Character
 	 * relative to the datapack root.
 	 * <BR><BR>
 	 * Added by Tempy
-	 * @param player The L2PcInstance that talk with the L2Npc
+	 * @param player The L2Player that talk with the L2Npc
 	 * @param filename The filename that contains the text to send
 	 *
 	 */
-	public void showChatWindow(L2PcInstance player, String filename)
+	public void showChatWindow(L2Player player, String filename)
 	{
-		// Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2PcInstance
+		// Send a Server->Client NpcHtmlMessage containing the text of the L2Npc to the L2Player
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);
 		html.replace("%objectId%", String.valueOf(getObjectId()));
 		player.sendPacket(html);
 
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
@@ -2108,7 +2107,7 @@ public class L2Npc extends L2Character
 	 * <li>Stop movement </li>
 	 * <li>Stop HP/MP/CP Regeneration task </li>
 	 * <li>Stop all active skills effects in progress on the L2Character </li>
-	 * <li>Send the Server->Client packet StatusUpdate with current HP and MP to all other L2PcInstance to inform </li>
+	 * <li>Send the Server->Client packet StatusUpdate with current HP and MP to all other L2Player to inform </li>
 	 * <li>Notify L2Character AI </li><BR><BR>
 	 *
 	 * <B><U> Overridden in </U> :</B><BR><BR>
@@ -2360,13 +2359,13 @@ public class L2Npc extends L2Character
 		return _inventory;
 	}
 
-	private boolean cwCheck(L2PcInstance player)
+	private boolean cwCheck(L2Player player)
 	{
 		return Config.CURSED_WEAPON_NPC_INTERACT || !player.isCursedWeaponEquipped();
 	}
 
 	@Override
-	public void sendInfo(L2PcInstance activeChar)
+	public void sendInfo(L2Player activeChar)
 	{
 		if (Config.TEST_KNOWNLIST && activeChar.isGM())
 			activeChar.sendMessage("Knownlist, added NPC: " + getName());
@@ -2380,7 +2379,7 @@ public class L2Npc extends L2Character
 		broadcastPacket(getRunSpeed() == 0 ? new ServerObjectInfo(this) : new AbstractNpcInfo.NpcInfo(this));
 	}
 	
-	public void showNoTeachHtml(L2PcInstance player)
+	public void showNoTeachHtml(L2Player player)
 	{
 		int npcId = getNpcId();
 		String path = null;
@@ -2444,12 +2443,12 @@ public class L2Npc extends L2Character
 		_questAttackStatus = status;
 	}
 
-	public L2PcInstance getQuestFirstAttacker()
+	public L2Player getQuestFirstAttacker()
 	{
 		return _questFirstAttacker;
 	}
 
-	public void setQuestFirstAttacker(L2PcInstance attacker)
+	public void setQuestFirstAttacker(L2Player attacker)
 	{
 		_questFirstAttacker = attacker;
 	}

@@ -22,6 +22,7 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
@@ -46,12 +47,12 @@ public class L2FortCommanderInstance extends L2DefenderInstance
 	@Override
 	public boolean isAutoAttackable(L2Character attacker)
 	{
-		if ( attacker == null || !(attacker instanceof L2PcInstance) )
+		if ( attacker == null || !(attacker instanceof L2Player) )
 			return false;
 
 		boolean isFort = (getFort() != null && getFort().getFortId() > 0
 			&& getFort().getSiege().getIsInProgress() &&
-				!getFort().getSiege().checkIsDefender(((L2PcInstance)attacker).getClan()));
+				!getFort().getSiege().checkIsDefender(((L2Player)attacker).getClan()));
 
 		// Attackable during siege by all except defenders
 		return isFort;

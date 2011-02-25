@@ -29,7 +29,6 @@ import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.ClassId;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
@@ -48,6 +47,7 @@ import net.l2emuproject.gameserver.templates.item.L2EtcItem;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
@@ -75,7 +75,7 @@ public class AdminSmartShop implements IAdminCommandHandler
 	// Any number will do as long as it can be divided by 3, for viewing sake =P
 	private static int				_itemsPerView	= 9;
 
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (!command.startsWith("admin_smartshop"))
 			return false;
@@ -172,9 +172,9 @@ public class AdminSmartShop implements IAdminCommandHandler
 
 	/**
 	 * Controls the smart shop's AI
-	 * @param activeChar - The L2PcInstance GM using the shop
+	 * @param activeChar - The L2Player GM using the shop
 	 */
-	private void showSmartShop(L2PcInstance activeChar, String marks, String message, String title)
+	private void showSmartShop(L2Player activeChar, String marks, String message, String title)
 	{
 
 		if (marks.contains("_get="))
@@ -187,7 +187,7 @@ public class AdminSmartShop implements IAdminCommandHandler
 
 	}
 
-	private void showItemScreen(String marks, L2PcInstance actor)
+	private void showItemScreen(String marks, L2Player actor)
 	{
 
 		int itemId = valueOfMark("_get=", marks);
@@ -247,7 +247,7 @@ public class AdminSmartShop implements IAdminCommandHandler
 	 * @param mark String of the cmd requested
 	 * @return the String text ready to be outputed in html.
 	 */
-	private String itemText(String mark, int itemId, L2PcInstance actor)
+	private String itemText(String mark, int itemId, L2Player actor)
 	{
 		// "_getSkillItem=" , "_editItem=" , "_detailItem=" , "_getQuestItem=" , "_getBuyListItem="
 
@@ -294,10 +294,10 @@ public class AdminSmartShop implements IAdminCommandHandler
 	/**
 	 * Shows the screen to the gm using this shop.
 	 * @param text - String html text
-	 * @param activeChar - L2PcInstance of the GM
+	 * @param activeChar - L2Player of the GM
 	 * @param heading - String title of the shop
 	 */
-	private void showScreen(String text, L2PcInstance activeChar, String message, String heading)
+	private void showScreen(String text, L2Player activeChar, String message, String heading)
 	{
 
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
@@ -1472,7 +1472,7 @@ public class AdminSmartShop implements IAdminCommandHandler
 	 * @param second
 	 * @param actor
 	 */
-	String parseParam(String opCommand, String first, String second, L2PcInstance actor)
+	String parseParam(String opCommand, String first, String second, L2Player actor)
 	{
 		if (first == null)
 			first = "";
@@ -1490,7 +1490,7 @@ public class AdminSmartShop implements IAdminCommandHandler
 		return first;
 	}
 
-	String parseParam(String opCommand, String first, L2PcInstance actor)
+	String parseParam(String opCommand, String first, L2Player actor)
 	{
 		if (first == null)
 			first = "";
@@ -1813,7 +1813,7 @@ public class AdminSmartShop implements IAdminCommandHandler
 		return "";
 	}
 
-	private void giveItem(L2PcInstance pc, int itemId, int count)
+	private void giveItem(L2Player pc, int itemId, int count)
 	{
 
 		L2ItemInstance item = ItemTable.getInstance().createItem("Smart Shop Admin Buy", itemId, count, pc);
@@ -1852,7 +1852,7 @@ public class AdminSmartShop implements IAdminCommandHandler
 		return mark;
 	}
 
-	private String getSkillItemText(int itemId, L2PcInstance activeChar)
+	private String getSkillItemText(int itemId, L2Player activeChar)
 	{
 		String message = "";
 		if (skillsWithItems == null)

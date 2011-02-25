@@ -20,13 +20,13 @@ import net.l2emuproject.gameserver.instancemanager.AntiFeedManager;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.games.KrateiCube;
 import net.l2emuproject.gameserver.instancemanager.leaderboards.ArenaManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.events.TvT;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -36,7 +36,7 @@ import net.l2emuproject.tools.random.Rnd;
 public final class CustomRestriction extends AbstractRestriction
 {
 	@Override
-	public final void playerLoggedIn(L2PcInstance activeChar)
+	public final void playerLoggedIn(L2Player activeChar)
 	{
 		activeChar.getPlayerCustom().restoreCustomStatus();
 
@@ -53,14 +53,14 @@ public final class CustomRestriction extends AbstractRestriction
 	}
 
 	@Override
-	public final void playerKilled(L2Character activeChar, L2PcInstance target, L2PcInstance killer)
+	public final void playerKilled(L2Character activeChar, L2Player target, L2Player killer)
 	{
 		if (Config.ALLOW_QUAKE_SYSTEM && !TvT.isPlaying(killer) && !KrateiCube.isPlaying(killer))
 		{
 			if (killer != null)
 				killer.getPlayerEventData().givePoints(1);
 
-			for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+			for (L2Player player : L2World.getInstance().getAllPlayers())
 				if (player != null && killer != null)
 					player.sendCreatureMessage(SystemChatChannelId.Chat_Critical_Announce, "", getRandomMessage() + " " + killer.getName() + " "
 							+ getMessage(killer.getPlayerEventData().getPoints()));
@@ -137,7 +137,7 @@ public final class CustomRestriction extends AbstractRestriction
 		return message;
 	}
 
-	private final void notifyCastleOwner(L2PcInstance activeChar)
+	private final void notifyCastleOwner(L2Player activeChar)
 	{
 		L2Clan clan = activeChar.getClan();
 

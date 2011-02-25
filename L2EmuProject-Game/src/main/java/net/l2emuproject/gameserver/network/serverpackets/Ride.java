@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.datatables.PetDataTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class Ride extends L2GameServerPacket
 {
@@ -28,7 +28,7 @@ public class Ride extends L2GameServerPacket
 	private final int			_rideClassID;
 	private final int			_x, _y, _z;
 	
-	public Ride(L2PcInstance cha, boolean mount, int npcId)
+	public Ride(L2Player cha, boolean mount, int npcId)
 	{
 		_id = cha.getObjectId();
 		_bRide = mount ? 1 : 0;

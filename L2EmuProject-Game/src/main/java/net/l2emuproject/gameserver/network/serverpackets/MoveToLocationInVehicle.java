@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.geometry.Point3D;
 
 /**
@@ -32,7 +32,7 @@ public final class MoveToLocationInVehicle extends L2GameServerPacket
 	 * @param destination
 	 * @param origin
 	 */
-	public MoveToLocationInVehicle(L2PcInstance player, Point3D destination, Point3D origin)
+	public MoveToLocationInVehicle(L2Player player, Point3D destination, Point3D origin)
 	{
 		_charObjId = player.getObjectId();
 		_boatId = player.getBoat().getObjectId();

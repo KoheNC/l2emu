@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Format: (chd) dddS
@@ -29,7 +29,7 @@ public final class ExCubeGameAddPlayer extends L2GameServerPacket
 {
 	private static final String	_S__FE_97_01_EXCUBEGAMEADDPLAYER	= "[S] FE:97:01 ExCubeGameAddPlayer";
 
-	private final L2PcInstance	_player;
+	private final L2Player	_player;
 	private final boolean		_isRedTeam;
 
 	/**
@@ -38,7 +38,7 @@ public final class ExCubeGameAddPlayer extends L2GameServerPacket
 	 * @param player Player Instance
 	 * @param isRedTeam Is Player from Red Team?
 	 */
-	public ExCubeGameAddPlayer(L2PcInstance player, boolean isRedTeam)
+	public ExCubeGameAddPlayer(L2Player player, boolean isRedTeam)
 	{
 		_player = player;
 		_isRedTeam = isRedTeam;

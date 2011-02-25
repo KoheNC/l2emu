@@ -17,28 +17,28 @@ package net.l2emuproject.gameserver.communitybbs.Manager;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ShowBoard;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 
 public abstract class BaseBBSManager
 {
-	public abstract void parsecmd(String command, L2PcInstance activeChar);
+	public abstract void parsecmd(String command, L2Player activeChar);
 
-	public abstract void parsewrite(String ar1, String ar2, String ar3, String ar4, String ar5, L2PcInstance activeChar);
+	public abstract void parsewrite(String ar1, String ar2, String ar3, String ar4, String ar5, L2Player activeChar);
 
-	protected void separateAndSend(L2TextBuilder html, L2PcInstance acha)
+	protected void separateAndSend(L2TextBuilder html, L2Player acha)
 	{
 		separateAndSend(html.moveToString(), acha);
 	}
 	
-	protected void separateAndSend(String html, L2PcInstance acha)
+	protected void separateAndSend(String html, L2Player acha)
 	{
 		ShowBoard.separateAndSend(acha, html);
 	}
 	
-	protected void notImplementedYet(L2PcInstance activeChar, String command)
+	protected void notImplementedYet(L2Player activeChar, String command)
 	{
 		ShowBoard.notImplementedYet(activeChar, command);
 	}
@@ -46,7 +46,7 @@ public abstract class BaseBBSManager
 	/**
 	 * @param html
 	 */
-	protected void send1001(String html, L2PcInstance acha)
+	protected void send1001(String html, L2Player acha)
 	{
 		if (html.length() < 8180)
 		{
@@ -57,7 +57,7 @@ public abstract class BaseBBSManager
 	/**
 	 * @param i
 	 */
-	protected void send1002(L2PcInstance acha)
+	protected void send1002(L2Player acha)
 	{
 		send1002(acha, " ", " ", "0");
 	}
@@ -67,7 +67,7 @@ public abstract class BaseBBSManager
 	 * @param string
 	 * @param string2
 	 */
-	protected void send1002(L2PcInstance activeChar, String string, String string2, String string3)
+	protected void send1002(L2Player activeChar, String string, String string2, String string3)
 	{
 		List<String> _arg = new ArrayList<String>(17);
 		_arg.add("0");

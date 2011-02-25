@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Format: (ch) dSdS
@@ -49,7 +49,7 @@ public class RequestPledgeReorganizeMember extends L2GameClientPacket
 		if (_isMemberSelected == 0)
 			return;
 
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 		//do we need powers to do that??

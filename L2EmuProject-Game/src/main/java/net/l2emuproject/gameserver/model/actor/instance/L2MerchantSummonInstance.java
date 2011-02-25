@@ -33,6 +33,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Merchant;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -40,7 +41,7 @@ import net.l2emuproject.gameserver.world.object.L2Merchant;
  */
 public class L2MerchantSummonInstance extends L2SummonInstance implements L2Merchant
 {
-	public L2MerchantSummonInstance(int objectId, L2NpcTemplate template, L2PcInstance owner, L2SkillSummon skill)
+	public L2MerchantSummonInstance(int objectId, L2NpcTemplate template, L2Player owner, L2SkillSummon skill)
 	{
 		super(objectId, template, owner, skill);
 	}
@@ -58,13 +59,13 @@ public class L2MerchantSummonInstance extends L2SummonInstance implements L2Merc
 	}
 	
     @Override
-    public void deleteMe(L2PcInstance owner)
+    public void deleteMe(L2Player owner)
     {
 
     }
 
     @Override
-    public void unSummon(L2PcInstance owner)
+    public void unSummon(L2Player owner)
     {
     	if (isVisible())
     	{
@@ -127,7 +128,7 @@ public class L2MerchantSummonInstance extends L2SummonInstance implements L2Merc
     }
 	
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		if (player.isOutOfControl())
 		{
@@ -135,18 +136,18 @@ public class L2MerchantSummonInstance extends L2SummonInstance implements L2Merc
 			return;
 		}
 		
-		// Check if the L2PcInstance already target the L2NpcInstance
+		// Check if the L2Player already target the L2NpcInstance
 		if (this != player.getTarget())
 		{
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 		}
 		else
 		{
-			// Calculate the distance between the L2PcInstance and the L2NpcInstance
+			// Calculate the distance between the L2Player and the L2NpcInstance
 			if (!isInsideRadius(player, 150, false, false))
 			{
-				// Notify the L2PcInstance AI with AI_INTENTION_INTERACT
+				// Notify the L2Player AI with AI_INTENTION_INTERACT
 				player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
 			}
 			else
@@ -154,17 +155,17 @@ public class L2MerchantSummonInstance extends L2SummonInstance implements L2Merc
 				showMessageWindow(player);
 			}
 		}
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 	
 	@Override
-	public int getMyTargetSelectedColor(L2PcInstance player)
+	public int getMyTargetSelectedColor(L2Player player)
 	{
 		return 0;
 	}
 
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		StringTokenizer st = new StringTokenizer(command, " ");
 		String actualCommand = st.nextToken(); // Get actual command
@@ -183,7 +184,7 @@ public class L2MerchantSummonInstance extends L2SummonInstance implements L2Merc
 		}
 	}
 
-	protected final void showBuyWindow(L2PcInstance player, int val)
+	protected final void showBuyWindow(L2Player player, int val)
 	{
 		double taxRate = 0;
 
@@ -207,13 +208,13 @@ public class L2MerchantSummonInstance extends L2SummonInstance implements L2Merc
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	protected final void showSellWindow(L2PcInstance player)
+	protected final void showSellWindow(L2Player player)
 	{
 		player.sendPacket(new SellList(player));
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	private void showMessageWindow(L2PcInstance player)
+	private void showMessageWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		String filename = "data/html/merchant/"+getNpcId()+".htm";

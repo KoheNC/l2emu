@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.datatables.GmListTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class handles RequestGmLista packet triggered by /gmlist command
@@ -35,7 +35,7 @@ public class RequestGmList extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getClient().getActiveChar();
+		L2Player player = getClient().getActiveChar();
 		if (player == null) return;
 
 		GmListTable.sendListToPlayer(getClient().getActiveChar());

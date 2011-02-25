@@ -17,13 +17,13 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
 import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2WarehouseItem;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.L2Collections;
 import net.l2emuproject.util.L2Collections.Filter;
 
@@ -39,7 +39,7 @@ public final class SortedWareHouseWithdrawalList extends L2GameServerPacket
 
 	private static final String		_S__54_SORTEDWAREHOUSEWITHDRAWALLIST	= "[S] 42 SortedWareHouseWithdrawalList";
 
-	private final L2PcInstance		_activeChar;
+	private final L2Player		_activeChar;
 	private final long				_playerAdena;
 	private final L2WarehouseItem[]	_objects;
 	private final int				_whType;
@@ -72,7 +72,7 @@ public final class SortedWareHouseWithdrawalList extends L2GameServerPacket
 	 * @param itemtype is the Itemtype to sort for
 	 * @param sortorder is the integer Sortorder like 1 for A..Z (use public constant)
 	 */
-	public SortedWareHouseWithdrawalList(L2PcInstance player, int type, WarehouseListType itemtype, byte sortorder)
+	public SortedWareHouseWithdrawalList(L2Player player, int type, WarehouseListType itemtype, byte sortorder)
 	{
 		_activeChar = player;
 		_whType = type;

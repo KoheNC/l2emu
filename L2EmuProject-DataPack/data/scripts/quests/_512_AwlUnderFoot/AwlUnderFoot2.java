@@ -23,7 +23,6 @@ import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.Fort;
@@ -36,6 +35,7 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -127,7 +127,7 @@ public final class AwlUnderFoot2 extends QuestJython
 		}
 	}
 
-	public boolean checkConditions(L2PcInstance player, boolean isNew)
+	public boolean checkConditions(L2Player player, boolean isNew)
 	{
 		if (player.getClan() == null)
 		{
@@ -157,7 +157,7 @@ public final class AwlUnderFoot2 extends QuestJython
 			return false;
 		}
 
-		for (L2PcInstance partyMember : party.getPartyMembers())
+		for (L2Player partyMember : party.getPartyMembers())
 		{
 			if (partyMember.getLevel() < 70)
 			{
@@ -187,13 +187,13 @@ public final class AwlUnderFoot2 extends QuestJython
 		return true;
 	}
 
-	private void teleportPlayer(L2PcInstance player, teleCoord teleto)
+	private void teleportPlayer(L2Player player, teleCoord teleto)
 	{
 		player.setInstanceId(teleto.instanceId);
 		player.teleToLocation(teleto.x, teleto.y, teleto.z);
 	}
 
-	private int enterInstance(L2PcInstance player, String template, teleCoord teleto)
+	private int enterInstance(L2Player player, String template, teleCoord teleto)
 	{
 		int instanceId = 0;
 		if (!checkEnter(player))
@@ -205,7 +205,7 @@ public final class AwlUnderFoot2 extends QuestJython
 		// check for other instances of party members
 		if (party != null)
 		{
-			for (L2PcInstance partyMember : party.getPartyMembers())
+			for (L2Player partyMember : party.getPartyMembers())
 			{
 				st = partyMember.getQuestState(QN);
 				if (st != null)
@@ -285,7 +285,7 @@ public final class AwlUnderFoot2 extends QuestJython
 			//teleports player
 			teleto.instanceId = instanceId;
 
-			for (L2PcInstance partyMember : party.getPartyMembers())
+			for (L2Player partyMember : party.getPartyMembers())
 			{
 				st = partyMember.getQuestState(QN);
 				st.set(CONDITION, 1);
@@ -331,7 +331,7 @@ public final class AwlUnderFoot2 extends QuestJython
 			addSpawn(spawnId, 12161, -49144, -3000, 0, false, 0, false, instanceId);
 	}
 
-	private boolean checkEnter(L2PcInstance player)
+	private boolean checkEnter(L2Player player)
 	{
 		long enterTime = 0;
 
@@ -362,7 +362,7 @@ public final class AwlUnderFoot2 extends QuestJython
 		return true;
 	}
 
-	private boolean checkLeader(L2PcInstance player)
+	private boolean checkLeader(L2Player player)
 	{
 		if (player.getParty() == null)
 		{
@@ -400,7 +400,7 @@ public final class AwlUnderFoot2 extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		String htmlText = event;
 		QuestState st = player.getQuestState(QN);
@@ -497,7 +497,7 @@ public final class AwlUnderFoot2 extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmlText = NO_QUEST;
 		QuestState st = player.getQuestState(QN);
@@ -558,7 +558,7 @@ public final class AwlUnderFoot2 extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		int npcId = npc.getNpcId();
 		int instanceId = npc.getInstanceId();
@@ -570,7 +570,7 @@ public final class AwlUnderFoot2 extends QuestJython
 			// If is party, give item to all party member who have quest
 			if (party != null)
 			{
-				for (L2PcInstance plr : party.getPartyMembers())
+				for (L2Player plr : party.getPartyMembers())
 				{
 					if (plr != null)
 					{
@@ -598,7 +598,7 @@ public final class AwlUnderFoot2 extends QuestJython
 	}
 
 	@Override
-	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		if (ArrayUtils.contains(WARDEN, npc.getNpcId()))
 			return "CastleWarden.htm";

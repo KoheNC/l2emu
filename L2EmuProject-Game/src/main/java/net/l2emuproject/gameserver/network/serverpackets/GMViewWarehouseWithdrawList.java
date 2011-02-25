@@ -14,18 +14,18 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class GMViewWarehouseWithdrawList extends L2GameServerPacket
 {
 	private static final String		_S__95_GMViewWarehouseWithdrawList	= "[S] 95 GMViewWarehouseWithdrawList";
 	private final L2ItemInstance[]	_items;
 	private final String			_playerName;
-	private final L2PcInstance		_activeChar;
+	private final L2Player		_activeChar;
 	private final long				_money;
 	
-	public GMViewWarehouseWithdrawList(L2PcInstance cha)
+	public GMViewWarehouseWithdrawList(L2Player cha)
 	{
 		_activeChar = cha;
 		_items = _activeChar.getWarehouse().getItems();

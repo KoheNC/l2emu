@@ -17,13 +17,13 @@ package net.l2emuproject.gameserver.skills.l2skills;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2TrapInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Trap;
 
 public class L2SkillTrap extends L2SkillSummon
@@ -49,13 +49,13 @@ public class L2SkillTrap extends L2SkillSummon
 	@Override
 	public void useSkill(L2Character caster, L2Character... targets)
 	{
-		if (caster.isAlikeDead() || !(caster instanceof L2PcInstance))
+		if (caster.isAlikeDead() || !(caster instanceof L2Player))
 			return;
 
 		if (_trapNpcId == 0)
 			return;
 
-		L2PcInstance activeChar = (L2PcInstance) caster;
+		L2Player activeChar = (L2Player) caster;
 
 		if (activeChar.getTrap() != null)
 			return;

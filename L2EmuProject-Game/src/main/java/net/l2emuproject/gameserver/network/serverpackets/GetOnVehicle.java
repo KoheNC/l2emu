@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2BoatInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Maktakien
@@ -27,7 +27,7 @@ public class GetOnVehicle extends L2GameServerPacket
 	private final int _x;
 	private final int _y;
 	private final int _z;
-	private final L2PcInstance _activeChar;
+	private final L2Player _activeChar;
 	private final L2BoatInstance _boat;
 	/**
 	 * @param activeChar
@@ -36,7 +36,7 @@ public class GetOnVehicle extends L2GameServerPacket
 	 * @param y
 	 * @param z
 	 */
-	public GetOnVehicle(L2PcInstance activeChar, L2BoatInstance boat, int x, int y, int z)
+	public GetOnVehicle(L2Player activeChar, L2BoatInstance boat, int x, int y, int z)
 	{
 		_activeChar = activeChar;
 		_boat = boat;

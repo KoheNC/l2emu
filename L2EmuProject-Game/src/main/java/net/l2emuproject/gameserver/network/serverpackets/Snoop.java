@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * CDSDDSS -> (0xd5)(objId)(name)(0x00)(type)(speaker)(name)
@@ -24,12 +24,12 @@ public class Snoop extends L2GameServerPacket
 {
 	private static final String _S__D5_SNOOP = "[S] D5 Snoop";
 	
-	private final L2PcInstance _snooped;
+	private final L2Player _snooped;
 	private final int _type;
 	private final String _speaker;
 	private final String _msg;
 	
-	public Snoop(L2PcInstance snooped, SystemChatChannelId channel, String speaker, String msg)
+	public Snoop(L2Player snooped, SystemChatChannelId channel, String speaker, String msg)
 	{
 		_snooped = snooped;
 		_type = channel.getId();

@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * 
@@ -46,7 +46,7 @@ public class MyTargetSelected extends L2GameServerPacket
 	 * @param int objectId of the target
 	 * @param int level difference to the target. name color is calculated from that
 	 */
-	public MyTargetSelected(L2PcInstance player, L2Object target)
+	public MyTargetSelected(L2Player player, L2Object target)
 	{
 		_objectId = target.getObjectId();
 		_color = target.getMyTargetSelectedColor(player);

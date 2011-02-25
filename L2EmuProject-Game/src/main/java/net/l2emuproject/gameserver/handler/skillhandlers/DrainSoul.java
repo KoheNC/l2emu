@@ -34,7 +34,7 @@ public final class DrainSoul extends ISkillConditionChecker
 		// Check if the skill is Drain Soul (Soul Crystals) and if the target is a MOB
 		if (!(target instanceof L2MonsterInstance))
 		{
-			// Send a System Message to the L2PcInstance
+			// Send a System Message to the L2Player
 			activeChar.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
 			return false;
 		}

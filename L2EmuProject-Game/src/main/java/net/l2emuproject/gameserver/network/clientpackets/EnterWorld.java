@@ -32,7 +32,6 @@ import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2ClassMasterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.model.entity.Fort;
@@ -76,6 +75,7 @@ import net.l2emuproject.gameserver.services.petition.PetitionService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public class EnterWorld extends L2GameClientPacket
@@ -102,7 +102,7 @@ public class EnterWorld extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getActiveChar();
+		L2Player activeChar = getActiveChar();
 		if (activeChar == null)
 		{
 			_log.warn("EnterWorld failed! activeChar is null...");
@@ -349,7 +349,7 @@ public class EnterWorld extends L2GameClientPacket
 		SystemMessage sm0 = new SystemMessage(SystemMessageId.FRIEND_S1_HAS_LOGGED_IN).addString(activeChar.getName());
 		for (int objectId : activeChar.getFriendList().getFriendIds())
 		{
-			L2PcInstance player = L2World.getInstance().findPlayer(objectId);
+			L2Player player = L2World.getInstance().findPlayer(objectId);
 			if (player != null)
 				player.sendPacket(sm0);
 		}
@@ -507,7 +507,7 @@ public class EnterWorld extends L2GameClientPacket
 	/**
 	 * @param activeChar
 	 */
-	private void engage(L2PcInstance cha)
+	private void engage(L2Player cha)
 	{
 		int _chaid = cha.getObjectId();
 
@@ -531,11 +531,11 @@ public class EnterWorld extends L2GameClientPacket
 	/**
 	 * @param activeChar partnerid
 	 */
-	private void notifyPartner(L2PcInstance cha)
+	private void notifyPartner(L2Player cha)
 	{
 		if (cha.getPartnerId() != 0)
 		{
-			L2PcInstance partner = L2World.getInstance().getPlayer(cha.getPartnerId());
+			L2Player partner = L2World.getInstance().getPlayer(cha.getPartnerId());
 			if (partner != null)
 				partner.sendMessage("Your Partner " + cha.getName() + " has logged in.");
 		}
@@ -544,7 +544,7 @@ public class EnterWorld extends L2GameClientPacket
 	/**
 	 * @param activeChar
 	 */
-	private void notifyClanMembers(L2PcInstance activeChar)
+	private void notifyClanMembers(L2Player activeChar)
 	{
 		L2Clan clan = activeChar.getClan();
 		if (clan != null)
@@ -573,11 +573,11 @@ public class EnterWorld extends L2GameClientPacket
 	/**
 	 * @param activeChar
 	 */
-	private void notifySponsorOrApprentice(L2PcInstance activeChar)
+	private void notifySponsorOrApprentice(L2Player activeChar)
 	{
 		if (activeChar.getSponsor() != 0)
 		{
-			L2PcInstance sponsor = L2World.getInstance().getPlayer(activeChar.getSponsor());
+			L2Player sponsor = L2World.getInstance().getPlayer(activeChar.getSponsor());
 
 			if (sponsor != null)
 			{
@@ -588,7 +588,7 @@ public class EnterWorld extends L2GameClientPacket
 		}
 		else if (activeChar.getApprentice() != 0)
 		{
-			L2PcInstance apprentice = L2World.getInstance().getPlayer(activeChar.getApprentice());
+			L2Player apprentice = L2World.getInstance().getPlayer(activeChar.getApprentice());
 
 			if (apprentice != null)
 			{
@@ -599,7 +599,7 @@ public class EnterWorld extends L2GameClientPacket
 		}
 	}
 
-	private void loadTutorial(L2PcInstance player)
+	private void loadTutorial(L2Player player)
 	{
 		QuestState qs = player.getQuestState("_255_Tutorial");
 		if (qs != null)

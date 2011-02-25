@@ -15,18 +15,18 @@
 package net.l2emuproject.gameserver.model.itemcontainer;
 
 import net.l2emuproject.gameserver.datatables.ItemTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author DS
  */
 public class PcRefund extends ItemContainer
 {
-	private final L2PcInstance _owner;
+	private final L2Player _owner;
 	
-	public PcRefund(L2PcInstance owner)
+	public PcRefund(L2Player owner)
 	{
 		_owner = owner;
 	}
@@ -38,7 +38,7 @@ public class PcRefund extends ItemContainer
 	}
 	
 	@Override
-	public L2PcInstance getOwner()
+	public L2Player getOwner()
 	{
 		return _owner;
 	}

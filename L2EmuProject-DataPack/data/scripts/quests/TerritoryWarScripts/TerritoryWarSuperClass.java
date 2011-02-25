@@ -22,7 +22,6 @@ import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager.TerritoryNPCSpawn;
 import net.l2emuproject.gameserver.model.TerritoryWard;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
@@ -34,6 +33,7 @@ import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -77,7 +77,7 @@ public class TerritoryWarSuperClass extends QuestJython
 	}
 
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, L2Skill skill, L2Object[] targets, boolean isPet)
+	public String onSkillSee(L2Npc npc, L2Player caster, L2Skill skill, L2Object[] targets, boolean isPet)
 	{
 		if (targets[0] == npc)
 		{
@@ -129,13 +129,13 @@ public class TerritoryWarSuperClass extends QuestJython
 	}
 
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isPet)
+	public String onAttack(L2Npc npc, L2Player player, int damage, boolean isPet)
 	{
 		if (npc.getCurrentHp() == npc.getMaxHp() && ArrayUtils.contains(NPC_IDS, npc.getNpcId()))
 		{
 			int territoryId = getTerritoryIdForThisNPCId(npc.getNpcId());
 			if (territoryId >= 81 && territoryId <= 89)
-				for (L2PcInstance pl : L2World.getInstance().getAllPlayers())
+				for (L2Player pl : L2World.getInstance().getAllPlayers())
 				{
 					if (pl.getSiegeSide() == territoryId)
 					{
@@ -154,7 +154,7 @@ public class TerritoryWarSuperClass extends QuestJython
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public String onKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		if (npc.getNpcId() == CATAPULT_ID)
 		{
@@ -172,7 +172,7 @@ public class TerritoryWarSuperClass extends QuestJython
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if (npc != null || player != null)
 			return null;
@@ -203,7 +203,7 @@ public class TerritoryWarSuperClass extends QuestJython
 		return null;
 	}
 
-	private void handleKillTheQuest(L2PcInstance player)
+	private void handleKillTheQuest(L2Player player)
 	{
 		QuestState st = player.getQuestState(getName());
 		int kill = 1;
@@ -265,13 +265,13 @@ public class TerritoryWarSuperClass extends QuestJython
 	@Override
 	public String onDeath(L2Character killer, L2Character victim, QuestState qs)
 	{
-		if (killer == victim || !(victim instanceof L2PcInstance) || victim.getLevel() < 61)
+		if (killer == victim || !(victim instanceof L2Player) || victim.getLevel() < 61)
 			return "";
-		L2PcInstance actingPlayer = killer.getActingPlayer();
+		L2Player actingPlayer = killer.getActingPlayer();
 		if (actingPlayer != null && qs.getPlayer() != null)
 		{
 			if (actingPlayer.getParty() != null)
-				for (L2PcInstance pl : actingPlayer.getParty().getPartyMembers())
+				for (L2Player pl : actingPlayer.getParty().getPartyMembers())
 				{
 					if (pl.getSiegeSide() == qs.getPlayer().getSiegeSide() || pl.getSiegeSide() == 0 || !Util.checkIfInRange(2000, killer, pl, false))
 						continue;
@@ -285,7 +285,7 @@ public class TerritoryWarSuperClass extends QuestJython
 	}
 
 	@Override
-	public String onEnterWorld(L2PcInstance player)
+	public String onEnterWorld(L2Player player)
 	{
 		int territoryId = TerritoryWarManager.getInstance().getRegisteredTerritoryId(player);
 		if (territoryId > 0)
@@ -321,7 +321,7 @@ public class TerritoryWarSuperClass extends QuestJython
 	{
 		super.setOnEnterWorld(val);
 
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			if (player.getSiegeSide() > 0)
 			{

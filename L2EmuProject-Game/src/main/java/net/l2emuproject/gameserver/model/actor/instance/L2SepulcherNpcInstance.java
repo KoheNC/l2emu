@@ -35,6 +35,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 
@@ -98,25 +99,25 @@ public class L2SepulcherNpcInstance extends L2Npc
 	}
 
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		if (!canTarget(player))
 			return;
 
-		// Check if the L2PcInstance already target the L2NpcInstance
+		// Check if the L2Player already target the L2NpcInstance
 		if (this != player.getTarget())
 		{
 			if (_log.isDebugEnabled())
 				_log.info("new target selected:" + getObjectId());
 
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 
 			// Check if the player is attackable (without a forced attack)
 			if (isAutoAttackable(player))
 			{
 				// Send a Server->Client packet StatusUpdate of the
-				// L2NpcInstance to the L2PcInstance to update its HP bar
+				// L2NpcInstance to the L2Player to update its HP bar
 				StatusUpdate su = new StatusUpdate(getObjectId());
 				su.addAttribute(StatusUpdate.CUR_HP, (int) getStatus().getCurrentHp());
 				su.addAttribute(StatusUpdate.MAX_HP, getMaxHp());
@@ -132,30 +133,30 @@ public class L2SepulcherNpcInstance extends L2Npc
 				// Check the height difference
 				if (Math.abs(player.getZ() - getZ()) < 400) // this max heigth difference might need some tweaking
 				{
-					// Set the L2PcInstance Intention to AI_INTENTION_ATTACK
+					// Set the L2Player Intention to AI_INTENTION_ATTACK
 					player.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, this);
 				}
 				else
 				{
 					// Send a Server->Client packet ActionFailed (target is out
-					// of attack range) to the L2PcInstance player
+					// of attack range) to the L2Player player
 					player.sendPacket(ActionFailed.STATIC_PACKET);
 				}
 			}
 
 			if (!isAutoAttackable(player))
 			{
-				// Calculate the distance between the L2PcInstance and the
+				// Calculate the distance between the L2Player and the
 				// L2NpcInstance
 				if (!canInteract(player))
 				{
-					// Notify the L2PcInstance AI with AI_INTENTION_INTERACT
+					// Notify the L2Player AI with AI_INTENTION_INTERACT
 					player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
 				}
 				else
 				{
 					// Send a Server->Client packet SocialAction to the all
-					// L2PcInstance on the _knownPlayer of the L2NpcInstance
+					// L2Player on the _knownPlayer of the L2NpcInstance
 					// to display a social action of the L2NpcInstance on their
 					// client
 					SocialAction sa = new SocialAction(getObjectId(), Rnd.get(8));
@@ -164,13 +165,13 @@ public class L2SepulcherNpcInstance extends L2Npc
 					doAction(player);
 				}
 			}
-			// Send a Server->Client ActionFailed to the L2PcInstance in order
+			// Send a Server->Client ActionFailed to the L2Player in order
 			// to avoid that the client wait another packet
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 		}
 	}
 
-	private void doAction(L2PcInstance player)
+	private void doAction(L2Player player)
 	{
 		if (isDead())
 		{
@@ -259,7 +260,7 @@ public class L2SepulcherNpcInstance extends L2Npc
 	}
 
 	@Override
-	public void showChatWindow(L2PcInstance player, int val)
+	public void showChatWindow(L2Player player, int val)
 	{
 		String filename = getHtmlPath(getNpcId(), val);
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
@@ -270,7 +271,7 @@ public class L2SepulcherNpcInstance extends L2Npc
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (isBusy())
 		{
@@ -318,7 +319,7 @@ public class L2SepulcherNpcInstance extends L2Npc
 				openNextDoor(getNpcId());
 				if (player.getParty() != null)
 				{
-					for (L2PcInstance mem : player.getParty().getPartyMembers())
+					for (L2Player mem : player.getParty().getPartyMembers())
 					{
 						if (mem.getInventory().getItemByItemId(HALLS_KEY) != null)
 							mem.destroyItemByItemId("Quest", HALLS_KEY, mem.getInventory().getItemByItemId(HALLS_KEY).getCount(), mem, true);
@@ -411,11 +412,11 @@ public class L2SepulcherNpcInstance extends L2Npc
 		if (msg == null || msg.isEmpty())
 			return; //wrong usage
 
-		Collection<L2PcInstance> knownPlayers = L2World.getInstance().getAllPlayers();
+		Collection<L2Player> knownPlayers = L2World.getInstance().getAllPlayers();
 		if (knownPlayers == null || knownPlayers.isEmpty())
 			return;
 		CreatureSay sm = new CreatureSay(0, SystemChatChannelId.Chat_Shout, getName(), msg);
-		for (L2PcInstance player : knownPlayers)
+		for (L2Player player : knownPlayers)
 		{
 			if(player == null)
 				continue;
@@ -423,7 +424,7 @@ public class L2SepulcherNpcInstance extends L2Npc
 				player.sendPacket(sm);
 		}
 	}
-	public void showHtmlFile(L2PcInstance player, String file)
+	public void showHtmlFile(L2Player player, String file)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile("data/html/SepulcherNpc/" + file);

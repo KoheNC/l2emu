@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.L2GameClient.GameClientState;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.CharSelected;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class CharacterSelected extends L2GameClientPacket
 {
@@ -51,7 +51,7 @@ public final class CharacterSelected extends L2GameClientPacket
 		if (getClient().getActiveChar() != null)
 			return;
 
-		final L2PcInstance cha = getClient().loadCharFromDisk(_charSlot);
+		final L2Player cha = getClient().loadCharFromDisk(_charSlot);
 
 		if (cha == null)
 		{

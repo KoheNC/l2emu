@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.datatables.CharNameTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class RequestFriendList extends L2GameClientPacket
 {
@@ -37,7 +37,7 @@ public final class RequestFriendList extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getActiveChar();
+		L2Player activeChar = getActiveChar();
 		if (activeChar == null) return;
 
 		sendPacket(SystemMessageId.FRIEND_LIST_HEADER);
@@ -45,7 +45,7 @@ public final class RequestFriendList extends L2GameClientPacket
 		SystemMessage sm;
 		for (Integer objId : activeChar.getFriendList().getFriendIds())
 		{
-			L2PcInstance friend = L2World.getInstance().findPlayer(objId);
+			L2Player friend = L2World.getInstance().findPlayer(objId);
 			if (friend == null)
 			{
 				sm = new SystemMessage(SystemMessageId.S1_OFFLINE);

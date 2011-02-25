@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.skills;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * A calculator is created to manage and dynamically calculate the effect of a character property (ex : MAX_HP, REGENERATE_HP_RATE...).
@@ -151,8 +151,8 @@ public final class Calculator
 			{
 				removeFunc(element);
 				
-				if (cha instanceof L2PcInstance)
-					((L2PcInstance)cha).onFuncRemoval(element);
+				if (cha instanceof L2Player)
+					((L2Player)cha).onFuncRemoval(element);
 			}
 		}
 	}

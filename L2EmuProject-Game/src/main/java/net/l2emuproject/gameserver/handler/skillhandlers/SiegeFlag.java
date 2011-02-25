@@ -20,7 +20,6 @@ import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.CCHManager;
 import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
 import net.l2emuproject.gameserver.model.entity.FortSiege;
@@ -32,6 +31,7 @@ import net.l2emuproject.gameserver.skills.l2skills.L2SkillSiegeFlag;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
@@ -46,10 +46,10 @@ public class SiegeFlag extends ISkillConditionChecker
 	@Override
 	public boolean checkConditions(L2Character activeChar, L2Skill skill)
 	{
-		if (!(activeChar instanceof L2PcInstance))
+		if (!(activeChar instanceof L2Player))
 			return false;
 		
-		final L2PcInstance player = (L2PcInstance) activeChar;
+		final L2Player player = (L2Player) activeChar;
 		
 		if (player.isInsideZone(L2Zone.FLAG_NO_HQ))
 		{
@@ -75,10 +75,10 @@ public class SiegeFlag extends ISkillConditionChecker
 	{
 		L2SkillSiegeFlag skill = (L2SkillSiegeFlag)skill0;
 		
-		if (!(activeChar instanceof L2PcInstance))
+		if (!(activeChar instanceof L2Player))
 			return;
 
-		L2PcInstance player = (L2PcInstance) activeChar;
+		L2Player player = (L2Player) activeChar;
 
 		Siege siege = SiegeManager.getInstance().getSiege(player);
 		FortSiege fsiege = FortSiegeManager.getInstance().getSiege(player);

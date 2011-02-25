@@ -19,8 +19,8 @@ import static net.l2emuproject.gameserver.instancemanager.PartyRoomManager.ENTRI
 import java.util.List;
 
 import net.l2emuproject.gameserver.instancemanager.PartyRoomManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2PartyRoom;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -36,7 +36,7 @@ public class ListPartyWaiting extends L2GameServerPacket
 	private final int				_offset;
 	private final int				_last;
 
-	public ListPartyWaiting(L2PcInstance player, int page)
+	public ListPartyWaiting(L2Player player, int page)
 	{
 		_rooms = PartyRoomManager.getInstance().getRooms(player);
 		_offset = (page - 1) * ENTRIES_PER_PAGE;

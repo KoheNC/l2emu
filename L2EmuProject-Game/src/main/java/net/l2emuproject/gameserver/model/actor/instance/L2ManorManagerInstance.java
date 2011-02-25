@@ -18,6 +18,7 @@ import net.l2emuproject.gameserver.handler.BypassHandler;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2ManorManagerInstance extends L2MerchantInstance
 {
@@ -27,7 +28,7 @@ public class L2ManorManagerInstance extends L2MerchantInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		// BypassValidation Exploit plug.
 		if (player.getLastFolkNPC() == null || player.getLastFolkNPC().getObjectId() != getObjectId())
@@ -56,7 +57,7 @@ public class L2ManorManagerInstance extends L2MerchantInstance
 	}
 
 	@Override
-	public void showChatWindow(L2PcInstance player)
+	public void showChatWindow(L2Player player)
 	{
 		if (CastleManorService.getInstance().isDisabled())
 		{

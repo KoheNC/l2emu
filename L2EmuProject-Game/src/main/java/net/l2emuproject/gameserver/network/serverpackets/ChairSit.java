@@ -14,16 +14,16 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class ChairSit extends L2GameServerPacket
 {
     private static final String _S__ED_CHAIRSIT = "[S] ed ChairSit [dd]";
     
-    private final L2PcInstance _activeChar;
+    private final L2Player _activeChar;
     private final int _staticObjectId;
 
-    public ChairSit(L2PcInstance player, int staticObjectId)
+    public ChairSit(L2Player player, int staticObjectId)
     {
         _activeChar = player;
         _staticObjectId = staticObjectId;

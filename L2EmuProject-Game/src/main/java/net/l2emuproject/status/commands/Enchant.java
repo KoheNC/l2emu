@@ -17,11 +17,11 @@ package net.l2emuproject.status.commands;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.model.GMAudit;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.status.GameStatusCommand;
 
 public final class Enchant extends GameStatusCommand
@@ -47,7 +47,7 @@ public final class Enchant extends GameStatusCommand
 		
 		try
 		{
-			L2PcInstance player = L2World.getInstance().getPlayer(st.nextToken());
+			L2Player player = L2World.getInstance().getPlayer(st.nextToken());
 			itemType = Integer.parseInt(st.nextToken());
 			enchant = Integer.parseInt(st.nextToken());
 			
@@ -124,7 +124,7 @@ public final class Enchant extends GameStatusCommand
 		}
 	}
 	
-	private boolean setEnchant(L2PcInstance activeChar, int ench, int armorType)
+	private boolean setEnchant(L2Player activeChar, int ench, int armorType)
 	{
 		// now we need to find the equipped weapon of the targeted character...
 		int curEnchant = 0; // display purposes only

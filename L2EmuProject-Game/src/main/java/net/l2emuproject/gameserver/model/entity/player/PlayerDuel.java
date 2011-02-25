@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.model.entity.player;
 
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.restriction.global.DuelRestriction;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.duel.Duel;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public final class PlayerDuel extends PlayerExtension
@@ -30,7 +30,7 @@ public final class PlayerDuel extends PlayerExtension
 	private int		_duelId			= 0;
 	private int		_noDuelReason	= 0;
 
-	public PlayerDuel(L2PcInstance activeChar)
+	public PlayerDuel(L2Player activeChar)
 	{
 		super(activeChar);
 	}

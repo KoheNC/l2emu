@@ -18,11 +18,11 @@ import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.MAX_AD
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.PrivateStoreManageListBuy;
 import net.l2emuproject.gameserver.network.serverpackets.PrivateStoreMsgBuy;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public class SetPrivateStoreListBuy extends L2GameClientPacket
@@ -69,13 +69,13 @@ public class SetPrivateStoreListBuy extends L2GameClientPacket
 	@Override
 	protected final void runImpl()
 	{
-		L2PcInstance player = getClient().getActiveChar();
+		L2Player player = getClient().getActiveChar();
 		if (player == null)
 			return;
 
 		if (_items == null)
 		{
-			player.setPrivateStoreType(L2PcInstance.STORE_PRIVATE_NONE);
+			player.setPrivateStoreType(L2Player.STORE_PRIVATE_NONE);
 			player.broadcastUserInfo();
 			sendAF();
 			return;
@@ -138,7 +138,7 @@ public class SetPrivateStoreListBuy extends L2GameClientPacket
 		}
 
 		player.sitDown();
-		player.setPrivateStoreType(L2PcInstance.STORE_PRIVATE_BUY);
+		player.setPrivateStoreType(L2Player.STORE_PRIVATE_BUY);
 		player.broadcastUserInfo();
 		player.broadcastPacket(new PrivateStoreMsgBuy(player));
 

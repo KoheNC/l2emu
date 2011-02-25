@@ -14,11 +14,11 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Format: (ch) dSS
@@ -44,7 +44,7 @@ public class RequestPledgeSetAcademyMaster extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 
@@ -75,8 +75,8 @@ public class RequestPledgeSetAcademyMaster extends L2GameClientPacket
 			sponsorMember = currentMember;
 		}
 
-		L2PcInstance apprentice = apprenticeMember.getPlayerInstance();
-		L2PcInstance sponsor = sponsorMember.getPlayerInstance();
+		L2Player apprentice = apprenticeMember.getPlayerInstance();
+		L2Player sponsor = sponsorMember.getPlayerInstance();
 
 		SystemMessage sm = null;
 		if (_set == 0)

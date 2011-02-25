@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.skills.effects;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
@@ -23,6 +22,7 @@ import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class EffectChameleonRest extends L2Effect
 {
@@ -42,11 +42,11 @@ public final class EffectChameleonRest extends L2Effect
 	protected boolean onStart()
 	{
 		L2Character effected = getEffected();
-		if (effected instanceof L2PcInstance)
+		if (effected instanceof L2Player)
 		{
 			setChameleon(true);
-			((L2PcInstance)effected).setSilentMoving(true);
-			((L2PcInstance)effected).sitDown();
+			((L2Player)effected).setSilentMoving(true);
+			((L2Player)effected).sitDown();
 		}
 		else
 			effected.getAI().setIntention(CtrlIntention.AI_INTENTION_REST);
@@ -62,8 +62,8 @@ public final class EffectChameleonRest extends L2Effect
 		setChameleon(false);
 		
 		L2Character effected = getEffected();
-		if (effected instanceof L2PcInstance)
-			((L2PcInstance)effected).setSilentMoving(false);
+		if (effected instanceof L2Player)
+			((L2Player)effected).setSilentMoving(false);
 	}
 	
 	@Override
@@ -79,9 +79,9 @@ public final class EffectChameleonRest extends L2Effect
 		if (getSkill().getSkillType() != L2SkillType.CONT)
 			return false;
 		
-		if (effected instanceof L2PcInstance)
+		if (effected instanceof L2Player)
 		{
-			if (!((L2PcInstance)effected).isSitting())
+			if (!((L2Player)effected).isSitting())
 				retval = false;
 		}
 		
@@ -104,7 +104,7 @@ public final class EffectChameleonRest extends L2Effect
 	private void setChameleon(boolean val)
 	{
 		L2Character effected = getEffected();
-		if (effected instanceof L2PcInstance)
-			((L2PcInstance)effected).setRelax(val);
+		if (effected instanceof L2Player)
+			((L2Player)effected).setRelax(val);
 	}
 }

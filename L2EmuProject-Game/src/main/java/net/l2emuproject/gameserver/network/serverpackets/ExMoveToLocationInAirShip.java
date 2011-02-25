@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.geometry.Point3D;
 
 public final class ExMoveToLocationInAirShip extends L2GameServerPacket
@@ -29,7 +29,7 @@ public final class ExMoveToLocationInAirShip extends L2GameServerPacket
 	 * @param destination
 	 * @param origin
 	 */
-	public ExMoveToLocationInAirShip(L2PcInstance player)
+	public ExMoveToLocationInAirShip(L2Player player)
 	{
 		_charObjId = player.getObjectId();
 		_airShipId = player.getAirShip().getObjectId();

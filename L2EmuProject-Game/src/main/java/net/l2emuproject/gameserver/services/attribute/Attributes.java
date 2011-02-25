@@ -14,11 +14,11 @@
  */
 package net.l2emuproject.gameserver.services.attribute;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.skills.funcs.FuncAdd;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.LookupTable;
 
 public class Attributes implements FuncOwner
@@ -226,7 +226,7 @@ public class Attributes implements FuncOwner
 	 * 
 	 * @param player
 	 */
-	public void applyBonus(L2PcInstance player, boolean isArmor)
+	public void applyBonus(L2Player player, boolean isArmor)
 	{
 		if (isArmor)
 			player.addStatFunc(new FuncAdd(getResist(_element), 0x40, this, _value, null));
@@ -239,7 +239,7 @@ public class Attributes implements FuncOwner
 	 * 
 	 * @param player
 	 */
-	public void removeBonus(L2PcInstance player)
+	public void removeBonus(L2Player player)
 	{
 		player.removeStatsOwner(this);
 	}
@@ -249,7 +249,7 @@ public class Attributes implements FuncOwner
 	 * 
 	 * @param player
 	 */
-	public void updateBonus(L2PcInstance player, boolean isArmor)
+	public void updateBonus(L2Player player, boolean isArmor)
 	{
 		removeBonus(player);
 		applyBonus(player, isArmor);

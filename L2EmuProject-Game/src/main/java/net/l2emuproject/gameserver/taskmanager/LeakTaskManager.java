@@ -24,11 +24,11 @@ import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.ai.FactionAggressionNotificationQueue;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.reference.ImmutableReference;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.lang.L2Thread;
@@ -53,7 +53,7 @@ public final class LeakTaskManager
 		return SingletonHolder._instance;
 	}
 	
-	private final Map<ImmutableReference<L2PcInstance>, Long> _players = new FastMap<ImmutableReference<L2PcInstance>, Long>().shared();
+	private final Map<ImmutableReference<L2Player>, Long> _players = new FastMap<ImmutableReference<L2Player>, Long>().shared();
 	private final Map<ImmutableReference<L2Summon>, Long> _summons = new FastMap<ImmutableReference<L2Summon>, Long>().shared();
 	
 	private LeakTaskManager()
@@ -120,7 +120,7 @@ public final class LeakTaskManager
 		}
 	}
 	
-	public void add(L2PcInstance player)
+	public void add(L2Player player)
 	{
 		_players.put(player.getImmutableReference(), System.currentTimeMillis());
 	}
@@ -160,9 +160,9 @@ public final class LeakTaskManager
 		final L2Object[] objects = set.toArray(new L2Object[set.size()]);
 		
 		_log.info("LeakTaskManager: " + _players.size() + " player(s) are waiting for cleanup.");
-		for (ImmutableReference<L2PcInstance> ref : _players.keySet())
+		for (ImmutableReference<L2Player> ref : _players.keySet())
 		{
-			L2PcInstance player = ref.get();
+			L2Player player = ref.get();
 			if (player != null)
 				player.removeFromLists(objects);
 		}
@@ -182,7 +182,7 @@ public final class LeakTaskManager
 	{
 		FastList<String> list = new FastList<String>();
 		
-		for (ImmutableReference<L2PcInstance> ref : _players.keySet())
+		for (ImmutableReference<L2Player> ref : _players.keySet())
 		{
 			if (ref.get() != null)
 				continue;

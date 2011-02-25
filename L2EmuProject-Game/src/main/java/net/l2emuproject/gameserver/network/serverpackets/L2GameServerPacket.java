@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import gnu.trove.TIntArrayList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.clientpackets.L2GameClientPacket;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -44,11 +44,11 @@ public abstract class L2GameServerPacket extends SendablePacket<L2GameClient, L2
 		writeImpl(client, client.getActiveChar());
 	}
 	
-	public void prepareToSend(L2GameClient client, L2PcInstance activeChar)
+	public void prepareToSend(L2GameClient client, L2Player activeChar)
 	{
 	}
 	
-	public void packetSent(L2GameClient client, L2PcInstance activeChar)
+	public void packetSent(L2GameClient client, L2Player activeChar)
 	{
 	}
 	
@@ -56,12 +56,12 @@ public abstract class L2GameServerPacket extends SendablePacket<L2GameClient, L2
 	{
 	}
 	
-	protected void writeImpl(L2GameClient client, L2PcInstance activeChar)
+	protected void writeImpl(L2GameClient client, L2Player activeChar)
 	{
 		writeImpl();
 	}
 	
-	public boolean canBeSentTo(L2GameClient client, L2PcInstance activeChar)
+	public boolean canBeSentTo(L2GameClient client, L2Player activeChar)
 	{
 		return true;
 	}
@@ -92,7 +92,7 @@ public abstract class L2GameServerPacket extends SendablePacket<L2GameClient, L2
 		writeH(0x00); // Enchant effect 3
 	}
 	
-	protected final void writePlayerElementAttribute(L2PcInstance player)
+	protected final void writePlayerElementAttribute(L2Player player)
 	{
 		byte attackAttribute = player.getAttackElement();
 		writeH(attackAttribute);

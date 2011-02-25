@@ -32,13 +32,13 @@ import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.L2GameServer;
 import net.l2emuproject.gameserver.datatables.RecordTable;
 import net.l2emuproject.gameserver.model.BlockList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.Experience;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 import org.apache.commons.logging.LogFactory;
@@ -57,7 +57,7 @@ public class RegionBBSManager extends BaseBBSManager
 	 * .lang.String, net.l2emuproject.gameserver.model.actor.instance.L2PcInstance)
 	 */
 	@Override
-	public void parsecmd(String command, L2PcInstance activeChar)
+	public void parsecmd(String command, L2Player activeChar)
 	{
 		if (command.equals("_bbsloc"))
 		{
@@ -105,12 +105,12 @@ public class RegionBBSManager extends BaseBBSManager
 	 * @param activeChar
 	 * @param name
 	 */
-	private void showOldCommunityPI(L2PcInstance activeChar, String name)
+	private void showOldCommunityPI(L2Player activeChar, String name)
 	{
 		final L2TextBuilder htmlCode = L2TextBuilder.newInstance();
 		htmlCode.append("<html><body><br>");
 		htmlCode.append("<table border=0><tr><td FIXWIDTH=15></td><td align=center>L2J Community Board<img src=\"sek.cbui355\" width=610 height=1></td></tr><tr><td FIXWIDTH=15></td><td>");
-		L2PcInstance player = L2World.getInstance().getPlayer(name);
+		L2Player player = L2World.getInstance().getPlayer(name);
 
 		if (player != null)
 		{
@@ -177,7 +177,7 @@ public class RegionBBSManager extends BaseBBSManager
 	/**
 	 * @param activeChar
 	 */
-	private void showOldCommunity(L2PcInstance activeChar, int page)
+	private void showOldCommunity(L2Player activeChar, int page)
 	{
 		separateAndSend(CommunityPageType.getType(activeChar).getPage(page), activeChar);
 	}
@@ -192,7 +192,7 @@ public class RegionBBSManager extends BaseBBSManager
 	 * net.l2emuproject.gameserver.model.actor.instance.L2PcInstance)
 	 */
 	@Override
-	public void parsewrite(String ar1, String ar2, String ar3, String ar4, String ar5, L2PcInstance activeChar)
+	public void parsewrite(String ar1, String ar2, String ar3, String ar4, String ar5, L2Player activeChar)
 	{
 		if (activeChar == null)
 			return;
@@ -206,7 +206,7 @@ public class RegionBBSManager extends BaseBBSManager
 			try
 			{
 
-				L2PcInstance receiver = L2World.getInstance().getPlayer(ar2);
+				L2Player receiver = L2World.getInstance().getPlayer(ar2);
 				if (receiver == null)
 				{
 					htmlCode.append("Player not found!<br><button value=\"Back\" action=\"bypass _bbsloc;playerinfo;").append(ar2).append("\" width=40 height=15 back=\"sek.cbui94\" fore=\"sek.cbui92\">");
@@ -286,7 +286,7 @@ public class RegionBBSManager extends BaseBBSManager
 	{
 	}
 	
-	public static void changeCommunityBoard(L2PcInstance player, PlayerStateOnCommunity maxInfluencedState)
+	public static void changeCommunityBoard(L2Player player, PlayerStateOnCommunity maxInfluencedState)
 	{
 		if (!maxInfluencedState.showState())
 			return;
@@ -312,7 +312,7 @@ public class RegionBBSManager extends BaseBBSManager
 			}
 			
 			@Override
-			protected boolean isInState(L2PcInstance player, CommunityPageType type)
+			protected boolean isInState(L2Player player, CommunityPageType type)
 			{
 				if (player == null)
 					return true;
@@ -332,7 +332,7 @@ public class RegionBBSManager extends BaseBBSManager
 			}
 			
 			@Override
-			protected boolean isInState(L2PcInstance player, CommunityPageType type)
+			protected boolean isInState(L2Player player, CommunityPageType type)
 			{
 				return player.isGM();
 			}
@@ -345,7 +345,7 @@ public class RegionBBSManager extends BaseBBSManager
 			}
 			
 			@Override
-			protected boolean isInState(L2PcInstance player, CommunityPageType type)
+			protected boolean isInState(L2Player player, CommunityPageType type)
 			{
 				return player.isInJail();
 			}
@@ -358,7 +358,7 @@ public class RegionBBSManager extends BaseBBSManager
 			}
 			
 			@Override
-			protected boolean isInState(L2PcInstance player, CommunityPageType type)
+			protected boolean isInState(L2Player player, CommunityPageType type)
 			{
 				return player.isCursedWeaponEquipped();
 			}
@@ -371,7 +371,7 @@ public class RegionBBSManager extends BaseBBSManager
 			}
 			
 			@Override
-			protected boolean isInState(L2PcInstance player, CommunityPageType type)
+			protected boolean isInState(L2Player player, CommunityPageType type)
 			{
 				return player.getKarma() > 0;
 			}
@@ -384,7 +384,7 @@ public class RegionBBSManager extends BaseBBSManager
 			}
 			
 			@Override
-			protected boolean isInState(L2PcInstance player, CommunityPageType type)
+			protected boolean isInState(L2Player player, CommunityPageType type)
 			{
 				return player.isClanLeader() && player.getClan().getLevel() >= Config.SHOW_CLAN_LEADER_CLAN_LEVEL;
 			}
@@ -397,7 +397,7 @@ public class RegionBBSManager extends BaseBBSManager
 			}
 			
 			@Override
-			protected boolean isInState(L2PcInstance player, CommunityPageType type)
+			protected boolean isInState(L2Player player, CommunityPageType type)
 			{
 				return player.isInOfflineMode();
 			}
@@ -410,7 +410,7 @@ public class RegionBBSManager extends BaseBBSManager
 			}
 			
 			@Override
-			protected boolean isInState(L2PcInstance player, CommunityPageType type)
+			protected boolean isInState(L2Player player, CommunityPageType type)
 			{
 				return true;
 			}
@@ -426,9 +426,9 @@ public class RegionBBSManager extends BaseBBSManager
 		 * @param type
 		 * @return is the player in the state or not
 		 */
-		protected abstract boolean isInState(L2PcInstance player, CommunityPageType type);
+		protected abstract boolean isInState(L2Player player, CommunityPageType type);
 		
-		public static PlayerStateOnCommunity getPlayerState(L2PcInstance player, CommunityPageType type)
+		public static PlayerStateOnCommunity getPlayerState(L2Player player, CommunityPageType type)
 		{
 			for (PlayerStateOnCommunity state : VALUES)
 				if (state.showState() && state.isInState(player, type))
@@ -445,21 +445,21 @@ public class RegionBBSManager extends BaseBBSManager
 		PLAYER,
 		GM;
 
-		private static CommunityPageType getType(L2PcInstance activeChar)
+		private static CommunityPageType getType(L2Player activeChar)
 		{
 			return activeChar.isGM() ? GM : PLAYER;
 		}
 
-		private final List<L2PcInstance> _players = new ArrayList<L2PcInstance>();
+		private final List<L2Player> _players = new ArrayList<L2Player>();
 		private final Map<Integer, String> _communityPages = new FastMap<Integer, String>();
 		
-		public void changeCommunityBoard(L2PcInstance player, PlayerStateOnCommunity maxInfluencedState)
+		public void changeCommunityBoard(L2Player player, PlayerStateOnCommunity maxInfluencedState)
 		{
 			if (getPlayerState(player).ordinal() >= maxInfluencedState.ordinal())
 				clear();
 		}
 		
-		private PlayerStateOnCommunity getPlayerState(L2PcInstance player)
+		private PlayerStateOnCommunity getPlayerState(L2Player player)
 		{
 			return PlayerStateOnCommunity.getPlayerState(player, this);
 		}
@@ -476,7 +476,7 @@ public class RegionBBSManager extends BaseBBSManager
 			{
 				clear();
 
-				for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+				for (L2Player player : L2World.getInstance().getAllPlayers())
 				{
 					if (player == null)
 						continue;
@@ -488,8 +488,8 @@ public class RegionBBSManager extends BaseBBSManager
 					_players.add(player);
 				}
 
-				Collections.sort(_players, new Comparator<L2PcInstance>() {
-					public int compare(L2PcInstance p1, L2PcInstance p2)
+				Collections.sort(_players, new Comparator<L2Player>() {
+					public int compare(L2Player p1, L2Player p2)
 					{
 						final int value = getPlayerState(p1).compareTo(getPlayerState(p2));
 
@@ -521,7 +521,7 @@ public class RegionBBSManager extends BaseBBSManager
 			final int fromIndex = (page - 1) * Config.NAME_PAGE_SIZE_COMMUNITYBOARD;
 			final int toIndex = Math.min(_players.size(), fromIndex + Config.NAME_PAGE_SIZE_COMMUNITYBOARD);
 
-			final List<L2PcInstance> onlinePlayers = _players.subList(fromIndex, toIndex);
+			final List<L2Player> onlinePlayers = _players.subList(fromIndex, toIndex);
 
 			final L2TextBuilder htmlCode = L2TextBuilder.newInstance();
 			htmlCode.append("<html><body><br>");
@@ -652,7 +652,7 @@ public class RegionBBSManager extends BaseBBSManager
 				htmlCode.append("<tr><td><table width=600 border=0>");
 
 				int cell = 0;
-				for (L2PcInstance player : onlinePlayers)
+				for (L2Player player : onlinePlayers)
 				{
 					if (player == null)
 						continue;

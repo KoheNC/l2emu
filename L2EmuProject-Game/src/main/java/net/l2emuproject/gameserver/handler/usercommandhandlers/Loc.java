@@ -18,12 +18,12 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IUserCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Town;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegionRestart;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class Loc implements IUserCommandHandler
 {
@@ -31,7 +31,7 @@ public class Loc implements IUserCommandHandler
 											{ 0 };
 
 	@Override
-	public boolean useUserCommand(int id, L2PcInstance activeChar)
+	public boolean useUserCommand(int id, L2Player activeChar)
 	{
 		L2MapRegionRestart restart = null;
 		SystemMessageId msg = SystemMessageId.LOC_ADEN_S1_S2_S3;

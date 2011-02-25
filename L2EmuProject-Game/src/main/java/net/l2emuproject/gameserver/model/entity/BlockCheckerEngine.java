@@ -29,7 +29,6 @@ import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.instancemanager.games.HandysBlockCheckerManager;
 import net.l2emuproject.gameserver.instancemanager.games.HandysBlockCheckerManager.ArenaParticipantsHolder;
 import net.l2emuproject.gameserver.model.actor.instance.L2BlockInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.model.restriction.global.BlockCheckerRestriction;
@@ -45,6 +44,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
@@ -58,8 +58,8 @@ public final class BlockCheckerEngine
 	// The object which holds all basic members info
 	private HandysBlockCheckerManager.ArenaParticipantsHolder	_holder;
 	// Maps to hold player of each team and his points
-	private FastMap<L2PcInstance, Integer>						_redTeamPoints		= new FastMap<L2PcInstance, Integer>().shared();
-	private FastMap<L2PcInstance, Integer>						_blueTeamPoints		= new FastMap<L2PcInstance, Integer>().shared();
+	private FastMap<L2Player, Integer>						_redTeamPoints		= new FastMap<L2Player, Integer>().shared();
+	private FastMap<L2Player, Integer>						_blueTeamPoints		= new FastMap<L2Player, Integer>().shared();
 	// The initial points of the event
 	private int													_redPoints			= 15;
 	private int													_bluePoints			= 15;
@@ -102,9 +102,9 @@ public final class BlockCheckerEngine
 		if (arena > -1 && arena < 4)
 			_arena = arena;
 
-		for (L2PcInstance player : holder.getRedPlayers())
+		for (L2Player player : holder.getRedPlayers())
 			_redTeamPoints.put(player, 0);
-		for (L2PcInstance player : holder.getBluePlayers())
+		for (L2Player player : holder.getBluePlayers())
 			_blueTeamPoints.put(player, 0);
 	}
 
@@ -178,7 +178,7 @@ public final class BlockCheckerEngine
 	 * @param isRed
 	 * @return int
 	 */
-	public int getPlayerPoints(L2PcInstance player, boolean isRed)
+	public int getPlayerPoints(L2Player player, boolean isRed)
 	{
 		if (!_redTeamPoints.containsKey(player) && !_blueTeamPoints.containsKey(player))
 			return 0;
@@ -196,7 +196,7 @@ public final class BlockCheckerEngine
 	 * @param player
 	 * @param team
 	 */
-	public void increasePlayerPoints(L2PcInstance player, int team)
+	public void increasePlayerPoints(L2Player player, int team)
 	{
 		if (player == null)
 			return;
@@ -242,9 +242,9 @@ public final class BlockCheckerEngine
 	 * Will send all packets for the event members with 
 	 * the relation info
 	 */
-	private void broadcastRelationChanged(L2PcInstance plr)
+	private void broadcastRelationChanged(L2Player plr)
 	{
-		for (L2PcInstance p : _holder.getAllPlayers())
+		for (L2Player p : _holder.getAllPlayers())
 		{
 			p.sendPacket(new RelationChanged(plr, plr.getRelation(p), p));
 		}
@@ -313,7 +313,7 @@ public final class BlockCheckerEngine
 			final ExCubeGameChangePoints initialPoints = new ExCubeGameChangePoints(300, _bluePoints, _redPoints);
 			ExCubeGameExtendedChangePoints clientSetUp;
 
-			for (L2PcInstance player : _holder.getAllPlayers())
+			for (L2Player player : _holder.getAllPlayers())
 			{
 				if (player == null)
 					continue;
@@ -616,10 +616,10 @@ public final class BlockCheckerEngine
 		 */
 		private void rewardAsWinner(boolean isRed)
 		{
-			FastMap<L2PcInstance, Integer> tempPoints = isRed ? _redTeamPoints : _blueTeamPoints;
+			FastMap<L2Player, Integer> tempPoints = isRed ? _redTeamPoints : _blueTeamPoints;
 
 			// Main give
-			for (L2PcInstance pc : tempPoints.keySet())
+			for (L2Player pc : tempPoints.keySet())
 			{
 				if (pc == null)
 					continue;
@@ -631,10 +631,10 @@ public final class BlockCheckerEngine
 			}
 
 			int first = 0, second = 0;
-			L2PcInstance winner1 = null, winner2 = null;
-			for (Entry<L2PcInstance, Integer> entry : tempPoints.entrySet())
+			L2Player winner1 = null, winner2 = null;
+			for (Entry<L2Player, Integer> entry : tempPoints.entrySet())
 			{
-				L2PcInstance pc = entry.getKey();
+				L2Player pc = entry.getKey();
 				int pcPoints = entry.getValue();
 				if (pcPoints > first)
 				{
@@ -666,11 +666,11 @@ public final class BlockCheckerEngine
 		 */
 		private void rewardAsLooser(boolean isRed)
 		{
-			FastMap<L2PcInstance, Integer> tempPoints = isRed ? _redTeamPoints : _blueTeamPoints;
+			FastMap<L2Player, Integer> tempPoints = isRed ? _redTeamPoints : _blueTeamPoints;
 
-			for (Entry<L2PcInstance, Integer> entry : tempPoints.entrySet())
+			for (Entry<L2Player, Integer> entry : tempPoints.entrySet())
 			{
-				L2PcInstance player = entry.getKey();
+				L2Player player = entry.getKey();
 				if (player != null && entry.getValue() >= 10)
 					player.addItem("Block Checker", 13067, 2, player, true);
 			}
@@ -684,7 +684,7 @@ public final class BlockCheckerEngine
 		{
 			final ExCubeGameEnd end = new ExCubeGameEnd(_isRedWinner);
 
-			for (L2PcInstance player : _holder.getAllPlayers())
+			for (L2Player player : _holder.getAllPlayers())
 			{
 				if (player == null)
 					continue;

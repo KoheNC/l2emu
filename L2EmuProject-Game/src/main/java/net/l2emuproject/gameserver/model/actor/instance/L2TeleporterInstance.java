@@ -32,6 +32,7 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
@@ -55,7 +56,7 @@ public class L2TeleporterInstance extends L2Npc
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (ObjectRestrictions.getInstance().checkRestriction(player, AvailableRestriction.PlayerTeleport))
 		{
@@ -190,7 +191,7 @@ public class L2TeleporterInstance extends L2Npc
 		return "data/html/teleporter/" + pom + ".htm";
 	}
 
-	private void showNewbieHtml(L2PcInstance player)
+	private void showNewbieHtml(L2Player player)
 	{
 		if (player == null)
 			return;
@@ -207,7 +208,7 @@ public class L2TeleporterInstance extends L2Npc
 		player.sendPacket(html);
 	}
 
-	private void showHalfPriceHtml(L2PcInstance player)
+	private void showHalfPriceHtml(L2Player player)
 	{
 		if (player == null)
 			return;
@@ -225,7 +226,7 @@ public class L2TeleporterInstance extends L2Npc
 	}
 
 	@Override
-	public void showChatWindow(L2PcInstance player)
+	public void showChatWindow(L2Player player)
 	{
 		String filename = "data/html/teleporter/castleteleporter-no.htm";
 
@@ -250,7 +251,7 @@ public class L2TeleporterInstance extends L2Npc
 		player.sendPacket(html);
 	}
 
-	private void doTeleport(L2PcInstance player, int val)
+	private void doTeleport(L2Player player, int val)
 	{
 		L2TeleportLocation list = TeleportLocationTable.getInstance().getTemplate(val);
 		if (list != null)
@@ -321,7 +322,7 @@ public class L2TeleporterInstance extends L2Npc
 		}
 	}
 
-	private int validateCondition(L2PcInstance player)
+	private int validateCondition(L2Player player)
 	{
 		if (CastleManager.getInstance().getCastle(this) == null) // Teleporter isn't on castle ground
 			return COND_REGULAR; // Regular access

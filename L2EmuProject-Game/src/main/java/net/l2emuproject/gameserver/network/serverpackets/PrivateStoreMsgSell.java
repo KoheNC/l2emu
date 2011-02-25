@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class ...
@@ -27,7 +27,7 @@ public class PrivateStoreMsgSell extends L2GameServerPacket
 	private final int _objId;
 	private String _storeMsg;
 	
-	public PrivateStoreMsgSell(L2PcInstance player)
+	public PrivateStoreMsgSell(L2Player player)
 	{
 		_objId = player.getObjectId();
 		if (player.getSellList() != null)

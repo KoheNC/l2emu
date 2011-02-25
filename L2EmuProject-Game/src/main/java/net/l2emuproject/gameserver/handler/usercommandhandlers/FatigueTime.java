@@ -15,15 +15,15 @@
 package net.l2emuproject.gameserver.handler.usercommandhandlers;
 
 import net.l2emuproject.gameserver.handler.IUserCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class FatigueTime implements IUserCommandHandler
 {
 	private static final int[] COMMAND_IDS = { 102 };
 
 	@Override
-	public boolean useUserCommand(int id, L2PcInstance activeChar)
+	public boolean useUserCommand(int id, L2Player activeChar)
 	{
 		// Fatigue system is not used in NA
 		// Until something is known, use the retail answer

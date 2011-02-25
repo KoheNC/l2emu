@@ -14,12 +14,12 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestRecipeShopMakeItem extends L2GameClientPacket
 {
@@ -46,7 +46,7 @@ public class RequestRecipeShopMakeItem extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 
@@ -60,13 +60,13 @@ public class RequestRecipeShopMakeItem extends L2GameClientPacket
 		if (object == null)
 			object = L2World.getInstance().getPlayer(_id);
 
-		if (!(object instanceof L2PcInstance))
+		if (!(object instanceof L2Player))
 		{
 			requestFailed(SystemMessageId.TARGET_IS_INCORRECT);
 			return;
 		}
 
-		L2PcInstance manufacturer = (L2PcInstance) object;
+		L2Player manufacturer = (L2Player) object;
 
 		if (!activeChar.isSameInstance(manufacturer))
 		{

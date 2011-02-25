@@ -19,6 +19,7 @@ import net.l2emuproject.gameserver.world.knownlist.CharKnownList;
 import net.l2emuproject.gameserver.world.knownlist.FriendlyMobKnownList;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class represents Friendly Mobs lying over the world.
@@ -50,8 +51,8 @@ public class L2FriendlyMobInstance extends L2Attackable
 	@Override
 	public boolean isAutoAttackable(L2Character attacker)
 	{
-		if (attacker instanceof L2PcInstance)
-			return ((L2PcInstance)attacker).getKarma() > 0;
+		if (attacker instanceof L2Player)
+			return ((L2Player)attacker).getKarma() > 0;
 		return false;
 	}
 	

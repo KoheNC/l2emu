@@ -30,7 +30,6 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.stat.PcStat;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
@@ -47,6 +46,7 @@ import net.l2emuproject.gameserver.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.templates.chars.L2PcTemplate;
 import net.l2emuproject.gameserver.templates.chars.L2PcTemplate.PcTemplateItem;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -142,7 +142,7 @@ public class NewCharacter extends L2GameClientPacket
 			}
 			
 			int objectId = IdFactory.getInstance().getNextId();
-			L2PcInstance newChar = L2PcInstance.create(objectId, template, getClient().getAccountName(), _name,
+			L2Player newChar = L2Player.create(objectId, template, getClient().getAccountName(), _name,
 					_hairStyle, _hairColor, _face, _sex != 0);
 			newChar.getStatus().setCurrentHp(template.getBaseHpMax());
 			newChar.getStatus().setCurrentCp(template.getBaseCpMax());
@@ -157,7 +157,7 @@ public class NewCharacter extends L2GameClientPacket
 		}
 	}
 	
-	private void initNewChar(L2PcInstance newChar)
+	private void initNewChar(L2Player newChar)
 	{
 		if (_log.isDebugEnabled())
 			_log.debug("Character init start");
@@ -244,7 +244,7 @@ public class NewCharacter extends L2GameClientPacket
 			_log.debug("Character init end");
 	}
 	
-	public void startTutorialQuest(L2PcInstance player)
+	public void startTutorialQuest(L2Player player)
 	{
 		QuestState qs = player.getQuestState("_255_Tutorial");
 		Quest q = null;
@@ -254,7 +254,7 @@ public class NewCharacter extends L2GameClientPacket
 			q.newQuestState(player);
 	}
 	
-	private final void storeCreationDate(L2PcInstance player)
+	private final void storeCreationDate(L2Player player)
 	{
 		Connection con = null;
 		try

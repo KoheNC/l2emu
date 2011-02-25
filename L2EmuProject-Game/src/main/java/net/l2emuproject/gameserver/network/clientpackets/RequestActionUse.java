@@ -21,7 +21,6 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2StaticObjectInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
@@ -67,7 +67,7 @@ public class RequestActionUse extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 		
@@ -164,7 +164,7 @@ public class RequestActionUse extends L2GameClientPacket
 				}
 				else if (activeChar.getPlayerOlympiad().isInOlympiadMode() && !activeChar.getPlayerOlympiad().isOlympiadStart())
 				{
-					// if L2PcInstance is in Olympiad and the match isn't already started, send a Server->Client packet ActionFailed
+					// if L2Player is in Olympiad and the match isn't already started, send a Server->Client packet ActionFailed
 					sendAF();
 					return;
 				}
@@ -262,7 +262,7 @@ public class RequestActionUse extends L2GameClientPacket
 		case 37: // Manufacture - Dwarven
 			if (activeChar.getPrivateStoreType() != 0)
 			{
-				activeChar.setPrivateStoreType(L2PcInstance.STORE_PRIVATE_NONE);
+				activeChar.setPrivateStoreType(L2Player.STORE_PRIVATE_NONE);
 				activeChar.broadcastUserInfo();
 			}
 			if (activeChar.isSitting())
@@ -303,7 +303,7 @@ public class RequestActionUse extends L2GameClientPacket
 		case 51: // Manufacture -  non-dwarven
 			if (activeChar.getPrivateStoreType() != 0)
 			{
-				activeChar.setPrivateStoreType(L2PcInstance.STORE_PRIVATE_NONE);
+				activeChar.setPrivateStoreType(L2Player.STORE_PRIVATE_NONE);
 				activeChar.broadcastUserInfo();
 			}
 			if (activeChar.isSitting())
@@ -668,7 +668,7 @@ public class RequestActionUse extends L2GameClientPacket
 	 */
 	private final void useSkill(int skillId, L2Object target)
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 
@@ -707,14 +707,14 @@ public class RequestActionUse extends L2GameClientPacket
 	 */
 	private final void useSkill(int skillId)
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 
 		useSkill(skillId, activeChar.getTarget());
 	}
 
-	private final void useSocial(int socialId, L2PcInstance activeChar)
+	private final void useSocial(int socialId, L2Player activeChar)
 	{
 		if (activeChar.getPlayerFish().isFishing())
 		{
@@ -730,16 +730,16 @@ public class RequestActionUse extends L2GameClientPacket
 	
 	private final void useCoupleSocial(int id)
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 		L2Object target = activeChar.getTarget();
-		if (!(target instanceof L2PcInstance))
+		if (!(target instanceof L2Player))
 		{
 			activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 			return;
 		}
-		L2PcInstance player = (L2PcInstance) target;
+		L2Player player = (L2Player) target;
 		if (activeChar.getPlayerFish().isFishing() || player.getPlayerFish().isFishing())
 		{
 			activeChar.sendPacket(SystemMessageId.CANNOT_DO_WHILE_FISHING_3);

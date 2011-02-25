@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.serverpackets.PledgeInfo;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class ...
@@ -48,7 +48,7 @@ public class RequestPledgeInfo extends L2GameClientPacket
 		if (_log.isDebugEnabled())
 			_log.debug("infos for clan " + _clanId + " requested");
 
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 

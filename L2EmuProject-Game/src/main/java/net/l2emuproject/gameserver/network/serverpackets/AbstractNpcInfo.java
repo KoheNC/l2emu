@@ -19,7 +19,6 @@ import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.L2GameClient;
@@ -27,6 +26,7 @@ import net.l2emuproject.gameserver.skills.AbnormalEffect;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.object.L2Trap;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
@@ -176,7 +176,7 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 		}
 		
 		@Override
-		protected void writeImpl(L2GameClient client, L2PcInstance activeChar)
+		protected void writeImpl(L2GameClient client, L2Player activeChar)
 		{
 			if (isChar)
 			{
@@ -369,7 +369,7 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 		}
 		
 		@Override
-		public boolean canBeSentTo(L2GameClient client, L2PcInstance activeChar)
+		public boolean canBeSentTo(L2GameClient client, L2Player activeChar)
 		{
 			if (!activeChar.canSee(_npc))
 				return false;
@@ -397,7 +397,7 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 		}
 		
 		@Override
-		protected void writeImpl(L2GameClient client, L2PcInstance activeChar)
+		protected void writeImpl(L2GameClient client, L2Player activeChar)
 		{
 			writeC(0x0c);
 			writeD(_trap.getObjectId());
@@ -459,7 +459,7 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 		}
 		
 		@Override
-		public boolean canBeSentTo(L2GameClient client, L2PcInstance activeChar)
+		public boolean canBeSentTo(L2GameClient client, L2Player activeChar)
 		{
 			if (!activeChar.canSee(_trap))
 				return false;
@@ -521,7 +521,7 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 		}
 		
 		@Override
-		protected void writeImpl(L2GameClient client, L2PcInstance activeChar)
+		protected void writeImpl(L2GameClient client, L2Player activeChar)
 		{
 			writeC(0x0c);
 			writeD(_summon.getObjectId());
@@ -590,7 +590,7 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 		}
 		
 		@Override
-		public boolean canBeSentTo(L2GameClient client, L2PcInstance activeChar)
+		public boolean canBeSentTo(L2GameClient client, L2Player activeChar)
 		{
 			// Owner gets PetInfo
 			if (_summon.getOwner() == activeChar)
@@ -605,10 +605,10 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 	
 	public static class PcMorphInfo extends AbstractNpcInfo
 	{
-		private final L2PcInstance	_pc;
+		private final L2Player	_pc;
 		private final L2NpcTemplate	_template;
 		
-		public PcMorphInfo(L2PcInstance cha, L2NpcTemplate template)
+		public PcMorphInfo(L2Player cha, L2NpcTemplate template)
 		{
 			super(cha);
 			_pc = cha;
@@ -616,7 +616,7 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 		}
 		
 		@Override
-		protected void writeImpl(L2GameClient client, L2PcInstance activeChar)
+		protected void writeImpl(L2GameClient client, L2Player activeChar)
 		{
 			writeC(0x0c);
 			writeD(_pc.getObjectId());
@@ -683,7 +683,7 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 		}
 		
 		@Override
-		public boolean canBeSentTo(L2GameClient client, L2PcInstance activeChar)
+		public boolean canBeSentTo(L2GameClient client, L2Player activeChar)
 		{
 			// Won't work
 			if (_pc == activeChar)

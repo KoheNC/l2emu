@@ -21,10 +21,10 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
 import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.SingletonMap;
 
 public final class PlayerRecipe extends PlayerExtension
@@ -37,7 +37,7 @@ public final class PlayerRecipe extends PlayerExtension
 	private final Map<Integer, L2RecipeList>	_dwarvenRecipeBook	= new SingletonMap<Integer, L2RecipeList>();
 	private final Map<Integer, L2RecipeList>	_commonRecipeBook	= new SingletonMap<Integer, L2RecipeList>();
 
-	public PlayerRecipe(L2PcInstance activeChar)
+	public PlayerRecipe(L2Player activeChar)
 	{
 		super(activeChar);
 	}
@@ -90,7 +90,7 @@ public final class PlayerRecipe extends PlayerExtension
 	}
 
 	/**
-	 * Restore recipe book data for this L2PcInstance.
+	 * Restore recipe book data for this L2Player.
 	 */
 	public final void restoreRecipeBook(boolean loadCommon)
 	{
@@ -141,7 +141,7 @@ public final class PlayerRecipe extends PlayerExtension
 	}
 
 	/**
-	 * Return a table containing all Common L2Recipe of the L2PcInstance.<BR><BR>
+	 * Return a table containing all Common L2Recipe of the L2Player.<BR><BR>
 	 */
 	public final L2RecipeList[] getCommonRecipeBook()
 	{
@@ -149,7 +149,7 @@ public final class PlayerRecipe extends PlayerExtension
 	}
 
 	/**
-	 * Return a table containing all Dwarf L2Recipe of the L2PcInstance.<BR><BR>
+	 * Return a table containing all Dwarf L2Recipe of the L2Player.<BR><BR>
 	 */
 	public final L2RecipeList[] getDwarvenRecipeBook()
 	{
@@ -157,7 +157,7 @@ public final class PlayerRecipe extends PlayerExtension
 	}
 
 	/**
-	 * Add a new L2Recipe to the table _commonrecipebook containing all L2Recipe of the L2PcInstance <BR><BR>
+	 * Add a new L2Recipe to the table _commonrecipebook containing all L2Recipe of the L2Player <BR><BR>
 	 *
 	 * @param recipe The L2RecipeList to add to the _recipebook
 	 * @param saveToDb true to save infos into the DB
@@ -171,7 +171,7 @@ public final class PlayerRecipe extends PlayerExtension
 	}
 
 	/**
-	 * Add a new L2Recipe to the table _recipebook containing all L2Recipe of the L2PcInstance <BR><BR>
+	 * Add a new L2Recipe to the table _recipebook containing all L2Recipe of the L2Player <BR><BR>
 	 *
 	 * @param recipe The L2Recipe to add to the _recipebook
 	 * @param saveToDb true to save infos into the DB
@@ -199,7 +199,7 @@ public final class PlayerRecipe extends PlayerExtension
 	}
 
 	/**
-	 * Tries to remove a L2Recipe from the table _DwarvenRecipeBook or from table _CommonRecipeBook, those table contain all L2Recipe of the L2PcInstance <BR><BR>
+	 * Tries to remove a L2Recipe from the table _DwarvenRecipeBook or from table _CommonRecipeBook, those table contain all L2Recipe of the L2Player <BR><BR>
 	 *
 	 * @param recipeId The Identifier of the L2Recipe to remove from the _recipebook
 	 *

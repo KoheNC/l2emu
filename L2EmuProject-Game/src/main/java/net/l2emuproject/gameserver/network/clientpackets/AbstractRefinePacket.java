@@ -19,12 +19,12 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.templates.item.L2Armor;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public abstract class AbstractRefinePacket extends L2GameClientPacket
@@ -170,7 +170,7 @@ public abstract class AbstractRefinePacket extends L2GameClientPacket
 	/**
 	 * Checks player, source item, lifestone and gemstone validity for augmentation process
 	 */
-	protected static final boolean isValid(L2PcInstance player, L2ItemInstance item, L2ItemInstance refinerItem, L2ItemInstance gemStones)
+	protected static final boolean isValid(L2Player player, L2ItemInstance item, L2ItemInstance refinerItem, L2ItemInstance gemStones)
 	{
 		if (!isValid(player, item, refinerItem))
 			return false;
@@ -198,7 +198,7 @@ public abstract class AbstractRefinePacket extends L2GameClientPacket
 	/**
 	 * Checks player, source item and lifestone validity for augmentation process
 	 */
-	protected static final boolean isValid(L2PcInstance player, L2ItemInstance item, L2ItemInstance refinerItem)
+	protected static final boolean isValid(L2Player player, L2ItemInstance item, L2ItemInstance refinerItem)
 	{
 		if (!isValid(player, item))
 			return false;
@@ -229,7 +229,7 @@ public abstract class AbstractRefinePacket extends L2GameClientPacket
 	/**
 	 * Check both player and source item conditions for augmentation process
 	 */
-	protected static final boolean isValid(L2PcInstance player, L2ItemInstance item)
+	protected static final boolean isValid(L2Player player, L2ItemInstance item)
 	{
 		//if (!isValid(player))
 		//	return false;
@@ -303,9 +303,9 @@ public abstract class AbstractRefinePacket extends L2GameClientPacket
 	/**
 	 * Check if player's conditions valid for augmentation process
 	 */
-	protected static final boolean isValid(L2PcInstance player)
+	protected static final boolean isValid(L2Player player)
 	{
-		if (player.getPrivateStoreType() != L2PcInstance.STORE_PRIVATE_NONE)
+		if (player.getPrivateStoreType() != L2Player.STORE_PRIVATE_NONE)
 		{
 			player.sendPacket(SystemMessageId.YOU_CANNOT_AUGMENT_ITEMS_WHILE_IN_PRIVATE_STORE);
 			return false;

@@ -19,7 +19,6 @@ import java.util.concurrent.TimeUnit;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.model.actor.effects.CharEffects;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.EffectInfoPacket.EffectInfoPacketList;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.threadmanager.FIFORunnableQueue;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.util.L2Arrays;
@@ -127,11 +127,11 @@ public abstract class L2Effect implements FuncOwner, Runnable
 	@SuppressWarnings("deprecation")
 	private synchronized void startEffect()
 	{
-		if (_skill.isPvpSkill() && getShowIcon() && _effected instanceof L2PcInstance)
+		if (_skill.isPvpSkill() && getShowIcon() && _effected instanceof L2Player)
 		{
 			SystemMessage sm = new SystemMessage(SystemMessageId.YOU_FEEL_S1_EFFECT);
 			sm.addSkillName(this);
-			((L2PcInstance)_effected).sendPacket(sm);
+			((L2Player)_effected).sendPacket(sm);
 		}
 
 		scheduleEffect(_period);
@@ -243,10 +243,10 @@ public abstract class L2Effect implements FuncOwner, Runnable
 				_effected.startSpecialEffect(_template.specialEffect);
 			}
 			
-			if (_effected instanceof L2PcInstance && ShortBuffStatusUpdate.isShortBuff(L2Effect.this))
+			if (_effected instanceof L2Player && ShortBuffStatusUpdate.isShortBuff(L2Effect.this))
 			{
 				// short buff icon for healing potions
-				((L2PcInstance)_effected).startShortBuffStatusUpdate(L2Effect.this);
+				((L2Player)_effected).startShortBuffStatusUpdate(L2Effect.this);
 			}
 			else if (_effected instanceof L2Playable)
 				((L2Playable)_effected).updateEffectIcons();
@@ -290,10 +290,10 @@ public abstract class L2Effect implements FuncOwner, Runnable
 
 			_startConditionsCorrect = false;
 
-			if (_effected instanceof L2PcInstance && ShortBuffStatusUpdate.isShortBuff(L2Effect.this))
+			if (_effected instanceof L2Player && ShortBuffStatusUpdate.isShortBuff(L2Effect.this))
 			{
 				// short buff icon for healing potions
-				((L2PcInstance)_effected).stopShortBuffStatusUpdate(L2Effect.this);
+				((L2Player)_effected).stopShortBuffStatusUpdate(L2Effect.this);
 			}
 			else if (_effected instanceof L2Playable)
 				((L2Playable)_effected).updateEffectIcons();
@@ -388,7 +388,7 @@ public abstract class L2Effect implements FuncOwner, Runnable
 			{
 				if (isActing())
 				{
-					if (getShowIcon() && shouldSendExitMessage() && _effected instanceof L2PcInstance)
+					if (getShowIcon() && shouldSendExitMessage() && _effected instanceof L2Player)
 					{
 						SystemMessage sm;
 						if (getCount() == 0)
@@ -399,7 +399,7 @@ public abstract class L2Effect implements FuncOwner, Runnable
 							sm = new SystemMessage(SystemMessageId.EFFECT_S1_DISAPPEARED);
 						sm.addSkillName(this);
 
-						((L2PcInstance)_effected).sendPacket(sm);
+						((L2Player)_effected).sendPacket(sm);
 					}
 
 					_currentFuture.cancel(false);
@@ -422,7 +422,7 @@ public abstract class L2Effect implements FuncOwner, Runnable
 
 	private boolean shouldSendExitMessage()
 	{
-		if (!(_effected instanceof L2PcInstance))
+		if (!(_effected instanceof L2Player))
 			return false;
 
 		final L2Effect e = _effected.getFirstEffect(getId());
@@ -667,7 +667,7 @@ public abstract class L2Effect implements FuncOwner, Runnable
 		// Let the duel manager know about it, to remove it after the duel
 		// so the debuff can be removed after the duel
 		// (player & target must be in the same duel)
-		L2PcInstance effectedPlayer = effect.getEffected().getActingPlayer();
+		L2Player effectedPlayer = effect.getEffected().getActingPlayer();
 		
 		if (effectedPlayer == null || !effectedPlayer.getPlayerDuel().isInDuel() || !effect.getSkill().isOffensive())
 			return;

@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author mkizub
@@ -37,9 +37,9 @@ class ConditionSlotItemId extends ConditionInventory
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2PcInstance))
+		if (!(env.player instanceof L2Player))
 			return false;
-		Inventory inv = ((L2PcInstance)env.player).getInventory();
+		Inventory inv = ((L2Player)env.player).getInventory();
 		L2ItemInstance item = inv.getPaperdollItem(_slot);
 		if (item == null)
 			return _itemId == 0;

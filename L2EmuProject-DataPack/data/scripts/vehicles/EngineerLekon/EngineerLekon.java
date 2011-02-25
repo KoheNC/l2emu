@@ -15,11 +15,11 @@
 package vehicles.EngineerLekon;
 
 import net.l2emuproject.gameserver.instancemanager.AirShipManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class EngineerLekon extends Quest
 {
@@ -34,7 +34,7 @@ public class EngineerLekon extends Quest
 	private static final SystemMessage	SM_LICENSE_ALREADY_ACQUIRED	= new SystemMessage(SystemMessageId.THE_AIRSHIP_SUMMON_LICENSE_ALREADY_ACQUIRED);
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if ("license".equalsIgnoreCase(event))
 		{
@@ -69,7 +69,7 @@ public class EngineerLekon extends Quest
 	}
 
 	@Override
-	public String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		if (player.getQuestState(getName()) == null)
 			newQuestState(player);

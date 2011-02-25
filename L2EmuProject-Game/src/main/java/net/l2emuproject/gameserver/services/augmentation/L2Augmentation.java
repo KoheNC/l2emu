@@ -17,11 +17,11 @@ package net.l2emuproject.gameserver.services.augmentation;
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.datatables.AugmentationData;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.funcs.FuncAdd;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -70,7 +70,7 @@ public final class L2Augmentation
 			}
 		}
 		
-		public void applyBonus(L2PcInstance player)
+		public void applyBonus(L2Player player)
 		{
 			// make sure the bonuses are not applied twice..
 			if (_active)
@@ -81,7 +81,7 @@ public final class L2Augmentation
 			_active = true;
 		}
 		
-		public void removeBonus(L2PcInstance player)
+		public void removeBonus(L2Player player)
 		{
 			// make sure the bonuses are not removed twice
 			if (!_active)
@@ -128,7 +128,7 @@ public final class L2Augmentation
 	 * Applies the bonuses to the player.
 	 * @param player
 	 */
-	public void applyBonus(L2PcInstance player)
+	public void applyBonus(L2Player player)
 	{
 		_boni.applyBonus(player);
 
@@ -143,7 +143,7 @@ public final class L2Augmentation
 	 * Removes the augmentation bonuses from the player.
 	 * @param player
 	 */
-	public void removeBonus(L2PcInstance player)
+	public void removeBonus(L2Player player)
 	{
 		_boni.removeBonus(player);
 

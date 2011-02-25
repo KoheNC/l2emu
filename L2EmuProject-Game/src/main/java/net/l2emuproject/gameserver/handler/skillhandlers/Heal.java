@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 import net.l2emuproject.gameserver.handler.ISkillHandler;
 import net.l2emuproject.gameserver.handler.SkillHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
@@ -27,6 +26,7 @@ import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillRecover;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public class Heal implements ISkillHandler
@@ -39,9 +39,9 @@ public class Heal implements ISkillHandler
 	{
 		SkillHandler.getInstance().useSkill(L2SkillType.BUFF, activeChar, skill, targets);
 		
-		L2PcInstance player = null;
-		if (activeChar instanceof L2PcInstance)
-			player = (L2PcInstance)activeChar;
+		L2Player player = null;
+		if (activeChar instanceof L2Player)
+			player = (L2Player)activeChar;
 		
 		for (L2Character target : targets)
 		{
@@ -61,7 +61,7 @@ public class Heal implements ISkillHandler
 			// Player holding a cursed weapon can't be healed and can't heal
 			if (target != activeChar)
 			{
-				if (target instanceof L2PcInstance && ((L2PcInstance)target).isCursedWeaponEquipped())
+				if (target instanceof L2Player && ((L2Player)target).isCursedWeaponEquipped())
 					continue;
 				else if (player != null && player.isCursedWeaponEquipped())
 					continue;
@@ -119,7 +119,7 @@ public class Heal implements ISkillHandler
 				target.getStatus().increaseHp(hp);
 			}
 			
-			if (target instanceof L2PcInstance)
+			if (target instanceof L2Player)
 			{
 				if (skill.getId() == 4051)
 				{
@@ -127,7 +127,7 @@ public class Heal implements ISkillHandler
 				}
 				else
 				{
-					if (activeChar instanceof L2PcInstance && activeChar != target)
+					if (activeChar instanceof L2Player && activeChar != target)
 					{
 						SystemMessage sm = new SystemMessage(SystemMessageId.S2_HP_RESTORED_BY_C1);
 						sm.addString(activeChar.getName());

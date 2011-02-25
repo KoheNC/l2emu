@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -30,7 +30,7 @@ public class PackageSendableList extends L2GameServerPacket
 	private final int						_targetPlayerObjId;
 	private final long						_playerAdena;
 
-	public PackageSendableList(L2PcInstance sender, int playerOID)
+	public PackageSendableList(L2Player sender, int playerOID)
 	{
 		_targetPlayerObjId = playerOID;
 		_playerAdena = sender.getAdena();

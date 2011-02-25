@@ -14,12 +14,12 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExDuelAskStart;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Format:(ch) Sd
@@ -42,10 +42,10 @@ public final class RequestDuelStart extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
+		L2Player activeChar = getClient().getActiveChar();
         if (activeChar == null) return;
 
-        L2PcInstance targetChar = L2World.getInstance().getPlayer(_player);
+        L2Player targetChar = L2World.getInstance().getPlayer(_player);
         if (targetChar == null)
         {
         	requestFailed(SystemMessageId.THERE_IS_NO_OPPONENT_TO_RECEIVE_YOUR_CHALLENGE_FOR_A_DUEL);
@@ -97,7 +97,7 @@ public final class RequestDuelStart extends L2GameClientPacket
 			}
 
 			// Check if every player is ready for a duel
-			for (L2PcInstance temp : activeChar.getParty().getPartyMembers())
+			for (L2Player temp : activeChar.getParty().getPartyMembers())
 			{
 				if (!temp.getPlayerDuel().canDuel())
 				{
@@ -105,8 +105,8 @@ public final class RequestDuelStart extends L2GameClientPacket
 					return;
 				}
 			}
-			L2PcInstance partyLeader = null; // snatch party leader of targetChar's party
-			for (L2PcInstance temp : targetChar.getParty().getPartyMembers())
+			L2Player partyLeader = null; // snatch party leader of targetChar's party
+			for (L2Player temp : targetChar.getParty().getPartyMembers())
 			{
 				if (partyLeader == null)
 					partyLeader = temp;

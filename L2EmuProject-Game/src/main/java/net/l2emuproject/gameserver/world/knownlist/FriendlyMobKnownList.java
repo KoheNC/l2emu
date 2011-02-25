@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.world.knownlist;
 import net.l2emuproject.gameserver.ai.CtrlEvent;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.actor.instance.L2FriendlyMobInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class FriendlyMobKnownList extends AttackableKnownList
 {
@@ -41,7 +41,7 @@ public class FriendlyMobKnownList extends AttackableKnownList
 		if (!super.addKnownObject(object))
 			return false;
 
-		if (object instanceof L2PcInstance && getActiveChar().getAI().getIntention() == CtrlIntention.AI_INTENTION_IDLE)
+		if (object instanceof L2Player && getActiveChar().getAI().getIntention() == CtrlIntention.AI_INTENTION_IDLE)
 			getActiveChar().getAI().setIntention(CtrlIntention.AI_INTENTION_ACTIVE, null);
 
 		return true;

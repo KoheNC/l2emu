@@ -34,7 +34,6 @@ import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
@@ -44,6 +43,7 @@ import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.util.L2FastSet;
 
@@ -225,7 +225,7 @@ public class Instance
 
 	public void ejectPlayer(Integer objectId)
 	{
-		L2PcInstance player = L2World.getInstance().findPlayer(objectId);
+		L2Player player = L2World.getInstance().findPlayer(objectId);
 		if (player != null && player.isSameInstance(getId()))
 		{
 			if (!player.isInMultiverse())
@@ -618,7 +618,7 @@ public class Instance
 		{
 			for (int objectId : _players)
 			{
-				L2PcInstance player = L2World.getInstance().findPlayer(objectId);
+				L2Player player = L2World.getInstance().findPlayer(objectId);
 				if (player != null && player.isSameInstance(getId()))
 				{
 					player.sendPacket(cs);

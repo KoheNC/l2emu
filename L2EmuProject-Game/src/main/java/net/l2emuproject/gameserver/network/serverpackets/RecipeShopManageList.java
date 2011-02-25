@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureItem;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * dd d(dd) d(ddd)
@@ -27,11 +27,11 @@ public class RecipeShopManageList extends L2GameServerPacket
 {
 
 	private static final String	_S__D8_RecipeShopManageList	= "[S] de RecipeShopManageList";
-	private final L2PcInstance		_seller;
+	private final L2Player		_seller;
 	private final boolean				_isDwarven;
 	private L2RecipeList[]		_recipes;
 
-	public RecipeShopManageList(L2PcInstance seller, boolean isDwarven)
+	public RecipeShopManageList(L2Player seller, boolean isDwarven)
 	{
 		_seller = seller;
 		_isDwarven = isDwarven;

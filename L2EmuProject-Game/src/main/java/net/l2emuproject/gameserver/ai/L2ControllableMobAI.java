@@ -398,7 +398,7 @@ public class L2ControllableMobAI extends L2AttackableAI
 		if (target.isInvul())
 			return false;
 		
-		// Check if the target is a L2PcInstance
+		// Check if the target is a L2Player
 		if (target instanceof L2Playable)
 		{
 			// Check if the target isn't in silent move mode

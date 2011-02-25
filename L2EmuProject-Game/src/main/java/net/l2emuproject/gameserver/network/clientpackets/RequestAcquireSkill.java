@@ -20,7 +20,6 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2FishermanInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2StarCollectorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2TransformManagerInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2VillageMasterInstance;
@@ -40,6 +39,7 @@ import net.l2emuproject.gameserver.skills.L2SkillLearn;
 import net.l2emuproject.gameserver.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
 * This class represents a packet sent by client when the players confirms the skill
@@ -70,7 +70,7 @@ public class RequestAcquireSkill extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		final L2PcInstance player = getClient().getActiveChar();
+		final L2Player player = getClient().getActiveChar();
 		if (player == null)
 			return;
 		if (_level < 1 || _level > 1000 || _id < 1 || _id > 32000)

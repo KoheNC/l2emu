@@ -14,13 +14,13 @@
  */
 package net.l2emuproject.gameserver.model.actor.position;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.taskmanager.CoordRevalidator;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -134,10 +134,10 @@ public final class ObjectPosition
 		{
 			_log.warn(_activeObject + " at bad coords: (x: " + _x + ", y: " + _y + ", z: " + _z + ").", e);
 			
-			if (_activeObject instanceof L2PcInstance)
+			if (_activeObject instanceof L2Player)
 			{
-				((L2PcInstance)_activeObject).teleToLocation(0, 0, 0, false);
-				((L2PcInstance)_activeObject).sendMessage("Error with your coords, Please ask a GM for help!");
+				((L2Player)_activeObject).teleToLocation(0, 0, 0, false);
+				((L2Player)_activeObject).sendMessage("Error with your coords, Please ask a GM for help!");
 			}
 			else if (_activeObject instanceof L2Character)
 				_activeObject.decayMe();

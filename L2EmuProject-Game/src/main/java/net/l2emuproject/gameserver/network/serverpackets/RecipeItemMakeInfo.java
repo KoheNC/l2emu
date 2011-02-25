@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
 import net.l2emuproject.gameserver.services.crafting.RecipeService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * format   dddd
@@ -28,17 +28,17 @@ public class RecipeItemMakeInfo extends L2GameServerPacket
     private static final String _S__D7_RECIPEITEMMAKEINFO = "[S] D7 RecipeItemMakeInfo";
 
     private final int _id;
-    private final L2PcInstance _activeChar;
+    private final L2Player _activeChar;
     private final boolean _success;
 
-    public RecipeItemMakeInfo(int id, L2PcInstance player, boolean success)
+    public RecipeItemMakeInfo(int id, L2Player player, boolean success)
     {
         _id = id;
         _activeChar = player;
         _success = success;
     }
 
-    public RecipeItemMakeInfo(int id, L2PcInstance player)
+    public RecipeItemMakeInfo(int id, L2Player player)
     {
         _id = id;
         _activeChar = player;

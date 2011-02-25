@@ -16,9 +16,9 @@ package ai.npc;
 
 import javolution.util.FastSet;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import ai.L2AttackableAIScript;
 
 /**
@@ -37,7 +37,7 @@ public class Gargos extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if (event.equalsIgnoreCase("TimeToFire"))
 		{
@@ -49,7 +49,7 @@ public class Gargos extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isPet)
+	public String onAttack(L2Npc npc, L2Player player, int damage, boolean isPet)
 	{
 		int id = npc.getObjectId();
 		if (npc.getNpcId() == Gargos)
@@ -64,7 +64,7 @@ public class Gargos extends L2AttackableAIScript
 	}
 
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public String onKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		if (npc.getNpcId() == Gargos)
 		{

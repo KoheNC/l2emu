@@ -48,6 +48,7 @@ import net.l2emuproject.gameserver.world.knownlist.DoorKnownList;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.lang.L2TextBuilder;
@@ -367,7 +368,7 @@ public class L2DoorInstance extends L2Character
 		boolean isFort = (getFort() != null && getFort().getFortId() > 0 && getFort().getSiege().getIsInProgress() && !isCommanderDoor());
 		boolean isHideout = (getClanHall() != null && getClanHall().getSiege() != null && getClanHall().getSiege().getIsInProgress());
 		int activeSiegeId = (getFort() != null ? getFort().getFortId() : (getCastle() != null ? getCastle().getCastleId() : 0));
-		L2PcInstance actingPlayer = attacker.getActingPlayer();
+		L2Player actingPlayer = attacker.getActingPlayer();
 		L2Clan clan = actingPlayer.getClan();
 
 		if (TerritoryWarManager.getInstance().isTWInProgress())
@@ -384,7 +385,7 @@ public class L2DoorInstance extends L2Character
 				if (clan != null && clan == getFort().getOwnerClan())
 					return false;
 			}
-			else if (attacker instanceof L2PcInstance)
+			else if (attacker instanceof L2Player)
 			{
 				if (clan != null && clan == getFort().getOwnerClan())
 					return false;
@@ -397,7 +398,7 @@ public class L2DoorInstance extends L2Character
 				if (clan != null && clan.getClanId() == getCastle().getOwnerId())
 					return false;
 			}
-			else if (attacker instanceof L2PcInstance)
+			else if (attacker instanceof L2Player)
 			{
 				if (clan != null && clan.getClanId() == getCastle().getOwnerId())
 					return false;
@@ -413,7 +414,7 @@ public class L2DoorInstance extends L2Character
 	}
 
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		if (player == null)
 			return;
@@ -457,10 +458,10 @@ public class L2DoorInstance extends L2Character
 				return;
 		}
 
-		// Check if the L2PcInstance already target the L2NpcInstance
+		// Check if the L2Player already target the L2NpcInstance
 		if (this != player.getTarget())
 		{
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 
 			sendInfo(player);
@@ -502,7 +503,7 @@ public class L2DoorInstance extends L2Character
 		}
 	}
 	
-	private void askGateOpenClose(L2PcInstance player)
+	private void askGateOpenClose(L2Player player)
 	{
 		if (!isOpen())
 		{
@@ -529,7 +530,7 @@ public class L2DoorInstance extends L2Character
 	}
 
 	@Override
-	public void onActionShift(L2PcInstance player)
+	public void onActionShift(L2Player player)
 	{
 		if (player.getAccessLevel() >= Config.GM_ACCESSLEVEL)
 		{
@@ -697,7 +698,7 @@ public class L2DoorInstance extends L2Character
 	// Some automatic doors (e.g. krateis cube) are NOT targetable (and don't show hp)
 
 	@Override
-	public void sendInfo(L2PcInstance activeChar)
+	public void sendInfo(L2Player activeChar)
 	{
 		activeChar.sendPacket(new StaticObject(this));
 	}

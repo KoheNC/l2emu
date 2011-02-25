@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class WareHouseWithdrawalList extends L2GameServerPacket
 {
@@ -26,12 +26,12 @@ public final class WareHouseWithdrawalList extends L2GameServerPacket
 
 	private static final String		_S__54_WAREHOUSEWITHDRAWALLIST	= "[S] 42 WareHouseWithdrawalList";
 
-	private final L2PcInstance		_activeChar;
+	private final L2Player		_activeChar;
 	private final long				_activeCharAdena;
 	private final L2ItemInstance[]	_items;
 	private final int				_whType;
 
-	public WareHouseWithdrawalList(L2PcInstance player, int type)
+	public WareHouseWithdrawalList(L2Player player, int type)
 	{
 		_activeChar = player;
 		_whType = type;

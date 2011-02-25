@@ -22,12 +22,12 @@ import java.sql.SQLException;
 import javolution.util.FastMap;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.InstanceListManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -203,7 +203,7 @@ public class CastleManager implements InstanceListManager
 	{
 		if (member == null)
 			return;
-		L2PcInstance player = member.getPlayerInstance();
+		L2Player player = member.getPlayerInstance();
 		int circletId = getCircletByCastleId(castleId);
 
 		if (circletId != 0)

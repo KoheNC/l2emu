@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class ...
@@ -24,9 +24,9 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 public class PartySmallWindowDelete extends L2GameServerPacket
 {
 	private static final String _S__51_PARTYSMALLWINDOWDELETE = "[S] 51 PartySmallWindowDelete [ds]";
-	private final L2PcInstance _member;
+	private final L2Player _member;
 	
-	public PartySmallWindowDelete(L2PcInstance member)
+	public PartySmallWindowDelete(L2Player member)
 	{
 		_member = member;
 	}

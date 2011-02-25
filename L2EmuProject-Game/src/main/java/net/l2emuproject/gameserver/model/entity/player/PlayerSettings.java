@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.model.entity.player;
 
 import net.l2emuproject.gameserver.model.L2UIKeysSettings;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.macro.L2Macro;
 import net.l2emuproject.gameserver.services.macro.MacroList;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.services.shortcuts.ShortCuts;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class PlayerSettings extends PlayerExtension
 {
@@ -27,7 +27,7 @@ public final class PlayerSettings extends PlayerExtension
 	private ShortCuts			_shortCuts;
 	private MacroList			_macroses;
 
-	public PlayerSettings(L2PcInstance activeChar)
+	public PlayerSettings(L2Player activeChar)
 	{
 		super(activeChar);
 	}
@@ -60,7 +60,7 @@ public final class PlayerSettings extends PlayerExtension
 	}
 
 	/**
-	 * Return a table containing all L2ShortCut of the L2PcInstance.<BR><BR>
+	 * Return a table containing all L2ShortCut of the L2Player.<BR><BR>
 	 */
 	public final L2ShortCut[] getAllShortCuts()
 	{
@@ -68,7 +68,7 @@ public final class PlayerSettings extends PlayerExtension
 	}
 
 	/**
-	 * Add a L2shortCut to the L2PcInstance shortCuts<BR><BR>
+	 * Add a L2shortCut to the L2Player shortCuts<BR><BR>
 	 */
 	public final void registerShortCut(L2ShortCut shortcut)
 	{
@@ -76,7 +76,7 @@ public final class PlayerSettings extends PlayerExtension
 	}
 
 	/**
-	 * Delete the L2ShortCut corresponding to the position (page-slot) from the L2PcInstance shortCuts.<BR><BR>
+	 * Delete the L2ShortCut corresponding to the position (page-slot) from the L2Player shortCuts.<BR><BR>
 	 */
 	public final void deleteShortCut(int slot, int page)
 	{
@@ -84,7 +84,7 @@ public final class PlayerSettings extends PlayerExtension
 	}
 
 	/**
-	 * Delete a ShortCut of the L2PcInstance shortCuts.<BR><BR>
+	 * Delete a ShortCut of the L2Player shortCuts.<BR><BR>
 	 */
 	public final void removeItemFromShortCut(int objectId)
 	{
@@ -92,7 +92,7 @@ public final class PlayerSettings extends PlayerExtension
 	}
 
 	/**
-	 * Add a L2Macro to the L2PcInstance macroses<BR><BR>
+	 * Add a L2Macro to the L2Player macroses<BR><BR>
 	 */
 	public final void registerMacro(L2Macro macro)
 	{
@@ -100,7 +100,7 @@ public final class PlayerSettings extends PlayerExtension
 	}
 
 	/**
-	 * Delete the L2Macro corresponding to the Identifier from the L2PcInstance macroses.<BR><BR>
+	 * Delete the L2Macro corresponding to the Identifier from the L2Player macroses.<BR><BR>
 	 */
 	public final void deleteMacro(int id)
 	{
@@ -108,7 +108,7 @@ public final class PlayerSettings extends PlayerExtension
 	}
 
 	/**
-	 * Return all L2Macro of the L2PcInstance.<BR><BR>
+	 * Return all L2Macro of the L2Player.<BR><BR>
 	 */
 	public final MacroList getMacroses()
 	{

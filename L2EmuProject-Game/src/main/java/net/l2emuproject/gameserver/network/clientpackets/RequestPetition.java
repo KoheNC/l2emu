@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.GmListTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.petition.PetitionService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestPetition extends L2GameClientPacket
 {
@@ -38,7 +38,7 @@ public class RequestPetition extends L2GameClientPacket
     @Override
     protected void runImpl()
 	{
-		L2PcInstance activeChar = getActiveChar();
+		L2Player activeChar = getActiveChar();
 		if (activeChar == null)
 			return;
 		

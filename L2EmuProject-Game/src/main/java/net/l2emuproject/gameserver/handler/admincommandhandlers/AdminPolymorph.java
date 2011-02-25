@@ -17,13 +17,13 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.SetupGauge;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -45,7 +45,7 @@ public class AdminPolymorph implements IAdminCommandHandler
 			"admin_untransform_menu"				};
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (activeChar.isMounted())
 		{
@@ -72,9 +72,9 @@ public class AdminPolymorph implements IAdminCommandHandler
 			String[] parts = command.split(" ");
 			if (parts.length == 2)
 			{
-				if (obj instanceof L2PcInstance)
+				if (obj instanceof L2Player)
 				{
-					final L2PcInstance cha = (L2PcInstance) obj;
+					final L2Player cha = (L2Player) obj;
 					try
 					{
 						final int id = Integer.parseInt(parts[1]);
@@ -143,7 +143,7 @@ public class AdminPolymorph implements IAdminCommandHandler
 	}
 
 	@SuppressWarnings("deprecation")
-	private void doPolymorph(L2PcInstance activeChar, L2Object obj, String id, String type)
+	private void doPolymorph(L2Player activeChar, L2Object obj, String id, String type)
 	{
 		if (obj != null)
 		{
@@ -174,7 +174,7 @@ public class AdminPolymorph implements IAdminCommandHandler
 	 * @param activeChar
 	 * @param target
 	 */
-	private void doUnpoly(L2PcInstance activeChar, L2Object target)
+	private void doUnpoly(L2Player activeChar, L2Object target)
 	{
 		if (target != null && target.getPoly().isMorphed())
 		{
@@ -187,7 +187,7 @@ public class AdminPolymorph implements IAdminCommandHandler
 			activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 	}
 
-	private void showMainPage(L2PcInstance activeChar, String command)
+	private void showMainPage(L2Player activeChar, String command)
 	{
 		if (command.contains("transform"))
 			activeChar.showHTMLFile(AdminHelpPage.ADMIN_HELP_PAGE + "transform.htm");

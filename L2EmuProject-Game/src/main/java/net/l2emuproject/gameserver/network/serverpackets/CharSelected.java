@@ -15,18 +15,18 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.GameTimeController;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class CharSelected extends L2GameServerPacket
 {
 	private static final String _S__0B_activeCharRSELECTED = "[S] 0b CharSelected [sdsddddddddddffdqdddddddddddd ddddddddddddddddddddddddddd ff ddd c hh d]";
-	private final L2PcInstance _activeChar;
+	private final L2Player _activeChar;
 	private final int _sessionId;
 
 	/**
 	 * @param _activeCharracters
 	 */
-	public CharSelected(L2PcInstance cha, int sessionId)
+	public CharSelected(L2Player cha, int sessionId)
 	{
 		_activeChar = cha;
 		_sessionId = sessionId;

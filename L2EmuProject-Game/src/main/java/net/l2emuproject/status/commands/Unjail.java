@@ -20,8 +20,8 @@ import java.sql.SQLException;
 import java.util.NoSuchElementException;
 
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.status.GameStatusCommand;
 
 public final class Unjail extends GameStatusCommand
@@ -43,7 +43,7 @@ public final class Unjail extends GameStatusCommand
 		try
 		{
 			String name = params;
-			L2PcInstance playerObj = L2World.getInstance().getPlayer(name);
+			L2Player playerObj = L2World.getInstance().getPlayer(name);
 			
 			if (playerObj != null)
 			{

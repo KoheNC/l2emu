@@ -21,9 +21,9 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Admin comand handler for Territory War System
@@ -37,7 +37,7 @@ public class AdminTerritoryWar implements IAdminCommandHandler
 													{ "admin_territory_war", "admin_territory_war_time", "admin_territory_war_start", "admin_territory_war_end" };
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		StringTokenizer st = new StringTokenizer(command);
 		command = st.nextToken();
@@ -101,7 +101,7 @@ public class AdminTerritoryWar implements IAdminCommandHandler
 		return ADMIN_COMMANDS;
 	}
 
-	private void showSiegeTimePage(L2PcInstance activeChar)
+	private void showSiegeTimePage(L2Player activeChar)
 	{
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
 		adminReply.setFile("data/html/admin/territorywartime.htm");
@@ -109,7 +109,7 @@ public class AdminTerritoryWar implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 
-	private void showMainPage(L2PcInstance activeChar)
+	private void showMainPage(L2Player activeChar)
 	{
 		activeChar.showHTMLFile(AdminHelpPage.ADMIN_HELP_PAGE + "territorywar.htm");
 	}

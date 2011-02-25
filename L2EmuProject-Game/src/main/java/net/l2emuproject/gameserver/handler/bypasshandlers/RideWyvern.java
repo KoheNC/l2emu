@@ -19,12 +19,12 @@ import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.datatables.PetDataTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2WyvernManagerInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RideWyvern implements IBypassHandler
 {
@@ -32,7 +32,7 @@ public class RideWyvern implements IBypassHandler
 												{ "RideWyvern" };
 
 	@Override
-	public boolean useBypass(String command, L2PcInstance activeChar, L2Character target)
+	public boolean useBypass(String command, L2Player activeChar, L2Character target)
 	{
 		if (!(target instanceof L2WyvernManagerInstance))
 			return false;
@@ -112,7 +112,7 @@ public class RideWyvern implements IBypassHandler
 		return false;
 	}
 
-	private void sendNotPossibleMessage(L2PcInstance player)
+	private void sendNotPossibleMessage(L2Player player)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(1);
 		html.setFile("data/html/wyvernmanager/fortress-wyvernmanager-notpossible.htm");

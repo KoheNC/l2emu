@@ -20,7 +20,7 @@ import java.sql.ResultSet;
 
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -82,7 +82,7 @@ public class Couple
         }
     }
     
-    public Couple(L2PcInstance player1,L2PcInstance player2)
+    public Couple(L2Player player1,L2Player player2)
     {
         int _tempPlayer1Id = player1.getObjectId();
         int _tempPlayer2Id = player2.getObjectId();

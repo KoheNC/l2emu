@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.handler;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  *
@@ -23,7 +23,7 @@ import net.l2emuproject.gameserver.network.SystemChatChannelId;
  */
 public interface IChatHandler
 {
-	public void useChatHandler(L2PcInstance activeChar, String target, SystemChatChannelId chatType, String text);
+	public void useChatHandler(L2Player activeChar, String target, SystemChatChannelId chatType, String text);
 
 	public SystemChatChannelId[] getChatTypes();
 }

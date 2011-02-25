@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.player.PlayerCustom.CharCustomData;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author lord_rex
@@ -32,27 +32,27 @@ public final class AdminEditCharCustomData implements IAdminCommandHandler
 			"admin_delete_custom_data"				};
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		L2Object target = activeChar.getTarget();
 
 		if (command.equalsIgnoreCase("admin_set_custom_data_hero"))
 		{
-			if (target instanceof L2PcInstance)
+			if (target instanceof L2Player)
 			{
-				if (((L2PcInstance) target).isHero())
+				if (((L2Player) target).isHero())
 				{
 					activeChar.sendMessage("Your target is already Hero.");
 				}
 				else
 				{
-					((L2PcInstance) target).setHero(true);
-					((L2PcInstance) target).getPlayerCustom().updateCustomStatus(CharCustomData.HERO);
+					((L2Player) target).setHero(true);
+					((L2Player) target).getPlayerCustom().updateCustomStatus(CharCustomData.HERO);
 
-					((L2PcInstance) target).showHTMLMessage("You have received custom Hero status from Game Master.");
-					activeChar.sendMessage("Your gave custom hero status to " + ((L2PcInstance) target).getName() + ".");
+					((L2Player) target).showHTMLMessage("You have received custom Hero status from Game Master.");
+					activeChar.sendMessage("Your gave custom hero status to " + ((L2Player) target).getName() + ".");
 
-					((L2PcInstance) target).broadcastUserInfo();
+					((L2Player) target).broadcastUserInfo();
 				}
 			}
 			else
@@ -60,21 +60,21 @@ public final class AdminEditCharCustomData implements IAdminCommandHandler
 		}
 		else if (command.equalsIgnoreCase("admin_set_custom_data_noble"))
 		{
-			if (target instanceof L2PcInstance)
+			if (target instanceof L2Player)
 			{
-				if (((L2PcInstance) target).isNoble())
+				if (((L2Player) target).isNoble())
 				{
 					activeChar.sendMessage("Your target is already Noble.");
 				}
 				else
 				{
-					((L2PcInstance) target).setNoble(true);
-					((L2PcInstance) target).getPlayerCustom().updateCustomStatus(CharCustomData.NOBLE);
+					((L2Player) target).setNoble(true);
+					((L2Player) target).getPlayerCustom().updateCustomStatus(CharCustomData.NOBLE);
 
-					((L2PcInstance) target).showHTMLMessage("You have received custom Noble status from Game Master.");
-					activeChar.sendMessage("Your gave custom noble status to " + ((L2PcInstance) target).getName() + ".");
+					((L2Player) target).showHTMLMessage("You have received custom Noble status from Game Master.");
+					activeChar.sendMessage("Your gave custom noble status to " + ((L2Player) target).getName() + ".");
 
-					((L2PcInstance) target).broadcastUserInfo();
+					((L2Player) target).broadcastUserInfo();
 				}
 			}
 			else
@@ -82,22 +82,22 @@ public final class AdminEditCharCustomData implements IAdminCommandHandler
 		}
 		else if (command.equalsIgnoreCase("admin_set_custom_data_donator"))
 		{
-			if (target instanceof L2PcInstance)
+			if (target instanceof L2Player)
 			{
-				if (((L2PcInstance) target).isDonator())
+				if (((L2Player) target).isDonator())
 				{
 					activeChar.sendMessage("Your target is already Donator.");
 				}
 				else
 				{
-					((L2PcInstance) target).setDonator(true);
-					((L2PcInstance) target).getPlayerCustom().updateCustomStatus(CharCustomData.DONATOR);
+					((L2Player) target).setDonator(true);
+					((L2Player) target).getPlayerCustom().updateCustomStatus(CharCustomData.DONATOR);
 
-					((L2PcInstance) target).showHTMLMessage("You have received custom Donator status from Game Master.");
-					activeChar.sendMessage("Your gave custom donator status to " + ((L2PcInstance) target).getName() + ".");
+					((L2Player) target).showHTMLMessage("You have received custom Donator status from Game Master.");
+					activeChar.sendMessage("Your gave custom donator status to " + ((L2Player) target).getName() + ".");
 
-					((L2PcInstance) target).getAppearance().updateNameTitleColor();
-					((L2PcInstance) target).broadcastUserInfo();
+					((L2Player) target).getAppearance().updateNameTitleColor();
+					((L2Player) target).broadcastUserInfo();
 				}
 			}
 			else
@@ -105,22 +105,22 @@ public final class AdminEditCharCustomData implements IAdminCommandHandler
 		}
 		else if (command.equalsIgnoreCase("admin_delete_custom_data"))
 		{
-			if (target instanceof L2PcInstance)
+			if (target instanceof L2Player)
 			{
-				if (((L2PcInstance) target).isHero() || ((L2PcInstance) target).isNoble() || ((L2PcInstance) target).isDonator())
+				if (((L2Player) target).isHero() || ((L2Player) target).isNoble() || ((L2Player) target).isDonator())
 				{
-					((L2PcInstance) target).setHero(false);
-					((L2PcInstance) target).setNoble(false);
-					((L2PcInstance) target).setDonator(false);
+					((L2Player) target).setHero(false);
+					((L2Player) target).setNoble(false);
+					((L2Player) target).setDonator(false);
 
-					((L2PcInstance) target).getPlayerCustom().updateCustomStatus(CharCustomData.DELETE);
-					((L2PcInstance) target).getPlayerCustom().restoreCustomStatus();
+					((L2Player) target).getPlayerCustom().updateCustomStatus(CharCustomData.DELETE);
+					((L2Player) target).getPlayerCustom().restoreCustomStatus();
 
-					((L2PcInstance) target).showHTMLMessage("Your all custom status was removed by Game Master.");
-					activeChar.sendMessage("Your removed custom all status from " + ((L2PcInstance) target).getName() + ".");
+					((L2Player) target).showHTMLMessage("Your all custom status was removed by Game Master.");
+					activeChar.sendMessage("Your removed custom all status from " + ((L2Player) target).getName() + ".");
 
-					((L2PcInstance) target).getAppearance().updateNameTitleColor();
-					((L2PcInstance) target).broadcastUserInfo();
+					((L2Player) target).getAppearance().updateNameTitleColor();
+					((L2Player) target).broadcastUserInfo();
 				}
 				else
 					activeChar.sendMessage("Your target haven't got custom status.");

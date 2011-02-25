@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.world.geodata;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.geodata.pathfinding.Node;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.geometry.Point3D;
 
 import org.apache.commons.logging.Log;
@@ -143,7 +143,7 @@ public class GeoData
 	 * @param target
 	 * @return True if cha can see target (LOS) and send usful info to PC
 	 */
-	public boolean canSeeTargetDebug(L2PcInstance gm, L2Object target)
+	public boolean canSeeTargetDebug(L2Player gm, L2Object target)
 	{
 		return true;
 	}
@@ -183,7 +183,7 @@ public class GeoData
 	 * @param gm
 	 * @param comment
 	 */
-	public void addGeoDataBug(L2PcInstance gm, String comment)
+	public void addGeoDataBug(L2Player gm, String comment)
 	{
 		//Do Nothing
 	}

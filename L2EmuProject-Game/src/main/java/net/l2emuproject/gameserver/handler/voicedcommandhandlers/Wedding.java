@@ -20,8 +20,6 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.IVoicedCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.DimensionalRiftManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance.TeleportMode;
 import net.l2emuproject.gameserver.model.entity.Siege;
 import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
@@ -34,6 +32,8 @@ import net.l2emuproject.gameserver.skills.AbnormalEffect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.L2Player.TeleportMode;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
@@ -49,7 +49,7 @@ public class Wedding implements IVoicedCommandHandler
 	 * @see net.l2emuproject.gameserver.handler.IVoicedCommandHandler#useVoicedCommand(String, net.l2emuproject.gameserver.model.L2PcInstance), String)
 	 */
 	@Override
-	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String target)
+	public boolean useVoicedCommand(String command, L2Player activeChar, String target)
 	{
 		if (!Config.ALLOW_WEDDING)
 			return false;
@@ -73,7 +73,7 @@ public class Wedding implements IVoicedCommandHandler
 		return false;
 	}
 
-	public boolean divorce(L2PcInstance activeChar)
+	public boolean divorce(L2Player activeChar)
 	{
 		if (activeChar.getPartnerId() == 0)
 			return false;
@@ -93,7 +93,7 @@ public class Wedding implements IVoicedCommandHandler
 		else
 			activeChar.sendMessage("You have broken up as a couple.");
 
-		L2PcInstance partner = L2World.getInstance().getPlayer(_partnerId);
+		L2Player partner = L2World.getInstance().getPlayer(_partnerId);
 		if (partner != null)
 		{
 			partner.setPartnerId(0);
@@ -111,7 +111,7 @@ public class Wedding implements IVoicedCommandHandler
 		return true;
 	}
 
-	public boolean engage(final L2PcInstance activeChar)
+	public boolean engage(final L2Player activeChar)
 	{
 		// Check target
 		if (activeChar.getTarget() == null)
@@ -120,8 +120,8 @@ public class Wedding implements IVoicedCommandHandler
 			return false;
 		}
 
-		// Check if target is a L2PcInstance
-		if (!(activeChar.getTarget() instanceof L2PcInstance))
+		// Check if target is a L2Player
+		if (!(activeChar.getTarget() instanceof L2Player))
 		{
 			activeChar.sendMessage("You can only ask another player for engagement");
 
@@ -161,7 +161,7 @@ public class Wedding implements IVoicedCommandHandler
 			return false;
 		}
 
-		final L2PcInstance ptarget = (L2PcInstance) activeChar.getTarget();
+		final L2Player ptarget = (L2Player) activeChar.getTarget();
 
 		// Check if player target himself
 		if (ptarget.getObjectId() == activeChar.getObjectId())
@@ -222,7 +222,7 @@ public class Wedding implements IVoicedCommandHandler
 		return true;
 	}
 
-	private static L2PcInstance checkGoToLoveState(L2PcInstance activeChar)
+	private static L2Player checkGoToLoveState(L2Player activeChar)
 	{
 		Siege siege = SiegeManager.getInstance().getSiege(activeChar);
 
@@ -270,7 +270,7 @@ public class Wedding implements IVoicedCommandHandler
 			return null;
 		}
 
-		L2PcInstance partner = L2World.getInstance().getPlayer(activeChar.getPartnerId());
+		L2Player partner = L2World.getInstance().getPlayer(activeChar.getPartnerId());
 		if (partner != null)
 		{
 			siege = SiegeManager.getInstance().getSiege(partner);
@@ -341,9 +341,9 @@ public class Wedding implements IVoicedCommandHandler
 		return partner;
 	}
 
-	public boolean goToLove(L2PcInstance activeChar)
+	public boolean goToLove(L2Player activeChar)
 	{
-		L2PcInstance partner = null;
+		L2Player partner = null;
 		if ((partner = checkGoToLoveState(activeChar)) == null)
 			return false;
 
@@ -360,11 +360,11 @@ public class Wedding implements IVoicedCommandHandler
 
 	private static class EscapeFinalizer implements Runnable
 	{
-		private final L2PcInstance	_activeChar;
+		private final L2Player	_activeChar;
 		private final Location			_partnerLoc;
 		private final boolean			_to7sDungeon;
 
-		EscapeFinalizer(L2PcInstance activeChar, Location partnerLoc, boolean to7sDungeon)
+		EscapeFinalizer(L2Player activeChar, Location partnerLoc, boolean to7sDungeon)
 		{
 			_activeChar = activeChar;
 			_partnerLoc = partnerLoc;

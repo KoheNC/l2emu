@@ -16,12 +16,12 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.instancemanager.BoatManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2BoatInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.MoveToLocationInVehicle;
 import net.l2emuproject.gameserver.network.serverpackets.StopMoveInVehicle;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.geometry.Point3D;
 
 public final class RequestMoveToLocationInVehicle extends L2GameClientPacket
@@ -51,7 +51,7 @@ public final class RequestMoveToLocationInVehicle extends L2GameClientPacket
 	@Override
 	protected final void runImpl()
 	{
-		final L2PcInstance activeChar = getClient().getActiveChar();
+		final L2Player activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
 

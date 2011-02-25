@@ -27,6 +27,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -36,25 +37,25 @@ import net.l2emuproject.gameserver.world.object.L2Npc;
 public class L2CabaleBufferInstance extends L2Npc
 {
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		if (!canTarget(player)) return;
 
 		if (this != player.getTarget())
 		{
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 		}
 		else
 		{
-			// Calculate the distance between the L2PcInstance and the L2NpcInstance
+			// Calculate the distance between the L2Player and the L2NpcInstance
 			if (!canInteract(player))
 			{
-				// Notify the L2PcInstance AI with AI_INTENTION_INTERACT
+				// Notify the L2Player AI with AI_INTENTION_INTERACT
 				player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
 			}
 		}
-		// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
@@ -96,7 +97,7 @@ public class L2CabaleBufferInstance extends L2Npc
              *  - Fighters: +25% Max Load, +25% Effect Resistance<BR>
              *  - Mystics: +25% Magic Cancel Resist, +25% Effect Resistance<BR>
              */
-            for (L2PcInstance player : getKnownList().getKnownPlayers().values())
+            for (L2Player player : getKnownList().getKnownPlayers().values())
             {
                 if (player == null || player.isInvul())
                     continue;
@@ -147,7 +148,7 @@ public class L2CabaleBufferInstance extends L2Npc
             }
         }
 
-        private boolean handleCast(L2PcInstance player, int skillId)
+        private boolean handleCast(L2Player player, int skillId)
         {
             int skillLevel = 1;
 

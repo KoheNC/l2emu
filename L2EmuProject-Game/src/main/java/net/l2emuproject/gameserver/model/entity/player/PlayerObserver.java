@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.model.entity.player;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.GMHide;
 import net.l2emuproject.gameserver.network.serverpackets.ObservationMode;
 import net.l2emuproject.gameserver.network.serverpackets.ObservationReturn;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class PlayerObserver extends PlayerExtension
 {
@@ -27,7 +27,7 @@ public final class PlayerObserver extends PlayerExtension
 	private int		_obsZ;
 	private boolean	_observerMode	= false;
 
-	public PlayerObserver(L2PcInstance activeChar)
+	public PlayerObserver(L2Player activeChar)
 	{
 		super(activeChar);
 	}

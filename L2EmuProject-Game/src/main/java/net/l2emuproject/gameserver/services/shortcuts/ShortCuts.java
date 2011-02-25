@@ -22,12 +22,12 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ExAutoSoulShot;
 import net.l2emuproject.gameserver.network.serverpackets.ShortCutInit;
 import net.l2emuproject.gameserver.network.serverpackets.ShortCutRegister;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.LookupTable;
 
 import org.apache.commons.logging.Log;
@@ -39,9 +39,9 @@ public final class ShortCuts
 	private static final Log _log = LogFactory.getLog(ShortCuts.class);
 	
 	private final LookupTable<Map<Integer, L2ShortCut>> _storedShortCuts = new LookupTable<Map<Integer, L2ShortCut>>();
-	private final L2PcInstance _owner;
+	private final L2Player _owner;
 	
-	public ShortCuts(L2PcInstance owner)
+	public ShortCuts(L2Player owner)
 	{
 		_owner = owner;
 	}

@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.handler.voicedcommandhandlers;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IVoicedCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class trades Gold Bars for Adena and vice versa.
@@ -37,10 +37,10 @@ public class Banking implements IVoicedCommandHandler
 
 	/**
 	 * 
-	 * @see net.l2emuproject.gameserver.handler.IVoicedCommandHandler#canUseVoicedCommand(java.lang.String, net.sf.l2j.gameserver.model.actor.instance.L2PcInstance, java.lang.String)
+	 * @see net.l2emuproject.gameserver.handler.IVoicedCommandHandler#canUseVoicedCommand(java.lang.String, net.l2emuproject.gameserver.world.object.L2Player.l2j.gameserver.model.actor.instance.L2PcInstance, java.lang.String)
 	 */
 	@Override
-	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String target)
+	public boolean useVoicedCommand(String command, L2Player activeChar, String target)
 	{
 		if (!Config.BANKING_SYSTEM_ENABLED)
 			return false;

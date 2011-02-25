@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.RecoBonus;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  **	@author Gnacik
@@ -29,7 +29,7 @@ public final class ExVoteSystemInfo extends L2GameServerPacket
 	private final int	_bonusVal;
 	private final int	_bonusType;
 
-	public ExVoteSystemInfo(L2PcInstance player)
+	public ExVoteSystemInfo(L2Player player)
 	{
 		_recomLeft = player.getEvaluations();
 		_recomHave = player.getEvalPoints();

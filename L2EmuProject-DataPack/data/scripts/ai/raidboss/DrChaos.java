@@ -19,12 +19,12 @@ import java.util.Map;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.network.serverpackets.SpecialCamera;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 /**
@@ -64,7 +64,7 @@ public class DrChaos extends Quest
 	}
 
 	@Override
-	public String onAdvEvent (String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent (String event, L2Npc npc, L2Player player)
 	{
 		if (event.equalsIgnoreCase("1"))
 		{
@@ -109,7 +109,7 @@ public class DrChaos extends Quest
 	}
 
 	@Override
-	public String onFirstTalk (L2Npc npc, L2PcInstance player)
+	public String onFirstTalk (L2Npc npc, L2Player player)
 	{
 		if (npc.getNpcId() == DOCTER_CHAOS)
 		{

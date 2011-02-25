@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillAppearance;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class ChangeFace implements ISkillHandler
 {
@@ -32,10 +32,10 @@ public final class ChangeFace implements ISkillHandler
 		
 		for (L2Character target : targets)
 		{
-			if (!(target instanceof L2PcInstance))
+			if (!(target instanceof L2Player))
 				continue;
 			
-			L2PcInstance player = (L2PcInstance)target;
+			L2Player player = (L2Player)target;
 			
 			if (skill.getFaceId() >= 0)
 				player.getAppearance().setFace(skill.getFaceId());

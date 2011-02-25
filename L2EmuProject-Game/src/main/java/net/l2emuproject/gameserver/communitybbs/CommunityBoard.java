@@ -24,16 +24,16 @@ import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager;
 import net.l2emuproject.gameserver.communitybbs.Manager.TopBBSManager;
 import net.l2emuproject.gameserver.communitybbs.Manager.TopicBBSManager;
 import net.l2emuproject.gameserver.communitybbs.Manager.UpdateBBSManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ShowBoard;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class CommunityBoard
 {
 	public static void handleCommands(L2GameClient client, String command)
 	{
-		L2PcInstance activeChar = client.getActiveChar();
+		L2Player activeChar = client.getActiveChar();
 		if (activeChar == null)
 			return;
 
@@ -110,7 +110,7 @@ public class CommunityBoard
 	 */
 	public static void handleWriteCommands(L2GameClient client, String url, String arg1, String arg2, String arg3, String arg4, String arg5)
 	{
-		L2PcInstance activeChar = client.getActiveChar();
+		L2Player activeChar = client.getActiveChar();
 		if (activeChar == null)
 			return;
 

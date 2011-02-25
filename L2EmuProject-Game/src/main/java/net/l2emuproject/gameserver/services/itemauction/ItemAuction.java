@@ -23,13 +23,13 @@ import java.util.concurrent.TimeUnit;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.ItemInfo;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -259,7 +259,7 @@ public final class ItemAuction
 		}
 	}
 
-	public final void registerBid(final L2PcInstance player, final long newBid)
+	public final void registerBid(final L2Player player, final long newBid)
 	{
 		if (player == null)
 			throw new NullPointerException();
@@ -334,7 +334,7 @@ public final class ItemAuction
 		}
 	}
 
-	private final void onPlayerBid(final L2PcInstance player, final ItemAuctionBid bid)
+	private final void onPlayerBid(final L2Player player, final ItemAuctionBid bid)
 	{
 		if (_highestBid == null)
 		{
@@ -342,7 +342,7 @@ public final class ItemAuction
 		}
 		else if (_highestBid.getLastBid() < bid.getLastBid())
 		{
-			final L2PcInstance old = _highestBid.getPlayer();
+			final L2Player old = _highestBid.getPlayer();
 			if (old != null)
 				old.sendPacket(new SystemMessage(SystemMessageId.YOU_HAVE_BEEN_OUTBID));
 
@@ -426,14 +426,14 @@ public final class ItemAuction
 			final ItemAuctionBid bid = _auctionBids.get(i);
 			if (bid != null)
 			{
-				final L2PcInstance player = bid.getPlayer();
+				final L2Player player = bid.getPlayer();
 				if (player != null)
 					player.sendPacket(packet);
 			}
 		}
 	}
 
-	public final boolean cancelBid(final L2PcInstance player)
+	public final boolean cancelBid(final L2Player player)
 	{
 		if (player == null)
 			throw new NullPointerException();
@@ -502,7 +502,7 @@ public final class ItemAuction
 		}
 	}
 
-	private final boolean reduceItemCount(final L2PcInstance player, final long count)
+	private final boolean reduceItemCount(final L2Player player, final long count)
 	{
 		if (!player.reduceAdena("ItemAuction", count, player, true))
 		{
@@ -512,7 +512,7 @@ public final class ItemAuction
 		return true;
 	}
 
-	private final void increaseItemCount(final L2PcInstance player, final long count)
+	private final void increaseItemCount(final L2Player player, final long count)
 	{
 		player.addAdena("ItemAuction", count, player, true);
 	}
@@ -523,7 +523,7 @@ public final class ItemAuction
 	 * @param player The player that made the bid
 	 * @return The last bid the player made or -1
 	 */
-	public final long getLastBid(final L2PcInstance player)
+	public final long getLastBid(final L2Player player)
 	{
 		final ItemAuctionBid bid = getBidFor(player.getObjectId());
 		return bid != null ? bid.getLastBid() : -1L;

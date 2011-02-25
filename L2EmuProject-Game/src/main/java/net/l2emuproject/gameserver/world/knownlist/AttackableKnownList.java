@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.world.knownlist;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 
 public class AttackableKnownList extends NpcKnownList
@@ -48,7 +48,7 @@ public class AttackableKnownList extends NpcKnownList
 		
 		// Set the L2Attackable Intention to AI_INTENTION_IDLE
 		//FIXME: This is a temporary solution
-		if (getActiveChar().hasAI() && object instanceof L2PcInstance && getKnownPlayers().isEmpty())
+		if (getActiveChar().hasAI() && object instanceof L2Player && getKnownPlayers().isEmpty())
 		{
 			getActiveChar().getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 		}

@@ -17,10 +17,10 @@ package teleports.HuntingGroundsTeleport;
 import org.apache.commons.lang.ArrayUtils;
 
 import net.l2emuproject.gameserver.SevenSigns;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class HuntingGroundsTeleport extends QuestJython
 {
@@ -66,7 +66,7 @@ public final class HuntingGroundsTeleport extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = "";
 		QuestState st = player.getQuestState(getName());

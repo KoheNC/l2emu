@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class ConditionPlayerSiegeSide extends Condition
 {
@@ -29,6 +29,6 @@ public class ConditionPlayerSiegeSide extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		return ((L2PcInstance) env.player).getSiegeSide() == _siegeSide;
+		return ((L2Player) env.player).getSiegeSide() == _siegeSide;
 	}
 }

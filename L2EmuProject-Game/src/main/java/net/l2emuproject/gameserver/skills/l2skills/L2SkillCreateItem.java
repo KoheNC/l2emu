@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.skills.l2skills;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 
@@ -44,11 +44,11 @@ public class L2SkillCreateItem extends L2Skill
 		if (activeChar.isAlikeDead())
 			return;
 		
-		if (activeChar instanceof L2PcInstance)
+		if (activeChar instanceof L2Player)
 		{
 			int count = _createItemCount + Rnd.nextInt(_randomCount);
 			int rndid = Rnd.nextInt(_createItemId.length);
-			((L2PcInstance)activeChar).addItem("Skill", _createItemId[rndid], count, activeChar, true);
+			((L2Player)activeChar).addItem("Skill", _createItemId[rndid], count, activeChar, true);
 		}
 	}
 }

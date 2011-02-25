@@ -28,7 +28,6 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.ICubicSkillHandler;
 import net.l2emuproject.gameserver.handler.SkillHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2CubicInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeSummonInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -43,6 +42,7 @@ import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.tools.random.Rnd;
@@ -92,7 +92,7 @@ public class Disablers implements ICubicSkillHandler
 
 		L2ItemInstance weaponInst = activeChar.getActiveWeaponInstance();
 
-		if (activeChar instanceof L2PcInstance)
+		if (activeChar instanceof L2Player)
 		{
 			if (weaponInst == null && skill.isOffensive())
 			{
@@ -283,7 +283,7 @@ public class Disablers implements ICubicSkillHandler
 			{
 				if (Formulas.calcSkillSuccess(activeChar, target, skill, shld, ss, sps, bss) && !(target instanceof L2SiegeSummonInstance))
 				{
-					L2PcInstance summonOwner = null;
+					L2Player summonOwner = null;
 					L2Summon summonPet = null;
 					summonOwner = ((L2Summon) target).getOwner();
 					summonPet = summonOwner.getPet();
@@ -729,11 +729,11 @@ public class Disablers implements ICubicSkillHandler
 
 			// Since there is a previous check that limits allowed effects to those which come from L2SkillType.BUFF,
 			// it is not needed another check for L2SkillType
-			if (stealer instanceof L2PcInstance && e != null)
+			if (stealer instanceof L2Player && e != null)
 			{
 				SystemMessage smsg = new SystemMessage(SystemMessageId.YOU_FEEL_S1_EFFECT);
 				smsg.addSkillName(eff);
-				((L2PcInstance)stealer).sendPacket(smsg);
+				((L2Player)stealer).sendPacket(smsg);
 			}
 			// Finishing stolen effect
 			eff.exit();

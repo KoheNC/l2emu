@@ -22,7 +22,6 @@ import java.sql.SQLException;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
@@ -33,6 +32,7 @@ import net.l2emuproject.gameserver.network.serverpackets.QuestList;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 
 /**
@@ -45,10 +45,10 @@ public class AdminShowQuests implements IAdminCommandHandler
 													{ "admin_charquestmenu", "admin_setcharquest" };
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		String[] cmdParams = command.split(" ");
-		L2PcInstance target = null;
+		L2Player target = null;
 		L2Object targetObject = null;
 		String[] val = new String[4];
 		val[0] = null;
@@ -96,8 +96,8 @@ public class AdminShowQuests implements IAdminCommandHandler
 		{
 			targetObject = activeChar.getTarget();
 
-			if (targetObject != null && targetObject instanceof L2PcInstance)
-				target = (L2PcInstance) targetObject;
+			if (targetObject != null && targetObject instanceof L2Player)
+				target = (L2Player) targetObject;
 		}
 
 		if (target == null)
@@ -146,7 +146,7 @@ public class AdminShowQuests implements IAdminCommandHandler
 		return true;
 	}
 
-	private void showFirstQuestMenu(L2PcInstance target, L2PcInstance actor)
+	private void showFirstQuestMenu(L2Player target, L2Player actor)
 	{
 		L2TextBuilder replyMSG = L2TextBuilder
 				.newInstance("<html><body><table width=270>"
@@ -175,7 +175,7 @@ public class AdminShowQuests implements IAdminCommandHandler
 		actor.sendPacket(adminReply);
 	}
 
-	private void showQuestMenu(L2PcInstance target, L2PcInstance actor, String[] val) throws SQLException
+	private void showQuestMenu(L2Player target, L2Player actor, String[] val) throws SQLException
 	{
 		Connection con = null;
 		try
@@ -371,7 +371,7 @@ public class AdminShowQuests implements IAdminCommandHandler
 		}
 	}
 
-	private void setQuestVar(L2PcInstance target, L2PcInstance actor, String[] val)
+	private void setQuestVar(L2Player target, L2Player actor, String[] val)
 	{
 		QuestState qs = target.getQuestState(val[0]);
 		String[] outval = new String[3];

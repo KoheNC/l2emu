@@ -27,12 +27,12 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
@@ -140,7 +140,7 @@ public class FishermanManager
 			return;
 		}
 
-		L2PcInstance winner = L2World.getInstance().findPlayer(idTop);
+		L2Player winner = L2World.getInstance().findPlayer(idTop);
 
 		Announcements.getInstance().announceToAll(
 				"Attention Fishermans: " + arTop.name + " is the winner for this time with " + arTop.cought + "/" + arTop.escaped + ". Next calculation in "

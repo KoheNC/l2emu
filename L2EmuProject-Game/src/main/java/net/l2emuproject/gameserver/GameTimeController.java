@@ -21,11 +21,11 @@ import java.util.GregorianCalendar;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.instancemanager.DayNightSpawnManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance.ConditionListenerDependency;
 import net.l2emuproject.gameserver.network.serverpackets.ClientSetTime;
 import net.l2emuproject.gameserver.util.Broadcast;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.L2Player.ConditionListenerDependency;
 import net.l2emuproject.lang.L2Thread;
 
 import org.apache.commons.logging.Log;
@@ -163,7 +163,7 @@ public final class GameTimeController
 				{
 					DayNightSpawnManager.getInstance().notifyChangeMode();
 					
-					for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+					for (L2Player player : L2World.getInstance().getAllPlayers())
 						player.refreshConditionListeners(ConditionListenerDependency.GAME_TIME);
 				}
 				

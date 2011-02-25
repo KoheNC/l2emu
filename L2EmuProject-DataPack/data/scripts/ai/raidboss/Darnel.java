@@ -14,9 +14,9 @@
  */
 package ai.raidboss;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author L0ngh0rn
@@ -37,7 +37,7 @@ public final class Darnel extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		if (npc.getNpcId() == DARNEL)
 			addSpawn(GATE, 152761, 145950, -12588, 0, false, 0, false, player.getInstanceId());

@@ -14,11 +14,11 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.model.clan.L2Clan.SubPledge;
 import net.l2emuproject.gameserver.network.L2GameClient;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class PledgeShowMemberListAll extends L2GameServerPacket
 {
@@ -36,7 +36,7 @@ public final class PledgeShowMemberListAll extends L2GameServerPacket
 	}
 	
 	@Override
-	public void packetSent(L2GameClient client, L2PcInstance activeChar)
+	public void packetSent(L2GameClient client, L2Player activeChar)
 	{
 		for (SubPledge element : _clan.getAllSubPledges())
 			activeChar.sendPacket(new PledgeReceiveSubPledgeCreated(element, _clan));

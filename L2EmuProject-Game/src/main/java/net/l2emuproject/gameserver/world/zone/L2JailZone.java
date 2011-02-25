@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.world.zone;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.GmListTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2JailZone extends L2Zone
 {
@@ -27,7 +27,7 @@ public class L2JailZone extends L2Zone
 	@Override
 	protected void onEnter(L2Character character)
 	{
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
 			character.setInsideZone(FLAG_JAIL, true);
 			character.setInsideZone(FLAG_NOSUMMON, true);
@@ -42,7 +42,7 @@ public class L2JailZone extends L2Zone
 	@Override
 	protected void onExit(L2Character character)
 	{
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
 			character.setInsideZone(FLAG_JAIL, false);
 			character.setInsideZone(FLAG_NOSUMMON, false);
@@ -53,9 +53,9 @@ public class L2JailZone extends L2Zone
 		
 		super.onExit(character);
 		
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
-			L2PcInstance player = (L2PcInstance)character;
+			L2Player player = (L2Player)character;
 			// This is for when a player tries to bug his way out of jail
 			if (player.isInJail())
 			{

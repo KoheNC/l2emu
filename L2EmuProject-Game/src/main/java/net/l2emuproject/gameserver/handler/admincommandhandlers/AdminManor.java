@@ -21,12 +21,12 @@ import javolution.util.FastList;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.SeedProduction;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -55,7 +55,7 @@ public class AdminManor implements IAdminCommandHandler
 			"admin_manor_disable"					};
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		StringTokenizer st = new StringTokenizer(command);
 		command = st.nextToken();
@@ -175,7 +175,7 @@ public class AdminManor implements IAdminCommandHandler
 		return s;
 	}
 
-	private void showMainPage(L2PcInstance activeChar)
+	private void showMainPage(L2Player activeChar)
 	{
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
 		TextBuilder replyMSG = new TextBuilder("<html><body>");

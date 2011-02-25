@@ -24,6 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class L2TerritoryWardInstance extends L2Attackable
 {
@@ -42,7 +43,7 @@ public final class L2TerritoryWardInstance extends L2Attackable
 		if (getCastle() == null || !getCastle().getSiege().getIsInProgress())
 			return false;
 
-		final L2PcInstance actingPlayer = attacker.getActingPlayer();
+		final L2Player actingPlayer = attacker.getActingPlayer();
 		if (actingPlayer == null)
 			return false;
 		if (actingPlayer.getSiegeSide() == 0)
@@ -75,15 +76,15 @@ public final class L2TerritoryWardInstance extends L2Attackable
 		if (!super.doDie(killer) || getCastle() == null || !TerritoryWarManager.getInstance().isTWInProgress())
 			return false;
 
-		if (killer instanceof L2PcInstance)
+		if (killer instanceof L2Player)
 		{
-			if (((L2PcInstance) killer).getSiegeSide() > 0 && !((L2PcInstance) killer).isCombatFlagEquipped())
-				((L2PcInstance) killer).addItem("Pickup", getNpcId() - 23012, 1, null, false);
+			if (((L2Player) killer).getSiegeSide() > 0 && !((L2Player) killer).isCombatFlagEquipped())
+				((L2Player) killer).addItem("Pickup", getNpcId() - 23012, 1, null, false);
 			else
 				TerritoryWarManager.getInstance().getTerritoryWard(getNpcId() - 36491).spawnMe();
 			SystemMessage sm = new SystemMessage(SystemMessageId.THE_S1_WARD_HAS_BEEN_DESTROYED);
 			sm.addString(this.getName().replaceAll(" Ward", ""));
-			sm.addPcName((L2PcInstance) killer);
+			sm.addPcName((L2Player) killer);
 			TerritoryWarManager.getInstance().announceToParticipants(sm, 0, 0);
 		}
 		else
@@ -93,26 +94,26 @@ public final class L2TerritoryWardInstance extends L2Attackable
 	}
 
 	@Override
-	public void onForcedAttack(L2PcInstance player)
+	public void onForcedAttack(L2Player player)
 	{
 		onAction(player);
 	}
 
 	@Override
-	public void onAction(L2PcInstance player, boolean interact)
+	public void onAction(L2Player player, boolean interact)
 	{
 		if (player == null || !canTarget(player))
 			return;
 
 		player.setLastFolkNPC(this);
 
-		// Check if the L2PcInstance already target the L2NpcInstance
+		// Check if the L2Player already target the L2NpcInstance
 		if (this != player.getTarget())
 		{
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 
-			// Send a Server->Client packet StatusUpdate of the L2NpcInstance to the L2PcInstance to update its HP bar
+			// Send a Server->Client packet StatusUpdate of the L2NpcInstance to the L2Player to update its HP bar
 			StatusUpdate su = new StatusUpdate(this);
 			su.addAttribute(StatusUpdate.CUR_HP, (int) getStatus().getCurrentHp());
 			su.addAttribute(StatusUpdate.MAX_HP, getMaxHp());
@@ -127,7 +128,7 @@ public final class L2TerritoryWardInstance extends L2Attackable
 				player.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, this);
 			else
 			{
-				// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+				// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 				player.sendPacket(ActionFailed.STATIC_PACKET);
 			}
 		}

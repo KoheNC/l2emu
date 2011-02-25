@@ -18,8 +18,8 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.stat.PcStat;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -43,7 +43,7 @@ public class AdminVitality implements IAdminCommandHandler
 	};
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (!Config.ENABLE_VITALITY)
 			activeChar.sendMessage("Vitality is not enabled on the server!");
@@ -51,10 +51,10 @@ public class AdminVitality implements IAdminCommandHandler
 		StringTokenizer st = new StringTokenizer(command, " ");
 		String cmd = st.nextToken();
 
-		if (activeChar.getTarget() instanceof L2PcInstance)
+		if (activeChar.getTarget() instanceof L2Player)
 		{
-			L2PcInstance target;
-			target = (L2PcInstance) activeChar.getTarget();
+			L2Player target;
+			target = (L2Player) activeChar.getTarget();
 
 			if (cmd.equals("admin_set_vitality"))
 			{

@@ -18,12 +18,12 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.Siege;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2CastleZone extends SiegeableEntityZone
 {
@@ -41,9 +41,9 @@ public class L2CastleZone extends SiegeableEntityZone
 		alertCastle(character, true);
 		super.onEnter(character);
 
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
-			L2PcInstance player = (L2PcInstance) character;
+			L2Player player = (L2Player) character;
 			L2Clan clan = player.getClan();
 			if (clan != null)
 			{
@@ -63,8 +63,8 @@ public class L2CastleZone extends SiegeableEntityZone
 
 		super.onExit(character);
 
-		if (character instanceof L2PcInstance)
-			((L2PcInstance) character).stopFameTask();
+		if (character instanceof L2Player)
+			((L2Player) character).stopFameTask();
 	}
 
 	private void alertCastle(L2Character character, boolean entering)
@@ -81,15 +81,15 @@ public class L2CastleZone extends SiegeableEntityZone
 			return;
 		else if (character.isInInstance())
 			return;
-		else if (character instanceof L2PcInstance)
+		else if (character instanceof L2Player)
 		{
-			if (((L2PcInstance) character).isGM())
+			if (((L2Player) character).isGM())
 				return;
 		}
 		else
 			return;
 
-		L2PcInstance activeChar = (L2PcInstance) character;
+		L2Player activeChar = (L2Player) character;
 		L2Clan castleClan = ClanTable.getInstance().getClan(ownerId);
 		L2Clan activeCharClan = activeChar.getClan();
 		SystemMessage sm = null;

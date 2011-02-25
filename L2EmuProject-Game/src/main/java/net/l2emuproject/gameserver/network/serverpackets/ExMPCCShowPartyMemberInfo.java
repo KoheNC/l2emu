@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Format:(ch) d [sdd]
@@ -42,7 +42,7 @@ public class ExMPCCShowPartyMemberInfo extends L2GameServerPacket
 		writeH(0x4b);
 
 		writeD(_party.getMemberCount());
-		for (L2PcInstance mem : _party.getPartyMembers())
+		for (L2Player mem : _party.getPartyMembers())
 		{
 			writeS(mem.getName());
 			writeD(mem.getObjectId());

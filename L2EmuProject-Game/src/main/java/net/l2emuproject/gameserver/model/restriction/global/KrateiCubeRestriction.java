@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.model.restriction.global;
 
 import net.l2emuproject.gameserver.instancemanager.games.KrateiCube;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author lord_rex
@@ -34,16 +34,16 @@ public final class KrateiCubeRestriction extends AbstractRestriction
 	}
 
 	@Override
-	public final void playerKilled(L2Character activeChar, L2PcInstance target, L2PcInstance killer)
+	public final void playerKilled(L2Character activeChar, L2Player target, L2Player killer)
 	{
-		if (killer instanceof L2PcInstance && target instanceof L2PcInstance && KrateiCube.isPlaying(target) && KrateiCube.isPlaying(killer))
+		if (killer instanceof L2Player && target instanceof L2Player && KrateiCube.isPlaying(target) && KrateiCube.isPlaying(killer))
 		{
 			killer.getPlayerEventData().givePoints(10);
 		}
 	}
 
 	@Override
-	public final boolean canRequestRevive(L2PcInstance player)
+	public final boolean canRequestRevive(L2Player player)
 	{
 		if (KrateiCube.isPlaying(player))
 		{
@@ -55,7 +55,7 @@ public final class KrateiCubeRestriction extends AbstractRestriction
 	}
 
 	@Override
-	public final boolean canBeSummoned(L2PcInstance target)
+	public final boolean canBeSummoned(L2Player target)
 	{
 		if (KrateiCube.isPlaying(target))
 			return false;
@@ -64,7 +64,7 @@ public final class KrateiCubeRestriction extends AbstractRestriction
 	}
 
 	@Override
-	public final boolean canTeleport(L2PcInstance player)
+	public final boolean canTeleport(L2Player player)
 	{
 		if (KrateiCube.isPlaying(player))
 			return false;
@@ -73,7 +73,7 @@ public final class KrateiCubeRestriction extends AbstractRestriction
 	}
 
 	@Override
-	public final void playerDisconnected(L2PcInstance player)
+	public final void playerDisconnected(L2Player player)
 	{
 		if (KrateiCube.isPlaying(player))
 			KrateiCube.getInstance().removeDisconnected(player);

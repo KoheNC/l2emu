@@ -15,9 +15,9 @@
 package ai.npc;
 
 import ai.L2AttackableAIScript;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 /**
@@ -50,7 +50,7 @@ public final class DeluLizardman extends L2AttackableAIScript
 	}
 
 	@Override
-	public final String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isPet)
+	public final String onAttack(L2Npc npc, L2Player attacker, int damage, boolean isPet)
 	{
 		final int npcId = npc.getNpcId();
 
@@ -80,7 +80,7 @@ public final class DeluLizardman extends L2AttackableAIScript
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
 	{
 		final int npcId = npc.getNpcId();
 

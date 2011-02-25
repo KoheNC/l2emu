@@ -29,7 +29,6 @@ import java.util.Map;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.L2GameClient.GameClientState;
@@ -52,6 +51,7 @@ import net.l2emuproject.gameserver.network.loginserverpackets.PlayerLoginAttempt
 import net.l2emuproject.gameserver.network.serverpackets.CharSelectionInfo;
 import net.l2emuproject.gameserver.network.serverpackets.LoginFail;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.network.NetworkThread;
 import net.l2emuproject.network.ServerStatus;
 import net.l2emuproject.network.ServerStatusAttributes;
@@ -272,7 +272,7 @@ public final class LoginServerThread extends NetworkThread
 	private void kickPlayers()
 	{
 		int counter = 0;
-		for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
 			if (player.isGM())
 				continue;
@@ -420,7 +420,7 @@ public final class LoginServerThread extends NetworkThread
 							if (L2World.getInstance().getAllPlayersCount() > 0)
 							{
 								ArrayList<String> playerList = new ArrayList<String>();
-								for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+								for (L2Player player : L2World.getInstance().getAllPlayers())
 								{
 									if (player.getClient() == null)
 										continue;
@@ -484,7 +484,7 @@ public final class LoginServerThread extends NetworkThread
 							if (wc != null)
 								wc.gameClient.closeNow();
 							
-							L2PcInstance.disconnectIfOnline(kp.getAccount());
+							L2Player.disconnectIfOnline(kp.getAccount());
 							break;
 						}
 						case 0x10:

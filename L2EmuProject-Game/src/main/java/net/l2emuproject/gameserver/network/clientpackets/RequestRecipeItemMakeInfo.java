@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.RecipeItemMakeInfo;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestRecipeItemMakeInfo extends L2GameClientPacket
 {
@@ -37,7 +37,7 @@ public class RequestRecipeItemMakeInfo extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2PcInstance player = getActiveChar();
+		L2Player player = getActiveChar();
 		if (player == null)
 			return;
 

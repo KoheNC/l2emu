@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class ...
@@ -24,9 +24,9 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 public class PartySmallWindowUpdate extends L2GameServerPacket
 {
 	private static final String _S__67_PARTYSMALLWINDOWUPDATE = "[S] 52 PartySmallWindowUpdate";
-	private final L2PcInstance _member;
+	private final L2Player _member;
 	
-	public PartySmallWindowUpdate(L2PcInstance member)
+	public PartySmallWindowUpdate(L2Player member)
 	{
 		_member = member;
 	}

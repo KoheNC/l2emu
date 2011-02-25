@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class ExSpawnEmitter extends L2GameServerPacket
 {
@@ -25,7 +25,7 @@ public class ExSpawnEmitter extends L2GameServerPacket
         _npcObjectId = npcObjectId;
     }
 
-    public ExSpawnEmitter(L2PcInstance player, L2Npc npc)
+    public ExSpawnEmitter(L2Player player, L2Npc npc)
     {
         _playerObjectId = player.getObjectId();
         _npcObjectId = npc.getObjectId();

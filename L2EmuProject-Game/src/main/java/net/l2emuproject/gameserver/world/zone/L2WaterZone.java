@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.world.zone;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2WaterZone extends L2Zone
 {
@@ -24,9 +24,9 @@ public class L2WaterZone extends L2Zone
 	{
 		character.setInsideZone(FLAG_WATER, true);
 		
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
-			L2PcInstance player = (L2PcInstance)character;
+			L2Player player = (L2Player)character;
 			if (player.getPlayerTransformation().isTransformed() && !player.isCursedWeaponEquipped())
 				character.stopTransformation(true);
 		}
@@ -49,7 +49,7 @@ public class L2WaterZone extends L2Zone
 	@Override
 	protected boolean checkDynamicConditions(L2Character character)
 	{
-		if (character instanceof L2PcInstance && ((L2PcInstance)character).isInBoat())
+		if (character instanceof L2Player && ((L2Player)character).isInBoat())
 			return false;
 		
 		return super.checkDynamicConditions(character);

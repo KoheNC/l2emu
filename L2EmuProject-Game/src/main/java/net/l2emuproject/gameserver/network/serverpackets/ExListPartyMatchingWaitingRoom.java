@@ -19,7 +19,7 @@ import static net.l2emuproject.gameserver.instancemanager.PartyRoomManager.ENTRI
 import java.util.List;
 
 import net.l2emuproject.gameserver.instancemanager.PartyRoomManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 /**
@@ -31,7 +31,7 @@ public class ExListPartyMatchingWaitingRoom extends L2GameServerPacket
 {
 	private static final String	_S__FE_36_EXLISTPARTYMATCHINGWAITINGROOM = "[S] FE:36 ExListPartyMatchingWaitingRoom";
 
-	private final List<L2PcInstance>	_waiting;
+	private final List<L2Player>	_waiting;
 	private final int					_offset;
 	private final int					_last;
 
@@ -52,7 +52,7 @@ public class ExListPartyMatchingWaitingRoom extends L2GameServerPacket
 		writeD(_last - _offset); // players in this page
 		for (int i = _offset; i < _last; i++)
 		{
-			L2PcInstance player = _waiting.get(i);
+			L2Player player = _waiting.get(i);
 			writeS(player.getName());
 			writeD(player.getClassId().getId());
 			writeD(player.getLevel());

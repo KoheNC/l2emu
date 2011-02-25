@@ -37,7 +37,7 @@ import net.l2emuproject.gameserver.templates.StatsSet;
  */
 public class L2PcTemplate extends L2CharTemplate
 {
-	/** The Class object of the L2PcInstance */
+	/** The Class object of the L2Player */
 	private ClassId			classId;
 
 	private Race			race;

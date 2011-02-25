@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.taskmanager;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 
 /**
@@ -53,28 +53,28 @@ public final class PacketBroadcaster extends AbstractFIFOPeriodicTaskManager<L2C
 			@Override
 			protected void sendPacket(L2Character cha)
 			{
-				((L2PcInstance)cha).broadcastRelationChangedImpl();
+				((L2Player)cha).broadcastRelationChangedImpl();
 			}
 		},
 		SEND_ETC_STATUS_UPDATE {
 			@Override
 			protected void sendPacket(L2Character cha)
 			{
-				((L2PcInstance)cha).sendEtcStatusUpdateImpl();
+				((L2Player)cha).sendEtcStatusUpdateImpl();
 			}
 		},
 		SEND_SKILL_LIST {
 			@Override
 			protected void sendPacket(L2Character cha)
 			{
-				((L2PcInstance)cha).sendSkillListImpl();
+				((L2Player)cha).sendSkillListImpl();
 			}
 		},
 		SEND_SKILL_COOL_TIME {
 			@Override
 			protected void sendPacket(L2Character cha)
 			{
-				((L2PcInstance)cha).sendSkillCoolTimeImpl();
+				((L2Player)cha).sendSkillCoolTimeImpl();
 			}
 		},
 		// TODO: more packets

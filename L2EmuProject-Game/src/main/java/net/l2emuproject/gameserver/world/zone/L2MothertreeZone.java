@@ -14,16 +14,16 @@
  */
 package net.l2emuproject.gameserver.world.zone;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.Race;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2MothertreeZone extends L2Zone
 {
 	@Override
 	protected void onEnter(L2Character character)
 	{
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
 			character.setInsideZone(FLAG_MOTHERTREE, true);
 		}
@@ -34,7 +34,7 @@ public class L2MothertreeZone extends L2Zone
 	@Override
 	protected void onExit(L2Character character)
 	{
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
 			character.setInsideZone(FLAG_MOTHERTREE, false);
 		}
@@ -45,9 +45,9 @@ public class L2MothertreeZone extends L2Zone
 	@Override
 	protected boolean checkConstantConditions(L2Character character)
 	{
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
-			L2PcInstance player = (L2PcInstance)character;
+			L2Player player = (L2Player)character;
 			
 			if (player.getRace() != Race.Elf)
 				return false;
@@ -59,12 +59,12 @@ public class L2MothertreeZone extends L2Zone
 	@Override
 	protected boolean checkDynamicConditions(L2Character character)
 	{
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
-			L2PcInstance player = (L2PcInstance)character;
+			L2Player player = (L2Player)character;
 			
 			if (player.isInParty())
-				for (L2PcInstance member : player.getParty().getPartyMembers())
+				for (L2Player member : player.getParty().getPartyMembers())
 					if (member.getRace() != Race.Elf)
 						return false;
 		}

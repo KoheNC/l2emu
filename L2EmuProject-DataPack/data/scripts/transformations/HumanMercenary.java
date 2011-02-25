@@ -14,9 +14,9 @@
  */
 package transformations;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class HumanMercenary extends L2Transformation
 {
@@ -27,28 +27,28 @@ public final class HumanMercenary extends L2Transformation
 	}
 
 	@Override
-	public final void transformedSkills(L2PcInstance player)
+	public final void transformedSkills(L2Player player)
 	{
 		addSkill(player, 869, 1); // Mercenary Power Strike
 		addSkill(player, 936, 1); // Ordinary Mercenary TODO
 	}
 
 	@Override
-	public final void removeSkills(L2PcInstance player)
+	public final void removeSkills(L2Player player)
 	{
 		removeSkill(player, 869); // Mercenary Power Strike
 		removeSkill(player, 936); // Ordinary Mercenary
 	}
 
 	@Override
-	public final void onTransform(L2PcInstance player)
+	public final void onTransform(L2Player player)
 	{
 		player.setCanGainExpSp(false);
 		super.onTransform(player);
 	}
 
 	@Override
-	public final void onUntransform(L2PcInstance player)
+	public final void onUntransform(L2Player player)
 	{
 		player.setCanGainExpSp(true);
 		super.onUntransform(player);

@@ -16,11 +16,11 @@ package teleports.PaganTeleports;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.datatables.DoorTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author L0ngh0rn
@@ -60,7 +60,7 @@ public final class PaganTeleports extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if (event.equalsIgnoreCase("Close_Door1"))
 			DoorTable.getInstance().getDoor(DOOR).closeMe();
@@ -73,7 +73,7 @@ public final class PaganTeleports extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = NO_QUEST;
 		QuestState st = player.getQuestState(QN);
@@ -116,7 +116,7 @@ public final class PaganTeleports extends QuestJython
 	}
 
 	@Override
-	public final String onFirstTalk(L2Npc npc, L2PcInstance player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		final int npcId = npc.getNpcId();
 		if (NPC_FIRST.containsKey(npcId))

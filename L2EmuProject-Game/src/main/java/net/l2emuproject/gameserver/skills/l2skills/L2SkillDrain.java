@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.skills.l2skills;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.model.actor.instance.L2CubicInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
@@ -24,6 +23,7 @@ import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2SkillDrain extends L2Skill
 {
@@ -96,9 +96,9 @@ public class L2SkillDrain extends L2Skill
 			// Check to see if we should damage the target
 			if (damage > 0 && (!target.isDead() || getTargetType() != SkillTargetType.TARGET_CORPSE_MOB))
 			{
-				if (activeChar instanceof L2PcInstance)
+				if (activeChar instanceof L2Player)
 				{
-					L2PcInstance activeCaster = (L2PcInstance) activeChar;
+					L2Player activeCaster = (L2Player) activeChar;
 
 					if (activeCaster.isGM() && activeCaster.getAccessLevel() < Config.GM_CAN_GIVE_DAMAGE)
 						damage = 0;
@@ -118,7 +118,7 @@ public class L2SkillDrain extends L2Skill
 					if ((Formulas.calcSkillReflect(target, this) & Formulas.SKILL_REFLECT_SUCCEED) > 0)
 					{
 						getEffects(target, activeChar);
-						if (activeChar instanceof L2PcInstance)
+						if (activeChar instanceof L2Player)
 							activeChar.getActingPlayer().sendPacket(new SystemMessage(SystemMessageId.YOU_FEEL_S1_EFFECT).addSkillName(this));
 					}
 					else
@@ -159,7 +159,7 @@ public class L2SkillDrain extends L2Skill
 				_log.info("L2SkillDrain: useCubicSkill() -> damage = " + damage);
 
 			double hpAdd = _absorbAbs + _absorbPart * damage;
-			L2PcInstance owner = activeCubic.getOwner();
+			L2Player owner = activeCubic.getOwner();
 			double hp = Math.min(owner.getStatus().getCurrentHp() + hpAdd, owner.getMaxHp());
 
 			owner.getStatus().setCurrentHp(hp);

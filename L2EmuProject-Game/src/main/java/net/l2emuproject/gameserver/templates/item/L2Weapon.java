@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.templates.item;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.handler.SkillHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 
@@ -359,8 +359,8 @@ public final class L2Weapon extends L2Equip
 			// notify quests of a skill use
 			caster.notifyMobsAboutSkillCast(skill, target);
 			
-			if (caster instanceof L2PcInstance)
-				((L2PcInstance)caster).sendMessage("Your weapon used a skill caused by a critical hit!");
+			if (caster instanceof L2Player)
+				((L2Player)caster).sendMessage("Your weapon used a skill caused by a critical hit!");
 		}
 	}
 	
@@ -395,8 +395,8 @@ public final class L2Weapon extends L2Equip
 			// notify quests of a skill use
 			caster.notifyMobsAboutSkillCast(skill, target);
 			
-			if (caster instanceof L2PcInstance)
-				((L2PcInstance)caster).sendMessage("Your weapon used a skill caused by a skill casting!");
+			if (caster instanceof L2Player)
+				((L2Player)caster).sendMessage("Your weapon used a skill caused by a skill casting!");
 		}
 	}
 }

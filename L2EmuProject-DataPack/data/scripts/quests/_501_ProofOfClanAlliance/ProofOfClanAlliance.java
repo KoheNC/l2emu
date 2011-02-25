@@ -16,7 +16,6 @@ package quests._501_ProofOfClanAlliance;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.model.quest.QuestState;
@@ -30,6 +29,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -133,7 +133,7 @@ public final class ProofOfClanAlliance extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		QuestClan qc = _questers.get(player.getClanId());
 		if (event.startsWith("loyalty"))
@@ -261,16 +261,16 @@ public final class ProofOfClanAlliance extends QuestJython
 	@Override
 	public final String onDeath(L2Character killer, L2Character victim, QuestState qs)
 	{
-		if (victim instanceof L2PcInstance)
+		if (victim instanceof L2Player)
 		{
-			L2PcInstance leader = victim.getActingPlayer();
+			L2Player leader = victim.getActingPlayer();
 			QuestClan qc = _questers.remove(leader.getClanId());
 			qs.exitQuest(true);
 			for (L2ClanMember cm : qc._loyal)
 			{
 				if (cm == null)
 					break;
-				L2PcInstance member = cm.getPlayerInstance();
+				L2Player member = cm.getPlayerInstance();
 				if (member != null)
 				{
 					QuestState st = member.getQuestState(QN);
@@ -286,7 +286,7 @@ public final class ProofOfClanAlliance extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance killer, boolean isPet)
+	public final String onKill(L2Npc npc, L2Player killer, boolean isPet)
 	{
 		if (ArrayUtils.contains(CHEST, npc.getNpcId()))
 		{
@@ -326,7 +326,7 @@ public final class ProofOfClanAlliance extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2PcInstance talker)
+	public final String onTalk(L2Npc npc, L2Player talker)
 	{
 		QuestClan qc = _questers.get(talker.getClanId());
 		QuestState qs = talker.getQuestState(QN);
@@ -536,7 +536,7 @@ public final class ProofOfClanAlliance extends QuestJython
 			_chests = new ChestInfo();
 		}
 
-		public synchronized boolean addLoyalMember(L2PcInstance player)
+		public synchronized boolean addLoyalMember(L2Player player)
 		{
 			L2ClanMember cm = getClan().getClanMember(player.getObjectId());
 			if (cm == null)
@@ -560,7 +560,7 @@ public final class ProofOfClanAlliance extends QuestJython
 
 		public boolean checkLeader()
 		{
-			L2PcInstance leader = getClan().getLeader().getPlayerInstance();
+			L2Player leader = getClan().getLeader().getPlayerInstance();
 			if (leader == null)
 				return false;
 			QuestState qs = leader.getQuestState(QN);
@@ -570,7 +570,7 @@ public final class ProofOfClanAlliance extends QuestJython
 				return true;
 		}
 
-		public boolean isLoyal(L2PcInstance player)
+		public boolean isLoyal(L2Player player)
 		{
 			for (L2ClanMember cm : _loyal)
 				if (cm != null && cm.getPlayerInstance() == player)

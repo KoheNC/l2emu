@@ -17,10 +17,10 @@ package net.l2emuproject.status.commands;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.status.GameStatusCommand;
 
 public final class Msg extends GameStatusCommand
@@ -45,7 +45,7 @@ public final class Msg extends GameStatusCommand
 			StringTokenizer st = new StringTokenizer(val);
 			String name = st.nextToken();
 			String message = val.substring(name.length() + 1);
-			L2PcInstance reciever = L2World.getInstance().getPlayer(name);
+			L2Player reciever = L2World.getInstance().getPlayer(name);
 			CreatureSay cs = new CreatureSay(0, SystemChatChannelId.Chat_Tell, "Telnet Priv", message);
 			if (Config.ALT_TELNET)
 				cs = new CreatureSay(0, SystemChatChannelId.Chat_Tell, getStatusThread().getGM() + "(offline)", message);

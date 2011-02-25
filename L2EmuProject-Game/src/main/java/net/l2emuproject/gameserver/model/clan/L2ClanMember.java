@@ -20,8 +20,8 @@ import java.sql.SQLException;
 
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -38,7 +38,7 @@ public class L2ClanMember
 	private int				_pledgeRank;
 	private int				_level;
 	private int				_classId;
-	private L2PcInstance	_player;
+	private L2Player	_player;
 	private int				_subPledgeType;
 	private int				_apprentice;
 	private int				_sponsor;
@@ -63,7 +63,7 @@ public class L2ClanMember
 		_race = race;
 	}
 
-	public L2ClanMember(L2PcInstance player)
+	public L2ClanMember(L2Player player)
 	{
 		if (player.getClan() == null)
 			throw new IllegalArgumentException("Can not create a ClanMember if player has a null clan.");
@@ -82,7 +82,7 @@ public class L2ClanMember
 		_race = _player.getRace().ordinal();
 	}
 
-	public L2ClanMember(L2Clan clan, L2PcInstance player)
+	public L2ClanMember(L2Clan clan, L2Player player)
 	{
 		_clan = clan;
 		_player = player;
@@ -99,7 +99,7 @@ public class L2ClanMember
 		_race = _player.getRace().ordinal();
 	}
 
-	public void setPlayerInstance(L2PcInstance player)
+	public void setPlayerInstance(L2Player player)
 	{
 		if (player == null && _player != null)
 		{
@@ -135,7 +135,7 @@ public class L2ClanMember
 		_player = player;
 	}
 
-	public L2PcInstance getPlayerInstance()
+	public L2Player getPlayerInstance()
 	{
 		return _player;
 	}
@@ -373,7 +373,7 @@ public class L2ClanMember
 	 * @param activeChar player
 	 * @return pledge rank
 	 */
-	public static int getCurrentPledgeClass(L2PcInstance activeChar)
+	public static int getCurrentPledgeClass(L2Player activeChar)
 	{
 		int pledgeClass = calculatePledgeClass(activeChar);
 
@@ -391,7 +391,7 @@ public class L2ClanMember
 	 * @param player A player (may be null)
 	 * @return raw pledge rank
 	 */
-	private static int calculatePledgeClass(L2PcInstance player)
+	private static int calculatePledgeClass(L2Player player)
 	{
 		int pledgeClass = L2Clan.RANK_VAGABOND;
 		if (player == null)

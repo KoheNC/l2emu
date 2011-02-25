@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastList;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.L2GameClient;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * 27
@@ -51,7 +51,7 @@ public final class ItemList extends L2GameServerPacket
 	private int								length;
 	private final FastList<L2ItemInstance>	questItems;
 
-	public ItemList(L2PcInstance cha, boolean showWindow)
+	public ItemList(L2Player cha, boolean showWindow)
 	{
 		_inventory = cha.getInventory();
 		_items = cha.getInventory().getItems();
@@ -117,7 +117,7 @@ public final class ItemList extends L2GameServerPacket
 	}
 
 	@Override
-	public final void prepareToSend(L2GameClient client, L2PcInstance activeChar)
+	public final void prepareToSend(L2GameClient client, L2Player activeChar)
 	{
 		activeChar.sendPacket(new ExQuestItemList(questItems, activeChar.getInventory()));
 	}

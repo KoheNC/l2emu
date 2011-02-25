@@ -20,13 +20,14 @@ import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 
 
 public class L2PenaltyMonsterInstance extends L2MonsterInstance
 {
-	private L2PcInstance	_ptk;
+	private L2Player	_ptk;
 
 	public L2PenaltyMonsterInstance(int objectId, L2NpcTemplate template)
 	{
@@ -53,7 +54,7 @@ public class L2PenaltyMonsterInstance extends L2MonsterInstance
 		}
 	}
 
-	public void setPlayerToKill(L2PcInstance ptk)
+	public void setPlayerToKill(L2Player ptk)
 	{
 		if (Rnd.nextInt(100) <= 80)
 		{

@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.taskmanager.AttackStanceTaskManager;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -29,7 +29,7 @@ public final class Disconnection
 {
 	private static final Log _log = LogFactory.getLog(Disconnection.class);
 	
-	public static L2GameClient getClient(L2GameClient client, L2PcInstance activeChar)
+	public static L2GameClient getClient(L2GameClient client, L2Player activeChar)
 	{
 		if (client != null)
 			return client;
@@ -40,7 +40,7 @@ public final class Disconnection
 		return null;
 	}
 	
-	public static L2PcInstance getActiveChar(L2GameClient client, L2PcInstance activeChar)
+	public static L2Player getActiveChar(L2GameClient client, L2Player activeChar)
 	{
 		if (activeChar != null)
 			return activeChar;
@@ -52,19 +52,19 @@ public final class Disconnection
 	}
 	
 	private final L2GameClient _client;
-	private final L2PcInstance _activeChar;
+	private final L2Player _activeChar;
 	
 	public Disconnection(L2GameClient client)
 	{
 		this(client, null);
 	}
 	
-	public Disconnection(L2PcInstance activeChar)
+	public Disconnection(L2Player activeChar)
 	{
 		this(null, activeChar);
 	}
 	
-	public Disconnection(L2GameClient client, L2PcInstance activeChar)
+	public Disconnection(L2GameClient client, L2Player activeChar)
 	{
 		_client = getClient(client, activeChar);
 		_activeChar = getActiveChar(client, activeChar);

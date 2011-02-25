@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.model.party;
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.instancemanager.PartyRoomManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExClosePartyRoom;
 import net.l2emuproject.gameserver.network.serverpackets.ExManagePartyRoomMember;
@@ -25,6 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExPartyRoomMember;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.network.serverpackets.PartyRoomInfo;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2Math;
 
 
@@ -36,7 +36,7 @@ import net.l2emuproject.lang.L2Math;
 public class L2PartyRoom
 {
 	private final int						_id;
-	private final FastList<L2PcInstance>	_members;
+	private final FastList<L2Player>	_members;
 	private int								_minLevel;
 	private int								_maxLevel;
 	private int								_lootDist;
@@ -52,11 +52,11 @@ public class L2PartyRoom
 		setMaxMembers(maxMembers);
 		_lootDist = lootDist;
 		_title = title;
-		_members = new FastList<L2PcInstance>();
+		_members = new FastList<L2Player>();
 		_party = null;
 	}
 
-	public final FastList<L2PcInstance> getMembers()
+	public final FastList<L2Player> getMembers()
 	{
 		return _members;
 	}
@@ -66,7 +66,7 @@ public class L2PartyRoom
 		return getMembers().size();
 	}
 
-	public L2PcInstance getLeader()
+	public L2Player getLeader()
 	{
 		if (_party == null || _party.getLeader() == null)
 			return getMembers().getFirst();
@@ -79,15 +79,15 @@ public class L2PartyRoom
 	 * Does not specify a reason, does not send a message.
 	 * @param activeChar a player
 	 * @return whether the given player can join this room
-	 * @see #tryJoin(L2PcInstance, L2PartyRoom, boolean)
+	 * @see #tryJoin(L2Player, L2PartyRoom, boolean)
 	 */
-	public final boolean canJoin(L2PcInstance activeChar)
+	public final boolean canJoin(L2Player activeChar)
 	{
 		return (activeChar.getPartyRoom() == null && activeChar.getParty() == null &&
 				checkLevel(activeChar.getLevel()) && getMemberCount() < getMaxMembers());
 	}
 
-	public void addMember(L2PcInstance player)
+	public void addMember(L2Player player)
 	{
 		if (getMembers().contains(player))
 			return;
@@ -104,7 +104,7 @@ public class L2PartyRoom
 
 	public void addMembers(L2Party party)
 	{
-		for (L2PcInstance player : party.getPartyMembersWithoutLeader())
+		for (L2Player player : party.getPartyMembersWithoutLeader())
 		{
 			getMembers().add(player);
 			player.setPartyRoom(this);
@@ -112,7 +112,7 @@ public class L2PartyRoom
 		updateRoomStatus(true);
 	}
 
-	public void removeMember(L2PcInstance member, boolean oust)
+	public void removeMember(L2Player member, boolean oust)
 	{
 		// the last member (leader) cannot be removed
 		if (getMemberCount() == 1 || !getMembers().remove(member))
@@ -138,14 +138,14 @@ public class L2PartyRoom
 
 	public void broadcastPacket(L2GameServerPacket packet)
 	{
-		for (L2PcInstance player : getMembers())
+		for (L2Player player : getMembers())
 			player.sendPacket(packet);
 	}
 
 	public void broadcastPacket(L2GameServerPacket toLeader, L2GameServerPacket toMember)
 	{
-		L2PcInstance leader = getLeader();
-		for (L2PcInstance player : getMembers())
+		L2Player leader = getLeader();
+		for (L2Player player : getMembers())
 			if (player == leader)
 				player.sendPacket(toLeader);
 			else
@@ -272,7 +272,7 @@ public class L2PartyRoom
 	 * @param checkForParty whether check if the player is in party/[room]
 	 * @return true if player joined the given room, false otherwise
 	 */
-	public static final boolean tryJoin(L2PcInstance activeChar, L2PartyRoom room, boolean checkForParty)
+	public static final boolean tryJoin(L2Player activeChar, L2PartyRoom room, boolean checkForParty)
 	{
 		if (activeChar == null)
 			return false;
@@ -305,7 +305,7 @@ public class L2PartyRoom
 		return true;
 	}
 
-	public static final int getPartyRoomState(L2PcInstance player)
+	public static final int getPartyRoomState(L2Player player)
 	{
 		L2PartyRoom room = player.getPartyRoom();
 		if (room == null)

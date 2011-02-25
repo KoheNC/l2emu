@@ -20,7 +20,6 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.skills.L2Skill;
@@ -28,6 +27,7 @@ import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 
 
@@ -79,7 +79,7 @@ public class AdminTest implements IAdminCommandHandler
 	 * @see net.l2emuproject.gameserver.handler.IAdminCommandHandler#useAdminCommand(java.lang.String, net.l2emuproject.gameserver.model.L2PcInstance)
 	 */
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		StringTokenizer st = new StringTokenizer(command, " ");
 
@@ -173,7 +173,7 @@ public class AdminTest implements IAdminCommandHandler
 						{
 							if (target instanceof L2Npc)
 								activeChar.sendMessage("NPC: " + target.getName());
-							if (target instanceof L2PcInstance)
+							if (target instanceof L2Player)
 								activeChar.sendMessage("PC : " + target.getName());
 							if (target instanceof L2Summon)
 								activeChar.sendMessage("PET: " + target.getName());
@@ -223,7 +223,7 @@ public class AdminTest implements IAdminCommandHandler
 	 * @param activeChar
 	 * @param socId
 	 */
-	public void adminTestSocial(L2PcInstance activeChar, int socId)
+	public void adminTestSocial(L2Player activeChar, int socId)
 	{
 		L2Object target;
 
@@ -240,7 +240,7 @@ public class AdminTest implements IAdminCommandHandler
 	 * Show tips about command usage and syntax.
 	 * @param command admin command name
 	 */
-	private void showAdminCommandHelp(L2PcInstance activeChar, String command)
+	private void showAdminCommandHelp(L2Player activeChar, String command)
 	{
 		for (String[] element : ADMIN_COMMANDS)
 		{

@@ -27,6 +27,7 @@ import net.l2emuproject.gameserver.network.serverpackets.WareHouseWithdrawalList
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author l3x
@@ -51,7 +52,7 @@ public class L2CastleWarehouseInstance extends L2NpcInstance
 		return true;
 	}
 
-	private void showRetrieveWindow(L2PcInstance player, WarehouseListType itemtype, byte sortorder)
+	private void showRetrieveWindow(L2Player player, WarehouseListType itemtype, byte sortorder)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		player.setActiveWarehouse(player.getWarehouse());
@@ -68,7 +69,7 @@ public class L2CastleWarehouseInstance extends L2NpcInstance
 			player.sendPacket(new WareHouseWithdrawalList(player, WareHouseWithdrawalList.PRIVATE));
 	}
 
-	private void showDepositWindow(L2PcInstance player)
+	private void showDepositWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		player.setActiveWarehouse(player.getWarehouse());
@@ -77,7 +78,7 @@ public class L2CastleWarehouseInstance extends L2NpcInstance
 		player.sendPacket(new WareHouseDepositList(player, WareHouseDepositList.PRIVATE));
 	}
 
-	private void showDepositWindowClan(L2PcInstance player)
+	private void showDepositWindowClan(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		if (player.getClan() != null)
@@ -97,7 +98,7 @@ public class L2CastleWarehouseInstance extends L2NpcInstance
 		}
 	}
 
-	private void showWithdrawWindowClan(L2PcInstance player, WarehouseListType itemtype, byte sortorder)
+	private void showWithdrawWindowClan(L2Player player, WarehouseListType itemtype, byte sortorder)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		if (!L2Clan.checkPrivileges(player, L2Clan.CP_CL_VIEW_WAREHOUSE))
@@ -121,7 +122,7 @@ public class L2CastleWarehouseInstance extends L2NpcInstance
 	}
 
 	@Override
-	public void onBypassFeedback(L2PcInstance player, String command)
+	public void onBypassFeedback(L2Player player, String command)
 	{
 		if (player.getActiveEnchantItem() != null)
 		{
@@ -216,7 +217,7 @@ public class L2CastleWarehouseInstance extends L2NpcInstance
 	}
 
 	@Override
-	public void showChatWindow(L2PcInstance player, int val)
+	public void showChatWindow(L2Player player, int val)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		String filename = "data/html/castlewarehouse/castlewarehouse-no.htm";
@@ -242,7 +243,7 @@ public class L2CastleWarehouseInstance extends L2NpcInstance
 		player.sendPacket(html);
 	}
 
-	protected int validateCondition(L2PcInstance player)
+	protected int validateCondition(L2Player player)
 	{
 		if (player.isGM()) return COND_OWNER;
 		if (getCastle() != null && getCastle().getCastleId() > 0)

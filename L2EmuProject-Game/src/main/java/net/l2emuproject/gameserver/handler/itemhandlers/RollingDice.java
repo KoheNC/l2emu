@@ -16,13 +16,13 @@ package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.gameserver.handler.IItemHandler;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Dice;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.Broadcast;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -35,10 +35,10 @@ public class RollingDice implements IItemHandler
 	@Override
 	public void useItem(L2Playable playable, L2ItemInstance item)
 	{
-		if (!(playable instanceof L2PcInstance))
+		if (!(playable instanceof L2Player))
 			return;
 
-		L2PcInstance activeChar = (L2PcInstance) playable;
+		L2Player activeChar = (L2Player) playable;
 		int itemId = item.getItemId();
 
 		if (activeChar.getPlayerOlympiad().isInOlympiadMode())
@@ -71,7 +71,7 @@ public class RollingDice implements IItemHandler
 		}
 	}
 
-	private int rollDice(L2PcInstance player)
+	private int rollDice(L2Player player)
 	{
 		// Check if the dice is ready
 		if (!player.getFloodProtector().tryPerformAction(Protected.ROLLDICE))

@@ -33,18 +33,19 @@ import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class L2SiegeFlagInstance extends L2Npc
 {
 	private final L2Clan		_clan;
-	private final L2PcInstance	_player;
+	private final L2Player	_player;
 	private final Siege			_siege;
 	private final FortSiege		_fortSiege;
 	private final CCHSiege		_contSiege;
 	private final boolean		_isAdvanced;
 	private long				_talkProtectionTime;
 
-	public L2SiegeFlagInstance(L2PcInstance player, int objectId, L2NpcTemplate template, boolean advanced, boolean outPost)
+	public L2SiegeFlagInstance(L2Player player, int objectId, L2NpcTemplate template, boolean advanced, boolean outPost)
 	{
 		super(objectId, template);
 
@@ -134,13 +135,13 @@ public final class L2SiegeFlagInstance extends L2Npc
 	}
 
 	@Override
-	public void onForcedAttack(L2PcInstance player)
+	public void onForcedAttack(L2Player player)
 	{
 		onAction(player);
 	}
 
 	@Override
-	public void onAction(L2PcInstance player)
+	public void onAction(L2Player player)
 	{
 		if (!_player.canBeTargetedByAtSiege(player) && Config.SIEGE_ONLY_REGISTERED)
 			return;
@@ -148,13 +149,13 @@ public final class L2SiegeFlagInstance extends L2Npc
 		if (player == null || !canTarget(player))
 			return;
 
-		// Check if the L2PcInstance already target the L2NpcInstance
+		// Check if the L2Player already target the L2NpcInstance
 		if (this != player.getTarget())
 		{
-			// Set the target of the L2PcInstance player
+			// Set the target of the L2Player player
 			player.setTarget(this);
 
-			// Send a Server->Client packet StatusUpdate of the L2NpcInstance to the L2PcInstance to update its HP bar
+			// Send a Server->Client packet StatusUpdate of the L2NpcInstance to the L2Player to update its HP bar
 			StatusUpdate su = new StatusUpdate(getObjectId());
 			su.addAttribute(StatusUpdate.CUR_HP, (int) getStatus().getCurrentHp());
 			su.addAttribute(StatusUpdate.MAX_HP, getMaxHp());
@@ -166,7 +167,7 @@ public final class L2SiegeFlagInstance extends L2Npc
 				player.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, this);
 			else
 			{
-				// Send a Server->Client ActionFailed to the L2PcInstance in order to avoid that the client wait another packet
+				// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
 				player.sendPacket(ActionFailed.STATIC_PACKET);
 			}
 		}

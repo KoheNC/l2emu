@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * 0x53 WareHouseDepositList dh (h dddhh dhhh d)
@@ -36,7 +36,7 @@ public final class WareHouseDepositList extends L2GameServerPacket
 	private final FastList<L2ItemInstance>	_items;
 	private final int						_whType;
 
-	public WareHouseDepositList(L2PcInstance player, int type)
+	public WareHouseDepositList(L2Player player, int type)
 	{
 		_whType = type;
 

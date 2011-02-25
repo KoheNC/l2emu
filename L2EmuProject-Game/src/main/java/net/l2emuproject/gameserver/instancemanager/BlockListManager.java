@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.Set;
 
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2Integer;
 import net.l2emuproject.util.SingletonSet;
 
@@ -97,7 +97,7 @@ public final class BlockListManager
 		return set;
 	}
 	
-	public synchronized void insert(L2PcInstance listOwner, L2PcInstance blocked)
+	public synchronized void insert(L2Player listOwner, L2Player blocked)
 	{
 		Connection con = null;
 		try
@@ -122,7 +122,7 @@ public final class BlockListManager
 		}
 	}
 	
-	public synchronized void remove(L2PcInstance listOwner, String name)
+	public synchronized void remove(L2Player listOwner, String name)
 	{
 		Connection con = null;
 		try

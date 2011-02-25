@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author kerberos
@@ -22,11 +22,11 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
  */
 public final class ExStopMoveInAirShip extends L2GameServerPacket
 {
-	private final L2PcInstance	_activeChar;
+	private final L2Player	_activeChar;
 	private final int			_shipObjId;
 	private final int			x, y, z, h;
 
-	public ExStopMoveInAirShip(L2PcInstance player, int shipObjId)
+	public ExStopMoveInAirShip(L2Player player, int shipObjId)
 	{
 		_activeChar = player;
 		_shipObjId = shipObjId;

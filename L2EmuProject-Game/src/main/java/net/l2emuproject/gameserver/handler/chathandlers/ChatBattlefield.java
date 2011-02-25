@@ -18,10 +18,10 @@ import java.util.Collection;
 
 import net.l2emuproject.gameserver.handler.IChatHandler;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * A chat handler
@@ -34,13 +34,13 @@ public class ChatBattlefield implements IChatHandler
 															{ SystemChatChannelId.Chat_Battlefield };
 
 	@Override
-	public void useChatHandler(L2PcInstance activeChar, String target, SystemChatChannelId chatType, String text)
+	public void useChatHandler(L2Player activeChar, String target, SystemChatChannelId chatType, String text)
 	{
 		if (TerritoryWarManager.getInstance().isTWChannelOpen() && activeChar.getSiegeSide() > 0)
 		{
 			CreatureSay cs = new CreatureSay(activeChar.getObjectId(), chatType, activeChar.getName(), text);
-			Collection<L2PcInstance> pls = L2World.getInstance().getAllPlayers();
-			for (L2PcInstance player : pls)
+			Collection<L2Player> pls = L2World.getInstance().getAllPlayers();
+			for (L2Player player : pls)
 				if (player.getSiegeSide() == activeChar.getSiegeSide())
 					player.sendPacket(cs);
 		}

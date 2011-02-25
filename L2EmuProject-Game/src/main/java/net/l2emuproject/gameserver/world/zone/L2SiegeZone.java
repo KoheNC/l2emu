@@ -17,13 +17,13 @@ package net.l2emuproject.gameserver.world.zone;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeSummonInstance;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2SiegeZone extends SiegeableEntityZone
 {
@@ -45,9 +45,9 @@ public class L2SiegeZone extends SiegeableEntityZone
 		character.setInsideZone(FLAG_SIEGE, true);
 		character.setInsideZone(FLAG_NOSUMMON, true);
 		
-		if (character instanceof L2PcInstance)
+		if (character instanceof L2Player)
 		{
-			L2PcInstance pc = (L2PcInstance) character;
+			L2Player pc = (L2Player) character;
 			if (pc.getClan() != null
 				&& (_entity.getSiege().checkIsAttacker(pc.getClan())
 				|| _entity.getSiege().checkIsDefender(pc.getClan())))
@@ -69,9 +69,9 @@ public class L2SiegeZone extends SiegeableEntityZone
 		if (character instanceof L2SiegeSummonInstance)
 			((L2SiegeSummonInstance)character).unSummon();
 		
-		else if (character instanceof L2PcInstance)
+		else if (character instanceof L2Player)
 		{
-			final L2PcInstance activeChar = (L2PcInstance)character;
+			final L2Player activeChar = (L2Player)character;
 			
 			// Set pvp flag
 			activeChar.updatePvPStatus();
@@ -121,7 +121,7 @@ public class L2SiegeZone extends SiegeableEntityZone
 	protected void onDieInside(L2Character character)
 	{
 		// debuff participants only if they die inside siege zone
-		if (character instanceof L2PcInstance && isSiegeInProgress())
+		if (character instanceof L2Player && isSiegeInProgress())
 		{
 			int lvl;
 			L2Effect effect = character.getFirstEffect(DEATH_SYNDROME);

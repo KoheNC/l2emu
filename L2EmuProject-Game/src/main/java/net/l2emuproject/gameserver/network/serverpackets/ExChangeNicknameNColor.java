@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * Opens a dialog to change your title (nickname) and name color. 
@@ -31,7 +31,7 @@ public final class ExChangeNicknameNColor extends StaticPacket
 	}
 
 	@Override
-	protected void writeImpl(L2GameClient client, L2PcInstance activeChar)
+	protected void writeImpl(L2GameClient client, L2Player activeChar)
 	{
 		writeC(0xFE);
 		writeH(0x83);

@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.instancemanager.games.HandysBlockCheckerManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -49,7 +49,7 @@ public final class RequestExCubeGameChangeTeam extends L2GameClientPacket
 		// Do not remove players after start
 		if (HandysBlockCheckerManager.getInstance().arenaIsBeingUsed(_arena))
 			return;
-		L2PcInstance player = getClient().getActiveChar();
+		L2Player player = getClient().getActiveChar();
 
 		switch (_team)
 		{

@@ -30,9 +30,9 @@ import javolution.xml.stream.XMLStreamException;
 import javolution.xml.stream.XMLStreamReaderImpl;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.world.geodata.GeoData;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.L2FastSet;
 import net.l2emuproject.util.LookupTable;
 
@@ -232,7 +232,7 @@ public class InstanceManager
 		return _instanceWorlds.get(instanceId);
 	}
 
-	public InstanceWorld getPlayerWorld(L2PcInstance player)
+	public InstanceWorld getPlayerWorld(L2Player player)
 	{
 		for (FastMap.Entry<Integer, InstanceWorld> entry = _instanceWorlds.head(), end = _instanceWorlds.tail();
 				(entry = entry.getNext()) != end;)
@@ -245,7 +245,7 @@ public class InstanceManager
 		return null;
 	}
 
-	public Instance getDynamicInstance(L2PcInstance player)
+	public Instance getDynamicInstance(L2Player player)
 	{
 		for (FastMap.Entry<Integer, Instance> entry = _instanceList.head(), end = _instanceList.tail();
 				(entry = entry.getNext()) != end;)

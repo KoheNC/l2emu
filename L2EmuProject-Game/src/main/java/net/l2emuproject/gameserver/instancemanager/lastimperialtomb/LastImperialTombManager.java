@@ -24,13 +24,13 @@ import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.BossLair;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.FrintezzaManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -58,9 +58,9 @@ public class LastImperialTombManager extends BossLair
 	protected static L2DoorInstance			_room3Door					= null;
 
 	// Instance list of players.
-	protected static List<L2PcInstance>		_partyLeaders				= new FastList<L2PcInstance>();
-	protected static List<L2PcInstance>		_registedPlayers			= new FastList<L2PcInstance>();
-	protected static L2PcInstance			_commander					= null;
+	protected static List<L2Player>		_partyLeaders				= new FastList<L2Player>();
+	protected static List<L2Player>		_registedPlayers			= new FastList<L2Player>();
+	protected static L2Player			_commander					= null;
 
 	// Frintezza's Magic Force Field Removal Scroll.
 	private final int						SCROLL						= 8073;
@@ -169,7 +169,7 @@ public class LastImperialTombManager extends BossLair
 	}
 
 	// RegistrationMode = command channel.
-	public boolean tryRegistrationCc(L2PcInstance pc)
+	public boolean tryRegistrationCc(L2Player pc)
 	{
 		if (!FrintezzaManager.getInstance().isEnableEnterToLair())
 		{
@@ -207,7 +207,7 @@ public class LastImperialTombManager extends BossLair
 	}
 
 	// RegistrationMode = party.
-	public boolean tryRegistrationPt(L2PcInstance pc)
+	public boolean tryRegistrationPt(L2Player pc)
 	{
 		if (!FrintezzaManager.getInstance().isEnableEnterToLair())
 		{
@@ -243,7 +243,7 @@ public class LastImperialTombManager extends BossLair
 		}
 	}
 
-	public void unregisterPc(L2PcInstance pc)
+	public void unregisterPc(L2Player pc)
 	{
 		if (_registedPlayers.contains(pc))
 		{
@@ -253,7 +253,7 @@ public class LastImperialTombManager extends BossLair
 	}
 
 	// RegistrationMode = single.
-	public boolean tryRegistrationPc(L2PcInstance pc)
+	public boolean tryRegistrationPc(L2Player pc)
 	{
 		if (!FrintezzaManager.getInstance().isEnableEnterToLair())
 		{
@@ -282,7 +282,7 @@ public class LastImperialTombManager extends BossLair
 	}
 
 	// Registration to enter to tomb.
-	public synchronized void registration(L2PcInstance pc, L2Npc npc)
+	public synchronized void registration(L2Player pc, L2Npc npc)
 	{
 		switch (Config.LIT_REGISTRATION_MODE)
 		{
@@ -477,7 +477,7 @@ public class LastImperialTombManager extends BossLair
 			if (locId >= 5)
 				locId = 0;
 
-			for (L2PcInstance pc : pt.getPartyMembers())
+			for (L2Player pc : pt.getPartyMembers())
 			{
 				pc.teleToLocation(_invadeLoc[locId][0] + Rnd.get(50), _invadeLoc[locId][1] + Rnd.get(50), _invadeLoc[locId][2]);
 			}
@@ -494,7 +494,7 @@ public class LastImperialTombManager extends BossLair
 
 		SystemMessage sm = new SystemMessage(SystemMessageId.S1);
 		sm.addString("Since the conditions were not met, the entrance was refused.");
-		for (L2PcInstance ptl : _partyLeaders)
+		for (L2Player ptl : _partyLeaders)
 		{
 			if (ptl.getInventory().getInventoryItemCount(SCROLL, -1) < 1)
 			{
@@ -507,7 +507,7 @@ public class LastImperialTombManager extends BossLair
 
 		if (!isReadyToInvade)
 		{
-			for (L2PcInstance ptl : _partyLeaders)
+			for (L2Player ptl : _partyLeaders)
 			{
 				ptl.sendPacket(sm);
 			}
@@ -515,17 +515,17 @@ public class LastImperialTombManager extends BossLair
 			return;
 		}
 
-		for (L2PcInstance ptl : _partyLeaders)
+		for (L2Player ptl : _partyLeaders)
 		{
 			ptl.destroyItemByItemId("Quest", SCROLL, 1, _commander, true);
 		}
 
-		for (L2PcInstance ptl : _partyLeaders)
+		for (L2Player ptl : _partyLeaders)
 		{
 			if (locId >= 5)
 				locId = 0;
 
-			for (L2PcInstance pc : ptl.getParty().getPartyMembers())
+			for (L2Player pc : ptl.getParty().getPartyMembers())
 			{
 				pc.teleToLocation(_invadeLoc[locId][0] + Rnd.get(50), _invadeLoc[locId][1] + Rnd.get(50), _invadeLoc[locId][2]);
 			}
@@ -540,7 +540,7 @@ public class LastImperialTombManager extends BossLair
 		int locId = 0;
 		boolean isReadyToInvade = true;
 
-		for (L2PcInstance pc : _registedPlayers)
+		for (L2Player pc : _registedPlayers)
 		{
 			if (pc.getInventory().getInventoryItemCount(SCROLL, -1) < 1)
 			{
@@ -557,7 +557,7 @@ public class LastImperialTombManager extends BossLair
 
 		if (!isReadyToInvade)
 		{
-			for (L2PcInstance pc : _registedPlayers)
+			for (L2Player pc : _registedPlayers)
 			{
 				SystemMessage sm = new SystemMessage(SystemMessageId.S1);
 				sm.addString("Since the conditions were not met, the entrance was refused.");
@@ -567,12 +567,12 @@ public class LastImperialTombManager extends BossLair
 			return;
 		}
 
-		for (L2PcInstance pc : _registedPlayers)
+		for (L2Player pc : _registedPlayers)
 		{
 			pc.destroyItemByItemId("Quest", SCROLL, 1, _commander, true);
 		}
 
-		for (L2PcInstance pc : _registedPlayers)
+		for (L2Player pc : _registedPlayers)
 		{
 			if (locId >= 5)
 				locId = 0;
@@ -803,7 +803,7 @@ public class LastImperialTombManager extends BossLair
 			remaining = remaining - 10000;
 		}
 
-		for (L2PcInstance pc : getPlayersInside())
+		for (L2Player pc : getPlayersInside())
 		{
 			pc.sendPacket(cs);
 		}

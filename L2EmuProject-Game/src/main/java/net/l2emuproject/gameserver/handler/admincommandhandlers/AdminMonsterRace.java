@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import net.l2emuproject.gameserver.MonsterRace;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.DeleteObject;
 import net.l2emuproject.gameserver.network.serverpackets.MonRaceInfo;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class handles following admin commands: - mons = handles monster race
@@ -38,7 +38,7 @@ public class AdminMonsterRace implements IAdminCommandHandler
 	protected static int			state			= -1;
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (command.equalsIgnoreCase("admin_mons"))
 		{
@@ -53,7 +53,7 @@ public class AdminMonsterRace implements IAdminCommandHandler
 		return ADMIN_COMMANDS;
 	}
 
-	private void handleSendPacket(L2PcInstance activeChar)
+	private void handleSendPacket(L2Player activeChar)
 	{
 		/*
 		 * -1 0 to initialize the race
@@ -106,9 +106,9 @@ public class AdminMonsterRace implements IAdminCommandHandler
 	{
 
 		private final int[][]			codes;
-		private final L2PcInstance	activeChar;
+		private final L2Player	activeChar;
 
-		public RunRace(int[][] pCodes, L2PcInstance pActiveChar)
+		public RunRace(int[][] pCodes, L2Player pActiveChar)
 		{
 			codes = pCodes;
 			activeChar = pActiveChar;
@@ -141,9 +141,9 @@ public class AdminMonsterRace implements IAdminCommandHandler
 
 	class RunEnd implements Runnable
 	{
-		private final L2PcInstance	activeChar;
+		private final L2Player	activeChar;
 
-		public RunEnd(L2PcInstance pActiveChar)
+		public RunEnd(L2Player pActiveChar)
 		{
 			activeChar = pActiveChar;
 		}

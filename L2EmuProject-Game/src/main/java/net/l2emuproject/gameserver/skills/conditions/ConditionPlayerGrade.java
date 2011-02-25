@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Gigiikun
@@ -43,9 +43,9 @@ final class ConditionPlayerGrade extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (env.player instanceof L2PcInstance)
+		if (env.player instanceof L2Player)
 		{
-			byte expIndex = (byte)((L2PcInstance)env.player).getExpertiseIndex();
+			byte expIndex = (byte)((L2Player)env.player).getExpertiseIndex();
 			
 			return _value == expIndex;
 		}

@@ -17,6 +17,7 @@ package net.l2emuproject.gameserver.model.actor.instance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class ...
@@ -36,7 +37,7 @@ public class L2SiegeNpcInstance extends L2NpcInstance
 	 * @param player
 	 */
 	@Override
-	public void showChatWindow(L2PcInstance player)
+	public void showChatWindow(L2Player player)
 	{
 		if (validateCondition(player))
 			getCastle().getSiege().listRegisterClan(player);
@@ -54,7 +55,7 @@ public class L2SiegeNpcInstance extends L2NpcInstance
 	/**
 	 * @param player
 	 */
-	private boolean validateCondition(L2PcInstance player)
+	private boolean validateCondition(L2Player player)
 	{
 		return !getCastle().getSiege().getIsInProgress();
 	}

@@ -14,12 +14,12 @@
  */
 package net.l2emuproject.gameserver.skills.l2skills;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2SkillMount extends L2Skill
 {
@@ -36,10 +36,10 @@ public class L2SkillMount extends L2Skill
 	@Override
 	public void useSkill(L2Character caster, L2Character... targets)
 	{
-		if (!(caster instanceof L2PcInstance))
+		if (!(caster instanceof L2Player))
 			return;
 
-		L2PcInstance activePlayer = (L2PcInstance) caster;
+		L2Player activePlayer = (L2Player) caster;
 
 		if (!activePlayer.getFloodProtector().tryPerformAction(Protected.ITEMPETSUMMON))
 			return;

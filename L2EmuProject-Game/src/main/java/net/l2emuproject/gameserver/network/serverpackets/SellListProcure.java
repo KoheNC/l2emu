@@ -20,22 +20,22 @@ import java.util.Map;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public class SellListProcure extends L2GameServerPacket
 {
 	private static final String			_S__E9_SELLLISTPROCURE	= "[S] E9 SellListProcure";
 
-	private final L2PcInstance			_activeChar;
+	private final L2Player			_activeChar;
 	private final long						_money;
 	private final Map<L2ItemInstance, Long>	_sellList				= new FastMap<L2ItemInstance, Long>();
 	private List<CropProcure>			_procureList			= new FastList<CropProcure>();
 	private final int							_castle;
 
-	public SellListProcure(L2PcInstance player, int castleId)
+	public SellListProcure(L2Player player, int castleId)
 	{
 		_money = player.getAdena();
 		_activeChar = player;

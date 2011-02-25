@@ -23,11 +23,11 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.events.L2Event;
 import net.l2emuproject.gameserver.model.restriction.global.KrateiCubeRestriction;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExPVPMatchCCMyRecord;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;
@@ -274,7 +274,7 @@ public final class KrateiCube extends L2Event
 	private static final int[]					FANTASY_ISLAND		=
 																	{ -59193, -56893, -2039 };
 
-	private final Map<Integer, L2PcInstance>	_gamers;
+	private final Map<Integer, L2Player>	_gamers;
 
 	private volatile int						_status;
 	private final KrateiCubeTask				_task;
@@ -294,7 +294,7 @@ public final class KrateiCube extends L2Event
 		_status = STATUS_NOT_IN_PROGRESS;
 		_task = new KrateiCubeTask();
 
-		_gamers = new FastMap<Integer, L2PcInstance>();
+		_gamers = new FastMap<Integer, L2Player>();
 
 		_log.info(getClass().getSimpleName() + " : Initialized.");
 	}
@@ -379,7 +379,7 @@ public final class KrateiCube extends L2Event
 		spawnWatchers(RED_WATCHER, _instance76Id);
 		spawnWatchers(RED_WATCHER, _instance80Id);
 
-		for (L2PcInstance player : _gamers.values())
+		for (L2Player player : _gamers.values())
 			teleportPlayer(player, WAIT_ROOM_LOCATION, 0);
 
 		_log.info(getClass().getSimpleName() + " : Registration is ended.");
@@ -391,7 +391,7 @@ public final class KrateiCube extends L2Event
 	{
 		_status = STATUS_COMBAT;
 
-		for (L2PcInstance player : _gamers.values())
+		for (L2Player player : _gamers.values())
 		{
 			randomTeleport(player);
 			showScore();
@@ -413,7 +413,7 @@ public final class KrateiCube extends L2Event
 			return;
 		closeAllDoors();
 		KrateiCubeRestriction.getInstance().deactivate();
-		for (L2PcInstance player : _gamers.values())
+		for (L2Player player : _gamers.values())
 		{
 			giveRewards(player);
 			leaveKrateiCube(player);
@@ -438,7 +438,7 @@ public final class KrateiCube extends L2Event
 	}
 
 	@Override
-	protected final void giveRewards(L2PcInstance player)
+	protected final void giveRewards(L2Player player)
 	{
 		final int points = player.getPlayerEventData().getPoints();
 
@@ -466,7 +466,7 @@ public final class KrateiCube extends L2Event
 
 	private final void showScore()
 	{
-		for (L2PcInstance player : _gamers.values())
+		for (L2Player player : _gamers.values())
 			player.sendPacket(new ExPVPMatchCCMyRecord(player.getPlayerEventData().getPoints()));
 
 		_showScore = ThreadPoolManager.getInstance().scheduleGeneral(new ShowScore(), 10000);
@@ -482,7 +482,7 @@ public final class KrateiCube extends L2Event
 	}
 
 	@Override
-	protected final boolean canJoin(L2PcInstance player)
+	protected final boolean canJoin(L2Player player)
 	{
 		if (_status != STATUS_REGISTRATION)
 		{
@@ -512,7 +512,7 @@ public final class KrateiCube extends L2Event
 	}
 
 	@Override
-	public final void registerPlayer(L2PcInstance player)
+	public final void registerPlayer(L2Player player)
 	{
 		if (!canJoin(player))
 			return;
@@ -523,7 +523,7 @@ public final class KrateiCube extends L2Event
 	}
 
 	@Override
-	public final void cancelRegistration(L2PcInstance player)
+	public final void cancelRegistration(L2Player player)
 	{
 		if (_gamers.containsKey(player.getObjectId()))
 		{
@@ -534,7 +534,7 @@ public final class KrateiCube extends L2Event
 	}
 
 	@Override
-	public final void removeDisconnected(L2PcInstance player)
+	public final void removeDisconnected(L2Player player)
 	{
 		_gamers.remove(player.getObjectId());
 	}
@@ -588,23 +588,23 @@ public final class KrateiCube extends L2Event
 		}
 	}
 
-	public static final boolean isPlaying(L2PcInstance player)
+	public static final boolean isPlaying(L2Player player)
 	{
 		return getInstance()._gamers.containsKey(player.getObjectId());
 	}
 
-	public final void reviveTask(L2PcInstance player)
+	public final void reviveTask(L2Player player)
 	{
 		ThreadPoolManager.getInstance().scheduleGeneral(new ReviveTask(player, WAIT_ROOM_LOCATION, getInstanceId(player)), 10000);
 	}
 
-	public static final void revive(L2PcInstance player)
+	public static final void revive(L2Player player)
 	{
 		getInstance().sendMessage(player, "You will be revived in 10 seconds!", 5000);
 		getInstance().reviveTask(player);
 	}
 
-	private final int getInstanceId(L2PcInstance player)
+	private final int getInstanceId(L2Player player)
 	{
 		final int level = player.getLevel();
 
@@ -618,7 +618,7 @@ public final class KrateiCube extends L2Event
 		return 0;
 	}
 
-	public final void randomTeleport(L2PcInstance player)
+	public final void randomTeleport(L2Player player)
 	{
 		final int i = Rnd.get(TELEPORT_LOCATIONS.length);
 		final int[] coords =
@@ -627,7 +627,7 @@ public final class KrateiCube extends L2Event
 		teleportPlayer(player, coords, getInstanceId(player));
 	}
 
-	public final void giveBuffs(L2PcInstance player)
+	public final void giveBuffs(L2Player player)
 	{
 		SkillTable.getInstance().getInfo(1086, 2).getEffects(player, player);
 		SkillTable.getInstance().getInfo(1204, 2).getEffects(player, player);
@@ -641,7 +641,7 @@ public final class KrateiCube extends L2Event
 		SkillTable.getInstance().getInfo(1062, 2).getEffects(player, player);
 	}
 
-	public final void leaveKrateiCube(L2PcInstance player)
+	public final void leaveKrateiCube(L2Player player)
 	{
 		player.getPlayerEventData().setPoints(0);
 		teleportPlayer(player, FANTASY_ISLAND, 0);

@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.status.commands;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
 import net.l2emuproject.gameserver.services.transactions.TradeList.TradeItem;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.status.GameStatusCommand;
 
 public final class GameStat extends GameStatusCommand
@@ -37,7 +37,7 @@ public final class GameStat extends GameStatusCommand
 			// name;type;x;y;itemId:enchant:price...
 			if (type.equals("privatestore"))
 			{
-				for (L2PcInstance player : L2World.getInstance().getAllPlayers())
+				for (L2Player player : L2World.getInstance().getAllPlayers())
 				{
 					if (player.getPrivateStoreType() == 0)
 						continue;

@@ -26,8 +26,8 @@ import net.l2emuproject.gameserver.handler.voicedcommandhandlers.Report;
 import net.l2emuproject.gameserver.handler.voicedcommandhandlers.TvTCommand;
 import net.l2emuproject.gameserver.handler.voicedcommandhandlers.VersionInfo;
 import net.l2emuproject.gameserver.handler.voicedcommandhandlers.Wedding;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.HandlerRegistry;
 
 public final class VoicedCommandHandler extends HandlerRegistry<String, IVoicedCommandHandler>
@@ -69,7 +69,7 @@ public final class VoicedCommandHandler extends HandlerRegistry<String, IVoicedC
 		registerAll(handler, handler.getVoicedCommandList());
 	}
 	
-	public boolean useVoicedCommand(String text, L2PcInstance activeChar)
+	public boolean useVoicedCommand(String text, L2Player activeChar)
 	{
 		if (!text.startsWith(".") || text.length() < 2)
 			return false;

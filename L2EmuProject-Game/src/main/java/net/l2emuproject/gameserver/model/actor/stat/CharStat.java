@@ -421,7 +421,7 @@ public class CharStat
 	/** Return the Physical Attack range (base+modifier) of the L2Character. */
 	public final int getPhysicalAttackRange()
 	{
-		// Polearm handled here for now. Basically L2PcInstance could have a function
+		// Polearm handled here for now. Basically L2Player could have a function
 		// similar to FuncBowAtkRange and NPC are defined in DP.
 		L2Weapon weaponItem = _activeChar.getActiveWeaponItem();
 		if (weaponItem != null && weaponItem.getItemType() == L2WeaponType.POLE)

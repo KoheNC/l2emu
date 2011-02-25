@@ -16,12 +16,12 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -56,7 +56,7 @@ public class AdminEnchant implements IAdminCommandHandler
 	private final static Log		_log			= LogFactory.getLog(AdminEnchant.class);
 
 	@Override
-	public boolean useAdminCommand(String command, L2PcInstance activeChar)
+	public boolean useAdminCommand(String command, L2Player activeChar)
 	{
 		if (command.equals("admin_enchant"))
 		{
@@ -130,16 +130,16 @@ public class AdminEnchant implements IAdminCommandHandler
 		return true;
 	}
 
-	private void setEnchant(L2PcInstance activeChar, int ench, int armorType)
+	private void setEnchant(L2Player activeChar, int ench, int armorType)
 	{
 		// get the target
 		L2Object target = activeChar.getTarget();
 		if (target == null)
 			target = activeChar;
-		L2PcInstance player = null;
-		if (target instanceof L2PcInstance)
+		L2Player player = null;
+		if (target instanceof L2Player)
 		{
-			player = (L2PcInstance) target;
+			player = (L2Player) target;
 		}
 		else
 		{
@@ -188,7 +188,7 @@ public class AdminEnchant implements IAdminCommandHandler
 		}
 	}
 
-	public void showMainPage(L2PcInstance activeChar)
+	public void showMainPage(L2Player activeChar)
 	{
 		activeChar.showHTMLFile(AdminHelpPage.ADMIN_HELP_PAGE + "enchant.htm");
 	}

@@ -16,10 +16,10 @@ package custom.HeroWeapon;
 
 import org.apache.commons.lang.ArrayUtils;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class HeroWeapon extends Quest
 {
@@ -44,7 +44,7 @@ public class HeroWeapon extends Quest
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player)
+	public String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		QuestState st = player.getQuestState(getName());
 
@@ -57,7 +57,7 @@ public class HeroWeapon extends Quest
 	}
 
 	@Override
-	public String onTalk(L2Npc npc, L2PcInstance player)
+	public String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = "";
 		QuestState st = player.getQuestState(getName());
@@ -83,7 +83,7 @@ public class HeroWeapon extends Quest
 		return htmltext;
 	}
 
-	private boolean hasHeroWeapon(L2PcInstance player)
+	private boolean hasHeroWeapon(L2Player player)
 	{
 		for (int i : weaponIds)
 		{

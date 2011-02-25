@@ -25,7 +25,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
@@ -45,6 +44,7 @@ import net.l2emuproject.gameserver.world.mapregion.L2SpecialMapRegion;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.util.L2Collections;
 import net.l2emuproject.util.LookupTable;
@@ -227,7 +227,7 @@ public final class MapRegionManager
 		_log.info("MapRegionManager: Loaded " + redirectCount + " race depending redirects.");
 	}
 	
-	public L2MapRegionRestart getRestartLocation(L2PcInstance activeChar)
+	public L2MapRegionRestart getRestartLocation(L2Player activeChar)
 	{
 		L2MapRegion region = getRegion(activeChar);
 		
@@ -243,7 +243,7 @@ public final class MapRegionManager
 		return _mapRegionRestart.get(restartId);
 	}
 	
-	public Location getRestartPoint(int restartId, L2PcInstance activeChar)
+	public Location getRestartPoint(int restartId, L2Player activeChar)
 	{
 		L2MapRegionRestart restart = _mapRegionRestart.get(restartId);
 		
@@ -253,7 +253,7 @@ public final class MapRegionManager
 		return restart.getRandomRestartPoint(activeChar);
 	}
 	
-	public Location getChaoticRestartPoint(int restartId, L2PcInstance activeChar)
+	public Location getChaoticRestartPoint(int restartId, L2Player activeChar)
 	{
 		L2MapRegionRestart restart = _mapRegionRestart.get(restartId);
 		
@@ -279,7 +279,7 @@ public final class MapRegionManager
 	}
 	
 	//TODO: Needs to be clean rewritten
-	public Location getTeleToLocation(L2PcInstance player, TeleportWhereType teleportWhere)
+	public Location getTeleToLocation(L2Player player, TeleportWhereType teleportWhere)
 	{
 		L2Clan clan = player.getClan();
 		
@@ -452,7 +452,7 @@ public final class MapRegionManager
 	 * @param player a player
 	 * @return L2 region used in partymatching
 	 */
-	public int getL2Region(L2PcInstance player)
+	public int getL2Region(L2Player player)
 	{
 		L2MapRegion region = getRegion(player);
 		int locName = -1;

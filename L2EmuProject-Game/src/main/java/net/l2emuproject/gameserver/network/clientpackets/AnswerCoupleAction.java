@@ -14,13 +14,13 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExRotation;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author JIV
@@ -44,8 +44,8 @@ public final class AnswerCoupleAction extends L2GameClientPacket
 	@Override
 	protected final void runImpl()
 	{
-		L2PcInstance activeChar = getClient().getActiveChar();
-		L2PcInstance target = L2World.getInstance().getPlayer(_charObjId);
+		L2Player activeChar = getClient().getActiveChar();
+		L2Player target = L2World.getInstance().getPlayer(_charObjId);
 		if (activeChar == null || target == null)
 			return;
 		if (target.getMultiSocialTarget() != activeChar.getObjectId() || target.getMultiSociaAction() != _actionId)

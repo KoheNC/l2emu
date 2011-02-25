@@ -22,13 +22,13 @@ import java.util.List;
 
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.CharSelectInfoPackage;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeapon;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 
 public class CharSelectionInfo extends L2GameServerPacket
@@ -143,7 +143,7 @@ public class CharSelectionInfo extends L2GameServerPacket
 	
 	private CharSelectInfoPackage[] loadCharacterSelectInfo()
 	{
-		L2PcInstance.disconnectIfOnline(_loginName);
+		L2Player.disconnectIfOnline(_loginName);
 		
 		CharSelectInfoPackage charInfopackage;
 		List<CharSelectInfoPackage> characterList = new ArrayList<CharSelectInfoPackage>();
@@ -221,7 +221,7 @@ public class CharSelectionInfo extends L2GameServerPacket
 	{
 		int objectId = chardata.getInt("charId");
 		
-		L2PcInstance.disconnectIfOnline(objectId);
+		L2Player.disconnectIfOnline(objectId);
 		
 		String name = chardata.getString("char_name");
 		

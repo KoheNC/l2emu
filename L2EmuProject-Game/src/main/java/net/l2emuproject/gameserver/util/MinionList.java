@@ -137,7 +137,7 @@ public final class MinionList
 	 * <li>Get the Minion data of all Minions that must be spawn </li>
 	 * <li>For each Minion type, spawn the amount of Minion needed </li><BR><BR>
 	 * 
-	 * @param player The L2PcInstance to attack
+	 * @param player The L2Player to attack
 	 * 
 	 */
 	public void spawnMinions()
