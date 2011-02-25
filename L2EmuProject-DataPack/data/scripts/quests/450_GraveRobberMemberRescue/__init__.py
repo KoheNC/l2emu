@@ -3,7 +3,7 @@ import sys
 from java.lang	import System
 from java.util	import Calendar
 from net.l2emuproject.gameserver.ai						import CtrlIntention
-from net.l2emuproject.gameserver.model					import L2CharPosition
+from net.l2emuproject.gameserver.world.Location					import L2CharPosition
 from net.l2emuproject.gameserver.model.quest				import State
 from net.l2emuproject.gameserver.model.quest				import QuestState
 from net.l2emuproject.gameserver.model.quest.jython		import QuestJython as JQuest

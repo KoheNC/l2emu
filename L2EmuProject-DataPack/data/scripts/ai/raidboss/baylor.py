@@ -1,12 +1,12 @@
 # Psycho(killer1888) / L2jFree
 
 import sys
-from java.lang                                          import System
+from java.lang                                          	 import System
 from net.l2emuproject.gameserver.ai                          import CtrlIntention
 from net.l2emuproject.gameserver.datatables                  import SkillTable
 from net.l2emuproject.gameserver.instancemanager             import InstanceManager
-from net.l2emuproject.gameserver.model                       import L2CharPosition
-from net.l2emuproject.gameserver.model                       import L2World
+from net.l2emuproject.gameserver.world.Location              import L2CharPosition
+from net.l2emuproject.gameserver.world                       import L2World
 from net.l2emuproject.gameserver.model.actor.instance        import L2MonsterInstance
 from net.l2emuproject.gameserver.model.entity                import Instance
 from net.l2emuproject.gameserver.model.itemcontainer         import Inventory

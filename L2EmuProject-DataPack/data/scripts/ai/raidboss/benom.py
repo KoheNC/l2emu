@@ -6,7 +6,7 @@ from net.l2emuproject.gameserver.ai import CtrlIntention
 from net.l2emuproject.gameserver.datatables import DoorTable
 from net.l2emuproject.gameserver.datatables import SpawnTable
 from net.l2emuproject.gameserver.instancemanager import CastleManager
-from net.l2emuproject.gameserver.model import L2CharPosition
+from net.l2emuproject.gameserver.world.Location import L2CharPosition
 from net.l2emuproject.gameserver.model.quest import QuestState
 from net.l2emuproject.gameserver.model.quest import State
 from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
