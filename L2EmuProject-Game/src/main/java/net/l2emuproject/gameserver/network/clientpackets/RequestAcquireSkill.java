@@ -36,8 +36,8 @@ import net.l2emuproject.gameserver.skills.L2CertificationSkillsLearn;
 import net.l2emuproject.gameserver.skills.L2PledgeSkillLearn;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.L2SkillLearn;
-import net.l2emuproject.gameserver.util.IllegalPlayerAction;
-import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.system.util.IllegalPlayerAction;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

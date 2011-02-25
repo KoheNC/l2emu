@@ -11,7 +11,7 @@ import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
-import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;

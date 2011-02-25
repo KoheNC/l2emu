@@ -22,7 +22,7 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.instancemanager.DayNightSpawnManager;
 import net.l2emuproject.gameserver.network.serverpackets.ClientSetTime;
-import net.l2emuproject.gameserver.util.Broadcast;
+import net.l2emuproject.gameserver.system.util.Broadcast;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Player.ConditionListenerDependency;

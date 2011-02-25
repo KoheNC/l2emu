@@ -48,7 +48,7 @@ import net.l2emuproject.gameserver.services.augmentation.L2Augmentation;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
-import net.l2emuproject.gameserver.taskmanager.SQLQueue;
+import net.l2emuproject.gameserver.system.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.templates.item.AbstractL2ItemType;
 import net.l2emuproject.gameserver.templates.item.L2Armor;
 import net.l2emuproject.gameserver.templates.item.L2Equip;

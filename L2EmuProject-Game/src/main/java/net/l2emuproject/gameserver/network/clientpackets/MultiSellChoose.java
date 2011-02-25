@@ -31,10 +31,10 @@ import net.l2emuproject.gameserver.services.transactions.L2Multisell;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell.MultiSellEntry;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell.MultiSellIngredient;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell.MultiSellListContainer;
+import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.templates.item.L2Armor;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
-import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

@@ -46,7 +46,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
-import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;

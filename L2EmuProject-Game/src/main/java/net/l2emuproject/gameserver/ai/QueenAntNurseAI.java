@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.ai;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.QueenAntManager;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.geodata.GeoData;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;

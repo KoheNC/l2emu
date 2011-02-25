@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.cache.HtmCache;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
+import net.l2emuproject.gameserver.system.cache.HtmCache;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.Replaceable;
 

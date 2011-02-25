@@ -27,8 +27,8 @@ import net.l2emuproject.gameserver.network.clientpackets.ConfirmDlgAnswer.Answer
 import net.l2emuproject.gameserver.network.serverpackets.ConfirmDlg;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
-import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;

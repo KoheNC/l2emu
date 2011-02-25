@@ -18,7 +18,7 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControllableMobInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
-import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;
+import net.l2emuproject.gameserver.system.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;

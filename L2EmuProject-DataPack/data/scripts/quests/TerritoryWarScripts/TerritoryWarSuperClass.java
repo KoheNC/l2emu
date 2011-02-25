@@ -28,7 +28,7 @@ import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;

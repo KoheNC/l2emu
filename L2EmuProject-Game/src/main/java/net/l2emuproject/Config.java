@@ -33,7 +33,7 @@ import java.util.regex.PatternSyntaxException;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.config.L2Properties;
-import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.util.L2FastSet;
 
 import org.apache.commons.io.IOUtils;

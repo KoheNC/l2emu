@@ -28,7 +28,7 @@ import net.l2emuproject.gameserver.services.transactions.L2TradeList;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.SkillUsageRequest;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillSummon;
-import net.l2emuproject.gameserver.taskmanager.SQLQueue;
+import net.l2emuproject.gameserver.system.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.object.L2Character;

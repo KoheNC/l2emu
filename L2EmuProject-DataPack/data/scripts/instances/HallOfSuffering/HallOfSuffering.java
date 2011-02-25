@@ -19,7 +19,6 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ai.CtrlEvent;
-import net.l2emuproject.gameserver.cache.HtmCache;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
@@ -30,8 +29,9 @@ import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.system.cache.HtmCache;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
-import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;

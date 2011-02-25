@@ -21,9 +21,9 @@ import java.util.StringTokenizer;
 import net.l2emuproject.gameserver.model.base.PlayerState;
 import net.l2emuproject.gameserver.model.base.Race;
 import net.l2emuproject.gameserver.skills.conditions.ConditionGameTime.CheckGameTime;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.templates.item.L2ArmorType;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
-import net.l2emuproject.gameserver.util.Util;
 
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.NamedNodeMap;

@@ -24,8 +24,8 @@ import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.system.util.Evolve;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
-import net.l2emuproject.gameserver.util.Evolve;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 

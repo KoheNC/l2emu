@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.skills.conditions;
 
 import net.l2emuproject.gameserver.skills.Env;
-import net.l2emuproject.gameserver.taskmanager.AttackStanceTaskManager;
+import net.l2emuproject.gameserver.system.taskmanager.AttackStanceTaskManager;
 
 /**
  * @author NB4L1

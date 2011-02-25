@@ -24,11 +24,11 @@ import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
+import net.l2emuproject.gameserver.system.util.IllegalPlayerAction;
+import net.l2emuproject.gameserver.system.util.Util;
+import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
-import net.l2emuproject.gameserver.util.FloodProtector.Protected;
-import net.l2emuproject.gameserver.util.IllegalPlayerAction;
-import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestDropItem extends L2GameClientPacket

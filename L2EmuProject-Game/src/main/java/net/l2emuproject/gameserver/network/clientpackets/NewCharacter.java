@@ -42,7 +42,7 @@ import net.l2emuproject.gameserver.network.serverpackets.CharacterCreateSuccess;
 import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.skills.L2SkillLearn;
-import net.l2emuproject.gameserver.taskmanager.SQLQueue;
+import net.l2emuproject.gameserver.system.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.templates.chars.L2PcTemplate;
 import net.l2emuproject.gameserver.templates.chars.L2PcTemplate.PcTemplateItem;
 import net.l2emuproject.gameserver.world.L2World;

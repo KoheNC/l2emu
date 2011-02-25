@@ -33,7 +33,7 @@ import net.l2emuproject.gameserver.model.entity.FortSiege;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.entity.Siege;
 import net.l2emuproject.gameserver.model.entity.Town;
-import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.Location;

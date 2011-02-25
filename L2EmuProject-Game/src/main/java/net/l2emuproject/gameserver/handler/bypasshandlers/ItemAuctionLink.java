@@ -26,7 +26,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuction;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuctionInstance;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
-import net.l2emuproject.gameserver.util.FloodProtector.Protected;
+import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;

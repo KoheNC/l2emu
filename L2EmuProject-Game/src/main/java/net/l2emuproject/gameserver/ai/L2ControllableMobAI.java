@@ -24,7 +24,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2ControllableMobInstanc
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.npc.MobGroup;
 import net.l2emuproject.gameserver.world.npc.MobGroupTable;
 import net.l2emuproject.gameserver.world.object.L2Character;

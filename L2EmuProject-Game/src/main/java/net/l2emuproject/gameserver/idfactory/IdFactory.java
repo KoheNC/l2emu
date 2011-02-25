@@ -24,9 +24,9 @@ import java.sql.Statement;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.util.TableOptimizer;
-import net.l2emuproject.gameserver.util.TableOptimizer.CharacterRelatedTable;
-import net.l2emuproject.gameserver.util.TableOptimizer.ItemRelatedTable;
+import net.l2emuproject.gameserver.system.util.TableOptimizer;
+import net.l2emuproject.gameserver.system.util.TableOptimizer.CharacterRelatedTable;
+import net.l2emuproject.gameserver.system.util.TableOptimizer.ItemRelatedTable;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

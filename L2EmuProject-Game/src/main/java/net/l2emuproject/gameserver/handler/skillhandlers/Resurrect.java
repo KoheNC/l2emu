@@ -20,7 +20,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
-import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;
+import net.l2emuproject.gameserver.system.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;

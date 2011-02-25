@@ -28,12 +28,12 @@ import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.ShowCalculator;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.templates.item.L2Armor;
 import net.l2emuproject.gameserver.templates.item.L2ArmorType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
-import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class UseItem extends L2GameClientPacket

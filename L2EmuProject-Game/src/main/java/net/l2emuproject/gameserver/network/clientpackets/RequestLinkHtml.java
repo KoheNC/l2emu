@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.network.clientpackets;
 import org.mmocore.network.InvalidPacketException;
 
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
-import net.l2emuproject.gameserver.util.FloodProtector.Protected;
-import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.system.util.Util;
+import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**

@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.world.object.position;
 
-import net.l2emuproject.gameserver.taskmanager.CoordRevalidator;
+import net.l2emuproject.gameserver.system.taskmanager.CoordRevalidator;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.Location;

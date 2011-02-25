@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.network.serverpackets.StopMoveInVehicle;
-import net.l2emuproject.gameserver.util.Broadcast;
+import net.l2emuproject.gameserver.system.util.Broadcast;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.geometry.Point3D;
 

@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.StopRotation;
-import net.l2emuproject.gameserver.util.Broadcast;
+import net.l2emuproject.gameserver.system.util.Broadcast;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**

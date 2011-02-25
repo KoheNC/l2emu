@@ -24,9 +24,9 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.attribute.AttributeItems;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
-import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 

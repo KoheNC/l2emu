@@ -34,9 +34,9 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
-import net.l2emuproject.gameserver.taskmanager.SQLQueue;
-import net.l2emuproject.gameserver.util.DatabaseBackupManager;
-import net.l2emuproject.gameserver.util.OfflineTradeManager;
+import net.l2emuproject.gameserver.system.taskmanager.SQLQueue;
+import net.l2emuproject.gameserver.system.util.DatabaseBackupManager;
+import net.l2emuproject.gameserver.system.util.OfflineTradeManager;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

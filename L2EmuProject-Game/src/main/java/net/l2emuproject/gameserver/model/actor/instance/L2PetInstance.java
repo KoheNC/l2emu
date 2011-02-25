@@ -50,7 +50,7 @@ import net.l2emuproject.gameserver.network.serverpackets.StopMove;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
-import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;
+import net.l2emuproject.gameserver.system.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;

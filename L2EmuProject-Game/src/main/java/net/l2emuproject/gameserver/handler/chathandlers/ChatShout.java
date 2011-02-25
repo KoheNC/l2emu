@@ -21,7 +21,7 @@ import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.model.BlockList;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
-import net.l2emuproject.gameserver.util.FloodProtector.Protected;
+import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.world.object.L2Player;

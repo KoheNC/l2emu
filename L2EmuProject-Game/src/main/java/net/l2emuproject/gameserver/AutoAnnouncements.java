@@ -21,8 +21,8 @@ import java.util.List;
 
 import javolution.util.FastList;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.cache.HtmCache;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.system.cache.HtmCache;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 

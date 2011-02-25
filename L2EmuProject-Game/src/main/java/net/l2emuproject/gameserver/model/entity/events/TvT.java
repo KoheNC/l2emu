@@ -26,7 +26,7 @@ import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.model.restriction.global.TvTRestriction;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import net.l2emuproject.gameserver.util.Broadcast;
+import net.l2emuproject.gameserver.system.util.Broadcast;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
 

@@ -21,7 +21,7 @@ import net.l2emuproject.gameserver.model.actor.stat.CharStat;
 import net.l2emuproject.gameserver.services.duel.Duel;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
-import net.l2emuproject.gameserver.taskmanager.AbstractIterativePeriodicTaskManager;
+import net.l2emuproject.gameserver.system.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;

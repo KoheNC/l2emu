@@ -29,10 +29,10 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.WareHouseDepositList;
 import net.l2emuproject.gameserver.network.serverpackets.WareHouseWithdrawalList;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.system.util.IllegalPlayerAction;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
-import net.l2emuproject.gameserver.util.IllegalPlayerAction;
-import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 

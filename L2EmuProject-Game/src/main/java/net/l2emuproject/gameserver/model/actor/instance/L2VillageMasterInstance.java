@@ -48,9 +48,9 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.skills.L2PledgeSkillLearn;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.system.util.StringUtil;
+import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
-import net.l2emuproject.gameserver.util.FloodProtector.Protected;
-import net.l2emuproject.gameserver.util.StringUtil;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

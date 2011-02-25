@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.communitybbs.Manager;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.cache.HtmCache;
+import net.l2emuproject.gameserver.system.cache.HtmCache;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 

@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import java.io.File;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.cache.CrestCache;
-import net.l2emuproject.gameserver.cache.HtmCache;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
+import net.l2emuproject.gameserver.system.cache.CrestCache;
+import net.l2emuproject.gameserver.system.cache.HtmCache;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 

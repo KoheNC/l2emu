@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.instancemanager.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.taskmanager.AbstractIterativePeriodicTaskManager;
+import net.l2emuproject.gameserver.system.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.world.L2World;
 

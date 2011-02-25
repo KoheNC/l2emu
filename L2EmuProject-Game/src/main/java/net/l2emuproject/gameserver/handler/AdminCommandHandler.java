@@ -96,7 +96,7 @@ import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminUnblockIp;
 import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminVitality;
 import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminZone;
 import net.l2emuproject.gameserver.model.GMAudit;
-import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.HandlerRegistry;
 import net.l2emuproject.util.logging.ListeningLog;
