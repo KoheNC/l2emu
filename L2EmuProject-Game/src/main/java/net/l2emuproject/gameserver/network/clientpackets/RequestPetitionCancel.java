@@ -16,12 +16,12 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.GmListTable;
-import net.l2emuproject.gameserver.instancemanager.PetitionManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.petition.PetitionService;
 
 /**
  * <p>Format: (c) d
@@ -50,20 +50,20 @@ public class RequestPetitionCancel extends L2GameClientPacket
         if (activeChar == null)
             return;
 		
-		if (PetitionManager.getInstance().isPlayerInConsultation(activeChar))
+		if (PetitionService.getInstance().isPlayerInConsultation(activeChar))
 		{
 			if (activeChar.isGM())
-				PetitionManager.getInstance().endActivePetition(activeChar);
+				PetitionService.getInstance().endActivePetition(activeChar);
 			else
 				activeChar.sendPacket(SystemMessageId.PETITION_UNDER_PROCESS);
 		}
 		else
 		{
-			if (PetitionManager.getInstance().isPlayerPetitionPending(activeChar))
+			if (PetitionService.getInstance().isPlayerPetitionPending(activeChar))
 			{
-				if (PetitionManager.getInstance().cancelActivePetition(activeChar))
+				if (PetitionService.getInstance().cancelActivePetition(activeChar))
 				{
-					int numRemaining = Config.MAX_PETITIONS_PER_PLAYER - PetitionManager.getInstance().getPlayerTotalPetitionCount(activeChar);
+					int numRemaining = Config.MAX_PETITIONS_PER_PLAYER - PetitionService.getInstance().getPlayerTotalPetitionCount(activeChar);
 					
 					SystemMessage sm = new SystemMessage(SystemMessageId.PETITION_CANCELED_SUBMIT_S1_MORE_TODAY);
 					sm.addString(String.valueOf(numRemaining));

@@ -20,7 +20,7 @@ import java.util.Comparator;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
-import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2WarehouseItem;
@@ -270,12 +270,12 @@ public final class SortedWareHouseWithdrawalList extends L2GameServerPacket
 	{
 		private int					order	= 0;
 
-		private RecipeController	rc		= null;
+		private RecipeService	rc		= null;
 
 		protected WarehouseItemRecipeComparator(int sortOrder)
 		{
 			order = sortOrder;
-			rc = RecipeController.getInstance();
+			rc = RecipeService.getInstance();
 		}
 
 		@Override

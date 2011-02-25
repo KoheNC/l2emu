@@ -21,7 +21,6 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.geodata.GeoData;
-import net.l2emuproject.gameserver.instancemanager.CoupleManager;
 import net.l2emuproject.gameserver.instancemanager.FourSepulchersManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
@@ -40,7 +39,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
-import net.l2emuproject.gameserver.model.entity.Couple;
 import net.l2emuproject.gameserver.model.entity.Siege;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
@@ -50,6 +48,8 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation.FlyType;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.couple.Couple;
+import net.l2emuproject.gameserver.services.couple.CoupleService;
 import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn.EnchantSkillDetail;
 import net.l2emuproject.gameserver.skills.conditions.Condition;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
@@ -1727,7 +1727,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					{
 						int _chaid = activeChar.getObjectId();
 						int targetId = target.getObjectId();
-						for (Couple cl : CoupleManager.getInstance().getCouples())
+						for (Couple cl : CoupleService.getInstance().getCouples())
 						{
 							if ((cl.getPlayer1Id() == _chaid && cl.getPlayer2Id() == targetId) || (cl.getPlayer2Id() == _chaid && cl.getPlayer1Id() == targetId))
 								return new L2Character[] { target };

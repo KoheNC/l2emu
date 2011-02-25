@@ -59,29 +59,29 @@ import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 
-public class RecipeController
+public class RecipeService
 {
 	private static final String RECIPES_FILE = "recipes.xml";
 
-	private final static Log _log = LogFactory.getLog(RecipeController.class);
+	private final static Log _log = LogFactory.getLog(RecipeService.class);
 	private static final Map<L2PcInstance, RecipeItemMaker> _activeMakers = Collections.synchronizedMap(new WeakHashMap<L2PcInstance, RecipeItemMaker>());
 
 	private final FastMap<Integer, L2RecipeList> _lists;
 	private int[] _itemIds;
 
-	public static RecipeController getInstance()
+	public static RecipeService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 
-	private RecipeController()
+	private RecipeService()
 	{
 		_lists = new FastMap<Integer, L2RecipeList>().shared();
 
 		try
 		{
 			loadFromXML();
-			_log.info("RecipeController: Loaded " + getRecipesCount() + " recipes.");
+			_log.info("RecipeService: Loaded " + getRecipesCount() + " recipes.");
 		}
 		catch (Exception e)
 		{
@@ -1056,6 +1056,6 @@ public class RecipeController
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final RecipeController _instance = new RecipeController();
+		protected static final RecipeService _instance = new RecipeService();
 	}
 }

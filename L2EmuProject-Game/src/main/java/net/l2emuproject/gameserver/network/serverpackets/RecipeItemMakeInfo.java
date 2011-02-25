@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
-import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.crafting.RecipeService;
 
 /**
  * format   dddd
@@ -48,7 +48,7 @@ public class RecipeItemMakeInfo extends L2GameServerPacket
     @Override
     protected final void writeImpl()
     {
-        L2RecipeList recipe = RecipeController.getInstance().getRecipeList(_id);
+        L2RecipeList recipe = RecipeService.getInstance().getRecipeList(_id);
 
         if (recipe != null)
         {

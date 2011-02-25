@@ -26,7 +26,6 @@ import net.l2emuproject.gameserver.SevenSignsFestival;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.instancemanager.DuelManager;
 import net.l2emuproject.gameserver.instancemanager.PartyRoomManager;
 import net.l2emuproject.gameserver.model.BlockList;
 import net.l2emuproject.gameserver.model.L2CommandChannel;
@@ -57,6 +56,7 @@ import net.l2emuproject.gameserver.network.serverpackets.PartySmallWindowAll;
 import net.l2emuproject.gameserver.network.serverpackets.PartySmallWindowDelete;
 import net.l2emuproject.gameserver.network.serverpackets.PartySmallWindowDeleteAll;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.duel.DuelService;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.util.Util;
@@ -458,7 +458,7 @@ public class L2Party
 				SevenSignsFestival.getInstance().updateParticipants(player, this);
 
 			if (player.getPlayerDuel().isInDuel())
-				DuelManager.getInstance().onRemoveFromParty(player);
+				DuelService.getInstance().onRemoveFromParty(player);
 
 			try
 			{
@@ -539,7 +539,7 @@ public class L2Party
 				{
 					leader.setParty(null);
 					if (leader.getPlayerDuel().isInDuel())
-						DuelManager.getInstance().onRemoveFromParty(leader);
+						DuelService.getInstance().onRemoveFromParty(leader);
 					if (player.isFestivalParticipant())
 						SevenSignsFestival.getInstance().updateParticipants(player, this);
 				}

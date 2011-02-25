@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.entity;
+package net.l2emuproject.gameserver.services.couple;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

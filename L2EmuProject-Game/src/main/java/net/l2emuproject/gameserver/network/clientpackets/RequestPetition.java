@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.GmListTable;
-import net.l2emuproject.gameserver.instancemanager.PetitionManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.petition.PetitionService;
 
 public class RequestPetition extends L2GameClientPacket
 {
@@ -48,25 +48,25 @@ public class RequestPetition extends L2GameClientPacket
 			return;
 		}
 		
-		if (!PetitionManager.getInstance().isPetitioningAllowed())
+		if (!PetitionService.getInstance().isPetitioningAllowed())
 		{
 			sendPacket(SystemMessageId.GAME_CLIENT_UNABLE_TO_CONNECT_TO_PETITION_SERVER);
 			return;
 		}
 		
-		if (PetitionManager.getInstance().isPlayerPetitionPending(activeChar))
+		if (PetitionService.getInstance().isPlayerPetitionPending(activeChar))
 		{
 			sendPacket(SystemMessageId.ONLY_ONE_ACTIVE_PETITION_AT_TIME);
 			return;
 		}
 		
-		if (PetitionManager.getInstance().getPendingPetitionCount() == Config.MAX_PETITIONS_PENDING)
+		if (PetitionService.getInstance().getPendingPetitionCount() == Config.MAX_PETITIONS_PENDING)
 		{
 			sendPacket(SystemMessageId.PETITION_UNAVAILABLE);
 			return;
 		}
 		
-		int totalPetitions = PetitionManager.getInstance().getPlayerTotalPetitionCount(activeChar) + 1;
+		int totalPetitions = PetitionService.getInstance().getPlayerTotalPetitionCount(activeChar) + 1;
 		if (totalPetitions > Config.MAX_PETITIONS_PER_PLAYER)
 		{
 			SystemMessage sm = new SystemMessage(SystemMessageId.WE_HAVE_RECEIVED_S1_PETITIONS_TODAY);
@@ -81,7 +81,7 @@ public class RequestPetition extends L2GameClientPacket
 			return;
 		}
 		
-		int petitionId = PetitionManager.getInstance().submitPetition(activeChar, _content, _on);
+		int petitionId = PetitionService.getInstance().submitPetition(activeChar, _content, _on);
 		
 		SystemMessage sm = new SystemMessage(SystemMessageId.PETITION_ACCEPTED_RECENT_NO_S1);
 		sm.addNumber(petitionId);
@@ -93,7 +93,7 @@ public class RequestPetition extends L2GameClientPacket
 		sendPacket(sm);
 		
 		sm = new SystemMessage(SystemMessageId.S1_PETITION_ON_WAITING_LIST);
-		sm.addNumber(PetitionManager.getInstance().getPendingPetitionCount());
+		sm.addNumber(PetitionService.getInstance().getPendingPetitionCount());
 		sendPacket(sm);
 	}
     

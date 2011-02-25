@@ -18,7 +18,7 @@ import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
-import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.crafting.RecipeService;
 
 /**
  * @author Administrator
@@ -64,7 +64,7 @@ public class RequestRecipeItemMakeSelf extends L2GameClientPacket
 			return;
 		}
 
-		RecipeController.getInstance().requestMakeItem(activeChar, _id);
+		RecipeService.getInstance().requestMakeItem(activeChar, _id);
 
 		sendAF();
 	}

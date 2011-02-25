@@ -23,7 +23,7 @@ import net.l2emuproject.gameserver.network.serverpackets.RecipeShopMsg;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureItem;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
-import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.crafting.RecipeService;
 
 import org.apache.commons.lang.ArrayUtils;
 
@@ -94,7 +94,7 @@ public class RequestRecipeShopListSet extends L2GameClientPacket
 
 		for (Recipe i : _items)
 		{
-			L2RecipeList list = RecipeController.getInstance().getRecipeList(i.getRecipeId());
+			L2RecipeList list = RecipeService.getInstance().getRecipeList(i.getRecipeId());
 
 			if (!ArrayUtils.contains(dwarven, list) && !ArrayUtils.contains(common, list))
 			{

@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.handler.chathandlers;
 
 import net.l2emuproject.gameserver.handler.IChatHandler;
-import net.l2emuproject.gameserver.instancemanager.PetitionManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.petition.PetitionService;
 
 /**
  *
@@ -45,12 +45,12 @@ public class ChatPetition implements IChatHandler
 	public void useChatHandler(L2PcInstance activeChar, String target, SystemChatChannelId chatType, String text)
 	{
 		//TODO: Maybe next time I port my Petition System, but there are a lot of changes to do about it. Is there some other guy, like to rewrite it?
-		if (!PetitionManager.getInstance().isPlayerInConsultation(activeChar))
+		if (!PetitionService.getInstance().isPlayerInConsultation(activeChar))
 		{
 			activeChar.sendPacket(SystemMessageId.YOU_ARE_NOT_IN_PETITION_CHAT);
 			return;
 		}
 
-		PetitionManager.getInstance().sendActivePetitionMessage(activeChar, text);
+		PetitionService.getInstance().sendActivePetitionMessage(activeChar, text);
 	}
 }

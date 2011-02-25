@@ -30,7 +30,6 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
-import net.l2emuproject.gameserver.instancemanager.RecommendationManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.stat.PcStat;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
@@ -42,6 +41,7 @@ import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.serverpackets.CharSelectionInfo;
 import net.l2emuproject.gameserver.network.serverpackets.CharacterCreateFail;
 import net.l2emuproject.gameserver.network.serverpackets.CharacterCreateSuccess;
+import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.skills.L2SkillLearn;
 import net.l2emuproject.gameserver.taskmanager.SQLQueue;
@@ -235,7 +235,7 @@ public class NewCharacter extends L2GameClientPacket
 				_log.debug("adding starter skill:" + skill.getId() + " / " + skill.getLevel());
 		}
 		startTutorialQuest(newChar);
-		RecommendationManager.getInstance().onCreate(newChar);
+		RecommendationService.getInstance().onCreate(newChar);
 		new Disconnection(getClient(), newChar).store().deleteMe();
 		
 		// send char list

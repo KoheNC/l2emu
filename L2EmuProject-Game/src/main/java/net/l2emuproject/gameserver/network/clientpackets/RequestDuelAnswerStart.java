@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.instancemanager.DuelManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.duel.DuelService;
 
 /**
  * Format:(ch) ddd
@@ -88,7 +88,7 @@ public final class RequestDuelAnswerStart extends L2GameClientPacket
 			sendPacket(msg1);
 			requestor.sendPacket(msg2);
 
-			DuelManager.getInstance().addDuel(requestor, player, _partyDuel);
+			DuelService.getInstance().addDuel(requestor, player, _partyDuel);
 		}
 		else
 		{

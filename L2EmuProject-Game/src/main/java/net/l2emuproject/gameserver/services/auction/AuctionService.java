@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.instancemanager;
+package net.l2emuproject.gameserver.services.auction;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,15 +22,14 @@ import java.util.List;
 
 import javolution.util.FastList;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.entity.Auction;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 
-public class AuctionManager
+public class AuctionService
 {
-	protected static Log			_log			= LogFactory.getLog(AuctionManager.class);
+	protected static Log			_log			= LogFactory.getLog(AuctionService.class);
 	private final List<Auction>		_auctions;
 
 	private static final String[]	ITEM_INIT_DATA =
@@ -81,12 +80,12 @@ public class AuctionManager
 		43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61
 	};
 
-	public static final AuctionManager getInstance()
+	public static final AuctionService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 
-	private AuctionManager()
+	private AuctionService()
 	{
 		_auctions = new FastList<Auction>();
 		load();
@@ -111,11 +110,11 @@ public class AuctionManager
 			while (rs.next())
 				_auctions.add(new Auction(rs.getInt("id")));
 			statement.close();
-			_log.info("AuctionManager: loaded " + getAuctions().size() + " auction(s)");
+			_log.info("AuctionService: loaded " + getAuctions().size() + " auction(s)");
 		}
 		catch (SQLException e)
 		{
-			_log.fatal("Exception: AuctionManager.load(): " + e.getMessage(), e);
+			_log.fatal("Exception: AuctionService.load(): " + e.getMessage(), e);
 		}
 		finally
 		{
@@ -189,6 +188,6 @@ public class AuctionManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final AuctionManager _instance = new AuctionManager();
+		protected static final AuctionService _instance = new AuctionService();
 	}
 }

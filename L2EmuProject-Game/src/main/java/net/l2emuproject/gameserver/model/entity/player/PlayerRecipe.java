@@ -23,7 +23,7 @@ import java.util.Map;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
-import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.util.SingletonMap;
 
@@ -111,7 +111,7 @@ public final class PlayerRecipe extends PlayerExtension
 			L2RecipeList recipe;
 			while (rset.next())
 			{
-				recipe = RecipeController.getInstance().getRecipeList(rset.getInt("id"));
+				recipe = RecipeService.getInstance().getRecipeList(rset.getInt("id"));
 
 				if (loadCommon)
 				{

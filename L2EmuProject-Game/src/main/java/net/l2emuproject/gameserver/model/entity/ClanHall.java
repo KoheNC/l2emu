@@ -28,7 +28,6 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.datatables.DoorTable;
-import net.l2emuproject.gameserver.instancemanager.AuctionManager;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -37,6 +36,7 @@ import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.PledgeShowInfoUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.auction.AuctionService;
 
 
 public class ClanHall extends Siegeable<CCHSiege>
@@ -637,7 +637,7 @@ public class ClanHall extends Siegeable<CCHSiege>
 					{
 						if (ClanHallManager.loaded())
 						{
-							AuctionManager.getInstance().initNPC(getId());
+							AuctionService.getInstance().initNPC(getId());
 							ClanHallManager.getInstance().setFree(getId());
 							Clan.broadcastToOnlineMembers(SystemMessageId.CLAN_HALL_PAYMENT_OVERDUE.getSystemMessage());
 						}

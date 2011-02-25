@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.entity;
+package net.l2emuproject.gameserver.services.auction;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,7 +25,6 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.instancemanager.AuctionManager;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
@@ -428,7 +427,7 @@ public class Auction
 	/** Remove auctions */
 	public void deleteAuctionFromDB()
 	{
-		AuctionManager.getInstance().getAuctions().remove(this);
+		AuctionService.getInstance().getAuctions().remove(this);
 		Connection con = null;
 		try
 		{
@@ -463,8 +462,8 @@ public class Auction
 			{
 				/** If seller haven't sell ClanHall, auction removed,
 				 *  THIS MUST BE CONFIRMED */
-				int aucId = AuctionManager.getInstance().getAuctionIndex(_id);
-				AuctionManager.getInstance().getAuctions().remove(aucId);
+				int aucId = AuctionService.getInstance().getAuctionIndex(_id);
+				AuctionService.getInstance().getAuctions().remove(aucId);
 				return;
 			}
 			if (_sellerId > 0)
@@ -527,7 +526,7 @@ public class Auction
 	/** Confirm an auction */
 	public void confirmAuction()
 	{
-		AuctionManager.getInstance().getAuctions().add(this);
+		AuctionService.getInstance().getAuctions().add(this);
 		Connection con = null;
 		try
 		{

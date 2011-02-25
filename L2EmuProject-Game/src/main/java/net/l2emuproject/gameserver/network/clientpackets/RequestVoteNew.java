@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.instancemanager.RecommendationManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -22,6 +21,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExBrExtraUserInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ExVoteSystemInfo;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
+import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 
 public final class RequestVoteNew extends L2GameClientPacket
 {
@@ -56,7 +56,7 @@ public final class RequestVoteNew extends L2GameClientPacket
 		if (target.getObjectId() != _targetId)
 			return;
 
-		RecommendationManager.getInstance().recommend(activeChar, target);
+		RecommendationService.getInstance().recommend(activeChar, target);
 
 		SystemMessage sm = null;
 		sm = new SystemMessage(SystemMessageId.YOU_HAVE_RECOMMENDED_C1_YOU_HAVE_S2_RECOMMENDATIONS_LEFT);

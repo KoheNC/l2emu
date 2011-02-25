@@ -14,13 +14,15 @@
  */
 package net.l2emuproject.gameserver.instancemanager;
 
+import net.l2emuproject.gameserver.services.auction.AuctionService;
+
 public class Manager
 {
 	public static void reloadAll()
 	{
 		MapRegionManager.getInstance().reload();
 		ZoneManager.getInstance().reload();
-		AuctionManager.getInstance().reload();
+		AuctionService.getInstance().reload();
 		CastleManager.getInstance().reload();
 		ClanHallManager.getInstance().reload();
 	}

@@ -18,7 +18,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
-import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.util.Util;
 
 public class RequestRecipeShopMakeItem extends L2GameClientPacket
@@ -99,7 +99,7 @@ public class RequestRecipeShopMakeItem extends L2GameClientPacket
 		}
 
 		if (Util.checkIfInRange(150, activeChar, manufacturer, true))
-			RecipeController.getInstance().requestManufactureItem(manufacturer, _recipeId, activeChar);
+			RecipeService.getInstance().requestManufactureItem(manufacturer, _recipeId, activeChar);
 		else
 			sendPacket(SystemMessageId.TARGET_TOO_FAR);
 

@@ -75,14 +75,12 @@ import net.l2emuproject.gameserver.handler.UserCommandHandler;
 import net.l2emuproject.gameserver.handler.VoicedCommandHandler;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.AirShipManager;
-import net.l2emuproject.gameserver.instancemanager.AuctionManager;
 import net.l2emuproject.gameserver.instancemanager.AutoSpawnManager;
 import net.l2emuproject.gameserver.instancemanager.BlockListManager;
 import net.l2emuproject.gameserver.instancemanager.BoatManager;
 import net.l2emuproject.gameserver.instancemanager.CCHManager;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
-import net.l2emuproject.gameserver.instancemanager.CoupleManager;
 import net.l2emuproject.gameserver.instancemanager.CrownManager;
 import net.l2emuproject.gameserver.instancemanager.DayNightSpawnManager;
 import net.l2emuproject.gameserver.instancemanager.DimensionalRiftManager;
@@ -97,11 +95,9 @@ import net.l2emuproject.gameserver.instancemanager.MailManager;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.instancemanager.MercTicketManager;
 import net.l2emuproject.gameserver.instancemanager.PartyRoomManager;
-import net.l2emuproject.gameserver.instancemanager.PetitionManager;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.instancemanager.RaidBossSpawnManager;
 import net.l2emuproject.gameserver.instancemanager.RaidPointsManager;
-import net.l2emuproject.gameserver.instancemanager.RecommendationManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
@@ -136,11 +132,15 @@ import net.l2emuproject.gameserver.scripting.CompiledScriptCache;
 import net.l2emuproject.gameserver.scripting.L2ScriptEngineManager;
 import net.l2emuproject.gameserver.services.SystemService;
 import net.l2emuproject.gameserver.services.VersionService;
-import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.auction.AuctionService;
+import net.l2emuproject.gameserver.services.couple.CoupleService;
+import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
+import net.l2emuproject.gameserver.services.petition.PetitionService;
+import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
 import net.l2emuproject.gameserver.taskmanager.AttackStanceTaskManager;
@@ -285,7 +285,7 @@ public class L2GameServer extends Config
 		HennaTable.getInstance();
 		HennaTreeTable.getInstance();
 		if (Config.ALLOW_WEDDING)
-			CoupleManager.getInstance();
+			CoupleService.getInstance();
 		CursedWeaponsService.getInstance();
 		
 		// forums must be loaded before clan data, because of last forum id used should have also memo included
@@ -296,7 +296,7 @@ public class L2GameServer extends Config
 		CrestCache.getInstance();
 		Hero.getInstance();
 		BlockListManager.getInstance();
-		RecommendationManager.getInstance();
+		RecommendationService.getInstance();
 		FriendListManager.getInstance();
 		
 		// L2EMU_ADD
@@ -406,12 +406,12 @@ public class L2GameServer extends Config
 		TradeListTable.getInstance();
 		CastleManorService.getInstance();
 		L2Manor.getInstance();
-		AuctionManager.getInstance();
+		AuctionService.getInstance();
 		// L2EMU_ADD
 		ItemAuctionService.getInstance();
 		ItemMarketTable.getInstance();
 		// L2EMU_ADD
-		RecipeController.getInstance();
+		RecipeService.getInstance();
 		
 		Util.printSection("Olympiad");
 		Olympiad.getInstance();
@@ -444,7 +444,7 @@ public class L2GameServer extends Config
 		ObjectRestrictions.getInstance();
 		TaskManager.getInstance();
 		Class.forName(GmListTable.class.getName());
-		PetitionManager.getInstance();
+		PetitionService.getInstance();
 		if (Config.ONLINE_PLAYERS_ANNOUNCE_INTERVAL > 0)
 			OnlineStatusTask.getInstance();
 		

@@ -18,7 +18,6 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.IVoicedCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.CoupleManager;
 import net.l2emuproject.gameserver.instancemanager.DimensionalRiftManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -33,6 +32,7 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.clientpackets.ConfirmDlgAnswer.AnswerHandler;
 import net.l2emuproject.gameserver.network.serverpackets.ConfirmDlg;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.couple.CoupleService;
 import net.l2emuproject.gameserver.skills.AbnormalEffect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 
@@ -107,7 +107,7 @@ public class Wedding implements IVoicedCommandHandler
 				partner.addAdena("WEDDING", adenaAmount, null, false);
 		}
 
-		CoupleManager.getInstance().deleteCouple(_coupleId);
+		CoupleService.getInstance().deleteCouple(_coupleId);
 		return true;
 	}
 
@@ -211,7 +211,7 @@ public class Wedding implements IVoicedCommandHandler
 				
 				if (answer)
 				{
-					CoupleManager.getInstance().createCouple(activeChar, ptarget);
+					CoupleService.getInstance().createCouple(activeChar, ptarget);
 					activeChar.sendMessage("Engage accepted.");
 				}
 				else

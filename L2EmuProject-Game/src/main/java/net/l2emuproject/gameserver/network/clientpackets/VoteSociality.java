@@ -14,11 +14,11 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.instancemanager.RecommendationManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 
 public class VoteSociality extends L2GameClientPacket
 {
@@ -46,7 +46,7 @@ public class VoteSociality extends L2GameClientPacket
 			target = L2World.getInstance().findObject(_targetId);
 
     	if (target instanceof L2PcInstance)
-    		RecommendationManager.getInstance().recommend(activeChar, target.getActingPlayer());
+    		RecommendationService.getInstance().recommend(activeChar, target.getActingPlayer());
     	else
     		sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
 

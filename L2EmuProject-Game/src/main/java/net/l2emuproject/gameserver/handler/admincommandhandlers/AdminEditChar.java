@@ -34,7 +34,6 @@ import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerS
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.RecommendationManager;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
@@ -49,6 +48,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
+import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.lang.L2TextBuilder;
@@ -263,7 +263,7 @@ public class AdminEditChar implements IAdminCommandHandler
 				if (temp)
 					player.setEvalPoints(recVal);
 				else
-					RecommendationManager.getInstance().onGmEvaluation(player, recVal);
+					RecommendationService.getInstance().onGmEvaluation(player, recVal);
 				player.sendMessage("You have been evaluated by a GM!" + (temp ? " (temporarily)" : ""));
 				player.broadcastUserInfo();
 			}

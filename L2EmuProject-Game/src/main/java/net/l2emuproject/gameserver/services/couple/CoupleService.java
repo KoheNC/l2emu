@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.instancemanager;
+package net.l2emuproject.gameserver.services.couple;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +21,6 @@ import java.sql.ResultSet;
 import javolution.util.FastList;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.entity.Couple;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.world.L2World;
 
@@ -33,16 +32,16 @@ import org.apache.commons.logging.LogFactory;
  * @author evill33t
  * 
  */
-public class CoupleManager
+public class CoupleService
 {
-	private static final Log		_log	= LogFactory.getLog(CoupleManager.class);
+	private static final Log		_log	= LogFactory.getLog(CoupleService.class);
 
-	public static final CoupleManager getInstance()
+	public static final CoupleService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 	
-	private CoupleManager()
+	private CoupleService()
 	{
 		load();
 	}
@@ -81,11 +80,11 @@ public class CoupleManager
 
 			statement.close();
 
-			_log.info("CoupleManager: loaded " + getCouples().size() + " couples(s)");
+			_log.info("CoupleService: loaded " + getCouples().size() + " couples(s)");
 		}
 		catch (Exception e)
 		{
-			_log.error("Exception: CoupleManager.load(): " + e.getMessage(), e);
+			_log.error("Exception: CoupleService.load(): " + e.getMessage(), e);
 		}
 		finally
 		{
@@ -232,6 +231,6 @@ public class CoupleManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final CoupleManager _instance = new CoupleManager();
+		protected static final CoupleService _instance = new CoupleService();
 	}
 }

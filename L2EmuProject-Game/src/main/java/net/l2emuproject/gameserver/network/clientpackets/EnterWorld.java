@@ -22,14 +22,12 @@ import net.l2emuproject.gameserver.cache.HtmCache;
 import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager;
 import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerStateOnCommunity;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.instancemanager.CoupleManager;
 import net.l2emuproject.gameserver.instancemanager.CrownManager;
 import net.l2emuproject.gameserver.instancemanager.DimensionalRiftManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.MailManager;
-import net.l2emuproject.gameserver.instancemanager.PetitionManager;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
@@ -37,7 +35,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2ClassMasterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
-import net.l2emuproject.gameserver.model.entity.Couple;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.entity.FortSiege;
 import net.l2emuproject.gameserver.model.entity.Hero;
@@ -76,6 +73,9 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.TutorialShowQuestionMark;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.VersionService;
+import net.l2emuproject.gameserver.services.couple.Couple;
+import net.l2emuproject.gameserver.services.couple.CoupleService;
+import net.l2emuproject.gameserver.services.petition.PetitionService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 
 public class EnterWorld extends L2GameClientPacket
@@ -418,7 +418,7 @@ public class EnterWorld extends L2GameClientPacket
 			sendPacket(sm);
 		}
 
-		PetitionManager.getInstance().checkPetitionMessages(activeChar);
+		PetitionService.getInstance().checkPetitionMessages(activeChar);
 
 		activeChar.onPlayerEnter();
 
@@ -511,7 +511,7 @@ public class EnterWorld extends L2GameClientPacket
 	{
 		int _chaid = cha.getObjectId();
 
-		for (Couple cl : CoupleManager.getInstance().getCouples())
+		for (Couple cl : CoupleService.getInstance().getCouples())
 		{
 			if (cl.getPlayer1Id() == _chaid || cl.getPlayer2Id() == _chaid)
 			{

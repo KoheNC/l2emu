@@ -77,7 +77,6 @@ import net.l2emuproject.gameserver.handler.skillhandlers.TakeFort;
 import net.l2emuproject.gameserver.instancemanager.AntiFeedManager;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.DimensionalRiftManager;
-import net.l2emuproject.gameserver.instancemanager.DuelManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
 import net.l2emuproject.gameserver.instancemanager.FourSepulchersManager;
@@ -85,7 +84,6 @@ import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.instancemanager.PartyRoomManager;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
-import net.l2emuproject.gameserver.instancemanager.RecommendationManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.instancemanager.ZoneManager;
@@ -136,7 +134,6 @@ import net.l2emuproject.gameserver.model.base.SubClass;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.model.entity.Castle;
-import net.l2emuproject.gameserver.model.entity.Duel;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.entity.GrandBossState;
 import net.l2emuproject.gameserver.model.entity.Instance;
@@ -254,9 +251,12 @@ import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
-import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeapon;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
+import net.l2emuproject.gameserver.services.duel.Duel;
+import net.l2emuproject.gameserver.services.duel.DuelService;
+import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
 import net.l2emuproject.gameserver.services.transformation.L2TransformSkillLearn;
@@ -3628,7 +3628,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 		}
 
 		if (getPlayerDuel().isInDuel() && (needCpUpdate || needHpUpdate))
-			DuelManager.getInstance().broadcastToOppositTeam(this, new ExDuelUpdateUserInfo(this));
+			DuelService.getInstance().broadcastToOppositTeam(this, new ExDuelUpdateUserInfo(this));
 	}
 
 	@Override
@@ -4268,8 +4268,8 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 			killer.getAI().setIntention(CtrlIntention.AI_INTENTION_ACTIVE);
 			killer.sendPacket(ActionFailed.STATIC_PACKET);
 
-			// let the DuelManager know of his defeat
-			DuelManager.getInstance().onPlayerDefeat(this);
+			// let the DuelService know of his defeat
+			DuelService.getInstance().onPlayerDefeat(this);
 			return false;
 		}
 
@@ -6595,7 +6595,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 		getPlayerBookmark().restoreTeleportBookmark();
 
 		// Retrieve from the database all recom data of this L2PcInstance and add to _recomChars.
-		RecommendationManager.getInstance().onJoin(this);
+		RecommendationService.getInstance().onJoin(this);
 
 		// Retrieve from the database the recipe book of this L2PcInstance.
 		getPlayerRecipe().restoreRecipeBook(true);
@@ -9969,7 +9969,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 		// Stop crafting, if in progress
 		try
 		{
-			RecipeController.getInstance().requestMakeItemAbort(this);
+			RecipeService.getInstance().requestMakeItemAbort(this);
 		}
 		catch (Exception e)
 		{

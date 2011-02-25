@@ -27,6 +27,7 @@ import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.model.world.L2Object;
+import net.l2emuproject.gameserver.services.auction.AuctionService;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -128,7 +129,7 @@ public class ClanHallManager
 					{
 						_freeClanHall.put(id, ch);
 						ch.free();
-						AuctionManager.getInstance().initNPC(id);
+						AuctionService.getInstance().initNPC(id);
 					}
 				}
 				_allClanHalls.put(id, ch);

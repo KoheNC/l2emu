@@ -12,13 +12,12 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.instancemanager;
+package net.l2emuproject.gameserver.services.duel;
 
 import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.entity.Duel;
 import net.l2emuproject.gameserver.model.restriction.global.DuelRestriction;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
@@ -28,16 +27,16 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 
-public class DuelManager
+public class DuelService
 {
-	private final static Log _log = LogFactory.getLog(DuelManager.class);
+	private final static Log _log = LogFactory.getLog(DuelService.class);
 	
 	private static final class SingletonHolder
 	{
-		private static final DuelManager INSTANCE = new DuelManager();
+		private static final DuelService INSTANCE = new DuelService();
 	}
 	
-	public static DuelManager getInstance()
+	public static DuelService getInstance()
 	{
 		return SingletonHolder.INSTANCE;
 	}
@@ -49,9 +48,9 @@ public class DuelManager
 
 	// =========================================================
 	// Constructor
-	private DuelManager()
+	private DuelService()
 	{
-		_log.info("Initializing DuelManager");
+		_log.info("Initializing DuelService");
 	}
 
 	// =========================================================

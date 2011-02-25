@@ -21,7 +21,7 @@ import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
-import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.crafting.RecipeService;
 
 /**
  * This class ...
@@ -36,7 +36,7 @@ public class Recipes implements IItemHandler
 
 	public Recipes()
 	{
-		ITEM_IDS = RecipeController.getInstance().getAllItemIds();
+		ITEM_IDS = RecipeService.getInstance().getAllItemIds();
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class Recipes implements IItemHandler
 		if (!(playable instanceof L2PcInstance))
 			return;
 		L2PcInstance activeChar = (L2PcInstance) playable;
-		L2RecipeList rp = RecipeController.getInstance().getRecipeByItemId(item.getItemId());
+		L2RecipeList rp = RecipeService.getInstance().getRecipeByItemId(item.getItemId());
 		if (rp == null)
 			return;
 		if (activeChar.getPlayerRecipe().hasRecipeList(rp.getId()))

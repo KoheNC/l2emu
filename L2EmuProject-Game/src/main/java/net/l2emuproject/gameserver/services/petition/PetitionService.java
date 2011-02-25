@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.instancemanager;
+package net.l2emuproject.gameserver.services.petition;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,9 +40,9 @@ import org.apache.commons.logging.LogFactory;
  * @author Tempy
  *
  */
-public final class PetitionManager
+public final class PetitionService
 {
-	protected static Log				_log	= LogFactory.getLog(PetitionManager.class);
+	protected static Log				_log	= LogFactory.getLog(PetitionService.class);
 
 	private static int _lastUsedId;
 
@@ -59,7 +59,7 @@ public final class PetitionManager
 		Immobility, Recovery_Related, Bug_Report, Quest_Related, Bad_User, Suggestions, Game_Tip, Operation_Related, Other
 	}
 
-	public static PetitionManager getInstance()
+	public static PetitionService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
@@ -87,7 +87,7 @@ public final class PetitionManager
 			_id = _lastUsedId;
 			if (petitionType >= PetitionType.values().length)
 			{
-				_log.warn("PetitionManager:Petition : invalid petition type (received type was +1) : " + petitionType);
+				_log.warn("PetitionService:Petition : invalid petition type (received type was +1) : " + petitionType);
 			}
 			_type = PetitionType.values()[petitionType];
 			_content = petitionText;
@@ -218,9 +218,9 @@ public final class PetitionManager
 		}
 	}
 
-	private PetitionManager()
+	private PetitionService()
 	{
-		_log.info("PetitionManager: initialized.");
+		_log.info("PetitionService: initialized.");
 		_pendingPetitions = new FastMap<Integer, Petition>();
 		_completedPetitions = new FastMap<Integer, Petition>();
 	}
@@ -230,7 +230,7 @@ public final class PetitionManager
 		int numPetitions = getPendingPetitionCount();
 
 		getPendingPetitions().clear();
-		_log.info("PetitionManager: Pending petition queue cleared. " + numPetitions + " petition(s) removed.");
+		_log.info("PetitionService: Pending petition queue cleared. " + numPetitions + " petition(s) removed.");
 	}
 
 	public boolean acceptPetition(L2PcInstance respondingAdmin, int petitionId)
@@ -561,6 +561,6 @@ public final class PetitionManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final PetitionManager _instance = new PetitionManager();
+		protected static final PetitionService _instance = new PetitionService();
 	}
 }

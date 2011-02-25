@@ -18,7 +18,6 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.instancemanager.DuelManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.effects.CharEffects;
@@ -30,6 +29,7 @@ import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.ShortBuffStatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.duel.DuelService;
 import net.l2emuproject.gameserver.skills.effects.EffectCharmOfCourage;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
@@ -672,6 +672,6 @@ public abstract class L2Effect implements FuncOwner, Runnable
 		if (effectedPlayer == null || !effectedPlayer.getPlayerDuel().isInDuel() || !effect.getSkill().isOffensive())
 			return;
 		
-		DuelManager.getInstance().onBuff(effectedPlayer, effect);
+		DuelService.getInstance().onBuff(effectedPlayer, effect);
 	}
 }

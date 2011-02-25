@@ -21,7 +21,6 @@ import javolution.text.TextBuilder;
 import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.AuctionManager;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -33,6 +32,7 @@ import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.services.auction.AuctionService;
 
 
 /**
@@ -214,8 +214,8 @@ public class AdminSiege implements IAdminCommandHandler
 				else if (player.getClan().getHasHideout() == 0)
 				{
 					ClanHallManager.getInstance().setOwner(clanhall.getId(), player.getClan());
-					if (AuctionManager.getInstance().getAuction(clanhall.getId()) != null)
-						AuctionManager.getInstance().getAuction(clanhall.getId()).deleteAuctionFromDB();
+					if (AuctionService.getInstance().getAuction(clanhall.getId()) != null)
+						AuctionService.getInstance().getAuction(clanhall.getId()).deleteAuctionFromDB();
 				}
 				else
 					activeChar.sendMessage("You have already a ClanHall!");
@@ -225,7 +225,7 @@ public class AdminSiege implements IAdminCommandHandler
 				if (!ClanHallManager.getInstance().isFree(clanhall.getId()))
 				{
 					ClanHallManager.getInstance().setFree(clanhall.getId());
-					AuctionManager.getInstance().initNPC(clanhall.getId());
+					AuctionService.getInstance().initNPC(clanhall.getId());
 				}
 				else
 					activeChar.sendMessage("This ClanHall is already Free!");

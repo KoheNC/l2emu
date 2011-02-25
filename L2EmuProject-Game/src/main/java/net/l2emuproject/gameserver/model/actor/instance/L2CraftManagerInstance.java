@@ -28,7 +28,7 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeInstance;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
-import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
@@ -354,7 +354,7 @@ public class L2CraftManagerInstance extends L2NpcInstance
 			{
 				if (_item.getItemType()==L2EtcItemType.RECEIPE)
 				{
-					L2RecipeList _recipe = RecipeController.getInstance().getRecipeByItemId(_item.getItemId());
+					L2RecipeList _recipe = RecipeService.getInstance().getRecipeByItemId(_item.getItemId());
 
 					if (_recipe!=null)_recipes.add(_item.getObjectId());
 				}
@@ -399,7 +399,7 @@ public class L2CraftManagerInstance extends L2NpcInstance
 
 				if (_recipe==null) continue;
 
-				L2RecipeList _recipeList = RecipeController.getInstance().getRecipeByItemId(_recipe.getItemId());
+				L2RecipeList _recipeList = RecipeService.getInstance().getRecipeByItemId(_recipe.getItemId());
 
 				boolean _isConsumable = ItemTable.getInstance().getTemplate(_recipeList.getItemId()).isConsumable();
 
@@ -453,7 +453,7 @@ public class L2CraftManagerInstance extends L2NpcInstance
 
 			L2ItemInstance _recipe = _inventory.getItemByObjectId(_recipeObjId);
 
-			L2RecipeList _recipeList = RecipeController.getInstance().getRecipeByItemId(_recipe.getItemId());
+			L2RecipeList _recipeList = RecipeService.getInstance().getRecipeByItemId(_recipe.getItemId());
 
 			boolean _isConsumable = ItemTable.getInstance().getTemplate(_recipeList.getItemId()).isConsumable();
 
@@ -550,7 +550,7 @@ public class L2CraftManagerInstance extends L2NpcInstance
 
 			L2ItemInstance _recipe = _inventory.getItemByObjectId(_recipeObjId);
 
-			L2RecipeList _recipeList = RecipeController.getInstance().getRecipeByItemId(_recipe.getItemId());
+			L2RecipeList _recipeList = RecipeService.getInstance().getRecipeByItemId(_recipe.getItemId());
 
 			boolean _isConsumable = ItemTable.getInstance().getTemplate(_recipeList.getItemId()).isConsumable();
 

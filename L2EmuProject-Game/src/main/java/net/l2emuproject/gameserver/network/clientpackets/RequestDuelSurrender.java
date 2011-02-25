@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.instancemanager.DuelManager;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
+import net.l2emuproject.gameserver.services.duel.DuelService;
 
 /**
  * Format:(ch)
@@ -34,7 +34,7 @@ public final class RequestDuelSurrender extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		DuelManager.getInstance().doSurrender(getClient().getActiveChar());
+		DuelService.getInstance().doSurrender(getClient().getActiveChar());
 		sendPacket(ActionFailed.STATIC_PACKET);
 	}
 

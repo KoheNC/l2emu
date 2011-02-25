@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.network.clientpackets;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.RecipeBookItemList;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
-import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.crafting.RecipeService;
 
 public class RequestRecipeBookDestroy extends L2GameClientPacket
 {
@@ -41,7 +41,7 @@ public class RequestRecipeBookDestroy extends L2GameClientPacket
 		L2PcInstance activeChar = getClient().getActiveChar();
 		if (activeChar == null)
 			return;
-		L2RecipeList rp = RecipeController.getInstance().getRecipeList(_recipeId);
+		L2RecipeList rp = RecipeService.getInstance().getRecipeList(_recipeId);
 		if (rp == null)
 		{
 			sendAF();

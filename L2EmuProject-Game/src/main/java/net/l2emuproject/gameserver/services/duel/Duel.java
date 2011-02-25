@@ -12,14 +12,13 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.entity;
+package net.l2emuproject.gameserver.services.duel;
 
 import java.util.Set;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.instancemanager.DuelManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -335,7 +334,7 @@ public class Duel
 			// clean up
 			_playerConditions.clear();
 			_playerConditions = null;
-			DuelManager.getInstance().removeDuel(this);
+			DuelService.getInstance().removeDuel(this);
 			return;
 		}
 
@@ -659,7 +658,7 @@ public class Duel
 			//clean up
 			_playerConditions.clear();
 			_playerConditions = null;
-			DuelManager.getInstance().removeDuel(this);
+			DuelService.getInstance().removeDuel(this);
 			return;
 		}
 
@@ -742,7 +741,7 @@ public class Duel
 		//clean up
 		_playerConditions.clear();
 		_playerConditions = null;
-		DuelManager.getInstance().removeDuel(this);
+		DuelService.getInstance().removeDuel(this);
 	}
 
 	/**

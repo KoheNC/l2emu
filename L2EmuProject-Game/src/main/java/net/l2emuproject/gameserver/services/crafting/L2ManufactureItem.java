@@ -26,7 +26,7 @@ public class L2ManufactureItem
 		_recipeId = recipeId;
 		_cost = cost;
 		
-		_isDwarven = RecipeController.getInstance().getRecipeList(_recipeId).isDwarvenRecipe();
+		_isDwarven = RecipeService.getInstance().getRecipeList(_recipeId).isDwarvenRecipe();
 	}
 
 	public int getRecipeId()

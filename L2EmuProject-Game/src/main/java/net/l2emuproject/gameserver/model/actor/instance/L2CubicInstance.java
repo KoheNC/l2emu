@@ -21,7 +21,6 @@ import javolution.util.FastList;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.SkillHandler;
-import net.l2emuproject.gameserver.instancemanager.DuelManager;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
@@ -29,6 +28,7 @@ import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
+import net.l2emuproject.gameserver.services.duel.DuelService;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.taskmanager.AttackStanceTaskManager;
@@ -330,10 +330,10 @@ public class L2CubicInstance
 			// Duel targeting
 			if (_owner.getPlayerDuel().isInDuel())
 			{
-				L2PcInstance PlayerA = DuelManager.getInstance().getDuel(_owner.getPlayerDuel().getDuelId()).getPlayerA();
-				L2PcInstance PlayerB = DuelManager.getInstance().getDuel(_owner.getPlayerDuel().getDuelId()).getPlayerB();
+				L2PcInstance PlayerA = DuelService.getInstance().getDuel(_owner.getPlayerDuel().getDuelId()).getPlayerA();
+				L2PcInstance PlayerB = DuelService.getInstance().getDuel(_owner.getPlayerDuel().getDuelId()).getPlayerB();
 
-				if (DuelManager.getInstance().getDuel(_owner.getPlayerDuel().getDuelId()).isPartyDuel())
+				if (DuelService.getInstance().getDuel(_owner.getPlayerDuel().getDuelId()).isPartyDuel())
 				{
 					L2Party partyA = PlayerA.getParty();
 					L2Party partyB = PlayerB.getParty();
@@ -605,7 +605,7 @@ public class L2CubicInstance
 		// If owner is in a duel but not in a party duel, then it is the same as
 		// he does not have a party
 		if (_owner.getPlayerDuel().isInDuel())
-			if (!DuelManager.getInstance().getDuel(_owner.getPlayerDuel().getDuelId()).isPartyDuel())
+			if (!DuelService.getInstance().getDuel(_owner.getPlayerDuel().getDuelId()).isPartyDuel())
 				party = null;
 
 		if (party != null && !_owner.getPlayerOlympiad().isInOlympiadMode())

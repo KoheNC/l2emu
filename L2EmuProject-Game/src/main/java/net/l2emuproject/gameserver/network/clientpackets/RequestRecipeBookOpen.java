@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
-import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.crafting.RecipeService;
 
 public class RequestRecipeBookOpen extends L2GameClientPacket
 {
@@ -48,7 +48,7 @@ public class RequestRecipeBookOpen extends L2GameClientPacket
 			return;
 		}
 
-		RecipeController.getInstance().requestBookOpen(player, _isDwarvenCraft);
+		RecipeService.getInstance().requestBookOpen(player, _isDwarvenCraft);
 
 		sendAF();
 	}
