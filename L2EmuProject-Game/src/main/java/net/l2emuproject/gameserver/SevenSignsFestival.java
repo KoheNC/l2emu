@@ -40,7 +40,6 @@ import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.model.spawn.SpawnListener;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
@@ -49,6 +48,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.util.L2Timer;
 

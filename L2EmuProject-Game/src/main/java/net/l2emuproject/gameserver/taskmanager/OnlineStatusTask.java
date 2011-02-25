@@ -19,7 +19,7 @@ import java.util.Collection;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
+import net.l2emuproject.gameserver.world.L2World;
 
 /**
  * @author lord_rex

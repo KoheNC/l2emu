@@ -24,11 +24,11 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeSummonInstance;
-import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
+import net.l2emuproject.gameserver.world.Location;
 
 /**
  * @author littlecrow Implementation of the Fear Effect

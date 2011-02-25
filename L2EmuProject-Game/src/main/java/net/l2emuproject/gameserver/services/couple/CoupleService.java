@@ -22,7 +22,7 @@ import javolution.util.FastList;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
+import net.l2emuproject.gameserver.world.L2World;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

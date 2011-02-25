@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.serverpackets.ExCursedWeaponLocation;
 import net.l2emuproject.gameserver.network.serverpackets.ExCursedWeaponLocation.CursedWeaponInfo;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeapon;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
+import net.l2emuproject.gameserver.world.Location;
 
 
 /**

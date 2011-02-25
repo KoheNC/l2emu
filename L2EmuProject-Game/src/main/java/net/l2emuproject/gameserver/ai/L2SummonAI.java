@@ -21,8 +21,8 @@ import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Character.AIAccessor;
 import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2MerchantSummonInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.L2Object;
 
 
 public class L2SummonAI extends L2CharacterAI

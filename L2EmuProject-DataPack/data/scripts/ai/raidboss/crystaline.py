@@ -10,7 +10,7 @@ from net.l2emuproject.tools.random import Rnd
 from net.l2emuproject.gameserver.model.item import L2ItemInstance
 from net.l2emuproject.gameserver.ai import CtrlIntention
 from net.l2emuproject.gameserver.model import L2CharPosition
-from net.l2emuproject.gameserver.model.world import L2World
+from net.l2emuproject.gameserver.world import L2World
 from net.l2emuproject.gameserver.network.serverpackets  import MagicSkillUse
 
 npcid = 32328

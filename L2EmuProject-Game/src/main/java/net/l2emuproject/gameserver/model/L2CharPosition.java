@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.model;
 
 import net.l2emuproject.gameserver.model.spawn.L2Spawn;
-import net.l2emuproject.gameserver.model.world.Location;
+import net.l2emuproject.gameserver.world.Location;
 
 /**
  * This class permit to pass (x, y, z, heading) position data to method.<BR>

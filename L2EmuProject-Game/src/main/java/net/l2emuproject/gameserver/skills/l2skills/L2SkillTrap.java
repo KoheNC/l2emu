@@ -21,10 +21,10 @@ import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Trap;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2TrapInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.L2World;
 
 public class L2SkillTrap extends L2SkillSummon
 {

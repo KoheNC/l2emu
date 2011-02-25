@@ -18,10 +18,10 @@ import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
+import net.l2emuproject.gameserver.world.L2Object;
 
 public class AdminElement implements IAdminCommandHandler
 {

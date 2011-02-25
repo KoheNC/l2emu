@@ -31,8 +31,8 @@ import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.itemcontainer.ClanWarehouse;
 import net.l2emuproject.gameserver.model.itemcontainer.ItemContainer;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;

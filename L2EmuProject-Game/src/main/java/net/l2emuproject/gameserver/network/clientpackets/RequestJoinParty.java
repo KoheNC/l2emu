@@ -18,10 +18,10 @@ import net.l2emuproject.gameserver.model.BlockList;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.AskJoinParty;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.L2World;
 
 /**
  * sample 29 42 00 00 10 01 00 00 00

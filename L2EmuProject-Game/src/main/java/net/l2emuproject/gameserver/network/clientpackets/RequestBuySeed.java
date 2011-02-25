@@ -23,7 +23,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2ManorManagerInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
@@ -32,6 +31,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.SeedProduction;
 import net.l2emuproject.gameserver.templates.item.L2Item;
+import net.l2emuproject.gameserver.world.L2Object;
 
 
 /**

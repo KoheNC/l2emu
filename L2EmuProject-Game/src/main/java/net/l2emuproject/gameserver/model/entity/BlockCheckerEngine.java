@@ -34,7 +34,6 @@ import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.model.restriction.global.BlockCheckerRestriction;
 import net.l2emuproject.gameserver.model.spawn.L2Spawn;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -47,6 +46,7 @@ import net.l2emuproject.gameserver.network.serverpackets.RelationChanged;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.tools.random.Rnd;
 
 /**

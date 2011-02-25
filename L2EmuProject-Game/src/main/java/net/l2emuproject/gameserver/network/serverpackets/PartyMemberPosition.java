@@ -19,7 +19,7 @@ import java.util.Map;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
-import net.l2emuproject.gameserver.model.world.Location;
+import net.l2emuproject.gameserver.world.Location;
 
 /**
  * @author zabbix

@@ -21,12 +21,12 @@ import net.l2emuproject.gameserver.model.actor.L2Guard;
 import net.l2emuproject.gameserver.model.actor.knownlist.CharKnownList;
 import net.l2emuproject.gameserver.model.actor.knownlist.GuardKnownList;
 import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.world.L2World;
-import net.l2emuproject.gameserver.model.world.L2WorldRegion;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.tools.random.Rnd;
 
 

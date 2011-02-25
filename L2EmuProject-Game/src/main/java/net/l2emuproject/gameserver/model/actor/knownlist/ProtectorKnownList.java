@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.model.actor.knownlist;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
-import net.l2emuproject.gameserver.model.world.L2Object;
+import net.l2emuproject.gameserver.world.L2Object;
 
 /**
  * @author Ederik

@@ -35,7 +35,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
 import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.AutoAttackStop;
@@ -46,6 +45,7 @@ import net.l2emuproject.gameserver.taskmanager.AttackStanceTaskManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.tools.geometry.Point3D;
 import net.l2emuproject.util.L2Collections;
 

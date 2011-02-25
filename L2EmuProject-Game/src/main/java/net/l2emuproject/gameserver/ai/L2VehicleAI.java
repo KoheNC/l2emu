@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.ai;
 
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Vehicle;
-import net.l2emuproject.gameserver.model.world.L2Object;
+import net.l2emuproject.gameserver.world.L2Object;
 
 /**
  * @author DS

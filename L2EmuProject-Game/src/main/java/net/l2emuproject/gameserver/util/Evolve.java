@@ -23,11 +23,11 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2SummonItem;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.L2World;
 
 public final class Evolve
 {

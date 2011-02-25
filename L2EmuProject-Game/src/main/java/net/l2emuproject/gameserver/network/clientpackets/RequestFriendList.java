@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.L2World;
 
 public final class RequestFriendList extends L2GameClientPacket
 {

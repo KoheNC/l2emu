@@ -20,8 +20,6 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -30,6 +28,8 @@ import net.l2emuproject.gameserver.services.couple.CoupleService;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.L2World;
 
 /**
  * @author evill33t & squeezed

@@ -43,12 +43,12 @@ import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
 import net.l2emuproject.gameserver.model.base.Experience;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.PetInfo;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.lang.L2TextBuilder;
 
 import org.apache.commons.logging.Log;

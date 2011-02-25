@@ -18,7 +18,7 @@ import java.util.Set;
 
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
+import net.l2emuproject.gameserver.world.L2World;
 
 /**
  * Support for "Chat with Friends" dialog. This packet is sent only at login.

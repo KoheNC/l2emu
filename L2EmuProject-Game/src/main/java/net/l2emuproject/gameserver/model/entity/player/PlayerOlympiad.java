@@ -18,9 +18,9 @@ import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.actor.instance.L2CubicInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
-import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.serverpackets.ExOlympiadMode;
 import net.l2emuproject.gameserver.network.serverpackets.GMHide;
+import net.l2emuproject.gameserver.world.Location;
 
 public final class PlayerOlympiad extends PlayerExtension
 {

@@ -35,10 +35,10 @@ import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.entity.FortSiege;
 import net.l2emuproject.gameserver.model.item.CombatFlag;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.Location;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

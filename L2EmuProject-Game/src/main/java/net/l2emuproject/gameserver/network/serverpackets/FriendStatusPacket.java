@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.datatables.CharNameTable;
-import net.l2emuproject.gameserver.model.world.L2World;
+import net.l2emuproject.gameserver.world.L2World;
 
 /**
  * Support for "Chat with Friends" dialog. <BR>

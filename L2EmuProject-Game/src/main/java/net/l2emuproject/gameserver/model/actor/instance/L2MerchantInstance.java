@@ -21,7 +21,6 @@ import net.l2emuproject.gameserver.datatables.MerchantPriceConfigTable;
 import net.l2emuproject.gameserver.datatables.MerchantPriceConfigTable.MerchantPriceConfig;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
 import net.l2emuproject.gameserver.model.actor.L2Merchant;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.BuyList;
@@ -34,6 +33,7 @@ import net.l2emuproject.gameserver.services.transactions.L2TradeList;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.lang.L2TextBuilder;
 
 /**

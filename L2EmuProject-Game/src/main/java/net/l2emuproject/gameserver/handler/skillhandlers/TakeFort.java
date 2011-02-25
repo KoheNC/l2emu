@@ -19,12 +19,12 @@ import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Fort;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2Object;
 
 /**
  * @author _drunk_

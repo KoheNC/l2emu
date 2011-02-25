@@ -15,9 +15,9 @@
 package net.l2emuproject.status.commands;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
 import net.l2emuproject.gameserver.services.transactions.TradeList.TradeItem;
+import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.status.GameStatusCommand;
 
 public final class GameStat extends GameStatusCommand

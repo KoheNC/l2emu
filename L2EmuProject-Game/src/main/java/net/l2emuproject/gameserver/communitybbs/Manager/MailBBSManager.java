@@ -26,10 +26,10 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.model.BlockList;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExMailArrived;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.lang.L2TextBuilder;
 
 import org.apache.commons.lang.StringUtils;

@@ -26,7 +26,6 @@ import net.l2emuproject.gameserver.instancemanager.FourSepulchersManager;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.tools.random.Rnd;
 
 

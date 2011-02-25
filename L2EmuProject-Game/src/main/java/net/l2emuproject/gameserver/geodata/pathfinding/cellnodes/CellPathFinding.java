@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.geodata.pathfinding.cellnodes;
 import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.geodata.pathfinding.Node;
 import net.l2emuproject.gameserver.geodata.pathfinding.PathFinding;
-import net.l2emuproject.gameserver.model.world.L2World;
+import net.l2emuproject.gameserver.world.L2World;
 
 /**
  * @author Sami

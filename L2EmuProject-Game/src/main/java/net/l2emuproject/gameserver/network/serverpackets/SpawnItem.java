@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
+import net.l2emuproject.gameserver.world.L2Object;
 
 /**
  * 15

@@ -22,7 +22,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
-import net.l2emuproject.gameserver.model.world.Location;
+import net.l2emuproject.gameserver.world.Location;
 import quests._255_Tutorial.Tutorial;
 
 /**

@@ -34,7 +34,6 @@ import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.model.spawn.L2Spawn;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
@@ -42,6 +41,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.script.DateRange;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.tools.random.Rnd;
 
 /**

@@ -20,9 +20,9 @@ import net.l2emuproject.gameserver.instancemanager.games.HandysBlockCheckerManag
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2BlockInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
+import net.l2emuproject.gameserver.world.L2Object;
 
 public final class Dummy implements ISkillHandler
 {

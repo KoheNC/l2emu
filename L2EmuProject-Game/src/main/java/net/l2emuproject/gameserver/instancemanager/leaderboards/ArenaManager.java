@@ -28,11 +28,11 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2World;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;

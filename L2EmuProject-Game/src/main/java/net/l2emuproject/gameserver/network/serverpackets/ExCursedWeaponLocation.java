@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.model.world.Location;
+import net.l2emuproject.gameserver.world.Location;
 
 
 /**

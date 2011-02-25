@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.serverpackets.RecipeShopSellList;
+import net.l2emuproject.gameserver.world.L2World;
 
 /**
  * Packet sent when player clicks "< Previous" button when viewing a selected recipe in the

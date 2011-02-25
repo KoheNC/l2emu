@@ -39,8 +39,6 @@ import net.l2emuproject.gameserver.model.base.Experience;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PetInventory;
 import net.l2emuproject.gameserver.model.party.L2Party;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.L2WorldRegion;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.AbstractNpcInfo;
@@ -64,6 +62,8 @@ import net.l2emuproject.gameserver.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.L2WorldRegion;
 
 public abstract class L2Summon extends L2Playable
 {

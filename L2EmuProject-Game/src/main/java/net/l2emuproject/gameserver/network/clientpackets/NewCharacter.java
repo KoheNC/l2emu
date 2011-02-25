@@ -36,7 +36,6 @@ import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.serverpackets.CharSelectionInfo;
 import net.l2emuproject.gameserver.network.serverpackets.CharacterCreateFail;
@@ -47,6 +46,7 @@ import net.l2emuproject.gameserver.skills.L2SkillLearn;
 import net.l2emuproject.gameserver.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.templates.chars.L2PcTemplate;
 import net.l2emuproject.gameserver.templates.chars.L2PcTemplate.PcTemplateItem;
+import net.l2emuproject.gameserver.world.L2World;
 
 
 /**

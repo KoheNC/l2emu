@@ -18,9 +18,9 @@ import java.util.Map;
 
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.L2WorldRegion;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.util.L2Collections;
 import net.l2emuproject.util.SingletonMap;
 

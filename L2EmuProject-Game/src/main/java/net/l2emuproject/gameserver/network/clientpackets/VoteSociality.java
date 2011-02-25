@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.L2World;
 
 public class VoteSociality extends L2GameClientPacket
 {

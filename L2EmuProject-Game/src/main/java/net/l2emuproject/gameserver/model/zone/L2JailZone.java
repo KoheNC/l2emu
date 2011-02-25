@@ -18,7 +18,7 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.Location;
+import net.l2emuproject.gameserver.world.Location;
 
 public class L2JailZone extends L2Zone
 {

@@ -30,7 +30,6 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Config;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.L2GameClient.GameClientState;
@@ -52,6 +51,7 @@ import net.l2emuproject.gameserver.network.loginserverpackets.PlayerAuthResponse
 import net.l2emuproject.gameserver.network.loginserverpackets.PlayerLoginAttempt;
 import net.l2emuproject.gameserver.network.serverpackets.CharSelectionInfo;
 import net.l2emuproject.gameserver.network.serverpackets.LoginFail;
+import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.network.NetworkThread;
 import net.l2emuproject.network.ServerStatus;
 import net.l2emuproject.network.ServerStatusAttributes;

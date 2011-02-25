@@ -21,7 +21,6 @@ import net.l2emuproject.gameserver.model.entity.Message;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
 import net.l2emuproject.gameserver.model.itemcontainer.ItemContainer;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExChangePostState;
@@ -31,6 +30,7 @@ import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2World;
 
 /**
  * @author Migi, DS

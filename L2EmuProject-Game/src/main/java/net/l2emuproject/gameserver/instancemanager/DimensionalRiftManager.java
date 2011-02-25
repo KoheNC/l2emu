@@ -32,11 +32,11 @@ import net.l2emuproject.gameserver.model.entity.DimensionalRift;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.spawn.L2Spawn;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;

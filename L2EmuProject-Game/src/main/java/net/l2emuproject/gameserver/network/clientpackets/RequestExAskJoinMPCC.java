@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExAskJoinMPCC;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.L2World;
 
 public class RequestExAskJoinMPCC extends L2GameClientPacket
 {

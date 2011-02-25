@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.zone.form;
 
-import net.l2emuproject.gameserver.model.world.Location;
+import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.tools.random.Rnd;
 

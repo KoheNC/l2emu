@@ -20,11 +20,11 @@ import javolution.util.FastList;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
+import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.tools.random.Rnd;
 
 

@@ -24,10 +24,10 @@ import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
+import net.l2emuproject.gameserver.world.L2World;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

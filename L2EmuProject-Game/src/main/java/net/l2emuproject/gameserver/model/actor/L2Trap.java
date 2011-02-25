@@ -112,7 +112,7 @@ public class L2Trap extends L2Character
 
 	/**
 	 *
-	 * @see net.l2emuproject.gameserver.model.world.L2Object#isAutoAttackable(net.l2emuproject.gameserver.model.actor.L2Character)
+	 * @see net.l2emuproject.gameserver.world.L2Object#isAutoAttackable(net.l2emuproject.gameserver.model.actor.L2Character)
 	 */
 	@Override
 	public boolean isAutoAttackable(L2Character attacker)

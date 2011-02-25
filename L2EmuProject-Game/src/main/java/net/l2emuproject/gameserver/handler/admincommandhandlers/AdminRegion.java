@@ -30,7 +30,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.model.mapregion.L2MapRegionRestart;
 import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
-import net.l2emuproject.gameserver.model.world.Location;
+import net.l2emuproject.gameserver.world.Location;
 
 
 /**

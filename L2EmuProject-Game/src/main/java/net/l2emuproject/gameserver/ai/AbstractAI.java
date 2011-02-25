@@ -24,7 +24,6 @@ import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.AutoAttackStart;
 import net.l2emuproject.gameserver.network.serverpackets.AutoAttackStop;
@@ -38,6 +37,7 @@ import net.l2emuproject.gameserver.skills.SkillUsageRequest;
 import net.l2emuproject.gameserver.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.taskmanager.AttackStanceTaskManager;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.lang.L2System;
 

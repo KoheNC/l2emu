@@ -19,10 +19,10 @@ import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControllableMobInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.L2World;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

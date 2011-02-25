@@ -20,8 +20,8 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.L2World;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.L2World;
 
 public class RequestPetGetItem extends L2GameClientPacket
 {

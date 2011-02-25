@@ -19,7 +19,7 @@ import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2CCHBossInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
-import net.l2emuproject.gameserver.model.world.L2Object;
+import net.l2emuproject.gameserver.world.L2Object;
 
 /**
  * @author savormix

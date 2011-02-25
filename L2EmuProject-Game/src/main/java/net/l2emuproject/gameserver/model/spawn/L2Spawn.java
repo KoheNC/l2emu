@@ -31,9 +31,9 @@ import net.l2emuproject.gameserver.model.actor.instance.L2MinionInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2TrapInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.lang.ArrayUtils;

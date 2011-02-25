@@ -41,11 +41,11 @@ import net.l2emuproject.gameserver.model.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.model.mapregion.L2MapRegionRestart;
 import net.l2emuproject.gameserver.model.mapregion.L2SpecialMapRegion;
 import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
-import net.l2emuproject.gameserver.model.world.L2World;
-import net.l2emuproject.gameserver.model.world.L2WorldRegion;
-import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.L2WorldRegion;
+import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.util.L2Collections;
 import net.l2emuproject.util.LookupTable;
 

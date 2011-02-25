@@ -21,11 +21,11 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.model.entity.Castle;
-import net.l2emuproject.gameserver.model.world.L2World;
-import net.l2emuproject.gameserver.model.world.L2WorldRegion;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.model.zone.L2Zone.ZoneType;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.L2WorldRegion;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.logging.Log;

@@ -36,14 +36,14 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.skills.SkillsEngine;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.item.L2ArmorType;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.util.L2Collections;
 
 import org.apache.commons.logging.Log;

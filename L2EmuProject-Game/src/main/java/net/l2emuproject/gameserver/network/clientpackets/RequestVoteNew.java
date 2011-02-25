@@ -15,13 +15,13 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExBrExtraUserInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ExVoteSystemInfo;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
+import net.l2emuproject.gameserver.world.L2Object;
 
 public final class RequestVoteNew extends L2GameClientPacket
 {

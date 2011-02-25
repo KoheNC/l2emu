@@ -42,8 +42,6 @@ import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.model.itemcontainer.PetInventory;
 import net.l2emuproject.gameserver.model.npc.L2PetData;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
@@ -61,6 +59,8 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.tools.random.Rnd;
 
 

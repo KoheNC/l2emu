@@ -27,11 +27,11 @@ import net.l2emuproject.gameserver.model.actor.instance.L2MerchantSummonInstance
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExHeroList;
 import net.l2emuproject.gameserver.network.serverpackets.GMViewPledgeInfo;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.world.L2Object;
 
 import org.mmocore.network.InvalidPacketException;
 

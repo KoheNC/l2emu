@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.taskmanager;
 
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.L2World;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.L2World;
 
 /**
  * It removes accidently leaked objects from knownlists :)

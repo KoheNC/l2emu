@@ -41,14 +41,14 @@ import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.spawn.L2Spawn;
-import net.l2emuproject.gameserver.model.world.L2World;
-import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.Location;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

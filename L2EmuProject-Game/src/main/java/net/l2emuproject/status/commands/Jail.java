@@ -22,8 +22,8 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.model.zone.L2JailZone;
+import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.status.GameStatusCommand;
 
 public final class Jail extends GameStatusCommand

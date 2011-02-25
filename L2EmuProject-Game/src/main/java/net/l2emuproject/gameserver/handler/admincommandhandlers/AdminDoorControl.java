@@ -21,7 +21,7 @@ import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
-import net.l2emuproject.gameserver.model.world.L2Object;
+import net.l2emuproject.gameserver.world.L2Object;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

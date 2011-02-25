@@ -26,10 +26,10 @@ import net.l2emuproject.gameserver.model.actor.instance.L2CastleChamberlainInsta
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
+import net.l2emuproject.gameserver.world.L2Object;
 
 
 /**

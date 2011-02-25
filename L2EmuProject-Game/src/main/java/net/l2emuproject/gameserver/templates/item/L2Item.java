@@ -19,7 +19,6 @@ import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.skills.Env;
@@ -27,6 +26,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.conditions.Condition;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
 import net.l2emuproject.gameserver.templates.StatsSet;
+import net.l2emuproject.gameserver.world.L2Object;
 
 import org.apache.commons.lang.ArrayUtils;
 

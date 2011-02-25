@@ -29,8 +29,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.restriction.global.CursedWeaponRestriction;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
-import net.l2emuproject.gameserver.model.world.L2World;
-import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Earthquake;
 import net.l2emuproject.gameserver.network.serverpackets.ExRedSky;
@@ -41,6 +39,8 @@ import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.item.L2Item;
+import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;

@@ -21,7 +21,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.knownlist.PlayableKnownList;
 import net.l2emuproject.gameserver.model.actor.stat.PlayableStat;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
@@ -34,6 +33,7 @@ import net.l2emuproject.gameserver.taskmanager.MovementController;
 import net.l2emuproject.gameserver.taskmanager.PacketBroadcaster.BroadcastMode;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
+import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.tools.random.Rnd;
 

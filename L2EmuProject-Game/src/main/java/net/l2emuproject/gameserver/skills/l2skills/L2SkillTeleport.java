@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.skills.l2skills;
 
-import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
+import net.l2emuproject.gameserver.world.Location;
 
 public final class L2SkillTeleport extends L2Skill
 {

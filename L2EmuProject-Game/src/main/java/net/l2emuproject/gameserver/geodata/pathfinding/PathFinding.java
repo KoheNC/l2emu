@@ -22,7 +22,7 @@ import net.l2emuproject.gameserver.geodata.pathfinding.cellnodes.CellPathFinding
 import net.l2emuproject.gameserver.geodata.pathfinding.geonodes.GeoPathFinding;
 import net.l2emuproject.gameserver.geodata.pathfinding.utils.BinaryNodeHeap;
 import net.l2emuproject.gameserver.geodata.pathfinding.utils.CellNodeMap;
-import net.l2emuproject.gameserver.model.world.L2World;
+import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.util.L2Arrays;
 import net.l2emuproject.util.L2Collections;
 import net.l2emuproject.util.L2FastSet;

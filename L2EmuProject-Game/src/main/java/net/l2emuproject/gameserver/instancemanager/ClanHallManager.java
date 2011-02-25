@@ -26,8 +26,8 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.services.auction.AuctionService;
+import net.l2emuproject.gameserver.world.L2Object;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

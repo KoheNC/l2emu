@@ -22,12 +22,12 @@ import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance.TeleportMode;
 import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
-import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillRecall;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillTeleport;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
+import net.l2emuproject.gameserver.world.Location;
 
 public class Recall extends ISkillConditionChecker
 {

@@ -23,10 +23,10 @@ import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.VehiclePathPoint;
 import net.l2emuproject.gameserver.model.actor.instance.L2BoatInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
+import net.l2emuproject.gameserver.world.L2World;
 
 public class BoatManager
 {

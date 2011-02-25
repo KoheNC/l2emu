@@ -35,9 +35,9 @@ import net.l2emuproject.gameserver.geodata.pathfinding.cellnodes.CellPathFinding
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.L2World;
-import net.l2emuproject.gameserver.model.world.Location;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.tools.geometry.Point3D;
 import net.l2emuproject.util.L2Arrays;
 import net.l2emuproject.util.LookupTable;

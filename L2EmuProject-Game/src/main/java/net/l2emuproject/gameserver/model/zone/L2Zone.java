@@ -33,8 +33,6 @@ import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.world.L2Object;
-import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.model.zone.form.Shape;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
@@ -42,6 +40,8 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
+import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.util.L2Collections;
 

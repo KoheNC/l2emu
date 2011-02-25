@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.model.actor.knownlist;
 
 import net.l2emuproject.gameserver.model.actor.L2Decoy;
-import net.l2emuproject.gameserver.model.world.L2Object;
+import net.l2emuproject.gameserver.world.L2Object;
 
 public class DecoyKnownList extends CharKnownList
 {

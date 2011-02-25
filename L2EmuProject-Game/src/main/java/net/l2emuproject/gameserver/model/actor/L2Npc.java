@@ -81,7 +81,6 @@ import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.model.spawn.L2Spawn;
-import net.l2emuproject.gameserver.model.world.L2WorldRegion;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.AbstractNpcInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -104,6 +103,7 @@ import net.l2emuproject.gameserver.templates.item.L2Weapon;
 import net.l2emuproject.gameserver.templates.skills.L2BuffTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.util.StringUtil;
+import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.lang.L2TextBuilder;
 import net.l2emuproject.tools.random.Rnd;
@@ -2170,7 +2170,7 @@ public class L2Npc extends L2Character
 	 * <FONT COLOR=#FF0000><B> <U>Caution</U> : This method DOESN'T REMOVE the object from _allObjects of L2World </B></FONT><BR>
 	 * <FONT COLOR=#FF0000><B> <U>Caution</U> : This method DOESN'T SEND Server->Client packets to players</B></FONT><BR><BR>
 	 *
-	 * @see net.l2emuproject.gameserver.model.world.L2Object#decayMe()
+	 * @see net.l2emuproject.gameserver.world.L2Object#decayMe()
 	 */
 	@Override
 	public void onDecay()

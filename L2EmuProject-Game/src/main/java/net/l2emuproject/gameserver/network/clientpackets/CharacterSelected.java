@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.L2GameClient.GameClientState;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.CharSelected;
+import net.l2emuproject.gameserver.world.L2World;
 
 public final class CharacterSelected extends L2GameClientPacket
 {

@@ -26,7 +26,7 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.position.ObjectPosition;
-import net.l2emuproject.gameserver.model.world.L2Object;
+import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.tools.util.CustomFileNameFilter;
 import net.l2emuproject.util.ValueSortMap;

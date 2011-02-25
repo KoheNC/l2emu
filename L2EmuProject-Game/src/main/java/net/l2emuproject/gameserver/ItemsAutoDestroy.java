@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.instancemanager.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
+import net.l2emuproject.gameserver.world.L2World;
 
 public final class ItemsAutoDestroy extends AbstractIterativePeriodicTaskManager<L2ItemInstance>
 {

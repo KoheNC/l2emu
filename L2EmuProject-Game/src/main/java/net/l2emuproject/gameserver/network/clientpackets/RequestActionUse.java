@@ -27,7 +27,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2StaticObjectInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
-import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -37,6 +36,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.L2Object;
 
 /**
  * This class represents a packet sent by the client when a player uses one of the buttons
