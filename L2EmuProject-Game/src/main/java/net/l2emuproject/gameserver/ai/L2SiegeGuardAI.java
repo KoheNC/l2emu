@@ -18,7 +18,6 @@ import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
 import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
 import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
 import net.l2emuproject.gameserver.GameTimeController;
-import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
@@ -33,6 +32,7 @@ import net.l2emuproject.gameserver.taskmanager.AbstractIterativePeriodicTaskMana
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.geodata.GeoData;
 import net.l2emuproject.tools.random.Rnd;
 
 

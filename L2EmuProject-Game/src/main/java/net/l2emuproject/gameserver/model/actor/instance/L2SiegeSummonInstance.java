@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.model.entity.Siege;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillSummon;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
  
 public class L2SiegeSummonInstance extends L2SummonInstance
 {

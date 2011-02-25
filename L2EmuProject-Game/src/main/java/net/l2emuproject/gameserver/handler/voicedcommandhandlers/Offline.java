@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.handler.voicedcommandhandlers;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IVoicedCommandHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public class Offline implements IVoicedCommandHandler
 {

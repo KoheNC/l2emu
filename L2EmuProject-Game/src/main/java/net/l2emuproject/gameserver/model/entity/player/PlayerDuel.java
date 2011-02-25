@@ -18,10 +18,10 @@ import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.restriction.global.DuelRestriction;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.duel.Duel;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public final class PlayerDuel extends PlayerExtension
 {

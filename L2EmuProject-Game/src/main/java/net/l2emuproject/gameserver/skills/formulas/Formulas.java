@@ -43,7 +43,6 @@ import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.entity.Siege;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.Calculator;
 import net.l2emuproject.gameserver.skills.Env;
@@ -61,6 +60,7 @@ import net.l2emuproject.gameserver.templates.item.L2WeaponType;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.util.Util.Direction;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.tools.random.Rnd;
 

@@ -22,7 +22,6 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.L2CharPosition;
@@ -39,7 +38,6 @@ import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -58,6 +56,8 @@ import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.geodata.GeoData;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 
 /**

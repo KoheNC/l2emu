@@ -30,13 +30,13 @@ import net.l2emuproject.gameserver.model.actor.instance.L2ControllableAirShipIns
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.zone.L2ScriptZone;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.zone.L2ScriptZone;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public abstract class AirShipController extends Quest
 {

@@ -21,8 +21,6 @@ import net.l2emuproject.gameserver.cache.HtmCache;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.knownlist.CharKnownList;
-import net.l2emuproject.gameserver.model.actor.knownlist.StaticObjectKnownList;
 import net.l2emuproject.gameserver.model.actor.stat.CharStat;
 import net.l2emuproject.gameserver.model.actor.stat.StaticObjStat;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
@@ -35,6 +33,8 @@ import net.l2emuproject.gameserver.network.serverpackets.StaticObject;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.knownlist.CharKnownList;
+import net.l2emuproject.gameserver.world.knownlist.StaticObjectKnownList;
 import net.l2emuproject.lang.L2TextBuilder;
 
 

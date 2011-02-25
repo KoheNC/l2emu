@@ -18,7 +18,7 @@ import javolution.util.FastList;
 import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
 import net.l2emuproject.gameserver.instancemanager.FortSiegeManager.SiegeSpawn;
 import net.l2emuproject.gameserver.model.entity.Fort;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 
 /**

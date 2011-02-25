@@ -22,8 +22,8 @@ import java.util.List;
 import javolution.util.FastList;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

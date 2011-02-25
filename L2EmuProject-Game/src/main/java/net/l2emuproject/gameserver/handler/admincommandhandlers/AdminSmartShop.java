@@ -33,7 +33,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.ClassId;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -49,6 +48,7 @@ import net.l2emuproject.gameserver.templates.item.L2EtcItem;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

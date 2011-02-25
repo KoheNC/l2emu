@@ -27,13 +27,13 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.BlockCheckerEngine;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExCubeGameAddPlayer;
 import net.l2emuproject.gameserver.network.serverpackets.ExCubeGameChangeTeam;
 import net.l2emuproject.gameserver.network.serverpackets.ExCubeGameRemovePlayer;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
  * @author BiggBoss

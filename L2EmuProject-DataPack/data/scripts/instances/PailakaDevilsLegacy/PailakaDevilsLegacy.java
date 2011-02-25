@@ -27,10 +27,10 @@ import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.lang.ArrayUtils;

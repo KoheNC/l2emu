@@ -28,8 +28,8 @@ import net.l2emuproject.gameserver.model.actor.instance.L2ClassMasterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2WyvernManagerInstance;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

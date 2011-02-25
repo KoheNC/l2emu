@@ -28,10 +28,10 @@ import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.GrandBossState;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 
 

@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
  * @author kerberos

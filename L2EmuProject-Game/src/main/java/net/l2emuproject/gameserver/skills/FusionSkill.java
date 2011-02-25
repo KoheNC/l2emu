@@ -17,11 +17,11 @@ package net.l2emuproject.gameserver.skills;
 import java.util.concurrent.Future;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.skills.effects.EffectFusion;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillFusion;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.geodata.GeoData;
 
 
 /**

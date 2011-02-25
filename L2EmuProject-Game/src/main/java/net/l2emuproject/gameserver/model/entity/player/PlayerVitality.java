@@ -20,8 +20,8 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.stat.PcStat;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.serverpackets.ExVitalityPointInfo;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public final class PlayerVitality extends PlayerExtension
 {

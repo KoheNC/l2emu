@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.L2GameClient;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
  * @author Luca Baldi

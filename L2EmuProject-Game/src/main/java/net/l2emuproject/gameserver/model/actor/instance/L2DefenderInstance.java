@@ -23,8 +23,6 @@ import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Guard;
-import net.l2emuproject.gameserver.model.actor.knownlist.CharKnownList;
-import net.l2emuproject.gameserver.model.actor.knownlist.DefenderKnownList;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -32,6 +30,8 @@ import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.knownlist.CharKnownList;
+import net.l2emuproject.gameserver.world.knownlist.DefenderKnownList;
 
 public class L2DefenderInstance extends L2Guard
 {

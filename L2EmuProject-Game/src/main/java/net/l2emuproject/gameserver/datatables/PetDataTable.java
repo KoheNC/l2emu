@@ -22,7 +22,7 @@ import java.sql.SQLException;
 import javolution.util.FastMap;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
-import net.l2emuproject.gameserver.model.npc.L2PetData;
+import net.l2emuproject.gameserver.world.npc.L2PetData;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

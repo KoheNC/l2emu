@@ -32,13 +32,13 @@ import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.entity.FortSiege;
 import net.l2emuproject.gameserver.model.entity.Siege;
-import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
-import net.l2emuproject.gameserver.model.zone.L2JailZone;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Die;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
+import net.l2emuproject.gameserver.world.zone.L2JailZone;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public class RequestRestartPoint extends L2GameClientPacket
 {

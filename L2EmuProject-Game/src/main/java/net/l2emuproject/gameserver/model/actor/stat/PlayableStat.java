@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.model.actor.stat;
 import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.base.Experience;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public abstract class PlayableStat extends CharStat
 {

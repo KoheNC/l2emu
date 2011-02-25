@@ -21,10 +21,10 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.knownlist.CharKnownList;
-import net.l2emuproject.gameserver.model.actor.knownlist.MonsterKnownList;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.MinionList;
+import net.l2emuproject.gameserver.world.knownlist.CharKnownList;
+import net.l2emuproject.gameserver.world.knownlist.MonsterKnownList;
 import net.l2emuproject.tools.random.Rnd;
 
 

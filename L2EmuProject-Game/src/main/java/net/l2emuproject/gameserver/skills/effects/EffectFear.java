@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.skills.effects;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2FortCommanderInstance;
@@ -29,6 +28,7 @@ import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.geodata.GeoData;
 
 /**
  * @author littlecrow Implementation of the Fear Effect

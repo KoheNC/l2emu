@@ -25,7 +25,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad.COMP_TYPE;
 import net.l2emuproject.gameserver.model.party.L2Party;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
@@ -39,6 +38,7 @@ import net.l2emuproject.gameserver.skills.l2skills.L2SkillSummon;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

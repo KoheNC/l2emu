@@ -24,7 +24,6 @@ import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.clientpackets.ConfirmDlgAnswer.AnswerHandler;
 import net.l2emuproject.gameserver.network.serverpackets.ConfirmDlg;
@@ -32,6 +31,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
  * @authors BiTi, Sami

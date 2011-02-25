@@ -39,11 +39,11 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Hero;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.model.restriction.global.OlympiadRestriction;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.StatsSet;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.geodata.GeoData;
 
 public class L2FlameControlTowerInstance extends L2Npc
 {

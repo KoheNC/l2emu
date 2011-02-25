@@ -30,9 +30,9 @@ import javolution.xml.stream.XMLStreamException;
 import javolution.xml.stream.XMLStreamReaderImpl;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Instance;
+import net.l2emuproject.gameserver.world.geodata.GeoData;
 import net.l2emuproject.util.L2FastSet;
 import net.l2emuproject.util.LookupTable;
 

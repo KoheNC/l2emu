@@ -28,9 +28,9 @@ import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.reference.ImmutableReference;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.lang.L2Thread;
 import net.l2emuproject.util.L2FastSet;
 

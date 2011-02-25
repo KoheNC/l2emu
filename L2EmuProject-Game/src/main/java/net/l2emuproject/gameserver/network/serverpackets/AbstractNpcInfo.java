@@ -26,10 +26,10 @@ import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.skills.AbnormalEffect;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public abstract class AbstractNpcInfo extends L2GameServerPacket
 {

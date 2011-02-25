@@ -19,11 +19,11 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.PrivateStoreManageListBuy;
 import net.l2emuproject.gameserver.network.serverpackets.PrivateStoreMsgBuy;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public class SetPrivateStoreListBuy extends L2GameClientPacket
 {

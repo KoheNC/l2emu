@@ -26,7 +26,6 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.PetDataTable;
-import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.handler.ItemHandler;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.ItemsOnGroundManager;
@@ -41,7 +40,6 @@ import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.model.itemcontainer.PetInventory;
-import net.l2emuproject.gameserver.model.npc.L2PetData;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
@@ -61,6 +59,8 @@ import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
 import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.geodata.GeoData;
+import net.l2emuproject.gameserver.world.npc.L2PetData;
 import net.l2emuproject.tools.random.Rnd;
 
 

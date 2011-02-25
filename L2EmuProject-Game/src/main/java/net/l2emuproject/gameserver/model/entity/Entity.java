@@ -19,10 +19,10 @@ import java.util.List;
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;

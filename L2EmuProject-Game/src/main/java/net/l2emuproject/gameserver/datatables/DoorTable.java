@@ -22,7 +22,6 @@ import java.util.StringTokenizer;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
@@ -32,6 +31,7 @@ import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
+import net.l2emuproject.gameserver.world.geodata.GeoData;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;

@@ -29,10 +29,10 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
-import net.l2emuproject.gameserver.model.spawn.SpawnListener;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
+import net.l2emuproject.gameserver.world.spawn.SpawnListener;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;

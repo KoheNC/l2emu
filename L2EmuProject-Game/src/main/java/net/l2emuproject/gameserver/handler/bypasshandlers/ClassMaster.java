@@ -26,11 +26,11 @@ import net.l2emuproject.gameserver.model.actor.L2Npc.DestroyTemporalNPC;
 import net.l2emuproject.gameserver.model.actor.L2Npc.DestroyTemporalSummon;
 import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.lang.L2TextBuilder;
 import net.l2emuproject.tools.random.Rnd;
 

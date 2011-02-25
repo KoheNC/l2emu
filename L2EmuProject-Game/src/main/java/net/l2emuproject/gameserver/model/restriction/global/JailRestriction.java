@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.model.restriction.global;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
  * @author NB4L1

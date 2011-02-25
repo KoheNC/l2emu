@@ -27,8 +27,8 @@ import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 /**
  * 

@@ -21,8 +21,8 @@ import net.l2emuproject.gameserver.datatables.NpcWalkerRoutesTable;
 import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcWalkerInstance;
-import net.l2emuproject.gameserver.model.npc.L2NpcWalkerNode;
 import net.l2emuproject.gameserver.taskmanager.AbstractIterativePeriodicTaskManager;
+import net.l2emuproject.gameserver.world.npc.L2NpcWalkerNode;
 
 
 public class L2NpcWalkerAI extends L2CharacterAI implements Runnable

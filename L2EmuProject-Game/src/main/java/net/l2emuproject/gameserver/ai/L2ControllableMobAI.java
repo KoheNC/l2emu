@@ -27,11 +27,11 @@ import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControllableMobInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
-import net.l2emuproject.gameserver.model.npc.MobGroup;
-import net.l2emuproject.gameserver.model.npc.MobGroupTable;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.npc.MobGroup;
+import net.l2emuproject.gameserver.world.npc.MobGroupTable;
 import net.l2emuproject.tools.random.Rnd;
 
 

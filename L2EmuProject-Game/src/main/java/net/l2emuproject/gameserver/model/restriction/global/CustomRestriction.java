@@ -25,9 +25,9 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.events.TvT;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 
 /**

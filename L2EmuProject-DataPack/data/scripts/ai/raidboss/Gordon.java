@@ -22,7 +22,7 @@ import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import ai.L2AttackableAIScript;
 
 /**

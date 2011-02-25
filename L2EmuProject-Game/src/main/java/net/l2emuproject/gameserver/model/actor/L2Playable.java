@@ -18,7 +18,6 @@ import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.actor.knownlist.PlayableKnownList;
 import net.l2emuproject.gameserver.model.actor.stat.PlayableStat;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -34,6 +33,7 @@ import net.l2emuproject.gameserver.taskmanager.PacketBroadcaster.BroadcastMode;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.knownlist.PlayableKnownList;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.tools.random.Rnd;
 

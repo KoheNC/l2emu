@@ -22,7 +22,6 @@ import net.l2emuproject.gameserver.model.entity.Message;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Mail;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExNoticePostSent;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
@@ -30,6 +29,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

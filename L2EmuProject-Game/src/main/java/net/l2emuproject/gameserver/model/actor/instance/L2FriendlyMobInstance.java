@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.knownlist.CharKnownList;
-import net.l2emuproject.gameserver.model.actor.knownlist.FriendlyMobKnownList;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.knownlist.CharKnownList;
+import net.l2emuproject.gameserver.world.knownlist.FriendlyMobKnownList;
 
 /**
  * This class represents Friendly Mobs lying over the world.

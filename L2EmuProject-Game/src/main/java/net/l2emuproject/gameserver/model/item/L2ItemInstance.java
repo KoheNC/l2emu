@@ -29,7 +29,6 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.ItemTable;
-import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.instancemanager.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.instancemanager.MercTicketManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
@@ -62,6 +61,7 @@ import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.geodata.GeoData;
 import net.l2emuproject.sql.SQLQuery;
 import net.l2emuproject.util.L2Arrays;
 

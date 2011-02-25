@@ -42,13 +42,11 @@ import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.entity.Siege;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
-import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Die;
 import net.l2emuproject.gameserver.network.serverpackets.ExBasicActionList;
@@ -77,6 +75,8 @@ import net.l2emuproject.gameserver.services.couple.CoupleService;
 import net.l2emuproject.gameserver.services.petition.PetitionService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public class EnterWorld extends L2GameClientPacket
 {

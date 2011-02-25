@@ -23,9 +23,9 @@ import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.actor.L2Boss;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;

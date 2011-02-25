@@ -38,13 +38,13 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SepulcherMonsterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SepulcherNpcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 
 

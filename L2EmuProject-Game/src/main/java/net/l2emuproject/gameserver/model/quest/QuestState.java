@@ -31,13 +31,13 @@ import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
-import net.l2emuproject.gameserver.model.npc.L2DropData;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.*;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.npc.L2DropData;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;

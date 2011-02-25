@@ -23,12 +23,12 @@ import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.npc.L2DropCategory;
-import net.l2emuproject.gameserver.model.npc.L2DropData;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2Item;
+import net.l2emuproject.gameserver.world.npc.L2DropCategory;
+import net.l2emuproject.gameserver.world.npc.L2DropData;
 
 import org.apache.commons.lang.ArrayUtils;
 

@@ -18,8 +18,8 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Entity;
 import net.l2emuproject.gameserver.model.entity.GrandBossState;
-import net.l2emuproject.gameserver.model.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.model.quest.QuestState;
+import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 
 /**
  * 

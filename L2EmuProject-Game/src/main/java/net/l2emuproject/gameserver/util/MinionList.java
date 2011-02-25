@@ -25,8 +25,8 @@ import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2MinionInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.OrfenInstance;
-import net.l2emuproject.gameserver.model.npc.L2MinionData;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.npc.L2MinionData;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.util.L2FastSet;
 

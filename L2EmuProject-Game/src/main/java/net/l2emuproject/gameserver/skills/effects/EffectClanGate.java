@@ -20,13 +20,13 @@ import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.AbnormalEffect;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
  * Moved here from skill handler for easier handling.

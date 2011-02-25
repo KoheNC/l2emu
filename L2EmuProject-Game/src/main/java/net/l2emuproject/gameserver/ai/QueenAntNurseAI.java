@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.ai;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.QueenAntManager;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
@@ -23,6 +22,7 @@ import net.l2emuproject.gameserver.model.actor.L2Character.AIAccessor;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.geodata.GeoData;
 
 /**
  * This class manages AI of Larva for Queen Ant raid

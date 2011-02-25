@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.skills.effects;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation;
 import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation.FlyType;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
@@ -24,6 +23,7 @@ import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.geodata.GeoData;
 
 public class EffectThrowUp extends L2Effect
 {

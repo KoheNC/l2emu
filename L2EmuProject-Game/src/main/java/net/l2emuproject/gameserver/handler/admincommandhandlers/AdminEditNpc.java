@@ -36,14 +36,14 @@ import net.l2emuproject.gameserver.datatables.TradeListTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.model.npc.L2DropCategory;
-import net.l2emuproject.gameserver.model.npc.L2DropData;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.services.transactions.L2TradeList;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2Item;
+import net.l2emuproject.gameserver.world.npc.L2DropCategory;
+import net.l2emuproject.gameserver.world.npc.L2DropData;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

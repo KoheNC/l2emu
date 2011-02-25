@@ -20,10 +20,10 @@ import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Town;
-import net.l2emuproject.gameserver.model.mapregion.L2MapRegion;
-import net.l2emuproject.gameserver.model.mapregion.L2MapRegionRestart;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
+import net.l2emuproject.gameserver.world.mapregion.L2MapRegionRestart;
 
 public class Loc implements IUserCommandHandler
 {

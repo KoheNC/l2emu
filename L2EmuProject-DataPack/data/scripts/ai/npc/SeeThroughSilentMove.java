@@ -21,7 +21,7 @@ import ai.L2AttackableAIScript;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 public class SeeThroughSilentMove extends L2AttackableAIScript
 {

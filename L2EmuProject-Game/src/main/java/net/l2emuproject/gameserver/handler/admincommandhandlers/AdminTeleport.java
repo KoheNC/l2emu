@@ -41,12 +41,12 @@ import net.l2emuproject.gameserver.model.actor.instance.L2GrandBossInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MinionInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2RaidBossInstance;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

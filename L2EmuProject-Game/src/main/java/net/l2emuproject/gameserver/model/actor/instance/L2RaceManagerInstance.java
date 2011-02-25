@@ -19,8 +19,6 @@ import net.l2emuproject.gameserver.MonsterRace;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
-import net.l2emuproject.gameserver.model.actor.knownlist.CharKnownList;
-import net.l2emuproject.gameserver.model.actor.knownlist.RaceManagerKnownList;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -34,6 +32,8 @@ import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Broadcast;
+import net.l2emuproject.gameserver.world.knownlist.CharKnownList;
+import net.l2emuproject.gameserver.world.knownlist.RaceManagerKnownList;
 
 
 public class L2RaceManagerInstance extends L2Npc

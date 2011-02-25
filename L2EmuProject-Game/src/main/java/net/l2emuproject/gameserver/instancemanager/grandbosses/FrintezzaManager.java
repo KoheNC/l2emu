@@ -35,7 +35,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2GrandBossInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.GrandBossState;
-import net.l2emuproject.gameserver.model.spawn.L2Spawn;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Earthquake;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
@@ -50,6 +49,7 @@ import net.l2emuproject.gameserver.skills.funcs.FuncMul;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.geometry.Point3D;
 import net.l2emuproject.tools.random.Rnd;
 

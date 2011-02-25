@@ -20,7 +20,6 @@ import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
-import net.l2emuproject.gameserver.model.zone.L2Zone;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
@@ -28,6 +27,7 @@ import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillRecover;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
+import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public class Heal implements ISkillHandler
 {
