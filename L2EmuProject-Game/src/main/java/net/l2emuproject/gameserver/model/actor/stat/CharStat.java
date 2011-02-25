@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.model.actor.stat;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.skills.Calculator;
 import net.l2emuproject.gameserver.skills.Env;

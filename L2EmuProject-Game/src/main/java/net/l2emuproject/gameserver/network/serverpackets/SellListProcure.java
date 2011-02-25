@@ -20,7 +20,7 @@ import java.util.Map;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

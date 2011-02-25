@@ -19,7 +19,6 @@ import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_CAST;
 import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_FOLLOW;
 import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
 import net.l2emuproject.gameserver.GameTimeController;
-import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.AutoAttackStart;
 import net.l2emuproject.gameserver.network.serverpackets.AutoAttackStop;
@@ -38,6 +37,7 @@ import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.object.L2Summon;
+import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.lang.L2System;
 

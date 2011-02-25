@@ -23,7 +23,7 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import net.l2emuproject.gameserver.datatables.ItemTable;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.serverpackets.MultiSellList;
 import net.l2emuproject.gameserver.services.attribute.Attributes;

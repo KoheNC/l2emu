@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.handler.ISkillHandler;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;

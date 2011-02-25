@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.clientpackets.RequestChangeNicknameColor;
 import net.l2emuproject.gameserver.network.serverpackets.ExChangeNicknameNColor;
 import net.l2emuproject.gameserver.world.object.L2Player;

@@ -20,7 +20,7 @@ import java.util.List;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.SevenSignsFestival;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;

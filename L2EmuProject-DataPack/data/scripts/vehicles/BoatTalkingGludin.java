@@ -19,11 +19,11 @@ import org.apache.commons.logging.LogFactory;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.instancemanager.BoatManager;
-import net.l2emuproject.gameserver.model.VehiclePathPoint;
 import net.l2emuproject.gameserver.model.actor.instance.L2BoatInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
+import net.l2emuproject.gameserver.world.VehiclePathPoint;
 
 /**
  * @author DS

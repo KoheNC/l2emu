@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.List;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.services.transactions.L2TradeList;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 

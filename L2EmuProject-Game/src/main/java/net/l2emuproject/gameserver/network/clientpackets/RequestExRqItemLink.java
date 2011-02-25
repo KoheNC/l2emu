@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ExRpItemLink;
 import net.l2emuproject.gameserver.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.util.Util;

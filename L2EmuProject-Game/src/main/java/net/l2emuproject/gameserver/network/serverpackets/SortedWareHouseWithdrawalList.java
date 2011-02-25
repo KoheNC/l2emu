@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
 import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;

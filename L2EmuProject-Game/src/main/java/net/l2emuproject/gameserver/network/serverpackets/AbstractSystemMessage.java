@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import java.util.Arrays;
 
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.L2Effect;

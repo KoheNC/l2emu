@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.VehiclePathPoint;
+import net.l2emuproject.gameserver.world.VehiclePathPoint;
 
 public class ExAirShipTeleportList extends L2GameServerPacket
 {

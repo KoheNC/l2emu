@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
@@ -28,6 +27,7 @@ import net.l2emuproject.gameserver.world.knownlist.GuardKnownList;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Guard;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 import net.l2emuproject.tools.random.Rnd;
 
 

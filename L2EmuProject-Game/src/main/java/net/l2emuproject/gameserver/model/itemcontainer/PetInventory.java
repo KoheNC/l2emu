@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.model.itemcontainer;
 
 import net.l2emuproject.gameserver.datatables.ItemTable;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance.ItemLocation;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
 import net.l2emuproject.gameserver.network.serverpackets.PetInventoryUpdate;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;

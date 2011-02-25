@@ -23,10 +23,8 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.ai.L2CharacterAI;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
-import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.VehiclePathPoint;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.stat.VehicleStat;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
@@ -37,8 +35,10 @@ import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.VehiclePathPoint;
 import net.l2emuproject.gameserver.world.knownlist.VehicleKnownList;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
+import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 
 /**
  * @author DS

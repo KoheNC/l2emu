@@ -12,42 +12,29 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.item;
+package net.l2emuproject.gameserver.items.extractable;
 
-/**
- *
- * @author -Nemesiss-
- */
-public class L2SummonItem
+import java.util.List;
+
+public class L2ExtractableSkill
 {
-	private final int _itemId;
-	private final int  _npcId;
-	private final byte  _type;
+	private final int _hash;
+	private final L2ExtractableProductItem[] _products;
 
-	public L2SummonItem(int itemId, int npcId, byte type)
+	public L2ExtractableSkill(int hash, List<L2ExtractableProductItem> products)
 	{
-		_itemId = itemId;
-		_npcId = npcId;
-		_type = type;
+		_hash = hash;
+		_products = new L2ExtractableProductItem[products.size()];
+		products.toArray(_products);
 	}
 
-	public int getItemId()
+	public int getSkillHash()
 	{
-		return _itemId;
+		return _hash;
 	}
 
-	public int getNpcId()
+	public L2ExtractableProductItem[] getProductItemsArray()
 	{
-		return _npcId;
-	}
-
-	public byte getType()
-	{
-		return _type;
-	}
-
-	public boolean isPetSummon()
-	{
-		return _type == 1 || _type == 2;
+		return _products;
 	}
 }

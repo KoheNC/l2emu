@@ -20,7 +20,7 @@ import java.util.Set;
 
 import net.l2emuproject.gameserver.datatables.ShotTable;
 import net.l2emuproject.gameserver.handler.ItemHandler;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExAutoSoulShot;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;

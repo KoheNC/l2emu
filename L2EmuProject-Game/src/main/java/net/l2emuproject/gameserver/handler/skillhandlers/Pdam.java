@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;

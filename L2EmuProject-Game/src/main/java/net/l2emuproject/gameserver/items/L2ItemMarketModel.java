@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  *  program If not, see <http://wwwgnuorg/licenses/>
  */
-package net.l2emuproject.gameserver.model.item;
+package net.l2emuproject.gameserver.items;
 
 public class L2ItemMarketModel
 {

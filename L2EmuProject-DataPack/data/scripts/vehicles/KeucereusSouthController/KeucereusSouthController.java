@@ -14,8 +14,8 @@
  */
 package vehicles.KeucereusSouthController;
 
-import net.l2emuproject.gameserver.model.VehiclePathPoint;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.VehiclePathPoint;
 import vehicles.AirShipController;
 
 public final class KeucereusSouthController extends AirShipController

@@ -12,37 +12,42 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.items.model;
+package net.l2emuproject.gameserver.items;
 
 /**
  *
  * @author -Nemesiss-
  */
-public class L2ExtractableProductItem
+public class L2SummonItem
 {
-    private final int[]  _id;
-    private final int[]  _ammount;
-    private final int    _chance;
+	private final int _itemId;
+	private final int  _npcId;
+	private final byte  _type;
 
-    public L2ExtractableProductItem(int[] id, int[] ammount, int chance)
-    {
-        _id = id;
-        _ammount = ammount;
-        _chance = chance;
-    }
+	public L2SummonItem(int itemId, int npcId, byte type)
+	{
+		_itemId = itemId;
+		_npcId = npcId;
+		_type = type;
+	}
 
-    public int[] getId()
-    {
-        return _id;
-    }
+	public int getItemId()
+	{
+		return _itemId;
+	}
 
-    public int[] getAmmount()
-    {
-        return _ammount;
-    }
+	public int getNpcId()
+	{
+		return _npcId;
+	}
 
-    public int getChance()
-    {
-        return _chance;
-    }
+	public byte getType()
+	{
+		return _type;
+	}
+
+	public boolean isPetSummon()
+	{
+		return _type == 1 || _type == 2;
+	}
 }

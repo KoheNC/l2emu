@@ -12,56 +12,55 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model;
+package net.l2emuproject.gameserver.items;
 
-public final class VehiclePathPoint
+/**
+ *
+ */
+public class ItemRequest
 {
-	private final int	x;
-	private final int	y;
-	private final int	z;
-	private final int	moveSpeed;
-	private final int	rotationSpeed;
+	int _objectId;
+	int _itemId;
+	long _count;
+	long _price;
 
-	public VehiclePathPoint(int _x, int _y, int _z)
+	public ItemRequest(int objectId, long count, long price)
 	{
-		x = _x;
-		y = _y;
-		z = _z;
-		moveSpeed = 350;
-		rotationSpeed = 4000;
+		_objectId = objectId;
+		_count = count;
+		_price = price;
 	}
 
-	public VehiclePathPoint(int _x, int _y, int _z, int _m, int _r)
+	public ItemRequest(int objectId, int itemId, long count, long price)
 	{
-		x = _x;
-		y = _y;
-		z = _z;
-		moveSpeed = _m;
-		rotationSpeed = _r;
+		_objectId = objectId;
+		_itemId = itemId;
+		_count = count;
+		_price = price;
 	}
 
-	public int getX()
+	public int getObjectId()
 	{
-		return x;
+		return _objectId;
 	}
-
-	public int getY()
+	
+	public int getItemId()
 	{
-		return y;
+		return _itemId;
 	}
-
-	public int getZ()
+	
+	public void setCount(long count)
 	{
-		return z;
+		_count = count;
 	}
-
-	public int getMoveSpeed()
+	
+	public long getCount()
 	{
-		return moveSpeed;
+		return _count;
 	}
-
-	public int getRotationSpeed()
+	
+	public long getPrice()
 	{
-		return rotationSpeed;
+		return _price;
 	}
 }

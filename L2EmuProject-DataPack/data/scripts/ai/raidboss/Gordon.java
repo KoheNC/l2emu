@@ -18,10 +18,10 @@ import java.util.Collection;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
-import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import ai.L2AttackableAIScript;
 

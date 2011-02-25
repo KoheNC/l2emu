@@ -16,12 +16,12 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.AirShipManager;
-import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.VehiclePathPoint;
 import net.l2emuproject.gameserver.model.actor.instance.L2AirShipInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.VehiclePathPoint;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 
 public final class MoveToLocationAirShip extends L2GameClientPacket
 {

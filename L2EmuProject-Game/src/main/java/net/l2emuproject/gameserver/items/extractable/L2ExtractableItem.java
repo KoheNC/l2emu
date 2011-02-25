@@ -12,55 +12,33 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.item;
+package net.l2emuproject.gameserver.items.extractable;
+
+import java.util.List;
 
 /**
  *
+ * @author -Nemesiss-
  */
-public class ItemRequest
+public class L2ExtractableItem
 {
-	int _objectId;
-	int _itemId;
-	long _count;
-	long _price;
+	private final int _itemId;
+	private final L2ExtractableProductItem[] _products;
 
-	public ItemRequest(int objectId, long count, long price)
+	public L2ExtractableItem(int itemid, List<L2ExtractableProductItem> products)
 	{
-		_objectId = objectId;
-		_count = count;
-		_price = price;
+		_itemId = itemid;
+		_products = new L2ExtractableProductItem[products.size()];
+		products.toArray(_products);
 	}
 
-	public ItemRequest(int objectId, int itemId, long count, long price)
-	{
-		_objectId = objectId;
-		_itemId = itemId;
-		_count = count;
-		_price = price;
-	}
-
-	public int getObjectId()
-	{
-		return _objectId;
-	}
-	
 	public int getItemId()
 	{
 		return _itemId;
 	}
-	
-	public void setCount(long count)
+
+	public L2ExtractableProductItem[] getProductItemsArray()
 	{
-		_count = count;
-	}
-	
-	public long getCount()
-	{
-		return _count;
-	}
-	
-	public long getPrice()
-	{
-		return _price;
+		return _products;
 	}
 }

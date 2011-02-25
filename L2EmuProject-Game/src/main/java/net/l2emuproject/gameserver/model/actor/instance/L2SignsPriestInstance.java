@@ -19,7 +19,7 @@ import java.util.StringTokenizer;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.cache.HtmCache;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;

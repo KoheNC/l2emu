@@ -20,7 +20,6 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.instance.L2DecoyInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2EffectPointInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MinionInstance;
@@ -34,6 +33,7 @@ import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.lang.ArrayUtils;

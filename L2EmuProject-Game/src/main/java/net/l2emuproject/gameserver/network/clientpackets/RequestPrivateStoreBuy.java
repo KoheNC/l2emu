@@ -18,7 +18,7 @@ import static net.l2emuproject.gameserver.world.object.L2Npc.INTERACTION_DISTANC
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
-import net.l2emuproject.gameserver.model.item.ItemRequest;
+import net.l2emuproject.gameserver.items.ItemRequest;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;

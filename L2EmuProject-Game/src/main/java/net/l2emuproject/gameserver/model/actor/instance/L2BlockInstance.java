@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.instancemanager.games.HandysBlockCheckerManager.ArenaParticipantsHolder;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.entity.BlockCheckerEngine;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.AbstractNpcInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ExCubeGameChangePoints;
 import net.l2emuproject.gameserver.network.serverpackets.ExCubeGameExtendedChangePoints;

@@ -26,7 +26,6 @@ import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
-import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.L2SiegeClan;
 import net.l2emuproject.gameserver.model.actor.stat.CharStat;
 import net.l2emuproject.gameserver.model.actor.stat.DoorStat;
@@ -50,6 +49,7 @@ import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.lang.L2TextBuilder;
 

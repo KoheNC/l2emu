@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;

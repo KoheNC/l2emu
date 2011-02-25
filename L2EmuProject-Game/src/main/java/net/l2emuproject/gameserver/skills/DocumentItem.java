@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import net.l2emuproject.gameserver.items.model.Item;
+import net.l2emuproject.gameserver.items.Item;
 import net.l2emuproject.gameserver.templates.item.L2Armor;
 import net.l2emuproject.gameserver.templates.item.L2ArmorType;
 import net.l2emuproject.gameserver.templates.item.L2EtcItem;

@@ -18,7 +18,7 @@ import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.ADENA_
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.ItemContainer;
 import net.l2emuproject.gameserver.model.itemcontainer.PcWarehouse;
 import net.l2emuproject.gameserver.network.SystemMessageId;

@@ -16,16 +16,16 @@ package net.l2emuproject.gameserver.world.object;
 
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.poly.ObjectPoly;
-import net.l2emuproject.gameserver.model.actor.position.ObjectPosition;
 import net.l2emuproject.gameserver.model.entity.Instance;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.knownlist.ObjectKnownList;
+import net.l2emuproject.gameserver.world.object.position.ObjectPosition;
 import net.l2emuproject.lang.L2Entity;
 import net.l2emuproject.lang.L2Integer;
 import net.l2emuproject.lang.L2TextBuilder;

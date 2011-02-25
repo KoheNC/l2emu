@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.model.restriction.global;
 
 import net.l2emuproject.gameserver.instancemanager.MercTicketManager;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**

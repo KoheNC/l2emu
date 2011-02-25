@@ -20,8 +20,8 @@ import java.util.Scanner;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.items.model.L2ExtractableItem;
-import net.l2emuproject.gameserver.items.model.L2ExtractableProductItem;
+import net.l2emuproject.gameserver.items.extractable.L2ExtractableItem;
+import net.l2emuproject.gameserver.items.extractable.L2ExtractableProductItem;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -12,25 +12,37 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.items.model;
-
-import net.l2emuproject.gameserver.templates.StatsSet;
-import net.l2emuproject.gameserver.templates.item.AbstractL2ItemType;
+package net.l2emuproject.gameserver.items.extractable;
 
 /**
- * @author luisantonioa
+ *
+ * @author -Nemesiss-
  */
-public final class Item
+public class L2ExtractableProductItem
 {
-	public int id;
-	public int displayid;
-	public AbstractL2ItemType type;
-	public String name;
-	public StatsSet set;
-	
-	@Override
-	public String toString()
-	{
-		return super.toString() + "[id=" + id + "]";
-	}
+    private final int[]  _id;
+    private final int[]  _ammount;
+    private final int    _chance;
+
+    public L2ExtractableProductItem(int[] id, int[] ammount, int chance)
+    {
+        _id = id;
+        _ammount = ammount;
+        _chance = chance;
+    }
+
+    public int[] getId()
+    {
+        return _id;
+    }
+
+    public int[] getAmmount()
+    {
+        return _ammount;
+    }
+
+    public int getChance()
+    {
+        return _chance;
+    }
 }

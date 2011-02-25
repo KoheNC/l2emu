@@ -23,7 +23,6 @@ import java.util.Set;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.GameTimeController;
-import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.instance.L2ChestInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2FestivalMonsterInstance;
@@ -46,6 +45,7 @@ import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.object.L2Summon;
+import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 

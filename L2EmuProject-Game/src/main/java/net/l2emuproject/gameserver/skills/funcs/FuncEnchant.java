@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.skills.funcs;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.item.L2ItemInstance;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.skills.conditions.Condition;

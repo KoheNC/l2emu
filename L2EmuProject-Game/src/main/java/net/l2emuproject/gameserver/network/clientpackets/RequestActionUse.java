@@ -19,7 +19,6 @@ import net.l2emuproject.gameserver.ai.L2SummonAI;
 import net.l2emuproject.gameserver.datatables.PetSkillsTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
-import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2StaticObjectInstance;
@@ -36,6 +35,7 @@ import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
+import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
