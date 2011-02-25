@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.List;
 
 import net.l2emuproject.gameserver.instancemanager.CastleManorManager.SeedProduction;
-import net.l2emuproject.gameserver.model.L2Manor;
+import net.l2emuproject.gameserver.services.manor.L2Manor;
 
 
 /**

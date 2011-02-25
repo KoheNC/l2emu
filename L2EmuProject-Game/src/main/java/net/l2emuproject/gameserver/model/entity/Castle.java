@@ -40,7 +40,6 @@ import net.l2emuproject.gameserver.instancemanager.CastleManorManager.SeedProduc
 import net.l2emuproject.gameserver.instancemanager.CrownManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
-import net.l2emuproject.gameserver.model.L2Manor;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
@@ -48,6 +47,7 @@ import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.model.zone.L2SiegeDangerZone;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.gameserver.network.serverpackets.PledgeShowInfoUpdate;
+import net.l2emuproject.gameserver.services.manor.L2Manor;
 
 
 public class Castle extends Siegeable<Siege>

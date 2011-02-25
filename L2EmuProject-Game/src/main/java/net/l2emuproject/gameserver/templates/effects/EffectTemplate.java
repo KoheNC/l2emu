@@ -20,10 +20,10 @@ import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
-import net.l2emuproject.gameserver.model.L2Effect;
 import net.l2emuproject.gameserver.skills.AbnormalEffect;
 import net.l2emuproject.gameserver.skills.ChanceCondition;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.SpecialEffect;
 import net.l2emuproject.gameserver.skills.TriggeredSkill;

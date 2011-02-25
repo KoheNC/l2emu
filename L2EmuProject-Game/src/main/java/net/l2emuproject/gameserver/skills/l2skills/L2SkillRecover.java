@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.skills.l2skills;
 
-import net.l2emuproject.gameserver.model.L2Effect;
 import net.l2emuproject.gameserver.model.actor.L2Character;
+import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.StatsSet;
 

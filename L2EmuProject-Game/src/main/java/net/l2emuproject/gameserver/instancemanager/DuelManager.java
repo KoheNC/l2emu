@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.instancemanager;
 import java.util.Map;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.L2Effect;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Duel;
 import net.l2emuproject.gameserver.model.restriction.global.DuelRestriction;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
+import net.l2emuproject.gameserver.skills.L2Effect;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

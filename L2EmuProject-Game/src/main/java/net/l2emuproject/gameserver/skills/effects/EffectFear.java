@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.skills.effects;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.L2Effect;
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2FortCommanderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
@@ -27,6 +26,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeSummonInstance;
 import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 

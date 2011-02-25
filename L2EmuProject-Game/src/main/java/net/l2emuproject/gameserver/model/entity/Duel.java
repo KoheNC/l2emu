@@ -21,7 +21,6 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.DuelManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
-import net.l2emuproject.gameserver.model.L2Effect;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.world.L2Object;
@@ -36,6 +35,7 @@ import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.util.L2FastSet;
 
 import org.apache.commons.logging.Log;

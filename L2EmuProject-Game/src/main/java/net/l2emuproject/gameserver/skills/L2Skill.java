@@ -24,7 +24,6 @@ import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.instancemanager.CoupleManager;
 import net.l2emuproject.gameserver.instancemanager.FourSepulchersManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
-import net.l2emuproject.gameserver.model.L2Effect;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;

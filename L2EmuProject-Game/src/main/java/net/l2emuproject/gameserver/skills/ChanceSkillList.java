@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.skills;
 
 import net.l2emuproject.gameserver.handler.SkillHandler;
-import net.l2emuproject.gameserver.model.L2Effect;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;

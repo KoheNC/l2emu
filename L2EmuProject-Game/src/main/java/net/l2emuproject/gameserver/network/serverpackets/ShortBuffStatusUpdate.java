@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.L2Effect;
+import net.l2emuproject.gameserver.skills.L2Effect;
 
 public final class ShortBuffStatusUpdate extends L2GameServerPacket
 {

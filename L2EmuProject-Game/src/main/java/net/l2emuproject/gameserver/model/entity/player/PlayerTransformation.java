@@ -20,11 +20,11 @@ import java.sql.ResultSet;
 import java.util.List;
 
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.L2Effect;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExBasicActionList;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
+import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.util.SingletonList;

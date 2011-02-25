@@ -126,7 +126,6 @@ import net.l2emuproject.gameserver.instancemanager.lastimperialtomb.LastImperial
 import net.l2emuproject.gameserver.instancemanager.leaderboards.ArenaManager;
 import net.l2emuproject.gameserver.instancemanager.leaderboards.FishermanManager;
 import net.l2emuproject.gameserver.model.AutoChatHandler;
-import net.l2emuproject.gameserver.model.L2Manor;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.Fort;
@@ -142,6 +141,7 @@ import net.l2emuproject.gameserver.scripting.L2ScriptEngineManager;
 import net.l2emuproject.gameserver.services.SystemService;
 import net.l2emuproject.gameserver.services.VersionService;
 import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell;
 import net.l2emuproject.gameserver.taskmanager.AttackStanceTaskManager;
 import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;

@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.skills.conditions;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.model.L2Effect;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.skills.L2Effect;
 
 
 abstract class AbstractConditionActiveEffectId extends Condition

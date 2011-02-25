@@ -18,8 +18,8 @@ import javolution.util.FastList;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
 import net.l2emuproject.gameserver.instancemanager.CastleManorManager.SeedProduction;
-import net.l2emuproject.gameserver.model.L2Manor;
 import net.l2emuproject.gameserver.model.entity.Castle;
+import net.l2emuproject.gameserver.services.manor.L2Manor;
 
 
 /**
