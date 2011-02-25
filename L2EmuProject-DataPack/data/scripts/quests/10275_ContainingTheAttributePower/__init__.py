@@ -5,7 +5,7 @@
 import sys
 
 from net.l2emuproject.gameserver.datatables  import SkillTable
-from net.l2emuproject.gameserver.services.attribute       import Elementals
+from net.l2emuproject.gameserver.services.attribute       import Attributes
 from net.l2emuproject.gameserver.model.quest import State
 from net.l2emuproject.gameserver.model.quest import QuestState
 from net.l2emuproject.gameserver.model.quest import Quest as JQuest
@@ -47,31 +47,31 @@ class Quest (JQuest) :
             st.playSound("ItemSound.quest_middle")
         elif event == "32325-03.htm" :
             st.set("cond","3")
-            st.giveItems(YinSword,1,Elementals.FIRE,10)
+            st.giveItems(YinSword,1,Attributes.FIRE,10)
             st.playSound("ItemSound.quest_middle")
         elif event == "32326-03.htm" :
             st.set("cond","8")
-            st.giveItems(YangSword,1,Elementals.EARTH,10)
+            st.giveItems(YangSword,1,Attributes.EARTH,10)
             st.playSound("ItemSound.quest_middle")
         elif event == "32325-06.htm" :
             if st.getQuestItemsCount(YinSword):
                st.takeItems(YinSword,1)
                htmltext = "32325-07.htm"
-            st.giveItems(YinSword,1,Elementals.FIRE,10)
+            st.giveItems(YinSword,1,Attributes.FIRE,10)
         elif event == "32326-06.htm" :
             if st.getQuestItemsCount(YangSword):
                st.takeItems(YangSword,1)
                htmltext = "32326-07.htm"
-            st.giveItems(YangSword,1,Elementals.EARTH,10)
+            st.giveItems(YangSword,1,Attributes.EARTH,10)
         elif event == "32325-09.htm" :
             st.set("cond","5")
             SkillTable.getInstance().getInfo(2635,1).getEffects(player,player)
-            st.giveItems(YinSword,1,Elementals.FIRE,10)
+            st.giveItems(YinSword,1,Attributes.FIRE,10)
             st.playSound("ItemSound.quest_middle")
         elif event == "32326-09.htm" :
             st.set("cond","10")
             SkillTable.getInstance().getInfo(2636,1).getEffects(player,player)
-            st.giveItems(YangSword,1,Elementals.EARTH,10)
+            st.giveItems(YangSword,1,Attributes.EARTH,10)
             st.playSound("ItemSound.quest_middle")
         elif event.isdigit() :
             st.giveItems(10520+int(event),2)
