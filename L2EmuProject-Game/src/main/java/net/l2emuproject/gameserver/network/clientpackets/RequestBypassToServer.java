@@ -22,7 +22,6 @@ import net.l2emuproject.gameserver.communitybbs.CommunityBoard;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.handler.AdminCommandHandler;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2MerchantSummonInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;
@@ -31,7 +30,8 @@ import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExHeroList;
 import net.l2emuproject.gameserver.network.serverpackets.GMViewPledgeInfo;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 import org.mmocore.network.InvalidPacketException;
 

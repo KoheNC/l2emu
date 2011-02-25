@@ -18,7 +18,6 @@ import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.MAX_AD
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.instancemanager.MercTicketManager;
-import net.l2emuproject.gameserver.model.actor.L2Merchant;
 import net.l2emuproject.gameserver.model.actor.instance.L2MerchantInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -28,7 +27,8 @@ import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.services.transactions.L2TradeList;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.util.Util;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Merchant;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 /**
  * This class represents a packet sent by the client when the player confirms his item

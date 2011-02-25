@@ -17,8 +17,6 @@ package net.l2emuproject.gameserver.handler.itemhandlers;
 import net.l2emuproject.gameserver.datatables.SkillTable.SkillInfo;
 import net.l2emuproject.gameserver.handler.IItemHandler;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
-import net.l2emuproject.gameserver.model.actor.L2Boss;
-import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.instance.L2ChestInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -28,7 +26,9 @@ import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Boss;
+import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Playable;
 
 /**
  * @author  l3x

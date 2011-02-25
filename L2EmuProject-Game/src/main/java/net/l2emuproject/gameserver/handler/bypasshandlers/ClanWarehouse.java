@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.handler.bypasshandlers;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.cache.HtmCache;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2ClanHallManagerInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2WarehouseInstance;
@@ -29,6 +28,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SortedWareHouseWithdraw
 import net.l2emuproject.gameserver.network.serverpackets.SortedWareHouseWithdrawalList.WarehouseListType;
 import net.l2emuproject.gameserver.network.serverpackets.WareHouseDepositList;
 import net.l2emuproject.gameserver.network.serverpackets.WareHouseWithdrawalList;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 public class ClanWarehouse implements IBypassHandler
 {

@@ -14,9 +14,6 @@
  */
 package net.l2emuproject.gameserver.model.actor.status;
 
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Playable;
-import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance.ConditionListenerDependency;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
@@ -25,6 +22,9 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.lang.L2Math;
 
 

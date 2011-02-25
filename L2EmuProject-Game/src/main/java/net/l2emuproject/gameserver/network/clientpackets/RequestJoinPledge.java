@@ -19,8 +19,8 @@ import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.AskJoinPledge;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 public class RequestJoinPledge extends L2GameClientPacket
 {

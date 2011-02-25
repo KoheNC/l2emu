@@ -23,7 +23,6 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.BossLair;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.FrintezzaManager;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
@@ -31,6 +30,7 @@ import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 

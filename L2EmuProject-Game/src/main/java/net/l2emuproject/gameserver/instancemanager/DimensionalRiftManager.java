@@ -26,7 +26,6 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.DimensionalRift;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
@@ -34,8 +33,9 @@ import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Util;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 

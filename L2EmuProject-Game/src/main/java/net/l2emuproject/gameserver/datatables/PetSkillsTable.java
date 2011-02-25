@@ -23,7 +23,7 @@ import java.util.Map;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.actor.L2Summon;
+import net.l2emuproject.gameserver.world.object.L2Summon;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

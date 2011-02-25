@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.l2emuproject.gameserver.model.actor.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 /**
  * @author Kerberos

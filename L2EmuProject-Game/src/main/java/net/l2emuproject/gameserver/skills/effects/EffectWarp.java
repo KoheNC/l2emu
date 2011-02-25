@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.skills.effects;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation;
 import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation.FlyType;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
@@ -27,6 +26,7 @@ import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.geodata.GeoData;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 /**
  * This class handles warp effects, disappear and quickly turn up in a near location. If geodata enabled and an object is between initial and final point, flight is stopped just before colliding with object. Flight course and radius are set as skill properties (flyCourse and flyRadius):

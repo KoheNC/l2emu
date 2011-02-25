@@ -21,8 +21,8 @@ import java.sql.ResultSet;
 import javolution.util.FastList;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;

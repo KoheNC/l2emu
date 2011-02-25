@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.model.entity.instances;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Summon;
 
 /**
  * @author lord_rex

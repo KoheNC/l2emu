@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.model.actor.instance;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.status.CCHLeaderStatus;
 import net.l2emuproject.gameserver.model.actor.status.CharStatus;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 
 /**

@@ -23,8 +23,6 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.instancemanager.AirShipManager;
 import net.l2emuproject.gameserver.instancemanager.ZoneManager;
 import net.l2emuproject.gameserver.model.VehiclePathPoint;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2AirShipInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControllableAirShipInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -35,6 +33,8 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.zone.L2ScriptZone;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 

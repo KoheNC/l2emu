@@ -20,8 +20,6 @@ import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager;
 import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerStateOnCommunity;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.FrintezzaManager;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2ChestInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -36,8 +34,10 @@ import net.l2emuproject.gameserver.network.serverpackets.StopMove;
 import net.l2emuproject.gameserver.network.serverpackets.SunRise;
 import net.l2emuproject.gameserver.network.serverpackets.SunSet;
 import net.l2emuproject.gameserver.skills.AbnormalEffect;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 
 

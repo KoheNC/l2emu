@@ -17,9 +17,6 @@ package net.l2emuproject.gameserver.model;
 import java.util.Set;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.model.actor.L2Attackable;
-import net.l2emuproject.gameserver.model.actor.L2Boss;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -29,7 +26,10 @@ import net.l2emuproject.gameserver.network.serverpackets.ExMultiPartyCommandChan
 import net.l2emuproject.gameserver.network.serverpackets.ExOpenMPCC;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Attackable;
+import net.l2emuproject.gameserver.world.object.L2Boss;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.util.L2FastSet;
 
 

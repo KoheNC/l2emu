@@ -20,7 +20,6 @@ import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.CCHManager;
 import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
@@ -32,6 +31,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillSiegeFlag;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
+import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**

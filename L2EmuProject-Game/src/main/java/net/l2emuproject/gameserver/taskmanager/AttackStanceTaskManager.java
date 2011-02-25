@@ -17,11 +17,11 @@ package net.l2emuproject.gameserver.taskmanager;
 import java.util.Map;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2CubicInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.serverpackets.AutoAttackStop;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Summon;
 
 
 public final class AttackStanceTaskManager extends AbstractPeriodicTaskManager

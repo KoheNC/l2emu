@@ -16,13 +16,13 @@ package quests._193_SevenSignDyingMessage;
 
 import quests._192_SevenSignSeriesOfDoubt.SevenSignSeriesOfDoubt;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.actor.L2Attackable;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
+import net.l2emuproject.gameserver.world.object.L2Attackable;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 /**
  * @author L0ngh0rn

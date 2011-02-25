@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.actor.view;
 
-import net.l2emuproject.gameserver.model.actor.L2Trap;
+import net.l2emuproject.gameserver.world.object.L2Trap;
 
 /**
  * @author NB4L1

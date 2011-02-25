@@ -18,8 +18,8 @@ import java.util.ArrayList;
 
 import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.ai.CtrlEvent;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.threadmanager.FIFOSimpleExecutableQueue;
+import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.util.L2Collections;
 import net.l2emuproject.util.L2FastSet;
 import net.l2emuproject.util.concurrent.RunnableStatsManager;

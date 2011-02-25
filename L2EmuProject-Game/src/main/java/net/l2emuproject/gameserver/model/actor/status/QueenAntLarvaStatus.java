@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.model.actor.status;
 
-import net.l2emuproject.gameserver.model.actor.L2Attackable;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.QueenAntLarvaInstance;
+import net.l2emuproject.gameserver.world.object.L2Attackable;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 /**
  * @author hex1r0

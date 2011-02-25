@@ -36,7 +36,6 @@ import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.GrandBossSpawnManager;
 import net.l2emuproject.gameserver.instancemanager.RaidBossSpawnManager;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2GrandBossInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MinionInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -44,8 +43,9 @@ import net.l2emuproject.gameserver.model.actor.instance.L2RaidBossInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;

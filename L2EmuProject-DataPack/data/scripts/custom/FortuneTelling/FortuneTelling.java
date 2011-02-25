@@ -14,10 +14,10 @@
  */
 package custom.FortuneTelling;
 
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 /**
  * @author Kerberos, converted by Intrepid

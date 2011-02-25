@@ -20,18 +20,18 @@ import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
 import java.util.List;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Character.AIAccessor;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
-import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControllableMobInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.util.Util;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.npc.MobGroup;
 import net.l2emuproject.gameserver.world.npc.MobGroupTable;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Character.AIAccessor;
 import net.l2emuproject.tools.random.Rnd;
 
 

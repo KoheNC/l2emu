@@ -15,13 +15,13 @@
 package net.l2emuproject.gameserver.skills;
 
 import net.l2emuproject.gameserver.handler.SkillHandler;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.util.L2Arrays;
 
 import org.apache.commons.lang.ArrayUtils;

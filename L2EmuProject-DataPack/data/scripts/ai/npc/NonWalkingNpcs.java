@@ -15,7 +15,7 @@
 package ai.npc;
 
 import net.l2emuproject.gameserver.datatables.SpawnTable;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import ai.L2AttackableAIScript;
 

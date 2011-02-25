@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.world.zone;
 
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.Race;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 public class L2MothertreeZone extends L2Zone
 {

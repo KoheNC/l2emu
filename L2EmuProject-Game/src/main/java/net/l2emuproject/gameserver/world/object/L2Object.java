@@ -12,14 +12,10 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.world;
+package net.l2emuproject.gameserver.world.object;
 
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Merchant;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
-import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.poly.ObjectPoly;
 import net.l2emuproject.gameserver.model.actor.position.ObjectPosition;
@@ -27,6 +23,9 @@ import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
+import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.L2WorldRegion;
+import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.knownlist.ObjectKnownList;
 import net.l2emuproject.lang.L2Entity;
 import net.l2emuproject.lang.L2Integer;

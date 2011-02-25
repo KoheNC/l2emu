@@ -15,13 +15,13 @@
 package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
 import net.l2emuproject.gameserver.services.crafting.RecipeService;
+import net.l2emuproject.gameserver.world.object.L2Playable;
 
 /**
  * This class ...

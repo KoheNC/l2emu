@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.model.actor.instance;
 import net.l2emuproject.gameserver.ai.L2AirShipAI;
 import net.l2emuproject.gameserver.instancemanager.AirShipManager;
 import net.l2emuproject.gameserver.model.L2CharPosition;
-import net.l2emuproject.gameserver.model.actor.L2Vehicle;
 import net.l2emuproject.gameserver.network.serverpackets.ExAirShipInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ExGetOffAirShip;
 import net.l2emuproject.gameserver.network.serverpackets.ExGetOnAirShip;
@@ -25,6 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExMoveToLocationAirShip
 import net.l2emuproject.gameserver.network.serverpackets.ExStopMoveAirShip;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Vehicle;
 import net.l2emuproject.tools.geometry.Point3D;
 
 /**

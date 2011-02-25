@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.model.restriction.global;
 
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 /**
  * @author savormix

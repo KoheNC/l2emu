@@ -21,7 +21,6 @@ import net.l2emuproject.gameserver.datatables.SummonItemsData;
 import net.l2emuproject.gameserver.handler.IItemHandler;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
-import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.util.Broadcast;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 /**

@@ -20,7 +20,6 @@ import java.util.List;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.SevenSignsFestival;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -29,6 +28,7 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.lang.L2TextBuilder;
 
 

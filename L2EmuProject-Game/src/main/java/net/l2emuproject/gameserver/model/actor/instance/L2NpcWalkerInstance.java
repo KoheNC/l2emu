@@ -16,13 +16,13 @@ package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.ai.L2CharacterAI;
 import net.l2emuproject.gameserver.ai.L2NpcWalkerAI;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.status.CharStatus;
 import net.l2emuproject.gameserver.model.actor.status.NpcWalkerStatus;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 /**
  * This class manages some npcs can walk in the city. <br>

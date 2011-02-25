@@ -27,7 +27,7 @@ import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

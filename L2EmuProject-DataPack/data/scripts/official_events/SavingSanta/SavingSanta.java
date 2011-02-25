@@ -29,7 +29,6 @@ import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.datatables.EventDroplist;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
@@ -41,8 +40,9 @@ import net.l2emuproject.gameserver.script.DateRange;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.util.Broadcast;
 import net.l2emuproject.gameserver.util.Util;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
 

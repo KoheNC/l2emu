@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 /**
  * NPC that gives information about territory wars

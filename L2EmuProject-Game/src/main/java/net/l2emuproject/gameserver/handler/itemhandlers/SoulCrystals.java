@@ -17,15 +17,15 @@ package net.l2emuproject.gameserver.handler.itemhandlers;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.model.actor.L2Attackable;
-import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Attackable;
+import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Playable;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

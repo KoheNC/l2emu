@@ -17,12 +17,12 @@ package ai.zone.seed_of_destruction;
 import ai.L2AttackableAIScript;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.instancemanager.gracia.SeedOfDestructionManager;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.tools.random.Rnd;
 
 /**

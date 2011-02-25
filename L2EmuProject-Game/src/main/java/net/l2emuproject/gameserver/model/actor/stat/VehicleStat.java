@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.actor.stat;
 
-import net.l2emuproject.gameserver.model.actor.L2Vehicle;
+import net.l2emuproject.gameserver.world.object.L2Vehicle;
 
 public class VehicleStat extends CharStat
 {

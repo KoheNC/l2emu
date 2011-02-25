@@ -16,8 +16,8 @@ package ai.zone.kratei_cube;
 
 import ai.L2AttackableAIScript;
 import net.l2emuproject.gameserver.instancemanager.games.KrateiCube;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 /**
  * @author lord_rex

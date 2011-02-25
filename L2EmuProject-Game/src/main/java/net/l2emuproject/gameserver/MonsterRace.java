@@ -18,8 +18,8 @@ import java.lang.reflect.Constructor;
 
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;

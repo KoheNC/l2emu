@@ -12,204 +12,129 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.actor;
+package net.l2emuproject.gameserver.world.object;
 
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.view.CharLikeView;
-import net.l2emuproject.gameserver.model.actor.view.TrapView;
-import net.l2emuproject.gameserver.network.serverpackets.AbstractNpcInfo;
+import net.l2emuproject.gameserver.model.actor.view.DecoyView;
+import net.l2emuproject.gameserver.network.serverpackets.CharInfo;
 import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
-/**
- *
- * @author nBd
- */
-public class L2Trap extends L2Character
+public abstract class L2Decoy extends L2Character
 {
 	private final L2PcInstance _owner;
-	/**
-	 * @param objectId
-	 * @param template
-	 */
-	public L2Trap(int objectId, L2CharTemplate template, L2PcInstance owner)
+	
+	public L2Decoy(int objectId, L2CharTemplate template, L2PcInstance owner)
 	{
 		super(objectId, template);
 		getKnownList();
 		getStat();
 		getStatus();
-		setIsInvul(false);
 		_owner = owner;
 		getPosition().setXYZInvisible(owner.getX(), owner.getY(), owner.getZ());
+		setIsInvul(false);
 	}
 	
 	@Override
 	protected CharLikeView initView()
 	{
-		return new TrapView(this);
+		return new DecoyView(this);
 	}
 	
 	@Override
-	public TrapView getView()
+	public DecoyView getView()
 	{
-		return (TrapView)_view;
+		return (DecoyView)_view;
 	}
 	
-	/**
-	 *
-	 * @see net.l2emuproject.gameserver.model.actor.L2Character#onSpawn()
-	 */
 	@Override
 	public void onSpawn()
 	{
 		super.onSpawn();
+		broadcastFullInfo();
 	}
-
-	/**
-	 *
-	 * @see net.net.l2emuproject.gameserver.model.world.L2Object#onAction(net.l2emuproject.gameserver.model.actor.instance.L2PcInstance)
-	 */
+	
 	@Override
 	public void onAction(L2PcInstance player)
 	{
 		player.setTarget(this);
 	}
 	
-	@Override
-	public int getMyTargetSelectedColor(L2PcInstance player)
-	{
-		return player.getLevel() - getLevel();
-	}
-
-	/**
-	 *
-	 *
-	 */
 	public void stopDecay()
 	{
 		DecayTaskManager.getInstance().cancelDecayTask(this);
 	}
-
-	/**
-	 *
-	 * @see net.l2emuproject.gameserver.model.actor.L2Character#onDecay()
-	 */
+	
 	@Override
 	public void onDecay()
 	{
 		deleteMe(_owner);
 	}
-
-	/**
-	 *
-	 * @return
-	 */
-	public final int getNpcId()
-	{
-		return getTemplate().getNpcId();
-	}
-
-	/**
-	 *
-	 * @see net.l2emuproject.gameserver.world.L2Object#isAutoAttackable(net.l2emuproject.gameserver.model.actor.L2Character)
-	 */
+	
 	@Override
 	public boolean isAutoAttackable(L2Character attacker)
 	{
 		return _owner.isAutoAttackable(attacker);
 	}
-
-	/**
-	 *
-	 * @param owner
-	 */
+	
+	public final int getNpcId()
+	{
+		return getTemplate().getNpcId();
+	}
+	
+	@Override
+	public int getLevel()
+	{
+		return getTemplate().getLevel();
+	}
+	
 	public void deleteMe(L2PcInstance owner)
 	{
 		decayMe();
 		getKnownList().removeAllKnownObjects();
-		owner.setTrap(null);
-		super.deleteMe();
+		owner.setDecoy(null);
 	}
-
-	/**
-	 *
-	 * @param owner
-	 */
+	
 	public synchronized void unSummon(L2PcInstance owner)
 	{
 		if (isVisible() && !isDead())
 		{
 			if (getWorldRegion() != null)
 				getWorldRegion().removeFromZones(this);
-			owner.setTrap(null);
+			owner.setDecoy(null);
 			decayMe();
 			getKnownList().removeAllKnownObjects();
 		}
 	}
-
-	/**
-	 *
-	 * @see net.l2emuproject.gameserver.model.actor.L2Character#getLevel()
-	 */
-	@Override
-	public int getLevel()
-	{
-		return getTemplate().getLevel();
-	}
-
-	/**
-	 *
-	 * @return
-	 */
+	
 	public final L2PcInstance getOwner()
 	{
 		return _owner;
 	}
-
+	
 	@Override
 	public L2PcInstance getActingPlayer()
 	{
 		return _owner;
 	}
-
-	/**
-	 *
-	 * @see net.l2emuproject.gameserver.model.actor.L2Character#getTemplate()
-	 */
+	
 	@Override
 	public L2NpcTemplate getTemplate()
 	{
-		return (L2NpcTemplate) super.getTemplate();
-	}
-
-	/**
-	 *
-	 * @return
-	 */
-	public boolean isDetected()
-	{
-		return false;
-	}
-
-	/**
-	 *
-	 *
-	 */
-	public void setDetected()
-	{
-		// Do nothing
+		return (L2NpcTemplate)super.getTemplate();
 	}
 	
 	@Override
 	public void sendInfo(L2PcInstance activeChar)
 	{
-		activeChar.sendPacket(new AbstractNpcInfo.TrapInfo(this));
+		activeChar.sendPacket(new CharInfo(this));
 	}
 	
 	@Override
 	public void broadcastFullInfoImpl()
 	{
-		broadcastPacket(new AbstractNpcInfo.TrapInfo(this));
+		broadcastPacket(new CharInfo(this));
 	}
 }

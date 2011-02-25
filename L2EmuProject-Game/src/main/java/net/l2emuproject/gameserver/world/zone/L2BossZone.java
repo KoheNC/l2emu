@@ -24,8 +24,8 @@ import net.l2emuproject.gameserver.instancemanager.grandbosses.SailrenManager;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.ValakasManager;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.VanHalterManager;
 import net.l2emuproject.gameserver.instancemanager.lastimperialtomb.LastImperialTombManager;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 public class L2BossZone extends L2Zone
 {

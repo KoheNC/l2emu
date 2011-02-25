@@ -29,8 +29,6 @@ import net.l2emuproject.gameserver.datatables.PetDataTable;
 import net.l2emuproject.gameserver.handler.ItemHandler;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.ItemsOnGroundManager;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.stat.CharStat;
 import net.l2emuproject.gameserver.model.actor.stat.PetStat;
 import net.l2emuproject.gameserver.model.actor.status.CharStatus;
@@ -57,10 +55,12 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.geodata.GeoData;
 import net.l2emuproject.gameserver.world.npc.L2PetData;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.tools.random.Rnd;
 
 

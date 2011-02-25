@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.model.actor.stat;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 public class NpcStat extends CharStat
 {

@@ -25,8 +25,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
@@ -45,6 +43,8 @@ import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegionRestart;
 import net.l2emuproject.gameserver.world.mapregion.L2SpecialMapRegion;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.util.L2Collections;
 import net.l2emuproject.util.LookupTable;

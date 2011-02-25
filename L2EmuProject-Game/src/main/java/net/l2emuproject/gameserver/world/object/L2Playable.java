@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.actor;
+package net.l2emuproject.gameserver.world.object;
 
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
@@ -32,7 +32,6 @@ import net.l2emuproject.gameserver.taskmanager.MovementController;
 import net.l2emuproject.gameserver.taskmanager.PacketBroadcaster.BroadcastMode;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.knownlist.PlayableKnownList;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.tools.random.Rnd;

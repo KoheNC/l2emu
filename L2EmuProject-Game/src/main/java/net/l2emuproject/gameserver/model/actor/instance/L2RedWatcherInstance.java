@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model.actor.instance;
 
-import net.l2emuproject.gameserver.model.actor.L2Watcher;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Watcher;
 import net.l2emuproject.tools.random.Rnd;
 
 /**

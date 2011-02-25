@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model.actor.view;
 
-import net.l2emuproject.gameserver.model.actor.L2Decoy;
 import net.l2emuproject.gameserver.model.actor.position.ObjectPosition;
+import net.l2emuproject.gameserver.world.object.L2Decoy;
 
 /**
  * @author NB4L1

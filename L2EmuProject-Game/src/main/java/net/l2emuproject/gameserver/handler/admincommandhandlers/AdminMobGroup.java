@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
@@ -26,6 +25,7 @@ import net.l2emuproject.gameserver.util.Broadcast;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.npc.MobGroup;
 import net.l2emuproject.gameserver.world.npc.MobGroupTable;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 /**
  * @author littlecrow

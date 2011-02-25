@@ -18,9 +18,9 @@ import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.threadmanager.FIFOExecutableQueue;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.lang.L2System;
 import net.l2emuproject.util.L2FastSet;
 

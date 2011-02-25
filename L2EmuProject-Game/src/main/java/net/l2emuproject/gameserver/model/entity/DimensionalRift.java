@@ -23,11 +23,11 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.instancemanager.DimensionalRiftManager;
 import net.l2emuproject.gameserver.instancemanager.DimensionalRiftManager.DimensionalRiftRoom;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.tools.random.Rnd;
 
 

@@ -23,7 +23,7 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeapon;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 
 /**

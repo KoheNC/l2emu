@@ -18,11 +18,11 @@ import javolution.util.FastList;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
 import net.l2emuproject.gameserver.instancemanager.FortSiegeManager.SiegeSpawn;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 

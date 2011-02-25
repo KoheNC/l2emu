@@ -15,9 +15,6 @@
 package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.L2Attackable;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Trap;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.taskmanager.AbstractIterativePeriodicTaskManager;
@@ -25,6 +22,9 @@ import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.world.knownlist.CharKnownList;
 import net.l2emuproject.gameserver.world.knownlist.TrapKnownList;
+import net.l2emuproject.gameserver.world.object.L2Attackable;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Trap;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public final class L2TrapInstance extends L2Trap implements Runnable

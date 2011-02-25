@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import static net.l2emuproject.gameserver.model.actor.L2Npc.INTERACTION_DISTANCE;
 import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.MAX_ADENA;
+import static net.l2emuproject.gameserver.world.object.L2Npc.INTERACTION_DISTANCE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.SeedProduction;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 
 /**

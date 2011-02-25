@@ -14,7 +14,6 @@
  */
 package quests._170_DangerousAllure;
 
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.base.Race;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
@@ -23,6 +22,7 @@ import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 /**
  * A quest restricted to dark elves.

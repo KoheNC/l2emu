@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.world.zone.form;
 import java.lang.reflect.Constructor;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

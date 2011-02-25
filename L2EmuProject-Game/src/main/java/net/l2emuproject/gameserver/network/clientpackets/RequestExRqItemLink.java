@@ -20,8 +20,8 @@ import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ExRpItemLink;
 import net.l2emuproject.gameserver.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.util.Util;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 /**
  *

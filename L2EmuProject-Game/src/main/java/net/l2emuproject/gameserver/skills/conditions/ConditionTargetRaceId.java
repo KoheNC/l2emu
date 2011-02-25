@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.skills.conditions;
 import java.util.Arrays;
 import java.util.List;
 
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 import org.apache.commons.lang.ArrayUtils;
 

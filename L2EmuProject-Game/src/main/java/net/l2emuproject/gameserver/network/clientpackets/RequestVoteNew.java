@@ -21,7 +21,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExVoteSystemInfo;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 public final class RequestVoteNew extends L2GameClientPacket
 {

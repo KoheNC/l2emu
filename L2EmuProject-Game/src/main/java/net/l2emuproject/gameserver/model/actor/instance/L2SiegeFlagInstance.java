@@ -21,8 +21,6 @@ import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.L2SiegeClan;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.status.CharStatus;
 import net.l2emuproject.gameserver.model.actor.status.SiegeFlagStatus;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
@@ -33,6 +31,8 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 public final class L2SiegeFlagInstance extends L2Npc
 {

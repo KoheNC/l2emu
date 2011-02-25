@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 class ConditionTargetUndead extends Condition
 {

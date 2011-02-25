@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.world.knownlist;
 
-import net.l2emuproject.gameserver.model.actor.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Playable;
 
 public abstract class PlayableKnownList extends CharKnownList
 {

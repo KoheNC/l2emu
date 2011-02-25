@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.world.zone;
 
-import net.l2emuproject.gameserver.model.actor.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 /**
  * Inside this zone HP and/or MP are regenerated.

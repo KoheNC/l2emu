@@ -16,8 +16,6 @@ package net.l2emuproject.gameserver.model.actor.stat;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.PetDataTable;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2ClassMasterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
@@ -36,6 +34,8 @@ import net.l2emuproject.gameserver.network.serverpackets.TutorialShowQuestionMar
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.world.npc.L2PetData;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public class PcStat extends PlayableStat

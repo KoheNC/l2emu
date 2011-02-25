@@ -31,8 +31,8 @@ import net.l2emuproject.gameserver.network.serverpackets.ExShowQuestMark;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.QuestList;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.lang.L2TextBuilder;
 
 /**

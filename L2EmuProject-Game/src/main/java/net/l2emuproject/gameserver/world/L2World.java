@@ -20,13 +20,14 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.tools.geometry.Point3D;
 import net.l2emuproject.util.ArrayBunch;
 import net.l2emuproject.util.concurrent.L2EntityMap;

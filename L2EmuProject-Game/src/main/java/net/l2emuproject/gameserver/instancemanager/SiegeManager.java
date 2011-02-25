@@ -28,7 +28,6 @@ import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.config.L2Properties;
 import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2ArtefactInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -38,8 +37,9 @@ import net.l2emuproject.gameserver.model.entity.Siege;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.util.Util;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

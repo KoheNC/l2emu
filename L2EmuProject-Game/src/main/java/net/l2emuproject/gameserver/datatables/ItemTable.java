@@ -31,7 +31,6 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.items.model.Item;
 import net.l2emuproject.gameserver.model.L2CommandChannel;
-import net.l2emuproject.gameserver.model.actor.L2Boss;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
@@ -42,8 +41,9 @@ import net.l2emuproject.gameserver.templates.item.L2ArmorType;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Boss;
+import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.util.L2Collections;
 
 import org.apache.commons.logging.Log;

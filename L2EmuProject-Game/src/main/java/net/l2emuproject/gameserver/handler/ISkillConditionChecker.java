@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.handler;
 
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 /**
  * @author NB4L1

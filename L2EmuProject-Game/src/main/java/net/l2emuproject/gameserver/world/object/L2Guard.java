@@ -12,22 +12,17 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.actor;
+package net.l2emuproject.gameserver.world.object;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2MerchantInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2MerchantSummonInstance;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
 /**
- * Interface for {@link L2MerchantInstance} and {@link L2MerchantSummonInstance} to avoid a bunch of instanceof checks.
- * 
  * @author NB4L1
  */
-public interface L2Merchant
+public abstract class L2Guard extends L2Attackable
 {
-	public Integer getObjectId();
-	
-	public L2NpcTemplate getTemplate();
-	
-	public int getNpcId();
+	public L2Guard(int objectId, L2NpcTemplate template)
+	{
+		super(objectId, template);
+	}
 }

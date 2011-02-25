@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.model.actor.stat;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.skills.Calculator;
@@ -24,6 +23,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

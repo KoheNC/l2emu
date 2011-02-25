@@ -20,10 +20,10 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.network.serverpackets.AgitDecoInfo;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 
 public class L2TownZone extends L2Zone

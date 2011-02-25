@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.actor;
+package net.l2emuproject.gameserver.world.object;
 
 import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
 import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_FOLLOW;
@@ -115,7 +115,6 @@ import net.l2emuproject.gameserver.threadmanager.ExclusiveTask;
 import net.l2emuproject.gameserver.util.Broadcast;
 import net.l2emuproject.gameserver.util.Util;
 import net.l2emuproject.gameserver.util.Util.Direction;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.Location;

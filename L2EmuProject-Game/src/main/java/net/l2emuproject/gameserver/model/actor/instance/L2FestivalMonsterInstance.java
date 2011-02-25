@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.SevenSignsFestival;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 /**
  * L2FestivalMonsterInstance

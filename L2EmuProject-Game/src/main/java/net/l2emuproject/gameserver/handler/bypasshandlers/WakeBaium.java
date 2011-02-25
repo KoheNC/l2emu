@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.handler.bypasshandlers;
 
 import net.l2emuproject.gameserver.handler.IBypassHandler;
 import net.l2emuproject.gameserver.instancemanager.grandbosses.BaiumManager;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 public class WakeBaium implements IBypassHandler
 {

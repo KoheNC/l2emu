@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.ArrayList;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Playable;
 
 
 /**

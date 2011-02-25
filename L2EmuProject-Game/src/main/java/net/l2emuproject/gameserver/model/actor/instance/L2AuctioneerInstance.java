@@ -24,7 +24,6 @@ import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Town;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -34,6 +33,7 @@ import net.l2emuproject.gameserver.services.auction.Auction;
 import net.l2emuproject.gameserver.services.auction.AuctionService;
 import net.l2emuproject.gameserver.services.auction.Auction.Bidder;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 
 public final class L2AuctioneerInstance extends L2Npc

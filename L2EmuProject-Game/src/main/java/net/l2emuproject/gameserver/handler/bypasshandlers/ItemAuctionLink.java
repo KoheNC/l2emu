@@ -20,8 +20,6 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExItemAuctionInfoPacket;
@@ -30,6 +28,8 @@ import net.l2emuproject.gameserver.services.itemauction.ItemAuction;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuctionInstance;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 public class ItemAuctionLink implements IBypassHandler
 {

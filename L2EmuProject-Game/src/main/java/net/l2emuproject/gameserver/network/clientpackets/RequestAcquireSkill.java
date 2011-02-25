@@ -18,7 +18,6 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillSpellbookTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2FishermanInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -40,6 +39,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.L2SkillLearn;
 import net.l2emuproject.gameserver.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.util.Util;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 /**
 * This class represents a packet sent by client when the players confirms the skill

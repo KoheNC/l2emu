@@ -30,8 +30,8 @@ import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.services.auction.AuctionService;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 

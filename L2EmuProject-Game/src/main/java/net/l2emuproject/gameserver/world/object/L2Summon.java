@@ -12,14 +12,13 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.actor;
+package net.l2emuproject.gameserver.world.object;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.ai.L2CharacterAI;
 import net.l2emuproject.gameserver.ai.L2SummonAI;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
-import net.l2emuproject.gameserver.model.actor.L2Attackable.AggroInfo;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MerchantSummonInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
@@ -58,11 +57,11 @@ import net.l2emuproject.gameserver.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.geodata.GeoData;
 import net.l2emuproject.gameserver.world.knownlist.CharKnownList;
 import net.l2emuproject.gameserver.world.knownlist.SummonKnownList;
+import net.l2emuproject.gameserver.world.object.L2Attackable.AggroInfo;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public abstract class L2Summon extends L2Playable

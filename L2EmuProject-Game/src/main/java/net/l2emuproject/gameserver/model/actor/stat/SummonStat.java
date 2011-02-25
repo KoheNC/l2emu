@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model.actor.stat;
 
-import net.l2emuproject.gameserver.model.actor.L2Summon;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Summon;
 
 public class SummonStat extends PlayableStat
 {

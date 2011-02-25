@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.model.quest;
 import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

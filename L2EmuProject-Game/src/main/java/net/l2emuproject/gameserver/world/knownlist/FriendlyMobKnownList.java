@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.world.knownlist;
 
 import net.l2emuproject.gameserver.ai.CtrlEvent;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2FriendlyMobInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 public class FriendlyMobKnownList extends AttackableKnownList
 {

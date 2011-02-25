@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import static net.l2emuproject.gameserver.model.actor.L2Npc.INTERACTION_DISTANCE;
+import static net.l2emuproject.gameserver.world.object.L2Npc.INTERACTION_DISTANCE;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.model.actor.instance.L2ManorManagerInstance;
@@ -29,7 +29,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.gameserver.templates.item.L2Item;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 
 public class RequestBuyProcure extends L2GameClientPacket

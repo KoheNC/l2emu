@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.ai;
 
-import net.l2emuproject.gameserver.model.actor.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 /**
  * Interface of AI and client state.

@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.skills.effects;
 
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.skills.AbnormalEffect;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
+import net.l2emuproject.gameserver.world.object.L2Npc;
 
 public final class EffectGrow extends EffectBuff
 {

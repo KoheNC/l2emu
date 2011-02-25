@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.skills.conditions;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
-import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 /**
  * @author Gigiikun

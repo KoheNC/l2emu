@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.actor;
+package net.l2emuproject.gameserver.world.object;
 
 import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
 
@@ -2170,7 +2170,7 @@ public class L2Npc extends L2Character
 	 * <FONT COLOR=#FF0000><B> <U>Caution</U> : This method DOESN'T REMOVE the object from _allObjects of L2World </B></FONT><BR>
 	 * <FONT COLOR=#FF0000><B> <U>Caution</U> : This method DOESN'T SEND Server->Client packets to players</B></FONT><BR><BR>
 	 *
-	 * @see net.l2emuproject.gameserver.world.L2Object#decayMe()
+	 * @see net.l2emuproject.gameserver.world.object.L2Object#decayMe()
 	 */
 	@Override
 	public void onDecay()

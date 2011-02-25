@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import static net.l2emuproject.gameserver.model.actor.L2Npc.INTERACTION_DISTANCE;
+import static net.l2emuproject.gameserver.world.object.L2Npc.INTERACTION_DISTANCE;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
@@ -23,8 +23,8 @@ import net.l2emuproject.gameserver.model.item.ItemRequest;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
-import net.l2emuproject.gameserver.world.L2Object;
 import net.l2emuproject.gameserver.world.L2World;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 public class RequestPrivateStoreSell extends L2GameClientPacket
 {

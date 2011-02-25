@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.world.knownlist;
 
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Object;
 
 public abstract class ObjectKnownList
 {

@@ -16,10 +16,10 @@ package ai.zone.hellbound.Remnants;
 
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundEngine;
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
-import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.world.L2Object;
+import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.L2Object;
 import ai.L2AttackableAIScript;
 
 public final class Remnants extends L2AttackableAIScript
