@@ -53,12 +53,11 @@ public final class HellboundManager
 
 	private static final String					LOAD_SPAWNS				= "SELECT id, npc_templateid, locx, locy, locz, heading, "
 																				+ "respawn_min_delay, respawn_max_delay, min_hellbound_level, "
-																				+ "max_hellbound_level, max_trust_level, trust_points "
-																				+ "FROM hellbound_spawnlist ORDER BY id";
+																				+ "max_hellbound_level, trust_points " + "FROM hellbound_spawnlist ORDER BY id";
 
 	private static final int					POINTS_TO_OPEN_WARPGATE	= 100000;
 
-	private int									_hellboundLevel			= 0;
+	private int									_hellboundLevel			= HellboundEngine.LEVEL_0;
 	private int									_trustPoints			= 0;
 	private int									_warpgateEnergy			= 0;
 
