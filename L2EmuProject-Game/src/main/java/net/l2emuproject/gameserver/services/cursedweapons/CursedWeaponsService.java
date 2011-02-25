@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.instancemanager;
+package net.l2emuproject.gameserver.services.cursedweapons;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,7 +37,6 @@ import net.l2emuproject.gameserver.model.actor.instance.L2FestivalMonsterInstanc
 import net.l2emuproject.gameserver.model.actor.instance.L2GuardInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2RiftInvaderInstance;
-import net.l2emuproject.gameserver.model.item.CursedWeapon;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -53,18 +52,18 @@ import org.w3c.dom.Node;
  * 
  * @author Micht
  */
-public class CursedWeaponsManager
+public class CursedWeaponsService
 {
-	private static final Log			_log	= LogFactory.getLog(CursedWeaponsManager.class);
+	private static final Log			_log	= LogFactory.getLog(CursedWeaponsService.class);
 
-	public static final CursedWeaponsManager getInstance()
+	public static final CursedWeaponsService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 
 	private FastMap<Integer, CursedWeapon>	_cursedWeapons;
 
-	private CursedWeaponsManager()
+	private CursedWeaponsService()
 	{
 		_cursedWeapons = new FastMap<Integer, CursedWeapon>();
 		load();
@@ -267,7 +266,7 @@ public class CursedWeaponsManager
 			L2DatabaseFactory.close(con);
 		}
 
-		_log.info("CursedWeaponsManager: loaded " + _cursedWeapons.size() + " cursed weapon(s).");
+		_log.info("CursedWeaponsService: loaded " + _cursedWeapons.size() + " cursed weapon(s).");
 	}
 
 	public synchronized void checkDrop(L2Attackable attackable, L2PcInstance player)
@@ -400,7 +399,7 @@ public class CursedWeaponsManager
 		}
 		catch (SQLException e)
 		{
-			_log.fatal("CursedWeaponsManager: Failed to remove data: ", e);
+			_log.fatal("CursedWeaponsService: Failed to remove data: ", e);
 		}
 		finally
 		{
@@ -451,6 +450,6 @@ public class CursedWeaponsManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final CursedWeaponsManager _instance = new CursedWeaponsManager();
+		protected static final CursedWeaponsService _instance = new CursedWeaponsService();
 	}
 }

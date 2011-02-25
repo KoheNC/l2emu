@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 
 /**
  * @author -Wooden-
@@ -29,8 +29,8 @@ public class ExCursedWeaponList extends L2GameServerPacket
 		writeC(0xfe);
 		writeH(0x46);
 
-		writeD(CursedWeaponsManager.getInstance().getCursedWeaponsIds().size());
-		for (int id : CursedWeaponsManager.getInstance().getCursedWeaponsIds())
+		writeD(CursedWeaponsService.getInstance().getCursedWeaponsIds().size());
+		for (int id : CursedWeaponsService.getInstance().getCursedWeaponsIds())
 			writeD(id);
 	}
 

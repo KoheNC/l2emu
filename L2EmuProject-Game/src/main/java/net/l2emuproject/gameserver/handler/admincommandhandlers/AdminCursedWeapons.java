@@ -18,12 +18,12 @@ import java.util.StringTokenizer;
 
 import javolution.text.TextBuilder;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.item.CursedWeapon;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeapon;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 
 
 /**
@@ -50,7 +50,7 @@ public class AdminCursedWeapons implements IAdminCommandHandler
 	@Override
 	public boolean useAdminCommand(String command, L2PcInstance activeChar)
 	{
-		CursedWeaponsManager cwm = CursedWeaponsManager.getInstance();
+		CursedWeaponsService cwm = CursedWeaponsService.getInstance();
 		int id = 0;
 
 		StringTokenizer st = new StringTokenizer(command);

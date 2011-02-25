@@ -27,7 +27,6 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
 import net.l2emuproject.gameserver.handler.BypassHandler;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
 import net.l2emuproject.gameserver.model.L2TeleportLocation;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
@@ -37,6 +36,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowDominionRegistry;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
@@ -282,7 +282,7 @@ public class L2CastleChamberlainInstance extends L2MerchantInstance
 					return;
 
 				String filename = "";
-				if (CastleManorManager.getInstance().isDisabled())
+				if (CastleManorService.getInstance().isDisabled())
 					filename = "data/html/npcdefault.htm";
 				else
 				{

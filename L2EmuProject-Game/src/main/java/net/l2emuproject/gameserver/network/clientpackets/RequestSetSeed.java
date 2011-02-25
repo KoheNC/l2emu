@@ -22,14 +22,14 @@ import java.util.List;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.SeedProduction;
 import net.l2emuproject.gameserver.model.actor.instance.L2CastleChamberlainInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.SeedProduction;
 
 
 /**
@@ -144,9 +144,9 @@ public class RequestSetSeed extends L2GameClientPacket
 			seeds.add(s);
 		}
 
-		CastleManager.getInstance().getCastleById(_manorId).setSeedProduction(seeds, CastleManorManager.PERIOD_NEXT);
+		CastleManager.getInstance().getCastleById(_manorId).setSeedProduction(seeds, CastleManorService.PERIOD_NEXT);
 		if (Config.ALT_MANOR_SAVE_ALL_ACTIONS)
-			CastleManager.getInstance().getCastleById(_manorId).saveSeedData(CastleManorManager.PERIOD_NEXT);
+			CastleManager.getInstance().getCastleById(_manorId).saveSeedData(CastleManorService.PERIOD_NEXT);
 
 		sendAF();
 	}
@@ -169,7 +169,7 @@ public class RequestSetSeed extends L2GameClientPacket
 			if (_sales != 0 && (MAX_ADENA / _sales) < _price)
 				return null;
 
-			return CastleManorManager.getInstance().getNewSeedProduction(_itemId, _sales, _price, _sales);
+			return CastleManorService.getInstance().getNewSeedProduction(_itemId, _sales, _price, _sales);
 		}
 	}
 

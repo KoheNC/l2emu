@@ -18,7 +18,6 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.handler.IBypassHandler;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2CastleChamberlainInstance;
@@ -38,6 +37,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExShowSeedInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowSeedSetting;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowSellCropList;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
 
 public final class ManorMenuSelect implements IBypassHandler
 {
@@ -73,7 +73,7 @@ public final class ManorMenuSelect implements IBypassHandler
 				}
 			}
 
-			if (CastleManorManager.getInstance().isUnderMaintenance())
+			if (CastleManorService.getInstance().isUnderMaintenance())
 			{
 				activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 				activeChar.sendPacket(new SystemMessage(SystemMessageId.THE_MANOR_SYSTEM_IS_CURRENTLY_UNDER_MAINTENANCE));
@@ -105,13 +105,13 @@ public final class ManorMenuSelect implements IBypassHandler
 					else
 					{
 						activeChar.sendPacket(new BuyListSeed(activeChar.getAdena(), castleId, castle
-								.getSeedProduction(CastleManorManager.PERIOD_CURRENT)));
+								.getSeedProduction(CastleManorService.PERIOD_CURRENT)));
 					}
 					break;
 				case 2: // Crop sales
 					if (isCastle)
 						break;
-					activeChar.sendPacket(new ExShowSellCropList(activeChar, castleId, castle.getCropProcure(CastleManorManager.PERIOD_CURRENT)));
+					activeChar.sendPacket(new ExShowSellCropList(activeChar, castleId, castle.getCropProcure(CastleManorService.PERIOD_CURRENT)));
 					break;
 				case 3: // Current seeds (Manor info)
 					if (time == 1 && !CastleManager.getInstance().getCastleById(castleId).isNextPeriodApproved())

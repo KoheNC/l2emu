@@ -27,6 +27,7 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.model.world.L2World;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -214,7 +215,7 @@ public class ItemsOnGroundManager
 				if (item == null)
 					continue;
 
-				if (CursedWeaponsManager.getInstance().isCursed(item.getItemId()))
+				if (CursedWeaponsService.getInstance().isCursed(item.getItemId()))
 					continue; // Cursed Items not saved to ground, prevent double save
 
 				Connection con = null;

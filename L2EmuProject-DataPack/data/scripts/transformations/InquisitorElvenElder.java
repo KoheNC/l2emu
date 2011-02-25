@@ -14,9 +14,9 @@
  */
 package transformations;
 
-import net.l2emuproject.gameserver.instancemanager.TransformationManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
+import net.l2emuproject.gameserver.services.transformation.TransformationService;
 
 public class InquisitorElvenElder extends L2Transformation
 {
@@ -60,6 +60,6 @@ public class InquisitorElvenElder extends L2Transformation
 
 	public static void main(String[] args)
 	{
-		TransformationManager.getInstance().registerTransformation(new InquisitorElvenElder());
+		TransformationService.getInstance().registerTransformation(new InquisitorElvenElder());
 	}
 }

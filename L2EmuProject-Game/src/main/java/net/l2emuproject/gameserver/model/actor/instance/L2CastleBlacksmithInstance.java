@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.model.actor.instance;
 
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
 /**
@@ -37,7 +37,7 @@ public class L2CastleBlacksmithInstance extends L2NpcInstance
 	@Override
 	public void onBypassFeedback(L2PcInstance player, String command)
 	{
-		if (CastleManorManager.getInstance().isDisabled())
+		if (CastleManorService.getInstance().isDisabled())
 		{
 			NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 			html.setFile("data/html/npcdefault.htm");

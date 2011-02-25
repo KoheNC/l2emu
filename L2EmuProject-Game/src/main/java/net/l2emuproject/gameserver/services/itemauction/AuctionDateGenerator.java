@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.itemauction;
+package net.l2emuproject.gameserver.services.itemauction;
 
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;

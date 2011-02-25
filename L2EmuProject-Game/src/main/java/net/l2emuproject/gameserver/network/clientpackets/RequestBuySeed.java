@@ -19,8 +19,6 @@ import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.MAX_AD
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.SeedProduction;
 import net.l2emuproject.gameserver.model.actor.instance.L2ManorManagerInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
@@ -31,6 +29,8 @@ import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.SeedProduction;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 
 
@@ -222,7 +222,7 @@ public class RequestBuySeed extends L2GameClientPacket
 
 		public boolean setProduction(Castle c)
 		{
-			_seed = c.getSeed(_seedId, CastleManorManager.PERIOD_CURRENT);
+			_seed = c.getSeed(_seedId, CastleManorService.PERIOD_CURRENT);
 			// invalid price - seed disabled
 			if (_seed.getPrice() <= 0)
 				return false;
@@ -241,7 +241,7 @@ public class RequestBuySeed extends L2GameClientPacket
 			_seed.setCanProduce(_seed.getCanProduce() - _count);
 			// Update Castle Seeds Amount
 			if (Config.ALT_MANOR_SAVE_ALL_ACTIONS)
-				c.updateSeed(_seedId, _seed.getCanProduce(), CastleManorManager.PERIOD_CURRENT);
+				c.updateSeed(_seedId, _seed.getCanProduce(), CastleManorService.PERIOD_CURRENT);
 		}
 	}
 }

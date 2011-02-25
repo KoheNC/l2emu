@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.gameserver.handler.BypassHandler;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
 public class L2ManorManagerInstance extends L2MerchantInstance
@@ -58,7 +58,7 @@ public class L2ManorManagerInstance extends L2MerchantInstance
 	@Override
 	public void showChatWindow(L2PcInstance player)
 	{
-		if (CastleManorManager.getInstance().isDisabled())
+		if (CastleManorService.getInstance().isDisabled())
 		{
 			showChatWindow(player, "data/html/npcdefault.htm");
 			return;

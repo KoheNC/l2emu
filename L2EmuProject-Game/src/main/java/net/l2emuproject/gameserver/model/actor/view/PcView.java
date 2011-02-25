@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.model.actor.view;
 
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
 import net.l2emuproject.gameserver.model.actor.appearance.PcAppearance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.actor.position.ObjectPosition;
 import net.l2emuproject.gameserver.model.actor.stat.PcStat;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.chars.L2PcTemplate;
@@ -116,7 +116,7 @@ public final class PcView extends CharView<L2PcInstance> implements UniversalCha
 		_criticalHit = stat.getCriticalHit(null);
 		
 		if (cha.isCursedWeaponEquipped())
-			_cursedWeaponLevel = CursedWeaponsManager.getInstance().getLevel(cha.getCursedWeaponEquippedId());
+			_cursedWeaponLevel = CursedWeaponsService.getInstance().getLevel(cha.getCursedWeaponEquippedId());
 		else
 			_cursedWeaponLevel = 0;
 		

@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.SeedProduction;
 import net.l2emuproject.gameserver.model.entity.Castle;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.SeedProduction;
 
 
 /**
@@ -59,7 +59,7 @@ public class ExShowSeedSetting extends L2GameServerPacket
 			_seedData[i * 12 + 5] = L2Manor.getInstance().getSeedBuyPrice(s);
 			_seedData[i * 12 + 6] = L2Manor.getInstance().getSeedBasicPrice(s) * 60 / 100;
 			_seedData[i * 12 + 7] = L2Manor.getInstance().getSeedBasicPrice(s) * 10;
-			SeedProduction seedPr = c.getSeed(s, CastleManorManager.PERIOD_CURRENT);
+			SeedProduction seedPr = c.getSeed(s, CastleManorService.PERIOD_CURRENT);
 			if (seedPr != null)
 			{
 				_seedData[i * 12 + 8] = seedPr.getStartProduce();
@@ -70,7 +70,7 @@ public class ExShowSeedSetting extends L2GameServerPacket
 				_seedData[i * 12 + 8] = 0;
 				_seedData[i * 12 + 9] = 0;
 			}
-			seedPr = c.getSeed(s, CastleManorManager.PERIOD_NEXT);
+			seedPr = c.getSeed(s, CastleManorService.PERIOD_NEXT);
 			if (seedPr != null)
 			{
 				_seedData[i * 12 + 10] = seedPr.getStartProduce();

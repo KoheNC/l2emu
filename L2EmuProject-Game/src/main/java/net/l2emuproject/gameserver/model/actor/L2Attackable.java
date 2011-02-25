@@ -32,7 +32,6 @@ import net.l2emuproject.gameserver.datatables.EventDroplist;
 import net.l2emuproject.gameserver.datatables.EventDroplist.DateDrop;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
 import net.l2emuproject.gameserver.model.L2CharPosition;
 import net.l2emuproject.gameserver.model.L2CommandChannel;
 import net.l2emuproject.gameserver.model.actor.instance.L2ChestInstance;
@@ -60,6 +59,7 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
@@ -1396,7 +1396,7 @@ public class L2Attackable extends L2Npc
 		int levelModifier = calculateLevelModifierForDrop(player); // level modifier in %'s (will be subtracted from drop chance)
 
 		// Check the drop of a cursed weapon
-		CursedWeaponsManager.getInstance().checkDrop(this, player);
+		CursedWeaponsService.getInstance().checkDrop(this, player);
 
 		// now throw all categorized drops and handle spoil.
 		if (npcTemplate.getDropData() != null)

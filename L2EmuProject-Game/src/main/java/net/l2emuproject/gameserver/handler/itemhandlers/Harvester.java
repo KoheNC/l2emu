@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Playable;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
@@ -25,6 +24,7 @@ import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
 
 /**
  * @author l3x
@@ -41,7 +41,7 @@ public class Harvester implements IItemHandler
 		if (!(playable instanceof L2PcInstance))
 			return;
 		
-		if (CastleManorManager.getInstance().isDisabled())
+		if (CastleManorService.getInstance().isDisabled())
 			return;
 		
 		L2PcInstance activeChar = (L2PcInstance)playable;

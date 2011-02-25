@@ -22,13 +22,13 @@ import java.util.List;
 
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
-import net.l2emuproject.gameserver.model.item.CursedWeapon;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.CharSelectInfoPackage;
 import net.l2emuproject.gameserver.network.L2GameClient;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeapon;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 
 
 public class CharSelectionInfo extends L2GameServerPacket
@@ -283,9 +283,9 @@ public class CharSelectionInfo extends L2GameServerPacket
 		int transformId = chardata.getInt("transform_id");
 		
 		//cursed weapon check
-		if (CursedWeaponsManager.getInstance().isCursed(weaponId))
+		if (CursedWeaponsService.getInstance().isCursed(weaponId))
 		{
-			CursedWeapon cw = CursedWeaponsManager.getInstance().getCursedWeapon(weaponId);
+			CursedWeapon cw = CursedWeaponsService.getInstance().getCursedWeapon(weaponId);
 			if (cw.getTransformId() < 1)
 				charInfopackage.setTransformationId(0);
 			else

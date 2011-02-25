@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.instancemanager;
+package net.l2emuproject.gameserver.services.manor;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,6 +25,7 @@ import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ClanTable;
+import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
@@ -32,7 +33,6 @@ import net.l2emuproject.gameserver.model.itemcontainer.ClanWarehouse;
 import net.l2emuproject.gameserver.model.itemcontainer.ItemContainer;
 import net.l2emuproject.gameserver.model.world.L2World;
 import net.l2emuproject.gameserver.network.SystemMessageId;
-import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;
@@ -46,9 +46,9 @@ import org.apache.commons.logging.LogFactory;
  * @author l3x
  */
 
-public class CastleManorManager
+public class CastleManorService
 {
-	private final static Log			_log							= LogFactory.getLog(CastleManorManager.class);
+	private final static Log			_log							= LogFactory.getLog(CastleManorService.class);
 
 	public static final int				PERIOD_CURRENT					= 0;
 	public static final int				PERIOD_NEXT						= 1;
@@ -73,7 +73,7 @@ public class CastleManorManager
 	protected ScheduledFuture<?>		_scheduledMaintenanceEnd;
 	protected ScheduledFuture<?>		_scheduledNextPeriodapprove;
 
-	public static final CastleManorManager getInstance()
+	public static final CastleManorService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
@@ -184,7 +184,7 @@ public class CastleManorManager
 		}
 	}
 
-	private CastleManorManager()
+	private CastleManorService()
 	{
 		load(); // Load data from database
 		init(); // Schedule all manor related events
@@ -595,6 +595,6 @@ public class CastleManorManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final CastleManorManager _instance = new CastleManorManager();
+		protected static final CastleManorService _instance = new CastleManorService();
 	}
 }

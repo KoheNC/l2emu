@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.itemauction;
+package net.l2emuproject.gameserver.services.itemauction;
 
 import gnu.trove.TIntObjectHashMap;
 
@@ -32,7 +32,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.instancemanager.ItemAuctionManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance.ItemLocation;
@@ -159,7 +158,7 @@ public final class ItemAuctionInstance
 					}
 					else
 					{
-						ItemAuctionManager.deleteAuction(auctionId);
+						ItemAuctionService.deleteAuction(auctionId);
 					}
 				}
 				catch (final SQLException e)

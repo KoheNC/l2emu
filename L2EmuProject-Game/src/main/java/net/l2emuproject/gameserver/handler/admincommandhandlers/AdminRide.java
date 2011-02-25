@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.TransformationManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.transformation.TransformationService;
 
 /**
  * @author
@@ -66,7 +66,7 @@ public class AdminRide implements IAdminCommandHandler
 				if (activeChar.getPlayerTransformation().getTransformation() != null)
 					activeChar.sendPacket(SystemMessageId.YOU_CANNOT_MOUNT_A_STEED_WHILE_TRANSFORMED);
 				else
-					 TransformationManager.getInstance().transformPlayer(106, activeChar);
+					 TransformationService.getInstance().transformPlayer(106, activeChar);
 				return true;
 			}
 			else

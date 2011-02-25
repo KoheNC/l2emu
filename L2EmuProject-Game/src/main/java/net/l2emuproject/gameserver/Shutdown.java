@@ -17,10 +17,7 @@ package net.l2emuproject.gameserver;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
-import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
 import net.l2emuproject.gameserver.instancemanager.GrandBossSpawnManager;
-import net.l2emuproject.gameserver.instancemanager.ItemAuctionManager;
 import net.l2emuproject.gameserver.instancemanager.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.instancemanager.MercTicketManager;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
@@ -36,6 +33,9 @@ import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.L2GameSelectorThread;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
+import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.util.DatabaseBackupManager;
 import net.l2emuproject.gameserver.util.OfflineTradeManager;
@@ -186,13 +186,13 @@ public final class Shutdown extends Thread
 		System.out.println("Saving TradeController data, please wait...");
 		TradeListTable.getInstance().dataCountStore();
 		System.out.println("TradeController: All count Item Saved");
-		ItemAuctionManager.getInstance().shutdown();
-		System.out.println("ItemAuctionManager: Items are saved.");
+		ItemAuctionService.getInstance().shutdown();
+		System.out.println("ItemAuctionService: Items are saved.");
 		Olympiad.getInstance().saveOlympiadStatus();
 		System.out.println("Olympiad System: Data saved!!");
 		
 		// Save all manor data
-		CastleManorManager.getInstance().save();
+		CastleManorService.getInstance().save();
 		
 		// Save all global (non-player specific) Quest data that needs to persist after reboot
 		QuestManager.getInstance().save();
@@ -212,8 +212,8 @@ public final class Shutdown extends Thread
 		}
 		
 		// Save Cursed Weapons data before closing.
-		CursedWeaponsManager.getInstance().saveData();
-		System.out.println("CursedWeaponsManager: Data saved.");
+		CursedWeaponsService.getInstance().saveData();
+		System.out.println("CursedWeaponsService: Data saved.");
 		// Save items on ground before closing
 		if (Config.SAVE_DROPPED_ITEM)
 		{

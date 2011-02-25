@@ -17,10 +17,10 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.List;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.CropProcure;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
 
 
 /**

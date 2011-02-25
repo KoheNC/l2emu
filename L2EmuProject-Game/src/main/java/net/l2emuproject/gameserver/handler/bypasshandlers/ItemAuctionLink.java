@@ -20,15 +20,15 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.instancemanager.ItemAuctionManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Npc;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.itemauction.ItemAuction;
-import net.l2emuproject.gameserver.model.itemauction.ItemAuctionInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExItemAuctionInfoPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.itemauction.ItemAuction;
+import net.l2emuproject.gameserver.services.itemauction.ItemAuctionInstance;
+import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
 import net.l2emuproject.gameserver.util.FloodProtector.Protected;
 
 public class ItemAuctionLink implements IBypassHandler
@@ -50,7 +50,7 @@ public class ItemAuctionLink implements IBypassHandler
 			return true;
 		}
 
-		final ItemAuctionInstance au = ItemAuctionManager.getInstance().getManagerInstance(((L2Npc) target).getNpcId());
+		final ItemAuctionInstance au = ItemAuctionService.getInstance().getManagerInstance(((L2Npc) target).getNpcId());
 		if (au == null)
 			return false;
 

@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.skills.effects;
 
-import net.l2emuproject.gameserver.instancemanager.TransformationManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.transformation.TransformationService;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
@@ -62,7 +62,7 @@ public final class EffectTransformation extends L2Effect
 			return false;
 		}
 		
-		TransformationManager.getInstance().transformPlayer(getSkill().getTransformId(), trg);
+		TransformationService.getInstance().transformPlayer(getSkill().getTransformId(), trg);
 		return true;
 	}
 	

@@ -19,8 +19,6 @@ import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.MAX_AD
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.CropProcure;
 import net.l2emuproject.gameserver.model.actor.instance.L2ManorManagerInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
@@ -29,7 +27,9 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 
 
@@ -297,7 +297,7 @@ public class RequestProcureCropList extends L2GameClientPacket
 		{
 			try
 			{
-				_crop = CastleManager.getInstance().getCastleById(_manorId).getCrop(_itemId, CastleManorManager.PERIOD_CURRENT);
+				_crop = CastleManager.getInstance().getCastleById(_manorId).getCrop(_itemId, CastleManorService.PERIOD_CURRENT);
 			}
 			catch (NullPointerException e)
 			{
@@ -320,7 +320,7 @@ public class RequestProcureCropList extends L2GameClientPacket
 		{
 			_crop.setAmount(_crop.getAmount() - _count);
 			if (Config.ALT_MANOR_SAVE_ALL_ACTIONS)
-				CastleManager.getInstance().getCastleById(_manorId).updateCrop(_itemId, _crop.getAmount(), CastleManorManager.PERIOD_CURRENT);
+				CastleManager.getInstance().getCastleById(_manorId).updateCrop(_itemId, _crop.getAmount(), CastleManorService.PERIOD_CURRENT);
 		}
 	}
 }

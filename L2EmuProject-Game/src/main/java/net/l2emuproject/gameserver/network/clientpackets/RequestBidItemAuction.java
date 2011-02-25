@@ -14,11 +14,11 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.instancemanager.ItemAuctionManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.itemauction.ItemAuction;
-import net.l2emuproject.gameserver.model.itemauction.ItemAuctionInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.services.itemauction.ItemAuction;
+import net.l2emuproject.gameserver.services.itemauction.ItemAuctionInstance;
+import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
 
 /**
  * @author Forsaiken
@@ -45,7 +45,7 @@ public final class RequestBidItemAuction extends L2GameClientPacket
 		if (_bid < 0 || _bid > PcInventory.MAX_ADENA)
 			return;
 
-		final ItemAuctionInstance instance = ItemAuctionManager.getInstance().getManagerInstance(_instanceId);
+		final ItemAuctionInstance instance = ItemAuctionService.getInstance().getManagerInstance(_instanceId);
 		if (instance != null)
 		{
 			final ItemAuction auction = instance.getCurrentAuction();

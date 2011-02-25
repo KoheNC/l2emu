@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.model.restriction.global;
 
-import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.skills.L2Skill;
 
 /**
@@ -76,13 +76,13 @@ public final class CursedWeaponRestriction extends AbstractRestriction
 	public final void playerLoggedIn(L2PcInstance activeChar)
 	{
 		if (activeChar.isCursedWeaponEquipped())
-			CursedWeaponsManager.getInstance().getCursedWeapon(activeChar.getCursedWeaponEquippedId()).cursedOnLogin();
+			CursedWeaponsService.getInstance().getCursedWeapon(activeChar.getCursedWeaponEquippedId()).cursedOnLogin();
 	}
 	
 	@Override
 	public final void playerDisconnected(L2PcInstance activeChar)
 	{
 		if (activeChar.isCursedWeaponEquipped())
-			CursedWeaponsManager.getInstance().onExit(activeChar);
+			CursedWeaponsService.getInstance().onExit(activeChar);
 	}
 }

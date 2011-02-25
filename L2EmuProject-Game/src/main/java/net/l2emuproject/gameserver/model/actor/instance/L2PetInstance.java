@@ -29,7 +29,6 @@ import net.l2emuproject.gameserver.datatables.PetDataTable;
 import net.l2emuproject.gameserver.geodata.GeoData;
 import net.l2emuproject.gameserver.handler.ItemHandler;
 import net.l2emuproject.gameserver.idfactory.IdFactory;
-import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
 import net.l2emuproject.gameserver.instancemanager.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.L2Summon;
@@ -56,6 +55,7 @@ import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.StopMove;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
@@ -489,7 +489,7 @@ public class L2PetInstance extends L2Summon
 		L2ItemInstance target = (L2ItemInstance)object;
 
 		// Cursed weapons
-		if (CursedWeaponsManager.getInstance().isCursed(target.getItemId()))
+		if (CursedWeaponsService.getInstance().isCursed(target.getItemId()))
 		{
 			SystemMessage smsg = new SystemMessage(SystemMessageId.FAILED_TO_PICKUP_S1);
 			smsg.addItemName(target);

@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.CropProcure;
 import net.l2emuproject.gameserver.model.entity.Castle;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
 
 
 /**
@@ -44,7 +44,7 @@ public class ExShowProcureCropDetail extends L2GameServerPacket
 
 		for (Castle c : CastleManager.getInstance().getCastles().values())
 		{
-			CropProcure cropItem = c.getCrop(_cropId, CastleManorManager.PERIOD_CURRENT);
+			CropProcure cropItem = c.getCrop(_cropId, CastleManorService.PERIOD_CURRENT);
 			if (cropItem != null && cropItem.getAmount() > 0)
 				_castleCrops.put(c.getCastleId(), cropItem);
 		}

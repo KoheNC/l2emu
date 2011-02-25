@@ -22,14 +22,14 @@ import java.util.List;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.CropProcure;
 import net.l2emuproject.gameserver.model.actor.instance.L2CastleChamberlainInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.world.L2Object;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
 
 
 /**
@@ -141,9 +141,9 @@ public class RequestSetCrop extends L2GameClientPacket
 			crops.add(s);
 		}
 
-		currentCastle.setCropProcure(crops, CastleManorManager.PERIOD_NEXT);
+		currentCastle.setCropProcure(crops, CastleManorService.PERIOD_NEXT);
 		if (Config.ALT_MANOR_SAVE_ALL_ACTIONS)
-			currentCastle.saveCropData(CastleManorManager.PERIOD_NEXT);
+			currentCastle.saveCropData(CastleManorService.PERIOD_NEXT);
 
 		sendAF();
 	}
@@ -174,7 +174,7 @@ public class RequestSetCrop extends L2GameClientPacket
 			if (_sales != 0 && (MAX_ADENA / _sales) < _price)
 				return null;
 
-			return CastleManorManager.getInstance().getNewCropProcure(_itemId, _sales, _type, _price, _sales);
+			return CastleManorService.getInstance().getNewCropProcure(_itemId, _sales, _type, _price, _sales);
 		}
 	}
 }

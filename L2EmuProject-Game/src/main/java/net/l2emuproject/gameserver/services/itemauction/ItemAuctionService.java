@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.instancemanager;
+package net.l2emuproject.gameserver.services.itemauction;
 
 import gnu.trove.TIntObjectHashMap;
 
@@ -27,7 +27,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
-import net.l2emuproject.gameserver.model.itemauction.ItemAuctionInstance;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -38,11 +37,11 @@ import org.w3c.dom.Node;
 /**
  * @author Forsaiken
  */
-public final class ItemAuctionManager
+public final class ItemAuctionService
 {
-	private static final Log	_log	= LogFactory.getLog(ItemAuctionManager.class);
+	private static final Log	_log	= LogFactory.getLog(ItemAuctionService.class);
 
-	public static final ItemAuctionManager getInstance()
+	public static final ItemAuctionService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
@@ -50,14 +49,14 @@ public final class ItemAuctionManager
 	private final TIntObjectHashMap<ItemAuctionInstance>	_managerInstances;
 	private final AtomicInteger								_auctionIds;
 
-	private ItemAuctionManager()
+	private ItemAuctionService()
 	{
 		_managerInstances = new TIntObjectHashMap<ItemAuctionInstance>();
 		_auctionIds = new AtomicInteger(1);
 
 		if (!Config.ALT_ITEM_AUCTION_ENABLED)
 		{
-			_log.info("ItemAuctionManager: Disabled by config.");
+			_log.info("ItemAuctionService: Disabled by config.");
 			return;
 		}
 
@@ -72,7 +71,7 @@ public final class ItemAuctionManager
 		}
 		catch (final SQLException e)
 		{
-			_log.error("ItemAuctionManager: Failed loading auctions.", e);
+			_log.error("ItemAuctionService: Failed loading auctions.", e);
 		}
 		finally
 		{
@@ -82,7 +81,7 @@ public final class ItemAuctionManager
 		final File file = new File(Config.DATAPACK_ROOT + "/data/ItemAuctions.xml");
 		if (!file.exists())
 		{
-			_log.warn("ItemAuctionManager: Missing ItemAuctions.xml!");
+			_log.warn("ItemAuctionService: Missing ItemAuctions.xml!");
 			return;
 		}
 
@@ -113,11 +112,11 @@ public final class ItemAuctionManager
 					}
 				}
 			}
-			_log.info("ItemAuctionManager: Loaded " + _managerInstances.size() + " instance(s).");
+			_log.info("ItemAuctionService: Loaded " + _managerInstances.size() + " instance(s).");
 		}
 		catch (Exception e)
 		{
-			_log.error("ItemAuctionManager: Failed loading auctions from xml.", e);
+			_log.error("ItemAuctionService: Failed loading auctions from xml.", e);
 		}
 	}
 
@@ -169,6 +168,6 @@ public final class ItemAuctionManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final ItemAuctionManager	_instance	= new ItemAuctionManager();
+		protected static final ItemAuctionService	_instance	= new ItemAuctionService();
 	}
 }

@@ -81,11 +81,9 @@ import net.l2emuproject.gameserver.instancemanager.BlockListManager;
 import net.l2emuproject.gameserver.instancemanager.BoatManager;
 import net.l2emuproject.gameserver.instancemanager.CCHManager;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
 import net.l2emuproject.gameserver.instancemanager.CoupleManager;
 import net.l2emuproject.gameserver.instancemanager.CrownManager;
-import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
 import net.l2emuproject.gameserver.instancemanager.DayNightSpawnManager;
 import net.l2emuproject.gameserver.instancemanager.DimensionalRiftManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
@@ -94,7 +92,6 @@ import net.l2emuproject.gameserver.instancemanager.FourSepulchersManager;
 import net.l2emuproject.gameserver.instancemanager.FriendListManager;
 import net.l2emuproject.gameserver.instancemanager.GrandBossSpawnManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
-import net.l2emuproject.gameserver.instancemanager.ItemAuctionManager;
 import net.l2emuproject.gameserver.instancemanager.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.instancemanager.MailManager;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
@@ -108,7 +105,6 @@ import net.l2emuproject.gameserver.instancemanager.RecommendationManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
-import net.l2emuproject.gameserver.instancemanager.TransformationManager;
 import net.l2emuproject.gameserver.instancemanager.ZoneManager;
 import net.l2emuproject.gameserver.instancemanager.games.KrateiCube;
 import net.l2emuproject.gameserver.instancemanager.gracia.SeedOfDestructionManager;
@@ -141,8 +137,12 @@ import net.l2emuproject.gameserver.scripting.L2ScriptEngineManager;
 import net.l2emuproject.gameserver.services.SystemService;
 import net.l2emuproject.gameserver.services.VersionService;
 import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
+import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell;
+import net.l2emuproject.gameserver.services.transformation.TransformationService;
 import net.l2emuproject.gameserver.taskmanager.AttackStanceTaskManager;
 import net.l2emuproject.gameserver.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.taskmanager.KnownListUpdateTaskManager;
@@ -286,7 +286,7 @@ public class L2GameServer extends Config
 		HennaTreeTable.getInstance();
 		if (Config.ALLOW_WEDDING)
 			CoupleManager.getInstance();
-		CursedWeaponsManager.getInstance();
+		CursedWeaponsService.getInstance();
 		
 		// forums must be loaded before clan data, because of last forum id used should have also memo included
 		if (Config.COMMUNITY_TYPE > 0)
@@ -361,7 +361,7 @@ public class L2GameServer extends Config
 		
 		Util.printSection("Quests");
 		QuestManager.getInstance();
-		TransformationManager.getInstance();
+		TransformationService.getInstance();
 		
 		Util.printSection("Events/ScriptEngine");
 		try
@@ -397,18 +397,18 @@ public class L2GameServer extends Config
 		}
 		
 		QuestManager.getInstance().report();
-		TransformationManager.getInstance().report();
+		TransformationService.getInstance().report();
 		
 		EventDroplist.getInstance();
 		FaenorScriptEngine.getInstance();
 		
 		Util.printSection("Economy");
 		TradeListTable.getInstance();
-		CastleManorManager.getInstance();
+		CastleManorService.getInstance();
 		L2Manor.getInstance();
 		AuctionManager.getInstance();
 		// L2EMU_ADD
-		ItemAuctionManager.getInstance();
+		ItemAuctionService.getInstance();
 		ItemMarketTable.getInstance();
 		// L2EMU_ADD
 		RecipeController.getInstance();

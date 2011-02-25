@@ -21,12 +21,12 @@ import javolution.util.FastList;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.CropProcure;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.SeedProduction;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.SeedProduction;
 
 
 /**
@@ -66,17 +66,17 @@ public class AdminManor implements IAdminCommandHandler
 		}
 		else if (command.equals("admin_manor_setnext"))
 		{
-			CastleManorManager.getInstance().setNextPeriod();
-			CastleManorManager.getInstance().setNewManorRefresh();
-			CastleManorManager.getInstance().updateManorRefresh();
+			CastleManorService.getInstance().setNextPeriod();
+			CastleManorService.getInstance().setNewManorRefresh();
+			CastleManorService.getInstance().updateManorRefresh();
 			activeChar.sendMessage("Manor System: set to next period");
 			showMainPage(activeChar);
 		}
 		else if (command.equals("admin_manor_approve"))
 		{
-			CastleManorManager.getInstance().approveNextPeriod();
-			CastleManorManager.getInstance().setNewPeriodApprove();
-			CastleManorManager.getInstance().updatePeriodApprove();
+			CastleManorService.getInstance().approveNextPeriod();
+			CastleManorService.getInstance().setNewPeriodApprove();
+			CastleManorService.getInstance().updatePeriodApprove();
 			activeChar.sendMessage("Manor System: next period approved");
 			showMainPage(activeChar);
 		}
@@ -94,10 +94,10 @@ public class AdminManor implements IAdminCommandHandler
 			if (castleId > 0)
 			{
 				Castle castle = CastleManager.getInstance().getCastleById(castleId);
-				castle.setCropProcure(new FastList<CropProcure>(), CastleManorManager.PERIOD_CURRENT);
-				castle.setCropProcure(new FastList<CropProcure>(), CastleManorManager.PERIOD_NEXT);
-				castle.setSeedProduction(new FastList<SeedProduction>(), CastleManorManager.PERIOD_CURRENT);
-				castle.setSeedProduction(new FastList<SeedProduction>(), CastleManorManager.PERIOD_NEXT);
+				castle.setCropProcure(new FastList<CropProcure>(), CastleManorService.PERIOD_CURRENT);
+				castle.setCropProcure(new FastList<CropProcure>(), CastleManorService.PERIOD_NEXT);
+				castle.setSeedProduction(new FastList<SeedProduction>(), CastleManorService.PERIOD_CURRENT);
+				castle.setSeedProduction(new FastList<SeedProduction>(), CastleManorService.PERIOD_NEXT);
 				if (Config.ALT_MANOR_SAVE_ALL_ACTIONS)
 				{
 					castle.saveCropData();
@@ -109,10 +109,10 @@ public class AdminManor implements IAdminCommandHandler
 			{
 				for (Castle castle : CastleManager.getInstance().getCastles().values())
 				{
-					castle.setCropProcure(new FastList<CropProcure>(), CastleManorManager.PERIOD_CURRENT);
-					castle.setCropProcure(new FastList<CropProcure>(), CastleManorManager.PERIOD_NEXT);
-					castle.setSeedProduction(new FastList<SeedProduction>(), CastleManorManager.PERIOD_CURRENT);
-					castle.setSeedProduction(new FastList<SeedProduction>(), CastleManorManager.PERIOD_NEXT);
+					castle.setCropProcure(new FastList<CropProcure>(), CastleManorService.PERIOD_CURRENT);
+					castle.setCropProcure(new FastList<CropProcure>(), CastleManorService.PERIOD_NEXT);
+					castle.setSeedProduction(new FastList<SeedProduction>(), CastleManorService.PERIOD_CURRENT);
+					castle.setSeedProduction(new FastList<SeedProduction>(), CastleManorService.PERIOD_NEXT);
 					if (Config.ALT_MANOR_SAVE_ALL_ACTIONS)
 					{
 						castle.saveCropData();
@@ -125,8 +125,8 @@ public class AdminManor implements IAdminCommandHandler
 		}
 		else if (command.equals("admin_manor_setmaintenance"))
 		{
-			boolean mode = CastleManorManager.getInstance().isUnderMaintenance();
-			CastleManorManager.getInstance().setUnderMaintenance(!mode);
+			boolean mode = CastleManorService.getInstance().isUnderMaintenance();
+			CastleManorService.getInstance().setUnderMaintenance(!mode);
 			if (mode)
 				activeChar.sendMessage("Manor System: not under maintenance");
 			else
@@ -135,14 +135,14 @@ public class AdminManor implements IAdminCommandHandler
 		}
 		else if (command.equals("admin_manor_save"))
 		{
-			CastleManorManager.getInstance().save();
+			CastleManorService.getInstance().save();
 			activeChar.sendMessage("Manor System: all data saved");
 			showMainPage(activeChar);
 		}
 		else if (command.equals("admin_manor_disable"))
 		{
-			boolean mode = CastleManorManager.getInstance().isDisabled();
-			CastleManorManager.getInstance().setDisabled(!mode);
+			boolean mode = CastleManorService.getInstance().isDisabled();
+			CastleManorService.getInstance().setDisabled(!mode);
 			if (mode)
 				activeChar.sendMessage("Manor System: enabled");
 			else
@@ -182,10 +182,10 @@ public class AdminManor implements IAdminCommandHandler
 
 		replyMSG.append("<center><font color=\"LEVEL\"> [Manor System] </font></center><br>");
 		replyMSG.append("<table width=\"100%\"><tr><td>");
-		replyMSG.append("Disabled: " + (CastleManorManager.getInstance().isDisabled() ? "yes" : "no") + "</td><td>");
-		replyMSG.append("Under Maintenance: " + (CastleManorManager.getInstance().isUnderMaintenance() ? "yes" : "no") + "</td></tr><tr><td>");
-		replyMSG.append("Time to refresh: " + formatTime(CastleManorManager.getInstance().getMillisToManorRefresh()) + "</td><td>");
-		replyMSG.append("Time to approve: " + formatTime(CastleManorManager.getInstance().getMillisToNextPeriodApprove()) + "</td></tr>");
+		replyMSG.append("Disabled: " + (CastleManorService.getInstance().isDisabled() ? "yes" : "no") + "</td><td>");
+		replyMSG.append("Under Maintenance: " + (CastleManorService.getInstance().isUnderMaintenance() ? "yes" : "no") + "</td></tr><tr><td>");
+		replyMSG.append("Time to refresh: " + formatTime(CastleManorService.getInstance().getMillisToManorRefresh()) + "</td><td>");
+		replyMSG.append("Time to approve: " + formatTime(CastleManorService.getInstance().getMillisToNextPeriodApprove()) + "</td></tr>");
 		replyMSG.append("</table>");
 
 		replyMSG.append("<center><table><tr><td>");
@@ -193,9 +193,9 @@ public class AdminManor implements IAdminCommandHandler
 				.append("<button value=\"Set Next\" action=\"bypass -h admin_manor_setnext\" width=110 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td><td>");
 		replyMSG
 				.append("<button value=\"Approve Next\" action=\"bypass -h admin_manor_approve\" width=110 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr><tr><td>");
-		replyMSG.append("<button value=\"" + (CastleManorManager.getInstance().isUnderMaintenance() ? "Set normal" : "Set mainteance")
+		replyMSG.append("<button value=\"" + (CastleManorService.getInstance().isUnderMaintenance() ? "Set normal" : "Set mainteance")
 				+ "\" action=\"bypass -h admin_manor_setmaintenance\" width=110 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td><td>");
-		replyMSG.append("<button value=\"" + (CastleManorManager.getInstance().isDisabled() ? "Enable" : "Disable")
+		replyMSG.append("<button value=\"" + (CastleManorService.getInstance().isDisabled() ? "Enable" : "Disable")
 				+ "\" action=\"bypass -h admin_manor_disable\" width=110 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr><tr><td>");
 		replyMSG
 				.append("<button value=\"Refresh\" action=\"bypass -h admin_manor\" width=110 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td><td>");
@@ -208,8 +208,8 @@ public class AdminManor implements IAdminCommandHandler
 
 		for (Castle c : CastleManager.getInstance().getCastles().values())
 		{
-			replyMSG.append("<tr><td>" + c.getName() + "</td>" + "<td>" + c.getManorCost(CastleManorManager.PERIOD_CURRENT) + "a</td>" + "<td>"
-					+ c.getManorCost(CastleManorManager.PERIOD_NEXT) + "a</td>" + "</tr>");
+			replyMSG.append("<tr><td>" + c.getName() + "</td>" + "<td>" + c.getManorCost(CastleManorService.PERIOD_CURRENT) + "a</td>" + "<td>"
+					+ c.getManorCost(CastleManorService.PERIOD_NEXT) + "a</td>" + "</tr>");
 		}
 
 		replyMSG.append("</table><br>");

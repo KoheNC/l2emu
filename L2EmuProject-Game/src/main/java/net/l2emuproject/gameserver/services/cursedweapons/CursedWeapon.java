@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.item;
+package net.l2emuproject.gameserver.services.cursedweapons;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,11 +23,10 @@ import net.l2emuproject.Config;
 import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
-import net.l2emuproject.gameserver.instancemanager.TransformationManager;
 import net.l2emuproject.gameserver.model.actor.L2Attackable;
 import net.l2emuproject.gameserver.model.actor.L2Character;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
+import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.restriction.global.CursedWeaponRestriction;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.model.world.L2World;
@@ -39,6 +38,7 @@ import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
+import net.l2emuproject.gameserver.services.transformation.TransformationService;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.tools.random.Rnd;
@@ -49,7 +49,7 @@ import org.apache.commons.logging.LogFactory;
 
 public class CursedWeapon
 {
-	private static final Log _log = LogFactory.getLog(CursedWeaponsManager.class);
+	private static final Log _log = LogFactory.getLog(CursedWeaponsService.class);
 
 	// _name is the name of the cursed weapon associated with its ID.
 	private final String		_name;
@@ -198,11 +198,11 @@ public class CursedWeapon
 		}
 
 		// Delete infos from table if any
-		CursedWeaponsManager.removeFromDb(_itemId);
+		CursedWeaponsService.removeFromDb(_itemId);
 
 		SystemMessage sm = new SystemMessage(SystemMessageId.S1_HAS_DISAPPEARED);
 		sm.addString(_name);
-		CursedWeaponsManager.announce(sm);
+		CursedWeaponsService.announce(sm);
 
 		// Reset  state
 		cancelTask();
@@ -278,7 +278,7 @@ public class CursedWeapon
 		SystemMessage sm = new SystemMessage(SystemMessageId.S2_WAS_DROPPED_IN_THE_S1_REGION);
 		sm.addZoneName(player.getX(), player.getY(), player.getZ()); // Region Name
 		sm.addItemName(_item);
-		CursedWeaponsManager.announce(sm);
+		CursedWeaponsService.announce(sm);
 	}
 
 	public void transform()
@@ -295,12 +295,12 @@ public class CursedWeapon
 				@Override
 				public void run()
 				{
-					TransformationManager.getInstance().transformPlayer(_transformId, _player);
+					TransformationService.getInstance().transformPlayer(_transformId, _player);
 				}
 			}, 500);
 		}
 		else
-			TransformationManager.getInstance().transformPlayer(_transformId, _player);
+			TransformationService.getInstance().transformPlayer(_transformId, _player);
 	}
 
 	public void cursedOnLogin()
@@ -311,9 +311,9 @@ public class CursedWeapon
 		SystemMessage msg = new SystemMessage(SystemMessageId.S2_OWNER_HAS_LOGGED_INTO_THE_S1_REGION);
 		msg.addZoneName(_player.getX(), _player.getY(), _player.getZ());
 		msg.addItemName(_player.getCursedWeaponEquippedId());
-		CursedWeaponsManager.announce(msg);
+		CursedWeaponsService.announce(msg);
 
-		CursedWeapon cw = CursedWeaponsManager.getInstance().getCursedWeapon(_player.getCursedWeaponEquippedId());
+		CursedWeapon cw = CursedWeaponsService.getInstance().getCursedWeapon(_player.getCursedWeaponEquippedId());
 		SystemMessage msg2 = new SystemMessage(SystemMessageId.S2_MINUTE_OF_USAGE_TIME_ARE_LEFT_FOR_S1);
 		int timeLeftInHours = (int) ((cw.getTimeLeft() / 60000) / 60);
 		msg2.addItemName(_player.getCursedWeaponEquippedId());
@@ -354,7 +354,7 @@ public class CursedWeapon
 
 		if (_player.getPlayerTransformation().transformId() > 0)
 		{
-			TransformationManager.getInstance().transformPlayer(_player.getPlayerTransformation().transformId(), _player);
+			TransformationService.getInstance().transformPlayer(_player.getPlayerTransformation().transformId(), _player);
 		}
 	}
 
@@ -461,7 +461,7 @@ public class CursedWeapon
 		sm = new SystemMessage(SystemMessageId.THE_OWNER_OF_S2_HAS_APPEARED_IN_THE_S1_REGION);
 		sm.addZoneName(_player.getX(), _player.getY(), _player.getZ()); // Region Name
 		sm.addItemName(_item);
-		CursedWeaponsManager.announce(sm);
+		CursedWeaponsService.announce(sm);
 		return true;
 	}
 

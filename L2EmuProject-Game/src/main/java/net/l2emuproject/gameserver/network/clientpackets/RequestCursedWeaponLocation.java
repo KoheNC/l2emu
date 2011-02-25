@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
 import net.l2emuproject.gameserver.model.actor.L2Character;
-import net.l2emuproject.gameserver.model.item.CursedWeapon;
 import net.l2emuproject.gameserver.model.world.Location;
 import net.l2emuproject.gameserver.network.serverpackets.ExCursedWeaponLocation;
 import net.l2emuproject.gameserver.network.serverpackets.ExCursedWeaponLocation.CursedWeaponInfo;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeapon;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 
 
 /**
@@ -44,7 +44,7 @@ public class RequestCursedWeaponLocation extends L2GameClientPacket
 
         Location loc = null;
         FastList<CursedWeaponInfo> list = new FastList<CursedWeaponInfo>();
-        for (CursedWeapon cw : CursedWeaponsManager.getInstance().getCursedWeapons())
+        for (CursedWeapon cw : CursedWeaponsService.getInstance().getCursedWeapons())
         {
             if (!cw.isActive()) continue;
             loc = cw.getCurrentLocation();

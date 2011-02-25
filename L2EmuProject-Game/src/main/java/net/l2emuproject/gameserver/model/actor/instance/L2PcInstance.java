@@ -76,7 +76,6 @@ import net.l2emuproject.gameserver.handler.skillhandlers.TakeCastle;
 import net.l2emuproject.gameserver.handler.skillhandlers.TakeFort;
 import net.l2emuproject.gameserver.instancemanager.AntiFeedManager;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.CursedWeaponsManager;
 import net.l2emuproject.gameserver.instancemanager.DimensionalRiftManager;
 import net.l2emuproject.gameserver.instancemanager.DuelManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
@@ -156,7 +155,6 @@ import net.l2emuproject.gameserver.model.entity.player.PlayerSettings;
 import net.l2emuproject.gameserver.model.entity.player.PlayerTeleportBookmark;
 import net.l2emuproject.gameserver.model.entity.player.PlayerTransformation;
 import net.l2emuproject.gameserver.model.entity.player.PlayerVitality;
-import net.l2emuproject.gameserver.model.item.CursedWeapon;
 import net.l2emuproject.gameserver.model.item.L2ItemInstance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.model.itemcontainer.ItemContainer;
@@ -257,6 +255,8 @@ import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
 import net.l2emuproject.gameserver.services.crafting.RecipeController;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeapon;
+import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
 import net.l2emuproject.gameserver.services.transformation.L2TransformSkillLearn;
@@ -2770,9 +2770,9 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 			dropItem("InvDrop", newitem, null, true);
 		}
 		// Cursed Weapon
-		else if (CursedWeaponsManager.getInstance().isCursed(newitem.getItemId()))
+		else if (CursedWeaponsService.getInstance().isCursed(newitem.getItemId()))
 		{
-			if (!CursedWeaponsManager.getInstance().activate(this, newitem))
+			if (!CursedWeaponsService.getInstance().activate(this, newitem))
 				dropItem("CwDrop", newitem, null, true);
 		}
 		// Combat Flag
@@ -3942,10 +3942,10 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 			}
 
 			// Cursed Weapons
-			if (CursedWeaponsManager.getInstance().isCursed(target.getItemId()) && isCursedWeaponEquipped())
+			if (CursedWeaponsService.getInstance().isCursed(target.getItemId()) && isCursedWeaponEquipped())
 			{
 				ItemTable.getInstance().destroyItem("Pickup CW", target, this, null);
-				CursedWeapon cw = CursedWeaponsManager.getInstance().getCursedWeapon(getCursedWeaponEquippedId());
+				CursedWeapon cw = CursedWeaponsService.getInstance().getCursedWeapon(getCursedWeaponEquippedId());
 				cw.increaseKills(cw.getStageKills());
 				return;
 			}
@@ -3969,7 +3969,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 			ItemHandler.getInstance().useItem(target.getItemId(), this, target);
 		}
 		// Cursed Weapons are not distributed
-		else if (CursedWeaponsManager.getInstance().isCursed(target.getItemId()))
+		else if (CursedWeaponsService.getInstance().isCursed(target.getItemId()))
 		{
 			addItem("Pickup", target, null, true);
 		}
@@ -4308,7 +4308,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 		// Issues drop of Cursed Weapon.
 		if (isCursedWeaponEquipped())
 		{
-			CursedWeaponsManager.getInstance().drop(_cursedWeaponEquippedId, killer);
+			CursedWeaponsService.getInstance().drop(_cursedWeaponEquippedId, killer);
 		}
 		else if (isCombatFlagEquipped())
 		{
@@ -4634,9 +4634,9 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 
 		if (isCursedWeaponEquipped())
 		{
-			CursedWeaponsManager.getInstance().increaseKills(_cursedWeaponEquippedId);
+			CursedWeaponsService.getInstance().increaseKills(_cursedWeaponEquippedId);
 			// Custom message for time left
-			// CursedWeapon cw = CursedWeaponsManager.getInstance().getCursedWeapon(_cursedWeaponEquippedId);
+			// CursedWeapon cw = CursedWeaponsService.getInstance().getCursedWeapon(_cursedWeaponEquippedId);
 			// SystemMessage msg = new SystemMessage(SystemMessageId.THERE_IS_S1_HOUR_AND_S2_MINUTE_LEFT_OF_THE_FIXED_USAGE_TIME);
 			// int timeLeftInHours = (int)(((cw.getTimeLeft()/60000)/60));
 			// msg.addItemName(_cursedWeaponEquippedId);
@@ -6379,7 +6379,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 				else
 					player.setJailTimer(0);
 
-				CursedWeaponsManager.getInstance().onEnter(player);
+				CursedWeaponsService.getInstance().onEnter(player);
 
 				player.setNoble(rset.getBoolean("nobless"));
 				player.setCharViP((rset.getInt("charViP") == 1));
@@ -7042,7 +7042,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 		if (isHero() && HeroSkillTable.isHeroSkill(skillid))
 			return true;
 		// Exclude cursed weapon skills
-		if (isCursedWeaponEquipped() && skillid == CursedWeaponsManager.getInstance().getCursedWeapon(_cursedWeaponEquippedId).getSkillId())
+		if (isCursedWeaponEquipped() && skillid == CursedWeaponsService.getInstance().getCursedWeapon(_cursedWeaponEquippedId).getSkillId())
 			return true;
 		// Exclude clan skills
 		if (getClan() != null && (skillid >= 370 && skillid <= 391))
@@ -9752,7 +9752,7 @@ public final class L2PcInstance extends L2Playable implements ICharacterInfo
 			return false;
 		}
 
-		if (CursedWeaponsManager.getInstance().isCursed(item.getItemId()))
+		if (CursedWeaponsService.getInstance().isCursed(item.getItemId()))
 		{
 			// Cannot trade a cursed weapon
 			return false;

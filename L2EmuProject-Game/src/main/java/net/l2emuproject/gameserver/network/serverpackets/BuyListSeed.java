@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.List;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.SeedProduction;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.SeedProduction;
 
 /**
  * Format: c ddh[hdddhhd] c - id (0xE8) d - money d - manor id h - size [ h - item type 1 d - object id d - item id d - count h - item type 2 h d - price ]

@@ -34,9 +34,6 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.CropProcure;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.SeedProduction;
 import net.l2emuproject.gameserver.instancemanager.CrownManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
@@ -47,7 +44,10 @@ import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.model.zone.L2SiegeDangerZone;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.gameserver.network.serverpackets.PledgeShowInfoUpdate;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.SeedProduction;
 
 
 public class Castle extends Siegeable<Siege>
@@ -897,17 +897,17 @@ public class Castle extends Siegeable<Siege>
 
 	public List<SeedProduction> getSeedProduction(int period)
 	{
-		return (period == CastleManorManager.PERIOD_CURRENT ? _production : _productionNext);
+		return (period == CastleManorService.PERIOD_CURRENT ? _production : _productionNext);
 	}
 
 	public List<CropProcure> getCropProcure(int period)
 	{
-		return (period == CastleManorManager.PERIOD_CURRENT ? _procure : _procureNext);
+		return (period == CastleManorService.PERIOD_CURRENT ? _procure : _procureNext);
 	}
 
 	public void setSeedProduction(List<SeedProduction> seed, int period)
 	{
-		if (period == CastleManorManager.PERIOD_CURRENT)
+		if (period == CastleManorService.PERIOD_CURRENT)
 			_production = seed;
 		else
 			_productionNext = seed;
@@ -915,7 +915,7 @@ public class Castle extends Siegeable<Siege>
 
 	public void setCropProcure(List<CropProcure> crop, int period)
 	{
-		if (period == CastleManorManager.PERIOD_CURRENT)
+		if (period == CastleManorService.PERIOD_CURRENT)
 			_procure = crop;
 		else
 			_procureNext = crop;
@@ -950,7 +950,7 @@ public class Castle extends Siegeable<Siege>
 		List<CropProcure> procure;
 		List<SeedProduction> production;
 
-		if (period == CastleManorManager.PERIOD_CURRENT)
+		if (period == CastleManorService.PERIOD_CURRENT)
 		{
 			procure = _procure;
 			production = _production;
@@ -1006,7 +1006,7 @@ public class Castle extends Siegeable<Siege>
 				for (SeedProduction s : _production)
 				{
 					values[count++] = "(" + getCastleId() + "," + s.getId() + "," + s.getCanProduce() + "," + s.getStartProduce() + "," + s.getPrice() + ","
-					+ CastleManorManager.PERIOD_CURRENT + ")";
+					+ CastleManorService.PERIOD_CURRENT + ")";
 				}
 				if (values.length > 0)
 				{
@@ -1029,7 +1029,7 @@ public class Castle extends Siegeable<Siege>
 				for (SeedProduction s : _productionNext)
 				{
 					values[count++] = "(" + getCastleId() + "," + s.getId() + "," + s.getCanProduce() + "," + s.getStartProduce() + "," + s.getPrice() + ","
-					+ CastleManorManager.PERIOD_NEXT + ")";
+					+ CastleManorService.PERIOD_NEXT + ")";
 				}
 				if (values.length > 0)
 				{
@@ -1127,7 +1127,7 @@ public class Castle extends Siegeable<Siege>
 				for (CropProcure cp : _procure)
 				{
 					values[count++] = "(" + getCastleId() + "," + cp.getId() + "," + cp.getAmount() + "," + cp.getStartAmount() + "," + cp.getPrice() + ","
-					+ cp.getReward() + "," + CastleManorManager.PERIOD_CURRENT + ")";
+					+ cp.getReward() + "," + CastleManorService.PERIOD_CURRENT + ")";
 				}
 				if (values.length > 0)
 				{
@@ -1149,7 +1149,7 @@ public class Castle extends Siegeable<Siege>
 				for (CropProcure cp : _procureNext)
 				{
 					values[count++] = "(" + getCastleId() + "," + cp.getId() + "," + cp.getAmount() + "," + cp.getStartAmount() + "," + cp.getPrice() + ","
-					+ cp.getReward() + "," + CastleManorManager.PERIOD_NEXT + ")";
+					+ cp.getReward() + "," + CastleManorService.PERIOD_NEXT + ")";
 				}
 				if (values.length > 0)
 				{

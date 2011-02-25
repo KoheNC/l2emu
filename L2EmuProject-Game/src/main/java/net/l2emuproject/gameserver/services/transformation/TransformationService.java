@@ -12,14 +12,13 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.instancemanager;
+package net.l2emuproject.gameserver.services.transformation;
 
 import java.util.Collection;
 import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -29,18 +28,18 @@ import org.apache.commons.logging.LogFactory;
  *
  * @author  KenM
  */
-public class TransformationManager
+public class TransformationService
 {
-	protected static final Log					_log		= LogFactory.getLog(TransformationManager.class);
+	protected static final Log					_log		= LogFactory.getLog(TransformationService.class);
 
-	public static TransformationManager getInstance()
+	public static TransformationService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 
 	private final Map<Integer, L2Transformation>	_transformations;
 
-	private TransformationManager()
+	private TransformationService()
 	{
 		_transformations = new FastMap<Integer, L2Transformation>();
 	}
@@ -83,6 +82,6 @@ public class TransformationManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final TransformationManager _instance = new TransformationManager();
+		protected static final TransformationService _instance = new TransformationService();
 	}
 }

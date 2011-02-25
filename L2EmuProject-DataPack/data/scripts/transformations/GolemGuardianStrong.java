@@ -14,9 +14,9 @@
  */
 package transformations;
 
-import net.l2emuproject.gameserver.instancemanager.TransformationManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
+import net.l2emuproject.gameserver.services.transformation.TransformationService;
 
 public class GolemGuardianStrong extends L2Transformation
 {
@@ -57,6 +57,6 @@ public class GolemGuardianStrong extends L2Transformation
 	
 	public static void main(String[] args)
 	{
-		TransformationManager.getInstance().registerTransformation(new GolemGuardianStrong());
+		TransformationService.getInstance().registerTransformation(new GolemGuardianStrong());
 	}
 }

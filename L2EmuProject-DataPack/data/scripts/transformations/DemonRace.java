@@ -14,9 +14,9 @@
  */
 package transformations;
 
-import net.l2emuproject.gameserver.instancemanager.TransformationManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
+import net.l2emuproject.gameserver.services.transformation.TransformationService;
 
 /*
  * TODO: Skill levels. How do they work? Transformation is given at level 83, there are 6 levels of the skill. How are they assigned? Based on player level somehow? Based on servitor?
@@ -57,6 +57,6 @@ public class DemonRace extends L2Transformation
 
 	public static void main(String[] args)
 	{
-		TransformationManager.getInstance().registerTransformation(new DemonRace());
+		TransformationService.getInstance().registerTransformation(new DemonRace());
 	}
 }

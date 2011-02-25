@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManorManager.CropProcure;
 import net.l2emuproject.gameserver.model.entity.Castle;
+import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
+import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
 
 
 /**
@@ -59,7 +59,7 @@ public class ExShowCropSetting extends L2GameServerPacket
 			_cropData[i * 14 + 5] = 0; // Looks like not used
 			_cropData[i * 14 + 6] = L2Manor.getInstance().getCropBasicPrice(cr) * 60 / 100;
 			_cropData[i * 14 + 7] = L2Manor.getInstance().getCropBasicPrice(cr) * 10;
-			CropProcure cropPr = c.getCrop(cr, CastleManorManager.PERIOD_CURRENT);
+			CropProcure cropPr = c.getCrop(cr, CastleManorService.PERIOD_CURRENT);
 			if (cropPr != null)
 			{
 				_cropData[i * 14 + 8] = cropPr.getStartAmount();
@@ -72,7 +72,7 @@ public class ExShowCropSetting extends L2GameServerPacket
 				_cropData[i * 14 + 9] = 0;
 				_cropData[i * 14 + 10] = 0;
 			}
-			cropPr = c.getCrop(cr, CastleManorManager.PERIOD_NEXT);
+			cropPr = c.getCrop(cr, CastleManorService.PERIOD_NEXT);
 			if (cropPr != null)
 			{
 				_cropData[i * 14 + 11] = cropPr.getStartAmount();

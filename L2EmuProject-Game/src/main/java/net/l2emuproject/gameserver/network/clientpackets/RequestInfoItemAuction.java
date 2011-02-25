@@ -14,11 +14,11 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.instancemanager.ItemAuctionManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2PcInstance;
-import net.l2emuproject.gameserver.model.itemauction.ItemAuction;
-import net.l2emuproject.gameserver.model.itemauction.ItemAuctionInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ExItemAuctionInfoPacket;
+import net.l2emuproject.gameserver.services.itemauction.ItemAuction;
+import net.l2emuproject.gameserver.services.itemauction.ItemAuctionInstance;
+import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
 
 /**
  * @author Forsaiken
@@ -40,7 +40,7 @@ public final class RequestInfoItemAuction extends L2GameClientPacket
 		if (activeChar == null)
 			return;
 
-		final ItemAuctionInstance instance = ItemAuctionManager.getInstance().getManagerInstance(_instanceId);
+		final ItemAuctionInstance instance = ItemAuctionService.getInstance().getManagerInstance(_instanceId);
 		if (instance == null)
 			return;
 
