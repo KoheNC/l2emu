@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.Map;
 
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
+import net.l2emuproject.gameserver.manager.ClanHallManager;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 
 

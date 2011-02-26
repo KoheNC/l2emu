@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.world.zone;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.Siege;
 import net.l2emuproject.gameserver.network.SystemMessageId;

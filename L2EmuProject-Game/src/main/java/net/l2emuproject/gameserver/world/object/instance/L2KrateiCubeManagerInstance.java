@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.world.object.instance;
 
-import net.l2emuproject.gameserver.instancemanager.games.KrateiCube;
+import net.l2emuproject.gameserver.manager.games.KrateiCube;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

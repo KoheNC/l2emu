@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.instancemanager.AirShipManager;
+import net.l2emuproject.gameserver.manager.AirShipManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.VehiclePathPoint;

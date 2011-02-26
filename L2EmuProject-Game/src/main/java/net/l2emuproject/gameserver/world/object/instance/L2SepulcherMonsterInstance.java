@@ -18,7 +18,7 @@ import java.util.concurrent.Future;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.instancemanager.FourSepulchersManager;
+import net.l2emuproject.gameserver.manager.FourSepulchersManager;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.skills.L2Skill;

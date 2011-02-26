@@ -19,8 +19,8 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.QuestManager;
-import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
+import net.l2emuproject.gameserver.manager.QuestManager;
+import net.l2emuproject.gameserver.manager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.world.object.L2Player;

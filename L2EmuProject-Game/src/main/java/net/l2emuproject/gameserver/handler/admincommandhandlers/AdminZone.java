@@ -24,10 +24,10 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
-import net.l2emuproject.gameserver.instancemanager.TownManager;
-import net.l2emuproject.gameserver.instancemanager.ZoneManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
+import net.l2emuproject.gameserver.manager.MapRegionManager;
+import net.l2emuproject.gameserver.manager.TownManager;
+import net.l2emuproject.gameserver.manager.ZoneManager;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.world.object.L2Player;

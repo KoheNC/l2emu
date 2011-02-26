@@ -18,7 +18,7 @@ import java.util.concurrent.Future;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.instancemanager.leaderboards.FishermanManager;
+import net.l2emuproject.gameserver.manager.leaderboards.FishermanManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExFishingHpRegen;
 import net.l2emuproject.gameserver.network.serverpackets.ExFishingStartCombat;

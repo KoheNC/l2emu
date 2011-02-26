@@ -20,7 +20,7 @@ import javolution.text.TextBuilder;
 import javolution.util.FastList;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;

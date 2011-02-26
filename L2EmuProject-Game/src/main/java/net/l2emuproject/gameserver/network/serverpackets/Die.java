@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.instancemanager.CCHManager;
-import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
-import net.l2emuproject.gameserver.instancemanager.SiegeManager;
+import net.l2emuproject.gameserver.manager.CCHManager;
+import net.l2emuproject.gameserver.manager.FortSiegeManager;
+import net.l2emuproject.gameserver.manager.SiegeManager;
 import net.l2emuproject.gameserver.model.L2SiegeClan;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.AbstractSiege;

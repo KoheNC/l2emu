@@ -17,7 +17,7 @@ package ai.zone.hellbound.Slaves;
 import java.util.Set;
 
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
+import net.l2emuproject.gameserver.manager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.system.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;

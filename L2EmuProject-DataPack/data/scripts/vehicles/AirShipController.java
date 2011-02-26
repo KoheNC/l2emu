@@ -20,8 +20,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.instancemanager.AirShipManager;
-import net.l2emuproject.gameserver.instancemanager.ZoneManager;
+import net.l2emuproject.gameserver.manager.AirShipManager;
+import net.l2emuproject.gameserver.manager.ZoneManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;

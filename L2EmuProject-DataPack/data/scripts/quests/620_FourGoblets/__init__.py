@@ -2,7 +2,7 @@ import sys
 from net.l2emuproject.gameserver.model.quest          import State
 from net.l2emuproject.gameserver.model.quest          import QuestState
 from net.l2emuproject.gameserver.model.quest.jython   import QuestJython as JQuest
-from net.l2emuproject.gameserver.instancemanager      import FourSepulchersManager
+from net.l2emuproject.gameserver.manager      import FourSepulchersManager
 
 qn = "620_FourGoblets"
 

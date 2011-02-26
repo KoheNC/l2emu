@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.handler.voicedcommandhandlers;
 
 import net.l2emuproject.gameserver.handler.IVoicedCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
+import net.l2emuproject.gameserver.manager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class Hellbound implements IVoicedCommandHandler

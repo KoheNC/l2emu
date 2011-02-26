@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.entity.status;
 
-import net.l2emuproject.gameserver.instancemanager.CCHManager;
+import net.l2emuproject.gameserver.manager.CCHManager;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;

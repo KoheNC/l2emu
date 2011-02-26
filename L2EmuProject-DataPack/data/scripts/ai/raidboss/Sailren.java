@@ -14,7 +14,7 @@
  */
 package ai.raidboss;
 
-import net.l2emuproject.gameserver.instancemanager.grandbosses.SailrenManager;
+import net.l2emuproject.gameserver.manager.grandbosses.SailrenManager;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;

@@ -24,7 +24,7 @@ import java.util.Set;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.instancemanager.QuestManager;
+import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.model.base.ClassId;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.skills.L2Skill;

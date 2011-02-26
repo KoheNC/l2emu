@@ -4,7 +4,7 @@
 
 import sys
 
-from net.l2emuproject.gameserver.instancemanager                      import QuestManager
+from net.l2emuproject.gameserver.manager                      import QuestManager
 from net.l2emuproject.gameserver.model.quest        			import State
 from net.l2emuproject.gameserver.model.quest        			import QuestState
 from net.l2emuproject.gameserver.model.quest.jython 			import QuestJython as JQuest

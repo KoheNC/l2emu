@@ -7,7 +7,7 @@ from net.l2emuproject.gameserver.datatables import SkillTable
 from net.l2emuproject.gameserver.model.quest import State
 from net.l2emuproject.gameserver.model.quest import QuestState
 from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
-from net.l2emuproject.gameserver.instancemanager.grandbosses import BaiumManager
+from net.l2emuproject.gameserver.manager.grandbosses import BaiumManager
 from net.l2emuproject.tools.random import Rnd
 
 #NPC

@@ -14,16 +14,16 @@
  */
 package net.l2emuproject.gameserver.world.zone;
 
-import net.l2emuproject.gameserver.instancemanager.FourSepulchersManager;
-import net.l2emuproject.gameserver.instancemanager.grandbosses.AntharasManager;
-import net.l2emuproject.gameserver.instancemanager.grandbosses.BaiumManager;
-import net.l2emuproject.gameserver.instancemanager.grandbosses.BaylorManager;
-import net.l2emuproject.gameserver.instancemanager.grandbosses.BelethManager;
-import net.l2emuproject.gameserver.instancemanager.grandbosses.FrintezzaManager;
-import net.l2emuproject.gameserver.instancemanager.grandbosses.SailrenManager;
-import net.l2emuproject.gameserver.instancemanager.grandbosses.ValakasManager;
-import net.l2emuproject.gameserver.instancemanager.grandbosses.VanHalterManager;
-import net.l2emuproject.gameserver.instancemanager.lastimperialtomb.LastImperialTombManager;
+import net.l2emuproject.gameserver.manager.FourSepulchersManager;
+import net.l2emuproject.gameserver.manager.grandbosses.AntharasManager;
+import net.l2emuproject.gameserver.manager.grandbosses.BaiumManager;
+import net.l2emuproject.gameserver.manager.grandbosses.BaylorManager;
+import net.l2emuproject.gameserver.manager.grandbosses.BelethManager;
+import net.l2emuproject.gameserver.manager.grandbosses.FrintezzaManager;
+import net.l2emuproject.gameserver.manager.grandbosses.SailrenManager;
+import net.l2emuproject.gameserver.manager.grandbosses.ValakasManager;
+import net.l2emuproject.gameserver.manager.grandbosses.VanHalterManager;
+import net.l2emuproject.gameserver.manager.lastimperialtomb.LastImperialTombManager;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

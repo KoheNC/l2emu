@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.model;
 import java.util.Set;
 
 import net.l2emuproject.gameserver.datatables.CharNameTable;
-import net.l2emuproject.gameserver.instancemanager.FriendListManager;
+import net.l2emuproject.gameserver.manager.FriendListManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.FriendPacket;
 import net.l2emuproject.gameserver.network.serverpackets.FriendPacket.FriendAction;

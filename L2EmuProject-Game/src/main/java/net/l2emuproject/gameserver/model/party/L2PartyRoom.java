@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.model.party;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
-import net.l2emuproject.gameserver.instancemanager.PartyRoomManager;
+import net.l2emuproject.gameserver.manager.MapRegionManager;
+import net.l2emuproject.gameserver.manager.PartyRoomManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExClosePartyRoom;
 import net.l2emuproject.gameserver.network.serverpackets.ExManagePartyRoomMember;

@@ -18,8 +18,8 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
-import net.l2emuproject.gameserver.instancemanager.TownManager;
+import net.l2emuproject.gameserver.manager.ClanHallManager;
+import net.l2emuproject.gameserver.manager.TownManager;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.network.serverpackets.AgitDecoInfo;
 import net.l2emuproject.gameserver.world.object.L2Character;

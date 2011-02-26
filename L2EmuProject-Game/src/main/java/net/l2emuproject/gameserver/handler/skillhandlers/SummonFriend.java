@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager;
+import net.l2emuproject.gameserver.manager.InstanceManager;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;

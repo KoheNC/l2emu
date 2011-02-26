@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.model.restriction.global;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Announcements;
-import net.l2emuproject.gameserver.instancemanager.AntiFeedManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.games.KrateiCube;
-import net.l2emuproject.gameserver.instancemanager.leaderboards.ArenaManager;
+import net.l2emuproject.gameserver.manager.AntiFeedManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
+import net.l2emuproject.gameserver.manager.games.KrateiCube;
+import net.l2emuproject.gameserver.manager.leaderboards.ArenaManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.events.TvT;

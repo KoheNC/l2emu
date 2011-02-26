@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.handler.bypasshandlers;
 
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.instancemanager.QuestManager;
+import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;

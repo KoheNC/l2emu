@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.GrandBossSpawnManager;
-import net.l2emuproject.gameserver.instancemanager.RaidBossSpawnManager;
+import net.l2emuproject.gameserver.manager.GrandBossSpawnManager;
+import net.l2emuproject.gameserver.manager.RaidBossSpawnManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;

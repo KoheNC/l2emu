@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.network.SystemMessageId;

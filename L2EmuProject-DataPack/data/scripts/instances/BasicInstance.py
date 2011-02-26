@@ -6,7 +6,7 @@ from net.l2emuproject.gameserver.model                       import L2ItemInstan
 from net.l2emuproject.gameserver.network.serverpackets       import InventoryUpdate
 from net.l2emuproject.gameserver.model                       import L2World
 from net.l2emuproject.gameserver.datatables                  import ItemTable
-from net.l2emuproject.gameserver.instancemanager             import InstanceManager
+from net.l2emuproject.gameserver.manager             import InstanceManager
 from net.l2emuproject.gameserver.model.entity                import Instance
 from net.l2emuproject.gameserver.model.actor                 import L2Summon
 from net.l2emuproject.gameserver.model.quest                 import State

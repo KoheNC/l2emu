@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.gameserver.datatables.SkillTable.SkillInfo;
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
+import net.l2emuproject.gameserver.manager.MapRegionManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;

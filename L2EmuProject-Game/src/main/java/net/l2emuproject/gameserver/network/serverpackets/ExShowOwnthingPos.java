@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
+import net.l2emuproject.gameserver.manager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.TerritoryWard;
 
 /**

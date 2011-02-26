@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
 
 import javolution.text.TextBuilder;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.FortManager;
+import net.l2emuproject.gameserver.manager.FortManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.network.SystemMessageId;

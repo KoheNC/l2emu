@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.instancemanager.PartyRoomManager;
+import net.l2emuproject.gameserver.manager.PartyRoomManager;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**

@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.entity.player;
 
-import net.l2emuproject.gameserver.instancemanager.SiegeManager;
+import net.l2emuproject.gameserver.manager.SiegeManager;
 import net.l2emuproject.gameserver.model.restriction.global.DuelRestriction;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.network.SystemMessageId;

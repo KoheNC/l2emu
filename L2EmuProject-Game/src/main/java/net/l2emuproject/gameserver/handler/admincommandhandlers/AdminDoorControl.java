@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;

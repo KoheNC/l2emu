@@ -15,7 +15,7 @@
 package teleports.HellboundWarpGate;
 
 import quests._130_PathToHellbound.PathToHellbound;
-import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
+import net.l2emuproject.gameserver.manager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;

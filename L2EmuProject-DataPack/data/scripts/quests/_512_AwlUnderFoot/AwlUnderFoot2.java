@@ -19,10 +19,10 @@ import java.util.List;
 
 import javolution.util.FastList;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.FortManager;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
+import net.l2emuproject.gameserver.manager.CastleManager;
+import net.l2emuproject.gameserver.manager.FortManager;
+import net.l2emuproject.gameserver.manager.InstanceManager;
+import net.l2emuproject.gameserver.manager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.Fort;

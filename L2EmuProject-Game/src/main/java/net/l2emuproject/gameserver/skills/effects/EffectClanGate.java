@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.skills.effects;
 
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;

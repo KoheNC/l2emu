@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.instancemanager.games.HandysBlockCheckerManager;
-import net.l2emuproject.gameserver.instancemanager.games.HandysBlockCheckerManager.ArenaParticipantsHolder;
+import net.l2emuproject.gameserver.manager.games.HandysBlockCheckerManager;
+import net.l2emuproject.gameserver.manager.games.HandysBlockCheckerManager.ArenaParticipantsHolder;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;

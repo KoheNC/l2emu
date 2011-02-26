@@ -25,7 +25,7 @@ import java.util.StringTokenizer;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager;
+import net.l2emuproject.gameserver.manager.InstanceManager;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemMessageId;

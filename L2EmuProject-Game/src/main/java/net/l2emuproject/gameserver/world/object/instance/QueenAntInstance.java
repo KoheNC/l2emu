@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.world.object.instance;
 
-import net.l2emuproject.gameserver.instancemanager.grandbosses.QueenAntManager;
+import net.l2emuproject.gameserver.manager.grandbosses.QueenAntManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
 

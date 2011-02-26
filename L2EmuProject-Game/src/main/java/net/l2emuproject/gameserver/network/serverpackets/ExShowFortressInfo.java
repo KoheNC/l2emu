@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import java.util.List;
 
-import net.l2emuproject.gameserver.instancemanager.FortManager;
+import net.l2emuproject.gameserver.manager.FortManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Fort;
 

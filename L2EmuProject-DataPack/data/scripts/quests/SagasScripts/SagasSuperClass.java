@@ -17,7 +17,7 @@ package quests.SagasScripts;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.instancemanager.QuestManager;
+import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.model.quest.QuestState;

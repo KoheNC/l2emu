@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
-import net.l2emuproject.gameserver.instancemanager.FortManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
+import net.l2emuproject.gameserver.manager.ClanHallManager;
+import net.l2emuproject.gameserver.manager.FortManager;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.model.entity.Fort;

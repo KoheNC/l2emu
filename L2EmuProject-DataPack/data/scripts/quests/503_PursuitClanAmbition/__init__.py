@@ -10,7 +10,7 @@ from net.l2emuproject.gameserver.model.quest           import QuestState
 from net.l2emuproject.gameserver.model.quest.jython    import QuestJython as JQuest
 from net.l2emuproject.gameserver.network.serverpackets import NpcSay
 from net.l2emuproject.gameserver.network.serverpackets import SocialAction
-from net.l2emuproject.gameserver.instancemanager import QuestManager
+from net.l2emuproject.gameserver.manager import QuestManager
 
 qn = "503_PursuitClanAmbition"
 qd = "Pursuit Clan Ambition"

@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
+import net.l2emuproject.gameserver.manager.ClanHallManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.ClanHall;

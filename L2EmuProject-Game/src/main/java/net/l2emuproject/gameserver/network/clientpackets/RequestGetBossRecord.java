@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.instancemanager.RaidPointsManager;
+import net.l2emuproject.gameserver.manager.RaidPointsManager;
 import net.l2emuproject.gameserver.network.serverpackets.ExGetBossRecord;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

@@ -5,7 +5,7 @@ from net.l2emuproject import L2DatabaseFactory
 from net.l2emuproject.gameserver.ai import CtrlIntention
 from net.l2emuproject.gameserver.datatables import DoorTable
 from net.l2emuproject.gameserver.datatables import SpawnTable
-from net.l2emuproject.gameserver.instancemanager import CastleManager
+from net.l2emuproject.gameserver.manager import CastleManager
 from net.l2emuproject.gameserver.world.object.position import L2CharPosition
 from net.l2emuproject.gameserver.model.quest import QuestState
 from net.l2emuproject.gameserver.model.quest import State

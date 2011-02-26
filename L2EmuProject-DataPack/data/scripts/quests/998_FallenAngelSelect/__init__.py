@@ -2,7 +2,7 @@
 # this script is part of the Official L2J Datapack Project.
 # Visit http://forum.l2jdp.com for more details.
 import sys
-from net.l2emuproject.gameserver.instancemanager import QuestManager
+from net.l2emuproject.gameserver.manager import QuestManager
 from net.l2emuproject.gameserver.model.quest import State
 from net.l2emuproject.gameserver.model.quest import QuestState
 from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest

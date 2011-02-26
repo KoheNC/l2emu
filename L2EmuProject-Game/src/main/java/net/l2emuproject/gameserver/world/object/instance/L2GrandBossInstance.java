@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import net.l2emuproject.gameserver.entity.status.CharStatus;
 import net.l2emuproject.gameserver.entity.status.GrandBossStatus;
-import net.l2emuproject.gameserver.instancemanager.GrandBossSpawnManager;
+import net.l2emuproject.gameserver.manager.GrandBossSpawnManager;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Boss;

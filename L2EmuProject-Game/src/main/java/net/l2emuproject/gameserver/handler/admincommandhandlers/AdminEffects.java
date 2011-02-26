@@ -19,7 +19,7 @@ import java.util.StringTokenizer;
 import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager;
 import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerStateOnCommunity;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.grandbosses.FrintezzaManager;
+import net.l2emuproject.gameserver.manager.grandbosses.FrintezzaManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Earthquake;
 import net.l2emuproject.gameserver.network.serverpackets.ExRedSky;

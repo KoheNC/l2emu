@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.model.entity;
 
 import net.l2emuproject.gameserver.datatables.ResidentialSkillTable;
-import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
-import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager.Territory;
+import net.l2emuproject.gameserver.manager.TerritoryWarManager;
+import net.l2emuproject.gameserver.manager.TerritoryWarManager.Territory;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;

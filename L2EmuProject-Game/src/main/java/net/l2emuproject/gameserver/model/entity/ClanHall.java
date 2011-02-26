@@ -27,7 +27,7 @@ import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.datatables.DoorTable;
-import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
+import net.l2emuproject.gameserver.manager.ClanHallManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;

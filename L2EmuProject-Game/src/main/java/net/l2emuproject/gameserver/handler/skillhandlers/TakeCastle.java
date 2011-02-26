@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.SiegeManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
+import net.l2emuproject.gameserver.manager.SiegeManager;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;

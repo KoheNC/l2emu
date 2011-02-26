@@ -14,7 +14,7 @@
  */
 package ai.zone.fantasy_island;
 
-import net.l2emuproject.gameserver.instancemanager.QuestManager;
+import net.l2emuproject.gameserver.manager.QuestManager;
 
 public class StartMCShow implements Runnable
 {

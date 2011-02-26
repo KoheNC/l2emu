@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.ISkillConditionChecker;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager;
-import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
+import net.l2emuproject.gameserver.manager.InstanceManager;
+import net.l2emuproject.gameserver.manager.MapRegionManager;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillRecall;

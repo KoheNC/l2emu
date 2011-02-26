@@ -19,7 +19,7 @@ import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
 import net.l2emuproject.gameserver.entity.stat.CharStat;
 import net.l2emuproject.gameserver.entity.stat.StaticObjStat;
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;

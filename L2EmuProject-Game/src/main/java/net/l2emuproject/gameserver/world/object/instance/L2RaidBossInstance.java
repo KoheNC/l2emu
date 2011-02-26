@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.world.object.instance;
 
-import net.l2emuproject.gameserver.instancemanager.RaidBossSpawnManager;
+import net.l2emuproject.gameserver.manager.RaidBossSpawnManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Boss;
 import net.l2emuproject.gameserver.world.object.L2Character;

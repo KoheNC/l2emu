@@ -20,7 +20,7 @@ import java.util.GregorianCalendar;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.DoorTable;
-import net.l2emuproject.gameserver.instancemanager.DayNightSpawnManager;
+import net.l2emuproject.gameserver.manager.DayNightSpawnManager;
 import net.l2emuproject.gameserver.network.serverpackets.ClientSetTime;
 import net.l2emuproject.gameserver.system.util.Broadcast;
 import net.l2emuproject.gameserver.world.L2World;

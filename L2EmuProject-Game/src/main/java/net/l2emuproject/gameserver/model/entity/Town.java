@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.model.entity;
 
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
-import net.l2emuproject.gameserver.instancemanager.TownManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
+import net.l2emuproject.gameserver.manager.MapRegionManager;
+import net.l2emuproject.gameserver.manager.TownManager;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 

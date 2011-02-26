@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.handler.chathandlers;
 import net.l2emuproject.Config;
 import net.l2emuproject.Config.ChatMode;
 import net.l2emuproject.gameserver.handler.IChatHandler;
-import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
+import net.l2emuproject.gameserver.manager.MapRegionManager;
 import net.l2emuproject.gameserver.model.BlockList;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;

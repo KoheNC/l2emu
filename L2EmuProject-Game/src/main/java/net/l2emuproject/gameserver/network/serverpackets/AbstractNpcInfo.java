@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.instancemanager.TownManager;
+import net.l2emuproject.gameserver.manager.TownManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.L2GameClient;

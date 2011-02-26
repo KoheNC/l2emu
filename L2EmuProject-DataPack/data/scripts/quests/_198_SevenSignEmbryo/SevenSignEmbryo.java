@@ -16,12 +16,12 @@ package quests._198_SevenSignEmbryo;
 
 import quests._197_SevenSignTheSacredBookOfSeal.SevenSignTheSacredBookOfSeal;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.manager.InstanceManager;
+import net.l2emuproject.gameserver.manager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.model.entity.Instance;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;

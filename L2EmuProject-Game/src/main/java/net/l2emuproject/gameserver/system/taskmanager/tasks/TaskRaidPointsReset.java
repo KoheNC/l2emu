@@ -19,7 +19,7 @@ import java.util.Map;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.instancemanager.RaidPointsManager;
+import net.l2emuproject.gameserver.manager.RaidPointsManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.system.taskmanager.tasks.TaskManager.ExecutedTask;
 

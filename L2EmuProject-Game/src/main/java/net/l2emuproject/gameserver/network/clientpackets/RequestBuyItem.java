@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.network.clientpackets;
 import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.MAX_ADENA;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
-import net.l2emuproject.gameserver.instancemanager.MercTicketManager;
+import net.l2emuproject.gameserver.manager.MercTicketManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExBuySellListPacket;

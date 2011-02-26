@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.restriction.global;
 
-import net.l2emuproject.gameserver.instancemanager.games.KrateiCube;
+import net.l2emuproject.gameserver.manager.games.KrateiCube;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

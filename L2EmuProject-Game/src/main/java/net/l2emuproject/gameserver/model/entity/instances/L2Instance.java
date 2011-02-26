@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.model.entity.instances;
 
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager;
+import net.l2emuproject.gameserver.manager.InstanceManager;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;

@@ -4,7 +4,7 @@ import sys
 from java.lang                                          	 import System
 from net.l2emuproject.gameserver.ai                          import CtrlIntention
 from net.l2emuproject.gameserver.datatables                  import SkillTable
-from net.l2emuproject.gameserver.instancemanager             import InstanceManager
+from net.l2emuproject.gameserver.manager             import InstanceManager
 from net.l2emuproject.gameserver.world.object.position       import L2CharPosition
 from net.l2emuproject.gameserver.world                       import L2World
 from net.l2emuproject.gameserver.model.actor.instance        import L2MonsterInstance

@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.skills.l2skills;
 
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.FortManager;
-import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
+import net.l2emuproject.gameserver.manager.FortManager;
+import net.l2emuproject.gameserver.manager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.skills.L2Skill;

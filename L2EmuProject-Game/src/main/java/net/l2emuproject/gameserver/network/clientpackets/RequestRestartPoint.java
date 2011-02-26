@@ -15,14 +15,14 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.instancemanager.CCHManager;
-import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
-import net.l2emuproject.gameserver.instancemanager.FortManager;
-import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
-import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
-import net.l2emuproject.gameserver.instancemanager.SiegeManager;
-import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
+import net.l2emuproject.gameserver.manager.CCHManager;
+import net.l2emuproject.gameserver.manager.CastleManager;
+import net.l2emuproject.gameserver.manager.ClanHallManager;
+import net.l2emuproject.gameserver.manager.FortManager;
+import net.l2emuproject.gameserver.manager.FortSiegeManager;
+import net.l2emuproject.gameserver.manager.MapRegionManager;
+import net.l2emuproject.gameserver.manager.SiegeManager;
+import net.l2emuproject.gameserver.manager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.L2SiegeClan;
 import net.l2emuproject.gameserver.model.entity.CCHSiege;
 import net.l2emuproject.gameserver.model.entity.Castle;

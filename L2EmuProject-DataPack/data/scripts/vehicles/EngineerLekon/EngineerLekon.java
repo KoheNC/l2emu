@@ -14,7 +14,7 @@
  */
 package vehicles.EngineerLekon;
 
-import net.l2emuproject.gameserver.instancemanager.AirShipManager;
+import net.l2emuproject.gameserver.manager.AirShipManager;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;

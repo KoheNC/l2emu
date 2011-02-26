@@ -22,9 +22,9 @@ import java.util.StringTokenizer;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager;
-import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
+import net.l2emuproject.gameserver.manager.ClanHallManager;
+import net.l2emuproject.gameserver.manager.InstanceManager;
+import net.l2emuproject.gameserver.manager.MapRegionManager;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;

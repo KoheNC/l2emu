@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.handler.usercommandhandlers;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IUserCommandHandler;
-import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
-import net.l2emuproject.gameserver.instancemanager.TownManager;
+import net.l2emuproject.gameserver.manager.MapRegionManager;
+import net.l2emuproject.gameserver.manager.TownManager;
 import net.l2emuproject.gameserver.model.entity.Town;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;

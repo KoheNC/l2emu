@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.instancemanager.games.HandysBlockCheckerManager;
-import net.l2emuproject.gameserver.instancemanager.games.HandysBlockCheckerManager.ArenaParticipantsHolder;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
+import net.l2emuproject.gameserver.manager.games.HandysBlockCheckerManager;
+import net.l2emuproject.gameserver.manager.games.HandysBlockCheckerManager.ArenaParticipantsHolder;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;

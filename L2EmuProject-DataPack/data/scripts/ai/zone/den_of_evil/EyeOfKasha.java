@@ -20,7 +20,7 @@ import java.util.Map;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.instancemanager.ZoneManager;
+import net.l2emuproject.gameserver.manager.ZoneManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Attackable;

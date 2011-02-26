@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
-import net.l2emuproject.gameserver.instancemanager.FortSiegeManager.SiegeSpawn;
+import net.l2emuproject.gameserver.manager.FortSiegeManager;
+import net.l2emuproject.gameserver.manager.FortSiegeManager.SiegeSpawn;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;

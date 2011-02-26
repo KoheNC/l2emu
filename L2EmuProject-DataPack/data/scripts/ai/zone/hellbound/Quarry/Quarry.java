@@ -16,8 +16,8 @@ package ai.zone.hellbound.Quarry;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundEngine;
-import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
+import net.l2emuproject.gameserver.manager.hellbound.HellboundEngine;
+import net.l2emuproject.gameserver.manager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;

@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.model;
 
 import java.util.Set;
 
-import net.l2emuproject.gameserver.instancemanager.BlockListManager;
+import net.l2emuproject.gameserver.manager.BlockListManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;

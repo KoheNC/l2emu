@@ -16,8 +16,8 @@ package quests._511_AwlUnderFoot;
 
 import gnu.trove.TIntObjectHashMap;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager;
-import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
+import net.l2emuproject.gameserver.manager.InstanceManager;
+import net.l2emuproject.gameserver.manager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.party.L2Party;

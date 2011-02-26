@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
-import net.l2emuproject.gameserver.instancemanager.FortManager;
+import net.l2emuproject.gameserver.manager.FortManager;
 import net.l2emuproject.gameserver.model.entity.Fort;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;

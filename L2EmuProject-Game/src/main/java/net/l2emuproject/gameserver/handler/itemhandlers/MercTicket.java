@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.gameserver.handler.IItemHandler;
-import net.l2emuproject.gameserver.instancemanager.MercTicketManager;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
+import net.l2emuproject.gameserver.manager.MercTicketManager;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 
