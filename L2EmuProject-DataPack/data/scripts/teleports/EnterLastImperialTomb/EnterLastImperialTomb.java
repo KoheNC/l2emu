@@ -25,12 +25,12 @@ import net.l2emuproject.gameserver.world.object.L2Player;
  * 
  * @translated by Intrepid
  */
-public final class LastImperialTomb extends QuestJython
+public final class EnterLastImperialTomb extends QuestJython
 {
-	private static final String	QN	= "LastImperialTomb";
+	private static final String	QN	= "EnterLastImperialTomb";
 	private static final int	NPC	= 32011;
 
-	public LastImperialTomb(int questId, String name, String descr)
+	public EnterLastImperialTomb(int questId, String name, String descr)
 	{
 		super(questId, name, descr);
 
@@ -67,6 +67,6 @@ public final class LastImperialTomb extends QuestJython
 
 	public static void main(String args[])
 	{
-		new LastImperialTomb(-1, QN, "teleports");
+		new EnterLastImperialTomb(-1, QN, "teleports");
 	}
 }
