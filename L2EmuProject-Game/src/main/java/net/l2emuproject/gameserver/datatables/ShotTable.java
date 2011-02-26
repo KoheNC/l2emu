@@ -26,7 +26,7 @@ public final class ShotTable
 	
 	static
 	{
-		_log.info("ShotTable: initialized.");
+		_log.info("ShotTable : Initialized.");
 	}
 	
 	//================================================================

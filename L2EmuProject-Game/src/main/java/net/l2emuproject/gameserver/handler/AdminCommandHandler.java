@@ -199,7 +199,7 @@ public final class AdminCommandHandler extends HandlerRegistry<String, IAdminCom
 		{
 		}
 		
-		_log.info("AdminCommandHandler: Loaded " + size() + " handlers.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + size() + " handler(s).");
 		
 		for (String cmd : Config.GM_COMMAND_PRIVILEGES.keySet())
 			if (get(cmd) == null)

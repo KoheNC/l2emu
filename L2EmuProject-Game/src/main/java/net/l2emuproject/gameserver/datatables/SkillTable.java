@@ -90,7 +90,7 @@ public final class SkillTable
 	private SkillTable()
 	{
 		final List<L2Skill> skills = SkillsEngine.loadSkills();
-		_log.info("SkillTable: Loaded " + skills.size() + " skill templates from XML files.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + skills.size() + " skill templates from XML file(s).");
 		
 		int highestId = 0;
 		for (L2Skill skill : skills)

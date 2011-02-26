@@ -101,7 +101,7 @@ public class ItemMarketTable
 				}
 				mrktCount++;
 			}
-			_log.info("ItemMarketTable: Loaded: " + mrktCount + " market item(s).");
+			_log.info(getClass().getSimpleName() + " : Loaded " + mrktCount + " market item(s).");
 			rset.close();
 			statement.close();
 		}

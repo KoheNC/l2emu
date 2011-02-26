@@ -44,7 +44,7 @@ public abstract class AbstractPeriodicTaskManager implements Runnable, StartupHo
 		
 		L2GameServer.addStartupHook(this);
 		
-		_log.info(getClass().getSimpleName() + ": Initialized.");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 	}
 	
 	public final void readLock()

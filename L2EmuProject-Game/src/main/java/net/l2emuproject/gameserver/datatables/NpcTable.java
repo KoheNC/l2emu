@@ -75,7 +75,7 @@ public final class NpcTable
 				fillNpcTable(npcdata);
 				npcdata.close();
 				statement.close();
-				_log.info("NpcTable: Loaded " + _npcs.size() + " Npc Templates.");
+				_log.info(getClass().getSimpleName() + " : Loaded " + _npcs.size() + " Npc Template(s).");
 			}
 			catch (Exception e)
 			{
@@ -91,7 +91,7 @@ public final class NpcTable
 				npcdata.close();
 				statement.close();
 				if (_npcs.size() > npc_count)
-					_log.info("NpcTable: Loaded " + (_npcs.size() - npc_count) + " Custom Npc Templates.");
+					_log.info(getClass().getSimpleName() + " : Loaded " + (_npcs.size() - npc_count) + " Custom Npc Template(s).");
 			}
 			catch (Exception e)
 			{
@@ -195,7 +195,7 @@ public final class NpcTable
 				}
 				npcElementals.close();
 				statement10.close();
-				_log.info("NPC Elementals Data Table: Loaded " + cont + " elementals Data.");
+				_log.info("NPC Elementals Data Table : Loaded " + cont + " elementals Data.");
 			}
 			catch (Exception e)
 			{
@@ -443,11 +443,11 @@ public final class NpcTable
 
 				NpcCharDataTable.close();
 				statement10.close();
-				_log.info("NPC Character Data: Loaded " + cont + " Attributes.");
+				_log.info("NPC Character Data : Loaded " + cont + " char data(s).");
 			}
 			catch (Exception e)
 			{
-				_log.error("NPCTable: Error reading NPC Character Attributes: ", e);
+				_log.error("NPCTable: Error reading NPC Character char data: ", e);
 			}
 		}
 		catch (Exception e)

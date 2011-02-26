@@ -74,7 +74,7 @@ public class ClassBalanceTable
 			ps.close();
 			rs.close();
 
-			_log.info("ClassBalanceTable: (Re)Loaded " + _balance.size() + " classes.");
+			_log.info(getClass().getSimpleName() + " : (Re)Loaded " + _balance.size() + " class(es).");
 		}
 		catch (Exception e)
 		{

@@ -42,7 +42,7 @@ public final class GmListTable
 	
 	static
 	{
-		_log.info("GmListTable: initialized.");
+		_log.info("GmListTable : Initialized.");
 	}
 	
 	/** @return Map containing all GM characters with their hiding status */

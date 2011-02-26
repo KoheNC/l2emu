@@ -763,7 +763,7 @@ public class SevenSignsFestival implements SpawnListener
 
 		if (SevenSigns.getInstance().isSealValidationPeriod())
 		{
-			_log.info("SevenSignsFestival: Initialization bypassed due to Seal Validation in effect.");
+			_log.info(getClass().getSimpleName() + " : Initialization bypassed due to Seal Validation in effect.");
 			return;
 		}
 
@@ -882,7 +882,7 @@ public class SevenSignsFestival implements SpawnListener
 		_managerScheduledTask = new L2Timer("FestivalManager").scheduleAtFixedRate(fm,
 			Config.ALT_FESTIVAL_MANAGER_START, Config.ALT_FESTIVAL_CYCLE_LENGTH);
 		
-		_log.info("SevenSignsFestival: first Festival of Darkness cycle begins in " + (Config.ALT_FESTIVAL_MANAGER_START / 60000) + " minutes.");
+		_log.info(getClass().getSimpleName() + " : first Festival of Darkness cycle begins in " + (Config.ALT_FESTIVAL_MANAGER_START / 60000) + " minutes.");
 	}
 	
 	public void stopFestivalManager()
@@ -906,7 +906,7 @@ public class SevenSignsFestival implements SpawnListener
 		ResultSet rset = null;
 
 		if (_log.isDebugEnabled())
-			_log.info("SevenSignsFestival: Restoring festival data. Current SS Cycle: " + _signsCycle);
+			_log.info(getClass().getSimpleName() + " : Restoring festival data. Current SS Cycle: " + _signsCycle);
 
 		try
 		{
@@ -929,7 +929,7 @@ public class SevenSignsFestival implements SpawnListener
 				festivalDat.set("members", rset.getString("members"));
 
 				if (_log.isDebugEnabled())
-					_log.debug("SevenSignsFestival: Loaded data from DB for (Cycle = " + festivalCycle + ", Oracle = " + cabal + ", Festival = "
+					_log.debug(getClass().getSimpleName() + " : Loaded data from DB for (Cycle = " + festivalCycle + ", Oracle = " + cabal + ", Festival = "
 							+ getFestivalName(festivalId));
 
 				if (cabal.equals("dawn"))
@@ -970,11 +970,11 @@ public class SevenSignsFestival implements SpawnListener
 			statement.close();
 
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: Loaded data from database.");
+				_log.debug(getClass().getSimpleName() + " : Loaded data from database.");
 		}
 		catch (SQLException e)
 		{
-			_log.fatal("SevenSignsFestival: Failed to load configuration: ", e);
+			_log.fatal(getClass().getSimpleName() + " : Failed to load configuration: ", e);
 		}
 		finally
 		{
@@ -995,7 +995,7 @@ public class SevenSignsFestival implements SpawnListener
 		PreparedStatement statement = null;
 
 		if (_log.isDebugEnabled())
-			_log.debug("SevenSignsFestival: Saving festival data to disk.");
+			_log.debug(getClass().getSimpleName() + " : Saving festival data to disk.");
 
 		try
 		{
@@ -1023,7 +1023,7 @@ public class SevenSignsFestival implements SpawnListener
 					if (statement.executeUpdate() > 0)
 					{
 						if (_log.isDebugEnabled())
-							_log.debug("SevenSignsFestival: Updated data in DB (Cycle = " + festivalCycle + ", Cabal = " + cabal + ", FestID = " + festivalId
+							_log.debug(getClass().getSimpleName() + " : Updated data in DB (Cycle = " + festivalCycle + ", Cabal = " + cabal + ", FestID = " + festivalId
 									+ ")");
 
 						statement.close();
@@ -1043,7 +1043,7 @@ public class SevenSignsFestival implements SpawnListener
 					statement.close();
 
 					if (_log.isDebugEnabled())
-						_log.debug("SevenSignsFestival: Inserted data in DB (Cycle = " + festivalCycle + ", Cabal = " + cabal + ", FestID = " + festivalId
+						_log.debug(getClass().getSimpleName() + " : Inserted data in DB (Cycle = " + festivalCycle + ", Cabal = " + cabal + ", FestID = " + festivalId
 								+ ")");
 				}
 			}
@@ -1054,7 +1054,7 @@ public class SevenSignsFestival implements SpawnListener
 		}
 		catch (SQLException e)
 		{
-			_log.fatal("SevenSignsFestival: Failed to save configuration: ", e);
+			_log.fatal(getClass().getSimpleName() + " : Failed to save configuration: ", e);
 		}
 		finally
 		{
@@ -1229,7 +1229,7 @@ public class SevenSignsFestival implements SpawnListener
 			}
 		}
 
-		_log.info("SevenSignsFestival: Reinitialized engine for next competition period.");
+		_log.info(getClass().getSimpleName() + " : Reinitialized engine for next competition period.");
 	}
 
 	public final int getCurrentFestivalCycle()
@@ -1368,7 +1368,7 @@ public class SevenSignsFestival implements SpawnListener
 			participants = festivalParty.getPartyMembers();
 
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: " + festivalParty.getPartyMembers().toString() + " have signed up to the "
+				_log.debug(getClass().getSimpleName() + " : " + festivalParty.getPartyMembers().toString() + " have signed up to the "
 						+ SevenSigns.getCabalShortName(oracle) + " " + getFestivalName(festivalId) + " festival.");
 		}
 
@@ -1452,7 +1452,7 @@ public class SevenSignsFestival implements SpawnListener
 			currData.set("members", "");
 
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: Data missing for " + SevenSigns.getCabalName(oracle) + ", FestivalID = " + festivalId + " (Current Cycle "
+				_log.debug(getClass().getSimpleName() + " : Data missing for " + SevenSigns.getCabalName(oracle) + ", FestivalID = " + festivalId + " (Current Cycle "
 						+ _signsCycle + ")");
 		}
 
@@ -1553,7 +1553,7 @@ public class SevenSignsFestival implements SpawnListener
 			currFestData.set("members", Util.implodeString(partyMembers, ","));
 
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: " + player.getName() + "'s party has the highest score (" + offeringScore + ") so far for "
+				_log.debug(getClass().getSimpleName() + " : " + player.getName() + "'s party has the highest score (" + offeringScore + ") so far for "
 						+ SevenSigns.getCabalName(oracle) + " in " + getFestivalName(festivalId));
 
 			// Only add the score to the cabal's overall if it's higher than the other cabal's score.
@@ -1565,7 +1565,7 @@ public class SevenSignsFestival implements SpawnListener
 				SevenSigns.getInstance().addFestivalScore(oracle, contribPoints);
 
 				if (_log.isDebugEnabled())
-					_log.info("SevenSignsFestival: This is the highest score overall so far for the " + getFestivalName(festivalId) + " festival!");
+					_log.info(getClass().getSimpleName() + " : This is the highest score overall so far for the " + getFestivalName(festivalId) + " festival!");
 			}
 
 			saveFestivalData(true);
@@ -1694,7 +1694,7 @@ public class SevenSignsFestival implements SpawnListener
 		if (npcId == 31127)
 		{
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: Instance found for NPC ID 31127 (" + npc.getObjectId() + ").");
+				_log.debug(getClass().getSimpleName() + " : Instance found for NPC ID 31127 (" + npc.getObjectId() + ").");
 
 			_dawnChatGuide = npc;
 		}
@@ -1702,7 +1702,7 @@ public class SevenSignsFestival implements SpawnListener
 		if (npcId == 31137)
 		{
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: Instance found for NPC ID 31137 (" + npc.getObjectId() + ").");
+				_log.debug(getClass().getSimpleName() + " : Instance found for NPC ID 31137 (" + npc.getObjectId() + ").");
 
 			_duskChatGuide = npc;
 		}
@@ -1745,7 +1745,7 @@ public class SevenSignsFestival implements SpawnListener
 				return;
 
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: Festival manager initialized. Those wishing to participate have " + getMinsToNextFestival()
+				_log.debug(getClass().getSimpleName() + " : Festival manager initialized. Those wishing to participate have " + getMinsToNextFestival()
 						+ " minute(s) to sign up.");
 
 			sendMessageToAll("Festival Guide", "The main event will start in " + getMinsToNextFestival() + " minutes. Please register now.");
@@ -1799,7 +1799,7 @@ public class SevenSignsFestival implements SpawnListener
 				}
 			}
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: No empty ParticipantsLists! Festial starts now ");
+				_log.debug(getClass().getSimpleName() + " : No empty ParticipantsLists! Festial starts now ");
 			/* INITIATION */
 			// Set the festival timer to 0, as it is just beginning.
 			long elapsedTime = 0;
@@ -1821,7 +1821,7 @@ public class SevenSignsFestival implements SpawnListener
 			sendMessageToAll("Festival Guide", "The main event is now starting.");
 
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: The current set of festivals will begin in " + (Config.ALT_FESTIVAL_FIRST_SPAWN / 60000) + " minute(s).");
+				_log.debug(getClass().getSimpleName() + " : The current set of festivals will begin in " + (Config.ALT_FESTIVAL_FIRST_SPAWN / 60000) + " minute(s).");
 
 			// Stand by for a short length of time before starting the festival.
 			try
@@ -1846,7 +1846,7 @@ public class SevenSignsFestival implements SpawnListener
 			}
 
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: Each of the festivals will end in " + (Config.ALT_FESTIVAL_LENGTH / 60000)
+				_log.debug(getClass().getSimpleName() + " : Each of the festivals will end in " + (Config.ALT_FESTIVAL_LENGTH / 60000)
 						+ " minutes. New participants can signup then.");
 
 			// After a short time period, move all idle spawns to the center of the arena.
@@ -1947,7 +1947,7 @@ public class SevenSignsFestival implements SpawnListener
 			sendMessageToAll("Festival Witch", "That will do! I'll move you to the outside soon.");
 
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: The next set of festivals begin in " + getMinsToNextFestival() + " minute(s).");
+				_log.debug(getClass().getSimpleName() + " : The next set of festivals begin in " + getMinsToNextFestival() + " minute(s).");
 			
 			}
 		}
@@ -2039,7 +2039,7 @@ public class SevenSignsFestival implements SpawnListener
 			boolean isPositive;
 
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: Initializing festival for " + SevenSigns.getCabalShortName(_cabal) + " (" + getFestivalName(_levelRange) + ")");
+				_log.debug(getClass().getSimpleName() + " : Initializing festival for " + SevenSigns.getCabalShortName(_cabal) + " (" + getFestivalName(_levelRange) + ")");
 
 			// Teleport all players to arena and notify them.
 			if (!_participants.isEmpty())
@@ -2103,12 +2103,12 @@ public class SevenSignsFestival implements SpawnListener
 				_witchInst = npcSpawn.doSpawn();
 
 				if (_log.isDebugEnabled())
-					_log.debug("SevenSignsFestival: Spawned the Festival Witch " + npcSpawn.getNpcId() + " at " + _witchSpawn._x + " " + _witchSpawn._y + " "
+					_log.debug(getClass().getSimpleName() + " : Spawned the Festival Witch " + npcSpawn.getNpcId() + " at " + _witchSpawn._x + " " + _witchSpawn._y + " "
 							+ _witchSpawn._z);
 			}
 			catch (Exception e)
 			{
-				_log.warn("SevenSignsFestival: Error while spawning Festival Witch ID " + _witchSpawn._npcId + ": ", e);
+				_log.warn(getClass().getSimpleName() + " : Error while spawning Festival Witch ID " + _witchSpawn._npcId + ": ", e);
 			}
 
 			// Make it appear as though the Witch has apparated there.
@@ -2126,7 +2126,7 @@ public class SevenSignsFestival implements SpawnListener
 		protected void festivalStart()
 		{
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: Starting festival for " + SevenSigns.getCabalShortName(_cabal) + " (" + getFestivalName(_levelRange) + ")");
+				_log.debug(getClass().getSimpleName() + " : Starting festival for " + SevenSigns.getCabalShortName(_cabal) + " (" + getFestivalName(_levelRange) + ")");
 
 			spawnFestivalMonsters(FESTIVAL_DEFAULT_RESPAWN, 0);
 		}
@@ -2136,7 +2136,7 @@ public class SevenSignsFestival implements SpawnListener
 			boolean isPositive;
 
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: Moving spawns to arena center for festival " + SevenSigns.getCabalShortName(_cabal) + " ("
+				_log.debug(getClass().getSimpleName() + " : Moving spawns to arena center for festival " + SevenSigns.getCabalShortName(_cabal) + " ("
 						+ getFestivalName(_levelRange) + ")");
 
 			for (L2FestivalMonsterInstance festivalMob : _npcInsts)
@@ -2182,7 +2182,7 @@ public class SevenSignsFestival implements SpawnListener
 //		public void setSpawnRate(int respawnDelay)
 //		{
 //			if (_log.isDebugEnabled())
-//				_log.debug("SevenSignsFestival: Modifying spawn rate of festival mobs to " + respawnDelay + " ms for festival "
+//				_log.debug(getClass().getSimpleName() + " : Modifying spawn rate of festival mobs to " + respawnDelay + " ms for festival "
 //						+ SevenSigns.getCabalShortName(_cabal) + " (" + getFestivalName(_levelRange) + ")");
 //
 //			for (L2FestivalMonsterInstance monsterInst : _npcInsts)
@@ -2255,11 +2255,11 @@ public class SevenSignsFestival implements SpawnListener
 					_npcInsts.add(festivalMob);
 
 					if (_log.isDebugEnabled())
-						_log.debug("SevenSignsFestival: Spawned NPC ID " + currSpawn._npcId + " at " + currSpawn._x + " " + currSpawn._y + " " + currSpawn._z);
+						_log.debug(getClass().getSimpleName() + " : Spawned NPC ID " + currSpawn._npcId + " at " + currSpawn._x + " " + currSpawn._y + " " + currSpawn._z);
 				}
 				catch (Exception e)
 				{
-					_log.warn("SevenSignsFestival: Error while spawning NPC ID " + currSpawn._npcId + ": ", e);
+					_log.warn(getClass().getSimpleName() + " : Error while spawning NPC ID " + currSpawn._npcId + ": ", e);
 				}
 			}
 		}
@@ -2273,7 +2273,7 @@ public class SevenSignsFestival implements SpawnListener
 			_challengeIncreased = true;
 
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: " + _participants.get(0).getName() + "'s team have opted to increase the festival challenge!");
+				_log.debug(getClass().getSimpleName() + " : " + _participants.get(0).getName() + "'s team have opted to increase the festival challenge!");
 
 			// Spawn more festival monsters, but this time with a twist.
 			spawnFestivalMonsters(FESTIVAL_DEFAULT_RESPAWN, 1);
@@ -2297,7 +2297,7 @@ public class SevenSignsFestival implements SpawnListener
 		protected void festivalEnd()
 		{
 			if (_log.isDebugEnabled())
-				_log.debug("SevenSignsFestival: Ending festival for " + SevenSigns.getCabalShortName(_cabal) + " (" + getFestivalName(_levelRange) + ")");
+				_log.debug(getClass().getSimpleName() + " : Ending festival for " + SevenSigns.getCabalShortName(_cabal) + " (" + getFestivalName(_levelRange) + ")");
 
 			if (!_participants.isEmpty())
 			{

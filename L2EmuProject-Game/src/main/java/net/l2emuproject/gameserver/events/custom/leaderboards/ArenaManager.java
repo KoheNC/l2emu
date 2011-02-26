@@ -288,7 +288,7 @@ public final class ArenaManager
 			}
 
 			startSaveTask();
-			_log.info("ArenaManager: Loaded " + _ranks.size() + " player(s).");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _ranks.size() + " player(s).");
 		}
 	}
 

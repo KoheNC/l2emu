@@ -81,16 +81,16 @@ public final class HtmCache
 		
 		if (deleteCacheFile && cacheFile.exists())
 		{
-			_log.info("Cache[HTML]: Deleting cache file...");
+			_log.info("Cache[HTML] : Deleting cache file...");
 			
 			cacheFile.delete();
 		}
 		
-		_log.info("Cache[HTML]: Caching started...");
+		_log.info("Cache[HTML] : Caching started...");
 
 		if (cacheFile.exists())
 		{
-			_log.info("Cache[HTML]: Using cache file...");
+			_log.info("Cache[HTML] : Using cache file...");
 			
 			ObjectInputStream ois = null;
 			try
@@ -126,11 +126,11 @@ public final class HtmCache
 		
 		if (cacheFile.exists())
 		{
-			_log.info("Cache[HTML]: Compaction skipped!");
+			_log.info("Cache[HTML] : Compaction skipped!");
 		}
 		else
 		{
-			_log.info("Cache[HTML]: Compacting htmls...");
+			_log.info("Cache[HTML] : Compacting htmls...");
 			
 			final StringBuilder sb = new StringBuilder(8192);
 			
@@ -157,18 +157,18 @@ public final class HtmCache
 		
 		if (cacheFile.exists())
 		{
-			_log.info("Cache[HTML]: Validation skipped!");
+			_log.info("Cache[HTML] : Validation skipped!");
 		}
 		else
 		{
-			_log.info("Cache[HTML]: Validating htmls...");
+			_log.info("Cache[HTML] : Validating htmls...");
 			
 			validate();
 		}
 		
 		if (!cacheFile.exists())
 		{
-			_log.info("Cache[HTML]: Creating cache file...");
+			_log.info("Cache[HTML] : Creating cache file...");
 			
 			ObjectOutputStream oos = null;
 			try
@@ -314,7 +314,7 @@ public final class HtmCache
 	{
 		parseDir(f);
 		
-		_log.info("Cache[HTML]: Reloaded specified path.");
+		_log.info("Cache[HTML] : Reloaded specified path.");
 	}
 	
 	public void parseDir(File dir)
@@ -399,7 +399,7 @@ public final class HtmCache
 	@Override
 	public String toString()
 	{
-		return "Cache[HTML]: " + String.format("%.3f", (float)_size / 1024) + " kilobytes on " + _loadedFiles
+		return "Cache[HTML] : " + String.format("%.3f", (float)_size / 1024) + " kilobytes on " + _loadedFiles
 				+ " file(s) loaded.";
 	}
 	

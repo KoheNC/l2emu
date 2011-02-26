@@ -61,7 +61,7 @@ public final class ChatHandler extends EnumHandlerRegistry<SystemChatChannelId, 
 		registerChatHandler(new ChatTrade());
 		registerChatHandler(new ChatWhisper());
 		
-		_log.info("ChatHandler: Loaded " + size() + " handlers.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + size() + " handler(s).");
 	}
 	
 	public void registerChatHandler(IChatHandler handler)

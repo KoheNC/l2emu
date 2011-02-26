@@ -59,7 +59,7 @@ public class SkillSpellbookTable
 			spbooks.close();
 			statement.close();
 
-			_log.info("SkillSpellbookTable: Loaded " + _skillSpellbooks.size() + " Spellbooks.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _skillSpellbooks.size() + " Spellbook(s).");
 		}
 		catch (Exception e)
 		{

@@ -110,7 +110,7 @@ public class BuffTemplateTable
 		finally
 		{
 			L2DatabaseFactory.close(con);
-			_log.info("BuffTemplateTable: Loaded " + _templates.size() + " buff templates.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _templates.size() + " buff template(s).");
 		}
 	}
 	

@@ -294,11 +294,11 @@ public final class Olympiad
 		
 		synchronized (this)
 		{
-			_log.info("Olympiad System: Loading Olympiad System....");
+			_log.info(getClass().getSimpleName() + " : Loading Olympiad System....");
 			if (_period == 0)
-				_log.info("Olympiad System: Currently in Olympiad Period");
+				_log.info("Olympiad System : Currently in Olympiad Period");
 			else
-				_log.info("Olympiad System: Currently in Validation Period");
+				_log.info("Olympiad System : Currently in Validation Period");
 			
 			long milliToEnd;
 			if (_period == 0)
@@ -316,7 +316,7 @@ public final class Olympiad
 			}
 		}
 		
-		_log.info("Olympiad System: Loaded " + _nobles.size() + " Nobles");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _nobles.size() + " Noble(s).");
 		
 	}
 

@@ -97,7 +97,7 @@ public class MailService
 		{
 			L2DatabaseFactory.close(con);
 		}
-		_log.info("Mail Manager: Successfully loaded " + readed + " messages.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + readed + " message(s).");
 	}
 	
 	public final Message getMessage(int msgId)

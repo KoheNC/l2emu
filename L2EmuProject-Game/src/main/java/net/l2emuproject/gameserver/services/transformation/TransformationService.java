@@ -46,7 +46,7 @@ public class TransformationService
 
 	public void report()
 	{
-		_log.info("Loaded: " + getAllTransformations().size() + " transformations.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + getAllTransformations().size() + " transformation(s).");
 	}
 
 	public boolean transformPlayer(int id, L2Player player)

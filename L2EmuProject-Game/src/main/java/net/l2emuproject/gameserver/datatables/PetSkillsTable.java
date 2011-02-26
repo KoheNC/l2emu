@@ -99,7 +99,7 @@ public class PetSkillsTable
 			{
 				_log.fatal("Error while creating pet skill tree (Pet ID " + npcId + "):", e);
 			}
-			_log.info("PetSkillsTable: Loaded " + count + " skills.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + count + " skill(s).");
 		}
 		catch (Exception e)
 		{

@@ -103,7 +103,7 @@ public final class ZoneManager
 				_log.fatal("ZoneManager: Error in file " + f.getAbsolutePath(), e);
 				continue;
 			}
-			_log.info("ZoneManager: " + f.getName() + " loaded with " + count + " zones");
+			_log.info(getClass().getSimpleName() + " : " + f.getName() + " loaded with " + count + " zone(s).");
 		}
 	}
 	

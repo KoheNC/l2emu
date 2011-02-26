@@ -39,7 +39,7 @@ public final class HeroSkillTable
 		for (int skillId : HERO_SKILL_IDS)
 			_heroSkills.add(SkillTable.getInstance().getInfo(skillId, 1));
 		
-		_log.info("HeroSkillTable: Initialized.");
+		_log.info("HeroSkillTable : Initialized.");
 	}
 	
 	public static Iterable<L2Skill> getHeroSkills()

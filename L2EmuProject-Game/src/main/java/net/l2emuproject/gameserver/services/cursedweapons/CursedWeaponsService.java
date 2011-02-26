@@ -266,7 +266,7 @@ public class CursedWeaponsService
 			L2DatabaseFactory.close(con);
 		}
 
-		_log.info("CursedWeaponsService: loaded " + _cursedWeapons.size() + " cursed weapon(s).");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _cursedWeapons.size() + " cursed weapon(s).");
 	}
 
 	public synchronized void checkDrop(L2Attackable attackable, L2Player player)

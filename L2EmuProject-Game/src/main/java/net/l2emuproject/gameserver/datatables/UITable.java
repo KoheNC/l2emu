@@ -64,8 +64,8 @@ public class UITable
 		_storedCategories.clear();
 		parseCatData();
 		parseKeyData();
-		_log.info("UITable: Loaded " + _storedCategories.size() + " Categories.");
-		_log.info("UITable: Loaded " + _storedKeys.size() + " Keys.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _storedCategories.size() + " Categorie(s).");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _storedKeys.size() + " Key(s).");
 	}
 
 	private void parseCatData()

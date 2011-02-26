@@ -289,7 +289,7 @@ public final class FishermanManager
 			}
 
 			startSaveTask();
-			_log.info("FishManager: Loaded " + _ranks.size() + " player(s).");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _ranks.size() + " player(s).");
 		}
 	}
 

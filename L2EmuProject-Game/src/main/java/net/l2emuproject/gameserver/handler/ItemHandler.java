@@ -131,7 +131,7 @@ public final class ItemHandler
 		registerItemHandler(new WondrousCubic());
 		// L2EMU_ADD
 		
-		_log.info("ItemHandler: Loaded " + _byHandlerName.size() + " handlers by handlerName.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _byHandlerName.size() + " handlers by handlerName.");
 		
 		for (L2Item item : ItemTable.getInstance().getAllTemplates())
 		{
@@ -147,14 +147,14 @@ public final class ItemHandler
 			
 			if (handlerByHandlerName == null)
 			{
-				_log.warn("ItemHandler: Missing handler for '" + handlerName + "'!");
+				_log.warn(getClass().getSimpleName() + " : Missing handler for '" + handlerName + "'!");
 				continue;
 			}
 			
 			_byItemId.register(item.getItemId(), handlerByHandlerName);
 		}
 		
-		_log.info("ItemHandler: Loaded " + _byItemId.size() + " handlers by itemId.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _byItemId.size() + " handlers by itemId.");
 	}
 	
 	public void registerItemHandler(IItemHandler handler)

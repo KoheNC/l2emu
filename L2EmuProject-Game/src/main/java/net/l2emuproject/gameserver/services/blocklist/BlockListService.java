@@ -30,7 +30,6 @@ import net.l2emuproject.util.SingletonSet;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * @author NB4L1
  */
@@ -84,7 +83,7 @@ public final class BlockListService
 		for (Set<String> set : _blocks.values())
 			size += set.size();
 		
-		_log.info("BlockListService: Loaded " + size + " character block(s).");
+		_log.info(getClass().getSimpleName() + " : Loaded " + size + " character block(s).");
 	}
 	
 	public synchronized Set<String> getBlockList(Integer objectId)

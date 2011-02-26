@@ -151,7 +151,7 @@ public class SpawnTable
 			// problem with initializing spawn, go to next one
 			_log.warn("SpawnTable: Spawn could not be initialized: ", e);
 		}
-		_log.info("SpawnTable: Loaded " + _spawnTable.size() + " Npc Spawn Locations.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _spawnTable.size() + " Npc Spawn Location(s).");
 
 		try
 		{
@@ -241,7 +241,7 @@ public class SpawnTable
 
 		_cSpawnCount = _spawnTable.size() - _cSpawnCount;
 		if (_cSpawnCount > 0)
-			_log.info("SpawnTable: Loaded " + _cSpawnCount + " Custom Spawn Locations.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _cSpawnCount + " Custom Spawn Location(s).");
 
 		if (_log.isDebugEnabled())
 			_log.debug("SpawnTable: Spawning completed, total number of NPCs in the world: " + _npcSpawnCount);

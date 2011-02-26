@@ -69,7 +69,7 @@ public final class GameTimeController
 		
 		ThreadPoolManager.getInstance().scheduleAtFixedRate(new MinuteCounter(), 0, 60000 / Config.DATETIME_MULTI);
 		
-		_log.info("GameTimeController: Initialized.");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 	}
 	
 	private Calendar loadData()

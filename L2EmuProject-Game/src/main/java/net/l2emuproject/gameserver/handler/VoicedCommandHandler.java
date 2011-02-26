@@ -55,7 +55,7 @@ public final class VoicedCommandHandler extends HandlerRegistry<String, IVoicedC
 		registerVoicedCommandHandler(new Wedding());
 		registerVoicedCommandHandler(new TvTCommand());
 		
-		_log.info("VoicedCommandHandler: Loaded " + size() + " handlers.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + size() + " handler(s).");
 	}
 	
 	@Override

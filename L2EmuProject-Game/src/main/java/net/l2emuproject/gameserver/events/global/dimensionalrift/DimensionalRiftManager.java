@@ -228,8 +228,8 @@ public class DimensionalRiftManager
 		for (Byte b : _rooms.keySet())
 			roomSize += _rooms.get(b).keySet().size();
 
-		_log.info("DimensionalRiftManager: Loaded " + typeSize + " room types with " + roomSize + " rooms.");
-		_log.info("DimensionalRiftManager: Loaded " + countGood + " dimensional rift spawns, " + countBad + " errors.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + typeSize + " room types with " + roomSize + " room(s).");
+		_log.info(getClass().getSimpleName() + " : Loaded " + countGood + " dimensional rift spawns, " + countBad + " error(s).");
 	}
 
 	public void reload()

@@ -100,7 +100,7 @@ public final class AutoAnnouncements
 		{
 			L2DatabaseFactory.close(conn);
 		}
-		_log.info("AutoAnnoucements: Loaded " + count + " Auto Annoucement Data.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + count + " Auto Annoucement Data.");
 	}
 
 	public void addAutoAnnounce(long initial, long delay, int repeat, String memo)

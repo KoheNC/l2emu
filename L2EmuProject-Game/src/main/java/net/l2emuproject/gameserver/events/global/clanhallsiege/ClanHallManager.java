@@ -134,8 +134,8 @@ public class ClanHallManager
 				_allClanHalls.put(id, ch);
 			}
 			statement.close();
-			_log.info("ClanHallManager: loaded " + getClanHalls().size() + " clan halls");
-			_log.info("ClanHallManager: loaded " + getFreeClanHalls().size() + " free clan halls");
+			_log.info(getClass().getSimpleName() + " : Loaded " + getClanHalls().size() + " clan hall(s).");
+			_log.info(getClass().getSimpleName() + " : Loaded " + getFreeClanHalls().size() + " free clan hall(s).");
 
 			ClanHall[] allHalls = _allClanHalls.values().toArray(new ClanHall[_allClanHalls.size()]);
 			FastList<ClanHall> townHalls = new FastList<ClanHall>();
@@ -146,7 +146,7 @@ public class ClanHallManager
 						townHalls.add(ch);
 
 				_townClanHalls.put(t.getId(), townHalls.toArray(new ClanHall[townHalls.size()]));
-				_log.info("ClanHallManager: " + townHalls.size() + " halls in " + t.toString());
+				_log.info(getClass().getSimpleName() + " : " + townHalls.size() + " halls in " + t.toString());
 				townHalls.clear();
 			}
 

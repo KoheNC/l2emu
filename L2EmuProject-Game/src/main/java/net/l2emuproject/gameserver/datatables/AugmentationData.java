@@ -118,7 +118,7 @@ public class AugmentationData
 	// Constructor
 	private AugmentationData()
 	{
-		_log.info("Initializing AugmentationData.");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 		
 		_augStats[0] = new ArrayList<augmentationStat>();
 		_augStats[1] = new ArrayList<augmentationStat>();
@@ -193,11 +193,11 @@ public class AugmentationData
 		load();
 		
 		// Use size*4: since theres 4 blocks of stat-data with equivalent size
-		_log.info("AugmentationData: Loaded: " + (_augStats[0].size() * 4) + " augmentation stats.");
-		_log.info("AugmentationData: Loaded: " + (_augAccStats[0].size() * 4) + " accessory augmentation stats.");
+		_log.info(getClass().getSimpleName() + " : Loaded: " + (_augStats[0].size() * 4) + " augmentation stats.");
+		_log.info(getClass().getSimpleName() + " : Loaded: " + (_augAccStats[0].size() * 4) + " accessory augmentation stats.");
 		for (int i = 0; i < 10; i++)
 		{
-			_log.info("AugmentationData: Loaded: " + _blueSkills[i].size() + " blue, " + _purpleSkills[i].size() + " purple and "
+			_log.info(getClass().getSimpleName() + " : Loaded: " + _blueSkills[i].size() + " blue, " + _purpleSkills[i].size() + " purple and "
 					+ _redSkills[i].size() + " red skills for lifeStoneLevel " + i);
 		}
 	}

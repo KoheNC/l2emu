@@ -293,7 +293,7 @@ public class TownManager
 			restart = MapRegionManager.getInstance().getRestartLocation(region.getRestartId());
 		}
 		else
-			_log.info("No L2MapRegion defined at "+x+" "+y+" "+z);
+			_log.warn("No L2MapRegion defined at "+x+" "+y+" "+z);
 		return getTownByMaprestart(restart);
 	}
 

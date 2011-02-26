@@ -76,7 +76,7 @@ public final class CharNameTable
 			L2DatabaseFactory.close(con);
 		}
 		
-		_log.info("CharNameTable: Loaded " + _mapByObjectId.size() + " character names.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _mapByObjectId.size() + " character name(s).");
 	}
 	
 	public String getNameByObjectId(Integer objectId)

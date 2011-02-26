@@ -39,7 +39,7 @@ public final class NobleSkillTable
 		for (int skillId : NOBLE_SKILL_IDS)
 			_nobleSkills.add(SkillTable.getInstance().getInfo(skillId, 1));
 		
-		_log.info("NobleSkillTable: Initialized.");
+		_log.info("NobleSkillTable : Initialized.");
 	}
 	
 	public static Iterable<L2Skill> getNobleSkills()

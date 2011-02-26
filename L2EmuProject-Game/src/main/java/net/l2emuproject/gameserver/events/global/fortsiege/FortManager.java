@@ -117,7 +117,7 @@ public class FortManager implements InstanceListManager
 	@Override
 	public void loadInstances()
 	{
-		_log.info("Initializing FortManager");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 		Connection con = null;
 		try
 		{
@@ -137,7 +137,7 @@ public class FortManager implements InstanceListManager
 			rs.close();
 			statement.close();
 
-			_log.info("Loaded: " + getForts().size() + " fortress(es)");
+			_log.info(getClass().getSimpleName() + " : Loaded " + getForts().size() + " fortress(es).");
 		}
 		catch (Exception e)
 		{

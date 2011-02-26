@@ -48,7 +48,7 @@ public final class OfflineTradeManager
 	
 	public final void restore()
 	{
-		_log.info("OfflineTradeManager: Restorring...");
+		_log.info(getClass().getSimpleName() + " : Restorring...");
 		_playerCount = 0;
 		_itemCount = 0;
 		_recipeCount = 0;
@@ -142,7 +142,7 @@ public final class OfflineTradeManager
 		{
 			L2DatabaseFactory.close(con);
 		}
-		_log.info("OfflineTradeManager: Restored " + _playerCount + " offline traders with " + _itemCount + " items and " + _recipeCount + " recipes!");
+		_log.info(getClass().getSimpleName() + " : Restored " + _playerCount + " offline traders with " + _itemCount + " item(s) and " + _recipeCount + " recipe(s)!");
 	}
 	
 	public void store()

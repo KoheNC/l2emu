@@ -38,7 +38,7 @@ public final class CrownManager
 	
 	static
 	{
-		_log.info("CrownManager: Initialized.");
+		_log.info("CrownManager : Initialized.");
 	}
 	
 	public static void checkCrowns(L2Clan clan)

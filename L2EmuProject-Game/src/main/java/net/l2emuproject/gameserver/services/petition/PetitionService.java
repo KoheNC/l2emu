@@ -220,7 +220,7 @@ public final class PetitionService
 
 	private PetitionService()
 	{
-		_log.info("PetitionService: initialized.");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 		_pendingPetitions = new FastMap<Integer, Petition>();
 		_completedPetitions = new FastMap<Integer, Petition>();
 	}

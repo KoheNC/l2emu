@@ -102,7 +102,7 @@ public class CastleManager implements InstanceListManager
 
 			statement.close();
 
-			_log.info("Loaded: " + getCastles().size() + " castles");
+			_log.info(getClass().getSimpleName() + " : Loaded " + getCastles().size() + " castle(s).");
 		}
 		catch (SQLException e)
 		{

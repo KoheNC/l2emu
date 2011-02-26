@@ -85,7 +85,7 @@ public class HennaTreeTable
 			
 			classlist.close();
 			statement.close();
-			_log.info("HennaTreeTable: Loaded " + count + " Henna Tree Templates.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + count + " Henna Tree Template(s).");
 		}
 		catch (Exception e)
 		{

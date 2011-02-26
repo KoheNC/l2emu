@@ -89,7 +89,7 @@ public class LevelUpData
 			rset.close();
 			statement.close();
 
-			_log.info("LevelUpData: Loaded " + _lvlTable.size() + " Character Level Up Templates.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _lvlTable.size() + " Character Level Up Template(s).");
 		}
 		catch (Exception e)
 		{

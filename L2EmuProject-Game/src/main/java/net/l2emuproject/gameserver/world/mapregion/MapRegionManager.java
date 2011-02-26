@@ -225,10 +225,10 @@ public final class MapRegionManager
 				redirectCount++;
 		}
 		
-		_log.info("MapRegionManager: Loaded " + _mapRegionRestart.size() + " restartpoint(s).");
-		_log.info("MapRegionManager: Loaded " + restartAreas.size() + " restartareas with " + mapAreas.size() + " arearegion(s).");
-		_log.info("MapRegionManager: Loaded " + specialMapRegions.size() + " zoneregion(s).");
-		_log.info("MapRegionManager: Loaded " + redirectCount + " race depending redirects.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _mapRegionRestart.size() + " restartpoint(s).");
+		_log.info(getClass().getSimpleName() + " : Loaded " + restartAreas.size() + " restartareas with " + mapAreas.size() + " arearegion(s).");
+		_log.info(getClass().getSimpleName() + " : Loaded " + specialMapRegions.size() + " zoneregion(s).");
+		_log.info(getClass().getSimpleName() + " : Loaded " + redirectCount + " race depending redirect(s).");
 	}
 	
 	public L2MapRegionRestart getRestartLocation(L2Player activeChar)

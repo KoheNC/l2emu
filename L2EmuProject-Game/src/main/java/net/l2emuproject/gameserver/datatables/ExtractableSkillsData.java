@@ -167,7 +167,7 @@ public class ExtractableSkillsData
 		}
 
 		s.close();
-		_log.info("Extractable items data: Loaded " + _items.size() + " extractable skills!");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _items.size() + " extractable skill(s).");
 	}
 
 	public L2ExtractableSkill getExtractableItem(L2Skill skill)

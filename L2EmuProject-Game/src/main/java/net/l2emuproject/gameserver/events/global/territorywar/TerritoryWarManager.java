@@ -89,7 +89,7 @@ public class TerritoryWarManager
 	// Constructor
 	private TerritoryWarManager()
 	{
-		_log.info("Initializing TerritoryWarManager.");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 
 		// init lists
 		_registeredClans = new FastMap<Integer, FastList<L2Clan>>();

@@ -132,7 +132,7 @@ public final class SkillHandler extends EnumHandlerRegistry<L2SkillType, ISkillH
 		registerSkillHandler(new Unlock());
 		registerSkillHandler(new ZakenTeleport());
 		
-		HandlerRegistry._log.info("SkillHandler: Loaded " + size() + " handlers.");
+		HandlerRegistry._log.info(getClass().getSimpleName() + " : Loaded " + size() + " handlers.");
 	}
 	
 	public void registerSkillHandler(ISkillHandler handler)

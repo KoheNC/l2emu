@@ -55,7 +55,7 @@ public class GeoEditorListener extends Thread
 			System.exit(1);
 		}
 		start();
-		_log.info("GeoEditorListener Initialized.");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 	}
 
 	public GeoEditorThread getThread()

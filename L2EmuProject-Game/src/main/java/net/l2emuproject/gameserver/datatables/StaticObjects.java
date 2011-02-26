@@ -48,7 +48,7 @@ public class StaticObjects
 	{
 		_staticObjects = new FastMap<Integer, L2StaticObjectInstance>();
 		parseData();
-		_log.info("StaticObject: Loaded " + _staticObjects.size() + " StaticObject Templates.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _staticObjects.size() + " StaticObject Templates.");
 	}
 
 	private void parseData()

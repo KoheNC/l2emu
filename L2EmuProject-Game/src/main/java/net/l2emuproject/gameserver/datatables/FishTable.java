@@ -99,7 +99,7 @@ public class FishTable
 			L2DatabaseFactory.close(con);
 		}
 
-		_log.info("FishTable: Loaded " + count + " Fishes.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + count + " Fish.");
 	}
 
 	/**

@@ -50,7 +50,7 @@ public final class FriendListService
 	
 	private FriendListService()
 	{
-		_log.info("FriendListService: initialized.");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 	}
 	
 	public synchronized Set<Integer> getFriendList(Integer objectId)

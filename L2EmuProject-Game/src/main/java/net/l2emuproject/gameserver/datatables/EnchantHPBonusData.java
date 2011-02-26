@@ -180,7 +180,7 @@ public final class EnchantHPBonusData
 			}
 		}
 		
-		_log.info("Enchant HP Bonus registered for " + count + " items!");
+		_log.info(getClass().getSimpleName() + " : Enchant HP Bonus registered for " + count + " item(s).");
 	}
 	
 	public final int getHPBonus(L2ItemInstance item)

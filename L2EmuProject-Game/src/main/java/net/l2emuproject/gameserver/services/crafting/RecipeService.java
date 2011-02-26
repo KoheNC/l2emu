@@ -58,7 +58,6 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-
 public class RecipeService
 {
 	private static final String RECIPES_FILE = "recipes.xml";
@@ -81,7 +80,7 @@ public class RecipeService
 		try
 		{
 			loadFromXML();
-			_log.info("RecipeService: Loaded " + getRecipesCount() + " recipes.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + getRecipesCount() + " recipes.");
 		}
 		catch (Exception e)
 		{

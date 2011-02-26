@@ -56,7 +56,7 @@ public final class ItemAuctionService
 
 		if (!Config.ALT_ITEM_AUCTION_ENABLED)
 		{
-			_log.info("ItemAuctionService: Disabled by config.");
+			_log.info(getClass().getSimpleName() + " : Disabled by config.");
 			return;
 		}
 
@@ -71,7 +71,7 @@ public final class ItemAuctionService
 		}
 		catch (final SQLException e)
 		{
-			_log.error("ItemAuctionService: Failed loading auctions.", e);
+			_log.error(getClass().getSimpleName() + " : Failed loading auctions.", e);
 		}
 		finally
 		{
@@ -81,7 +81,7 @@ public final class ItemAuctionService
 		final File file = new File(Config.DATAPACK_ROOT + "/data/ItemAuctions.xml");
 		if (!file.exists())
 		{
-			_log.warn("ItemAuctionService: Missing ItemAuctions.xml!");
+			_log.warn(getClass().getSimpleName() + " : Missing ItemAuctions.xml!");
 			return;
 		}
 
@@ -112,11 +112,11 @@ public final class ItemAuctionService
 					}
 				}
 			}
-			_log.info("ItemAuctionService: Loaded " + _managerInstances.size() + " instance(s).");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _managerInstances.size() + " instance(s).");
 		}
 		catch (Exception e)
 		{
-			_log.error("ItemAuctionService: Failed loading auctions from xml.", e);
+			_log.error(getClass().getSimpleName() + " : Failed loading auctions from xml.", e);
 		}
 	}
 

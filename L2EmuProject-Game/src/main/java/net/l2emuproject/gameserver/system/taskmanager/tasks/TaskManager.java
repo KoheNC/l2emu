@@ -242,7 +242,7 @@ public final class TaskManager extends HandlerRegistry<String, TaskHandler>
 			L2DatabaseFactory.close(con);
 		}
 		
-		_log.info("TaskManager: Loaded " + size() + " tasks.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + size() + " task(s).");
 	}
 	
 	private void registerTaskHandler(TaskHandler taskHandler)

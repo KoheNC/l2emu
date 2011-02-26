@@ -195,27 +195,27 @@ public class FourSepulchersManager extends BossLair
 			cleanUp();
 			_changeEntryTimeTask =
 				ThreadPoolManager.getInstance().scheduleGeneral(new ChangeEntryTime(), 0);
-			_log.info("FourSepulchersManager: Beginning in Entry time");
+			_log.info(getClass().getSimpleName() + " : Beginning in Entry time");
 		}
 		else if(currentTime >= _entryTimeEnd && currentTime < _warmUpTimeEnd) // Warmup time check
 		{
 			cleanUp();
 			_changeWarmUpTimeTask =
 				ThreadPoolManager.getInstance().scheduleGeneral(new ChangeWarmUpTime(), 0);
-			_log.info("FourSepulchersManager: Beginning in WarmUp time");
+			_log.info(getClass().getSimpleName() + " : Beginning in WarmUp time");
 		}
 		else if(currentTime >= _warmUpTimeEnd && currentTime < _attackTimeEnd) // Attack time check
 		{
 			cleanUp();
 			_changeAttackTimeTask =
 				ThreadPoolManager.getInstance().scheduleGeneral(new ChangeAttackTime(), 0);
-			_log.info("FourSepulchersManager: Beginning in Attack time");
+			_log.info(getClass().getSimpleName() + " : Beginning in Attack time");
 		}
 		else // Else cooldown time and without cleanup because it's already implemented
 		{
 			_changeCoolDownTimeTask =
 				ThreadPoolManager.getInstance().scheduleGeneral(new ChangeCoolDownTime(), 0);
-			_log.info("FourSepulchersManager: Beginning in Cooldown time");
+			_log.info(getClass().getSimpleName() + " : Beginning in Cooldown time");
 		}
 	}
 
@@ -305,7 +305,7 @@ public class FourSepulchersManager extends BossLair
 			SpawnTable.getInstance().addNewSpawn(spawnDat, false);
 			spawnDat.doSpawn();
 			spawnDat.startRespawn();
-			_log.info("FourSepulchersManager: Spawned "+spawnDat.getTemplate().getName());
+			_log.info(getClass().getSimpleName() + " : Spawned "+spawnDat.getTemplate().getName());
 		}
 	}
 
@@ -432,7 +432,7 @@ public class FourSepulchersManager extends BossLair
 
 			rset.close();
 			statement.close();
-			_log.info("FourSepulchersManager: Loaded " + _mysteriousBoxSpawns.size() + " Mysterious-Box spawns.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _mysteriousBoxSpawns.size() + " Mysterious-Box spawns.");
 		}
 		catch (Exception e)
 		{
@@ -536,7 +536,7 @@ public class FourSepulchersManager extends BossLair
 
 			rset1.close();
 			statement1.close();
-			_log.info("FourSepulchersManager: Loaded " + loaded + " Physical type monsters spawns.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + loaded + " Physical type monsters spawns.");
 		}
 		catch (Exception e)
 		{
@@ -606,7 +606,7 @@ public class FourSepulchersManager extends BossLair
 
 			rset1.close();
 			statement1.close();
-			_log.info("FourSepulchersManager: Loaded " + loaded + " Magical type monsters spawns.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + loaded + " Magical type monsters spawns.");
 		}
 		catch (Exception e)
 		{
@@ -678,7 +678,7 @@ public class FourSepulchersManager extends BossLair
 
 			rset1.close();
 			statement1.close();
-			_log.info("FourSepulchersManager: loaded " + loaded + " Church of duke monsters spawns.");
+			_log.info(getClass().getSimpleName() + " : loaded " + loaded + " Church of duke monsters spawns.");
 		}
 		catch (Exception e)
 		{
@@ -748,7 +748,7 @@ public class FourSepulchersManager extends BossLair
 
 			rset1.close();
 			statement1.close();
-			_log.info("FourSepulchersManager: loaded " + loaded + " Emperor's grave NPC spawns.");
+			_log.info(getClass().getSimpleName() + " : loaded " + loaded + " Emperor's grave NPC spawns.");
 		}
 		catch (Exception e)
 		{
@@ -1395,7 +1395,7 @@ public class FourSepulchersManager extends BossLair
 			}
 			catch (Exception e)
 			{
-				_log.error("FourSepulchersManager: Failed deleting mob.", e);
+				_log.error(getClass().getSimpleName() + " : Failed deleting mob.", e);
 			}
 		}
 		_allMobs.clear();
@@ -1414,12 +1414,12 @@ public class FourSepulchersManager extends BossLair
 				}
 				else
 				{
-					_log.warn("FourSepulchersManager: Attempted to close undefined door. doorId: "+doorId);
+					_log.warn(getClass().getSimpleName() + " : Attempted to close undefined door. doorId: "+doorId);
 				}
 			}
 			catch (Exception e)
 			{
-				_log.error("FourSepulchersManager: Failed closing door", e);
+				_log.error(getClass().getSimpleName() + " : Failed closing door", e);
 			}
 		}
 	}
@@ -1465,7 +1465,7 @@ public class FourSepulchersManager extends BossLair
 				}
 				if (!(temp.getLastSpawn() instanceof L2SepulcherNpcInstance))
 				{
-					_log.warn("FourSepulchersManager: managerSay(): manager is not Sepulcher instance");
+					_log.warn(getClass().getSimpleName() + " : managerSay(): manager is not Sepulcher instance");
 					continue;
 				}
 				// Hall not used right now, so its manager will not tell you anything :)
@@ -1486,12 +1486,12 @@ public class FourSepulchersManager extends BossLair
 			{
 				if (temp == null)
 				{
-					_log.warn("FourSepulchersManager: Something goes wrong in managerSay()...");
+					_log.warn(getClass().getSimpleName() + " : Something goes wrong in managerSay()...");
 					continue;
 				}
 				if (!(temp.getLastSpawn() instanceof L2SepulcherNpcInstance))
 				{
-					_log.warn("FourSepulchersManager: Something goes wrong in managerSay()...");
+					_log.warn(getClass().getSimpleName() + " : Something goes wrong in managerSay()...");
 					continue;
 				}
 				((L2SepulcherNpcInstance)temp.getLastSpawn()).sayInShout(msg1);
@@ -1528,7 +1528,7 @@ public class FourSepulchersManager extends BossLair
 	{
 		public void run()
 		{
-			//_log.info("FourSepulchersManager:In Entry Time");
+			//_log.info(getClass().getSimpleName() + " :In Entry Time");
 			_inEntryTime = true;
 			_inWarmUpTime = false;
 			_inAttackTime = false;
@@ -1557,7 +1557,7 @@ public class FourSepulchersManager extends BossLair
 	{
 		public void run()
 		{
-			//_log.info("FourSepulchersManager:In Warm-Up Time");
+			//_log.info(getClass().getSimpleName() + " :In Warm-Up Time");
 			_inEntryTime = true;
 			_inWarmUpTime = false;
 			_inAttackTime = false;
@@ -1586,7 +1586,7 @@ public class FourSepulchersManager extends BossLair
 	{
 		public void run()
 		{
-			//_log.info("FourSepulchersManager:In Attack Time");
+			//_log.info(getClass().getSimpleName() + " :In Attack Time");
 			_inEntryTime = false;
 			_inWarmUpTime = false;
 			_inAttackTime = true;
@@ -1642,7 +1642,7 @@ public class FourSepulchersManager extends BossLair
 	{
 		public void run()
 		{
-			//_log.info("FourSepulchersManager:In Cool-Down Time");
+			//_log.info(getClass().getSimpleName() + " :In Cool-Down Time");
 			_inEntryTime = false;
 			_inWarmUpTime = false;
 			_inAttackTime = false;
@@ -1655,7 +1655,7 @@ public class FourSepulchersManager extends BossLair
 			if(Calendar.getInstance().get(Calendar.MINUTE) > _newCycleMin && !_firstTimeRun)
 				time.set(Calendar.HOUR, Calendar.getInstance().get(Calendar.HOUR) + 1);
 			time.set(Calendar.MINUTE, _newCycleMin);
-			_log.info("FourSepulchersManager: Entry time: " + time.getTime());
+			_log.info(getClass().getSimpleName() + " : Entry time: " + time.getTime());
 			if (_firstTimeRun)
 				_firstTimeRun = false; // Cooldown phase ends event hour, so it will be not first run
 

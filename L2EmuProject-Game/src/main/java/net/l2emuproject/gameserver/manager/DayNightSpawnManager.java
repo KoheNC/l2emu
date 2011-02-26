@@ -57,7 +57,7 @@ public class DayNightSpawnManager
 		_nightCreatures = new FastMap<L2Spawn, L2Npc>();
 		_bosses = new FastMap<L2Spawn, L2Boss>();
 
-		_log.info("DayNightSpawnManager: Day/Night handler initialized");
+		_log.info(getClass().getSimpleName() + " : Day/Night handler initialized.");
 	}
 
 	public void addDayCreature(L2Spawn spawnDat)

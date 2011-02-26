@@ -264,9 +264,9 @@ public class InstanceManager
 	
 	private InstanceManager()
 	{
-		_log.info("Initializing InstanceManager");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 		loadInstanceNames();
-		_log.info("Loaded " + _instanceIdNames.size() + " instance names");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _instanceIdNames.size() + " instancename(s).");
 		
 		Instance themultiverse = new Instance(-1);
 		themultiverse.setName("multiverse");

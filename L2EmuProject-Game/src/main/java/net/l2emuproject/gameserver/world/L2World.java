@@ -110,7 +110,7 @@ public final class L2World
 						if (validRegion(x + a, y + b))
 							_worldRegions[x + a][y + b].addSurroundingRegion(_worldRegions[x][y]);
 		
-		_log.info("L2World: (" + REGIONS_X + " by " + REGIONS_Y + ") World Region Grid set up.");
+		_log.info(getClass().getSimpleName() + " : (" + REGIONS_X + " by " + REGIONS_Y + ") World Region Grid set up.");
 	}
 	
 	public void storeObject(L2Object object)

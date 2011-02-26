@@ -61,7 +61,7 @@ public final class ObjectRestrictions
 
 	private ObjectRestrictions()
 	{
-		_log.info("ObjectRestrictions: loading...");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 
 		int count = 0;
 		Connection con = null;
@@ -105,7 +105,7 @@ public final class ObjectRestrictions
 		for (Integer objectId : _runningActions.keySet())
 			pauseTasks(objectId);
 
-		_log.info("ObjectRestrictions: loaded " + count + " restrictions.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + count + " restriction(s).");
 	}
 
 	public void shutdown()

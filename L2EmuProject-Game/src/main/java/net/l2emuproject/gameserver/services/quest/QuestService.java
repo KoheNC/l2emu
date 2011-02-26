@@ -43,7 +43,7 @@ public class QuestService extends ScriptManager<Quest>
 	// Constructor
 	private QuestService()
 	{
-		_log.info("Initializing QuestService");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 	}
 
 	// =========================================================
@@ -101,7 +101,7 @@ public class QuestService extends ScriptManager<Quest>
 
 	public final void report()
 	{
-		_log.info("Loaded: " + _quests.size() + " quests");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _quests.size() + " quest(s).");
 	}
 
 	public final void save()

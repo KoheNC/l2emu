@@ -157,7 +157,7 @@ public class PetDataTable
 			L2DatabaseFactory.close(con);
 		}
 
-		_log.info("PetDataTable: loaded " + petTable.size() + " pets.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + petTable.size() + " pet(s).");
 	}
 
 	public void addPetData(L2PetData petData)

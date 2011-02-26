@@ -50,7 +50,7 @@ public class DuelService
 	// Constructor
 	private DuelService()
 	{
-		_log.info("Initializing DuelService");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 	}
 
 	// =========================================================

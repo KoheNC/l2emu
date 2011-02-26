@@ -164,8 +164,7 @@ public class Announcements
 					i++;
 				}
 			}
-			if (_log.isDebugEnabled())
-				_log.info("Announcements: Loaded " + i + " Announcements.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + i + " announcements.");
 		}
 		catch (IOException e1)
 		{

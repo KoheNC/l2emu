@@ -110,7 +110,7 @@ public class AuctionService
 			while (rs.next())
 				_auctions.add(new Auction(rs.getInt("id")));
 			statement.close();
-			_log.info("AuctionService: loaded " + getAuctions().size() + " auction(s)");
+			_log.info(getClass().getSimpleName() + " : Loaded " + getAuctions().size() + " auction(s)");
 		}
 		catch (SQLException e)
 		{

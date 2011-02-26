@@ -61,7 +61,7 @@ public final class UserCommandHandler extends NumberHandlerRegistry<IUserCommand
 		registerUserCommandHandler(new SiegeStatus());
 		registerUserCommandHandler(new Time());
 		
-		_log.info("UserCommandHandler: Loaded " + size() + " handlers.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + size() + " handler(s).");
 	}
 	
 	private void registerUserCommandHandler(IUserCommandHandler handler)

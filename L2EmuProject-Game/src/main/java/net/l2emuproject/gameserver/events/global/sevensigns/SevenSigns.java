@@ -154,21 +154,21 @@ public class SevenSigns
 		}
 		catch (Exception e)
 		{
-			_log.fatal("SevenSigns: Failed to load configuration: ", e);
+			_log.fatal(getClass().getSimpleName() + " : Failed to load configuration: ", e);
 		}
 
-		_log.info("SevenSigns: Currently in the " + getCurrentPeriodName() + " period!");
+		_log.info(getClass().getSimpleName() + " : Currently in the " + getCurrentPeriodName() + " period!");
 		initializeSeals();
 
 		if (isSealValidationPeriod())
 			if (getCabalHighestScore() == CABAL_NULL)
-				_log.info("SevenSigns: The competition ended with a tie last week.");
+				_log.info(getClass().getSimpleName() + " : The competition ended with a tie last week.");
 			else
-				_log.info("SevenSigns: The " + getCabalName(getCabalHighestScore()) + " were victorious last week.");
+				_log.info(getClass().getSimpleName() + " : The " + getCabalName(getCabalHighestScore()) + " were victorious last week.");
 		else if (getCabalHighestScore() == CABAL_NULL)
-			_log.info("SevenSigns: The competition, if the current trend continues, will end in a tie this week.");
+			_log.info(getClass().getSimpleName() + " : The competition, if the current trend continues, will end in a tie this week.");
 		else
-			_log.info("SevenSigns: The " + getCabalName(getCabalHighestScore()) + " are in the lead this week.");
+			_log.info(getClass().getSimpleName() + " : The " + getCabalName(getCabalHighestScore()) + " are in the lead this week.");
 
 		synchronized (this)
 		{
@@ -187,7 +187,7 @@ public class SevenSigns
 			int numHours = (int) Math.floor(countDown % 24);
 			int numDays = (int) Math.floor((countDown - numHours) / 24);
 
-			_log.info("SevenSigns: Next period begins in " + numDays + " days, " + numHours + " hours and " + numMins + " mins.");
+			_log.info(getClass().getSimpleName() + " : Next period begins in " + numDays + " days, " + numHours + " hours and " + numMins + " mins.");
 		}
 		spawnSevenSignsNPC();
 	}
@@ -701,7 +701,7 @@ public class SevenSigns
 				sevenDat.set("contribution_score", rset.getDouble("contribution_score"));
 
 				if (_log.isDebugEnabled())
-					_log.info("SevenSigns: Loaded data from DB for char ID " + charObjId + " (" + sevenDat.getString("cabal") + ")");
+					_log.info(getClass().getSimpleName() + " : Loaded data from DB for char ID " + charObjId + " (" + sevenDat.getString("cabal") + ")");
 
 				_signsPlayerData.put(charObjId, sevenDat);
 			}
@@ -746,7 +746,7 @@ public class SevenSigns
 		}
 		catch (SQLException e)
 		{
-			_log.fatal("SevenSigns: Unable to load Seven Signs data from database: ", e);
+			_log.fatal(getClass().getSimpleName() + " : Unable to load Seven Signs data from database: ", e);
 		}
 		finally
 		{
@@ -770,7 +770,7 @@ public class SevenSigns
 		Connection con = null;
 
 		if (_log.isDebugEnabled())
-			_log.info("SevenSigns: Saving data to disk.");
+			_log.info(getClass().getSimpleName() + " : Saving data to disk.");
 
 		try
 		{
@@ -797,7 +797,7 @@ public class SevenSigns
 				statement.close();
 
 				if (_log.isDebugEnabled())
-					_log.info("SevenSigns: Updated data in database for char ID " + sevenDat.getInteger("charId") + " (" + sevenDat.getString("cabal") + ")");
+					_log.info(getClass().getSimpleName() + " : Updated data in database for char ID " + sevenDat.getInteger("charId") + " (" + sevenDat.getString("cabal") + ")");
 			}
 
 			if (updateSettings)
@@ -839,12 +839,12 @@ public class SevenSigns
 
 				statement.close();
 				if (_log.isDebugEnabled())
-					_log.info("SevenSigns: Updated data in database.");
+					_log.info(getClass().getSimpleName() + " : Updated data in database.");
 			}
 		}
 		catch (SQLException e)
 		{
-			_log.fatal("SevenSigns: Unable to save data to database: ", e);
+			_log.fatal(getClass().getSimpleName() + " : Unable to save data to database: ", e);
 		}
 		finally
 		{
@@ -859,7 +859,7 @@ public class SevenSigns
 	protected void resetPlayerData()
 	{
 		if (_log.isDebugEnabled())
-			_log.info("SevenSigns: Resetting player data for new event period.");
+			_log.info(getClass().getSimpleName() + " : Resetting player data for new event period.");
 
 		// Reset each player's contribution data as well as seal and cabal.
 		for (StatsSet sevenDat : _signsPlayerData.values())
@@ -938,12 +938,12 @@ public class SevenSigns
 				statement.close();
 
 				if (_log.isDebugEnabled())
-					_log.info("SevenSigns: Inserted data in DB for char ID " + currPlayerData.getInteger("charId") + " (" + currPlayerData.getString("cabal")
+					_log.info(getClass().getSimpleName() + " : Inserted data in DB for char ID " + currPlayerData.getInteger("charId") + " (" + currPlayerData.getString("cabal")
 							+ ")");
 			}
 			catch (SQLException e)
 			{
-				_log.fatal("SevenSigns: Failed to save data: ", e);
+				_log.fatal(getClass().getSimpleName() + " : Failed to save data: ", e);
 			}
 			finally
 			{
@@ -960,7 +960,7 @@ public class SevenSigns
 		saveSevenSignsData(player, true);
 
 		if (_log.isDebugEnabled())
-			_log.info("SevenSigns: " + player.getName() + " has joined the " + getCabalName(chosenCabal) + " for the " + getSealName(chosenSeal, false) + "!");
+			_log.info(getClass().getSimpleName() + " : " + player.getName() + " has joined the " + getCabalName(chosenCabal) + " for the " + getSealName(chosenSeal, false) + "!");
 
 		return chosenCabal;
 	}
@@ -1033,7 +1033,7 @@ public class SevenSigns
 		saveSevenSignsData(player, true);
 
 		if (_log.isDebugEnabled())
-			_log.info("SevenSigns: " + player.getName() + " contributed " + contribScore + " seal stone points to their cabal.");
+			_log.info(getClass().getSimpleName() + " : " + player.getName() + " contributed " + contribScore + " seal stone points to their cabal.");
 
 		return contribScore;
 	}
@@ -1117,11 +1117,11 @@ public class SevenSigns
 
 			if (sealOwner != CABAL_NULL)
 				if (isSealValidationPeriod())
-					_log.info("SevenSigns: The " + getCabalName(sealOwner) + " have won the " + getSealName(currSeal, false) + ".");
+					_log.info(getClass().getSimpleName() + " : The " + getCabalName(sealOwner) + " have won the " + getSealName(currSeal, false) + ".");
 				else
-					_log.info("SevenSigns: The " + getSealName(currSeal, false) + " is currently owned by " + getCabalName(sealOwner) + ".");
+					_log.info(getClass().getSimpleName() + " : The " + getSealName(currSeal, false) + " is currently owned by " + getCabalName(sealOwner) + ".");
 			else
-				_log.info("SevenSigns: The " + getSealName(currSeal, false) + " remains unclaimed.");
+				_log.info(getClass().getSimpleName() + " : The " + getSealName(currSeal, false) + " remains unclaimed.");
 		}
 	}
 
@@ -1147,9 +1147,9 @@ public class SevenSigns
 	{
 		if (_log.isDebugEnabled())
 		{
-			_log.info("SevenSigns: (Avarice) Dawn = " + _signsDawnSealTotals.get(SEAL_AVARICE) + ", Dusk = " + _signsDuskSealTotals.get(SEAL_AVARICE));
-			_log.info("SevenSigns: (Gnosis) Dawn = " + _signsDawnSealTotals.get(SEAL_GNOSIS) + ", Dusk = " + _signsDuskSealTotals.get(SEAL_GNOSIS));
-			_log.info("SevenSigns: (Strife) Dawn = " + _signsDawnSealTotals.get(SEAL_STRIFE) + ", Dusk = " + _signsDuskSealTotals.get(SEAL_STRIFE));
+			_log.info(getClass().getSimpleName() + " : (Avarice) Dawn = " + _signsDawnSealTotals.get(SEAL_AVARICE) + ", Dusk = " + _signsDuskSealTotals.get(SEAL_AVARICE));
+			_log.info(getClass().getSimpleName() + " : (Gnosis) Dawn = " + _signsDawnSealTotals.get(SEAL_GNOSIS) + ", Dusk = " + _signsDuskSealTotals.get(SEAL_GNOSIS));
+			_log.info(getClass().getSimpleName() + " : (Strife) Dawn = " + _signsDawnSealTotals.get(SEAL_STRIFE) + ", Dusk = " + _signsDuskSealTotals.get(SEAL_STRIFE));
 		}
 
 		for (Integer currSeal : _signsDawnSealTotals.keySet())
@@ -1371,7 +1371,7 @@ public class SevenSigns
 				if (twQuest != null)
 					twQuest.startQuestTimer("setNextTWDate", 30000, null, null);
 
-				_log.info("SevenSigns: The " + getCabalName(_previousWinner) + " have won the competition with " + getCurrentScore(_previousWinner)
+				_log.info(getClass().getSimpleName() + " : The " + getCabalName(_previousWinner) + " have won the competition with " + getCurrentScore(_previousWinner)
 						+ " points!");
 				break;
 			case PERIOD_SEAL_VALIDATION: // Reset for New Cycle
@@ -1413,7 +1413,7 @@ public class SevenSigns
 
 			spawnSevenSignsNPC();
 
-			_log.info("SevenSigns: The " + getCurrentPeriodName() + " period has begun!");
+			_log.info(getClass().getSimpleName() + " : The " + getCurrentPeriodName() + " period has begun!");
 
 			setCalendarForNextPeriodChange();
 
@@ -1476,11 +1476,11 @@ public class SevenSigns
 			statement.close();
 
 			if (_log.isDebugEnabled())
-				_log.info("SevenSigns: Updated Castle certificate shops!");
+				_log.info(getClass().getSimpleName() + " : Updated Castle certificate shops!");
 		}
 		catch (SQLException e)
 		{
-			_log.fatal("SevenSigns: Failed to update certificate shops: ", e);
+			_log.fatal(getClass().getSimpleName() + " : Failed to update certificate shops: ", e);
 		}
 		finally
 		{

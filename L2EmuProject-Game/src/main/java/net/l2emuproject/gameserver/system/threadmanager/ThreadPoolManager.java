@@ -82,7 +82,7 @@ public final class ThreadPoolManager
 			}
 		}, 60000, 60000);
 		
-		_log.info("ThreadPoolManager: Initialized with " + _scheduledPool.getPoolSize() + " scheduler, "
+		_log.info(getClass().getSimpleName() + " : Initialized with " + _scheduledPool.getPoolSize() + " scheduler, "
 			+ _instantPool.getPoolSize() + " instant, " + _longRunningPool.getPoolSize() + " long running thread(s).");
 	}
 	

@@ -293,13 +293,13 @@ public final class ItemTable
 		}
 
 		final List<L2Item> etcItems = SkillsEngine.loadItems(itemData);
-		_log.info("ItemTable: Loaded " + etcItems.size() + "/" + etcItems.size() + " Items.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + etcItems.size() + "/" + etcItems.size() + " Item(s).");
 
 		final List<L2Item> armors = SkillsEngine.loadArmors(armorData);
-		_log.info("ItemTable: Loaded " + armors.size() + "/" + armorData.size() + " Armors.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + armors.size() + "/" + armorData.size() + " Armor(s).");
 
 		final List<L2Item> weapons = SkillsEngine.loadWeapons(weaponData);
-		_log.info("ItemTable: Loaded " + weapons.size() + "/" + weaponData.size() + " Weapons.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + weapons.size() + "/" + weaponData.size() + " Weapon(s).");
 
 		int highestId = 0;
 		for (L2Item item : L2Collections.concatenatedIterable(armors, etcItems, weapons))

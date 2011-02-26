@@ -80,7 +80,7 @@ public class TeleportLocationTable
 			rset.close();
 			statement.close();
 
-			_log.info("TeleportLocationTable: Loaded " + _teleports.size() + " Teleport Location Templates.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _teleports.size() + " Teleport Location Templates.");
 		}
 		catch (Exception e)
 		{

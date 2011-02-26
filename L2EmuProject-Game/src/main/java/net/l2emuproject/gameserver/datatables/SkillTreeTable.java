@@ -186,7 +186,7 @@ public class SkillTreeTable
 
 				count += map.size();
 				if (_log.isDebugEnabled())
-					_log.info("SkillTreeTable: skill tree for class " + classId + " has " + map.size() + " skills");
+					_log.info(getClass().getSimpleName() + " : skill tree for class " + classId + " has " + map.size() + " skills");
 			}
 
 			classlist.close();
@@ -197,7 +197,7 @@ public class SkillTreeTable
 			_log.fatal("Error while creating skill tree (Class ID " + classId + "):", e);
 		}
 
-		_log.info("SkillTreeTable: Loaded " + count + " skills.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + count + " skill(s).");
 
 		//Skill tree for fishing skill (from Fisherman)
 		int count2 = 0;
@@ -437,13 +437,13 @@ public class SkillTreeTable
 			L2DatabaseFactory.close(con);
 		}
 
-		_log.info("FishingSkillTreeTable: Loaded " + count2 + " general skills.");
-		_log.info("DwarvenSkillTreeTable: Loaded " + count3 + " dwarven skills.");
-		_log.info("EnchantSkillTreeTable: Loaded " + count4 + " enchant skills.");
-		_log.info("PledgeSkillTreeTable: Loaded " + count5 + " pledge skills.");
-		_log.info("TransformSkillTreeTable: Loaded " + count6 + " transform skills.");
-		_log.info("SpecialSkillTreeTable: Loaded " + count7 + " special skills");
-		_log.info("CertificationSkillsTreeTable: Loaded " + count8 + " certification skills.");
+		_log.info("FishingSkillTreeTable : Loaded " + count2 + " general skill(s).");
+		_log.info("DwarvenSkillTreeTable : Loaded " + count3 + " dwarven skill(s).");
+		_log.info("EnchantSkillTreeTable : Loaded " + count4 + " enchant skill(s).");
+		_log.info("PledgeSkillTreeTable : Loaded " + count5 + " pledge skill(s).");
+		_log.info("TransformSkillTreeTable : Loaded " + count6 + " transform skill(s).");
+		_log.info("SpecialSkillTreeTable : Loaded " + count7 + " special skill(s).");
+		_log.info("CertificationSkillsTreeTable : Loaded " + count8 + " certification skill(s).");
 	}
 
 	private Map<Integer, L2SkillLearn>[] getSkillTrees()

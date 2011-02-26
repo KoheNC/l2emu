@@ -65,7 +65,7 @@ public final class RecommendationService
 		update.set(Calendar.HOUR_OF_DAY, 13);
 		nextUpdate = update.getTimeInMillis();
 		ThreadPoolManager.getInstance().schedule(new RecommendationUpdater(), nextUpdate - System.currentTimeMillis());
-		_log.info("RecommendationService: initialized.");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 	}
 
 	/**

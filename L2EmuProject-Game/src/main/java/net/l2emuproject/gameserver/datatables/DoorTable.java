@@ -104,7 +104,7 @@ public final class DoorTable
 				*/
 			}
 
-			_log.info("DoorTable: Loaded " + _doors.size() + " Door Templates.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _doors.size() + " Door Template(s).");
 		}
 		catch (Exception e)
 		{

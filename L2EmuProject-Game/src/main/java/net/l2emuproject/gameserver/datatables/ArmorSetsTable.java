@@ -81,7 +81,7 @@ public final class ArmorSetsTable
 		finally
 		{
 			L2DatabaseFactory.close(con);
-			_log.info("ArmorSetsTable: Loaded " + _armorSets.size() + " armor sets.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _armorSets.size() + " armor set(s).");
 		}
 	}
 	

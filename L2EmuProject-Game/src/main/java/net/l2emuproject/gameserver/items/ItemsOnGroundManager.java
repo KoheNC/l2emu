@@ -132,7 +132,7 @@ public class ItemsOnGroundManager
 				if (count > 0)
 					_log.info("ItemsOnGroundManager: restored " + count + " items.");
 				else
-					_log.info("Initializing ItemsOnGroundManager.");
+					_log.info(getClass().getSimpleName() + " : Initialized.");
 			}
 			catch (Exception e)
 			{

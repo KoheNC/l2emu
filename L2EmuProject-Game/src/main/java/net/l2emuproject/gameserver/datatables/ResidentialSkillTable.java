@@ -111,7 +111,7 @@ public class ResidentialSkillTable
 		{
 			L2DatabaseFactory.close(con);
 		}
-		_log.info("ResidentialSkillTable: Loaded " + _list.size() + " entities with " + skills + " associated skills.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _list.size() + " entities with " + skills + " associated skill(s).");
 	}
 
 	public L2Skill[] getSkills(int entityId)

@@ -289,7 +289,7 @@ public class AirShipManager
 			L2DatabaseFactory.close(con);
 		}
 
-		_log.info(getClass().getSimpleName() + ": Loaded " + _airShipsInfo.size() + " private airships");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _airShipsInfo.size() + " private airship(s).");
 	}
 
 	private void storeInDb(int ownerId)

@@ -112,7 +112,7 @@ public class BypassHandler extends HandlerRegistry<String, IBypassHandler>
 		registerBypassHandler(new WakeBaium());
 		registerBypassHandler(new Wear());
 		
-		_log.info("BypassHandler: Loaded " + size() + " handlers.");
+		_log.info(getClass().getSimpleName() + " : Loaded " + size() + " handler(s).");
 	}
 
 	public void registerBypassHandler(IBypassHandler handler)

@@ -67,7 +67,7 @@ public class FortSiegeManager
 	// Constructor
 	private FortSiegeManager()
 	{
-		_log.info("Initializing FortSiegeManager");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 		loadCommandersFlags();
 		
 		for (Fort fort : FortManager.getInstance().getForts())

@@ -72,19 +72,19 @@ public class RaidBossSpawnManager extends BossSpawnManager
 				}
 				else
 				{
-					_log.warn("RaidBossSpawnManager: Could not load raidboss #" + rset.getInt("boss_id") + " from DB");
+					_log.warn(getClass().getSimpleName() + " : Could not load raidboss #" + rset.getInt("boss_id") + " from DB");
 				}
 			}
 
-			_log.info("RaidBossSpawnManager: Loaded " + _bosses.size() + " Instances");
-			_log.info("RaidBossSpawnManager: Scheduled " + _schedules.size() + " Instances");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _bosses.size() + " Instance(s).");
+			_log.info(getClass().getSimpleName() + " : Scheduled " + _schedules.size() + " Instance(s).");
 
 			rset.close();
 			statement.close();
 		}
 		catch (SQLException e)
 		{
-			_log.warn("RaidBossSpawnManager: Couldnt load raidboss_spawnlist table");
+			_log.warn(getClass().getSimpleName() + " : Couldnt load raidboss_spawnlist table");
 		}
 		catch (Exception e)
 		{
@@ -120,7 +120,7 @@ public class RaidBossSpawnManager extends BossSpawnManager
 		catch (Exception e)
 		{
 			// Problem with storing spawn
-			_log.warn("RaidBossSpawnManager: Could not store raidboss #" + spawnDat.getNpcId() + " in the DB:", e);
+			_log.warn(getClass().getSimpleName() + " : Could not store raidboss #" + spawnDat.getNpcId() + " in the DB:", e);
 		}
 		finally
 		{
@@ -147,7 +147,7 @@ public class RaidBossSpawnManager extends BossSpawnManager
 		}
 		catch (Exception e)
 		{
-			_log.warn("RaidBossSpawnManager: Could not update raidboss #" + bossId + " in DB: ", e);
+			_log.warn(getClass().getSimpleName() + " : Could not update raidboss #" + bossId + " in DB: ", e);
 		}
 		finally
 		{
@@ -171,7 +171,7 @@ public class RaidBossSpawnManager extends BossSpawnManager
 		catch (Exception e)
 		{
 			// Problem with deleting spawn
-			_log.warn("RaidBossSpawnManager: Could not remove raidboss #" + bossId + " from DB: ", e);
+			_log.warn(getClass().getSimpleName() + " : Could not remove raidboss #" + bossId + " from DB: ", e);
 		}
 		finally
 		{
@@ -209,7 +209,7 @@ public class RaidBossSpawnManager extends BossSpawnManager
 			}
 			catch (SQLException e)
 			{
-				_log.error("RaidBossSpawnManager: Couldnt update raidboss_spawnlist table", e);
+				_log.error(getClass().getSimpleName() + " : Couldnt update raidboss_spawnlist table", e);
 			}
 			finally
 			{

@@ -232,7 +232,7 @@ public final class EnchantItemData
 				}
 			}
 		}
-		_log.info("EnchantItemData: Loaded: " + _scrolls.size() + " enchant scroll(s) and " + _supports.size() + " enchant support item(s).");
+		_log.info(getClass().getSimpleName() + " : Loaded: " + _scrolls.size() + " enchant scroll(s) and " + _supports.size() + " enchant support item(s).");
 	}
 
 	private void setEnchantBlackList()

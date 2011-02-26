@@ -360,10 +360,10 @@ public class SiegeManager
 				_controlTowerSpawnList.put(castle.getCastleId(), _controlTowersSpawns);
 				_artefactSpawnList.put(castle.getCastleId(), _artefactSpawns);
 
-				_log.info("SiegeManager: loaded controltowers[" + Integer.toString(_controlTowersSpawns.size()) + "] artifacts["
+				_log.info(getClass().getSimpleName() + " : loaded controltowers[" + Integer.toString(_controlTowersSpawns.size()) + "] artifacts["
 						+ Integer.toString(_artefactSpawns.size()) + "] castle[" + castle.getName() + "]");
 			}
-			_log.info("SiegeManager: loaded " + Integer.toString(_flameTowerSpawnListE.size() + _flameTowerSpawnListW.size()) +
+			_log.info(getClass().getSimpleName() + " : Loaded " + Integer.toString(_flameTowerSpawnListE.size() + _flameTowerSpawnListW.size()) +
 					" flame control towers. [2 per castle]");
 		}
 		catch (Exception e)

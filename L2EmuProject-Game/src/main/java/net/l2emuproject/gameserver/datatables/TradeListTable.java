@@ -153,7 +153,7 @@ public class TradeListTable
 			rset1.close();
 			statement1.close();
 
-			_log.info("TradeListTable: Loaded " + _lists.size() + (custom ? " custom " : " ") + "buylists.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _lists.size() + (custom ? " custom " : " ") + "buylist(s).");
 			/*
 			 *  Restore Task for reinitialize count of buy item
 			 */

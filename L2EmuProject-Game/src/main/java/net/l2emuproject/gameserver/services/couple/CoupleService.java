@@ -80,7 +80,7 @@ public class CoupleService
 
 			statement.close();
 
-			_log.info("CoupleService: loaded " + getCouples().size() + " couples(s)");
+			_log.info(getClass().getSimpleName() + " : Loaded " + getCouples().size() + " couples(s)");
 		}
 		catch (Exception e)
 		{

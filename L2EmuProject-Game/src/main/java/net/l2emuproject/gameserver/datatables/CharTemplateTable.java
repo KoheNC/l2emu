@@ -253,7 +253,7 @@ public class CharTemplateTable
 			rset.close();
 			statement.close();
 
-			_log.info("CharTemplateTable: Loaded " + size + " Character Templates.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + size + " Character Template(s).");
 		}
 		catch (SQLException e)
 		{

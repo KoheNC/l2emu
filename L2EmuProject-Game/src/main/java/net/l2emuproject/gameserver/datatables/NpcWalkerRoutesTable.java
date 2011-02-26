@@ -46,7 +46,7 @@ public class NpcWalkerRoutesTable
 
 	private NpcWalkerRoutesTable()
 	{
-		_log.info("Initializing Walker Routes Table.");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 	}
 
 	public void load()
@@ -80,7 +80,7 @@ public class NpcWalkerRoutesTable
 			rset.close();
 			statement.close();
 
-			_log.info("WalkerRoutesTable: Loaded " + _routes.size() + " Npc Walker Routes.");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _routes.size() + " Npc Walker Route(s).");
 		}
 		catch (Exception e)
 		{

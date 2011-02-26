@@ -88,7 +88,7 @@ public class ClanTable
 			result.close();
 			statement.close();
 
-			_log.info("ClanTable: restored " + clanCount + " clans from the database.");
+			_log.info(getClass().getSimpleName() + " : Restored " + clanCount + " clan(s) from the database.");
 		}
 		catch (Exception e)
 		{

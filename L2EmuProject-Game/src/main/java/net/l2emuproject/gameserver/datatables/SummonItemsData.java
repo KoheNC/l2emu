@@ -108,7 +108,7 @@ public class SummonItemsData
 		{
 			_log.warn("SummonItemsData: Error while parsing " + file.getAbsolutePath() + " !", e);
 		}
-		_log.info("SummonItemsData: Loaded " + _summonitems.size() + " Summon Items from " + file.getName());
+		_log.info(getClass().getSimpleName() + " : Loaded " + _summonitems.size() + " Summon Items from " + file.getName());
 	}
 
 	public L2SummonItem getSummonItem(int itemId)
