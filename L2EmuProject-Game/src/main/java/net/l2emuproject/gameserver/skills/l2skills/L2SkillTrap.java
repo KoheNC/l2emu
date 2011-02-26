@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.skills.l2skills;
 
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2TrapInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2World;

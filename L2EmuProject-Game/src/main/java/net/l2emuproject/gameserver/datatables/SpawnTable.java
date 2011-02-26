@@ -21,11 +21,11 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.instancemanager.DayNightSpawnManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2ClassMasterInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2WyvernManagerInstance;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Boss;
 import net.l2emuproject.gameserver.world.object.L2Player;

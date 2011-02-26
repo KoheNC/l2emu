@@ -21,11 +21,11 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import javolution.util.FastMap;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ExAutoSoulShot;
 import net.l2emuproject.gameserver.network.serverpackets.ShortCutInit;
 import net.l2emuproject.gameserver.network.serverpackets.ShortCutRegister;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.item.L2EtcItemType;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.LookupTable;

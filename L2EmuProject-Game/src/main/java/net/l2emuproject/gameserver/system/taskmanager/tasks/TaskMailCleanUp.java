@@ -20,8 +20,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.communitybbs.Manager.MailBBSManager;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.taskmanager.tasks.TaskManager.ExecutedTask;
 
 

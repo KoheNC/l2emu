@@ -20,8 +20,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.model.base.ClassId;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2PcTemplate;
 

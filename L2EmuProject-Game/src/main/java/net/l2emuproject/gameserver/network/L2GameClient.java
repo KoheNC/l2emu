@@ -23,7 +23,6 @@ import java.sql.ResultSet;
 
 import javolution.util.FastList;
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.LoginServerThread;
 import net.l2emuproject.gameserver.LoginServerThread.SessionKey;
 import net.l2emuproject.gameserver.ThreadPoolManager;
@@ -33,6 +32,7 @@ import net.l2emuproject.gameserver.network.clientpackets.L2GameClientPacket;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.network.serverpackets.LeaveWorld;
 import net.l2emuproject.gameserver.network.serverpackets.ServerClose;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.threadmanager.FIFORunnableQueue;
 import net.l2emuproject.gameserver.system.util.FloodProtector;
 import net.l2emuproject.gameserver.system.util.TableOptimizer;

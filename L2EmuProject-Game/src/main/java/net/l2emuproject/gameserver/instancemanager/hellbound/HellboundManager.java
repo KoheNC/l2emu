@@ -21,11 +21,11 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.config.L2Properties;
 import net.l2emuproject.gameserver.PersistentProperties;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.tools.random.Rnd;

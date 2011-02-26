@@ -24,8 +24,8 @@ import java.util.StringTokenizer;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2StaticObjectInstance;
+import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 

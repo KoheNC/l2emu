@@ -18,9 +18,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.items.L2ItemInstance.ItemLocation;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

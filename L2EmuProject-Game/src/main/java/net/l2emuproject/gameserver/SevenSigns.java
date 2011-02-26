@@ -23,7 +23,6 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.AutoSpawnManager;
 import net.l2emuproject.gameserver.instancemanager.AutoSpawnManager.AutoSpawnInstance;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SSQInfo;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;

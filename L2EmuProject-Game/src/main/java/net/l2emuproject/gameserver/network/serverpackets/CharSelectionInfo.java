@@ -20,7 +20,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
@@ -28,6 +27,7 @@ import net.l2emuproject.gameserver.network.CharSelectInfoPackage;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeapon;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 

@@ -14,13 +14,13 @@
  */
 package net.l2emuproject.gameserver.world.object;
 
-import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.poly.ObjectPoly;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
+import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.Location;
@@ -218,7 +218,7 @@ public abstract class L2Object implements L2Entity<Integer>
 	/**
 	 * Refresh the object id (ask to IdFactory to release the old id and get a new one)
 	 * 
-	 * @see net.l2emuproject.gameserver.idfactory.IdFactory
+	 * @see net.l2emuproject.gameserver.system.idfactory.IdFactory
 	 */
 	public void refreshID()
 	{

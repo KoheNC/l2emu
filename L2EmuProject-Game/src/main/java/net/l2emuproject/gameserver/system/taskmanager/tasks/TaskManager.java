@@ -26,8 +26,8 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.concurrent.ScheduledFuture;
 
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.util.HandlerRegistry;
 
 

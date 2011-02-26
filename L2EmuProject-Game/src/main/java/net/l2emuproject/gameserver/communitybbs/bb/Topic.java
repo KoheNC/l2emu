@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.communitybbs.bb;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.communitybbs.Manager.TopicBBSManager;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

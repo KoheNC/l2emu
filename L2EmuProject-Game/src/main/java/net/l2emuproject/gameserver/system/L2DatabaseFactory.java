@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject;
+package net.l2emuproject.gameserver.system;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -26,6 +26,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import javolution.util.FastMap;
+import net.l2emuproject.Config;
 import net.l2emuproject.sql.ConnectionWrapper;
 
 import org.apache.commons.logging.Log;

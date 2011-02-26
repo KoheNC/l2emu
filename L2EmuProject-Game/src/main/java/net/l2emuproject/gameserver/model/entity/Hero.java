@@ -27,7 +27,6 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.datatables.HeroSkillTable;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
@@ -39,6 +38,7 @@ import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;

@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.idfactory;
+package net.l2emuproject.gameserver.system.idfactory;
 
 /**
  * This class is used to implement a basic Id factory based on increment
@@ -58,7 +58,7 @@ public class IncrementIDFactory extends IdFactory
 
 	/**
 	 * This class is for test purpose, we don't need to clean up the db
-	 * @see net.l2emuproject.gameserver.idfactory.IdFactory#cleanUpDB()
+	 * @see net.l2emuproject.gameserver.system.idfactory.IdFactory#cleanUpDB()
 	 */
 	@Override
 	protected void cleanUpDB()
@@ -68,7 +68,7 @@ public class IncrementIDFactory extends IdFactory
 
 	/**
 	 * This class is for test purpose, we don't need to set all character offline
-	 * @see net.l2emuproject.gameserver.idfactory.IdFactory#setAllCharacterOffline()
+	 * @see net.l2emuproject.gameserver.system.idfactory.IdFactory#setAllCharacterOffline()
 	 */
 	@Override
 	protected void setAllCharacterOffline()

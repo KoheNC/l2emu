@@ -18,12 +18,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.PetDataTable;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.L2World;

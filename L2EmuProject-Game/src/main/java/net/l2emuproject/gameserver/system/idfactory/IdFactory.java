@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.idfactory;
+package net.l2emuproject.gameserver.system.idfactory;
 
 import gnu.trove.TIntArrayList;
 
@@ -23,7 +23,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.util.TableOptimizer;
 import net.l2emuproject.gameserver.system.util.TableOptimizer.CharacterRelatedTable;
 import net.l2emuproject.gameserver.system.util.TableOptimizer.ItemRelatedTable;

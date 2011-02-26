@@ -20,8 +20,8 @@ import java.sql.ResultSet;
 import java.util.List;
 
 import javolution.util.FastList;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.communitybbs.bb.Forum;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;

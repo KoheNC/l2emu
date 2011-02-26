@@ -19,7 +19,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.QuestManager;
 import net.l2emuproject.gameserver.model.quest.Quest;
@@ -30,6 +29,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExShowQuestMark;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.QuestList;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;

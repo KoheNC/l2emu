@@ -20,7 +20,6 @@ import java.sql.SQLException;
 import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.Location;

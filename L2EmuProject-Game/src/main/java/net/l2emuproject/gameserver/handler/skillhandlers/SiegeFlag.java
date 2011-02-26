@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.handler.ISkillConditionChecker;
-import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.CCHManager;
 import net.l2emuproject.gameserver.instancemanager.FortSiegeManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;
@@ -28,6 +27,7 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillSiegeFlag;
+import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;

@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import javolution.util.FastList;
-import net.l2emuproject.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 

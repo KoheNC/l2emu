@@ -27,7 +27,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2FeedableBeastInstance;
@@ -36,6 +35,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2GuardInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2RiftInvaderInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Boss;

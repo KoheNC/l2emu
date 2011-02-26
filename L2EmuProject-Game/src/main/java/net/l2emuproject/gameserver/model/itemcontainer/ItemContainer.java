@@ -20,12 +20,12 @@ import java.sql.ResultSet;
 
 import javolution.util.FastList;
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.items.L2ItemInstance.ItemLocation;
 import net.l2emuproject.gameserver.model.GMAudit;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;

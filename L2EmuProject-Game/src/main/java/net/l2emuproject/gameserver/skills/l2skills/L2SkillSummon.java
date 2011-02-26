@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.skills.l2skills;
 
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2CubicInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MerchantSummonInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2SiegeSummonInstance;
@@ -23,6 +22,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
 import net.l2emuproject.gameserver.model.base.Experience;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2World;

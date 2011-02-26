@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import net.l2emuproject.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2Integer;
 import net.l2emuproject.util.SingletonSet;

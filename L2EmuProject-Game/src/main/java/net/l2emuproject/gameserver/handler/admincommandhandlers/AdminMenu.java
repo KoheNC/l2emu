@@ -20,12 +20,12 @@ import java.sql.ResultSet;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.LoginServerThread;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;

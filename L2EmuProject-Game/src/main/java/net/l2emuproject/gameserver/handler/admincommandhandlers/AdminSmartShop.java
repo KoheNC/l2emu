@@ -21,7 +21,6 @@ import java.util.List;
 
 import javolution.text.TextBuilder;
 import javolution.util.FastList;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
@@ -41,6 +40,7 @@ import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.L2SkillLearn;
 import net.l2emuproject.gameserver.skills.funcs.Func;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.item.L2Armor;
 import net.l2emuproject.gameserver.templates.item.L2Equip;
 import net.l2emuproject.gameserver.templates.item.L2EtcItem;

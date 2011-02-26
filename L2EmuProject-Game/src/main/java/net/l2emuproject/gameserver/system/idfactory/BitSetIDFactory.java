@@ -12,85 +12,92 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.idfactory;
+package net.l2emuproject.gameserver.system.idfactory;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.BitSet;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import javolution.util.FastList;
-import net.l2emuproject.L2DatabaseFactory;
+import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.tools.util.PrimeFinder;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 
-/*
- * @author evill33t
+/**
+ * This class ...
+ * 
+ * @author luisantonioa
+ * @version $Revision: 1.2 $ $Date: 2004/06/27 08:12:59 $
  */
-public class BitSetRebuildFactory extends IdFactory
+
+public class BitSetIDFactory extends IdFactory
 {
-	private final static Log	_log	= LogFactory.getLog(BitSetRebuildFactory.class);
+	private final static Log	_log	= LogFactory.getLog(BitSetIDFactory.class);
 
 	private BitSet				_freeIds;
 	private AtomicInteger		_freeIdCount;
 	private AtomicInteger		_nextFreeId;
 
-	protected BitSetRebuildFactory()
+	protected class BitSetCapacityCheck implements Runnable
 	{
-		super();
-		initialize();
+		@Override
+		public void run()
+		{
+			synchronized (BitSetIDFactory.this)
+			{
+				if (reachingBitSetCapacity())
+					increaseBitSetCapacity();
+			}
+		}
+
 	}
 
-	public synchronized void initialize()
+	protected BitSetIDFactory()
 	{
-		_log.info("starting db rebuild, good luck");
-		_log.info("this will take a while, dont kill the process or power off youre machine!");
+		super();
+
+		synchronized(BitSetIDFactory.class)
+		{
+			ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new BitSetCapacityCheck(), 30000, 30000);
+			initialize();
+		}
+		_log.info("IDFactory: " + _freeIds.size() + " id's available.");
+	}
+
+	public void initialize()
+	{
 		try
 		{
 			_freeIds = new BitSet(PrimeFinder.nextPrime(100000));
 			_freeIds.clear();
 			_freeIdCount = new AtomicInteger(FREE_OBJECT_ID_SIZE);
-			List<Integer> used_ids = new FastList<Integer>();
-			// first get all used ids
+
 			for (int usedObjectId : extractUsedObjectIDTable())
-				used_ids.add(usedObjectId);
+			{
+				int objectID = usedObjectId - FIRST_OID;
+				if (objectID < 0)
+				{
+					// auction hack
+					if (usedObjectId == 100100)
+					{
+						continue;
+					}
+					
+					_log.warn("Object ID " + usedObjectId + " in DB is less than minimum ID of " + FIRST_OID);
+					continue;
+				}
+				_freeIds.set(usedObjectId - FIRST_OID);
+				_freeIdCount.decrementAndGet();
+			}
 
 			_nextFreeId = new AtomicInteger(_freeIds.nextClearBit(0));
-
-			Connection con = null;
-			con = L2DatabaseFactory.getInstance().getConnection(con);
-			int nextid;
-			int changedids = 0;
-			// now loop through all already used oids and assign a new clean one
-			for (int i : extractUsedObjectIDTable())
-			{
-				for (;;) //danger ;)
-				{
-					nextid = getNextId();
-					if (!used_ids.contains(nextid))
-						break;
-				}
-				for (String update : ID_UPDATES)
-				{
-					PreparedStatement ps = con.prepareStatement(update);
-					ps.setInt(1, nextid);
-					ps.setInt(2, i);
-					ps.execute();
-					ps.close();
-					changedids++;
-				}
-			}
-			_log.info("database rebuild done, changed " + changedids + " ids, set idfactory config to BitSet! ^o^/");
-			System.exit(0);
+			_initialized = true;
 		}
 		catch (Exception e)
 		{
-			_log.fatal("could not rebuild database! :", e);
-			System.exit(0);
+			_initialized = false;
+			_log.fatal("BitSet ID Factory could not be initialized correctly", e);
 		}
 	}
 

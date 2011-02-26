@@ -19,8 +19,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.NoSuchElementException;
 
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.status.GameStatusCommand;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

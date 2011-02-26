@@ -19,9 +19,9 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.model.actor.instance.L2BoatInstance;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
+import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.world.L2World;

@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.ItemTable;
@@ -48,6 +47,7 @@ import net.l2emuproject.gameserver.services.augmentation.L2Augmentation;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.templates.item.AbstractL2ItemType;
 import net.l2emuproject.gameserver.templates.item.L2Armor;

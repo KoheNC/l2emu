@@ -23,10 +23,10 @@ import java.util.StringTokenizer;
 import javolution.text.TextBuilder;
 import javolution.util.FastList;
 import javolution.util.FastMap;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.network.serverpackets.SendMacroList;
 import net.l2emuproject.gameserver.services.macro.L2Macro.L2MacroCmd;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;

@@ -22,9 +22,9 @@ import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.CharNameTable;
-import net.l2emuproject.gameserver.idfactory.IdFactory;
 import net.l2emuproject.gameserver.instancemanager.MailManager;
 import net.l2emuproject.gameserver.model.itemcontainer.Mail;
+import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.tools.random.Rnd;
 
 /**

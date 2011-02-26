@@ -22,9 +22,9 @@ import java.util.Map;
 
 import javolution.util.FastList;
 import javolution.util.FastMap;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.communitybbs.Manager.ForumsBBSManager;
 import net.l2emuproject.gameserver.communitybbs.Manager.TopicBBSManager;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -21,7 +21,7 @@ import java.util.Map;
 
 import javolution.util.FastList;
 import javolution.util.FastMap;
-import net.l2emuproject.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.item.L2Henna;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
 import net.l2emuproject.gameserver.instancemanager.GrandBossSpawnManager;
 import net.l2emuproject.gameserver.instancemanager.ItemsOnGroundManager;
@@ -34,6 +33,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.system.util.DatabaseBackupManager;
 import net.l2emuproject.gameserver.system.util.OfflineTradeManager;

@@ -19,9 +19,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javolution.util.FastMap;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.model.L2LvlupData;
 import net.l2emuproject.gameserver.model.base.ClassId;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

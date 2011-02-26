@@ -20,7 +20,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import javolution.util.FastList;
-import net.l2emuproject.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.npc.L2NpcWalkerNode;
 
 import org.apache.commons.logging.Log;

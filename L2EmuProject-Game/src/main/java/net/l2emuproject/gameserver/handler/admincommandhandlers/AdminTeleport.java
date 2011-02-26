@@ -28,7 +28,6 @@ import java.util.StringTokenizer;
 
 import javolution.text.TextBuilder;
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
@@ -40,6 +39,7 @@ import net.l2emuproject.gameserver.model.actor.instance.L2MinionInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2RaidBossInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Npc;

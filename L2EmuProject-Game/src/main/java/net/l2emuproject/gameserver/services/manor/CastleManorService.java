@@ -22,7 +22,6 @@ import java.util.concurrent.ScheduledFuture;
 
 import javolution.util.FastList;
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
@@ -31,6 +30,7 @@ import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.itemcontainer.ClanWarehouse;
 import net.l2emuproject.gameserver.model.itemcontainer.ItemContainer;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;

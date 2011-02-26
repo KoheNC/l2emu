@@ -20,7 +20,6 @@ import java.sql.ResultSet;
 
 import javolution.util.FastList;
 import net.l2emuproject.Config;
-import net.l2emuproject.L2DatabaseFactory;
 import net.l2emuproject.gameserver.datatables.ArmorSetsTable;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
@@ -31,6 +30,7 @@ import net.l2emuproject.gameserver.items.L2ItemInstance.ItemLocation;
 import net.l2emuproject.gameserver.model.GMAudit;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.item.L2Armor;
 import net.l2emuproject.gameserver.templates.item.L2Equip;
 import net.l2emuproject.gameserver.templates.item.L2EtcItem;
