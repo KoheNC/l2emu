@@ -19,7 +19,6 @@ import java.util.concurrent.ScheduledFuture;
 
 import javolution.util.FastList;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.entity.party.L2Party;
 import net.l2emuproject.gameserver.manager.grandbosses.BossLair;
@@ -28,6 +27,7 @@ import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;

@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.system.threadmanager;
 
 import java.util.concurrent.locks.ReentrantLock;
 
-import net.l2emuproject.gameserver.ThreadPoolManager;
 
 
 /**

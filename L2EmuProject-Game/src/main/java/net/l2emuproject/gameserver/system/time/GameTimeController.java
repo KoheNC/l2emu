@@ -19,12 +19,12 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.PersistentProperties;
-import net.l2emuproject.gameserver.ThreadPoolManager;
+import net.l2emuproject.gameserver.config.PersistentProperties;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.manager.DayNightSpawnManager;
 import net.l2emuproject.gameserver.network.serverpackets.ClientSetTime;
 import net.l2emuproject.gameserver.system.announcements.Announcements;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.util.Broadcast;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;

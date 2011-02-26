@@ -16,12 +16,12 @@ package net.l2emuproject.gameserver.system.script.faenor;
 
 import java.util.Date;
 
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.script.DateRange;
 import net.l2emuproject.gameserver.system.script.IntList;
 import net.l2emuproject.gameserver.system.script.Parser;
 import net.l2emuproject.gameserver.system.script.ParserFactory;
 import net.l2emuproject.gameserver.system.script.ScriptEngine;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 
 import org.w3c.dom.Node;
 

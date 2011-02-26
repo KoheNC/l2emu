@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.entity.ai;
 import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.threadmanager.FIFOExecutableQueue;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.lang.L2System;

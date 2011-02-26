@@ -21,12 +21,12 @@ import java.util.List;
 
 import javolution.util.FastList;
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.manager.instances.InstanceListManager;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;

@@ -18,7 +18,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import net.l2emuproject.gameserver.L2GameServer;
 import net.l2emuproject.gameserver.L2GameServer.StartupHook;
-import net.l2emuproject.gameserver.ThreadPoolManager;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;

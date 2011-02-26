@@ -18,7 +18,7 @@ import java.util.Set;
 import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ThreadPoolManager;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.util.MinionList;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.knownlist.CharKnownList;

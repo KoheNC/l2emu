@@ -22,7 +22,6 @@ import java.util.concurrent.Future;
 import javolution.util.FastList;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
@@ -50,6 +49,7 @@ import net.l2emuproject.gameserver.services.blocklist.BlockList;
 import net.l2emuproject.gameserver.services.duel.DuelService;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;

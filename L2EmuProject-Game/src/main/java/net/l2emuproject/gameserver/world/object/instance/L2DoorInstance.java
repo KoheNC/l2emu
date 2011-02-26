@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.world.object.instance;
 import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
@@ -40,6 +39,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ConfirmDlg;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.StaticObject;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.world.geodata.GeoData;
 import net.l2emuproject.gameserver.world.knownlist.CharKnownList;

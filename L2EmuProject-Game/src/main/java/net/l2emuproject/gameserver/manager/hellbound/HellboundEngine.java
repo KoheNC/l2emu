@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.manager.hellbound;
 
 import net.l2emuproject.config.L2Properties;
-import net.l2emuproject.gameserver.PersistentProperties;
+import net.l2emuproject.gameserver.config.PersistentProperties;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.system.announcements.Announcements;
 import net.l2emuproject.gameserver.system.taskmanager.AbstractPeriodicTaskManager;

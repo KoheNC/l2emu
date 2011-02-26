@@ -6,11 +6,11 @@ import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Character;

@@ -27,7 +27,6 @@ import java.util.StringTokenizer;
 
 import javolution.text.TextBuilder;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager;
 import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerStateOnCommunity;
 import net.l2emuproject.gameserver.datatables.CharNameTable;
@@ -45,6 +44,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Npc;

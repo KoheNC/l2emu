@@ -22,7 +22,7 @@ import java.util.Map;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.config.L2Properties;
-import net.l2emuproject.gameserver.PersistentProperties;
+import net.l2emuproject.gameserver.config.PersistentProperties;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;

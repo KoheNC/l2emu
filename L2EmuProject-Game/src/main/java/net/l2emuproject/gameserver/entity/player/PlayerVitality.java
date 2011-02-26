@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.entity.player;
 import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.entity.stat.PcStat;
 import net.l2emuproject.gameserver.network.serverpackets.ExVitalityPointInfo;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 

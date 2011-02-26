@@ -21,6 +21,7 @@ import java.util.Set;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.communitybbs.Manager.ForumsBBSManager;
+import net.l2emuproject.gameserver.config.PersistentProperties;
 import net.l2emuproject.gameserver.datatables.ArmorSetsTable;
 import net.l2emuproject.gameserver.datatables.AugmentationData;
 import net.l2emuproject.gameserver.datatables.BuffTemplateTable;
@@ -152,6 +153,7 @@ import net.l2emuproject.gameserver.system.taskmanager.PacketBroadcaster;
 import net.l2emuproject.gameserver.system.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.system.taskmanager.tasks.TaskManager;
 import net.l2emuproject.gameserver.system.threadmanager.DeadlockDetector;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.system.util.DatabaseBackupManager;
 import net.l2emuproject.gameserver.system.util.OfflineTradeManager;

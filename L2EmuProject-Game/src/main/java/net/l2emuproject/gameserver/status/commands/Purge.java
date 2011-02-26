@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.status.commands;
 
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.status.GameStatusCommand;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 
 public final class Purge extends GameStatusCommand
 {

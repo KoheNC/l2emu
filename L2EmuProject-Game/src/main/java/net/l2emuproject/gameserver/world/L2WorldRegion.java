@@ -18,10 +18,10 @@ import java.util.Arrays;
 import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.mapregion.L2MapArea;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.world.mapregion.L2SpecialMapRegion;

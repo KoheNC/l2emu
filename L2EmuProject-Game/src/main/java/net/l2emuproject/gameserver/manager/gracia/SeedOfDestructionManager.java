@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.manager.gracia;
 
 import net.l2emuproject.config.L2Properties;
-import net.l2emuproject.gameserver.PersistentProperties;
-import net.l2emuproject.gameserver.ThreadPoolManager;
+import net.l2emuproject.gameserver.config.PersistentProperties;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;

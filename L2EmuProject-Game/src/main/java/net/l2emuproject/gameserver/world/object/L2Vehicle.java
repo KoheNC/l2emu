@@ -18,7 +18,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
 import net.l2emuproject.gameserver.entity.stat.VehicleStat;
@@ -27,6 +26,7 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.system.taskmanager.MovementController;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;

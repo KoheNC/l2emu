@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.system.idfactory;
 import java.util.BitSet;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import net.l2emuproject.gameserver.ThreadPoolManager;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.tools.util.PrimeFinder;
 
 import org.apache.commons.logging.Log;

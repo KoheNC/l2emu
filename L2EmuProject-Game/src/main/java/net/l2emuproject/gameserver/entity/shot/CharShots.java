@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.entity.shot;
 
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.object.L2Character;
 
 /**

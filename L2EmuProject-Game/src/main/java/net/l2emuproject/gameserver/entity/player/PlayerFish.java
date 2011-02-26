@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.entity.player;
 import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.FishTable;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -26,6 +25,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExFishingStart;
 import net.l2emuproject.gameserver.services.fishing.FishData;
 import net.l2emuproject.gameserver.services.fishing.L2Fishing;
 import net.l2emuproject.gameserver.skills.L2Effect;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;

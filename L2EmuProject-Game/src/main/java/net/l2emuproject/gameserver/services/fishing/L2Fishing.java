@@ -16,13 +16,13 @@ package net.l2emuproject.gameserver.services.fishing;
 
 import java.util.concurrent.Future;
 
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.events.custom.leaderboards.FishermanManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExFishingHpRegen;
 import net.l2emuproject.gameserver.network.serverpackets.ExFishingStartCombat;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2PenaltyMonsterInstance;

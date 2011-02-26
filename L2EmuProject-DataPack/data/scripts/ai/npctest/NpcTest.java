@@ -1,7 +1,7 @@
 package ai.npctest;
 
 import ai.L2NpcAIScript;
-import net.l2emuproject.gameserver.ThreadPoolManager;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;

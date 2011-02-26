@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.services.quest;
 
 import java.util.concurrent.ScheduledFuture;
 
-import net.l2emuproject.gameserver.ThreadPoolManager;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

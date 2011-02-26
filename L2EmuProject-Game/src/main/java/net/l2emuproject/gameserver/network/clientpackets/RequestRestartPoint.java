@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.CCHManager;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.CCHSiege;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
@@ -32,6 +31,7 @@ import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManage
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Die;
 import net.l2emuproject.gameserver.system.restriction.global.GlobalRestrictions;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.mapregion.MapRegionManager;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;

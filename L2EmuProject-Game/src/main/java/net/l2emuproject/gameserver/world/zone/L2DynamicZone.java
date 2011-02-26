@@ -17,11 +17,11 @@ package net.l2emuproject.gameserver.world.zone;
 import java.util.concurrent.ScheduledFuture;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.conditions.Condition;
 import net.l2emuproject.gameserver.skills.conditions.ConditionParser;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.object.L2Character;
 
 import org.w3c.dom.Node;

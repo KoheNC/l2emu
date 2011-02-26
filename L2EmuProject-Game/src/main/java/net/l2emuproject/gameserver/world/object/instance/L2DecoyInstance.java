@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import java.util.concurrent.Future;
 
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillDecoy;
 import net.l2emuproject.gameserver.system.taskmanager.DecayTaskManager;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.knownlist.CharKnownList;
 import net.l2emuproject.gameserver.world.knownlist.DecoyKnownList;

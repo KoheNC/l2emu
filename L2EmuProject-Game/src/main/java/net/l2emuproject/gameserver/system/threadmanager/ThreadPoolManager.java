@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver;
+package net.l2emuproject.gameserver.system.threadmanager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +25,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import net.l2emuproject.Config;
+import net.l2emuproject.gameserver.L2GameServer;
 import net.l2emuproject.util.concurrent.ExecuteWrapper;
 import net.l2emuproject.util.concurrent.L2RejectedExecutionHandler;
 import net.l2emuproject.util.concurrent.RunnableStatsManager;

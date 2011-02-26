@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.system.threadmanager;
 
-import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.util.concurrent.ExecuteWrapper;
 
 
