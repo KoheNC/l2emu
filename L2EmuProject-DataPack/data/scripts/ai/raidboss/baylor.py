@@ -4,11 +4,11 @@ import sys
 from java.lang                                          	 import System
 from net.l2emuproject.gameserver.entity.ai                          import CtrlIntention
 from net.l2emuproject.gameserver.datatables                  import SkillTable
-from net.l2emuproject.gameserver.manager             import InstanceManager
+from net.l2emuproject.gameserver.manager.instances             import InstanceManager
 from net.l2emuproject.gameserver.world.object.position       import L2CharPosition
 from net.l2emuproject.gameserver.world                       import L2World
-from net.l2emuproject.gameserver.model.actor.instance        import L2MonsterInstance
-from net.l2emuproject.gameserver.model.entity                import Instance
+from net.l2emuproject.gameserver.world.object.instance        import L2MonsterInstance
+from net.l2emuproject.gameserver.manager.instances                import Instance
 from net.l2emuproject.gameserver.entity.itemcontainer         import Inventory
 from net.l2emuproject.gameserver.services.quest                 import QuestState
 from net.l2emuproject.gameserver.services.quest                 import State

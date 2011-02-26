@@ -1,6 +1,6 @@
 # By Evil33t
 import sys
-from net.l2emuproject.gameserver.manager        import InstanceManager
+from net.l2emuproject.gameserver.manager.instances        import InstanceManager
 from net.l2emuproject.gameserver.services.quest import State
 from net.l2emuproject.gameserver.services.quest import QuestState
 from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
