@@ -54,7 +54,10 @@ public final class Quarry extends Quest
 		addKillId(SLAVE);
 		addEnterZoneId(ZONE);
 
-		_rescuedSlaves = Integer.parseInt(loadGlobalQuestVar("rescued_slaves"));
+		final String rescuedSlaves = loadGlobalQuestVar("rescued_slaves");
+
+		if (rescuedSlaves != null && rescuedSlaves != "")
+			_rescuedSlaves = Integer.parseInt(rescuedSlaves);
 	}
 
 	@Override
