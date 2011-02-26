@@ -12,16 +12,16 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model;
+package net.l2emuproject.gameserver.services.friendlist;
 
 import java.util.Set;
 
 import net.l2emuproject.gameserver.datatables.CharNameTable;
-import net.l2emuproject.gameserver.manager.FriendListManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.FriendPacket;
 import net.l2emuproject.gameserver.network.serverpackets.FriendPacket.FriendAction;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.blocklist.BlockList;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
@@ -36,7 +36,7 @@ public final class L2FriendList
 	public L2FriendList(L2Player owner)
 	{
 		_owner = owner;
-		_set = FriendListManager.getInstance().getFriendList(owner.getObjectId());
+		_set = FriendListService.getInstance().getFriendList(owner.getObjectId());
 	}
 	
 	public boolean contains(Integer objectId)
@@ -77,7 +77,7 @@ public final class L2FriendList
 		if (!canAddAsFriend(friend))
 			return;
 		
-		if (FriendListManager.getInstance().insert(_owner.getObjectId(), friend.getObjectId()))
+		if (FriendListService.getInstance().insert(_owner.getObjectId(), friend.getObjectId()))
 		{
 			_owner.sendPacket(SystemMessageId.YOU_HAVE_SUCCEEDED_INVITING_FRIEND);
 			
@@ -95,7 +95,7 @@ public final class L2FriendList
 	{
 		Integer objId = CharNameTable.getInstance().getObjectIdByName(name);
 		
-		if (objId != null && FriendListManager.getInstance().remove(_owner.getObjectId(), objId))
+		if (objId != null && FriendListService.getInstance().remove(_owner.getObjectId(), objId))
 		{
 			name = CharNameTable.getInstance().getNameByObjectId(objId);
 			

@@ -36,7 +36,6 @@ import net.l2emuproject.gameserver.events.global.siege.SiegeManager;
 import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.manager.CrownManager;
-import net.l2emuproject.gameserver.manager.MailManager;
 import net.l2emuproject.gameserver.manager.instances.Instance;
 import net.l2emuproject.gameserver.manager.instances.InstanceManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -64,6 +63,7 @@ import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.VersionService;
 import net.l2emuproject.gameserver.services.couple.Couple;
 import net.l2emuproject.gameserver.services.couple.CoupleService;
+import net.l2emuproject.gameserver.services.mail.MailService;
 import net.l2emuproject.gameserver.services.petition.PetitionService;
 import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.services.quest.QuestService;
@@ -471,7 +471,7 @@ public class EnterWorld extends L2GameClientPacket
 			//activeChar.sendMessage("You have been teleported to the nearest town due to you being in siege zone"); - custom
 		}
 
-		if (MailManager.getInstance().hasUnreadPost(activeChar))
+		if (MailService.getInstance().hasUnreadPost(activeChar))
 			sendPacket(new ExNoticePostArrived(false));
 		
 		RegionBBSManager.changeCommunityBoard(activeChar, PlayerStateOnCommunity.NONE);

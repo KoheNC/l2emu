@@ -16,16 +16,16 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.entity.itemcontainer.ItemContainer;
-import net.l2emuproject.gameserver.entity.player.mail.Message;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.items.L2ItemInstance.ItemLocation;
-import net.l2emuproject.gameserver.manager.MailManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExChangePostState;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.mail.MailService;
+import net.l2emuproject.gameserver.services.mail.Message;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.L2World;
@@ -60,7 +60,7 @@ public final class RequestCancelPost extends L2GameClientPacket
 			return;
 		}
 		
-		Message msg = MailManager.getInstance().getMessage(_msgId);
+		Message msg = MailService.getInstance().getMessage(_msgId);
 		if (msg == null)
 			return;
 		if (msg.getSenderId() != activeChar.getObjectId())
@@ -201,7 +201,7 @@ public final class RequestCancelPost extends L2GameClientPacket
 			receiver.sendPacket(new ExChangePostState(true, _msgId, Message.DELETED));
 		}
 		
-		MailManager.getInstance().deleteMessageInDb(_msgId);
+		MailService.getInstance().deleteMessageInDb(_msgId);
 		
 		activeChar.sendPacket(new ExChangePostState(false, _msgId, Message.DELETED));
 		activeChar.sendPacket(new SystemMessage(SystemMessageId.MAIL_SUCCESSFULLY_CANCELLED));

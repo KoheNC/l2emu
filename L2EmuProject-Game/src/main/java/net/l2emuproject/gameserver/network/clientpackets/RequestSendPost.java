@@ -18,15 +18,15 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.entity.itemcontainer.Mail;
 import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
-import net.l2emuproject.gameserver.entity.player.mail.Message;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.manager.MailManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExNoticePostSent;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.mail.MailService;
+import net.l2emuproject.gameserver.services.mail.Message;
 import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
@@ -220,13 +220,13 @@ public final class RequestSendPost extends L2GameClientPacket
 		// return;
 		// }
 		
-		if (MailManager.getInstance().getOutboxSize(activeChar.getObjectId()) >= OUTBOX_SIZE)
+		if (MailService.getInstance().getOutboxSize(activeChar.getObjectId()) >= OUTBOX_SIZE)
 		{
 			activeChar.sendPacket(new SystemMessage(SystemMessageId.CANT_FORWARD_MAIL_LIMIT_EXCEEDED));
 			return;
 		}
 		
-		if (MailManager.getInstance().getInboxSize(receiverId) >= INBOX_SIZE)
+		if (MailService.getInstance().getInboxSize(receiverId) >= INBOX_SIZE)
 		{
 			activeChar.sendPacket(new SystemMessage(SystemMessageId.CANT_FORWARD_MAIL_LIMIT_EXCEEDED));
 			return;
@@ -235,7 +235,7 @@ public final class RequestSendPost extends L2GameClientPacket
 		Message msg = new Message(activeChar.getObjectId(), receiverId, _isCod, _subject, _text, _reqAdena);
 		if (removeItems(activeChar, msg))
 		{
-			MailManager.getInstance().sendMessage(msg);
+			MailService.getInstance().sendMessage(msg);
 			activeChar.sendPacket(new ExNoticePostSent(true));
 			activeChar.sendPacket(new SystemMessage(SystemMessageId.MAIL_SUCCESSFULLY_SENT));
 		}

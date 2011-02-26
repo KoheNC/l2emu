@@ -89,15 +89,12 @@ import net.l2emuproject.gameserver.handler.UserCommandHandler;
 import net.l2emuproject.gameserver.handler.VoicedCommandHandler;
 import net.l2emuproject.gameserver.manager.AirShipManager;
 import net.l2emuproject.gameserver.manager.AutoSpawnManager;
-import net.l2emuproject.gameserver.manager.BlockListManager;
 import net.l2emuproject.gameserver.manager.BoatManager;
 import net.l2emuproject.gameserver.manager.CrownManager;
 import net.l2emuproject.gameserver.manager.DayNightSpawnManager;
 import net.l2emuproject.gameserver.manager.FourSepulchersManager;
-import net.l2emuproject.gameserver.manager.FriendListManager;
 import net.l2emuproject.gameserver.manager.GrandBossSpawnManager;
 import net.l2emuproject.gameserver.manager.ItemsOnGroundManager;
-import net.l2emuproject.gameserver.manager.MailManager;
 import net.l2emuproject.gameserver.manager.MercTicketManager;
 import net.l2emuproject.gameserver.manager.RaidBossSpawnManager;
 import net.l2emuproject.gameserver.manager.RaidPointsManager;
@@ -122,10 +119,13 @@ import net.l2emuproject.gameserver.scripting.L2ScriptEngineManager;
 import net.l2emuproject.gameserver.services.SystemService;
 import net.l2emuproject.gameserver.services.VersionService;
 import net.l2emuproject.gameserver.services.auction.AuctionService;
+import net.l2emuproject.gameserver.services.blocklist.BlockListService;
 import net.l2emuproject.gameserver.services.couple.CoupleService;
 import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
+import net.l2emuproject.gameserver.services.friendlist.FriendListService;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
+import net.l2emuproject.gameserver.services.mail.MailService;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.gameserver.services.petition.PetitionService;
@@ -297,9 +297,9 @@ public class L2GameServer extends Config
 		ClanTable.getInstance();
 		CrestCache.getInstance();
 		Hero.getInstance();
-		BlockListManager.getInstance();
+		BlockListService.getInstance();
 		RecommendationService.getInstance();
-		FriendListManager.getInstance();
+		FriendListService.getInstance();
 		
 		// L2EMU_ADD
 		UITable.getInstance();
@@ -450,7 +450,7 @@ public class L2GameServer extends Config
 		if (Config.ONLINE_PLAYERS_ANNOUNCE_INTERVAL > 0)
 			OnlineStatusTask.getInstance();
 		
-		MailManager.getInstance();
+		MailService.getInstance();
 		ClassBalanceTable.getInstance();
 		
 		Util.printSection("Events");

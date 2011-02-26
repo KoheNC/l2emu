@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.entity.player.mail;
+package net.l2emuproject.gameserver.services.mail;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +23,6 @@ import java.util.concurrent.ScheduledFuture;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.entity.itemcontainer.Mail;
-import net.l2emuproject.gameserver.manager.MailManager;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.tools.random.Rnd;
 
@@ -217,7 +216,7 @@ public class Message
 		if (_unread)
 		{
 			_unread = false;
-			MailManager.getInstance().markAsReadInDb(_messageId);
+			MailService.getInstance().markAsReadInDb(_messageId);
 		}
 	}
 	
@@ -233,10 +232,10 @@ public class Message
 			_deletedBySender = true;
 			if (_deletedByReceiver)
 			{
-				MailManager.getInstance().deleteMessageInDb(_messageId);
+				MailService.getInstance().deleteMessageInDb(_messageId);
 			}
 			else
-				MailManager.getInstance().markAsDeletedBySenderInDb(_messageId);
+				MailService.getInstance().markAsDeletedBySenderInDb(_messageId);
 		}
 	}
 	
@@ -252,10 +251,10 @@ public class Message
 			_deletedByReceiver = true;
 			if (_deletedBySender)
 			{
-				MailManager.getInstance().deleteMessageInDb(_messageId);
+				MailService.getInstance().deleteMessageInDb(_messageId);
 			}
 			else
-				MailManager.getInstance().markAsDeletedByReceiverInDb(_messageId);
+				MailService.getInstance().markAsDeletedByReceiverInDb(_messageId);
 		}
 	}
 	
@@ -300,7 +299,7 @@ public class Message
 		{
 			_attachments = null;
 			_hasAttachments = false;
-			MailManager.getInstance().removeAttachmentsInDb(_messageId);
+			MailService.getInstance().removeAttachmentsInDb(_messageId);
 			if (_unloadTask != null)
 				_unloadTask.cancel(false);
 		}

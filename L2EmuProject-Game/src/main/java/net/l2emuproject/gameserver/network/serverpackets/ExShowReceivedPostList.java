@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import java.util.List;
 
-import net.l2emuproject.gameserver.entity.player.mail.Message;
-import net.l2emuproject.gameserver.manager.MailManager;
+import net.l2emuproject.gameserver.services.mail.MailService;
+import net.l2emuproject.gameserver.services.mail.Message;
 
 /**
  * @author Migi, DS
@@ -30,7 +30,7 @@ public class ExShowReceivedPostList extends L2GameServerPacket
 	
 	public ExShowReceivedPostList(int objectId)
 	{
-		_inbox = MailManager.getInstance().getInbox(objectId);
+		_inbox = MailService.getInstance().getInbox(objectId);
 	}
 	
 	@Override

@@ -12,11 +12,10 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model;
+package net.l2emuproject.gameserver.services.blocklist;
 
 import java.util.Set;
 
-import net.l2emuproject.gameserver.manager.BlockListManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.L2World;
@@ -36,7 +35,7 @@ public final class BlockList
 	public BlockList(L2Player owner)
 	{
 		_owner = owner;
-		_set = BlockListManager.getInstance().getBlockList(_owner.getObjectId());
+		_set = BlockListService.getInstance().getBlockList(_owner.getObjectId());
 	}
 	
 	public void add(String name)
@@ -61,7 +60,7 @@ public final class BlockList
 		{
 			_owner.sendPacket(new SystemMessage(SystemMessageId.C1_WAS_ADDED_TO_YOUR_IGNORE_LIST).addPcName(player));
 			player.sendPacket(new SystemMessage(SystemMessageId.C1_HAS_ADDED_YOU_TO_IGNORE_LIST).addPcName(_owner));
-			BlockListManager.getInstance().insert(_owner, player);
+			BlockListService.getInstance().insert(_owner, player);
 		}
 		else
 			_owner.sendMessage(player.getName() + " was already on your Ignore List.");
@@ -73,7 +72,7 @@ public final class BlockList
 		{
 			_owner.sendPacket(new SystemMessage(SystemMessageId.C1_WAS_REMOVED_FROM_YOUR_IGNORE_LIST).addString(name));
 			
-			BlockListManager.getInstance().remove(_owner, name);
+			BlockListService.getInstance().remove(_owner, name);
 		}
 		else
 			_owner.sendMessage(name + " wasn't on your Ignore List.");

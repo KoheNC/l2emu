@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.entity.player.mail.Message;
-import net.l2emuproject.gameserver.manager.MailManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowSentPost;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.mail.MailService;
+import net.l2emuproject.gameserver.services.mail.Message;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
@@ -52,7 +52,7 @@ public final class RequestSentPost extends L2GameClientPacket
 			return;
 		}
 		
-		Message msg = MailManager.getInstance().getMessage(_msgId);
+		Message msg = MailService.getInstance().getMessage(_msgId);
 		if (msg == null)
 			return;
 		

@@ -18,16 +18,16 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.entity.itemcontainer.ItemContainer;
 import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
-import net.l2emuproject.gameserver.entity.player.mail.Message;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.items.L2ItemInstance.ItemLocation;
-import net.l2emuproject.gameserver.manager.MailManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExChangePostState;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.mail.MailService;
+import net.l2emuproject.gameserver.services.mail.Message;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.L2World;
@@ -96,7 +96,7 @@ public final class RequestPostAttachment extends L2GameClientPacket
 			return;
 		}
 		
-		final Message msg = MailManager.getInstance().getMessage(_msgId);
+		final Message msg = MailService.getInstance().getMessage(_msgId);
 		if (msg == null)
 			return;
 		

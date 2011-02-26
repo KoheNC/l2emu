@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.manager;
+package net.l2emuproject.gameserver.services.mail;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +24,6 @@ import java.util.Map;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.entity.player.mail.Message;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExNoticePostArrived;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
@@ -39,18 +38,18 @@ import org.apache.commons.logging.LogFactory;
 /**
  * @author Migi, DS<br>
  */
-public class MailManager
+public class MailService
 {
-	private static final Log		_log		= LogFactory.getLog(MailManager.class);
+	private static final Log		_log		= LogFactory.getLog(MailService.class);
 	
 	private Map<Integer, Message>	_messages	= new FastMap<Integer, Message>();
 	
-	public static MailManager getInstance()
+	public static MailService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 	
-	private MailManager()
+	private MailService()
 	{
 		load();
 	}
@@ -367,6 +366,6 @@ public class MailManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final MailManager	_instance	= new MailManager();
+		protected static final MailService	_instance	= new MailService();
 	}
 }

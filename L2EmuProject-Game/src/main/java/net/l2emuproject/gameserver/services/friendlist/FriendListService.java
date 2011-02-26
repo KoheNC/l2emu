@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.manager;
+package net.l2emuproject.gameserver.services.friendlist;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,24 +33,24 @@ import org.apache.commons.logging.LogFactory;
 /**
  * @author NB4L1
  */
-public final class FriendListManager
+public final class FriendListService
 {
-	private static final Log _log = LogFactory.getLog(FriendListManager.class);
+	private static final Log _log = LogFactory.getLog(FriendListService.class);
 	
 	private static final String SELECT_QUERY = "SELECT charId1, charId2 FROM character_friends WHERE charId1=? or charId2=?";
 	private static final String INSERT_QUERY = "INSERT INTO character_friends (charId1, charId2) VALUES (?,?)";
 	private static final String DELETE_QUERY = "DELETE FROM character_friends WHERE (charId1=? AND charId2=?) OR (charId1=? AND charId2=?)";
 	
-	public static FriendListManager getInstance()
+	public static FriendListService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 	
 	private final Map<Integer, Set<Integer>> _friends = new FastMap<Integer, Set<Integer>>();
 	
-	private FriendListManager()
+	private FriendListService()
 	{
-		_log.info("FriendListManager: initialized.");
+		_log.info("FriendListService: initialized.");
 	}
 	
 	public synchronized Set<Integer> getFriendList(Integer objectId)
@@ -177,6 +177,6 @@ public final class FriendListManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final FriendListManager _instance = new FriendListManager();
+		protected static final FriendListService _instance = new FriendListService();
 	}
 }

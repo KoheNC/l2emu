@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.manager;
+package net.l2emuproject.gameserver.services.blocklist;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,22 +34,22 @@ import org.apache.commons.logging.LogFactory;
 /**
  * @author NB4L1
  */
-public final class BlockListManager
+public final class BlockListService
 {
-	private static final Log _log = LogFactory.getLog(BlockListManager.class);
+	private static final Log _log = LogFactory.getLog(BlockListService.class);
 	
 	private static final String SELECT_QUERY = "SELECT charId, name FROM character_blocks";
 	private static final String INSERT_QUERY = "INSERT INTO character_blocks (charId, name) VALUES (?,?)";
 	private static final String DELETE_QUERY = "DELETE FROM character_blocks WHERE charId=? AND name=?";
 	
-	public static BlockListManager getInstance()
+	public static BlockListService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 	
 	private final Map<Integer, Set<String>> _blocks = new HashMap<Integer, Set<String>>();
 	
-	private BlockListManager()
+	private BlockListService()
 	{
 		Connection con = null;
 		try
@@ -84,7 +84,7 @@ public final class BlockListManager
 		for (Set<String> set : _blocks.values())
 			size += set.size();
 		
-		_log.info("BlockListManager: Loaded " + size + " character block(s).");
+		_log.info("BlockListService: Loaded " + size + " character block(s).");
 	}
 	
 	public synchronized Set<String> getBlockList(Integer objectId)
@@ -150,6 +150,6 @@ public final class BlockListManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final BlockListManager _instance = new BlockListManager();
+		protected static final BlockListService _instance = new BlockListService();
 	}
 }
