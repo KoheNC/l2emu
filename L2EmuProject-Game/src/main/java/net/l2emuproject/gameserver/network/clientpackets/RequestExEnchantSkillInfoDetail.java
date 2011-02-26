@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.network.serverpackets.ExEnchantSkillInfoDetail;
-import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn;
+import net.l2emuproject.gameserver.skills.skilllearn.L2EnchantSkillLearn;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**

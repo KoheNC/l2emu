@@ -23,11 +23,11 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import javolution.util.FastSet;
-import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.SkillsEngine;
-import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn.EnchantSkillDetail;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillLearnSkill;
+import net.l2emuproject.gameserver.skills.skilllearn.L2EnchantSkillLearn;
+import net.l2emuproject.gameserver.skills.skilllearn.L2EnchantSkillLearn.EnchantSkillDetail;
 import net.l2emuproject.lang.L2Integer;
 
 import org.apache.commons.logging.Log;

@@ -45,8 +45,8 @@ import net.l2emuproject.gameserver.network.serverpackets.PledgeReceiveSubPledgeC
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.quest.QuestState;
-import net.l2emuproject.gameserver.skills.L2PledgeSkillLearn;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.skills.skilllearn.L2PledgeSkillLearn;
 import net.l2emuproject.gameserver.system.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.system.util.StringUtil;
 import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;

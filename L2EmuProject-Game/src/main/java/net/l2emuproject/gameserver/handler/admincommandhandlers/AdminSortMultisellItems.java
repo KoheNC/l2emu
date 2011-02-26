@@ -1457,7 +1457,7 @@ public class AdminSortMultisellItems implements IAdminCommandHandler
 				try
 				{
 
-					for (net.l2emuproject.gameserver.skills.L2SkillLearn skill : SkillTreeTable.getInstance().getAllowedSkills(classId))
+					for (net.l2emuproject.gameserver.skills.skilllearn.L2SkillLearn skill : SkillTreeTable.getInstance().getAllowedSkills(classId))
 					{
 						try
 						{

@@ -18,8 +18,8 @@ import java.util.List;
 
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
-import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn;
-import net.l2emuproject.gameserver.skills.L2EnchantSkillLearn.EnchantSkillDetail;
+import net.l2emuproject.gameserver.skills.skilllearn.L2EnchantSkillLearn;
+import net.l2emuproject.gameserver.skills.skilllearn.L2EnchantSkillLearn.EnchantSkillDetail;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
