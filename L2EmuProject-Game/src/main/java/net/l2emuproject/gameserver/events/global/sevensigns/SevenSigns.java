@@ -27,9 +27,9 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager;
+import net.l2emuproject.gameserver.manager.AutoChatManager;
 import net.l2emuproject.gameserver.manager.AutoSpawnManager;
 import net.l2emuproject.gameserver.manager.AutoSpawnManager.AutoSpawnInstance;
-import net.l2emuproject.gameserver.model.AutoChatHandler;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SSQInfo;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
@@ -231,9 +231,9 @@ public class SevenSigns
 					if (!AutoSpawnManager.getInstance().getAutoSpawnInstance(spawnInst.getObjectId(), true).isSpawnActive())
 						AutoSpawnManager.getInstance().setSpawnActive(spawnInst, true);
 
-				if (!AutoChatHandler.getInstance().getAutoChatInstance(PREACHER_NPC_ID, false).isActive()
-						&& !AutoChatHandler.getInstance().getAutoChatInstance(ORATOR_NPC_ID, false).isActive())
-					AutoChatHandler.getInstance().setAutoChatActive(true);
+				if (!AutoChatManager.getInstance().getAutoChatInstance(PREACHER_NPC_ID, false).isActive()
+						&& !AutoChatManager.getInstance().getAutoChatInstance(ORATOR_NPC_ID, false).isActive())
+					AutoChatManager.getInstance().setAutoChatActive(true);
 			}
 			else
 			{
@@ -245,7 +245,7 @@ public class SevenSigns
 				for (AutoSpawnInstance spawnInst : _preacherSpawns.values())
 					AutoSpawnManager.getInstance().setSpawnActive(spawnInst, false);
 
-				AutoChatHandler.getInstance().setAutoChatActive(false);
+				AutoChatManager.getInstance().setAutoChatActive(false);
 			}
 
 			if (getSealOwner(SEAL_AVARICE) == getCabalHighestScore() && getSealOwner(SEAL_AVARICE) != CABAL_NULL)
@@ -318,7 +318,7 @@ public class SevenSigns
 			for (AutoSpawnInstance spawnInst : _marketeerSpawns.values())
 				AutoSpawnManager.getInstance().setSpawnActive(spawnInst, false);
 
-			AutoChatHandler.getInstance().setAutoChatActive(false);
+			AutoChatManager.getInstance().setAutoChatActive(false);
 		}
 	}
 

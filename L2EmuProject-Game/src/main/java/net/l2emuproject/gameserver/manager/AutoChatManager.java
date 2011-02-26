@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model;
+package net.l2emuproject.gameserver.manager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -47,20 +47,20 @@ import org.apache.commons.logging.LogFactory;
  * 
  * @author Tempy
  */
-public class AutoChatHandler implements SpawnListener
+public class AutoChatManager implements SpawnListener
 {
-	protected static Log _log = LogFactory.getLog(AutoChatHandler.class);
+	protected static Log _log = LogFactory.getLog(AutoChatManager.class);
 
 	private static final int  DEFAULT_CHAT_RANGE = 1500;
 
 	protected final FastMap<Integer, AutoChatInstance> _registeredChats;
 
-	private AutoChatHandler()
+	private AutoChatManager()
 	{
 		_registeredChats = new FastMap<Integer, AutoChatInstance>();
 		restoreChatData();
 		L2Spawn.addSpawnListener(this);
-		_log.info("AutoChatHandler: Loaded " + size() + " handlers in total.");
+		_log.info("AutoChatManager: Loaded " + size() + " handlers in total.");
 	}
 
 	private void restoreChatData()
@@ -105,7 +105,7 @@ public class AutoChatHandler implements SpawnListener
 											chatRange,
 											chatRandom);
 				else
-					_log.warn("AutoChatHandler: Chat group " + groupId + " is empty.");
+					_log.warn("AutoChatManager: Chat group " + groupId + " is empty.");
 
 				statement2.close();
 			}
@@ -113,7 +113,7 @@ public class AutoChatHandler implements SpawnListener
 			statement.close();
 
 			if (_log.isDebugEnabled())
-				_log.info("AutoChatHandler: Loaded " + numLoaded + " chat group(s) from the database.");
+				_log.info("AutoChatManager: Loaded " + numLoaded + " chat group(s) from the database.");
 		}
 		catch (Exception e)
 		{
@@ -146,7 +146,7 @@ public class AutoChatHandler implements SpawnListener
 		restoreChatData();
 	}
 
-	public static AutoChatHandler getInstance()
+	public static AutoChatManager getInstance()
 	{
 		return SingletonHolder._instance;
 	}
@@ -246,7 +246,7 @@ public class AutoChatHandler implements SpawnListener
 		chatInst.setActive(false);
 
 		if (_log.isDebugEnabled())
-			_log.info("AutoChatHandler: Removed auto chat for NPC ID " + chatInst.getNPCId());
+			_log.info("AutoChatManager: Removed auto chat for NPC ID " + chatInst.getNPCId());
 
 		return true;
 	}
@@ -353,7 +353,7 @@ public class AutoChatHandler implements SpawnListener
 			_globalChat = isGlobal;
 
 			if (_log.isDebugEnabled())
-				_log.info("AutoChatHandler: Registered auto chat for NPC ID " + _npcId
+				_log.info("AutoChatManager: Registered auto chat for NPC ID " + _npcId
 					+ " (Global Chat = " + _globalChat + ").");
 
 			setActive(true);
@@ -666,7 +666,7 @@ public class AutoChatHandler implements SpawnListener
 				_chatTexts = chatTexts;
 
 				if (_log.isDebugEnabled())
-					_log.info("AutoChatHandler: Chat definition added for NPC ID "
+					_log.info("AutoChatManager: Chat definition added for NPC ID "
 						+ _npcInstance.getNpcId() + " (Object ID = " + _npcInstance.getObjectId() + ").");
 
 				// If global chat isn't enabled for the parent instance,
@@ -777,7 +777,7 @@ public class AutoChatHandler implements SpawnListener
 
 					if (chatDef == null)
 					{
-						_log.warn("AutoChatHandler: Auto chat definition is NULL for NPC ID "+_npcId+".");
+						_log.warn("AutoChatManager: Auto chat definition is NULL for NPC ID "+_npcId+".");
 						return;
 					}
 
@@ -785,7 +785,7 @@ public class AutoChatHandler implements SpawnListener
 				}
 
 				if (_log.isDebugEnabled())
-					_log.info("AutoChatHandler: Running auto chat for " + chatDefinitions.length
+					_log.info("AutoChatManager: Running auto chat for " + chatDefinitions.length
 						+ " instances of NPC ID " + _npcId + "." + " (Global Chat = "
 						+ chatInst.isGlobal() + ")");
 
@@ -885,7 +885,7 @@ public class AutoChatHandler implements SpawnListener
 						chatNpc.broadcastPacket(new CreatureSay(chatNpc.getObjectId(), SystemChatChannelId.Chat_Normal, creatureName, text));
 
 						if (_log.isDebugEnabled())
-							_log.info("AutoChatHandler: Chat propogation for object ID "
+							_log.info("AutoChatManager: Chat propogation for object ID "
 								+ chatNpc.getObjectId() + " (" + creatureName + ") with text '" + text
 								+ "' sent to " + nearbyPlayers.size() + " nearby players.");
 					}
@@ -902,6 +902,6 @@ public class AutoChatHandler implements SpawnListener
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final AutoChatHandler _instance = new AutoChatHandler();
+		protected static final AutoChatManager _instance = new AutoChatManager();
 	}
 }

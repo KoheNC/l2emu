@@ -88,6 +88,7 @@ import net.l2emuproject.gameserver.handler.SkillHandler;
 import net.l2emuproject.gameserver.handler.UserCommandHandler;
 import net.l2emuproject.gameserver.handler.VoicedCommandHandler;
 import net.l2emuproject.gameserver.manager.AirShipManager;
+import net.l2emuproject.gameserver.manager.AutoChatManager;
 import net.l2emuproject.gameserver.manager.AutoSpawnManager;
 import net.l2emuproject.gameserver.manager.BoatManager;
 import net.l2emuproject.gameserver.manager.CrownManager;
@@ -111,7 +112,6 @@ import net.l2emuproject.gameserver.manager.grandbosses.VanHalterManager;
 import net.l2emuproject.gameserver.manager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.manager.instances.InstanceManager;
 import net.l2emuproject.gameserver.manager.lastimperialtomb.LastImperialTombManager;
-import net.l2emuproject.gameserver.model.AutoChatHandler;
 import net.l2emuproject.gameserver.network.L2GameSelectorThread;
 import net.l2emuproject.gameserver.script.faenor.FaenorScriptEngine;
 import net.l2emuproject.gameserver.scripting.CompiledScriptCache;
@@ -349,7 +349,7 @@ public class L2GameServer extends Config
 		RaidBossSpawnManager.getInstance();
 		GrandBossSpawnManager.getInstance();
 		RaidPointsManager.init();
-		AutoChatHandler.getInstance();
+		AutoChatManager.getInstance();
 		AutoSpawnManager.getInstance();
 		
 		Util.printSection("Hellbound");

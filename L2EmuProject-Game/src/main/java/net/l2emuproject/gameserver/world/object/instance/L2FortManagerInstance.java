@@ -23,7 +23,6 @@ import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.events.global.fortsiege.Fort;
-import net.l2emuproject.gameserver.model.L2TeleportLocation;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.WareHouseDepositList;
@@ -33,6 +32,7 @@ import net.l2emuproject.gameserver.system.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
+import net.l2emuproject.gameserver.world.mapregion.L2TeleportLocation;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 

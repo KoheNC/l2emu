@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.world.town;
 
+import net.l2emuproject.gameserver.entity.Entity;
 import net.l2emuproject.gameserver.events.global.siege.Castle;
 import net.l2emuproject.gameserver.events.global.siege.CastleManager;
-import net.l2emuproject.gameserver.model.entity.Entity;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.world.mapregion.MapRegionManager;
 import net.l2emuproject.gameserver.world.zone.L2Zone;

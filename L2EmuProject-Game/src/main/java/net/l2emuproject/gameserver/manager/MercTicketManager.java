@@ -32,7 +32,6 @@ import net.l2emuproject.gameserver.events.global.siege.Castle;
 import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.events.global.siege.SiegeGuardManager;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.model.AutoChatHandler;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.clientpackets.ConfirmDlgAnswer.AnswerHandler;
 import net.l2emuproject.gameserver.network.serverpackets.ConfirmDlg;
@@ -1046,7 +1045,7 @@ public class MercTicketManager
 			merc.getStatus().setCurrentHpMp(merc.getMaxHp(), merc.getMaxMp());
 			merc.setDecayed(false);
 			merc.spawnMe(x, y, (z + 20));
-			AutoChatHandler.getInstance().registerChat(merc, MercTicketManager.MESSAGES, 0);
+			AutoChatManager.getInstance().registerChat(merc, MercTicketManager.MESSAGES, 0);
 			ThreadPoolManager.getInstance().scheduleGeneral(new Runnable()
 			{
 				@Override

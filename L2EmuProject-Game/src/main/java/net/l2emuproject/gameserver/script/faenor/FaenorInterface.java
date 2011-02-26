@@ -20,8 +20,8 @@ import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.script.DateRange;
 import net.l2emuproject.gameserver.script.EngineInterface;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
-import net.l2emuproject.gameserver.world.npc.L2DropCategory;
-import net.l2emuproject.gameserver.world.npc.L2DropData;
+import net.l2emuproject.gameserver.world.npc.drop.L2DropCategory;
+import net.l2emuproject.gameserver.world.npc.drop.L2DropData;
 
 /**
  * @author Luis Arias

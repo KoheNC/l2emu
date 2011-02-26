@@ -27,10 +27,10 @@ import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.templates.StatsSet;
-import net.l2emuproject.gameserver.world.npc.L2DropCategory;
-import net.l2emuproject.gameserver.world.npc.L2DropData;
 import net.l2emuproject.gameserver.world.npc.L2MinionData;
 import net.l2emuproject.gameserver.world.npc.L2NpcCharData;
+import net.l2emuproject.gameserver.world.npc.drop.L2DropCategory;
+import net.l2emuproject.gameserver.world.npc.drop.L2DropData;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.logging.Log;

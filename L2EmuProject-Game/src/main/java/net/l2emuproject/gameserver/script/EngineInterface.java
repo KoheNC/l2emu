@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.script;
 
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
-import net.l2emuproject.gameserver.world.npc.L2DropData;
+import net.l2emuproject.gameserver.world.npc.drop.L2DropData;
 
 /**
  * @author Luis Arias
