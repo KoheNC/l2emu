@@ -2,7 +2,7 @@
 
 import sys
 from java.lang                                          	 import System
-from net.l2emuproject.gameserver.ai                          import CtrlIntention
+from net.l2emuproject.gameserver.entity.ai                          import CtrlIntention
 from net.l2emuproject.gameserver.datatables                  import SkillTable
 from net.l2emuproject.gameserver.manager             import InstanceManager
 from net.l2emuproject.gameserver.world.object.position       import L2CharPosition

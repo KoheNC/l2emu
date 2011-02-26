@@ -3,7 +3,7 @@
 # Visit http://forum.l2jdp.com for more details.
 import sys
 from net.l2emuproject import Config
-from net.l2emuproject.gameserver.ai import CtrlIntention
+from net.l2emuproject.gameserver.entity.ai import CtrlIntention
 from net.l2emuproject.gameserver.services.quest import State
 from net.l2emuproject.gameserver.services.quest import QuestState
 from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest

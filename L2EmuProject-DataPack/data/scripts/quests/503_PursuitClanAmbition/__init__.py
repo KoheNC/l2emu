@@ -3,14 +3,14 @@
 
 import sys
 from java.util                                    import Iterator
-from net.l2emuproject                                  import L2DatabaseFactory
+from net.l2emuproject.system                                  import L2DatabaseFactory
 from net.l2emuproject.tools.random                     import Rnd
 from net.l2emuproject.gameserver.services.quest           import State
 from net.l2emuproject.gameserver.services.quest           import QuestState
 from net.l2emuproject.gameserver.services.quest.jython    import QuestJython as JQuest
 from net.l2emuproject.gameserver.network.serverpackets import NpcSay
 from net.l2emuproject.gameserver.network.serverpackets import SocialAction
-from net.l2emuproject.gameserver.manager import QuestManager
+from net.l2emuproject.gameserver.services.quest import QuestService
 
 qn = "503_PursuitClanAmbition"
 qd = "Pursuit Clan Ambition"

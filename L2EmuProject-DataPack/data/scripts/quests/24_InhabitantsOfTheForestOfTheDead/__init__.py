@@ -2,7 +2,7 @@
 from net.l2emuproject.gameserver.datatables import SpawnTable
 import sys
 from net.l2emuproject import Config
-from net.l2emuproject.gameserver import GameTimeController
+from net.l2emuproject.gameserver.system.time import GameTimeController
 from net.l2emuproject.gameserver.services.quest import State
 from net.l2emuproject.gameserver.services.quest import QuestState
 from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest

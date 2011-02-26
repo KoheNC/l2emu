@@ -2,7 +2,7 @@
 # this script is part of the Official L2J Datapack Project.
 # Visit http://www.l2jdp.com/forum/ for more details.
 import sys
-from net.l2emuproject.gameserver.ai import CtrlIntention
+from net.l2emuproject.gameserver.entity.ai import CtrlIntention
 from net.l2emuproject.gameserver.datatables import SpawnTable
 from net.l2emuproject.gameserver.services.quest import State
 from net.l2emuproject.gameserver.services.quest import QuestState

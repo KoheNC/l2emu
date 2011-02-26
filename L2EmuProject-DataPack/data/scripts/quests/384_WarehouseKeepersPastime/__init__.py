@@ -1,6 +1,6 @@
 # Made by Emperorc
 import sys
-from net.l2emuproject.gameserver.cache import HtmCache
+from net.l2emuproject.gameserver.system.cache import HtmCache
 from net.l2emuproject.gameserver.services.quest import QuestState
 from net.l2emuproject.gameserver.services.quest import State
 from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest

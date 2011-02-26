@@ -2,7 +2,7 @@
 import sys
 from java.lang import System
 from net.l2emuproject import L2DatabaseFactory
-from net.l2emuproject.gameserver.ai import CtrlIntention
+from net.l2emuproject.gameserver.entity.ai import CtrlIntention
 from net.l2emuproject.gameserver.datatables import DoorTable
 from net.l2emuproject.gameserver.datatables import SpawnTable
 from net.l2emuproject.gameserver.manager import CastleManager
