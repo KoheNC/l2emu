@@ -18,7 +18,6 @@ import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_A
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_CAST;
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_FOLLOW;
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_IDLE;
-import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.AutoAttackStart;
 import net.l2emuproject.gameserver.network.serverpackets.AutoAttackStop;
@@ -31,6 +30,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.SkillUsageRequest;
 import net.l2emuproject.gameserver.system.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.system.taskmanager.AttackStanceTaskManager;
+import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;

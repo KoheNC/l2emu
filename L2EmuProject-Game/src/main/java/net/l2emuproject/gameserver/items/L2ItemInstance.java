@@ -30,7 +30,6 @@ import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.entity.shot.ShotState;
-import net.l2emuproject.gameserver.manager.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.manager.MercTicketManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.DropItem;

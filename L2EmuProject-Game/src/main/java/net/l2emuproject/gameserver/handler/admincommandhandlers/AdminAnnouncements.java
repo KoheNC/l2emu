@@ -17,13 +17,13 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.Announcements;
-import net.l2emuproject.gameserver.AutoAnnouncements;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
+import net.l2emuproject.gameserver.system.announcements.Announcements;
+import net.l2emuproject.gameserver.system.announcements.AutoAnnouncements;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

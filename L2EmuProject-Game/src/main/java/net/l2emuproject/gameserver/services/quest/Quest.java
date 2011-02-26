@@ -34,11 +34,11 @@ import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.NpcQuestHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
-import net.l2emuproject.gameserver.scripting.ManagedScript;
-import net.l2emuproject.gameserver.scripting.ScriptManager;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.cache.HtmCache;
+import net.l2emuproject.gameserver.system.scripting.ManagedScript;
+import net.l2emuproject.gameserver.system.scripting.ScriptManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
@@ -1724,7 +1724,7 @@ public class Quest extends ManagedScript
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.scripting.ManagedScript#getScriptName()
+	 * @see net.l2emuproject.gameserver.system.scripting.ManagedScript#getScriptName()
 	 */
 	@Override
 	public String getScriptName()
@@ -1733,7 +1733,7 @@ public class Quest extends ManagedScript
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.scripting.ManagedScript#setActive(boolean)
+	 * @see net.l2emuproject.gameserver.system.scripting.ManagedScript#setActive(boolean)
 	 */
 	@Override
 	public void setActive(boolean status)
@@ -1742,7 +1742,7 @@ public class Quest extends ManagedScript
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.scripting.ManagedScript#reload()
+	 * @see net.l2emuproject.gameserver.system.scripting.ManagedScript#reload()
 	 */
 	@Override
 	public boolean reload()
@@ -1752,7 +1752,7 @@ public class Quest extends ManagedScript
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.scripting.ManagedScript#unload()
+	 * @see net.l2emuproject.gameserver.system.scripting.ManagedScript#unload()
 	 */
 	@Override
 	public boolean unload()
@@ -1770,7 +1770,7 @@ public class Quest extends ManagedScript
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.scripting.ManagedScript#getScriptManager()
+	 * @see net.l2emuproject.gameserver.system.scripting.ManagedScript#getScriptManager()
 	 */
 	@Override
 	public ScriptManager<?> getScriptManager()

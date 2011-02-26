@@ -20,10 +20,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.InstanceListManager;
 import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.entity.clan.L2ClanMember;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
+import net.l2emuproject.gameserver.manager.instances.InstanceListManager;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;

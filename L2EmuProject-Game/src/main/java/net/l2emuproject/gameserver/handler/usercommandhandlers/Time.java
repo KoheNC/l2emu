@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.handler.usercommandhandlers;
 
-import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.handler.IUserCommandHandler;
+import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class Time implements IUserCommandHandler

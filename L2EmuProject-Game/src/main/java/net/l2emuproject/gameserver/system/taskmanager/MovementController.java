@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.system.taskmanager;
 
 import java.util.ArrayList;
 
-import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.entity.ai.CtrlEvent;
 import net.l2emuproject.gameserver.system.threadmanager.FIFOSimpleExecutableQueue;
+import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.util.L2Collections;
 import net.l2emuproject.util.L2FastSet;

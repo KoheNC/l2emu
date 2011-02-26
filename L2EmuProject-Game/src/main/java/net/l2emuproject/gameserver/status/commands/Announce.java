@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.status.commands;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.status.GameStatusCommand;
+import net.l2emuproject.gameserver.system.announcements.Announcements;
 
 public final class Announce extends GameStatusCommand
 {

@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.skills.formulas;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.datatables.ClassBalanceTable;
 import net.l2emuproject.gameserver.datatables.ClassBalanceTable.TypeBalance;
 import net.l2emuproject.gameserver.entity.base.PlayerState;
@@ -41,6 +40,7 @@ import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.skills.conditions.ConditionPlayerState;
 import net.l2emuproject.gameserver.skills.conditions.ConditionUsingItemType;
 import net.l2emuproject.gameserver.skills.funcs.Func;
+import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.system.util.Util.Direction;
 import net.l2emuproject.gameserver.templates.chars.L2PcTemplate;

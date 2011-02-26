@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.system.restriction.global;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.datatables.GMSkillTable;
 import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.handler.AdminCommandHandler;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.system.announcements.Announcements;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class GMRestriction extends AbstractRestriction

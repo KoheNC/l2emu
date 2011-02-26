@@ -22,8 +22,8 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
+import net.l2emuproject.gameserver.system.announcements.Announcements;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegionRestart;

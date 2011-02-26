@@ -21,9 +21,9 @@ package net.l2emuproject.gameserver.world.object.instance;
 import java.util.Calendar;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.system.announcements.Announcements;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

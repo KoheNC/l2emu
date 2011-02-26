@@ -29,7 +29,6 @@ import java.util.concurrent.TimeUnit;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
 import net.l2emuproject.gameserver.ThreadPoolManager;
@@ -98,6 +97,7 @@ import net.l2emuproject.gameserver.system.taskmanager.MovementController;
 import net.l2emuproject.gameserver.system.taskmanager.PacketBroadcaster;
 import net.l2emuproject.gameserver.system.taskmanager.PacketBroadcaster.BroadcastMode;
 import net.l2emuproject.gameserver.system.threadmanager.ExclusiveTask;
+import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.system.util.Broadcast;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.system.util.Util.Direction;

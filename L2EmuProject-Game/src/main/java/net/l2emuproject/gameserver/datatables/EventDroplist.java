@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.datatables;
 import java.util.Date;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.script.DateRange;
+import net.l2emuproject.gameserver.system.script.DateRange;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

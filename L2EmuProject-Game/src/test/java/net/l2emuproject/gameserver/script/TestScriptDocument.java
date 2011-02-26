@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.script;
 
 import java.io.InputStream;
 
-import net.l2emuproject.gameserver.script.ScriptDocument;
+import net.l2emuproject.gameserver.system.script.ScriptDocument;
 
 import junit.framework.TestCase;
 

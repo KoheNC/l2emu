@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.GameTimeController;
+import net.l2emuproject.gameserver.system.time.GameTimeController;
 
 public class ClientSetTime extends StaticPacket
 {

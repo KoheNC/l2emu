@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.manager;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.GameTimeController;
+import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.world.object.L2Boss;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.instance.L2GrandBossInstance;

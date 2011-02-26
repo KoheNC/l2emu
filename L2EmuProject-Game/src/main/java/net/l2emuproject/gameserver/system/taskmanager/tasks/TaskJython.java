@@ -19,7 +19,7 @@ import java.io.FileNotFoundException;
 
 import javax.script.ScriptException;
 
-import net.l2emuproject.gameserver.scripting.L2ScriptEngineManager;
+import net.l2emuproject.gameserver.system.scripting.L2ScriptEngineManager;
 import net.l2emuproject.gameserver.system.taskmanager.tasks.TaskManager.ExecutedTask;
 
 /**

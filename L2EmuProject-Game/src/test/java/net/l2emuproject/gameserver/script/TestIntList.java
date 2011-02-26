@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.script;
 
-import net.l2emuproject.gameserver.script.IntList;
+import net.l2emuproject.gameserver.system.script.IntList;
 import junit.framework.TestCase;
 
 public class TestIntList extends TestCase

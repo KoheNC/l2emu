@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import java.util.StringTokenizer;
 
 import javolution.text.TextBuilder;
-import net.l2emuproject.gameserver.AutoAnnouncements;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
+import net.l2emuproject.gameserver.system.announcements.AutoAnnouncements;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**

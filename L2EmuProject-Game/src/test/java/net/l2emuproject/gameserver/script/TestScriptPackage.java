@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.script;
 import java.io.IOException;
 import java.util.zip.ZipFile;
 
-import net.l2emuproject.gameserver.script.ScriptPackage;
+import net.l2emuproject.gameserver.system.script.ScriptPackage;
 
 import junit.framework.TestCase;
 

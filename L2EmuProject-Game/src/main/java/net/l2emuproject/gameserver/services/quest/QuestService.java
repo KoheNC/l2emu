@@ -20,8 +20,8 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.scripting.L2ScriptEngineManager;
-import net.l2emuproject.gameserver.scripting.ScriptManager;
+import net.l2emuproject.gameserver.system.scripting.L2ScriptEngineManager;
+import net.l2emuproject.gameserver.system.scripting.ScriptManager;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -160,7 +160,7 @@ public class QuestService extends ScriptManager<Quest>
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.scripting.ScriptManager#getAllManagedScripts()
+	 * @see net.l2emuproject.gameserver.system.scripting.ScriptManager#getAllManagedScripts()
 	 */
 	@Override
 	public Iterable<Quest> getAllManagedScripts()
@@ -169,7 +169,7 @@ public class QuestService extends ScriptManager<Quest>
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.scripting.ScriptManager#unload(net.l2emuproject.gameserver.scripting.ManagedScript)
+	 * @see net.l2emuproject.gameserver.system.scripting.ScriptManager#unload(net.l2emuproject.gameserver.system.scripting.ManagedScript)
 	 */
 	@Override
 	public boolean unload(Quest ms)
@@ -179,7 +179,7 @@ public class QuestService extends ScriptManager<Quest>
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.scripting.ScriptManager#getScriptManagerName()
+	 * @see net.l2emuproject.gameserver.system.scripting.ScriptManager#getScriptManagerName()
 	 */
 	@Override
 	public String getScriptManagerName()

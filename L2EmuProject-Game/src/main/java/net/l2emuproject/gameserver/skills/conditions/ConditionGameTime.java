@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.skills.Env;
+import net.l2emuproject.gameserver.system.time.GameTimeController;
 
 /**
  * @author mkizub

@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import net.l2emuproject.gameserver.script.DateRange;
+import net.l2emuproject.gameserver.system.script.DateRange;
 
 import junit.framework.TestCase;
 

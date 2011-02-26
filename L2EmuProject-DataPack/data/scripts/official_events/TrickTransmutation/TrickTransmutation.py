@@ -13,7 +13,7 @@ from net.l2emuproject.gameserver.services.quest import QuestState
 from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 from net.l2emuproject.gameserver.network.serverpackets import PlaySound
 from net.l2emuproject.gameserver.model.actor.instance import L2PcInstance
-from net.l2emuproject.gameserver.script import DateRange
+from net.l2emuproject.gameserver.system.script import DateRange
 from net.l2emuproject.tools.random import Rnd
 from java.util import Date
 from java.util import GregorianCalendar

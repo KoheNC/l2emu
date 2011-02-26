@@ -14,12 +14,12 @@
  */
 package net.l2emuproject.gameserver.status.commands;
 
-import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.L2GameServer;
 import net.l2emuproject.gameserver.LoginServerThread;
 import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.status.GameStatusCommand;
+import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;

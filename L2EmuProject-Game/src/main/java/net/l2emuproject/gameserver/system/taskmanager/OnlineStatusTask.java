@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.system.taskmanager;
 import java.util.Collection;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.Announcements;
+import net.l2emuproject.gameserver.system.announcements.Announcements;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
