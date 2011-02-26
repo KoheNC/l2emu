@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.manager;
+package net.l2emuproject.gameserver.services.quest;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +20,6 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.scripting.L2ScriptEngineManager;
 import net.l2emuproject.gameserver.scripting.ScriptManager;
 
@@ -28,10 +27,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 
-public class QuestManager extends ScriptManager<Quest>
+public class QuestService extends ScriptManager<Quest>
 {
-	protected static Log		_log	= LogFactory.getLog(QuestManager.class);
-	public static final QuestManager getInstance()
+	protected static Log		_log	= LogFactory.getLog(QuestService.class);
+	public static final QuestService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
@@ -42,9 +41,9 @@ public class QuestManager extends ScriptManager<Quest>
 
 	// =========================================================
 	// Constructor
-	private QuestManager()
+	private QuestService()
 	{
-		_log.info("Initializing QuestManager");
+		_log.info("Initializing QuestService");
 	}
 
 	// =========================================================
@@ -92,7 +91,7 @@ public class QuestManager extends ScriptManager<Quest>
 			// now load all scripts
 			File scripts = new File(Config.DATAPACK_ROOT, "data/scripts.cfg");
 			L2ScriptEngineManager.getInstance().executeScriptList(scripts);
-			QuestManager.getInstance().report();
+			QuestService.getInstance().report();
 		}
 		catch (IOException e)
 		{
@@ -185,12 +184,12 @@ public class QuestManager extends ScriptManager<Quest>
 	@Override
 	public String getScriptManagerName()
 	{
-		return "QuestManager";
+		return "QuestService";
 	}
 
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final QuestManager _instance = new QuestManager();
+		protected static final QuestService _instance = new QuestService();
 	}
 }

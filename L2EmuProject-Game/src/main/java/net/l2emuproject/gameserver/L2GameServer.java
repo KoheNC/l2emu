@@ -98,7 +98,6 @@ import net.l2emuproject.gameserver.manager.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.manager.MailManager;
 import net.l2emuproject.gameserver.manager.MercTicketManager;
 import net.l2emuproject.gameserver.manager.PartyRoomManager;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.manager.RaidBossSpawnManager;
 import net.l2emuproject.gameserver.manager.RaidPointsManager;
 import net.l2emuproject.gameserver.manager.TerritoryWarManager;
@@ -132,6 +131,7 @@ import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.gameserver.services.petition.PetitionService;
+import net.l2emuproject.gameserver.services.quest.QuestService;
 import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell;
 import net.l2emuproject.gameserver.services.transformation.TransformationService;
@@ -362,7 +362,7 @@ public class L2GameServer extends Config
 		KrateiCube.getInstance().init();
 		
 		Util.printSection("Quests");
-		QuestManager.getInstance();
+		QuestService.getInstance();
 		TransformationService.getInstance();
 		
 		Util.printSection("Events/ScriptEngine");
@@ -398,7 +398,7 @@ public class L2GameServer extends Config
 			_log.fatal("Failed to store Compiled Scripts Cache.", e);
 		}
 		
-		QuestManager.getInstance().report();
+		QuestService.getInstance().report();
 		TransformationService.getInstance().report();
 		
 		EventDroplist.getInstance();

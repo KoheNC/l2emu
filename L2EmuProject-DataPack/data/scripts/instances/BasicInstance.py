@@ -9,9 +9,9 @@ from net.l2emuproject.gameserver.datatables                  import ItemTable
 from net.l2emuproject.gameserver.manager             import InstanceManager
 from net.l2emuproject.gameserver.model.entity                import Instance
 from net.l2emuproject.gameserver.model.actor                 import L2Summon
-from net.l2emuproject.gameserver.model.quest                 import State
-from net.l2emuproject.gameserver.model.quest                 import QuestState
-from net.l2emuproject.gameserver.model.quest.jython          import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest                 import State
+from net.l2emuproject.gameserver.services.quest                 import QuestState
+from net.l2emuproject.gameserver.services.quest.jython          import QuestJython as JQuest
 from net.l2emuproject.gameserver.network.serverpackets import SystemMessage
 from net.l2emuproject.gameserver.network import SystemMessageId
 

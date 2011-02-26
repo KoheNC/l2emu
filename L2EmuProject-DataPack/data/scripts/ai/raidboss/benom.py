@@ -7,9 +7,9 @@ from net.l2emuproject.gameserver.datatables import DoorTable
 from net.l2emuproject.gameserver.datatables import SpawnTable
 from net.l2emuproject.gameserver.manager import CastleManager
 from net.l2emuproject.gameserver.world.object.position import L2CharPosition
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 from net.l2emuproject.gameserver.network.serverpackets import NpcSay
 from net.l2emuproject.gameserver.network.serverpackets import SocialAction
 from net.l2emuproject.gameserver.network.serverpackets import SpecialCamera

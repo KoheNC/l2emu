@@ -16,11 +16,11 @@ package custom.VarkaSilenosSupport;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.State;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.WareHouseWithdrawalList;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.State;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

@@ -14,11 +14,11 @@
  */
 package ai.grandboss;
 
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.manager.grandbosses.BelethManager;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.State;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
@@ -58,7 +58,7 @@ public class Beleth extends L2AttackableAIScript
 		QuestState st = attacker.getQuestState(QN);
 		if (st == null)
 		{
-			Quest quest = QuestManager.getInstance().getQuest(QN);
+			Quest quest = QuestService.getInstance().getQuest(QN);
 			st = quest.newQuestState(attacker);
 		}
 		switch (npc.getNpcId())

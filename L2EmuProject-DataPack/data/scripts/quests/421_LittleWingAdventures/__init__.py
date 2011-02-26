@@ -8,9 +8,9 @@ from java.sql import ResultSet
 from java.sql import SQLException
 from net.l2emuproject import L2DatabaseFactory
 from net.l2emuproject.gameserver.datatables import SkillTable
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 from net.l2emuproject.gameserver.network import SystemMessageId
 from net.l2emuproject.gameserver.network.serverpackets import ItemList
 from net.l2emuproject.gameserver.network.serverpackets import NpcSay

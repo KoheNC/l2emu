@@ -18,10 +18,10 @@ import java.util.Map;
 
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.network.serverpackets.SpecialCamera;
+import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.position.L2CharPosition;

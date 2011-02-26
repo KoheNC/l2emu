@@ -28,11 +28,11 @@ import net.l2emuproject.gameserver.manager.instances.InstanceManager.InstanceWor
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.party.L2Party;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.State;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.State;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;

@@ -16,8 +16,8 @@ package ai.zone.imperial_tomb;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.manager.lastimperialtomb.LastImperialTombManager;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

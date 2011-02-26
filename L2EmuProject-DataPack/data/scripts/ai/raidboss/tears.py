@@ -4,9 +4,9 @@ import sys
 from java.lang import System
 from net.l2emuproject.gameserver.datatables import SkillTable
 from net.l2emuproject.gameserver.manager import InstanceManager
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 from net.l2emuproject.tools.random import Rnd
 from net.l2emuproject.gameserver.ai import CtrlIntention
 

@@ -35,11 +35,11 @@ import net.l2emuproject.gameserver.events.global.olympiad.Olympiad;
 import net.l2emuproject.gameserver.events.global.siege.SiegeManager;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.manager.Manager;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.model.base.Experience;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.PetInfo;
+import net.l2emuproject.gameserver.services.quest.QuestService;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell;
 import net.l2emuproject.gameserver.system.cache.HtmCache;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
@@ -391,7 +391,7 @@ public class AdminAdmin implements IAdminCommandHandler
 				}
 				else if (type.startsWith("quests"))
 				{
-					QuestManager.getInstance().reloadAllQuests();
+					QuestService.getInstance().reloadAllQuests();
 					activeChar.sendMessage("All Quests have been reloaded");
 				}
 				else if (type.startsWith("chsiege"))

@@ -27,14 +27,14 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.manager.AutoSpawnManager;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.manager.TerritoryWarManager;
 import net.l2emuproject.gameserver.manager.AutoSpawnManager.AutoSpawnInstance;
 import net.l2emuproject.gameserver.model.AutoChatHandler;
-import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SSQInfo;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.L2World;
@@ -1367,7 +1367,7 @@ public class SevenSigns
 				sendMessageToAll(SystemMessageId.SEAL_VALIDATION_PERIOD_BEGUN);
 				
 				// Change next Territory War date
-				Quest twQuest = QuestManager.getInstance().getQuest(TerritoryWarManager.qn);
+				Quest twQuest = QuestService.getInstance().getQuest(TerritoryWarManager.qn);
 				if (twQuest != null)
 					twQuest.startQuestTimer("setNextTWDate", 30000, null, null);
 

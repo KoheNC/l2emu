@@ -1,9 +1,9 @@
 # Made by Mr. Have fun! Version 0.2
 # Fixed by Pela Version 0.3 - Enough credits, but DrLecter was here :D
 import sys
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 
 qn = "297_GatekeepersFavor"
 

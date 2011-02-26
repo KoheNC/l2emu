@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.world.object.instance;
 
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
+import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.system.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2World;

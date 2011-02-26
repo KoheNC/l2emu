@@ -48,14 +48,10 @@ import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.handler.BypassHandler;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.manager.TownManager;
 import net.l2emuproject.gameserver.model.entity.Town;
 import net.l2emuproject.gameserver.model.itemcontainer.NpcInventory;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.AbstractNpcInfo;
@@ -68,6 +64,10 @@ import net.l2emuproject.gameserver.network.serverpackets.ServerObjectInfo;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.system.cache.HtmCache;
@@ -1246,7 +1246,7 @@ public class L2Npc extends L2Character
 	{
 		String content = null;
 
-		Quest q = QuestManager.getInstance().getQuest(questId);
+		Quest q = QuestService.getInstance().getQuest(questId);
 
 		// Get the state of the selected quest
 		QuestState qs = player.getQuestState(questId);

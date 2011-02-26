@@ -28,11 +28,11 @@ import java.util.ArrayList;
 
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.items.L2ItemInstance.ItemLocation;
-import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.AutoAttackStop;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
+import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.SkillUsageRequest;
 import net.l2emuproject.gameserver.system.taskmanager.AttackStanceTaskManager;

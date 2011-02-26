@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.manager.grandbosses;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.model.entity.Entity;
 import net.l2emuproject.gameserver.model.entity.GrandBossState;
-import net.l2emuproject.gameserver.model.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

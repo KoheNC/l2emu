@@ -14,7 +14,7 @@
  */
 package village_master;
 
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 
 /**
  * @author savormix

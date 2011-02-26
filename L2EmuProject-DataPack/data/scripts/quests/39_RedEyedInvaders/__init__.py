@@ -3,9 +3,9 @@
 # http://forum.l2jdp.com to meet the community behind it, or
 # http://l2jdp.com/trac if you need to report a bug.
 import sys
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 
 qn = "39_RedEyedInvaders"
 

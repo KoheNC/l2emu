@@ -1,9 +1,9 @@
 # Made by Emperorc
 # Update 17-01-08 by t0rm3nt0r
 import sys
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 from net.l2emuproject.gameserver.network.serverpackets      import SocialAction
 
 qn = "62_PathoftheTrooper"

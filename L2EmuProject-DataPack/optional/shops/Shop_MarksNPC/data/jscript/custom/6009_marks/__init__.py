@@ -56,9 +56,9 @@ Items       = [
 
 print "importing " + str(QuestId) + ": " + QuestDesc,
 import sys
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 
 ### Events
 def do_Validate(st, items) :
@@ -124,7 +124,8 @@ class Quest (JQuest) :
  def onTalk (self,npc,player):
 
    npcId = npc.getNpcId()
-   st = player.getQuestState(qn)
+   st = player.getQuestState(qn)
+
    htmltext = "<html><body>I have nothing to say with you</body></html>"
    id = st.getState()
    st.setState(STARTED)

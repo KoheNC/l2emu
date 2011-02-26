@@ -29,14 +29,14 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.entity.stat.PcStat;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.serverpackets.CharSelectionInfo;
 import net.l2emuproject.gameserver.network.serverpackets.CharacterCreateFail;
 import net.l2emuproject.gameserver.network.serverpackets.CharacterCreateSuccess;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.skills.L2SkillLearn;
@@ -249,7 +249,7 @@ public class NewCharacter extends L2GameClientPacket
 		QuestState qs = player.getQuestState("_255_Tutorial");
 		Quest q = null;
 		if (qs == null)
-			q = QuestManager.getInstance().getQuest("_255_Tutorial");
+			q = QuestService.getInstance().getQuest("_255_Tutorial");
 		if (q != null)
 			q.newQuestState(player);
 	}

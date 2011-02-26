@@ -6,9 +6,9 @@ import sys
 import time
 
 from net.l2emuproject.gameserver.ai                    import CtrlIntention
-from net.l2emuproject.gameserver.model.quest           import State
-from net.l2emuproject.gameserver.model.quest           import QuestState
-from net.l2emuproject.gameserver.model.quest           import Quest as JQuest
+from net.l2emuproject.gameserver.services.quest           import State
+from net.l2emuproject.gameserver.services.quest           import QuestState
+from net.l2emuproject.gameserver.services.quest           import Quest as JQuest
 from net.l2emuproject.gameserver.network.serverpackets import NpcSay
 
 qn = "25_HidingBehindTheTruth"

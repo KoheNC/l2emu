@@ -18,9 +18,9 @@ import net.l2emuproject.gameserver.manager.instances.InstanceManager;
 import net.l2emuproject.gameserver.manager.instances.PartyInstance;
 import net.l2emuproject.gameserver.manager.instances.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.entity.Instance;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

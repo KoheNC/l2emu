@@ -98,7 +98,6 @@ import net.l2emuproject.gameserver.manager.AntiFeedManager;
 import net.l2emuproject.gameserver.manager.DimensionalRiftManager;
 import net.l2emuproject.gameserver.manager.FourSepulchersManager;
 import net.l2emuproject.gameserver.manager.PartyRoomManager;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.manager.TerritoryWarManager;
 import net.l2emuproject.gameserver.manager.grandbosses.AntharasManager;
 import net.l2emuproject.gameserver.manager.grandbosses.BaiumManager;
@@ -147,9 +146,6 @@ import net.l2emuproject.gameserver.model.itemcontainer.PcWarehouse;
 import net.l2emuproject.gameserver.model.itemcontainer.PetInventory;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.party.L2PartyRoom;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
@@ -233,6 +229,10 @@ import net.l2emuproject.gameserver.services.cursedweapons.CursedWeapon;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.services.duel.Duel;
 import net.l2emuproject.gameserver.services.duel.DuelService;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
@@ -1338,7 +1338,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 			return retval;
 		if (qs == null)
 		{
-			Quest q = QuestManager.getInstance().getQuest(quest);
+			Quest q = QuestService.getInstance().getQuest(quest);
 			if (q == null)
 				return retval;
 			qs = q.newQuestState(this);

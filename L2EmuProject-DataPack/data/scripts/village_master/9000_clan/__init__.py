@@ -4,9 +4,9 @@
 
 import sys
 
-from net.l2emuproject.gameserver.model.quest        import State
-from net.l2emuproject.gameserver.model.quest        import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest        import State
+from net.l2emuproject.gameserver.services.quest        import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 
 qn = "9000_clan"
 NPC=[30026,30031,30037,30066,30070,30109,30115,30120,30154,30174,30175,30176,30187, \

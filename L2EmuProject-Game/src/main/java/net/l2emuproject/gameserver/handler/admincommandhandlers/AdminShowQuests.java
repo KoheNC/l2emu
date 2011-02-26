@@ -20,15 +20,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.manager.QuestManager;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowQuestMark;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.QuestList;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Object;
@@ -270,7 +270,7 @@ public class AdminShowQuests implements IAdminCommandHandler
 				String[] states =
 				{ "CREATED", "STARTED", "COMPLETED" };
 
-				Quest quest = QuestManager.getInstance().getQuest(qnumber);
+				Quest quest = QuestService.getInstance().getQuest(qnumber);
 
 				if (quest != null)
 				{
@@ -391,7 +391,7 @@ public class AdminShowQuests implements IAdminCommandHandler
 			}
 			else if (val[2].equals("CREATE"))
 			{
-				qs = QuestManager.getInstance().getQuest(Integer.parseInt(val[0])).newQuestState(target);
+				qs = QuestService.getInstance().getQuest(Integer.parseInt(val[0])).newQuestState(target);
 				qs.setState(State.STARTED);
 				qs.set(Quest.CONDITION, 1);
 				target.sendPacket(new QuestList(target));
@@ -400,7 +400,7 @@ public class AdminShowQuests implements IAdminCommandHandler
 			}
 			else if (val[2].equals("CC"))
 			{
-				qs = QuestManager.getInstance().getQuest(Integer.parseInt(val[0])).newQuestState(target);
+				qs = QuestService.getInstance().getQuest(Integer.parseInt(val[0])).newQuestState(target);
 				qs.exitQuest(false);
 				target.sendPacket(new QuestList(target));
 				target.sendPacket(new ExShowQuestMark(qs.getQuest().getQuestIntId()));

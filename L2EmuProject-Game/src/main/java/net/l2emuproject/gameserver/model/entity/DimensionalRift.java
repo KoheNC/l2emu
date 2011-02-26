@@ -21,11 +21,11 @@ import javolution.util.FastList;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.manager.DimensionalRiftManager;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.manager.DimensionalRiftManager.DimensionalRiftRoom;
 import net.l2emuproject.gameserver.model.party.L2Party;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.tools.random.Rnd;
@@ -62,7 +62,7 @@ public class DimensionalRift
 		int[] coords = getRoomCoord(roomId);
 		party.setDimensionalRift(this);
 
-		Quest riftQuest = QuestManager.getInstance().getQuest(635);
+		Quest riftQuest = QuestService.getInstance().getQuest(635);
 		for (L2Player p : party.getPartyMembers())
 		{
 			if (riftQuest != null)
@@ -255,7 +255,7 @@ public class DimensionalRift
 	protected void teleportToWaitingRoom(L2Player player)
 	{
 		DimensionalRiftManager.getInstance().teleportToWaitingRoom(player);
-		Quest riftQuest = QuestManager.getInstance().getQuest(635);
+		Quest riftQuest = QuestService.getInstance().getQuest(635);
 		if (riftQuest != null)
 		{
 			QuestState qs = player.getQuestState(riftQuest.getName());

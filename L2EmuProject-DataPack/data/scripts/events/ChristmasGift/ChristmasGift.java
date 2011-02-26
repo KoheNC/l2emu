@@ -15,11 +15,11 @@
 package events.ChristmasGift;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.manager.QuestManager;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.State;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.State;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
@@ -76,7 +76,7 @@ public class ChristmasGift extends QuestJython
 		QuestState st = player.getQuestState(getName());
 		if (st == null)
 		{
-			Quest quest = QuestManager.getInstance().getQuest(getName());
+			Quest quest = QuestService.getInstance().getQuest(getName());
 			st = quest.newQuestState(player);
 		}
 

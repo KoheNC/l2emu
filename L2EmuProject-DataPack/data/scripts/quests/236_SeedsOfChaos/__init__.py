@@ -2,9 +2,9 @@
 # by Vashts6583
 # Please pardon the sloppiness of the code and the poor naming standards of my .htm files
 import sys
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 from net.l2emuproject.gameserver.model.base import Race
 
 qn = "236_SeedsOfChaos"

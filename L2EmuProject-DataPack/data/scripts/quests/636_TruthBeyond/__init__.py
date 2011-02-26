@@ -2,9 +2,9 @@
 # v0.3.1 by DrLecter
 # Update 2009.12.23 Psycho(killer1888) / L2jFree (there's no cond 2)
 import sys
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 
 qn = "636_TruthBeyond"
 

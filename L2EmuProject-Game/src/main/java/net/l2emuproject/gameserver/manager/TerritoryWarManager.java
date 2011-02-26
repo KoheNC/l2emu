@@ -36,10 +36,11 @@ import net.l2emuproject.gameserver.events.global.siege.Castle;
 import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.model.TerritoryWard;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
-import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.util.Util;
@@ -929,7 +930,7 @@ public class TerritoryWarManager
 
 	private boolean updatePlayerTWStateFlags(boolean clear)
 	{
-		Quest twQuest = QuestManager.getInstance().getQuest(qn);
+		Quest twQuest = QuestService.getInstance().getQuest(qn);
 		if (twQuest == null)
 		{
 			_log.warn("TerritoryWarManager: missing main Quest!");

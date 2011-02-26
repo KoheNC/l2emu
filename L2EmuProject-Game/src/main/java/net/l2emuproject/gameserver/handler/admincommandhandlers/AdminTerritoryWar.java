@@ -19,10 +19,10 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.manager.TerritoryWarManager;
-import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
@@ -67,7 +67,7 @@ public class AdminTerritoryWar implements IAdminCommandHandler
 				}
 				else if (newAdminTWDate.getTimeInMillis() != TerritoryWarManager.getInstance().getTWStartTimeInMillis())
 				{
-					Quest twQuest = QuestManager.getInstance().getQuest(TerritoryWarManager.qn);
+					Quest twQuest = QuestService.getInstance().getQuest(TerritoryWarManager.qn);
 					if (twQuest != null)
 						twQuest.onAdvEvent("setTWDate " + newAdminTWDate.getTimeInMillis(), null, null);
 					else
@@ -78,7 +78,7 @@ public class AdminTerritoryWar implements IAdminCommandHandler
 		}
 		else if (command.equalsIgnoreCase("admin_territory_war_start"))
 		{
-			Quest twQuest = QuestManager.getInstance().getQuest(TerritoryWarManager.qn);
+			Quest twQuest = QuestService.getInstance().getQuest(TerritoryWarManager.qn);
 			if (twQuest != null)
 				twQuest.onAdvEvent("setTWDate " + Calendar.getInstance().getTimeInMillis(), null, null);
 			else
@@ -86,7 +86,7 @@ public class AdminTerritoryWar implements IAdminCommandHandler
 		}
 		else if (command.equalsIgnoreCase("admin_territory_war_end"))
 		{
-			Quest twQuest = QuestManager.getInstance().getQuest(TerritoryWarManager.qn);
+			Quest twQuest = QuestService.getInstance().getQuest(TerritoryWarManager.qn);
 			if (twQuest != null)
 				twQuest.onAdvEvent("setTWDate " + (Calendar.getInstance().getTimeInMillis() - Config.WARLENGTH), null, null);
 			else

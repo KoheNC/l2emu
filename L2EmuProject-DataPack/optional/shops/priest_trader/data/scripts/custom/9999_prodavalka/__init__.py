@@ -1,8 +1,8 @@
 print "importing custom data: 9999_prodavalka"
 import sys
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 
 NPC=[31078,31079,31080,31081,31082,31083,31084,31085,31086,31087,31088,31089,31090,31091,31168,31169]
 

@@ -26,11 +26,11 @@ import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.manager.AutoSpawnManager;
 import net.l2emuproject.gameserver.manager.DayNightSpawnManager;
 import net.l2emuproject.gameserver.manager.GrandBossSpawnManager;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.manager.RaidBossSpawnManager;
 import net.l2emuproject.gameserver.model.AutoChatHandler;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.services.quest.QuestService;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Npc;
@@ -365,7 +365,7 @@ public class AdminSpawn implements IAdminCommandHandler
 			AutoSpawnManager.getInstance().reload();
 			AutoChatHandler.getInstance().reload();
 			SevenSigns.getInstance().spawnSevenSignsNPC();
-			QuestManager.getInstance().reloadAllQuests();
+			QuestService.getInstance().reloadAllQuests();
 			activeChar.sendMessage("NPCs respawn sequence complete.");
 		}
 		return true;

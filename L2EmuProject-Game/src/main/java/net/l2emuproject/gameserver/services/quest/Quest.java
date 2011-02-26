@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.quest;
+package net.l2emuproject.gameserver.services.quest;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -29,7 +29,6 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -138,7 +137,7 @@ public class Quest extends ManagedScript
 	public void initQuest()
 	{
 		if (_questId != 0)
-			QuestManager.getInstance().addQuest(Quest.this);
+			QuestService.getInstance().addQuest(Quest.this);
 		else
 			_allEventsS.put(_name, this);
 		init_LoadGlobalData();
@@ -154,7 +153,7 @@ public class Quest extends ManagedScript
 	}
 
 	/**
-	 * The function saveGlobalData is, by default, called at shutdown, for all quests, by the QuestManager.
+	 * The function saveGlobalData is, by default, called at shutdown, for all quests, by the QuestService.
 	 * Children of this class can implement this function in order to convert their structures
 	 * into <var, value> tuples and make calls to save them to the database, if needed.
 	 * By default, nothing is saved.
@@ -897,7 +896,7 @@ public class Quest extends ManagedScript
 				String statename = rs.getString("value");
 
 				// Search quest associated with the ID
-				Quest q = QuestManager.getInstance().getQuest(questId);
+				Quest q = QuestService.getInstance().getQuest(questId);
 				if (q == null)
 				{
 					if (_log.isDebugEnabled())
@@ -1767,7 +1766,7 @@ public class Quest extends ManagedScript
 			for (QuestTimer timer : timers)
 				timer.cancel();
 		_allEventTimers.clear();
-		return QuestManager.getInstance().removeQuest(this);
+		return QuestService.getInstance().removeQuest(this);
 	}
 
 	/**
@@ -1776,7 +1775,7 @@ public class Quest extends ManagedScript
 	@Override
 	public ScriptManager<?> getScriptManager()
 	{
-		return QuestManager.getInstance();
+		return QuestService.getInstance();
 	}
 	
 	public void setOnEnterWorld(boolean val)

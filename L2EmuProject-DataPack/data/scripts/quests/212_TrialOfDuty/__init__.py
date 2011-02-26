@@ -2,9 +2,9 @@
 # Fixed by Artful (http://L2PLanet.ru Lineage2 C3 Server)
 # version 0.4  - updated by Kerberos on 2007.11.10
 import sys
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 
 qn = "212_TrialOfDuty"
 

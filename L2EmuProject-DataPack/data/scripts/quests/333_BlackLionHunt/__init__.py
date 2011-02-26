@@ -172,9 +172,9 @@ m_no_more_box       = html+morgan+"Freight box...? What box are you talking abou
 m_reward      = html+morgan+"Is there anything I can do for you...?<br><a action=\"bypass -h Quest 333_BlackLionHunt m_give\">Give freight box.</a>"+htmlend
 
 import sys
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 #This Put all Mob Ids from dictionari in a list. So its possible to add new mobs, to one of this 4 Areas, without modification on the addKill Part.
 MOBS=DROPLIST.keys()
 

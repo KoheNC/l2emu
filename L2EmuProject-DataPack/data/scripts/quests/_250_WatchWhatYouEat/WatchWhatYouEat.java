@@ -14,11 +14,11 @@
  */
 package quests._250_WatchWhatYouEat;
 
-import net.l2emuproject.gameserver.manager.QuestManager;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.State;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.State;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
@@ -164,7 +164,7 @@ public final class WatchWhatYouEat extends QuestJython
 		QuestState st = player.getQuestState(QN);
 		if (st == null)
 		{
-			Quest q = QuestManager.getInstance().getQuest(QN);
+			Quest q = QuestService.getInstance().getQuest(QN);
 			st = q.newQuestState(player);
 		}
 

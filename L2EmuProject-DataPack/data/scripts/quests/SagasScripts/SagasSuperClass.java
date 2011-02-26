@@ -17,14 +17,14 @@ package quests.SagasScripts;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.model.party.L2Party;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.State;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.State;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
@@ -237,7 +237,7 @@ public class SagasSuperClass extends QuestJython
 					player.broadcastUserInfo();
 					Cast(npc, player, 4339, 1);
 
-					Quest q = QuestManager.getInstance().getQuest("SkillTransfer");
+					Quest q = QuestService.getInstance().getQuest("SkillTransfer");
 					if (q != null)
 						q.startQuestTimer("givePormanders", 1, npc, player);
 				}
@@ -660,7 +660,7 @@ public class SagasSuperClass extends QuestJython
 								player.broadcastUserInfo();
 								Cast(npc, player, 4339, 1);
 
-								Quest q = QuestManager.getInstance().getQuest("SkillTransfer");
+								Quest q = QuestService.getInstance().getQuest("SkillTransfer");
 								if (q != null)
 									q.startQuestTimer("givePormanders", 1, npc, player);
 							}
@@ -969,7 +969,7 @@ public class SagasSuperClass extends QuestJython
 		{
 			if (_scripts.get(index) == null)
 				continue;
-			QuestManager.getInstance().removeQuest(_scripts.get(index));
+			QuestService.getInstance().removeQuest(_scripts.get(index));
 		}
 		_scripts.clear();
 

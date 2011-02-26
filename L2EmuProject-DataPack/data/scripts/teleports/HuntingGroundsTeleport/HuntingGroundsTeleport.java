@@ -17,8 +17,8 @@ package teleports.HuntingGroundsTeleport;
 import org.apache.commons.lang.ArrayUtils;
 
 import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

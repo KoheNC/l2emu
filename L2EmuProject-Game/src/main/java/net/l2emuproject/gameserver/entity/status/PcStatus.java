@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.entity.status;
 
-import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Character;

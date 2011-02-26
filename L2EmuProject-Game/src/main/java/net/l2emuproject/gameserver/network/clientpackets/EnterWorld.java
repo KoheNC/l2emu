@@ -33,15 +33,12 @@ import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.manager.CrownManager;
 import net.l2emuproject.gameserver.manager.DimensionalRiftManager;
 import net.l2emuproject.gameserver.manager.MailManager;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.manager.TerritoryWarManager;
 import net.l2emuproject.gameserver.manager.instances.InstanceManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -70,6 +67,9 @@ import net.l2emuproject.gameserver.services.VersionService;
 import net.l2emuproject.gameserver.services.couple.Couple;
 import net.l2emuproject.gameserver.services.couple.CoupleService;
 import net.l2emuproject.gameserver.services.petition.PetitionService;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.system.cache.HtmCache;
 import net.l2emuproject.gameserver.world.L2World;
@@ -236,7 +236,7 @@ public class EnterWorld extends L2GameClientPacket
 
 		Quest.playerEnter(activeChar);
 		loadTutorial(activeChar);
-		for (Quest quest : QuestManager.getInstance().getAllManagedScripts())
+		for (Quest quest : QuestService.getInstance().getAllManagedScripts())
 		{
 			if (quest != null && quest.getOnEnterWorld())
 				quest.notifyEnterWorld(activeChar);

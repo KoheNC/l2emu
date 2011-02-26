@@ -17,11 +17,11 @@ package ai.zone.fantasy_island;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.events.global.blockchecker.HandysBlockCheckerManager;
 import net.l2emuproject.gameserver.events.global.blockchecker.HandysBlockCheckerManager.ArenaParticipantsHolder;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExCubeGameChangeTimeToStart;
 import net.l2emuproject.gameserver.network.serverpackets.ExCubeGameRequestReady;
 import net.l2emuproject.gameserver.network.serverpackets.ExCubeGameTeamList;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

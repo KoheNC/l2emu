@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.manager.QuestManager;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.network.serverpackets.QuestList;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestQuestAbort extends L2GameClientPacket
@@ -42,7 +42,7 @@ public class RequestQuestAbort extends L2GameClientPacket
 		if (activeChar == null)
 			return;
 
-		Quest qe = QuestManager.getInstance().getQuest(_questId);
+		Quest qe = QuestService.getInstance().getQuest(_questId);
 		if (qe != null)
 		{
 			QuestState qs = activeChar.getQuestState(qe.getName());

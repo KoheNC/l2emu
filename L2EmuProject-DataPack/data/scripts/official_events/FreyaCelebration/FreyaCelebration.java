@@ -17,15 +17,15 @@ package official_events.FreyaCelebration;
 import org.apache.commons.lang.ArrayUtils;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.manager.QuestManager;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.State;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.State;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
@@ -92,7 +92,7 @@ public final class FreyaCelebration extends QuestJython
 	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		QuestState st = player.getQuestState(getName());
-		Quest q = QuestManager.getInstance().getQuest(getName());
+		Quest q = QuestService.getInstance().getQuest(getName());
 		if (st == null || q == null)
 			return null;
 
@@ -166,7 +166,7 @@ public final class FreyaCelebration extends QuestJython
 		QuestState st = player.getQuestState(getName());
 		if (st == null)
 		{
-			Quest q = QuestManager.getInstance().getQuest(getName());
+			Quest q = QuestService.getInstance().getQuest(getName());
 			st = q.newQuestState(player);
 		}
 		return "13296.htm";

@@ -23,7 +23,7 @@ import java.util.Set;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.GameTimeController;
-import net.l2emuproject.gameserver.model.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.system.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.system.taskmanager.DecayTaskManager;

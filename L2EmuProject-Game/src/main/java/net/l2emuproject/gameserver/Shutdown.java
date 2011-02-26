@@ -24,7 +24,6 @@ import net.l2emuproject.gameserver.events.global.sevensigns.SevenSignsFestival;
 import net.l2emuproject.gameserver.manager.GrandBossSpawnManager;
 import net.l2emuproject.gameserver.manager.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.manager.MercTicketManager;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.manager.RaidBossSpawnManager;
 import net.l2emuproject.gameserver.manager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
+import net.l2emuproject.gameserver.services.quest.QuestService;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.system.util.DatabaseBackupManager;
@@ -197,7 +197,7 @@ public final class Shutdown extends Thread
 		CastleManorService.getInstance().save();
 		
 		// Save all global (non-player specific) Quest data that needs to persist after reboot
-		QuestManager.getInstance().save();
+		QuestService.getInstance().save();
 		
 		// Save Arena Data if enabled
 		if (Config.ARENA_ENABLED)

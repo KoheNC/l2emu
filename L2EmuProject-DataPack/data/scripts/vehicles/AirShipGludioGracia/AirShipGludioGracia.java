@@ -16,9 +16,9 @@ package vehicles.AirShipGludioGracia;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.manager.AirShipManager;
-import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
+import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.VehiclePathPoint;

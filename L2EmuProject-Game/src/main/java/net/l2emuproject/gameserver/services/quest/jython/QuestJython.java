@@ -12,9 +12,9 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.quest.jython;
+package net.l2emuproject.gameserver.services.quest.jython;
 
-import net.l2emuproject.gameserver.model.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.Quest;
 
 public abstract class QuestJython extends Quest
 {

@@ -5,9 +5,9 @@ from net.l2emuproject.gameserver.model.actor.instance import L2PcInstance
 from java.util import Iterator
 from net.l2emuproject.gameserver             import SkillTable
 from net.l2emuproject			       import L2DatabaseFactory
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 
 NPC=[30784,30788,30790,30786,30778,30780,30782,30774,30776,30800,30802,30798,35457,35459,35451,35455,35453,31158,31160,31156,31152,31150,31154,35467,35465,35463,35461]
 

@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**

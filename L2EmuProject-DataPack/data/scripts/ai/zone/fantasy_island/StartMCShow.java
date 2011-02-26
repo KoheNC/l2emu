@@ -14,13 +14,13 @@
  */
 package ai.zone.fantasy_island;
 
-import net.l2emuproject.gameserver.manager.QuestManager;
+import net.l2emuproject.gameserver.services.quest.QuestService;
 
 public class StartMCShow implements Runnable
 {
 	@Override
 	public void run()
 	{
-		QuestManager.getInstance().getQuest("MC_Show").notifyEvent("Start", null, null);
+		QuestService.getInstance().getQuest("MC_Show").notifyEvent("Start", null, null);
 	}
 }

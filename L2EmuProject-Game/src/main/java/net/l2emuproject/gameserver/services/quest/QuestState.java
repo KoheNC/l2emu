@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.model.quest;
+package net.l2emuproject.gameserver.services.quest;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +23,6 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -102,7 +101,7 @@ public final class QuestState
 	*/
 	public Quest getQuest()
 	{
-		return QuestManager.getInstance().getQuest(_questName);
+		return QuestService.getInstance().getQuest(_questName);
 	}
 	
 	/**

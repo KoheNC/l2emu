@@ -28,14 +28,14 @@ import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.model.base.ClassId;
-import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.L2SkillLearn;
@@ -2289,7 +2289,7 @@ public class AdminSmartShop implements IAdminCommandHandler
 			}
 
 			boolean add = true;
-			for (Quest quest : QuestManager.getInstance().getAllManagedScripts())
+			for (Quest quest : QuestService.getInstance().getAllManagedScripts())
 			{
 
 				if (quest.getRegisteredItemIds() == null)

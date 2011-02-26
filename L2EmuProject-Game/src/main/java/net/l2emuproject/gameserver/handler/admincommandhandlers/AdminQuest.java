@@ -25,8 +25,8 @@ import java.io.File;
 import javax.script.ScriptException;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.scripting.L2ScriptEngineManager;
+import net.l2emuproject.gameserver.services.quest.QuestService;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 
@@ -55,7 +55,7 @@ public class AdminQuest implements IAdminCommandHandler
 				try
 				{
 					int questId = Integer.parseInt(parts[1]);
-					if (QuestManager.getInstance().reload(questId))
+					if (QuestService.getInstance().reload(questId))
 					{
 						activeChar.sendMessage("Quest Reloaded Successfully.");
 					}
@@ -66,7 +66,7 @@ public class AdminQuest implements IAdminCommandHandler
 				}
 				catch (NumberFormatException e)
 				{
-					if (QuestManager.getInstance().reload(parts[1]))
+					if (QuestService.getInstance().reload(parts[1]))
 					{
 						activeChar.sendMessage("Quest Reloaded Successfully.");
 					}

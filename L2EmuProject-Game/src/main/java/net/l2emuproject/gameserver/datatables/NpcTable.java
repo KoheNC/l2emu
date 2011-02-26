@@ -24,9 +24,9 @@ import java.util.Set;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.model.base.ClassId;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
+import net.l2emuproject.gameserver.services.quest.QuestService;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
@@ -640,7 +640,7 @@ public final class NpcTable
 	{
 		restoreNpcData();
 		if (reloadQuests)
-			QuestManager.getInstance().reloadAllQuests();
+			QuestService.getInstance().reloadAllQuests();
 	}
 
 	public void cleanUp()

@@ -15,12 +15,12 @@
 package official_events.SquashEvent;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.manager.QuestManager;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
@@ -251,7 +251,7 @@ public class SquashEvent extends QuestJython
 		QuestState st = player.getQuestState(getName());
 		if (st == null)
 		{
-			Quest q = QuestManager.getInstance().getQuest(getName());
+			Quest q = QuestService.getInstance().getQuest(getName());
 			st = q.newQuestState(player);
 		}
 		htmltext = npc.getNpcId() + ".htm";

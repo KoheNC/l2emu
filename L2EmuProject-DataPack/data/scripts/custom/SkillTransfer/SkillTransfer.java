@@ -15,12 +15,12 @@
 package custom.SkillTransfer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.AcquireSkillInfo;
 import net.l2emuproject.gameserver.network.serverpackets.AcquireSkillList;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Npc;

@@ -16,17 +16,17 @@ package instances.NornilsGarden;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.manager.QuestManager;
 import net.l2emuproject.gameserver.manager.instances.InstanceManager;
 import net.l2emuproject.gameserver.manager.instances.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.model.party.L2Party;
-import net.l2emuproject.gameserver.model.quest.Quest;
-import net.l2emuproject.gameserver.model.quest.QuestState;
-import net.l2emuproject.gameserver.model.quest.State;
-import net.l2emuproject.gameserver.model.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.QuestService;
+import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.State;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.system.util.Util;
@@ -207,7 +207,7 @@ public final class NornilsGarden extends QuestJython
 		QuestState st = player.getQuestState(QN);
 		if (st == null)
 		{
-			Quest q = QuestManager.getInstance().getQuest(QN);
+			Quest q = QuestService.getInstance().getQuest(QN);
 			st = q.newQuestState(player);
 		}
 		removeBuffs(player);
@@ -570,7 +570,7 @@ public final class NornilsGarden extends QuestJython
 		QuestState st = player.getQuestState(QN);
 		if (st == null)
 		{
-			Quest q = QuestManager.getInstance().getQuest(QN);
+			Quest q = QuestService.getInstance().getQuest(QN);
 			st = q.newQuestState(player);
 		}
 		return npc.getNpcId() + ".html";

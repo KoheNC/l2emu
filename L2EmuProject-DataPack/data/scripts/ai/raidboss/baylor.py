@@ -10,9 +10,9 @@ from net.l2emuproject.gameserver.world                       import L2World
 from net.l2emuproject.gameserver.model.actor.instance        import L2MonsterInstance
 from net.l2emuproject.gameserver.model.entity                import Instance
 from net.l2emuproject.gameserver.model.itemcontainer         import Inventory
-from net.l2emuproject.gameserver.model.quest                 import QuestState
-from net.l2emuproject.gameserver.model.quest                 import State
-from net.l2emuproject.gameserver.model.quest.jython          import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest                 import QuestState
+from net.l2emuproject.gameserver.services.quest                 import State
+from net.l2emuproject.gameserver.services.quest.jython          import QuestJython as JQuest
 from net.l2emuproject.gameserver.network.serverpackets       import MagicSkillUse
 from net.l2emuproject.gameserver.network.serverpackets       import SocialAction
 from net.l2emuproject.tools.random                           import Rnd

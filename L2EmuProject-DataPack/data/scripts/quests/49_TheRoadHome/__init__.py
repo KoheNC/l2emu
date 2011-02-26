@@ -2,9 +2,9 @@
 # Any problems feel free to drop by #l2j-datapack on irc.freenode.net
 # Corrected proper items order for take/give commands, to avoid any exploit - BoDiE
 import sys
-from net.l2emuproject.gameserver.model.quest import State
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import State
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 
 qn = "49_TheRoadHome"
 

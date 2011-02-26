@@ -5,12 +5,12 @@ import sys
 from java.lang import System
 
 from net.l2emuproject.gameserver.ai import CtrlIntention
-from net.l2emuproject.gameserver.model.quest import State
+from net.l2emuproject.gameserver.services.quest import State
 from net.l2emuproject.gameserver import Announcements
 from net.l2emuproject.gameserver.datatables import EventDroplist
 from net.l2emuproject.gameserver.datatables import SkillTable
-from net.l2emuproject.gameserver.model.quest import QuestState
-from net.l2emuproject.gameserver.model.quest.jython import QuestJython as JQuest
+from net.l2emuproject.gameserver.services.quest import QuestState
+from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
 from net.l2emuproject.gameserver.network.serverpackets import PlaySound
 from net.l2emuproject.gameserver.model.actor.instance import L2PcInstance
 from net.l2emuproject.gameserver.script import DateRange
