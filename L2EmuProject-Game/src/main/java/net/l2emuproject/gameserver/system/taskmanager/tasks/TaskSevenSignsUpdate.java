@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.system.taskmanager.tasks;
 
-import net.l2emuproject.gameserver.SevenSigns;
-import net.l2emuproject.gameserver.SevenSignsFestival;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSignsFestival;
 import net.l2emuproject.gameserver.system.taskmanager.tasks.TaskManager.ExecutedTask;
 
 /**

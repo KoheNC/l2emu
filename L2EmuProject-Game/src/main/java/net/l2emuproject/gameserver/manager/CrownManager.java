@@ -16,10 +16,11 @@ package net.l2emuproject.gameserver.manager;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.CrownTable;
+import net.l2emuproject.gameserver.events.global.siege.Castle;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.clan.L2ClanMember;
-import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

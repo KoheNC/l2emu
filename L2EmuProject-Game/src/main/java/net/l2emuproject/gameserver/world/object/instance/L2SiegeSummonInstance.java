@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.world.object.instance;
 
-import net.l2emuproject.gameserver.manager.SiegeManager;
-import net.l2emuproject.gameserver.model.entity.Siege;
+import net.l2emuproject.gameserver.events.global.siege.Siege;
+import net.l2emuproject.gameserver.events.global.siege.SiegeManager;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillSummon;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Player;

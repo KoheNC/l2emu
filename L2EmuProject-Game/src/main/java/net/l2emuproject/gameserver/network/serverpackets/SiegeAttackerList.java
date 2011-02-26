@@ -17,10 +17,10 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.Set;
 
 import net.l2emuproject.gameserver.datatables.ClanTable;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
+import net.l2emuproject.gameserver.events.global.siege.Castle;
 import net.l2emuproject.gameserver.model.L2SiegeClan;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
-import net.l2emuproject.gameserver.model.entity.Castle;
-import net.l2emuproject.gameserver.model.entity.ClanHall;
 
 
 /**

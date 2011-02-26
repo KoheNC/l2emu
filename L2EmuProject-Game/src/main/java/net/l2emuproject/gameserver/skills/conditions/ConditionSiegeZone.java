@@ -14,12 +14,12 @@
  */
 package net.l2emuproject.gameserver.skills.conditions;
 
-import net.l2emuproject.gameserver.manager.CastleManager;
-import net.l2emuproject.gameserver.manager.ClanHallManager;
-import net.l2emuproject.gameserver.manager.FortManager;
-import net.l2emuproject.gameserver.model.entity.Castle;
-import net.l2emuproject.gameserver.model.entity.ClanHall;
-import net.l2emuproject.gameserver.model.entity.Fort;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHallManager;
+import net.l2emuproject.gameserver.events.global.fortsiege.Fort;
+import net.l2emuproject.gameserver.events.global.fortsiege.FortManager;
+import net.l2emuproject.gameserver.events.global.siege.Castle;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;

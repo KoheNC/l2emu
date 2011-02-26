@@ -19,7 +19,7 @@ import java.util.Set;
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.manager.SiegeManager;
+import net.l2emuproject.gameserver.events.global.siege.SiegeManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExDuelEnd;

@@ -25,8 +25,8 @@ import java.util.Map;
 
 import javolution.util.FastList;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.ThreadPoolManager;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
 import net.l2emuproject.gameserver.items.Item;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.items.L2ItemInstance.ItemLocation;

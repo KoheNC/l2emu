@@ -24,8 +24,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.InstanceListManager;
-import net.l2emuproject.gameserver.manager.CastleManager;
-import net.l2emuproject.gameserver.model.entity.Castle;
+import net.l2emuproject.gameserver.events.global.siege.Castle;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.world.object.instance.L2MerchantInstance;
 
 import org.apache.commons.logging.Log;

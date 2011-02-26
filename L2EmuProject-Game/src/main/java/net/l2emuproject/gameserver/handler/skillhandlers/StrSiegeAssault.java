@@ -14,11 +14,11 @@
  */
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
+import net.l2emuproject.gameserver.events.global.clanhallsiege.CCHManager;
+import net.l2emuproject.gameserver.events.global.fortsiege.FortSiegeManager;
+import net.l2emuproject.gameserver.events.global.siege.SiegeManager;
 import net.l2emuproject.gameserver.handler.ISkillConditionChecker;
 import net.l2emuproject.gameserver.handler.SkillHandler;
-import net.l2emuproject.gameserver.manager.CCHManager;
-import net.l2emuproject.gameserver.manager.FortSiegeManager;
-import net.l2emuproject.gameserver.manager.SiegeManager;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;

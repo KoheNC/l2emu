@@ -14,8 +14,7 @@
  */
 package net.l2emuproject.gameserver.world.mapregion;
 
-import net.l2emuproject.gameserver.SevenSigns;
-import net.l2emuproject.gameserver.manager.MapRegionManager;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
 import net.l2emuproject.gameserver.manager.TownManager;
 import net.l2emuproject.gameserver.model.base.Race;
 import net.l2emuproject.gameserver.model.entity.Town;

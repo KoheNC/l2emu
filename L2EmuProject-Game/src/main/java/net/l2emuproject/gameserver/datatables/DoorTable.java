@@ -22,15 +22,15 @@ import java.util.StringTokenizer;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.manager.ClanHallManager;
-import net.l2emuproject.gameserver.manager.InstanceManager;
-import net.l2emuproject.gameserver.manager.MapRegionManager;
-import net.l2emuproject.gameserver.model.entity.ClanHall;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHallManager;
+import net.l2emuproject.gameserver.manager.instances.InstanceManager;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.world.geodata.GeoData;
+import net.l2emuproject.gameserver.world.mapregion.MapRegionManager;
 import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;
 
 import org.apache.commons.io.IOUtils;

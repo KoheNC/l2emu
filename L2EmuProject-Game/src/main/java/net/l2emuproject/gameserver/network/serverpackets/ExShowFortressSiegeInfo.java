@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.manager.FortSiegeManager;
-import net.l2emuproject.gameserver.manager.FortSiegeManager.SiegeSpawn;
-import net.l2emuproject.gameserver.model.entity.Fort;
+import net.l2emuproject.gameserver.events.global.fortsiege.Fort;
+import net.l2emuproject.gameserver.events.global.fortsiege.FortSiegeManager;
+import net.l2emuproject.gameserver.events.global.fortsiege.FortSiegeManager.SiegeSpawn;
 
 
 /**

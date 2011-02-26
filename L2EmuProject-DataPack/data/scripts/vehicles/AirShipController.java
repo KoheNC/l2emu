@@ -21,7 +21,6 @@ import org.apache.commons.logging.LogFactory;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.manager.AirShipManager;
-import net.l2emuproject.gameserver.manager.ZoneManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
@@ -37,6 +36,7 @@ import net.l2emuproject.gameserver.world.object.instance.L2AirShipInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2ControllableAirShipInstance;
 import net.l2emuproject.gameserver.world.zone.L2ScriptZone;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
+import net.l2emuproject.gameserver.world.zone.ZoneManager;
 
 public abstract class AirShipController extends Quest
 {

@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.handler.bypasshandlers;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.manager.CastleManager;
 import net.l2emuproject.gameserver.manager.TerritoryWarManager;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExBrExtraUserInfo;

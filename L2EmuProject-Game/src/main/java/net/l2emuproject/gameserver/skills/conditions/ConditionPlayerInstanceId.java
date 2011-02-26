@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.skills.conditions;
 import java.util.Arrays;
 import java.util.List;
 
-import net.l2emuproject.gameserver.manager.InstanceManager;
-import net.l2emuproject.gameserver.manager.InstanceManager.InstanceWorld;
+import net.l2emuproject.gameserver.manager.instances.InstanceManager;
+import net.l2emuproject.gameserver.manager.instances.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.world.object.L2Player;

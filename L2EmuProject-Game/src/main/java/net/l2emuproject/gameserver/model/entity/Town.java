@@ -14,10 +14,11 @@
  */
 package net.l2emuproject.gameserver.model.entity;
 
-import net.l2emuproject.gameserver.manager.CastleManager;
-import net.l2emuproject.gameserver.manager.MapRegionManager;
+import net.l2emuproject.gameserver.events.global.siege.Castle;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.manager.TownManager;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
+import net.l2emuproject.gameserver.world.mapregion.MapRegionManager;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public class Town extends Entity

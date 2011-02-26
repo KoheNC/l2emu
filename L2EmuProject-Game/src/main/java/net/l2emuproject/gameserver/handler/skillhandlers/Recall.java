@@ -16,14 +16,14 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.ISkillConditionChecker;
-import net.l2emuproject.gameserver.manager.InstanceManager;
-import net.l2emuproject.gameserver.manager.MapRegionManager;
+import net.l2emuproject.gameserver.manager.instances.InstanceManager;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillRecall;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillTeleport;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.Location;
+import net.l2emuproject.gameserver.world.mapregion.MapRegionManager;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;

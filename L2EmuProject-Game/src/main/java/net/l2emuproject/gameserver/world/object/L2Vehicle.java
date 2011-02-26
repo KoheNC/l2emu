@@ -24,7 +24,6 @@ import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
 import net.l2emuproject.gameserver.entity.stat.VehicleStat;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.manager.MapRegionManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
@@ -37,6 +36,7 @@ import net.l2emuproject.gameserver.world.L2WorldRegion;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.VehiclePathPoint;
 import net.l2emuproject.gameserver.world.knownlist.VehicleKnownList;
+import net.l2emuproject.gameserver.world.mapregion.MapRegionManager;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 

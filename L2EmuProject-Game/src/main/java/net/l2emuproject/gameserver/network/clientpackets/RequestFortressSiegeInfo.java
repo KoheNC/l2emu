@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.manager.FortManager;
-import net.l2emuproject.gameserver.model.entity.Fort;
+import net.l2emuproject.gameserver.events.global.fortsiege.Fort;
+import net.l2emuproject.gameserver.events.global.fortsiege.FortManager;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowFortressSiegeInfo;
 

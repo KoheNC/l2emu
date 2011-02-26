@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.handler.bypasshandlers;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.datatables.PetDataTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;

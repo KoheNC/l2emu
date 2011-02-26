@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.entity.ClanHall;
-import net.l2emuproject.gameserver.model.entity.ClanHall.ClanHallFunction;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall.ClanHallFunction;
 /**
  *
  * @author  Steuf

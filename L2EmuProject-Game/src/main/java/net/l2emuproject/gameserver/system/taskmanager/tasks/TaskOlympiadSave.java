@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.system.taskmanager.tasks;
 
-import net.l2emuproject.gameserver.model.olympiad.Olympiad;
+import net.l2emuproject.gameserver.events.global.olympiad.Olympiad;
 import net.l2emuproject.gameserver.system.taskmanager.tasks.TaskManager.ExecutedTask;
 
 /**

@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.model.restriction.global;
 
+import net.l2emuproject.gameserver.events.custom.TvT.TvT;
 import net.l2emuproject.gameserver.handler.IItemHandler;
 import net.l2emuproject.gameserver.handler.itemhandlers.Potions;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.model.entity.events.TvT;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;

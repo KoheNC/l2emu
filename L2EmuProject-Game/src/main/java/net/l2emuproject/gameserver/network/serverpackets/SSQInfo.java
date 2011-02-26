@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.SevenSigns;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
 /**
  * Changes the sky color depending on the outcome
  * of the Seven Signs competition.

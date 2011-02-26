@@ -14,11 +14,11 @@
  */
 package net.l2emuproject.gameserver.model.restriction.global;
 
+import net.l2emuproject.gameserver.events.global.olympiad.Olympiad;
 import net.l2emuproject.gameserver.handler.IItemHandler;
 import net.l2emuproject.gameserver.handler.itemhandlers.Potions;
 import net.l2emuproject.gameserver.handler.itemhandlers.SummonItems;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.model.olympiad.Olympiad;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;

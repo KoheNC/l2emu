@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.SevenSigns;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
 
 public final class ShowMiniMap extends L2GameServerPacket
 {

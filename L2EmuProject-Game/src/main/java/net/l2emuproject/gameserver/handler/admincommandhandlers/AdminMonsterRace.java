@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
-import net.l2emuproject.gameserver.MonsterRace;
 import net.l2emuproject.gameserver.ThreadPoolManager;
+import net.l2emuproject.gameserver.events.global.monsterrace.MonsterRace;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.DeleteObject;

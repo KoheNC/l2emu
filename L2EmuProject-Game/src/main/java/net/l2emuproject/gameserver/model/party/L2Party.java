@@ -22,10 +22,10 @@ import java.util.concurrent.Future;
 import javolution.util.FastList;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.SevenSignsFestival;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSignsFestival;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.manager.PartyRoomManager;
 import net.l2emuproject.gameserver.model.BlockList;

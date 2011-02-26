@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.manager.games.HandysBlockCheckerManager;
+import net.l2emuproject.gameserver.events.global.blockchecker.HandysBlockCheckerManager;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;

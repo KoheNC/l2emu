@@ -18,8 +18,8 @@ import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.MAX_AD
 import static net.l2emuproject.gameserver.world.object.L2Npc.INTERACTION_DISTANCE;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.manager.CastleManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;

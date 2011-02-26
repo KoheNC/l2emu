@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.StringTokenizer;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.SevenSigns;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
 import net.l2emuproject.gameserver.manager.TerritoryWarManager;
 import net.l2emuproject.gameserver.manager.TerritoryWarManager.TerritoryNPCSpawn;
 import net.l2emuproject.gameserver.model.TerritoryWard;

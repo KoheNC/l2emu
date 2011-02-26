@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.handler.usercommandhandlers;
 
+import net.l2emuproject.gameserver.events.global.olympiad.Olympiad;
 import net.l2emuproject.gameserver.handler.IUserCommandHandler;
-import net.l2emuproject.gameserver.model.olympiad.Olympiad;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.object.L2Player;

@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.handler.voicedcommandhandlers;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.datatables.SkillTable;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
+import net.l2emuproject.gameserver.events.global.siege.Siege;
+import net.l2emuproject.gameserver.events.global.siege.SiegeManager;
 import net.l2emuproject.gameserver.handler.IVoicedCommandHandler;
 import net.l2emuproject.gameserver.manager.DimensionalRiftManager;
-import net.l2emuproject.gameserver.manager.SiegeManager;
-import net.l2emuproject.gameserver.model.entity.Siege;
 import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
 import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.network.SystemMessageId;

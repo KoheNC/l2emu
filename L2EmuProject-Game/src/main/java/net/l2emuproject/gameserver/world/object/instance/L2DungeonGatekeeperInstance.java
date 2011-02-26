@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
 import net.l2emuproject.gameserver.model.L2TeleportLocation;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;

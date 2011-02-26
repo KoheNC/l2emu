@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 
 import net.l2emuproject.gameserver.datatables.DoorTable;
+import net.l2emuproject.gameserver.events.global.siege.Castle;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.manager.CastleManager;
-import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;

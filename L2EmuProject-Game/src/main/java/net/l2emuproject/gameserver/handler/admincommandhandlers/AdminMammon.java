@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.manager.AutoSpawnManager;
 import net.l2emuproject.gameserver.manager.AutoSpawnManager.AutoSpawnInstance;

@@ -18,11 +18,11 @@ import java.util.Calendar;
 import java.util.Map;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.manager.InstanceManager;
-import net.l2emuproject.gameserver.manager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.manager.gracia.SeedOfDestructionManager;
+import net.l2emuproject.gameserver.manager.instances.InstanceManager;
+import net.l2emuproject.gameserver.manager.instances.PartyInstance;
+import net.l2emuproject.gameserver.manager.instances.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.L2CommandChannel;
-import net.l2emuproject.gameserver.model.entity.instances.PartyInstance;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.network.SystemMessageId;

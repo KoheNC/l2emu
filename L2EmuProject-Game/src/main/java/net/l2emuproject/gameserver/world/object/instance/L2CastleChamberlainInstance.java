@@ -21,15 +21,15 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
+import net.l2emuproject.gameserver.events.global.siege.Castle;
 import net.l2emuproject.gameserver.handler.BypassHandler;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
 import net.l2emuproject.gameserver.model.L2TeleportLocation;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
-import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;

@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import java.util.Map;
 
-import net.l2emuproject.gameserver.model.entity.Hero;
-import net.l2emuproject.gameserver.model.olympiad.Olympiad;
+import net.l2emuproject.gameserver.events.global.olympiad.Hero;
+import net.l2emuproject.gameserver.events.global.olympiad.Olympiad;
 import net.l2emuproject.gameserver.templates.StatsSet;
 
 

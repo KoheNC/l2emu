@@ -21,10 +21,10 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
 import net.l2emuproject.gameserver.manager.Manager;
-import net.l2emuproject.gameserver.manager.ZoneManager;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell;
 import net.l2emuproject.gameserver.status.GameStatusCommand;
 import net.l2emuproject.gameserver.system.cache.HtmCache;
+import net.l2emuproject.gameserver.world.zone.ZoneManager;
 
 public final class Reload extends GameStatusCommand
 {

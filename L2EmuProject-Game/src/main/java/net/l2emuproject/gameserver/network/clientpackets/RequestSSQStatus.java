@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.SevenSigns;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
 import net.l2emuproject.gameserver.network.serverpackets.SSQStatus;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

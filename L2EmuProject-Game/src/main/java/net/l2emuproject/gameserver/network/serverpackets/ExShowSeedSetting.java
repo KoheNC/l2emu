@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.manager.CastleManager;
-import net.l2emuproject.gameserver.model.entity.Castle;
+import net.l2emuproject.gameserver.events.global.siege.Castle;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.SeedProduction;

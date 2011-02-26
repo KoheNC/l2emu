@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.handler.itemhandlers;
 
-import net.l2emuproject.gameserver.SevenSigns;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
 import net.l2emuproject.gameserver.handler.IItemHandler;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.SSQStatus;

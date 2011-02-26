@@ -14,10 +14,10 @@
  */
 package instances;
 
-import net.l2emuproject.gameserver.manager.InstanceManager;
-import net.l2emuproject.gameserver.manager.InstanceManager.InstanceWorld;
+import net.l2emuproject.gameserver.manager.instances.InstanceManager;
+import net.l2emuproject.gameserver.manager.instances.PartyInstance;
+import net.l2emuproject.gameserver.manager.instances.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.entity.Instance;
-import net.l2emuproject.gameserver.model.entity.instances.PartyInstance;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.network.SystemMessageId;

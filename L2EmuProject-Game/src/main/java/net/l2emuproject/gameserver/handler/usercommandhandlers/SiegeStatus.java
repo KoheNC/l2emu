@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.handler.usercommandhandlers;
 
+import net.l2emuproject.gameserver.events.global.siege.Castle;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.handler.IUserCommandHandler;
-import net.l2emuproject.gameserver.manager.CastleManager;
-import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SiegeInfo;
 import net.l2emuproject.gameserver.world.object.L2Player;

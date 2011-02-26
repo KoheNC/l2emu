@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.world.object;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.stat.PlayableStat;
-import net.l2emuproject.gameserver.model.olympiad.Olympiad;
+import net.l2emuproject.gameserver.events.global.olympiad.Olympiad;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;

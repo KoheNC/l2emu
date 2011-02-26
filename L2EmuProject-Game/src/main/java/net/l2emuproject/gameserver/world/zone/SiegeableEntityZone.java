@@ -14,14 +14,14 @@
  */
 package net.l2emuproject.gameserver.world.zone;
 
-import net.l2emuproject.gameserver.manager.CastleManager;
-import net.l2emuproject.gameserver.manager.ClanHallManager;
-import net.l2emuproject.gameserver.manager.FortManager;
-import net.l2emuproject.gameserver.model.entity.AbstractSiege;
-import net.l2emuproject.gameserver.model.entity.Castle;
-import net.l2emuproject.gameserver.model.entity.ClanHall;
-import net.l2emuproject.gameserver.model.entity.Fort;
-import net.l2emuproject.gameserver.model.entity.Siegeable;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHallManager;
+import net.l2emuproject.gameserver.events.global.fortsiege.Fort;
+import net.l2emuproject.gameserver.events.global.fortsiege.FortManager;
+import net.l2emuproject.gameserver.events.global.siege.AbstractSiege;
+import net.l2emuproject.gameserver.events.global.siege.Castle;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
+import net.l2emuproject.gameserver.events.global.siege.Siegeable;
 
 public abstract class SiegeableEntityZone extends L2Zone
 {

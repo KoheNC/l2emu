@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.handler.voicedcommandhandlers;
 
 import net.l2emuproject.Config;
+import net.l2emuproject.gameserver.events.global.siege.Castle;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.handler.IVoicedCommandHandler;
-import net.l2emuproject.gameserver.manager.CastleManager;
-import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;

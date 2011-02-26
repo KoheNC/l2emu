@@ -18,7 +18,7 @@ import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.manager.games.KrateiCube;
+import net.l2emuproject.gameserver.events.global.krateicube.KrateiCube;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;

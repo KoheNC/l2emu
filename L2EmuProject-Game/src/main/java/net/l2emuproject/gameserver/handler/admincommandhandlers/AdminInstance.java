@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.manager.InstanceManager;
+import net.l2emuproject.gameserver.manager.instances.InstanceManager;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;

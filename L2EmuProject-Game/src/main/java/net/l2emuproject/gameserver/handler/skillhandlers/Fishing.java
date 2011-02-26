@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.ISkillHandler;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.manager.ZoneManager;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
@@ -31,6 +30,7 @@ import net.l2emuproject.gameserver.world.geodata.GeoData;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
+import net.l2emuproject.gameserver.world.zone.ZoneManager;
 import net.l2emuproject.tools.random.Rnd;
 
 

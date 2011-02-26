@@ -22,7 +22,7 @@ import java.util.StringTokenizer;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.manager.ClanHallManager;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHallManager;
 import net.l2emuproject.gameserver.manager.TownManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Town;

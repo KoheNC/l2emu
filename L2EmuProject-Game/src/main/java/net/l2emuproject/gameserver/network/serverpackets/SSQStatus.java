@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.SevenSigns;
-import net.l2emuproject.gameserver.SevenSignsFestival;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
+import net.l2emuproject.gameserver.events.global.sevensigns.SevenSignsFestival;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.object.L2Player;

@@ -14,7 +14,11 @@
  */
 package net.l2emuproject.gameserver.manager;
 
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHallManager;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.services.auction.AuctionService;
+import net.l2emuproject.gameserver.world.mapregion.MapRegionManager;
+import net.l2emuproject.gameserver.world.zone.ZoneManager;
 
 public class Manager
 {

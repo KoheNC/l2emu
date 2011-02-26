@@ -18,9 +18,9 @@ import javolution.util.FastMap;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.entity.status.CCHLeaderStatus;
 import net.l2emuproject.gameserver.entity.status.CharStatus;
-import net.l2emuproject.gameserver.manager.ClanHallManager;
-import net.l2emuproject.gameserver.model.entity.CCHSiege;
-import net.l2emuproject.gameserver.model.entity.ClanHall;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.CCHSiege;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHallManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
 

@@ -19,6 +19,7 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.model.entity.Town;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegionRestart;
+import net.l2emuproject.gameserver.world.mapregion.MapRegionManager;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.zone.L2Zone;

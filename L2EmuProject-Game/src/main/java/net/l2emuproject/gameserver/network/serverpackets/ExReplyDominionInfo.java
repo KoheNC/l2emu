@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.manager.CastleManager;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.manager.TerritoryWarManager;
 import net.l2emuproject.gameserver.manager.TerritoryWarManager.Territory;
 

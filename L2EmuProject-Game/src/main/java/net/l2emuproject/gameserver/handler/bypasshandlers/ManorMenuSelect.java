@@ -16,10 +16,10 @@ package net.l2emuproject.gameserver.handler.bypasshandlers;
 
 import java.util.StringTokenizer;
 
+import net.l2emuproject.gameserver.events.global.siege.Castle;
+import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.manager.CastleManager;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
-import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.BuyListSeed;

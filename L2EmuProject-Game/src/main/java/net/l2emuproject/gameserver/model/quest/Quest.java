@@ -30,7 +30,6 @@ import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.manager.QuestManager;
-import net.l2emuproject.gameserver.manager.ZoneManager;
 import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -48,6 +47,7 @@ import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
+import net.l2emuproject.gameserver.world.zone.ZoneManager;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;

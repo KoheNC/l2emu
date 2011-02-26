@@ -15,12 +15,12 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.manager.CCHManager;
-import net.l2emuproject.gameserver.manager.FortSiegeManager;
-import net.l2emuproject.gameserver.manager.SiegeManager;
+import net.l2emuproject.gameserver.events.global.clanhallsiege.CCHManager;
+import net.l2emuproject.gameserver.events.global.fortsiege.FortSiegeManager;
+import net.l2emuproject.gameserver.events.global.siege.AbstractSiege;
+import net.l2emuproject.gameserver.events.global.siege.SiegeManager;
 import net.l2emuproject.gameserver.model.L2SiegeClan;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
-import net.l2emuproject.gameserver.model.entity.AbstractSiege;
 import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
