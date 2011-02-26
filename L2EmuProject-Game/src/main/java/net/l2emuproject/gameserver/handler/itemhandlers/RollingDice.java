@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.gameserver.handler.IItemHandler;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.manager.TownManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Dice;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
@@ -24,6 +23,7 @@ import net.l2emuproject.gameserver.system.util.Broadcast;
 import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.town.TownManager;
 import net.l2emuproject.tools.random.Rnd;
 
 public class RollingDice implements IItemHandler

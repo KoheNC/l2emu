@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import java.util.List;
 
-import net.l2emuproject.gameserver.model.L2UIKeysSettings;
-import net.l2emuproject.gameserver.model.entity.ActionKey;
+import net.l2emuproject.gameserver.entity.player.keyboard.ActionKey;
+import net.l2emuproject.gameserver.entity.player.keyboard.L2UIKeysSettings;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**

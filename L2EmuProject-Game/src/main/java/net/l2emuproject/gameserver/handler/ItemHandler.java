@@ -51,7 +51,7 @@ import net.l2emuproject.gameserver.handler.itemhandlers.TeleportBookmark;
 import net.l2emuproject.gameserver.handler.itemhandlers.WondrousCubic;
 import net.l2emuproject.gameserver.handler.itemhandlers.WrappedPack;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
+import net.l2emuproject.gameserver.system.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.templates.item.L2EtcItem;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.world.object.L2Playable;

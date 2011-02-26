@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.entity.appearance.PcAppearance;
+import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.entity.view.DecoyView;
 import net.l2emuproject.gameserver.entity.view.PcLikeView;
-import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.skills.AbnormalEffect;
 import net.l2emuproject.gameserver.world.object.L2Decoy;

@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.ArrayList;
 
 import net.l2emuproject.gameserver.datatables.CharTemplateTable;
-import net.l2emuproject.gameserver.model.base.ClassId;
+import net.l2emuproject.gameserver.entity.base.ClassId;
 import net.l2emuproject.gameserver.templates.chars.L2PcTemplate;
 
 

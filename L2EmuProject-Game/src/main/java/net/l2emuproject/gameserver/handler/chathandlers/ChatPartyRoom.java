@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.handler.chathandlers;
 
+import net.l2emuproject.gameserver.entity.party.L2CommandChannel;
+import net.l2emuproject.gameserver.entity.party.L2Party;
+import net.l2emuproject.gameserver.entity.party.L2PartyRoom;
 import net.l2emuproject.gameserver.handler.IChatHandler;
-import net.l2emuproject.gameserver.model.L2CommandChannel;
-import net.l2emuproject.gameserver.model.party.L2Party;
-import net.l2emuproject.gameserver.model.party.L2PartyRoom;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.world.object.L2Player;

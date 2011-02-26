@@ -18,8 +18,8 @@ import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.datatables.ClanTable;
+import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.GMViewPledgeInfo;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;

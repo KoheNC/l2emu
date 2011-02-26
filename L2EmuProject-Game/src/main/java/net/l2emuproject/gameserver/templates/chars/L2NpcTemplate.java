@@ -22,7 +22,7 @@ import java.util.Set;
 
 import javolution.util.FastList;
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.base.ClassId;
+import net.l2emuproject.gameserver.entity.base.ClassId;
 import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;

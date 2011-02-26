@@ -21,8 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.model.clan.L2Clan;
-import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
+import net.l2emuproject.gameserver.entity.clan.L2Clan;
+import net.l2emuproject.gameserver.entity.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.CharSelectInfoPackage;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeapon;

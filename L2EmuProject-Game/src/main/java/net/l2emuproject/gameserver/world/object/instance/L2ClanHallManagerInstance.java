@@ -20,14 +20,10 @@ import java.util.StringTokenizer;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
+import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHallManager;
-import net.l2emuproject.gameserver.manager.TownManager;
 import net.l2emuproject.gameserver.model.L2TeleportLocation;
-import net.l2emuproject.gameserver.model.clan.L2Clan;
-import net.l2emuproject.gameserver.model.entity.Town;
-import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
-import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.AgitDecoInfo;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -37,11 +33,15 @@ import net.l2emuproject.gameserver.network.serverpackets.WareHouseDepositList;
 import net.l2emuproject.gameserver.network.serverpackets.WareHouseWithdrawalList;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.system.cache.HtmCache;
+import net.l2emuproject.gameserver.system.restriction.AvailableRestriction;
+import net.l2emuproject.gameserver.system.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.system.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.town.Town;
+import net.l2emuproject.gameserver.world.town.TownManager;
 
 
 public class L2ClanHallManagerInstance extends L2MerchantInstance

@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.entity.stat;
 
-import net.l2emuproject.gameserver.model.base.Experience;
+import net.l2emuproject.gameserver.entity.base.Experience;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.object.instance.L2PetInstance;
 import net.l2emuproject.gameserver.world.zone.L2Zone;

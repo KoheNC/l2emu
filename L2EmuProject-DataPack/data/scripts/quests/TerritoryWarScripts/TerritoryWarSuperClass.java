@@ -19,9 +19,9 @@ import java.util.StringTokenizer;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
-import net.l2emuproject.gameserver.manager.TerritoryWarManager;
-import net.l2emuproject.gameserver.manager.TerritoryWarManager.TerritoryNPCSpawn;
-import net.l2emuproject.gameserver.model.TerritoryWard;
+import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager;
+import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWard;
+import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager.TerritoryNPCSpawn;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.services.quest.QuestState;

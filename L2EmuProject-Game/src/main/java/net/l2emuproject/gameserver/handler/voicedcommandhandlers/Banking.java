@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.handler.voicedcommandhandlers;
 
 
 import net.l2emuproject.Config;
+import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.handler.IVoicedCommandHandler;
-import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

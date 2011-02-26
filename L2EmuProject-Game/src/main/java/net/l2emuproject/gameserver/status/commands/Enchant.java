@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.status.commands;
 
 import java.util.StringTokenizer;
 
+import net.l2emuproject.gameserver.entity.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.GMAudit;
-import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.status.GameStatusCommand;
 import net.l2emuproject.gameserver.world.L2World;

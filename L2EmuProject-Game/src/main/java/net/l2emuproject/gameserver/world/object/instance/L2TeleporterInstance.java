@@ -22,18 +22,18 @@ import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
 import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.events.global.siege.SiegeManager;
-import net.l2emuproject.gameserver.manager.TownManager;
 import net.l2emuproject.gameserver.model.L2TeleportLocation;
-import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
-import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.system.cache.HtmCache;
+import net.l2emuproject.gameserver.system.restriction.AvailableRestriction;
+import net.l2emuproject.gameserver.system.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
+import net.l2emuproject.gameserver.world.town.TownManager;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**

@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.world.mapregion;
 
-import net.l2emuproject.gameserver.model.base.Race;
+import net.l2emuproject.gameserver.entity.base.Race;
 import net.l2emuproject.gameserver.world.L2Polygon;
 import net.l2emuproject.gameserver.world.zone.form.Shape;
 import net.l2emuproject.gameserver.world.zone.form.ShapePoly;

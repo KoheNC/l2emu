@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.items;
 
-import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.ADENA_ID;
-import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.MAX_ADENA;
+import static net.l2emuproject.gameserver.entity.itemcontainer.PcInventory.ADENA_ID;
+import static net.l2emuproject.gameserver.entity.itemcontainer.PcInventory.MAX_ADENA;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,11 +28,10 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.entity.shot.ShotState;
 import net.l2emuproject.gameserver.manager.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.manager.MercTicketManager;
-import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
-import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.DropItem;
 import net.l2emuproject.gameserver.network.serverpackets.GetItem;
@@ -48,6 +47,7 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.system.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.templates.item.AbstractL2ItemType;
 import net.l2emuproject.gameserver.templates.item.L2Armor;

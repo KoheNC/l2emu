@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.MAX_ADENA;
+import static net.l2emuproject.gameserver.entity.itemcontainer.PcInventory.MAX_ADENA;
 import static net.l2emuproject.gameserver.world.object.L2Npc.INTERACTION_DISTANCE;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;

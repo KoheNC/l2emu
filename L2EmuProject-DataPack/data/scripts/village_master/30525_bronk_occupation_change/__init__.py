@@ -7,8 +7,8 @@ import sys
 from net.l2emuproject.gameserver.services.quest        import State
 from net.l2emuproject.gameserver.services.quest        import QuestState
 from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
-from net.l2emuproject.gameserver.model.base import ClassId
-from net.l2emuproject.gameserver.model.base import Race
+from net.l2emuproject.gameserver.entity.base import ClassId
+from net.l2emuproject.gameserver.entity.base import Race
 
 qn = "30525_bronk_occupation_change"
 HEAD_BLACKSMITH_BRONK = 30525

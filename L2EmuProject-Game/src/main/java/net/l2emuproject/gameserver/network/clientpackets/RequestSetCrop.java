@@ -14,16 +14,16 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.MAX_ADENA;
+import static net.l2emuproject.gameserver.entity.itemcontainer.PcInventory.MAX_ADENA;
 import static net.l2emuproject.gameserver.world.object.L2Npc.INTERACTION_DISTANCE;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import net.l2emuproject.Config;
+import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.events.global.siege.Castle;
 import net.l2emuproject.gameserver.events.global.siege.CastleManager;
-import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;

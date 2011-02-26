@@ -14,8 +14,8 @@
  */
 package quests._316_DestroyPlaguebringers;
 
-import net.l2emuproject.gameserver.model.base.Race;
-import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.entity.base.Race;
+import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.State;

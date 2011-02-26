@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network;
 
-import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
-import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.entity.itemcontainer.Inventory;
+import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 
 /**
  * Used to Store data sent to Client for Character

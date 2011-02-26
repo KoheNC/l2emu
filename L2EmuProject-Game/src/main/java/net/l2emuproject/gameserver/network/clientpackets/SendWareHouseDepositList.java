@@ -14,13 +14,13 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.ADENA_ID;
+import static net.l2emuproject.gameserver.entity.itemcontainer.PcInventory.ADENA_ID;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
+import net.l2emuproject.gameserver.entity.itemcontainer.ItemContainer;
+import net.l2emuproject.gameserver.entity.itemcontainer.PcWarehouse;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.model.itemcontainer.ItemContainer;
-import net.l2emuproject.gameserver.model.itemcontainer.PcWarehouse;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;

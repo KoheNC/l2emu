@@ -14,7 +14,7 @@
  */
 package quests._176_StepsForHonor;
 
-import net.l2emuproject.gameserver.manager.TerritoryWarManager;
+import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.services.quest.jython.QuestJython;

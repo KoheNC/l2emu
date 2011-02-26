@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
+import net.l2emuproject.gameserver.entity.itemcontainer.ItemContainer;
+import net.l2emuproject.gameserver.entity.player.mail.Message;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.model.entity.Message;
-import net.l2emuproject.gameserver.model.itemcontainer.ItemContainer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

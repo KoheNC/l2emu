@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
-import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
+import net.l2emuproject.gameserver.system.restriction.AvailableRestriction;
+import net.l2emuproject.gameserver.system.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

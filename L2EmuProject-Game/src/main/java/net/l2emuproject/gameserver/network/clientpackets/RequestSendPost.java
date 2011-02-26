@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.CharNameTable;
+import net.l2emuproject.gameserver.entity.itemcontainer.Mail;
+import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.entity.player.mail.Message;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.manager.MailManager;
-import net.l2emuproject.gameserver.model.entity.Message;
-import net.l2emuproject.gameserver.model.itemcontainer.Mail;
-import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExNoticePostSent;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;

@@ -14,9 +14,9 @@
  */
 package quests._403_PathToRogue;
 
-import net.l2emuproject.gameserver.model.base.ClassId;
-import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
-import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.entity.base.ClassId;
+import net.l2emuproject.gameserver.entity.itemcontainer.Inventory;
+import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.State;

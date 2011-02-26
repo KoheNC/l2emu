@@ -18,8 +18,8 @@ import java.util.Calendar;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
+import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.manager.TerritoryWarManager;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.services.quest.QuestService;

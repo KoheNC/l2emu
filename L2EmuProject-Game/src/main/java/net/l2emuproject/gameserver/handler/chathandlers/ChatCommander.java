@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.handler.chathandlers;
 
+import net.l2emuproject.gameserver.entity.party.L2Party;
 import net.l2emuproject.gameserver.handler.IChatHandler;
-import net.l2emuproject.gameserver.model.party.L2Party;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;

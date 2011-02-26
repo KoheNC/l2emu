@@ -18,7 +18,7 @@ import net.l2emuproject.gameserver.datatables.PetSkillsTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.ai.L2SummonAI;
-import net.l2emuproject.gameserver.manager.TerritoryWarManager;
+import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExAskCoupleAction;

@@ -4,7 +4,7 @@ import sys
 from net.l2emuproject.gameserver.services.quest import State
 from net.l2emuproject.gameserver.services.quest import QuestState
 from net.l2emuproject.gameserver.services.quest.jython import QuestJython as JQuest
-from net.l2emuproject.gameserver.model.base import Race
+from net.l2emuproject.gameserver.entity.base import Race
 #Quest info
 qn = "235_MimirsElixir"
 QUEST_NUMBER,QUEST_NAME,QUEST_DESCRIPTION = 235,"MimirsElixir","Mimir's Elixir"

@@ -17,10 +17,10 @@ package net.l2emuproject.gameserver.services.duel;
 import java.util.Map;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.restriction.global.DuelRestriction;
-import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.skills.L2Effect;
+import net.l2emuproject.gameserver.system.restriction.global.DuelRestriction;
+import net.l2emuproject.gameserver.system.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;

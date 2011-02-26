@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.L2CommandChannel;
-import net.l2emuproject.gameserver.model.party.L2Party;
+import net.l2emuproject.gameserver.entity.party.L2CommandChannel;
+import net.l2emuproject.gameserver.entity.party.L2Party;
 
 /**
  * Format:(ch) sdd d[sdd]

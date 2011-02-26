@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.ThreadPoolManager;
+import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.events.global.monsterrace.MonsterRace;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.DeleteObject;

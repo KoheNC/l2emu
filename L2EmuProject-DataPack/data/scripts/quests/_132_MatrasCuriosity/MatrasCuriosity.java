@@ -14,7 +14,7 @@
  */
 package quests._132_MatrasCuriosity;
 
-import net.l2emuproject.gameserver.model.party.L2Party;
+import net.l2emuproject.gameserver.entity.party.L2Party;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.services.quest.jython.QuestJython;

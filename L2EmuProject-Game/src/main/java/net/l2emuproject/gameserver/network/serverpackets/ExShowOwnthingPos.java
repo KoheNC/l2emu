@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.manager.TerritoryWarManager;
-import net.l2emuproject.gameserver.model.TerritoryWard;
+import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager;
+import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWard;
 
 /**
  * Format: (ch) d[dddd]

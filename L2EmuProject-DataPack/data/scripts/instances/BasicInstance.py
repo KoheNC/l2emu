@@ -1,7 +1,7 @@
 # author: evill33t
 from net.l2emuproject.gameserver.network.serverpackets       import NpcSay
 from net.l2emuproject.tools.random                           import Rnd
-from net.l2emuproject.gameserver.model.itemcontainer         import PcInventory
+from net.l2emuproject.gameserver.entity.itemcontainer         import PcInventory
 from net.l2emuproject.gameserver.model                       import L2ItemInstance
 from net.l2emuproject.gameserver.network.serverpackets       import InventoryUpdate
 from net.l2emuproject.gameserver.model                       import L2World

@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import java.util.List;
 
+import net.l2emuproject.gameserver.entity.player.mail.Message;
 import net.l2emuproject.gameserver.manager.MailManager;
-import net.l2emuproject.gameserver.model.entity.Message;
 
 /**
  * @author Migi, DS

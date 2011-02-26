@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.party.L2Party;
+import net.l2emuproject.gameserver.entity.party.L2Party;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExAskJoinMPCC;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;

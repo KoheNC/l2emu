@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.entity.stat;
 
 import net.l2emuproject.gameserver.datatables.PetDataTable;
-import net.l2emuproject.gameserver.model.base.Experience;
+import net.l2emuproject.gameserver.entity.base.Experience;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;

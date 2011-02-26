@@ -19,7 +19,7 @@ import net.l2emuproject.gameserver.events.global.fortsiege.Fort;
 import net.l2emuproject.gameserver.events.global.fortsiege.FortManager;
 import net.l2emuproject.gameserver.events.global.siege.Castle;
 import net.l2emuproject.gameserver.events.global.siege.CastleManager;
-import net.l2emuproject.gameserver.manager.TerritoryWarManager;
+import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;

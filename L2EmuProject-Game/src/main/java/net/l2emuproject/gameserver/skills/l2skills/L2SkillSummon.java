@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.skills.l2skills;
 
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.model.base.Experience;
+import net.l2emuproject.gameserver.entity.base.Experience;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;

@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.party.L2Party;
-import net.l2emuproject.gameserver.model.party.L2PartyRoom;
+import net.l2emuproject.gameserver.entity.party.L2Party;
+import net.l2emuproject.gameserver.entity.party.L2PartyRoom;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.JoinParty;
 import net.l2emuproject.gameserver.world.object.L2Player;

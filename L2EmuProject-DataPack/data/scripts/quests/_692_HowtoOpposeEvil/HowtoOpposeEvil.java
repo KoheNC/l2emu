@@ -16,7 +16,7 @@ package quests._692_HowtoOpposeEvil;
 
 import gnu.trove.TIntObjectHashMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.services.quest.jython.QuestJython;

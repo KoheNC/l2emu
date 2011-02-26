@@ -24,7 +24,7 @@ import javolution.util.FastMap;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExCubeGameAddPlayer;
 import net.l2emuproject.gameserver.network.serverpackets.ExCubeGameChangeTeam;

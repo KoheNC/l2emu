@@ -26,7 +26,7 @@ import java.util.StringTokenizer;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.entity.ActionKey;
+import net.l2emuproject.gameserver.entity.player.keyboard.ActionKey;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;

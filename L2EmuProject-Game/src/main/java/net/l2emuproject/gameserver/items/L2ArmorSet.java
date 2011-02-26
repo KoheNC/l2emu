@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTable.SkillInfo;
-import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
+import net.l2emuproject.gameserver.entity.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 

@@ -18,8 +18,8 @@ import java.util.List;
 
 import javolution.util.FastList;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.base.ClassId;
-import net.l2emuproject.gameserver.model.base.Race;
+import net.l2emuproject.gameserver.entity.base.ClassId;
+import net.l2emuproject.gameserver.entity.base.Race;
 import net.l2emuproject.gameserver.templates.StatsSet;
 
 

@@ -18,9 +18,9 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
 import net.l2emuproject.gameserver.model.L2TeleportLocation;
-import net.l2emuproject.gameserver.model.restriction.AvailableRestriction;
-import net.l2emuproject.gameserver.model.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.system.restriction.AvailableRestriction;
+import net.l2emuproject.gameserver.system.restriction.ObjectRestrictions;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;

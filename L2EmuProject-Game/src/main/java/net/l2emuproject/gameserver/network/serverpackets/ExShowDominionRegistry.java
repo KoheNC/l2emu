@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.Calendar;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.manager.TerritoryWarManager;
-import net.l2emuproject.gameserver.manager.TerritoryWarManager.Territory;
-import net.l2emuproject.gameserver.model.clan.L2Clan;
+import net.l2emuproject.gameserver.entity.clan.L2Clan;
+import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager;
+import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager.Territory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**

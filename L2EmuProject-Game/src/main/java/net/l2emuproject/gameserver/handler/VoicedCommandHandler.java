@@ -26,7 +26,7 @@ import net.l2emuproject.gameserver.handler.voicedcommandhandlers.Report;
 import net.l2emuproject.gameserver.handler.voicedcommandhandlers.TvTCommand;
 import net.l2emuproject.gameserver.handler.voicedcommandhandlers.VersionInfo;
 import net.l2emuproject.gameserver.handler.voicedcommandhandlers.Wedding;
-import net.l2emuproject.gameserver.model.restriction.global.GlobalRestrictions;
+import net.l2emuproject.gameserver.system.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.HandlerRegistry;
 

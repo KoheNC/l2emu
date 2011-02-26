@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
+import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuction;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuctionInstance;
 import net.l2emuproject.gameserver.services.itemauction.ItemAuctionService;

@@ -20,7 +20,7 @@ import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlEvent;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.ai.FactionAggressionNotificationQueue;
-import net.l2emuproject.gameserver.manager.DimensionalRiftManager;
+import net.l2emuproject.gameserver.events.global.dimensionalrift.DimensionalRiftManager;
 import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.skills.L2Skill;

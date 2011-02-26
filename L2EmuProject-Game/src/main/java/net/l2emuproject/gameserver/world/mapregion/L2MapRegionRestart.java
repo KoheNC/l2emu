@@ -14,12 +14,12 @@
  */
 package net.l2emuproject.gameserver.world.mapregion;
 
+import net.l2emuproject.gameserver.entity.base.Race;
 import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
-import net.l2emuproject.gameserver.manager.TownManager;
-import net.l2emuproject.gameserver.model.base.Race;
-import net.l2emuproject.gameserver.model.entity.Town;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.town.Town;
+import net.l2emuproject.gameserver.world.town.TownManager;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.lang.ArrayUtils;

@@ -17,7 +17,7 @@ package quests.SagasScripts;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.party.L2Party;
+import net.l2emuproject.gameserver.entity.party.L2Party;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.services.quest.Quest;

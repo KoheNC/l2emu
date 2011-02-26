@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.handler.chathandlers;
 
 import java.util.Collection;
 
+import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager;
 import net.l2emuproject.gameserver.handler.IChatHandler;
-import net.l2emuproject.gameserver.manager.TerritoryWarManager;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.world.L2World;

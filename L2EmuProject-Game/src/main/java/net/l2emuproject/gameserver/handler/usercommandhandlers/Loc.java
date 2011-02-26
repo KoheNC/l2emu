@@ -16,14 +16,14 @@ package net.l2emuproject.gameserver.handler.usercommandhandlers;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.handler.IUserCommandHandler;
-import net.l2emuproject.gameserver.manager.TownManager;
-import net.l2emuproject.gameserver.model.entity.Town;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegion;
 import net.l2emuproject.gameserver.world.mapregion.L2MapRegionRestart;
 import net.l2emuproject.gameserver.world.mapregion.MapRegionManager;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.town.Town;
+import net.l2emuproject.gameserver.world.town.TownManager;
 
 public class Loc implements IUserCommandHandler
 {

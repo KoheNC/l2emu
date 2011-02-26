@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.model.base.PlayerState;
-import net.l2emuproject.gameserver.model.base.Race;
+import net.l2emuproject.gameserver.entity.base.PlayerState;
+import net.l2emuproject.gameserver.entity.base.Race;
 import net.l2emuproject.gameserver.skills.conditions.ConditionGameTime.CheckGameTime;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.templates.item.L2ArmorType;
