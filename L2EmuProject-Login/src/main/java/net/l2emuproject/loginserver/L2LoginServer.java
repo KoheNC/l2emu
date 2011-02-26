@@ -21,9 +21,9 @@ import net.l2emuproject.L2Registry;
 import net.l2emuproject.loginserver.manager.BanManager;
 import net.l2emuproject.loginserver.manager.GameServerManager;
 import net.l2emuproject.loginserver.manager.LoginManager;
+import net.l2emuproject.loginserver.status.LoginStatusServer;
+import net.l2emuproject.loginserver.system.util.Util;
 import net.l2emuproject.loginserver.thread.GameServerListener;
-import net.l2emuproject.loginserver.util.Util;
-import net.l2emuproject.status.LoginStatusServer;
 
 public final class L2LoginServer extends Config
 {

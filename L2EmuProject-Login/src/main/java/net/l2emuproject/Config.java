@@ -16,7 +16,7 @@ package net.l2emuproject;
 
 import net.l2emuproject.L2Config;
 import net.l2emuproject.config.L2Properties;
-import net.l2emuproject.loginserver.util.Util;
+import net.l2emuproject.loginserver.system.util.Util;
 
 /**
  * This class containce global server configuration.<br>

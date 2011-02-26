@@ -24,14 +24,14 @@ import java.util.GregorianCalendar;
 
 import net.l2emuproject.lang.L2TextBuilder;
 import net.l2emuproject.loginserver.beans.SessionKey;
-import net.l2emuproject.loginserver.clientpackets.L2LoginClientPacket;
-import net.l2emuproject.loginserver.crypt.LoginCrypt;
 import net.l2emuproject.loginserver.manager.LoginManager;
-import net.l2emuproject.loginserver.serverpackets.L2LoginServerPacket;
-import net.l2emuproject.loginserver.serverpackets.LoginFail;
-import net.l2emuproject.loginserver.serverpackets.PlayFail;
+import net.l2emuproject.loginserver.network.clientpackets.L2LoginClientPacket;
+import net.l2emuproject.loginserver.network.serverpackets.L2LoginServerPacket;
+import net.l2emuproject.loginserver.network.serverpackets.LoginFail;
+import net.l2emuproject.loginserver.network.serverpackets.PlayFail;
 import net.l2emuproject.tools.math.ScrambledKeyPair;
 import net.l2emuproject.tools.random.Rnd;
+import net.l2emuproject.tools.security.LoginCrypt;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

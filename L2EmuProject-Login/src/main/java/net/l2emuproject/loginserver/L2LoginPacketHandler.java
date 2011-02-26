@@ -18,13 +18,13 @@ import java.nio.ByteBuffer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.loginserver.L2LoginClient.LoginClientState;
-import net.l2emuproject.loginserver.clientpackets.AuthGameGuard;
-import net.l2emuproject.loginserver.clientpackets.L2LoginClientPacket;
-import net.l2emuproject.loginserver.clientpackets.RequestAuthLogin;
-import net.l2emuproject.loginserver.clientpackets.RequestServerList;
-import net.l2emuproject.loginserver.clientpackets.RequestServerLogin;
-import net.l2emuproject.loginserver.clientpackets.RequestSubmitCardNo;
-import net.l2emuproject.loginserver.serverpackets.L2LoginServerPacket;
+import net.l2emuproject.loginserver.network.clientpackets.AuthGameGuard;
+import net.l2emuproject.loginserver.network.clientpackets.L2LoginClientPacket;
+import net.l2emuproject.loginserver.network.clientpackets.RequestAuthLogin;
+import net.l2emuproject.loginserver.network.clientpackets.RequestServerList;
+import net.l2emuproject.loginserver.network.clientpackets.RequestServerLogin;
+import net.l2emuproject.loginserver.network.clientpackets.RequestSubmitCardNo;
+import net.l2emuproject.loginserver.network.serverpackets.L2LoginServerPacket;
 
 import org.mmocore.network.IPacketHandler;
 

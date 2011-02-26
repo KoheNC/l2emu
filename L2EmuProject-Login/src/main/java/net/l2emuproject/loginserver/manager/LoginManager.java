@@ -48,9 +48,9 @@ import net.l2emuproject.loginserver.services.exception.AccountWrongPasswordExcep
 import net.l2emuproject.loginserver.services.exception.IPRestrictedException;
 import net.l2emuproject.loginserver.services.exception.MaintenanceException;
 import net.l2emuproject.loginserver.services.exception.MaturityException;
+import net.l2emuproject.loginserver.status.LoginStatusServer;
 import net.l2emuproject.loginserver.thread.GameServerThread;
 import net.l2emuproject.network.ServerStatus;
-import net.l2emuproject.status.LoginStatusServer;
 import net.l2emuproject.tools.codec.Base64;
 import net.l2emuproject.tools.math.ScrambledKeyPair;
 import net.l2emuproject.tools.random.Rnd;

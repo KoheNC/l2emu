@@ -22,11 +22,11 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import net.l2emuproject.loginserver.clientpackets.L2LoginClientPacket;
 import net.l2emuproject.loginserver.manager.BanManager;
 import net.l2emuproject.loginserver.manager.LoginManager;
-import net.l2emuproject.loginserver.serverpackets.Init;
-import net.l2emuproject.loginserver.serverpackets.L2LoginServerPacket;
+import net.l2emuproject.loginserver.network.clientpackets.L2LoginClientPacket;
+import net.l2emuproject.loginserver.network.serverpackets.Init;
+import net.l2emuproject.loginserver.network.serverpackets.L2LoginServerPacket;
 import net.l2emuproject.tools.util.HexUtil;
 import net.l2emuproject.util.concurrent.ExecuteWrapper;
 
