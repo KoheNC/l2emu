@@ -58,6 +58,8 @@ public final class Quarry extends Quest
 
 		if (rescuedSlaves != null && rescuedSlaves != "")
 			_rescuedSlaves = Integer.parseInt(rescuedSlaves);
+		else
+			saveGlobalQuestVar("rescued_slaves", "0");
 	}
 
 	@Override
