@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.handler.bypasshandlers;
 
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2SymbolMakerInstance;
 import net.l2emuproject.gameserver.network.serverpackets.HennaEquipList;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2SymbolMakerInstance;
 
 public class DrawHenna implements IBypassHandler
 {

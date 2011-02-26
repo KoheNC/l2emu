@@ -46,7 +46,7 @@ public final class AdminContest implements IAdminCommandHandler
 	}
 
 	/* (non-Javadoc)
-	 * @see net.l2emuproject.gameserver.handler.IAdminCommandHandler#useAdminCommand(java.lang.String, net.l2emuproject.gameserver.model.actor.instance.L2PcInstance)
+	 * @see net.l2emuproject.gameserver.handler.IAdminCommandHandler#useAdminCommand(java.lang.String, net.l2emuproject.gameserver.world.object.instance.L2PcInstance)
 	 */
 	@Override
 	public boolean useAdminCommand(String command, L2Player activeChar)

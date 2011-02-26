@@ -35,8 +35,6 @@ import net.l2emuproject.gameserver.instancemanager.FortSiegeManager.SiegeSpawn;
 import net.l2emuproject.gameserver.items.CombatFlag;
 import net.l2emuproject.gameserver.model.L2SiegeClan;
 import net.l2emuproject.gameserver.model.L2SiegeClan.SiegeClanType;
-import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2FortCommanderInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
@@ -48,6 +46,8 @@ import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2FortCommanderInstance;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.gameserver.world.zone.L2SiegeZone;
 

@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.network.clientpackets;
 import static net.l2emuproject.gameserver.model.itemcontainer.PcInventory.MAX_ADENA;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2MerchantInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExBuySellListPacket;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
@@ -25,6 +24,7 @@ import net.l2emuproject.gameserver.services.transactions.L2TradeList;
 import net.l2emuproject.gameserver.world.object.L2Merchant;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2MerchantInstance;
 
 public class RequestSellItem extends L2GameClientPacket
 {

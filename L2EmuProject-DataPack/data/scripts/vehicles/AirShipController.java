@@ -22,8 +22,6 @@ import org.apache.commons.logging.LogFactory;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.instancemanager.AirShipManager;
 import net.l2emuproject.gameserver.instancemanager.ZoneManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2AirShipInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2ControllableAirShipInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
@@ -35,6 +33,8 @@ import net.l2emuproject.gameserver.world.VehiclePathPoint;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2AirShipInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2ControllableAirShipInstance;
 import net.l2emuproject.gameserver.world.zone.L2ScriptZone;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 

@@ -17,10 +17,10 @@ package net.l2emuproject.gameserver.instancemanager.grandbosses;
 import java.util.Set;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.QueenAntInstance;
-import net.l2emuproject.gameserver.model.actor.instance.QueenAntLarvaInstance;
-import net.l2emuproject.gameserver.model.actor.instance.QueenAntNurseInstance;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.instance.QueenAntInstance;
+import net.l2emuproject.gameserver.world.object.instance.QueenAntLarvaInstance;
+import net.l2emuproject.gameserver.world.object.instance.QueenAntNurseInstance;
 import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.gameserver.world.spawn.SpawnListener;

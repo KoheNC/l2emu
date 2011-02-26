@@ -24,10 +24,10 @@ import java.util.StringTokenizer;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2StaticObjectInstance;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
+import net.l2emuproject.gameserver.world.object.instance.L2StaticObjectInstance;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

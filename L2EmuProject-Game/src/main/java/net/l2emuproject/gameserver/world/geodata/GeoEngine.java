@@ -30,14 +30,14 @@ import java.util.StringTokenizer;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.geodata.pathfinding.Node;
 import net.l2emuproject.gameserver.world.geodata.pathfinding.cellnodes.CellPathFinding;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2DefenderInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;
 import net.l2emuproject.tools.geometry.Point3D;
 import net.l2emuproject.util.L2Arrays;
 import net.l2emuproject.util.LookupTable;

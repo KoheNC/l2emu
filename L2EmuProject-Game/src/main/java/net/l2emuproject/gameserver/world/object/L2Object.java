@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.world.object;
 
+import net.l2emuproject.gameserver.entity.poly.ObjectPoly;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.model.actor.poly.ObjectPoly;
 import net.l2emuproject.gameserver.model.entity.Instance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;

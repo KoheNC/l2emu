@@ -18,10 +18,10 @@ import java.util.ArrayList;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.NpcWalkerRoutesTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2NpcWalkerInstance;
 import net.l2emuproject.gameserver.system.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.world.npc.L2NpcWalkerNode;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.instance.L2NpcWalkerInstance;
 import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 
 

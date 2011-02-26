@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.skills.effects;
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlEvent;
-import net.l2emuproject.gameserver.model.actor.instance.L2EffectPointInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;
 import net.l2emuproject.gameserver.skills.Env;
@@ -35,6 +34,7 @@ import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.object.L2Summon;
+import net.l2emuproject.gameserver.world.object.instance.L2EffectPointInstance;
 import net.l2emuproject.tools.geometry.Point3D;
 
 

@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.world.npc;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.actor.instance.L2ControllableMobInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2ControllableMobInstance;
 
 
 /**

@@ -15,11 +15,11 @@
 package net.l2emuproject.gameserver.world.geodata;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.geodata.pathfinding.Node;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;
 import net.l2emuproject.tools.geometry.Point3D;
 
 import org.apache.commons.logging.Log;

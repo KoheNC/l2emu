@@ -18,9 +18,6 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.handler.IBypassHandler;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2CastleChamberlainInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2ManorManagerInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2MerchantInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Castle;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -38,6 +35,9 @@ import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2CastleChamberlainInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2ManorManagerInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2MerchantInstance;
 
 public final class ManorMenuSelect implements IBypassHandler
 {

@@ -22,12 +22,12 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.entity.events.L2Event;
 import net.l2emuproject.gameserver.model.restriction.global.KrateiCubeRestriction;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExPVPMatchCCMyRecord;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;
 import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;

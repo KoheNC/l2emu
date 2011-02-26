@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2PetInstance;
 
 public final class PetItemList extends L2GameServerPacket
 {

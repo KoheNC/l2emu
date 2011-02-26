@@ -19,11 +19,6 @@ import net.l2emuproject.gameserver.datatables.SkillSpellbookTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2FishermanInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2StarCollectorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2TransformManagerInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2VillageMasterInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -40,6 +35,11 @@ import net.l2emuproject.gameserver.system.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2FishermanInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2NpcInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2StarCollectorInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2TransformManagerInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2VillageMasterInstance;
 
 /**
 * This class represents a packet sent by client when the players confirms the skill

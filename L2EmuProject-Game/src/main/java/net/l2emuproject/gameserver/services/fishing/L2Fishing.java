@@ -19,13 +19,13 @@ import java.util.concurrent.Future;
 import net.l2emuproject.gameserver.ThreadPoolManager;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.instancemanager.leaderboards.FishermanManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2PenaltyMonsterInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExFishingHpRegen;
 import net.l2emuproject.gameserver.network.serverpackets.ExFishingStartCombat;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2PenaltyMonsterInstance;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.tools.random.Rnd;
 

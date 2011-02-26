@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.instancemanager.BoatManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2BoatInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.GetOnVehicle;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2BoatInstance;
 import net.l2emuproject.tools.geometry.Point3D;
 
 

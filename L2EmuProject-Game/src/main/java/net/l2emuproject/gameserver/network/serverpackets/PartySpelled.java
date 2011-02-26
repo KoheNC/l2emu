@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2PetInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2SummonInstance;
 
 public final class PartySpelled extends EffectInfoPacket
 {

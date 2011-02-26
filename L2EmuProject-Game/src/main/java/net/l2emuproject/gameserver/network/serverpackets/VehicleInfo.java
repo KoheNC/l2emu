@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2BoatInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2BoatInstance;
 
 /**
  * @author Maktakien

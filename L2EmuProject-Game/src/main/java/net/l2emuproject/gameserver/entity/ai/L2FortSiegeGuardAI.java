@@ -18,11 +18,6 @@ import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_A
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_ATTACK;
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_IDLE;
 import net.l2emuproject.gameserver.GameTimeController;
-import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2FortBallistaInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2FortCommanderInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.system.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.system.util.Util;
@@ -35,6 +30,11 @@ import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.object.L2Summon;
+import net.l2emuproject.gameserver.world.object.instance.L2DefenderInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2FortBallistaInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2FortCommanderInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2NpcInstance;
 import net.l2emuproject.tools.random.Rnd;
 
 

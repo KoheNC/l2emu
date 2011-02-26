@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.world.knownlist;
 
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.world.object.L2Object;
+import net.l2emuproject.gameserver.world.object.instance.L2DefenderInstance;
 
 public final class DefenderKnownList extends AttackableKnownList
 {

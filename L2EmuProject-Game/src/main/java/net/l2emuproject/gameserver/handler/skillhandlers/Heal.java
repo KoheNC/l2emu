@@ -16,8 +16,6 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 
 import net.l2emuproject.gameserver.handler.ISkillHandler;
 import net.l2emuproject.gameserver.handler.SkillHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
@@ -27,6 +25,8 @@ import net.l2emuproject.gameserver.skills.l2skills.L2SkillRecover;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public class Heal implements ISkillHandler

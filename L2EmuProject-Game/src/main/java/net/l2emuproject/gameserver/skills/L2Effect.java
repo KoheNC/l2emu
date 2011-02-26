@@ -18,8 +18,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.model.actor.effects.CharEffects;
-import net.l2emuproject.gameserver.model.actor.instance.L2SummonInstance;
+import net.l2emuproject.gameserver.entity.effects.CharEffects;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.EffectInfoPacket.EffectInfoPacketList;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;
@@ -36,6 +35,7 @@ import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.instance.L2SummonInstance;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.util.L2Arrays;
 

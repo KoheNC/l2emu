@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.datatables.HennaTreeTable;
-import net.l2emuproject.gameserver.model.actor.stat.PcStat;
+import net.l2emuproject.gameserver.entity.stat.PcStat;
 import net.l2emuproject.gameserver.templates.item.L2Henna;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

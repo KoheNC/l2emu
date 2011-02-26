@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.world.object;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2MerchantInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2MerchantSummonInstance;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
+import net.l2emuproject.gameserver.world.object.instance.L2MerchantInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2MerchantSummonInstance;
 
 /**
  * Interface for {@link L2MerchantInstance} and {@link L2MerchantSummonInstance} to avoid a bunch of instanceof checks.

@@ -25,8 +25,6 @@ import javolution.util.FastMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2AirShipInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2ControllableAirShipInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ExAirShipTeleportList;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
@@ -34,6 +32,8 @@ import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.world.VehiclePathPoint;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2AirShipInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2ControllableAirShipInstance;
 
 public class AirShipManager
 {

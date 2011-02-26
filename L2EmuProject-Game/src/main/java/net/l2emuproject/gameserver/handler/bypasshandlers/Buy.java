@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.handler.bypasshandlers;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.handler.IBypassHandler;
-import net.l2emuproject.gameserver.model.actor.instance.L2MerchantInstance;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2MerchantInstance;
 
 public class Buy implements IBypassHandler
 {

@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.entity.ai;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2AirShipInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ExMoveToLocationAirShip;
 import net.l2emuproject.gameserver.network.serverpackets.ExStopMoveAirShip;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2AirShipInstance;
 import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 
 /**

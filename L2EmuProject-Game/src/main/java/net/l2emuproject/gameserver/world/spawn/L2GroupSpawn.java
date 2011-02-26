@@ -16,11 +16,11 @@ package net.l2emuproject.gameserver.world.spawn;
 
 import java.lang.reflect.Constructor;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2MinionInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
+import net.l2emuproject.gameserver.world.object.instance.L2MinionInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2PetInstance;
 import net.l2emuproject.tools.random.Rnd;
 
 
@@ -36,7 +36,7 @@ public class L2GroupSpawn extends L2Spawn
 	public L2GroupSpawn(L2NpcTemplate mobTemplate) throws SecurityException, ClassNotFoundException
 	{
 		super(mobTemplate);
-		_constructor = Class.forName("net.l2emuproject.gameserver.model.actor.instance.L2ControllableMobInstance").getConstructors()[0];
+		_constructor = Class.forName("net.l2emuproject.gameserver.world.object.instance.L2ControllableMobInstance").getConstructors()[0];
 		_template = mobTemplate;
 
 		setAmount(1);

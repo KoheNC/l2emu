@@ -14,12 +14,12 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2AirShipInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExMoveToLocationInAirShip;
 import net.l2emuproject.gameserver.network.serverpackets.StopMoveInVehicle;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2AirShipInstance;
 import net.l2emuproject.tools.geometry.Point3D;
 
 public final class MoveToLocationInAirShip extends L2GameClientPacket

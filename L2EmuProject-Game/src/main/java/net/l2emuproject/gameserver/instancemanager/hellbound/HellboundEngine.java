@@ -18,8 +18,8 @@ import net.l2emuproject.config.L2Properties;
 import net.l2emuproject.gameserver.Announcements;
 import net.l2emuproject.gameserver.PersistentProperties;
 import net.l2emuproject.gameserver.datatables.DoorTable;
-import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.system.taskmanager.AbstractPeriodicTaskManager;
+import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;
 
 /**
  * @author lord_rex

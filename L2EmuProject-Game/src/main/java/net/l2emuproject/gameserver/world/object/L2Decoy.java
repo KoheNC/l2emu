@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.world.object;
 
-import net.l2emuproject.gameserver.model.actor.view.CharLikeView;
-import net.l2emuproject.gameserver.model.actor.view.DecoyView;
+import net.l2emuproject.gameserver.entity.view.CharLikeView;
+import net.l2emuproject.gameserver.entity.view.DecoyView;
 import net.l2emuproject.gameserver.network.serverpackets.CharInfo;
 import net.l2emuproject.gameserver.system.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;

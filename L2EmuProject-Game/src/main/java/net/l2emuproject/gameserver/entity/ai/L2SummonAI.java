@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.entity.ai;
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_ATTACK;
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_FOLLOW;
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_IDLE;
-import net.l2emuproject.gameserver.model.actor.instance.L2MerchantSummonInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.object.L2Character.AIAccessor;
+import net.l2emuproject.gameserver.world.object.instance.L2MerchantSummonInstance;
 
 
 public class L2SummonAI extends L2CharacterAI

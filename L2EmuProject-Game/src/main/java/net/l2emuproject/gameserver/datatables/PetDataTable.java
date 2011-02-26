@@ -20,9 +20,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.npc.L2PetData;
+import net.l2emuproject.gameserver.world.object.instance.L2PetInstance;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

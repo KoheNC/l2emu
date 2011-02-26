@@ -17,8 +17,6 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.instancemanager.TownManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.L2GameClient;
@@ -29,6 +27,8 @@ import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.object.L2Trap;
+import net.l2emuproject.gameserver.world.object.instance.L2MonsterInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2NpcInstance;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 public abstract class AbstractNpcInfo extends L2GameServerPacket

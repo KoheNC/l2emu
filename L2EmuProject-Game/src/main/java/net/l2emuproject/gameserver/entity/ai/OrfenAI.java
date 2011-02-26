@@ -14,12 +14,12 @@
  */
 package net.l2emuproject.gameserver.entity.ai;
 
-import net.l2emuproject.gameserver.model.actor.instance.OrfenInstance;
-import net.l2emuproject.gameserver.model.actor.instance.OrfenInstance.Position;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Character.AIAccessor;
+import net.l2emuproject.gameserver.world.object.instance.OrfenInstance;
+import net.l2emuproject.gameserver.world.object.instance.OrfenInstance.Position;
 import net.l2emuproject.tools.random.Rnd;
 
 

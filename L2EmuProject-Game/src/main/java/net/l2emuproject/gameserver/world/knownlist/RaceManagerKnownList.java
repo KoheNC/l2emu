@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.world.knownlist;
 
 import net.l2emuproject.gameserver.MonsterRace;
-import net.l2emuproject.gameserver.model.actor.instance.L2RaceManagerInstance;
 import net.l2emuproject.gameserver.network.serverpackets.DeleteObject;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.gameserver.world.object.instance.L2RaceManagerInstance;
 
 public class RaceManagerKnownList extends NpcKnownList
 {

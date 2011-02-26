@@ -25,8 +25,8 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.InstanceListManager;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
-import net.l2emuproject.gameserver.model.actor.instance.L2MerchantInstance;
 import net.l2emuproject.gameserver.model.entity.Castle;
+import net.l2emuproject.gameserver.world.object.instance.L2MerchantInstance;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

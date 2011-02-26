@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.entity.appearance.PcAppearance;
-import net.l2emuproject.gameserver.model.actor.stat.PcStat;
-import net.l2emuproject.gameserver.model.actor.status.PcStatus;
-import net.l2emuproject.gameserver.model.actor.view.PcView;
+import net.l2emuproject.gameserver.entity.stat.PcStat;
+import net.l2emuproject.gameserver.entity.status.PcStatus;
+import net.l2emuproject.gameserver.entity.view.PcView;
 import net.l2emuproject.gameserver.model.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.world.object.L2Player;
