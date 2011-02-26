@@ -14,7 +14,7 @@
  */
 package instances.Kamaloka;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.party.L2Party;

@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.skills.effects;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;

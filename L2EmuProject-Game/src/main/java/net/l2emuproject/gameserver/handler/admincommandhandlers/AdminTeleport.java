@@ -28,9 +28,9 @@ import java.util.StringTokenizer;
 
 import javolution.text.TextBuilder;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.instancemanager.GrandBossSpawnManager;
 import net.l2emuproject.gameserver.instancemanager.RaidBossSpawnManager;

@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.world.npc;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.ai.L2ControllableMobAI;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.L2ControllableMobAI;
 import net.l2emuproject.gameserver.model.actor.instance.L2ControllableMobInstance;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;

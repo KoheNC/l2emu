@@ -14,13 +14,13 @@
  */
 package net.l2emuproject.gameserver.model.actor.instance;
 
-import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
+import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_IDLE;
 
 import java.util.concurrent.Future;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.StopMove;
 import net.l2emuproject.gameserver.skills.L2Skill;

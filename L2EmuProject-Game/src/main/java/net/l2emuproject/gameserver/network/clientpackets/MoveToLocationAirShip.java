@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.AirShipManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2AirShipInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;

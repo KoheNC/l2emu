@@ -16,8 +16,8 @@ package ai.zone.stakato_nest;
 
 import java.util.List;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.skills.L2Skill;

@@ -7,7 +7,7 @@ import java.util.concurrent.ScheduledFuture;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;

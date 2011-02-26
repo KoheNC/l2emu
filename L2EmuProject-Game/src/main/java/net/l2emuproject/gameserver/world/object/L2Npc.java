@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.world.object;
 
-import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
+import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_ACTIVE;
 
 import java.text.DateFormat;
 import java.util.List;
@@ -25,12 +25,12 @@ import net.l2emuproject.gameserver.SevenSigns;
 import net.l2emuproject.gameserver.SevenSignsFestival;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.BuffTemplateTable;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.handler.BypassHandler;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;

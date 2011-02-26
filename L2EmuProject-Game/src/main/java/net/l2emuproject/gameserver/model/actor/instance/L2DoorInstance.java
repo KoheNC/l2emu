@@ -18,10 +18,10 @@ import java.util.concurrent.ScheduledFuture;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.ai.L2CharacterAI;
-import net.l2emuproject.gameserver.ai.L2DoorAI;
 import net.l2emuproject.gameserver.datatables.ClanTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
+import net.l2emuproject.gameserver.entity.ai.L2DoorAI;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.SiegeManager;

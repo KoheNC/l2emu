@@ -12,11 +12,11 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.ai;
+package net.l2emuproject.gameserver.entity.ai;
 
-import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
-import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_FOLLOW;
-import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
+import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_ATTACK;
+import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_FOLLOW;
+import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_IDLE;
 import net.l2emuproject.gameserver.model.actor.instance.L2MerchantSummonInstance;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;

@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.entity.player;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.network.serverpackets.GMHide;
 import net.l2emuproject.gameserver.network.serverpackets.ObservationMode;
 import net.l2emuproject.gameserver.network.serverpackets.ObservationReturn;

@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.geoeditorcon.GeoEditorListener;
 import net.l2emuproject.gameserver.network.serverpackets.ExValidateLocationInAirShip;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocationInVehicle;
+import net.l2emuproject.gameserver.tools.geoeditorcon.GeoEditorListener;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 

@@ -22,9 +22,9 @@ import java.util.concurrent.Future;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.PetDataTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.handler.ItemHandler;
 import net.l2emuproject.gameserver.instancemanager.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.items.L2ItemInstance;

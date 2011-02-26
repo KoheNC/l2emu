@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.skills.effects;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.actor.instance.L2DefenderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2FortCommanderInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;

@@ -15,7 +15,7 @@
 package official_events.HollyCow;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;

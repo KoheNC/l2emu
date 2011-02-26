@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.skills.effects;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.network.serverpackets.DeleteObject;
 import net.l2emuproject.gameserver.skills.AbnormalEffect;
 import net.l2emuproject.gameserver.skills.Env;

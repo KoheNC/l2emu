@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.world.object;
 
-import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
-import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_FOLLOW;
-import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_IDLE;
-import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_MOVE_TO;
+import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_ACTIVE;
+import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_FOLLOW;
+import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_IDLE;
+import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_MOVE_TO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,11 +33,11 @@ import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.ai.CtrlEvent;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.ai.L2CharacterAI;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlEvent;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
 import net.l2emuproject.gameserver.handler.SkillHandler;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;

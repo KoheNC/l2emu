@@ -20,9 +20,9 @@ import java.util.List;
 import java.util.concurrent.Future;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.PetSkillsTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;

@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.skills.effects;
 
-import net.l2emuproject.gameserver.ai.CtrlEvent;
+import net.l2emuproject.gameserver.entity.ai.CtrlEvent;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.Env;

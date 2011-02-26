@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.actor.instance;
 
-import net.l2emuproject.gameserver.ai.L2AirShipAI;
+import net.l2emuproject.gameserver.entity.ai.L2AirShipAI;
 import net.l2emuproject.gameserver.instancemanager.AirShipManager;
 import net.l2emuproject.gameserver.network.serverpackets.ExAirShipInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ExGetOffAirShip;

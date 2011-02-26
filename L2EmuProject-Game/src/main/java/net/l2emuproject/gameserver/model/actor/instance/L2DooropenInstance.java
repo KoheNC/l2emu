@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.model.actor.instance;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.DoorTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;

@@ -18,7 +18,7 @@ import ai.L2AttackableAIScript;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import javolution.util.FastSet;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Npc;

@@ -19,12 +19,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import net.l2emuproject.gameserver.ai.CtrlEvent;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.ai.L2AttackableAI;
 import net.l2emuproject.gameserver.datatables.GMSkillTable;
 import net.l2emuproject.gameserver.datatables.HeroSkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlEvent;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.L2AttackableAI;
 import net.l2emuproject.gameserver.handler.ICubicSkillHandler;
 import net.l2emuproject.gameserver.handler.SkillHandler;
 import net.l2emuproject.gameserver.items.L2ItemInstance;

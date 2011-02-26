@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model.actor.instance;
 
-import net.l2emuproject.gameserver.ai.L2CharacterAI;
-import net.l2emuproject.gameserver.ai.OrfenAI;
+import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
+import net.l2emuproject.gameserver.entity.ai.OrfenAI;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.Location;
 

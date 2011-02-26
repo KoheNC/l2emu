@@ -16,8 +16,8 @@ package ai.zone;
 
 import ai.L2AttackableAIScript;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.ai.L2AttackableAI;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.L2AttackableAI;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Npc;

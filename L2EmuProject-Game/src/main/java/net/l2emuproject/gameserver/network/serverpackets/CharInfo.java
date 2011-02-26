@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.model.actor.appearance.PcAppearance;
+import net.l2emuproject.gameserver.entity.appearance.PcAppearance;
 import net.l2emuproject.gameserver.model.actor.view.DecoyView;
 import net.l2emuproject.gameserver.model.actor.view.PcLikeView;
 import net.l2emuproject.gameserver.model.itemcontainer.PcInventory;

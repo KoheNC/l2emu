@@ -12,10 +12,10 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.ai;
+package net.l2emuproject.gameserver.entity.ai;
 
-import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
-import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
+import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_ACTIVE;
+import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_ATTACK;
 
 import java.util.List;
 

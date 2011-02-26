@@ -14,12 +14,12 @@
  */
 package ai;
 
-import static net.l2emuproject.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
+import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_ATTACK;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ai.CtrlEvent;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.ai.FactionAggressionNotificationQueue;
 import net.l2emuproject.gameserver.datatables.NpcTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlEvent;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.FactionAggressionNotificationQueue;
 import net.l2emuproject.gameserver.instancemanager.DimensionalRiftManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2RiftInvaderInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;

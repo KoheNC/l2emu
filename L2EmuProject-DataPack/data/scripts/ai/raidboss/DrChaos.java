@@ -16,8 +16,8 @@ package ai.raidboss;
 
 import java.util.Map;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;

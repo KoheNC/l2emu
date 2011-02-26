@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.model.actor.view;
 
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.model.actor.appearance.PcAppearance;
+import net.l2emuproject.gameserver.entity.appearance.PcAppearance;
 import net.l2emuproject.gameserver.model.actor.stat.PcStat;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;

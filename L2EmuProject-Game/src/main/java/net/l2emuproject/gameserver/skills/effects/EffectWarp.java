@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.skills.effects;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation;
 import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation.FlyType;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;

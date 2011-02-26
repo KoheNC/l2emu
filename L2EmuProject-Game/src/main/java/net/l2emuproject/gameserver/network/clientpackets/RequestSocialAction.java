@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.system.util.Util;

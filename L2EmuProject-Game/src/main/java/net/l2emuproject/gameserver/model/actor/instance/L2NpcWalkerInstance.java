@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model.actor.instance;
 
-import net.l2emuproject.gameserver.ai.L2CharacterAI;
-import net.l2emuproject.gameserver.ai.L2NpcWalkerAI;
+import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
+import net.l2emuproject.gameserver.entity.ai.L2NpcWalkerAI;
 import net.l2emuproject.gameserver.model.actor.status.CharStatus;
 import net.l2emuproject.gameserver.model.actor.status.NpcWalkerStatus;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;

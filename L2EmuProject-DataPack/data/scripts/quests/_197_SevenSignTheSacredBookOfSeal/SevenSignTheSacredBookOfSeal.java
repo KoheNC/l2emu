@@ -15,7 +15,7 @@
 package quests._197_SevenSignTheSacredBookOfSeal;
 
 import quests._196_SevenSignSealOfTheEmperor.SevenSignSealOfTheEmperor;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.quest.QuestState;
 import net.l2emuproject.gameserver.model.quest.State;
 import net.l2emuproject.gameserver.model.quest.jython.QuestJython;

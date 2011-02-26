@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.model.actor.instance;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.ClanHallManager;
 import net.l2emuproject.gameserver.model.entity.ClanHall;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;

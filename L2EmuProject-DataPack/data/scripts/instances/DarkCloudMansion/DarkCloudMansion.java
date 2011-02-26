@@ -16,7 +16,7 @@ package instances.DarkCloudMansion;
 
 import javolution.util.FastList;
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager;
 import net.l2emuproject.gameserver.instancemanager.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;

@@ -12,21 +12,20 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.ai;
+package net.l2emuproject.gameserver.entity.ai;
 
-import net.l2emuproject.gameserver.model.actor.instance.L2BoatInstance;
-import net.l2emuproject.gameserver.network.serverpackets.VehicleDeparture;
-import net.l2emuproject.gameserver.network.serverpackets.VehicleInfo;
-import net.l2emuproject.gameserver.network.serverpackets.VehicleStarted;
+import net.l2emuproject.gameserver.model.actor.instance.L2AirShipInstance;
+import net.l2emuproject.gameserver.network.serverpackets.ExMoveToLocationAirShip;
+import net.l2emuproject.gameserver.network.serverpackets.ExStopMoveAirShip;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 
 /**
  * @author DS
  */
-public class L2BoatAI extends L2VehicleAI
+public class L2AirShipAI extends L2VehicleAI
 {
-	public L2BoatAI(L2BoatInstance.AIAccessor accessor)
+	public L2AirShipAI(L2AirShipInstance.AIAccessor accessor)
 	{
 		super(accessor);
 	}
@@ -36,12 +35,9 @@ public class L2BoatAI extends L2VehicleAI
 	{
 		if (!_actor.isMovementDisabled())
 		{
-			if (!_clientMoving)
-				_actor.broadcastPacket(new VehicleStarted(getActor(), 1));
-
 			_clientMoving = true;
 			_accessor.moveTo(x, y, z);
-			_actor.broadcastPacket(new VehicleDeparture(getActor()));
+			_actor.broadcastPacket(new ExMoveToLocationAirShip(getActor()));
 		}
 	}
 
@@ -54,8 +50,7 @@ public class L2BoatAI extends L2VehicleAI
 		if (_clientMoving || pos != null)
 		{
 			_clientMoving = false;
-			_actor.broadcastPacket(new VehicleStarted(getActor(), 0));
-			_actor.broadcastPacket(new VehicleInfo(getActor()));
+			_actor.broadcastPacket(new ExStopMoveAirShip(getActor()));
 		}
 	}
 
@@ -63,12 +58,12 @@ public class L2BoatAI extends L2VehicleAI
 	public void describeStateToPlayer(L2Player player)
 	{
 		if (_clientMoving)
-			player.sendPacket(new VehicleDeparture(getActor()));
+			player.sendPacket(new ExMoveToLocationAirShip(getActor()));
 	}
 
 	@Override
-	public L2BoatInstance getActor()
+	public L2AirShipInstance getActor()
 	{
-		return (L2BoatInstance)_actor;
+		return (L2AirShipInstance) _actor;
 	}
 }

@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.ai;
+package net.l2emuproject.gameserver.entity.ai;
 
 /** Enumaration of generic intentions of an NPC/PC, an intention may require
  * several steps to be completed */

@@ -18,7 +18,7 @@ import java.util.Collection;
 
 import ai.L2AttackableAIScript;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;

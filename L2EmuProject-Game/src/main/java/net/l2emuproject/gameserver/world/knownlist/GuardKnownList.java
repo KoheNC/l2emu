@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.world.knownlist;
 
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.ai.L2CharacterAI;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
 import net.l2emuproject.gameserver.model.actor.instance.L2GuardInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.world.object.L2Object;

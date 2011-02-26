@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.handler.ISkillHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2ChestInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;

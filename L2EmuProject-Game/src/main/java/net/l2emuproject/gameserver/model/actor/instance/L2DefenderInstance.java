@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.model.actor.instance;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.ai.L2CharacterAI;
-import net.l2emuproject.gameserver.ai.L2FortSiegeGuardAI;
-import net.l2emuproject.gameserver.ai.L2SiegeGuardAI;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
+import net.l2emuproject.gameserver.entity.ai.L2FortSiegeGuardAI;
+import net.l2emuproject.gameserver.entity.ai.L2SiegeGuardAI;
 import net.l2emuproject.gameserver.instancemanager.CastleManager;
 import net.l2emuproject.gameserver.instancemanager.FortManager;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;

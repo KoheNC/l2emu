@@ -16,7 +16,7 @@ package ai.zone.hellbound.Slaves;
 
 import java.util.Set;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2MinionInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;

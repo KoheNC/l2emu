@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.world.object;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.actor.instance.L2NpcInstance;
 import net.l2emuproject.gameserver.model.actor.stat.PlayableStat;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;

@@ -17,9 +17,9 @@ package net.l2emuproject.gameserver.network.clientpackets;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.communitybbs.CommunityBoard;
 import net.l2emuproject.gameserver.datatables.ClanTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.handler.AdminCommandHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2MerchantSummonInstance;
 import net.l2emuproject.gameserver.model.olympiad.Olympiad;

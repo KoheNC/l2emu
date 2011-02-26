@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.model.actor.instance;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.CharTemplateTable;
 import net.l2emuproject.gameserver.datatables.ItemTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.base.ClassId;
 import net.l2emuproject.gameserver.model.quest.Quest;

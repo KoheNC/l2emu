@@ -18,9 +18,9 @@ import java.text.SimpleDateFormat;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.L2TeleportLocation;
 import net.l2emuproject.gameserver.model.clan.L2Clan;
 import net.l2emuproject.gameserver.model.entity.Fort;

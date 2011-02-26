@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.geoeditorcon.GeoEditorListener;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
+import net.l2emuproject.gameserver.tools.geoeditorcon.GeoEditorListener;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 

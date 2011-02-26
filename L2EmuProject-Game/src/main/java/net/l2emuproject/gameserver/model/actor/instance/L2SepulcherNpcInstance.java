@@ -20,8 +20,8 @@ import java.util.concurrent.Future;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.DoorTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.FourSepulchersManager;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.model.quest.Quest;

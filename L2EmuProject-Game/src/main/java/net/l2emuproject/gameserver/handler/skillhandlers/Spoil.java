@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
-import net.l2emuproject.gameserver.ai.CtrlEvent;
+import net.l2emuproject.gameserver.entity.ai.CtrlEvent;
 import net.l2emuproject.gameserver.handler.ISkillConditionChecker;
 import net.l2emuproject.gameserver.model.actor.instance.L2ChestInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2MonsterInstance;

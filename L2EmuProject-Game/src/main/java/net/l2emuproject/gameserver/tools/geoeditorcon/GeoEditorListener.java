@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.geoeditorcon;
+package net.l2emuproject.gameserver.tools.geoeditorcon;
 
 import java.io.IOException;
 import java.net.ServerSocket;

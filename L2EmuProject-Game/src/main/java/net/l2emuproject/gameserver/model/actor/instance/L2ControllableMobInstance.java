@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.model.actor.instance;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.ai.L2CharacterAI;
-import net.l2emuproject.gameserver.ai.L2ControllableMobAI;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
+import net.l2emuproject.gameserver.entity.ai.L2ControllableMobAI;
 import net.l2emuproject.gameserver.model.actor.status.CharStatus;
 import net.l2emuproject.gameserver.model.actor.status.ControllableMobStatus;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;

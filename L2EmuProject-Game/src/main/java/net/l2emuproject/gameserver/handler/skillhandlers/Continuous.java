@@ -14,9 +14,9 @@
  */
 package net.l2emuproject.gameserver.handler.skillhandlers;
 
-import net.l2emuproject.gameserver.ai.CtrlEvent;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlEvent;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.handler.ICubicSkillHandler;
 import net.l2emuproject.gameserver.model.actor.instance.L2ClanHallManagerInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2CubicInstance;

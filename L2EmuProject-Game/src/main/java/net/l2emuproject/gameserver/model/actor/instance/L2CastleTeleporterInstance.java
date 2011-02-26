@@ -18,7 +18,7 @@ import java.util.Collection;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.instancemanager.MapRegionManager;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;

@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
-import net.l2emuproject.gameserver.ai.L2SummonAI;
 import net.l2emuproject.gameserver.datatables.PetSkillsTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.L2SummonAI;
 import net.l2emuproject.gameserver.instancemanager.TerritoryWarManager;
 import net.l2emuproject.gameserver.model.actor.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.model.actor.instance.L2PetInstance;

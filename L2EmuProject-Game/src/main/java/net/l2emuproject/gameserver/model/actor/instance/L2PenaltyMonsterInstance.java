@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.model.actor.instance;
 
-import net.l2emuproject.gameserver.ai.CtrlEvent;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlEvent;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;

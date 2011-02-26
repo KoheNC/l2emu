@@ -21,7 +21,7 @@ import java.util.Map;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.GameTimeController;
 import net.l2emuproject.gameserver.ThreadPoolManager;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.quest.Quest;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;

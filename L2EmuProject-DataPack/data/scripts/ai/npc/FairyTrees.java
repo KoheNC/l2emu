@@ -15,8 +15,8 @@
 package ai.npc;
 
 import ai.L2AttackableAIScript;
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.SkillTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;

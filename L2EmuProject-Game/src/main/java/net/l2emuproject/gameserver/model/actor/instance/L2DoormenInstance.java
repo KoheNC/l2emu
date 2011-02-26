@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.model.actor.instance;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.ai.CtrlIntention;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
+import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.model.L2TeleportLocation;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
