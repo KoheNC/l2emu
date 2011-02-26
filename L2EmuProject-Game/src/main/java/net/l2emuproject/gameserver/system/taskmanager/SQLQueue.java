@@ -46,7 +46,7 @@ public final class SQLQueue extends SQLQueryQueue
 	{
 		ThreadPoolManager.getInstance().scheduleAtFixedRate(this, 60000, 60000);
 		
-		_log.info("SQLQueryQueue: Initialized.");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 	}
 	
 	@Override

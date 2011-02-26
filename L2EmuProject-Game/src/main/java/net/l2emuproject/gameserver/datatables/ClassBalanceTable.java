@@ -27,7 +27,7 @@ import org.apache.commons.logging.LogFactory;
 /**
  * @author L0ngh0rn
  */
-public class ClassBalanceTable
+public final class ClassBalanceTable
 {
 	private static Log						_log		= LogFactory.getLog(ClassBalanceTable.class);
 	private FastMap<Integer, ClassBalance>	_balance;
@@ -62,13 +62,13 @@ public class ClassBalanceTable
 			ResultSet rs = ps.executeQuery();
 			while (rs.next())
 			{
-				int class_id = rs.getInt("class_id");
-				double fxh = rs.getDouble("FxH");
-				double fxl = rs.getDouble("FxL");
-				double fxr = rs.getDouble("FxR");
-				double mxh = rs.getDouble("MxH");
-				double mxl = rs.getDouble("MxL");
-				double mxr = rs.getDouble("MxR");
+				final int class_id = rs.getInt("class_id");
+				final double fxh = rs.getDouble("FxH");
+				final double fxl = rs.getDouble("FxL");
+				final double fxr = rs.getDouble("FxR");
+				final double mxh = rs.getDouble("MxH");
+				final double mxl = rs.getDouble("MxL");
+				final double mxr = rs.getDouble("MxR");
 				_balance.put(class_id, new ClassBalance(class_id, new ArmorBalance(fxh, fxl, fxr), new ArmorBalance(mxh, mxl, mxr)));
 			}
 			ps.close();

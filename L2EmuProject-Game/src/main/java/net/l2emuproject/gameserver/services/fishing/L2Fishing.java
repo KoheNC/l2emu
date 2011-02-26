@@ -39,7 +39,7 @@ public class L2Fishing implements Runnable
 	
 	// =========================================================
 	// Data Field
-	private L2Player	_fisher;
+	private L2Player		_fisher;
 	private int				_time;
 	private int				_stop			= 0;
 	private int				_goodUse		= 0;

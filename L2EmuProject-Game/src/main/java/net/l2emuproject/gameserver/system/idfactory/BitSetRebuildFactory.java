@@ -84,7 +84,7 @@ public class BitSetRebuildFactory extends IdFactory
 					changedids++;
 				}
 			}
-			_log.info("database rebuild done, changed " + changedids + " ids, set idfactory config to BitSet! ^o^/");
+			_log.info(getClass().getSimpleName() + " : Database rebuild done, changed " + changedids + " ids, set idfactory config to BitSet! ^o^/");
 			System.exit(0);
 		}
 		catch (Exception e)

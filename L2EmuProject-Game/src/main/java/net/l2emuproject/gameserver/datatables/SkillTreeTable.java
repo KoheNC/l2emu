@@ -46,8 +46,8 @@ import org.apache.commons.logging.LogFactory;
 @SuppressWarnings("unchecked")
 public class SkillTreeTable
 {
-	public static final int									NORMAL_ENCHANT_COST_MULTIPLIER	= 1;
-	public static final int									SAFE_ENCHANT_COST_MULTIPLIER	= 3;
+	public static final byte								NORMAL_ENCHANT_COST_MULTIPLIER	= 1;
+	public static final byte								SAFE_ENCHANT_COST_MULTIPLIER	= 3;
 
 	public static final int									NORMAL_ENCHANT_BOOK				= 6622;
 	public static final int									SAFE_ENCHANT_BOOK				= 9627;
@@ -109,9 +109,9 @@ public class SkillTreeTable
 	@Deprecated
 	public int getMinSkillLevel(int skillId, ClassId classId, int skillLvl)
 	{
-		Map<Integer, L2SkillLearn> map = getSkillTrees()[classId.ordinal()];
+		final Map<Integer, L2SkillLearn> map = getSkillTrees()[classId.ordinal()];
 
-		int skillHashCode = SkillTable.getSkillUID(skillId, skillLvl);
+		final int skillHashCode = SkillTable.getSkillUID(skillId, skillLvl);
 
 		if (map.containsKey(skillHashCode))
 		{
@@ -123,8 +123,8 @@ public class SkillTreeTable
 	
 	public int getMinSkillLevel(int skillId, int skillLvl)
 	{
-		int skillHashCode = SkillTable.getSkillUID(skillId, skillLvl);
-		Integer minLevel = _minSkillLevel.get(skillHashCode);
+		final int skillHashCode = SkillTable.getSkillUID(skillId, skillLvl);
+		final Integer minLevel = _minSkillLevel.get(skillHashCode);
 		return minLevel == null ? 0 : minLevel.intValue();
 	}
 
@@ -164,11 +164,11 @@ public class SkillTreeTable
 
 				while (skilltree.next())
 				{
-					int id = skilltree.getInt("skill_id");
-					int lvl = skilltree.getInt("level");
-					String name = skilltree.getString("name");
-					int minLvl = skilltree.getInt("min_level");
-					int cost = skilltree.getInt("sp");
+					final int id = skilltree.getInt("skill_id");
+					final int lvl = skilltree.getInt("level");
+					final String name = skilltree.getString("name");
+					final int minLvl = skilltree.getInt("min_level");
+					final int cost = skilltree.getInt("sp");
 
 					if (prevSkillId != id)
 						prevSkillId = id;
@@ -216,14 +216,14 @@ public class SkillTreeTable
 
 			while (skilltree2.next())
 			{
-				int id = skilltree2.getInt("skill_id");
-				int lvl = skilltree2.getInt("level");
-				String name = skilltree2.getString("name");
-				int minLvl = skilltree2.getInt("min_level");
-				int cost = skilltree2.getInt("sp");
-				int costId = skilltree2.getInt("costid");
-				int costCount = skilltree2.getInt("cost");
-				int isDwarven = skilltree2.getInt("isfordwarf");
+				final int id = skilltree2.getInt("skill_id");
+				final int lvl = skilltree2.getInt("level");
+				final String name = skilltree2.getString("name");
+				final int minLvl = skilltree2.getInt("min_level");
+				final int cost = skilltree2.getInt("sp");
+				final int costId = skilltree2.getInt("costid");
+				final int costCount = skilltree2.getInt("cost");
+				final int isDwarven = skilltree2.getInt("isfordwarf");
 
 				if (prevSkillId != id)
 					prevSkillId = id;
@@ -259,8 +259,8 @@ public class SkillTreeTable
 			
 			while (skilltree3.next())
 			{
-				int id = skilltree3.getInt("skill_id");
-				int baseLvl = skilltree3.getInt("base_lvl");
+				final int id = skilltree3.getInt("skill_id");
+				final int baseLvl = skilltree3.getInt("base_lvl");
 				
 				L2EnchantSkillLearn skill = _enchantSkillTrees.get(id);
 				if (skill == null)
@@ -295,13 +295,13 @@ public class SkillTreeTable
 
 			while (skilltree4.next())
 			{
-				int id = skilltree4.getInt("skill_id");
-				int lvl = skilltree4.getInt("level");
-				String name = skilltree4.getString("name");
-				int baseLvl = skilltree4.getInt("clan_lvl");
-				int sp = skilltree4.getInt("repCost");
-				int itemId = skilltree4.getInt("itemId");
-				long itemCount = skilltree4.getLong("itemCount");
+				final int id = skilltree4.getInt("skill_id");
+				final int lvl = skilltree4.getInt("level");
+				final String name = skilltree4.getString("name");
+				final int baseLvl = skilltree4.getInt("clan_lvl");
+				final int sp = skilltree4.getInt("repCost");
+				final int itemId = skilltree4.getInt("itemId");
+				final long itemCount = skilltree4.getLong("itemCount");
 
 				if (prevSkillId != id)
 					prevSkillId = id;
@@ -334,13 +334,13 @@ public class SkillTreeTable
 
 			while (skilltree5.next())
 			{
-				int race_id = skilltree5.getInt("race_id");
-				int skill_id = skilltree5.getInt("skill_id");
-				int item_id = skilltree5.getInt("item_id");
-				int level = skilltree5.getInt("level");
-				String name = skilltree5.getString("name");
-				int sp = skilltree5.getInt("sp");
-				int min_level = skilltree5.getInt("min_level");
+				final int race_id = skilltree5.getInt("race_id");
+				final int skill_id = skilltree5.getInt("skill_id");
+				final int item_id = skilltree5.getInt("item_id");
+				final int level = skilltree5.getInt("level");
+				final String name = skilltree5.getString("name");
+				final int sp = skilltree5.getInt("sp");
+				final int min_level = skilltree5.getInt("min_level");
 
 				if (prevSkillId != skill_id)
 					prevSkillId = skill_id;
@@ -373,11 +373,11 @@ public class SkillTreeTable
 
 			while (skilltree6.next())
 			{
-				int id = skilltree6.getInt("skill_id");
-				int lvl = skilltree6.getInt("level");
-				String name = skilltree6.getString("name");
-				int costId = skilltree6.getInt("costid");
-				int costCount = skilltree6.getInt("cost");
+				final int id = skilltree6.getInt("skill_id");
+				final int lvl = skilltree6.getInt("level");
+				final String name = skilltree6.getString("name");
+				final int costId = skilltree6.getInt("costid");
+				final int costCount = skilltree6.getInt("cost");
 
 				if (prevSkillId != id)
 					prevSkillId = id;
@@ -410,10 +410,10 @@ public class SkillTreeTable
 
 			while (skilltree6.next())
 			{
-				int skill_id = skilltree6.getInt("skill_id");
-				int item_id = skilltree6.getInt("item_id");
-				int level = skilltree6.getInt("level");
-				String name = skilltree6.getString("name");
+				final int skill_id = skilltree6.getInt("skill_id");
+				final int item_id = skilltree6.getInt("item_id");
+				final int level = skilltree6.getInt("level");
+				final String name = skilltree6.getString("name");
 
 				if (prevSkillId != skill_id)
 					prevSkillId = skill_id;
@@ -890,8 +890,8 @@ public class SkillTreeTable
 	public int getSkillCost(L2Player player, L2Skill skill)
 	{
 		int skillCost = 100000000;
-		ClassId classId = player.getSkillLearningClassId();
-		int skillHashCode = SkillTable.getSkillUID(skill);
+		final ClassId classId = player.getSkillLearningClassId();
+		final int skillHashCode = SkillTable.getSkillUID(skill);
 
 		if (getSkillTrees()[classId.ordinal()].containsKey(skillHashCode))
 		{

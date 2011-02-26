@@ -53,20 +53,20 @@ public final class ArmorSetsTable
 			
 			while (rset.next())
 			{
-				int chest = rset.getInt("chest");
-				int legs = rset.getInt("legs");
-				int head = rset.getInt("head");
-				int gloves = rset.getInt("gloves");
-				int feet = rset.getInt("feet");
-				String[] skills = rset.getString("skill").split(";");
-				int shield = rset.getInt("shield");
-				int shield_skill_id = rset.getInt("shield_skill_id");
-				int enchant6skill = rset.getInt("enchant6skill");
-				int mwork_legs = rset.getInt("mw_legs");
-				int mwork_head = rset.getInt("mw_head");
-				int mwork_gloves = rset.getInt("mw_gloves");
-				int mwork_feet = rset.getInt("mw_feet");
-				int mwork_shield = rset.getInt("mw_shield");
+				final int chest = rset.getInt("chest");
+				final int legs = rset.getInt("legs");
+				final int head = rset.getInt("head");
+				final int gloves = rset.getInt("gloves");
+				final int feet = rset.getInt("feet");
+				final String[] skills = rset.getString("skill").split(";");
+				final int shield = rset.getInt("shield");
+				final int shield_skill_id = rset.getInt("shield_skill_id");
+				final int enchant6skill = rset.getInt("enchant6skill");
+				final int mwork_legs = rset.getInt("mw_legs");
+				final int mwork_head = rset.getInt("mw_head");
+				final int mwork_gloves = rset.getInt("mw_gloves");
+				final int mwork_feet = rset.getInt("mw_feet");
+				final int mwork_shield = rset.getInt("mw_shield");
 				_armorSets.put(chest, new L2ArmorSet(chest, legs, head, gloves, feet, skills, shield, shield_skill_id,
 						enchant6skill, mwork_legs, mwork_head, mwork_gloves, mwork_feet, mwork_shield));
 			}

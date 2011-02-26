@@ -108,13 +108,13 @@ public class CoupleService
 		{
 			if (player1.getPartnerId() == 0 && player2.getPartnerId() == 0)
 			{
-				int _player1id = player1.getObjectId();
-				int _player2id = player2.getObjectId();
+				final int player1id = player1.getObjectId();
+				final int player2id = player2.getObjectId();
 
 				Couple _new = new Couple(player1, player2);
 				getCouples().add(_new);
-				player1.setPartnerId(_player2id);
-				player2.setPartnerId(_player1id);
+				player1.setPartnerId(player2id);
+				player2.setPartnerId(player1id);
 				player1.setCoupleId(_new.getId());
 				player2.setCoupleId(_new.getId());
 			}

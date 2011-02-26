@@ -54,7 +54,7 @@ public final class L2World
 	public static final int GRACIA_MAX_Z = 6105;
 	public static final int GRACIA_MIN_Z = -895;
 	
-	public static final int SHIFT_BY = 12;
+	public static final byte SHIFT_BY = 12;
 	
 	/** Map dimensions */
     public static final int MAP_MIN_X = -327680;
@@ -67,7 +67,7 @@ public final class L2World
 	public static final int WORLD_SIZE_X = L2World.MAP_MAX_X - L2World.MAP_MIN_X + 1 >> SHIFT_BY;
 	public static final int WORLD_SIZE_Y = L2World.MAP_MAX_Y - L2World.MAP_MIN_Y + 1 >> SHIFT_BY;
 	
-	public static final int SHIFT_BY_FOR_Z = 9;
+	private static final byte SHIFT_BY_FOR_Z = 9;
 	
 	/** calculated offset used so top left region is 0,0 */
 	public static final int OFFSET_X = Math.abs(MAP_MIN_X >> SHIFT_BY);
@@ -97,7 +97,7 @@ public final class L2World
 	
 	private L2World()
 	{
-		_log.info("L2World: Setting up World Regions");
+		_log.info(getClass().getSimpleName() + " : Setting up World Regions");
 		
 		for (int i = 0; i <= REGIONS_X; i++)
 			for (int j = 0; j <= REGIONS_Y; j++)

@@ -56,47 +56,47 @@ public class AugmentationData
 	// Data Field
 	
 	// stats
-	private static final int STAT_START = 1;
-	private static final int STAT_END = 14560;
-	private static final int STAT_BLOCKSIZE = 3640;
+	private static final byte STAT_START = 1;
+	private static final short STAT_END = 14560;
+	private static final short STAT_BLOCKSIZE = 3640;
 	//private static final int STAT_NUMBEROF_BLOCKS = 4;
-	private static final int STAT_SUBBLOCKSIZE = 91;
+	private static final short STAT_SUBBLOCKSIZE = 91;
 	//private static final int STAT_NUMBEROF_SUBBLOCKS = 40;
-	private static final int STAT_NUM = 13;
+	private static final byte STAT_NUM = 13;
 	
 	private static final byte[] STATS1_MAP = new byte[STAT_SUBBLOCKSIZE];
 	private static final byte[] STATS2_MAP = new byte[STAT_SUBBLOCKSIZE];
 
 	// skills
-	private static final int BLUE_START = 14561;
+	private static final short BLUE_START = 14561;
 	// private static final int PURPLE_START = 14578;
 	// private static final int RED_START = 14685;
-	private static final int SKILLS_BLOCKSIZE = 178;
+	private static final short SKILLS_BLOCKSIZE = 178;
 	
 	// basestats
-	private static final int BASESTAT_STR = 16341;
-	private static final int BASESTAT_CON = 16342;
-	private static final int BASESTAT_INT = 16343;
-	private static final int BASESTAT_MEN = 16344;
+	private static final short BASESTAT_STR = 16341;
+	private static final short BASESTAT_CON = 16342;
+	private static final short BASESTAT_INT = 16343;
+	private static final short BASESTAT_MEN = 16344;
 	
 	// accessory
-	private static final int ACC_START = 16669;
-	private static final int ACC_BLOCKS_NUM = 10;
-	private static final int ACC_STAT_SUBBLOCKSIZE = 21;
-	private static final int ACC_STAT_NUM = 6;
+	private static final short ACC_START = 16669;
+	private static final byte ACC_BLOCKS_NUM = 10;
+	private static final byte ACC_STAT_SUBBLOCKSIZE = 21;
+	private static final byte ACC_STAT_NUM = 6;
 
-	private static final int ACC_RING_START = ACC_START;
-	private static final int ACC_RING_SKILLS = 18;
+	private static final short ACC_RING_START = ACC_START;
+	private static final byte ACC_RING_SKILLS = 18;
 	private static final int ACC_RING_BLOCKSIZE = ACC_RING_SKILLS + 4 * ACC_STAT_SUBBLOCKSIZE;
 	private static final int ACC_RING_END = ACC_RING_START + ACC_BLOCKS_NUM * ACC_RING_BLOCKSIZE - 1;
 
 	private static final int ACC_EAR_START = ACC_RING_END + 1;
-	private static final int ACC_EAR_SKILLS = 18;
+	private static final byte ACC_EAR_SKILLS = 18;
 	private static final int ACC_EAR_BLOCKSIZE = ACC_EAR_SKILLS + 4 * ACC_STAT_SUBBLOCKSIZE;
 	private static final int ACC_EAR_END = ACC_EAR_START + ACC_BLOCKS_NUM * ACC_EAR_BLOCKSIZE - 1;
 
 	private static final int ACC_NECK_START = ACC_EAR_END + 1;
-	private static final int ACC_NECK_SKILLS = 24;
+	private static final byte ACC_NECK_SKILLS = 24;
 	private static final int ACC_NECK_BLOCKSIZE = ACC_NECK_SKILLS + 4 * ACC_STAT_SUBBLOCKSIZE;
 
 	private static final int ACC_END = ACC_NECK_START + ACC_BLOCKS_NUM * ACC_NECK_BLOCKSIZE;

@@ -77,9 +77,9 @@ public class PetSkillsTable
 					
 					while (skilltree.next())
 					{
-						int id = skilltree.getInt("skillId");
-						int lvl = skilltree.getInt("skillLvl");
-						int minLvl = skilltree.getInt("minLvl");
+						final int id = skilltree.getInt("skillId");
+						final int lvl = skilltree.getInt("skillLvl");
+						final int minLvl = skilltree.getInt("minLvl");
 						
 						skillLearn = new L2PetSkillLearn(id, lvl, minLvl);
 						map.put(SkillTable.getSkillUID(id, lvl+1), skillLearn);

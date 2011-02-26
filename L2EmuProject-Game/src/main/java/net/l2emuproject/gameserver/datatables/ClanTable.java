@@ -209,7 +209,7 @@ public class ClanTable
 
 		clan.broadcastToOnlineMembers(SystemMessageId.CLAN_HAS_DISPERSED.getSystemMessage());
 
-		int castleId = clan.getHasCastle();
+		final int castleId = clan.getHasCastle();
 		if (castleId == 0)
 		{
 			for (Castle castle : CastleManager.getInstance().getCastles().values())
@@ -217,7 +217,7 @@ public class ClanTable
 				castle.getSiege().removeSiegeClan(clanId);
 			}
 		}
-		int fortId = clan.getHasFort();
+		final int fortId = clan.getHasFort();
 		if (fortId == 0)
 		{
 			for (FortSiege siege : FortSiegeManager.getInstance().getSieges())

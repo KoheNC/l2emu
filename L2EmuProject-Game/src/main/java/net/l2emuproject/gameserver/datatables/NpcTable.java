@@ -218,8 +218,8 @@ public final class NpcTable
 						continue;
 					}
 					
-					int skillId = npcskills.getInt("skillid");
-					int level = npcskills.getInt("level");
+					final int skillId = npcskills.getInt("skillid");
+					final int level = npcskills.getInt("level");
 					
 					if (skillId == 4416)
 					{
@@ -287,7 +287,7 @@ public final class NpcTable
 				
 				while (dropData.next())
 				{
-					int mobId = dropData.getInt("mobId");
+					final int mobId = dropData.getInt("mobId");
 					L2NpcTemplate npcDat = _npcs.get(mobId);
 					if (npcDat == null)
 					{
@@ -321,8 +321,8 @@ public final class NpcTable
 				
 				while (learndata.next())
 				{
-					int npcId = learndata.getInt("npc_id");
-					int classId = learndata.getInt("class_id");
+					final int npcId = learndata.getInt("npc_id");
+					final int classId = learndata.getInt("class_id");
 					L2NpcTemplate npc = getTemplate(npcId);
 
 					if (npc == null)
@@ -350,7 +350,7 @@ public final class NpcTable
 				
 				while (minionData.next())
 				{
-					int raidId = minionData.getInt("boss_id");
+					final int raidId = minionData.getInt("boss_id");
 					L2NpcTemplate npcDat = _npcs.get(raidId);
 					if (npcDat == null)
 					{
@@ -407,7 +407,7 @@ public final class NpcTable
 				int cont = 0;
 				while (NpcCharDataTable.next())
 				{
-					int npc_id = NpcCharDataTable.getInt("npc_id");
+					final int npc_id = NpcCharDataTable.getInt("npc_id");
 					npcDat = _npcs.get(npc_id);
 					if (npcDat == null)
 					{
@@ -466,14 +466,14 @@ public final class NpcTable
 		while (NpcData.next())
 		{
 			StatsSet npcDat = new StatsSet();
-			int id = NpcData.getInt("id");
+			final int id = NpcData.getInt("id");
 			
 			if (Config.ASSERT)
 				assert id < 1000000;
 			
 			npcDat.set("npcId", id);
 			npcDat.set("idTemplate", NpcData.getInt("idTemplate"));
-			int level = NpcData.getInt("level");
+			final int level = NpcData.getInt("level");
 			npcDat.set("level", level);
 			npcDat.set("jClass", NpcData.getString("class"));
 			

@@ -21,7 +21,7 @@ import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.LookupTable;
 
-public class Attributes implements FuncOwner
+public final class Attributes implements FuncOwner
 {
 	private static final LookupTable<AttributeItems> TABLE = new LookupTable<AttributeItems>();
 	
@@ -39,11 +39,11 @@ public class Attributes implements FuncOwner
 	public final static byte HOLY = 4;
 	public final static byte DARK = 5;
 	
-	public final static int FIRST_WEAPON_BONUS = 20;
-	public final static int NEXT_WEAPON_BONUS = 5;
-	public final static int ARMOR_BONUS = 6;
+	public final static byte FIRST_WEAPON_BONUS = 20;
+	public final static byte NEXT_WEAPON_BONUS = 5;
+	public final static byte ARMOR_BONUS = 6;
 	
-	public final static int[] WEAPON_VALUES = { 0, // Level 1
+	public final static short[] WEAPON_VALUES = { 0, // Level 1
 		25, // Level 2
 		75, // Level 3
 		150, // Level 4
@@ -58,7 +58,7 @@ public class Attributes implements FuncOwner
 		600, // Level 13
 	};
 	
-	public final static int[] ARMOR_VALUES = { 0, // Level 1
+	public final static short[] ARMOR_VALUES = { 0, // Level 1
 		12, // Level 2
 		30, // Level 3
 		60, // Level 4

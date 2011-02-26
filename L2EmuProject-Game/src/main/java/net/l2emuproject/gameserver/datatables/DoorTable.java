@@ -148,20 +148,20 @@ public final class DoorTable
 		{
 			StringTokenizer st = new StringTokenizer(line, ";");
 
-			String name = st.nextToken();
-			int id = Integer.parseInt(st.nextToken());
-			int x = Integer.parseInt(st.nextToken());
-			int y = Integer.parseInt(st.nextToken());
-			int z = Integer.parseInt(st.nextToken());
-			int rangeXMin = Integer.parseInt(st.nextToken());
-			int rangeYMin = Integer.parseInt(st.nextToken());
-			int rangeZMin = Integer.parseInt(st.nextToken());
-			int rangeXMax = Integer.parseInt(st.nextToken());
-			int rangeYMax = Integer.parseInt(st.nextToken());
-			int rangeZMax = Integer.parseInt(st.nextToken());
-			int hp = Integer.parseInt(st.nextToken());
-			int pdef = Integer.parseInt(st.nextToken());
-			int mdef = Integer.parseInt(st.nextToken());
+			final String name = st.nextToken();
+			final int id = Integer.parseInt(st.nextToken());
+			final int x = Integer.parseInt(st.nextToken());
+			final int y = Integer.parseInt(st.nextToken());
+			final int z = Integer.parseInt(st.nextToken());
+			final int rangeXMin = Integer.parseInt(st.nextToken());
+			final int rangeYMin = Integer.parseInt(st.nextToken());
+			final int rangeZMin = Integer.parseInt(st.nextToken());
+			final int rangeXMax = Integer.parseInt(st.nextToken());
+			final int rangeYMax = Integer.parseInt(st.nextToken());
+			final int rangeZMax = Integer.parseInt(st.nextToken());
+			final int hp = Integer.parseInt(st.nextToken());
+			final int pdef = Integer.parseInt(st.nextToken());
+			final int mdef = Integer.parseInt(st.nextToken());
 			boolean unlockable = false;
 			if (st.hasMoreTokens())
 				unlockable = Boolean.parseBoolean(st.nextToken());

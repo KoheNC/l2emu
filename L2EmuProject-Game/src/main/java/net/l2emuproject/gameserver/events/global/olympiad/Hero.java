@@ -176,7 +176,7 @@ public class Hero
 			L2DatabaseFactory.close(con2);
 		}
 
-		_log.info(getClass().getSimpleName() + " : Loaded " + _heroes.size() + " Heroe(s).");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _heroes.size() + " Hero(es).");
 		_log.info(getClass().getSimpleName() + " : Loaded " + _completeHeroes.size() + " all time Heroe(s).");
 	}
 

@@ -190,8 +190,8 @@ public final class SeedOfDestructionManager
 				break;
 		}
 
-		_log.info("Seed of Destruction: Initialized (currently in " + state + " state).");
-		_log.info("Seed of Destruction: Tiat killed " + getTiatKilled() + " times.");
+		_log.info(getClass().getSimpleName() + " : Initialized (currently in " + state + " state).");
+		_log.info(getClass().getSimpleName() + " : Tiat killed " + getTiatKilled() + " times.");
 	}
 
 	private final void loadProperties(L2Properties props)

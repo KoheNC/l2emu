@@ -67,7 +67,7 @@ public class StackIDFactory extends IdFactory
 			}
 
 			_curOID++;
-			_log.info("IdFactory: Next usable Object ID is: " + _curOID);
+			_log.info(getClass().getSimpleName() + " : Next usable Object ID is: " + _curOID);
 			_initialized = true;
 		}
 		catch (Exception e1)

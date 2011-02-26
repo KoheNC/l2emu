@@ -29,6 +29,7 @@ import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;
 import net.l2emuproject.gameserver.world.object.instance.L2StaticObjectInstance;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -79,14 +80,7 @@ public class StaticObjects
 		}
 		finally
 		{
-			try
-			{
-				if (lnr != null)
-					lnr.close();
-			}
-			catch (Exception e)
-			{
-			}
+			IOUtils.closeQuietly(lnr);
 		}
 	}
 
@@ -96,14 +90,14 @@ public class StaticObjects
 
 		st.nextToken(); //Pass over static object name (not used in server)
 
-		int id = Integer.parseInt(st.nextToken());
-		int x = Integer.parseInt(st.nextToken());
-		int y = Integer.parseInt(st.nextToken());
-		int z = Integer.parseInt(st.nextToken());
-		int type = Integer.parseInt(st.nextToken());
-		String texture = st.nextToken();
-		int map_x = Integer.parseInt(st.nextToken());
-		int map_y = Integer.parseInt(st.nextToken());
+		final int id = Integer.parseInt(st.nextToken());
+		final int x = Integer.parseInt(st.nextToken());
+		final int y = Integer.parseInt(st.nextToken());
+		final int z = Integer.parseInt(st.nextToken());
+		final int type = Integer.parseInt(st.nextToken());
+		final String texture = st.nextToken();
+		final int map_x = Integer.parseInt(st.nextToken());
+		final int map_y = Integer.parseInt(st.nextToken());
 
 		StatsSet npcDat = new StatsSet();
 		npcDat.set("npcId", id);

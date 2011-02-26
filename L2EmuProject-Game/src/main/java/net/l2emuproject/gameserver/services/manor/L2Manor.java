@@ -366,16 +366,16 @@ public class L2Manor
 	{
 		StringTokenizer st = new StringTokenizer(line, ";");
 
-		int seedId	 = Integer.parseInt(st.nextToken());		// seed id
-		int level	  = Integer.parseInt(st.nextToken());		// seed level
-		int cropId	 = Integer.parseInt(st.nextToken());		// crop id
-		int matureId   = Integer.parseInt(st.nextToken());		// mature crop id
-		int type1R	 = Integer.parseInt(st.nextToken());		// type I reward
-		int type2R	 = Integer.parseInt(st.nextToken());		// type II reward
-		int manorId	= Integer.parseInt(st.nextToken());			// id of manor, where seed can be farmed
-		int isAlt	  = Integer.parseInt(st.nextToken());		// alternative seed
-		int limitSeeds = Integer.parseInt(st.nextToken());		// limit for seeds
-		int limitCrops = Integer.parseInt(st.nextToken());		// limit for crops
+		final int seedId	 = Integer.parseInt(st.nextToken());		// seed id
+		final int level	  = Integer.parseInt(st.nextToken());		// seed level
+		final int cropId	 = Integer.parseInt(st.nextToken());		// crop id
+		final int matureId   = Integer.parseInt(st.nextToken());		// mature crop id
+		final int type1R	 = Integer.parseInt(st.nextToken());		// type I reward
+		final int type2R	 = Integer.parseInt(st.nextToken());		// type II reward
+		final int manorId	= Integer.parseInt(st.nextToken());			// id of manor, where seed can be farmed
+		final int isAlt	  = Integer.parseInt(st.nextToken());		// alternative seed
+		final int limitSeeds = Integer.parseInt(st.nextToken());		// limit for seeds
+		final int limitCrops = Integer.parseInt(st.nextToken());		// limit for crops
 
 		SeedData seed = new SeedData(level, cropId, matureId);
 		seed.setData(seedId, type1R, type2R, manorId, isAlt, limitSeeds, limitCrops);

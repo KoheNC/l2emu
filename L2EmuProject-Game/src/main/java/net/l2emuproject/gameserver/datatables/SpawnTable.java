@@ -115,7 +115,7 @@ public class SpawnTable
 						spawnDat.setLocz(rset.getInt("locz"));
 						spawnDat.setHeading(rset.getInt("heading"));
 						spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
-						int loc_id = rset.getInt("loc_id");
+						final int loc_id = rset.getInt("loc_id");
 						spawnDat.setLocation(loc_id);
 
 						switch (rset.getInt("periodOfDay"))
@@ -198,7 +198,7 @@ public class SpawnTable
 						spawnDat.setHeading(rset.getInt("heading"));
 						spawnDat.setRespawnDelay(rset.getInt("respawn_delay"));
 						spawnDat.setCustom();
-						int loc_id = rset.getInt("loc_id");
+						final int loc_id = rset.getInt("loc_id");
 						spawnDat.setLocation(loc_id);
 
 						switch (rset.getInt("periodOfDay"))

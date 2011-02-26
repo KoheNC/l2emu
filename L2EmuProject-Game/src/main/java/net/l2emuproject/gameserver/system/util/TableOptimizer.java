@@ -65,11 +65,11 @@ public final class TableOptimizer
 						if (msgText.equals("OK"))
 							continue;
 					
-					_log.warn("TableOptimizer: CHECK TABLE " + table + ": " + msgType + " -> " + msgText);
+					_log.warn("TableOptimizer : CHECK TABLE " + table + ": " + msgType + " -> " + msgText);
 				}
 				rs.close();
 				
-				_log.info("TableOptimizer: Database tables have been checked.");
+				_log.info("TableOptimizer : Database tables have been checked.");
 			}
 			
 			{
@@ -84,11 +84,11 @@ public final class TableOptimizer
 						if (msgText.equals("OK") || msgText.equals("Table is already up to date"))
 							continue;
 					
-					_log.warn("TableOptimizer: ANALYZE TABLE " + table + ": " + msgType + " -> " + msgText);
+					_log.warn("TableOptimizer : ANALYZE TABLE " + table + ": " + msgType + " -> " + msgText);
 				}
 				rs.close();
 				
-				_log.info("TableOptimizer: Database tables have been analyzed.");
+				_log.info("TableOptimizer : Database tables have been analyzed.");
 			}
 			
 			{
@@ -107,17 +107,17 @@ public final class TableOptimizer
 						if (msgText.equals("Table does not support optimize, doing recreate + analyze instead"))
 							continue;
 					
-					_log.warn("TableOptimizer: OPTIMIZE TABLE " + table + ": " + msgType + " -> " + msgText);
+					_log.warn("TableOptimizer : OPTIMIZE TABLE " + table + ": " + msgType + " -> " + msgText);
 				}
 				rs.close();
 				
-				_log.info("TableOptimizer: Database tables have been optimized.");
+				_log.info("TableOptimizer : Database tables have been optimized.");
 			}
 			st.close();
 		}
 		catch (Exception e)
 		{
-			_log.warn("TableOptimizer: Cannot optimize database tables!", e);
+			_log.warn("TableOptimizer : Cannot optimize database tables!", e);
 		}
 		finally
 		{

@@ -165,7 +165,7 @@ public class ExtractableItemsData
 
 	public int[] itemIDs()
 	{
-		int size = _items.size();
+		final int size = _items.size();
 		int[] result = new int[size];
 		int i = 0;
 		for (L2ExtractableItem ei : _items.values())

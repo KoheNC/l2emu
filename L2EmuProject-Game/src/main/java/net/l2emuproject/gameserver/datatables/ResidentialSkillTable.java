@@ -74,9 +74,9 @@ public class ResidentialSkillTable
 
 			while (rs.next())
 			{
-				int entityId = rs.getInt("entityId");
-				int skillId = rs.getInt("skillId");
-				int skillLvl = rs.getInt("skillLevel");
+				final int entityId = rs.getInt("entityId");
+				final int skillId = rs.getInt("skillId");
+				final int skillLvl = rs.getInt("skillLevel");
 
 				L2Skill sk = SkillTable.getInstance().getInfo(skillId, skillLvl);
 

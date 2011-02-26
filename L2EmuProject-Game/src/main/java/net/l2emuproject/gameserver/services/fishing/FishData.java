@@ -14,19 +14,19 @@
  */
 package net.l2emuproject.gameserver.services.fishing;
 
-public class FishData
+public final class FishData
 {
-	private final int _id;
-	private final int _level;
-	private final String _name;
-	private final int _hp;
-	private final int _hpRegen;
-	private final int _type;
-	private final int _group;
-	private final int _fishGuts;
-	private final int _gutsCheckTime;
-	private final int _waitTime;
-	private final int _combatTime;
+	private final int		_id;
+	private final int		_level;
+	private final String	_name;
+	private final int		_hp;
+	private final int		_hpRegen;
+	private final int		_type;
+	private final int		_group;
+	private final int		_fishGuts;
+	private final int		_gutsCheckTime;
+	private final int		_waitTime;
+	private final int		_combatTime;
 
 	public FishData(int id, int lvl, String name, int HP, int HpRegen, int type, int group, int fish_guts, int guts_check_time, int wait_time, int combat_time)
 	{
@@ -71,30 +71,37 @@ public class FishData
 	{
 		return _hp;
 	}
+
 	public int getHpRegen()
 	{
 		return _hpRegen;
 	}
+
 	public int getType()
 	{
 		return _type;
 	}
+
 	public int getGroup()
 	{
 		return _group;
 	}
+
 	public int getFishGuts()
 	{
 		return _fishGuts;
 	}
+
 	public int getGutsCheckTime()
 	{
 		return _gutsCheckTime;
 	}
+
 	public int getWaitTime()
 	{
 		return _waitTime;
 	}
+
 	public int getCombatTime()
 	{
 		return _combatTime;

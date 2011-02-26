@@ -107,9 +107,9 @@ public class TradeListTable
 					{
 						_itemId = rset.getInt("item_id");
 						_price = rset.getInt("price");
-						int count = rset.getInt("count");
-						int currentCount = rset.getInt("currentCount");
-						int restoreTime = rset.getInt("time");
+						final int count = rset.getInt("count");
+						final int currentCount = rset.getInt("currentCount");
+						final int restoreTime = rset.getInt("time");
 
 						L2ItemInstance buyItem = ItemTable.getInstance().createDummyItem(_itemId);
 						if (buyItem == null)

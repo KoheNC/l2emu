@@ -62,17 +62,17 @@ public class FishTable
 
 			while (Fishes.next())
 			{
-				int id = Fishes.getInt("id");
-				int lvl = Fishes.getInt("level");
-				String name = Fishes.getString("name");
-				int hp = Fishes.getInt("hp");
-				int hpreg = Fishes.getInt("hpregen");
-				int type = Fishes.getInt("fish_type");
-				int group = Fishes.getInt("fish_group");
-				int fish_guts = Fishes.getInt("fish_guts");
-				int guts_check_time = Fishes.getInt("guts_check_time");
-				int wait_time = Fishes.getInt("wait_time");
-				int combat_time = Fishes.getInt("combat_time");
+				final int id = Fishes.getInt("id");
+				final int lvl = Fishes.getInt("level");
+				final String name = Fishes.getString("name");
+				final int hp = Fishes.getInt("hp");
+				final int hpreg = Fishes.getInt("hpregen");
+				final int type = Fishes.getInt("fish_type");
+				final int group = Fishes.getInt("fish_group");
+				final int fish_guts = Fishes.getInt("fish_guts");
+				final int guts_check_time = Fishes.getInt("guts_check_time");
+				final int wait_time = Fishes.getInt("wait_time");
+				final int combat_time = Fishes.getInt("combat_time");
 				fish = new FishData(id, lvl, name, hp, hpreg, type, group, fish_guts, guts_check_time, wait_time, combat_time);
 				switch (fish.getGroup())
 				{
@@ -110,7 +110,7 @@ public class FishTable
 	 */
 	public List<FishData> getFish(int lvl, int type, int group)
 	{
-		List<FishData> result = new FastList<FishData>();
+		final List<FishData> result = new FastList<FishData>();
 		List<FishData> _fishs = null;
 		switch (group)
 		{

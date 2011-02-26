@@ -54,7 +54,7 @@ public final class DeadlockDetector extends L2Thread
 		
 		start();
 		
-		_log.info("DeadlockDetector: Initialized.");
+		_log.info(getClass().getSimpleName() + " : Initialized.");
 	}
 	
 	@Override

@@ -70,7 +70,7 @@ public class HennaTable
 	{
 		while (hennaData.next())
 		{
-			int id = hennaData.getInt("symbol_id");
+			final int id = hennaData.getInt("symbol_id");
 
 			StatsSet hennaDat = new StatsSet();
 			hennaDat.set("symbol_id", id);

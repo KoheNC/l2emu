@@ -68,7 +68,7 @@ public class BuffTemplateTable
 			{
 				StatsSet buff = new StatsSet();
 				
-				int templateId = rset.getInt("id");
+				final int templateId = rset.getInt("id");
 				buff.set("id", templateId);
 				buff.set("name", rset.getString("name"));
 				buff.set("skillId", rset.getInt("skill_id"));

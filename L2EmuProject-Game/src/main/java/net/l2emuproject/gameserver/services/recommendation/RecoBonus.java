@@ -40,25 +40,25 @@ public final class RecoBonus
 			if (activeChar.getEvalPoints() == 0)
 				return 0;
 
-			int _lvl = (int) Math.ceil(activeChar.getLevel() / 10);
-			int _exp = (int) Math.ceil((Math.min(100, activeChar.getEvalPoints()) - 1) / 10);
+			final int lvl = (int) Math.ceil(activeChar.getLevel() / 10);
+			final int exp = (int) Math.ceil((Math.min(100, activeChar.getEvalPoints()) - 1) / 10);
 
-			return RECO_BONUS[_lvl][_exp];
+			return RECO_BONUS[lvl][exp];
 		}
 		return 0;
 	}
 
 	public static final double getRecoMultiplier(L2Player activeChar)
 	{
-		double _multiplier = 1;
+		double multiplier = 1;
 
 		int bonus = getRecoBonus(activeChar);
 		if (bonus > 0)
-			_multiplier = (1 + (bonus / 100));
+			multiplier = (1 + (bonus / 100));
 
-		if (_multiplier < 1)
-			_multiplier = 1;
+		if (multiplier < 1)
+			multiplier = 1;
 
-		return _multiplier;
+		return multiplier;
 	}
 }

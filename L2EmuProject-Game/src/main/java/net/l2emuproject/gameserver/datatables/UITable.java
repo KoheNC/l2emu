@@ -35,12 +35,12 @@ import org.apache.commons.logging.LogFactory;
 /**
  * @author  mrTJO
  */
-public class UITable
+public final class UITable
 {
 	private static final Log							_log				= LogFactory.getLog(UITable.class);
 
-	private static final Map<Integer, List<ActionKey>>	_storedKeys			= new FastMap<Integer, List<ActionKey>>();
-	private static final Map<Integer, List<Integer>>	_storedCategories	= new FastMap<Integer, List<Integer>>();
+	private final Map<Integer, List<ActionKey>>	_storedKeys			= new FastMap<Integer, List<ActionKey>>();
+	private final Map<Integer, List<Integer>>	_storedCategories	= new FastMap<Integer, List<Integer>>();
 
 	@SuppressWarnings("synthetic-access")
 	private static final class SingletonHolder
@@ -84,8 +84,8 @@ public class UITable
 
 				StringTokenizer st = new StringTokenizer(line, ";");
 
-				int cat = Integer.parseInt(st.nextToken());
-				int cmd = Integer.parseInt(st.nextToken());
+				final int cat = Integer.parseInt(st.nextToken());
+				final int cmd = Integer.parseInt(st.nextToken());
 
 				insertCategory(cat, cmd);
 			}
@@ -120,12 +120,12 @@ public class UITable
 
 				StringTokenizer st = new StringTokenizer(line, ";");
 
-				int cat = Integer.parseInt(st.nextToken());
-				int cmd = Integer.parseInt(st.nextToken());
-				int key = Integer.parseInt(st.nextToken());
-				int tk1 = Integer.parseInt(st.nextToken());
-				int tk2 = Integer.parseInt(st.nextToken());
-				int shw = Integer.parseInt(st.nextToken());
+				final int cat = Integer.parseInt(st.nextToken());
+				final int cmd = Integer.parseInt(st.nextToken());
+				final int key = Integer.parseInt(st.nextToken());
+				final int tk1 = Integer.parseInt(st.nextToken());
+				final int tk2 = Integer.parseInt(st.nextToken());
+				final int shw = Integer.parseInt(st.nextToken());
 
 				insertKey(cat, cmd, key, tk1, tk2, shw);
 			}

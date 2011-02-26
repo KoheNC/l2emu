@@ -422,7 +422,7 @@ public final class ItemTable
 		item.set.set("item_id", item.id);
 		item.set.set("item_display_id", item.displayid);
 		item.set.set("name", item.name);
-		int bodypart = _slots.get(rset.getString("bodypart"));
+		final int bodypart = _slots.get(rset.getString("bodypart"));
 		item.set.set("bodypart", bodypart);
 		item.set.set("crystallizable", Boolean.valueOf(rset.getString("crystallizable")));
 		item.set.set("crystal_count", rset.getInt("crystal_count"));
@@ -505,7 +505,7 @@ public final class ItemTable
 	 */
 	private Item readItem(ResultSet rset, boolean custom) throws SQLException
 	{
-		Item item = new Item();
+		final Item item = new Item();
 		item.set = new StatsSet();
 		item.id = rset.getInt("item_id");
 		item.displayid = custom ? rset.getInt("item_display_id") : item.id;
@@ -590,13 +590,13 @@ public final class ItemTable
 			item.set.set("stackable", false);
 		}
 
-		int material = _materials.get(rset.getString("material"));
+		final int material = _materials.get(rset.getString("material"));
 		item.set.set("material", material);
 
-		int crystal = _crystalTypes.get(rset.getString("crystal_type"));
+		final int crystal = _crystalTypes.get(rset.getString("crystal_type"));
 		item.set.set("crystal_type", crystal);
 
-		int weight = rset.getInt("weight");
+		final int weight = rset.getInt("weight");
 		item.set.set("weight", weight);
 		item.name = rset.getString("name");
 		item.set.set("name", item.name);

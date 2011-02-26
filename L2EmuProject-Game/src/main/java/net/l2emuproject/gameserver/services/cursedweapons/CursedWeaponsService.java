@@ -164,12 +164,12 @@ public class CursedWeaponsService
 
 				while (rset.next())
 				{
-					int itemId = rset.getInt("itemId");
-					int playerId = rset.getInt("charId");
-					int playerKarma = rset.getInt("playerKarma");
-					int playerPkKills = rset.getInt("playerPkKills");
-					int nbKills = rset.getInt("nbKills");
-					long endTime = rset.getLong("endTime");
+					final int itemId = rset.getInt("itemId");
+					final int playerId = rset.getInt("charId");
+					final int playerKarma = rset.getInt("playerKarma");
+					final int playerPkKills = rset.getInt("playerPkKills");
+					final int nbKills = rset.getInt("nbKills");
+					final long endTime = rset.getLong("endTime");
 
 					CursedWeapon cw = _cursedWeapons.get(itemId);
 					cw.setPlayerId(playerId);
@@ -212,7 +212,7 @@ public class CursedWeaponsService
 					if (rset.next())
 					{
 						// A player has the cursed weapon in his inventory ...
-						int playerId = rset.getInt("owner_id");
+						final int playerId = rset.getInt("owner_id");
 						_log.info("PROBLEM : Player " + playerId + " owns the cursed weapon " + itemId + " but he shouldn't.");
 
 						// Delete the item

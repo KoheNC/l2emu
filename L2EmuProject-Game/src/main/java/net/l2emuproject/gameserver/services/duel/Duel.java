@@ -45,11 +45,11 @@ public class Duel
 {
 	private final static Log _log = LogFactory.getLog(Duel.class);
 
-    public static final int DUELSTATE_NODUEL		= 0;
-    public static final int DUELSTATE_DUELLING		= 1;
-    public static final int DUELSTATE_DEAD			= 2;
-    public static final int DUELSTATE_WINNER		= 3;
-    public static final int DUELSTATE_INTERRUPTED	= 4;
+    public static final byte DUELSTATE_NODUEL		= 0;
+    public static final byte DUELSTATE_DUELLING		= 1;
+    public static final byte DUELSTATE_DEAD			= 2;
+    public static final byte DUELSTATE_WINNER		= 3;
+    public static final byte DUELSTATE_INTERRUPTED	= 4;
 
 	// =========================================================
 	// Data Field

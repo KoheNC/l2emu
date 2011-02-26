@@ -64,17 +64,17 @@ public class ItemMarketTable
 			ResultSet rset = statement.executeQuery();
 			while (rset.next())
 			{
-				int ownerId = rset.getInt("ownerId");
-				String ownerName = rset.getString("ownerName");
-				int itemObjId = rset.getInt("itemObjId");
-				int itemId = rset.getInt("itemId");
-				String itemName = rset.getString("itemName");
-				String itemType = rset.getString("itemType");
-				String l2Type = rset.getString("l2Type");
-				int itemGrade = rset.getInt("itemGrade");
-				int enchLvl = rset.getInt("enchLvl");
-				int count = rset.getInt("_count");
-				int price = rset.getInt("price");
+				final int ownerId = rset.getInt("ownerId");
+				final String ownerName = rset.getString("ownerName");
+				final int itemObjId = rset.getInt("itemObjId");
+				final int itemId = rset.getInt("itemId");
+				final String itemName = rset.getString("itemName");
+				final String itemType = rset.getString("itemType");
+				final String l2Type = rset.getString("l2Type");
+				final int itemGrade = rset.getInt("itemGrade");
+				final int enchLvl = rset.getInt("enchLvl");
+				final int count = rset.getInt("_count");
+				final int price = rset.getInt("price");
 				L2ItemMarketModel mrktItem = new L2ItemMarketModel();
 				mrktItem.setOwnerId(ownerId);
 				mrktItem.setOwnerName(ownerName);

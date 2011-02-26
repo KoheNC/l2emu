@@ -166,7 +166,7 @@ public class AutoSpawnManager
 
 			statement.close();
 
-			_log.info("AutoSpawnHandler: Loaded " + numLoaded + " spawn group(s) from the database.");
+			_log.info("AutoSpawnHandler : Loaded " + numLoaded + " spawn group(s) from the database.");
 		}
 		catch (Exception e)
 		{
