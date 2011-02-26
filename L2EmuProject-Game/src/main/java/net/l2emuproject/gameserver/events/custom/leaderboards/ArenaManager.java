@@ -38,26 +38,23 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
- * 
  * @author KID
  */
-public class ArenaManager
+public final class ArenaManager
 {
-	private static final Log _log = LogFactory.getLog(ArenaManager.class);
-	
-	public Map<Integer, ArenaRank>	_ranks					= new FastMap<Integer, ArenaRank>();
-	protected Future<?>				_actionTask				= null;
-	protected int					SAVETASK_DELAY			= Config.ARENA_INTERVAL;
-	protected Long					nextTimeUpdateReward	= 0L;
+	private static final Log		_log					= LogFactory.getLog(ArenaManager.class);
+
+	private Map<Integer, ArenaRank>	_ranks					= new FastMap<Integer, ArenaRank>();
+	private Future<?>				_actionTask				= null;
+	private long					_nextTimeUpdateReward	= 0L;
 
 	public static ArenaManager getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 
-	public void onKill(int owner, String name)
+	public final void onKill(int owner, String name)
 	{
 		ArenaRank ar = null;
 		if (_ranks.get(owner) == null)
@@ -70,7 +67,7 @@ public class ArenaManager
 		_ranks.put(owner, ar);
 	}
 
-	public void onDeath(int owner, String name)
+	public final void onDeath(int owner, String name)
 	{
 		ArenaRank ar = null;
 		if (_ranks.get(owner) == null)
@@ -83,13 +80,13 @@ public class ArenaManager
 		_ranks.put(owner, ar);
 	}
 
-	public void startSaveTask()
+	public final void startSaveTask()
 	{
 		if (_actionTask == null)
-			_actionTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new saveTask(), 1000, SAVETASK_DELAY * 60000);
+			_actionTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new SaveTask(), 1000, Config.ARENA_INTERVAL * 60000);
 	}
 
-	public void stopSaveTask()
+	public final void stopSaveTask()
 	{
 		if (_actionTask != null)
 			_actionTask.cancel(true);
@@ -97,25 +94,25 @@ public class ArenaManager
 		_actionTask = null;
 	}
 
-	public class saveTask implements Runnable
+	private final class SaveTask implements Runnable
 	{
 		@Override
-		public void run()
+		public final void run()
 		{
 			_log.info("ArenaManager: Autotask init.");
 			formRank();
 			saveData();
-			nextTimeUpdateReward = System.currentTimeMillis() + SAVETASK_DELAY * 60000;
+			_nextTimeUpdateReward = System.currentTimeMillis() + Config.ARENA_INTERVAL * 60000;
 		}
 	}
 
-	public void startTask()
+	public final void startTask()
 	{
 		if (_actionTask == null)
-			_actionTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new saveTask(), 1000, SAVETASK_DELAY * 60000);
+			_actionTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new SaveTask(), 1000, Config.ARENA_INTERVAL * 60000);
 	}
 
-	public void formRank()
+	public final void formRank()
 	{
 		Map<Integer, Integer> scores = new FastMap<Integer, Integer>();
 		for (int obj : _ranks.keySet())
@@ -142,7 +139,9 @@ public class ArenaManager
 
 		L2Player winner = L2World.getInstance().findPlayer(idTop);
 
-		Announcements.getInstance().announceToAll("PvP Arena Manager: " + arTop.name + " is the winner for this time with " + arTop.kills + "/" + arTop.death + ". Next calculation in " + Config.ARENA_INTERVAL + " min(s).");
+		Announcements.getInstance().announceToAll(
+				"PvP Arena Manager: " + arTop.name + " is the winner for this time with " + arTop.kills + "/" + arTop.death + ". Next calculation in "
+						+ Config.ARENA_INTERVAL + " min(s).");
 		if (winner != null && Config.ARENA_REWARD_ID > 0)
 		{
 			winner.getInventory().addItem("ArenaManager", Config.ARENA_REWARD_ID, Config.ARENA_REWARD_COUNT, winner, null);
@@ -221,20 +220,20 @@ public class ArenaManager
 
 	private int calcMinTo()
 	{
-		return ((int) (nextTimeUpdateReward - System.currentTimeMillis())) / 60000;
+		return ((int) (_nextTimeUpdateReward - System.currentTimeMillis())) / 60000;
 	}
 
 	private String tx(int counter, String name, int kills, int deaths, boolean mi)
 	{
 		String t = "";
 
-		t += "	<tr>" + "<td align=center>" + (mi ? "<font color=\"LEVEL\">" : "") + (counter + 1) + ".</td>" + "<td align=center>" + name + "</td>" + "<td align=center>" + kills + "</td>" + "<td align=center>" + deaths + ""
-				+ (mi ? "</font>" : "") + " </td>" + "</tr>";
+		t += "	<tr>" + "<td align=center>" + (mi ? "<font color=\"LEVEL\">" : "") + (counter + 1) + ".</td>" + "<td align=center>" + name + "</td>"
+				+ "<td align=center>" + kills + "</td>" + "<td align=center>" + deaths + "" + (mi ? "</font>" : "") + " </td>" + "</tr>";
 
 		return t;
 	}
 
-	public void engineInit()
+	public final void engineInit()
 	{
 		_ranks = new FastMap<Integer, ArenaRank>();
 		String line = null;
@@ -262,20 +261,20 @@ public class ArenaManager
 				{
 					if (line.trim().length() == 0 || line.startsWith("#"))
 						continue;
-	
+
 					lineId = line;
 					line = line.replaceAll(" ", "");
-	
+
 					String t[] = line.split(":");
-	
+
 					int owner = Integer.parseInt(t[0]);
 					rank = new ArenaRank();
-	
+
 					rank.kills = Integer.parseInt(t[1].split("-")[0]);
 					rank.death = Integer.parseInt(t[1].split("-")[1]);
-	
+
 					rank.name = t[2];
-	
+
 					_ranks.put(owner, rank);
 				}
 			}
@@ -293,7 +292,7 @@ public class ArenaManager
 		}
 	}
 
-	public void saveData()
+	public final void saveData()
 	{
 		String pattern = "";
 
@@ -322,10 +321,10 @@ public class ArenaManager
 		}
 	}
 
-	public class ArenaRank
+	private final class ArenaRank
 	{
-		public int		kills, death, classId;
-		public String	name;
+		private int		kills, death;
+		private String	name;
 
 		public ArenaRank()
 		{
@@ -333,12 +332,12 @@ public class ArenaManager
 			death = 0;
 		}
 
-		public void pvp()
+		public final void pvp()
 		{
 			kills++;
 		}
 
-		public void death()
+		public final void death()
 		{
 			death++;
 		}
@@ -347,6 +346,6 @@ public class ArenaManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final ArenaManager _instance = new ArenaManager();
+		protected static final ArenaManager	_instance	= new ArenaManager();
 	}
 }

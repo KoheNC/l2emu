@@ -49,14 +49,14 @@ public final class TvT extends L2Event
 	}
 
 	private final Map<Integer, L2Player>	_gamers;
-	private final L2EventTeam[]					_teams;
+	private final L2EventTeam[]				_teams;
 
-	private int									_instanceId	= 0;
+	private int								_instanceId	= 0;
 
-	private final AutoEventTask					_task;
-	private volatile int						_status;
-	private int									_announced;
-	private ScheduledFuture<?>					_event;
+	private final AutoEventTask				_task;
+	private volatile int					_status;
+	private int								_announced;
+	private ScheduledFuture<?>				_event;
 
 	private TvT()
 	{

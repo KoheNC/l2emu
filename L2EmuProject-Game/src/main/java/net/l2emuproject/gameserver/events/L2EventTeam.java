@@ -27,10 +27,10 @@ public final class L2EventTeam
 {
 	private final Map<Integer, L2Player>	_players;
 
-	private final String						_teamName;
-	private final int							_color;
-	private int									_points;
-	private final int[]							_coords;
+	private final String					_teamName;
+	private final int						_color;
+	private int								_points;
+	private final int[]						_coords;
 
 	public L2EventTeam(String teamName, int color, int[] coords)
 	{

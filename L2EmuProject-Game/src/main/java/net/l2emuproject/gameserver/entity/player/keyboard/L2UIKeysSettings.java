@@ -32,16 +32,16 @@ import org.apache.commons.logging.LogFactory;
 /**
  * @author  mrTJO
  */
-public class L2UIKeysSettings
+public final class L2UIKeysSettings
 {
-	private static final Log		_log	= LogFactory.getLog(L2UIKeysSettings.class);
+	private static final Log				_log	= LogFactory.getLog(L2UIKeysSettings.class);
 
-	private final L2Player		_player;
+	private final L2Player					_player;
 
-	Map<Integer, List<ActionKey>>	_storedKeys;
-	Map<Integer, List<Integer>>		_storedCategories;
+	private Map<Integer, List<ActionKey>>	_storedKeys;
+	private Map<Integer, List<Integer>>		_storedCategories;
 
-	boolean							_saved	= true;
+	private boolean							_saved	= true;
 
 	public L2UIKeysSettings(L2Player player)
 	{
@@ -49,36 +49,36 @@ public class L2UIKeysSettings
 		loadFromDB();
 	}
 
-	public void storeAll(Map<Integer, List<Integer>> catMap, Map<Integer, List<ActionKey>> keyMap)
+	public final void storeAll(Map<Integer, List<Integer>> catMap, Map<Integer, List<ActionKey>> keyMap)
 	{
 		_saved = false;
 		_storedCategories = catMap;
 		_storedKeys = keyMap;
 	}
 
-	public void storeCategories(Map<Integer, List<Integer>> catMap)
+	public final void storeCategories(Map<Integer, List<Integer>> catMap)
 	{
 		_saved = false;
 		_storedCategories = catMap;
 	}
 
-	public Map<Integer, List<Integer>> getCategories()
+	public final Map<Integer, List<Integer>> getCategories()
 	{
 		return _storedCategories;
 	}
 
-	public void storeKeys(Map<Integer, List<ActionKey>> keyMap)
+	public final void storeKeys(Map<Integer, List<ActionKey>> keyMap)
 	{
 		_saved = false;
 		_storedKeys = keyMap;
 	}
 
-	public Map<Integer, List<ActionKey>> getKeys()
+	public final Map<Integer, List<ActionKey>> getKeys()
 	{
 		return _storedKeys;
 	}
 
-	public void loadFromDB()
+	public final void loadFromDB()
 	{
 		getCatsFromDB();
 		getKeysFromDB();
@@ -87,10 +87,9 @@ public class L2UIKeysSettings
 	/**
 	 * Save Categories and Mapped Keys into L2GameServer DataBase
 	 */
-	public void saveInDB()
+	public final void saveInDB()
 	{
 		String query;
-		int playerId = _player.getObjectId();
 
 		if (_saved)
 			return;
@@ -101,7 +100,7 @@ public class L2UIKeysSettings
 			int order = 0;
 			for (int key : _storedCategories.get(category))
 			{
-				query += "(" + playerId + ", " + category + ", " + (order++) + ", " + key + "),";
+				query += "(" + _player.getObjectId() + ", " + category + ", " + (order++) + ", " + key + "),";
 			}
 		}
 		query = query.substring(0, query.length() - 1) + "; ";
@@ -129,7 +128,7 @@ public class L2UIKeysSettings
 			int order = 0;
 			for (ActionKey key : keyLst)
 			{
-				query += key.getSqlSaveString(playerId, order++) + ",";
+				query += key.getSqlSaveString(_player.getObjectId(), order++) + ",";
 			}
 		}
 		query = query.substring(0, query.length() - 1) + ";";
@@ -155,7 +154,7 @@ public class L2UIKeysSettings
 		_saved = true;
 	}
 
-	public void getCatsFromDB()
+	public final void getCatsFromDB()
 	{
 
 		if (_storedCategories != null)
@@ -194,7 +193,7 @@ public class L2UIKeysSettings
 			_storedCategories = UITable.getInstance().getCategories();
 	}
 
-	public void getKeysFromDB()
+	public final void getKeysFromDB()
 	{
 		if (_storedKeys != null)
 			return;
@@ -211,12 +210,12 @@ public class L2UIKeysSettings
 
 			while (rs.next())
 			{
-				int cat = rs.getInt("cat");
-				int cmd = rs.getInt("cmd");
-				int key = rs.getInt("key");
-				int tgKey1 = rs.getInt("tgKey1");
-				int tgKey2 = rs.getInt("tgKey2");
-				int show = rs.getInt("show");
+				final int cat = rs.getInt("cat");
+				final int cmd = rs.getInt("cmd");
+				final int key = rs.getInt("key");
+				final int tgKey1 = rs.getInt("tgKey1");
+				final int tgKey2 = rs.getInt("tgKey2");
+				final int show = rs.getInt("show");
 				insertKey(cat, cmd, key, tgKey1, tgKey2, show);
 			}
 			stmt.close();
@@ -236,7 +235,7 @@ public class L2UIKeysSettings
 			_storedKeys = UITable.getInstance().getKeys();
 	}
 
-	public void insertCategory(int cat, int cmd)
+	public final void insertCategory(int cat, int cmd)
 	{
 		if (_storedCategories.containsKey(cat))
 			_storedCategories.get(cat).add(cmd);
@@ -248,7 +247,7 @@ public class L2UIKeysSettings
 		}
 	}
 
-	public void insertKey(int cat, int cmdId, int key, int tgKey1, int tgKey2, int show)
+	public final void insertKey(int cat, int cmdId, int key, int tgKey1, int tgKey2, int show)
 	{
 		ActionKey tmk = new ActionKey(cat, cmdId, key, tgKey1, tgKey2, show);
 		if (_storedKeys.containsKey(cat))
@@ -261,7 +260,7 @@ public class L2UIKeysSettings
 		}
 	}
 
-	public boolean isSaved()
+	public final boolean isSaved()
 	{
 		return _saved;
 	}

@@ -17,14 +17,14 @@ package net.l2emuproject.gameserver.entity.player.keyboard;
 /**
  * @author  mrTJO
  */
-public class ActionKey
+public final class ActionKey
 {
-	int	_cat;
-	int	_cmd;
-	int	_key;
-	int	_tgKey1;
-	int	_tgKey2;
-	int	_show;
+	private final int	_cat;
+	private final int	_cmd;
+	private final int	_key;
+	private final int	_tgKey1;
+	private final int	_tgKey2;
+	private final int	_show;
 
 	/**
 	 * L2ActionKey Initialization
@@ -45,37 +45,37 @@ public class ActionKey
 		_show = show;
 	}
 
-	public int getCategory()
+	public final int getCategory()
 	{
 		return _cat;
 	}
 
-	public int getCommandId()
+	public final int getCommandId()
 	{
 		return _cmd;
 	}
 
-	public int getKeyId()
+	public final int getKeyId()
 	{
 		return _key;
 	}
 
-	public int getToogleKey1()
+	public final int getToogleKey1()
 	{
 		return _tgKey1;
 	}
 
-	public int getToogleKey2()
+	public final int getToogleKey2()
 	{
 		return _tgKey2;
 	}
 
-	public int getShowStatus()
+	public final int getShowStatus()
 	{
 		return _show;
 	}
 
-	public String getSqlSaveString(int playerId, int order)
+	public final String getSqlSaveString(int playerId, int order)
 	{
 		return "(" + playerId + ", " + _cat + ", " + order + ", " + _cmd + "," + _key + ", " + _tgKey1 + ", " + _tgKey2 + ", " + _show + ")";
 	}

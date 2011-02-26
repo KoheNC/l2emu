@@ -25,7 +25,7 @@ import net.l2emuproject.Config;
  */
 public final class SubClass
 {
-	private static final byte _maxLevel = Config.ALT_MAX_SUBCLASS_LEVEL < Experience.MAX_LEVEL
+	private static final byte MAX_LEVEL = Config.ALT_MAX_SUBCLASS_LEVEL < Experience.MAX_LEVEL
 												? Config.ALT_MAX_SUBCLASS_LEVEL : Experience.MAX_LEVEL - 1;
 
 	private ClassId _class;
@@ -93,8 +93,8 @@ public final class SubClass
 	
 	public void setExp(long expValue)
 	{
-		if (expValue > (Experience.LEVEL[_maxLevel + 1] - 1))
-			expValue = (Experience.LEVEL[_maxLevel + 1] - 1);
+		if (expValue > (Experience.LEVEL[MAX_LEVEL + 1] - 1))
+			expValue = (Experience.LEVEL[MAX_LEVEL + 1] - 1);
 		
 		_exp = expValue;
 	}
@@ -111,8 +111,8 @@ public final class SubClass
 	
 	public void setLevel(byte levelValue)
 	{
-		if (levelValue > _maxLevel)
-			levelValue = _maxLevel;
+		if (levelValue > MAX_LEVEL)
+			levelValue = MAX_LEVEL;
 		else if (levelValue < 40)
 			levelValue = 40;
 			
@@ -121,7 +121,7 @@ public final class SubClass
 	
 	public void incLevel()
 	{
-		if (getLevel() == _maxLevel)
+		if (getLevel() == MAX_LEVEL)
 			return;
 		
 		_level++;

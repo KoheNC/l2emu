@@ -18,10 +18,10 @@ import net.l2emuproject.Config;
 
 /**
  * $ Rewrite 06.12.06 - Yesod
- * */
-public class SoulCrystal
+ */
+public final class SoulCrystal
 {
-    public static final int[][] HighSoulConvert =
+    public static final int[][] HISH_SOUL_CONVERT =
     {
      {4639, 5577},	//RED 10 - 11
      {5577, 5580},	//RED 11 - 12
@@ -49,7 +49,7 @@ public class SoulCrystal
     * "First line is for Red Soul Crystals, second is Green and third is Blue Soul Crystals,
     *  ordered by ascending level, from 0 to 16..."
     */
-   public static final short[] SoulCrystalTable =
+   public static final short[] SOUL_CRYSTAL_TABLE =
    {
      4629, 4630, 4631, 4632, 4633, 4634, 4635, 4636, 4637, 4638, 4639, 5577, 5580, 5908, 9570, 10480, 13071,
      4640, 4641, 4642, 4643, 4644, 4645, 4646, 4647, 4648, 4649, 4650, 5578, 5581, 5911, 9572, 10481, 13072,

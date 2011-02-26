@@ -38,26 +38,23 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
- *
  * @author  KID modded for the peace loving fisherman by evill33t
  */
-public class FishermanManager
+public final class FishermanManager
 {
-	private static final Log _log = LogFactory.getLog(FishermanManager.class);
-	
-	public Map<Integer, FishRank>	_ranks					= new FastMap<Integer, FishRank>();
-	protected Future<?>				_actionTask				= null;
-	protected int					SAVETASK_DELAY			= Config.FISHERMAN_INTERVAL;
-	protected Long					nextTimeUpdateReward	= 0L;
+	private static final Log		_log					= LogFactory.getLog(FishermanManager.class);
+
+	private Map<Integer, FishRank>	_ranks					= new FastMap<Integer, FishRank>();
+	private Future<?>				_actionTask				= null;
+	private Long					_nextTimeUpdateReward	= 0L;
 
 	public static FishermanManager getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 
-	public void onCatch(int owner, String name)
+	public final void onCatch(int owner, String name)
 	{
 		FishRank ar = null;
 		if (_ranks.get(owner) == null)
@@ -70,7 +67,7 @@ public class FishermanManager
 		_ranks.put(owner, ar);
 	}
 
-	public void onEscape(int owner, String name)
+	public final void onEscape(int owner, String name)
 	{
 		FishRank ar = null;
 		if (_ranks.get(owner) == null)
@@ -83,13 +80,13 @@ public class FishermanManager
 		_ranks.put(owner, ar);
 	}
 
-	public void startSaveTask()
+	public final void startSaveTask()
 	{
 		if (_actionTask == null)
-			_actionTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new saveTask(), 1000, SAVETASK_DELAY * 60000);
+			_actionTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new saveTask(), 1000, Config.FISHERMAN_INTERVAL * 60000);
 	}
 
-	public void stopSaveTask()
+	public final void stopSaveTask()
 	{
 		if (_actionTask != null)
 			_actionTask.cancel(true);
@@ -100,22 +97,22 @@ public class FishermanManager
 	public class saveTask implements Runnable
 	{
 		@Override
-		public void run()
+		public final void run()
 		{
 			_log.info("FishManager: Autotask init.");
 			formRank();
 			saveData();
-			nextTimeUpdateReward = System.currentTimeMillis() + SAVETASK_DELAY * 60000;
+			_nextTimeUpdateReward = System.currentTimeMillis() + Config.FISHERMAN_INTERVAL * 60000;
 		}
 	}
 
-	public void startTask()
+	public final void startTask()
 	{
 		if (_actionTask == null)
-			_actionTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new saveTask(), 1000, SAVETASK_DELAY * 60000);
+			_actionTask = ThreadPoolManager.getInstance().scheduleGeneralAtFixedRate(new saveTask(), 1000, Config.FISHERMAN_INTERVAL * 60000);
 	}
 
-	public void formRank()
+	public final void formRank()
 	{
 		Map<Integer, Integer> scores = new FastMap<Integer, Integer>();
 		for (int obj : _ranks.keySet())
@@ -149,8 +146,8 @@ public class FishermanManager
 		{
 			winner.getInventory().addItem("FishManager", Config.FISHERMAN_REWARD_ID, Config.FISHERMAN_REWARD_COUNT, winner, null);
 			if (Config.FISHERMAN_REWARD_COUNT > 1) //You have earned $s1.
-				winner.sendPacket(new SystemMessage(SystemMessageId.EARNED_S2_S1_S).addItemName(Config.FISHERMAN_REWARD_ID)
-						.addNumber(Config.FISHERMAN_REWARD_COUNT));
+				winner.sendPacket(new SystemMessage(SystemMessageId.EARNED_S2_S1_S).addItemName(Config.FISHERMAN_REWARD_ID).addNumber(
+						Config.FISHERMAN_REWARD_COUNT));
 			else
 				winner.sendPacket(new SystemMessage(SystemMessageId.EARNED_S1).addItemName(Config.FISHERMAN_REWARD_ID));
 			winner.sendPacket(new ItemList(winner, false));
@@ -224,7 +221,7 @@ public class FishermanManager
 
 	private int calcMinTo()
 	{
-		return ((int) (nextTimeUpdateReward - System.currentTimeMillis())) / 60000;
+		return ((int) (_nextTimeUpdateReward - System.currentTimeMillis())) / 60000;
 	}
 
 	private String tx(int counter, String name, int kills, int deaths, boolean mi)
@@ -237,7 +234,7 @@ public class FishermanManager
 		return t;
 	}
 
-	public void engineInit()
+	public final void engineInit()
 	{
 		_ranks = new FastMap<Integer, FishRank>();
 		String line = null;
@@ -265,20 +262,20 @@ public class FishermanManager
 				{
 					if (line.trim().length() == 0 || line.startsWith("#"))
 						continue;
-	
+
 					lineId = line;
 					line = line.replaceAll(" ", "");
-	
+
 					String t[] = line.split(":");
-	
+
 					int owner = Integer.parseInt(t[0]);
 					rank = new FishRank();
-	
+
 					rank.cought = Integer.parseInt(t[1].split("-")[0]);
 					rank.escaped = Integer.parseInt(t[1].split("-")[1]);
-	
+
 					rank.name = t[2];
-	
+
 					_ranks.put(owner, rank);
 				}
 			}
@@ -296,7 +293,7 @@ public class FishermanManager
 		}
 	}
 
-	public void saveData()
+	public final void saveData()
 	{
 		String pattern = "";
 
@@ -325,10 +322,10 @@ public class FishermanManager
 		}
 	}
 
-	public class FishRank
+	private final class FishRank
 	{
-		public int		cought,escaped;
-		public String	name;
+		private int		cought, escaped;
+		private String	name;
 
 		public FishRank()
 		{
@@ -336,12 +333,12 @@ public class FishermanManager
 			escaped = 0;
 		}
 
-		public void cought()
+		public final void cought()
 		{
 			cought++;
 		}
 
-		public void escaped()
+		public final void escaped()
 		{
 			escaped++;
 		}
@@ -350,6 +347,6 @@ public class FishermanManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final FishermanManager _instance = new FishermanManager();
+		protected static final FishermanManager	_instance	= new FishermanManager();
 	}
 }

@@ -2078,7 +2078,7 @@ public class L2Attackable extends L2Npc
 				for (L2ItemInstance item : inv)
 				{
 					int itemId = item.getItemId();
-					for (int id : SoulCrystal.SoulCrystalTable)
+					for (int id : SoulCrystal.SOUL_CRYSTAL_TABLE)
 					{
 						// Find any of the 39 possible crystals.
 						if (id == itemId)
@@ -2112,7 +2112,7 @@ public class L2Attackable extends L2Npc
 									// Allocate current and levelup ids' for higher level crystals
 									if (crystalLVL > 9)
 									{
-										for (int[] element : SoulCrystal.HighSoulConvert)
+										for (int[] element : SoulCrystal.HISH_SOUL_CONVERT)
 										{
 											// Get the next stage above 10 using array.
 											if (id == element[0])

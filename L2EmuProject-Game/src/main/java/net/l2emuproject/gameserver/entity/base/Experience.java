@@ -14,11 +14,7 @@
  */
 package net.l2emuproject.gameserver.entity.base;
 
-/**
- * 
- *
- */
-public class Experience
+public final class Experience
 {
     public final static long LEVEL[]=
     {

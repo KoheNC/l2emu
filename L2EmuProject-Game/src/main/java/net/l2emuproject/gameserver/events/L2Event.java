@@ -35,11 +35,11 @@ public abstract class L2Event
 {
 	protected static final Log	_log					= LogFactory.getLog(L2Event.class);
 
-	protected static final int	STATUS_NOT_IN_PROGRESS	= 0;
-	protected static final int	STATUS_REGISTRATION		= 1;
-	protected static final int	STATUS_PREPARATION		= 2;
-	protected static final int	STATUS_COMBAT			= 3;
-	protected static final int	STATUS_REWARDS			= 4;
+	protected static final byte	STATUS_NOT_IN_PROGRESS	= 0;
+	protected static final byte	STATUS_REGISTRATION		= 1;
+	protected static final byte	STATUS_PREPARATION		= 2;
+	protected static final byte	STATUS_COMBAT			= 3;
+	protected static final byte	STATUS_REWARDS			= 4;
 
 	private final List<L2Npc>	_npcs					= new FastList<L2Npc>();
 
@@ -132,8 +132,8 @@ public abstract class L2Event
 	protected final class ReviveTask implements Runnable
 	{
 		private final L2Player	_player;
-		private final int[]			_coords;
-		private final int			_instanceId;
+		private final int[]		_coords;
+		private final int		_instanceId;
 
 		public ReviveTask(L2Player player, int[] coords, int instanceId)
 		{

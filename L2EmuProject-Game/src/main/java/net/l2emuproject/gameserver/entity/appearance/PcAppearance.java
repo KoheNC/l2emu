@@ -42,7 +42,7 @@ public final class PcAppearance
 
 	// =========================================================
 	// Data Field
-	private L2Player		_owner;
+	private L2Player			_owner;
 	private byte				_face;
 	private byte				_hairColor;
 	private byte				_hairStyle;
