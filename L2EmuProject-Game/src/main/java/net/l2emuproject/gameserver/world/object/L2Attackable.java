@@ -23,6 +23,8 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.EventDroplist;
 import net.l2emuproject.gameserver.datatables.EventDroplist.DateDrop;
+import net.l2emuproject.gameserver.datatables.GlobalDropTable;
+import net.l2emuproject.gameserver.datatables.GlobalDropTable.GlobalDrop;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
@@ -501,8 +503,7 @@ public class L2Attackable extends L2Npc
 				// Manage Base, Quests and Sweep drops of the L2Attackable
 				doItemDrop(lastAttacker);
 				// Manage drop of Special Events created by GM for a defined period
-				if (Config.ALT_ENABLE_EVENT_ITEM_DROP_FOR_BOSSES && !isRaid())
-					doEventDrop(lastAttacker);
+				doEventDrop(lastAttacker);
 			}
 
 			if (!getMustRewardExpSP())
@@ -1694,6 +1695,12 @@ public class L2Attackable extends L2Npc
 
 		if (player.getLevel() - getLevel() > 9)
 			return;
+		
+		// L2EMU_ADD
+		for (GlobalDrop drop : GlobalDropTable.getInstance().getDrops())
+			if (Rnd.get(L2DropData.MAX_CHANCE) < drop.getChance())
+				player.doAutoLoot(this, new RewardItem(drop.getItemId(), Rnd.get(drop.getCountMin(), drop.getCountMax())));
+		// L2EMU_ADD
 
 		// Go through DateDrop of EventDroplist allNpcDateDrops within the date range
 		for (DateDrop drop : EventDroplist.getInstance().getAllDrops())

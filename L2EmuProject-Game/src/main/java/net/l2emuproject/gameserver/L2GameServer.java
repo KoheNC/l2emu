@@ -37,6 +37,7 @@ import net.l2emuproject.gameserver.datatables.ExtractableItemsData;
 import net.l2emuproject.gameserver.datatables.ExtractableSkillsData;
 import net.l2emuproject.gameserver.datatables.FishTable;
 import net.l2emuproject.gameserver.datatables.GMSkillTable;
+import net.l2emuproject.gameserver.datatables.GlobalDropTable;
 import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.datatables.HennaTable;
 import net.l2emuproject.gameserver.datatables.HennaTreeTable;
@@ -313,6 +314,9 @@ public class L2GameServer extends Config
 		
 		Util.printSection("NPCs");
 		NpcTable.getInstance();
+		// L2EMU_ADD
+		GlobalDropTable.getInstance();
+		// L2EMU_ADD
 		HtmCache.getInstance();
 		BuffTemplateTable.getInstance();
 		if (Config.ALLOW_NPC_WALKERS)
