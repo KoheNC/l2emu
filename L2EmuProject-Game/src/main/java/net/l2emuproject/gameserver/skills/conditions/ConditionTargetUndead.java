@@ -31,7 +31,7 @@ class ConditionTargetUndead extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		L2Character target = (L2Character)env.player.getTarget();
+		L2Character target = (L2Character)env.getPlayer().getTarget();
 		
 		if (target == null)
 			return false;

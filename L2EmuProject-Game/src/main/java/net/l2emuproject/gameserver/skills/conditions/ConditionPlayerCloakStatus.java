@@ -32,9 +32,9 @@ public class ConditionPlayerCloakStatus extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2Player))
+		if (!(env.getPlayer() instanceof L2Player))
 			return false;
 		
-		return ((L2Player)env.player).getInventory().getCloakStatus() >= _val;
+		return ((L2Player)env.getPlayer()).getInventory().getCloakStatus() >= _val;
 	}
 }

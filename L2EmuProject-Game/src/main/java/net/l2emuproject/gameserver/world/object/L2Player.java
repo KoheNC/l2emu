@@ -11471,7 +11471,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 		protected ConditionListener()
 		{
 			_env = new Env();
-			_env.player = L2Player.this;
+			_env.setPlayer(L2Player.this);
 		}
 
 		protected void refresh(ConditionListenerDependency dependency)

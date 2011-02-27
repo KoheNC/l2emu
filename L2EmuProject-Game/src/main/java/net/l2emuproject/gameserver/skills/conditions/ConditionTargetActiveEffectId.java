@@ -27,6 +27,6 @@ class ConditionTargetActiveEffectId extends AbstractConditionActiveEffectId
 	@Override
 	L2Character getEffectOwner(Env env)
 	{
-		return env.target;
+		return env.getTarget();
 	}
 }

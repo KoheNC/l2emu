@@ -184,7 +184,7 @@ public class CrestCache
 	@Override
 	public String toString()
 	{
-		return "Cache[Crest]: " + String.format("%.3f", (float)_bytesBuffLen / 1048576) + " megabytes on "
+		return "Cache[Crest] : " + String.format("%.3f", (float)_bytesBuffLen / 1048576) + " megabytes on "
 			+ _loadedFiles + " file(s) loaded.";
 	}
 	

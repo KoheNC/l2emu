@@ -38,9 +38,9 @@ public class ConditionUsingItemType extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2Player))
+		if (!(env.getPlayer() instanceof L2Player))
 			return false;
-		Inventory inv = ((L2Player)env.player).getInventory();
+		Inventory inv = ((L2Player)env.getPlayer()).getInventory();
 		
 		//If ConditionUsingItemType is one between Light, Heavy or Magic
 		if (_mask == L2ArmorType.LIGHT.mask() || _mask == L2ArmorType.HEAVY.mask() || _mask == L2ArmorType.MAGIC.mask())

@@ -60,10 +60,10 @@ public class TestFuncTemplate extends TestCase
         {
             FuncTemplate fa = new FuncTemplate(clo,"Add",Stats.MAX_HP, 1, 2);
             Env env = new Env();
-            env.value=1;
+            env.setValue(1);
             Func f = fa.getFunc(null);
             f.calc(env);
-            assertEquals(3.0,env.value);
+            assertEquals(3.0,env.getValue());
         }
         catch (RuntimeException e)
         {

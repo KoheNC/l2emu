@@ -33,6 +33,6 @@ final class ConditionPlayerSubclass extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		return (env.player instanceof L2Player) ? ((L2Player) env.player).isSubClassActive() == _val : true;
+		return (env.getPlayer() instanceof L2Player) ? ((L2Player) env.getPlayer()).isSubClassActive() == _val : true;
 	}
 }

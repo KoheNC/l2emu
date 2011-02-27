@@ -40,9 +40,9 @@ public class ConditionPlayerInstanceId extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2Player))
+		if (!(env.getPlayer() instanceof L2Player))
 			return false;
-		L2Player player = env.player.getActingPlayer();
+		L2Player player = env.getPlayer().getActingPlayer();
 		if (!player.isInInstance())
 			return false;
 

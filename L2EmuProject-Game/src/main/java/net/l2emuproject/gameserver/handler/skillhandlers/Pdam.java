@@ -114,12 +114,12 @@ public final class Pdam implements ISkillHandler
 							for (Func func : vicious.getStatFuncs())
 							{
 								Env env = new Env();
-								env.player = activeChar;
-								env.target = target;
-								env.skill = skill;
-								env.value = damage;
+								env.setPlayer(activeChar);
+								env.setTarget(target);
+								env.setSkill(skill);
+								env.setValue(damage);
 								func.calcIfAllowed(env);
-								damage = (int)env.value;
+								damage = (int)env.getValue();
 							}
 						}
 					}

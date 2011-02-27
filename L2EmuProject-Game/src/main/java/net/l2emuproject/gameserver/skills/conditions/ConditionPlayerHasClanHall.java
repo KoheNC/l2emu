@@ -41,10 +41,10 @@ final class ConditionPlayerHasClanHall extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2Player))
+		if (!(env.getPlayer() instanceof L2Player))
 			return false;
 		
-		L2Clan clan = ((L2Player)env.player).getClan();
+		L2Clan clan = ((L2Player)env.getPlayer()).getClan();
 		if (clan == null)
 			return _clanHall.length == 1 && _clanHall[0] == 0;
 		

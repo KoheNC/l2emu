@@ -30,6 +30,6 @@ class ConditionPlayerSex extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		return (((L2Player)env.player).getAppearance().getSex() ? 1 : 0) == _sex;
+		return (((L2Player)env.getPlayer()).getAppearance().getSex() ? 1 : 0) == _sex;
 	}
 }

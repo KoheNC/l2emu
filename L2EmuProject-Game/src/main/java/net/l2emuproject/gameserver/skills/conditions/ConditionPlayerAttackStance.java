@@ -32,6 +32,6 @@ final class ConditionPlayerAttackStance extends Condition
 	@Override
 	boolean testImpl(Env env)
 	{
-		return AttackStanceTaskManager.getInstance().getAttackStanceTask(env.player) == _value;
+		return AttackStanceTaskManager.getInstance().getAttackStanceTask(env.getPlayer()) == _value;
 	}
 }

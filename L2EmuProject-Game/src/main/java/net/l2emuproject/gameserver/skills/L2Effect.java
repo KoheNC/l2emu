@@ -81,9 +81,9 @@ public abstract class L2Effect implements FuncOwner, Runnable
 	protected L2Effect(Env env, EffectTemplate template)
 	{
 		_template = template;
-		_skill = env.skill;
-		_effected = env.target;
-		_effector = env.player;
+		_skill = env.getSkill();
+		_effected = env.getTarget();
+		_effector = env.getPlayer();
 		_count = template.count;
 
 		// Support for retail herbs duration when _effected has a Summon
@@ -97,7 +97,7 @@ public abstract class L2Effect implements FuncOwner, Runnable
 			}
 		}
 
-		if (env.skillMastery)
+		if (env.isSkillMastery())
 			temp *= 2;
 
 		_period = temp;
@@ -115,9 +115,9 @@ public abstract class L2Effect implements FuncOwner, Runnable
 	protected L2Effect(Env env, L2Effect effect)
 	{
 		_template = effect._template;
-		_skill = env.skill;
-		_effected = env.target;
-		_effector = env.player;
+		_skill = env.getSkill();
+		_effected = env.getTarget();
+		_effector = env.getPlayer();
 		_count = effect.getCount();
 		_period = _template.period - effect.getTime();
 

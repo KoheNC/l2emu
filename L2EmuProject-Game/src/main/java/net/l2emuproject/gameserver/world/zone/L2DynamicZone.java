@@ -39,8 +39,8 @@ public class L2DynamicZone extends L2Zone
 		
 		// Works with ConditionPlayer* and ConditionTarget* and some other
 		Env env = new Env();
-		env.player = character;
-		env.target = character;
+		env.setPlayer(character);
+		env.setTarget(character);
 		return _cond.test(env);
 	}
 	

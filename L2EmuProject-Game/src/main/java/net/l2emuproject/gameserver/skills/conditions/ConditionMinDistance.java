@@ -31,6 +31,6 @@ class ConditionMinDistance extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		return env.player.getDistanceSq(env.target) >= _sqDistance;
+		return env.getPlayer().getDistanceSq(env.getTarget()) >= _sqDistance;
 	}
 }

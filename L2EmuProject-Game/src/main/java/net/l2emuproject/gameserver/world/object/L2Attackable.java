@@ -84,10 +84,10 @@ import net.l2emuproject.util.SingletonMap;
  */
 public class L2Attackable extends L2Npc
 {
-	public static final int FLEEING_NOT_STARTED		= 0;
-	public static final int FLEEING_STARTED			= 1;
-	public static final int FLEEING_DONE_WAITING	= 2;
-	public static final int FLEEING_DONE_RETURNING	= 3;
+	public static final byte FLEEING_NOT_STARTED		= 0;
+	public static final byte FLEEING_STARTED			= 1;
+	public static final byte FLEEING_DONE_WAITING		= 2;
+	public static final byte FLEEING_DONE_RETURNING		= 3;
 
 	/**
 	 * This class contains all AggroInfo of the L2Attackable against the
@@ -270,7 +270,7 @@ public class L2Attackable extends L2Npc
 	private RewardItem[]						_harvestItems;
 	private boolean								_seeded;
 	private int									_seedType						= 0;
-	private L2Player						_seeder							= null;
+	private L2Player							_seeder							= null;
 
 	/**
 	 * True if an over-hit enabled skill has successfully landed on the
@@ -643,7 +643,7 @@ public class L2Attackable extends L2Npc
 							}
 							
 							// L2EMU_ADD
-							if (Config.ALLOW_LEVEL_DIFFERENCE && Math.abs(attacker.getActingPlayer().getLevel() - getLevel()) > Config.LEVEL_DIFFERENCE)
+							if (Config.ALLOW_LEVEL_DIFFERENCE && attacker.getActingPlayer().getLevel() - getLevel() > Config.LEVEL_DIFFERENCE)
 							{
 								exp = 0;
 								sp = 0;

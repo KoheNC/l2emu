@@ -39,35 +39,35 @@ public final class ConditionPlayerState extends Condition
 		switch (_check)
 		{
 			case RESTING:
-				if (env.player instanceof L2Player)
-					return ((L2Player)env.player).isSitting() == _required;
+				if (env.getPlayer() instanceof L2Player)
+					return ((L2Player)env.getPlayer()).isSitting() == _required;
 				break;
 			case MOVING:
-				return env.player.isMoving() == _required;
+				return env.getPlayer().isMoving() == _required;
 			case RUNNING:
-				return (env.player.isMoving() && env.player.isRunning()) == _required;
+				return (env.getPlayer().isMoving() && env.getPlayer().isRunning()) == _required;
 			case WALKING:
-				return (env.player.isMoving() && !env.player.isRunning()) == _required;
+				return (env.getPlayer().isMoving() && !env.getPlayer().isRunning()) == _required;
 			case BEHIND:
-				if (env.target == null)
+				if (env.getTarget() == null)
 					return false;
-				return env.player.isBehind(env.target) == _required;
+				return env.getPlayer().isBehind(env.getTarget()) == _required;
 			case FRONT:
-				if (env.target == null)
+				if (env.getTarget() == null)
 					return false;
-				return env.player.isInFrontOf(env.target) == _required;
+				return env.getPlayer().isInFrontOf(env.getTarget()) == _required;
 			case CHAOTIC:
-				player = env.player.getActingPlayer();
+				player = env.getPlayer().getActingPlayer();
 				if (player != null)
 					return player.getKarma() > 0 == _required;
 				break;
 			case OLYMPIAD:
-				player = env.player.getActingPlayer();
+				player = env.getPlayer().getActingPlayer();
 				if (player != null)
 					return player.getPlayerOlympiad().isInOlympiadMode() == _required;
 				break;
 			case FLYING:
-				return env.player.isFlying() == _required;
+				return env.getPlayer().isFlying() == _required;
 		}
 		
 		return !_required;

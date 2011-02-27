@@ -91,15 +91,15 @@ public class CharStat
 
 		// Create and init an Env object to pass parameters to the Calculator
 		Env env = new Env();
-		env.player = _activeChar;
-		env.target = target;
-		env.skill = skill;
-		env.value = init;
+		env.setPlayer(_activeChar);
+		env.setTarget(target);
+		env.setSkill(skill);
+		env.setValue(init);
 
 		// Launch the calculation
 		c.calc(env);
 		// avoid some troubles with negative stats (some stats should never be negative)
-		if (env.value <= 0)
+		if (env.getValue() <= 0)
 		{
 			switch (stat)
 			{
@@ -119,11 +119,11 @@ public class CharStat
 				case STAT_MEN:
 				case STAT_STR:
 				case STAT_WIT:
-					env.value = 1;
+					env.setValue(1);
 			}
 		}
 
-		return env.value;
+		return env.getValue();
 	}
 
 	// =========================================================

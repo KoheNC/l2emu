@@ -37,9 +37,9 @@ public final class ConditionPlayerPkCount extends Condition
 	@Override
 	public final boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2Player))
+		if (!(env.getPlayer() instanceof L2Player))
 			return false;
 
-		return ((L2Player) env.player).getPkKills() <= _pk;
+		return ((L2Player) env.getPlayer()).getPkKills() <= _pk;
 	}
 }

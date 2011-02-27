@@ -1609,10 +1609,10 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 			return true;
 
 		Env env = new Env();
-		env.player = activeChar;
+		env.setPlayer(activeChar);
 		if (target instanceof L2Character)
-			env.target = (L2Character) target;
-		env.skill = this;
+			env.setTarget((L2Character) target);
+		env.setSkill(this);
 
 		if (preCondition.test(env))
 			return true;
@@ -3833,10 +3833,10 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 				effected = effector;
 
 			Env env = new Env();
-			env.player = effector;
-			env.target = effected;
-			env.skill = this;
-			env.skillMastery = Formulas.calcSkillMastery(effector, this);
+			env.setPlayer(effector);
+			env.setTarget(effected);
+			env.setSkill(this);
+			env.setSkillMastery(Formulas.calcSkillMastery(effector, this));
 
 			for (EffectTemplate et : _effectTemplates)
 				et.getEffect(env);
@@ -3868,10 +3868,10 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 			return;
 		
 		Env env = new Env();
-		env.player = effector;
-		env.target = effected;
-		env.skill = this;
-		env.skillMastery = Formulas.calcSkillMastery(effector, this);
+		env.setPlayer(effector);
+		env.setTarget(effected);
+		env.setSkill(this);
+		env.setSkillMastery(Formulas.calcSkillMastery(effector, this));
 		
 		for (EffectTemplate et : _effectTemplates)
 		{
@@ -3909,10 +3909,10 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 			return;
 
 		Env env = new Env();
-		env.player = effector.getOwner();
+		env.setPlayer(effector.getOwner());
 		//env.cubic = effector;
-		env.target = effected;
-		env.skill = this;
+		env.setTarget(effected);
+		env.setSkill(this);
 
 		for (EffectTemplate et : _effectTemplates)
 			et.getEffect(env);
@@ -3927,9 +3927,9 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 			return;
 
 		Env env = new Env();
-		env.player = effector;
-		env.target = effector;
-		env.skill = this;
+		env.setPlayer(effector);
+		env.setTarget(effector);
+		env.setSkill(this);
 
 		for (EffectTemplate et : _effectTemplatesSelf)
 			et.getEffect(env);

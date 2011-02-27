@@ -27,6 +27,6 @@ class ConditionPlayerActiveSkillId extends AbstractConditionActiveSkillId
 	@Override
 	L2Character getSkillOwner(Env env)
 	{
-		return env.player;
+		return env.getPlayer();
 	}
 }

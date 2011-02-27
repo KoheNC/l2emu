@@ -26,6 +26,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.entity.clan.L2Clan;
+import net.l2emuproject.gameserver.entity.party.L2Party;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHallManager;
 import net.l2emuproject.gameserver.events.global.dimensionalrift.DimensionalRiftManager;
@@ -156,7 +157,7 @@ public final class MapRegionManager
 						{
 							if ("restartpoint".equalsIgnoreCase(f.getNodeName()))
 							{
-								L2MapRegionRestart restart = new L2MapRegionRestart(f);
+								final L2MapRegionRestart restart = new L2MapRegionRestart(f);
 								
 								if (!restarts.containsKey(restart.getRestartId()))
 									restarts.put(restart.getRestartId(), restart);
@@ -179,10 +180,10 @@ public final class MapRegionManager
 								{
 									if ("map".equalsIgnoreCase(r.getNodeName()))
 									{
-										int X = Integer.parseInt(r.getAttributes().getNamedItem("X").getNodeValue());
-										int Y = Integer.parseInt(r.getAttributes().getNamedItem("Y").getNodeValue());
+										final int x = Integer.parseInt(r.getAttributes().getNamedItem("X").getNodeValue());
+										final int y = Integer.parseInt(r.getAttributes().getNamedItem("Y").getNodeValue());
 										
-										mapAreas.add(new L2MapArea(restartId, X, Y));
+										mapAreas.add(new L2MapArea(restartId, x, y));
 									}
 								}
 							}
@@ -201,10 +202,10 @@ public final class MapRegionManager
 			{
 				for (int y = 0; y < worldRegions[x].length; y++)
 				{
-					int ax = (x - L2World.OFFSET_X) << L2World.SHIFT_BY;
-					int bx = ((x + 1) - L2World.OFFSET_X) << L2World.SHIFT_BY;
-					int ay = (y - L2World.OFFSET_Y) << L2World.SHIFT_BY;
-					int by = ((y + 1) - L2World.OFFSET_Y) << L2World.SHIFT_BY;
+					final int ax = (x - L2World.OFFSET_X) << L2World.SHIFT_BY;
+					final int bx = ((x + 1) - L2World.OFFSET_X) << L2World.SHIFT_BY;
+					final int ay = (y - L2World.OFFSET_Y) << L2World.SHIFT_BY;
+					final int by = ((y + 1) - L2World.OFFSET_Y) << L2World.SHIFT_BY;
 					
 					if (mapregion.intersectsRectangle(ax, bx, ay, by))
 						worldRegions[x][y].addMapRegion(mapregion);
@@ -285,14 +286,15 @@ public final class MapRegionManager
 	//TODO: Needs to be clean rewritten
 	public Location getTeleToLocation(L2Player player, TeleportWhereType teleportWhere)
 	{
-		L2Clan clan = player.getClan();
+		final L2Clan clan = player.getClan();
 		
 		// Checking if in Dimensinal Gap
 		if (DimensionalRiftManager.getInstance().checkIfInRiftZone(player.getX(), player.getY(), player.getZ(), true)) // true -> ignore waiting room :)
 		{
-			if (player.isInParty() && player.getParty().isInDimensionalRift())
+			final L2Party party = player.getParty();
+			if (player.isInParty() && party.isInDimensionalRift())
 			{
-				player.getParty().getDimensionalRift().usedTeleport(player);
+				party.getDimensionalRift().usedTeleport(player);
 			}
 			
 			return DimensionalRiftManager.getInstance().getWaitingRoomTeleport();
@@ -301,17 +303,17 @@ public final class MapRegionManager
 		// Checking if in an instance
 		if (player.isInInstance())
 		{
-			Instance inst = InstanceManager.getInstance().getInstance(player.getInstanceId());
+			final Instance inst = InstanceManager.getInstance().getInstance(player.getInstanceId());
 			if (inst != null)
 			{
-				Location loc = inst.getSpawnLoc();
+				final Location loc = inst.getSpawnLoc();
 				if (loc != null)
 					return loc;
 			}
 		}
 		
 		// Checking if in arena
-		L2Zone arena = ZoneManager.getInstance().isInsideZone(L2Zone.ZoneType.Arena, player.getX(), player.getY());
+		final L2Zone arena = ZoneManager.getInstance().isInsideZone(L2Zone.ZoneType.Arena, player.getX(), player.getY());
 		if (arena != null && arena.isInsideZone(player))
 		{
 			Location loc = arena.getRestartPoint(L2Zone.RestartType.OWNER);
@@ -325,10 +327,10 @@ public final class MapRegionManager
 			// If teleport to clan hall
 			if (teleportWhere == TeleportWhereType.ClanHall)
 			{
-				ClanHall clanhall = ClanHallManager.getInstance().getClanHallByOwner(clan);
+				final ClanHall clanhall = ClanHallManager.getInstance().getClanHallByOwner(clan);
 				if (clanhall != null)
 				{
-					L2Zone zone = clanhall.getZone();
+					final L2Zone zone = clanhall.getZone();
 					if (zone != null)
 					{
 						Location loc = zone.getRestartPoint(L2Zone.RestartType.OWNER);
@@ -340,10 +342,10 @@ public final class MapRegionManager
 			}
 			else if (teleportWhere == TeleportWhereType.Castle)
 			{
-				Castle castle = CastleManager.getInstance().getCastleByOwner(clan);
+				final Castle castle = CastleManager.getInstance().getCastleByOwner(clan);
 				if (castle != null)
 				{
-					L2Zone zone = castle.getZone();
+					final L2Zone zone = castle.getZone();
 					if (zone != null)
 					{
 						if (castle.getSiege().getIsInProgress() && player.isChaotic())
@@ -358,10 +360,10 @@ public final class MapRegionManager
 			}
 			else if (teleportWhere == TeleportWhereType.Fortress)
 			{
-				Fort fort = FortManager.getInstance().getFortByOwner(clan);
+				final Fort fort = FortManager.getInstance().getFortByOwner(clan);
 				if (fort != null)
 				{
-					L2Zone zone = fort.getZone();
+					final L2Zone zone = fort.getZone();
 					if (zone != null)
 					{
 						// If is on castle with siege and player's clan is defender
@@ -377,8 +379,8 @@ public final class MapRegionManager
 			}
 			else if (teleportWhere == TeleportWhereType.SiegeFlag)
 			{
-				Siege siege = SiegeManager.getInstance().getSiege(clan);
-				FortSiege fsiege = FortSiegeManager.getInstance().getSiege(clan);
+				final Siege siege = SiegeManager.getInstance().getSiege(clan);
+				final FortSiege fsiege = FortSiegeManager.getInstance().getSiege(clan);
 				
 				// Check if player's clan is attacker
 				if (siege != null && fsiege == null && siege.checkIsAttacker(clan) && siege.checkIfInZone(player))
@@ -386,14 +388,14 @@ public final class MapRegionManager
 					// Karma player respawns out of siege zone
 					if (player.isChaotic())
 					{
-						L2Zone zone = siege.getCastle().getZone();
+						final L2Zone zone = siege.getCastle().getZone();
 						if (zone != null)
 						{
 							return zone.getRestartPoint(L2Zone.RestartType.CHAOTIC);
 						}
 					}
 					// get nearest flag
-					L2Npc flag = siege.getClosestFlag(player);
+					final L2Npc flag = siege.getClosestFlag(player);
 					// spawn to flag
 					if (flag != null)
 						return flag.getLoc();
@@ -403,14 +405,14 @@ public final class MapRegionManager
 					// Karma player respawns out of siege zone
 					if (player.isChaotic())
 					{
-						L2Zone zone = fsiege.getFort().getZone();
+						final L2Zone zone = fsiege.getFort().getZone();
 						if (zone != null)
 						{
 							return zone.getRestartPoint(L2Zone.RestartType.CHAOTIC);
 						}
 					}
 					// Get nearest flag
-					L2Npc flag = fsiege.getClosestFlag(player);
+					final L2Npc flag = fsiege.getClosestFlag(player);
 					// Spawn to flag
 					if (flag != null)
 						return flag.getLoc();
@@ -419,7 +421,7 @@ public final class MapRegionManager
 		}
 		
 		// TeleportWhereType.Town, and other TeleportWhereTypes where the condition was not met
-		L2MapRegionRestart restart = getRestartLocation(player);
+		final L2MapRegionRestart restart = getRestartLocation(player);
 		
 		Location loc = null;
 		
@@ -439,7 +441,7 @@ public final class MapRegionManager
 	
 	public int getAreaCastle(L2Character activeChar)
 	{
-		Town town = TownManager.getInstance().getClosestTown(activeChar);
+		final Town town = TownManager.getInstance().getClosestTown(activeChar);
 		
 		if (town == null)
 			return 5;
@@ -462,8 +464,8 @@ public final class MapRegionManager
 		int locName = -1;
 		if (region != null)
 		{
-			int restartId = region.getRestartId();
-			L2MapRegionRestart restart = getRestartLocation(restartId);
+			final int restartId = region.getRestartId();
+			final L2MapRegionRestart restart = getRestartLocation(restartId);
 			locName = restart.getLocName();
 		}
 		return convertLocNameToL2Region(locName);

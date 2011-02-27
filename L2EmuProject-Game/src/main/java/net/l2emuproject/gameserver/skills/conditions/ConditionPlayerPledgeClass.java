@@ -35,15 +35,15 @@ final class ConditionPlayerPledgeClass extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2Player))
+		if (!(env.getPlayer() instanceof L2Player))
 			return false;
 		
-		if (((L2Player)env.player).getClan() == null)
+		if (((L2Player)env.getPlayer()).getClan() == null)
 			return false;
 		
 		if (_pledgeClass == -1)
-			return ((L2Player)env.player).isClanLeader();
+			return ((L2Player)env.getPlayer()).isClanLeader();
 		
-		return ((L2Player)env.player).getPledgeClass() >= _pledgeClass;
+		return ((L2Player)env.getPlayer()).getPledgeClass() >= _pledgeClass;
 	}
 }

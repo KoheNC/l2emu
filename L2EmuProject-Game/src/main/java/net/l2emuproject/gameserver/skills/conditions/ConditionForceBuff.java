@@ -39,7 +39,7 @@ final class ConditionForceBuff extends Condition
 	@Override
 	boolean testImpl(Env env)
 	{
-		L2Player player = env.player.getActingPlayer();
+		L2Player player = env.getPlayer().getActingPlayer();
 		
 		if (player.isGM() && player.getActiveClass() == player.getBaseClass())
 			return true;

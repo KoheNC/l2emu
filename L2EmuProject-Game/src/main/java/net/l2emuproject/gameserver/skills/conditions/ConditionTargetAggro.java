@@ -34,7 +34,7 @@ class ConditionTargetAggro extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		L2Character target = env.target;
+		L2Character target = env.getTarget();
 		if (target instanceof L2MonsterInstance)
 			return ((L2MonsterInstance)target).isAggressive() == _isAggro;
 		if (target instanceof L2Player)

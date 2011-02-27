@@ -32,8 +32,8 @@ class ConditionPlayerWeight extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (env.player instanceof L2Playable)
-			return ((L2Playable)env.player).getWeightProc() * 100 < _weight;
+		if (env.getPlayer() instanceof L2Playable)
+			return ((L2Playable)env.getPlayer()).getWeightProc() * 100 < _weight;
 		
 		return true;
 	}

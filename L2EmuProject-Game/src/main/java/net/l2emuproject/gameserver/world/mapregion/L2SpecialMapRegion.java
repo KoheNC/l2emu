@@ -45,15 +45,15 @@ public final class L2SpecialMapRegion extends L2MapRegion
 		{
 			if ("point".equalsIgnoreCase(n.getNodeName()))
 			{
-				int X = Integer.parseInt(n.getAttributes().getNamedItem("X").getNodeValue());
-				int Y = Integer.parseInt(n.getAttributes().getNamedItem("Y").getNodeValue());
+				final int x = Integer.parseInt(n.getAttributes().getNamedItem("X").getNodeValue());
+				final int y = Integer.parseInt(n.getAttributes().getNamedItem("Y").getNodeValue());
 				
-				_polygon.addPoint(X, Y);
+				_polygon.addPoint(x, y);
 			}
 			else if ("restart".equalsIgnoreCase(n.getNodeName()))
 			{
-				Race race = Race.getRaceByName(n.getAttributes().getNamedItem("race").getNodeValue());
-				int restartId = Integer.parseInt(n.getAttributes().getNamedItem("restartId").getNodeValue());
+				final Race race = Race.getRaceByName(n.getAttributes().getNamedItem("race").getNodeValue());
+				final int restartId = Integer.parseInt(n.getAttributes().getNamedItem("restartId").getNodeValue());
 				
 				setRestartId(race, restartId);
 			}

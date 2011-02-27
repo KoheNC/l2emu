@@ -40,9 +40,9 @@ final class ConditionTargetRaceId extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.target instanceof L2Npc))
+		if (!(env.getTarget() instanceof L2Npc))
 			return false;
 		
-		return Arrays.binarySearch(_raceIds, ((L2Npc)env.target).getTemplate().getRace().ordinal()) >= 0;
+		return Arrays.binarySearch(_raceIds, ((L2Npc)env.getTarget()).getTemplate().getRace().ordinal()) >= 0;
 	}
 }

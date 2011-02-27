@@ -39,12 +39,12 @@ class ConditionChangeWeapon extends Condition
 	@Override
 	boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2Player))
+		if (!(env.getPlayer() instanceof L2Player))
 			return false;
 		
 		if (_required)
 		{
-			L2Weapon weaponItem = env.player.getActiveWeaponItem();
+			L2Weapon weaponItem = env.getPlayer().getActiveWeaponItem();
 			
 			if (weaponItem == null)
 				return false;

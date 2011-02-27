@@ -43,9 +43,9 @@ final class ConditionPlayerGrade extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (env.player instanceof L2Player)
+		if (env.getPlayer() instanceof L2Player)
 		{
-			byte expIndex = (byte)((L2Player)env.player).getExpertiseIndex();
+			byte expIndex = (byte)((L2Player)env.getPlayer()).getExpertiseIndex();
 			
 			return _value == expIndex;
 		}

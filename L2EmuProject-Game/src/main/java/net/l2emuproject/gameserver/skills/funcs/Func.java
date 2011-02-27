@@ -74,8 +74,8 @@ public abstract class Func
 	{
 		if (isAllowed(env))
 		{
-			if (order == 0x30 && Double.isNaN(env.baseValue))
-				env.baseValue = env.value;
+			if (order == 0x30 && Double.isNaN(env.getBaseValue()))
+				env.setBaseValue(env.getValue());
 			
 			calc(env);
 		}
@@ -83,11 +83,11 @@ public abstract class Func
 	
 	public final boolean isAllowed(Env env)
 	{
-		if (env.player != null && funcOwner != null)
+		if (env.getPlayer() != null && funcOwner != null)
 		{
 			final L2Skill skill = funcOwner.getFuncOwnerSkill();
 			
-			if (skill != null && skill.ownedFuncShouldBeDisabled(env.player))
+			if (skill != null && skill.ownedFuncShouldBeDisabled(env.getPlayer()))
 				return false;
 		}
 		

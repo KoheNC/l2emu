@@ -119,7 +119,7 @@ public class LastImperialTombSpawnlist
                 }
                 else
                 {
-                    _log.warn("LastImperialTombSpawnlist: Data missing in NPC table for ID: " + npcTemplateId + ".");
+                    _log.warn(getClass().getSimpleName() + " : Data missing in NPC table for ID: " + npcTemplateId + ".");
                 }
             }
 
@@ -128,19 +128,19 @@ public class LastImperialTombSpawnlist
         }
         catch (Exception e)
         {
-            _log.warn("LastImperialTombSpawnlist: Spawn could not be initialized: ", e);
+            _log.warn(getClass().getSimpleName() + " : Spawn could not be initialized: ", e);
         }
         finally
         {
             L2DatabaseFactory.close(con);
         }
 
-        _log.info("LastImperialTombSpawnlist: Loaded " + _Room1SpawnList1st.size() + " Room1 1st Npc Spawn Locations.");
-        _log.info("LastImperialTombSpawnlist: Loaded " + _Room1SpawnList2nd.size() + " Room1 2nd Npc Spawn Locations.");
-        _log.info("LastImperialTombSpawnlist: Loaded " + _Room1SpawnList3rd.size() + " Room1 3rd Npc Spawn Locations.");
-        _log.info("LastImperialTombSpawnlist: Loaded " + _Room1SpawnList4th.size() + " Room1 4th Npc Spawn Locations.");
-        _log.info("LastImperialTombSpawnlist: Loaded " + _Room2InsideSpawnList.size() + " Room2 Inside Npc Spawn Locations.");
-        _log.info("LastImperialTombSpawnlist: Loaded " + _Room2OutsideSpawnList.size() + " Room2 Outside Npc Spawn Locations.");
+        _log.info(getClass().getSimpleName() + " : Loaded " + _Room1SpawnList1st.size() + " Room1 1st Npc Spawn Locations.");
+        _log.info(getClass().getSimpleName() + " : Loaded " + _Room1SpawnList2nd.size() + " Room1 2nd Npc Spawn Locations.");
+        _log.info(getClass().getSimpleName() + " : Loaded " + _Room1SpawnList3rd.size() + " Room1 3rd Npc Spawn Locations.");
+        _log.info(getClass().getSimpleName() + " : Loaded " + _Room1SpawnList4th.size() + " Room1 4th Npc Spawn Locations.");
+        _log.info(getClass().getSimpleName() + " : Loaded " + _Room2InsideSpawnList.size() + " Room2 Inside Npc Spawn Locations.");
+        _log.info(getClass().getSimpleName() + " : Loaded " + _Room2OutsideSpawnList.size() + " Room2 Outside Npc Spawn Locations.");
     }
 
     public void clear()

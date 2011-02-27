@@ -29,12 +29,12 @@ class ConditionTargetNpcId extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.target instanceof L2Npc))
+		if (!(env.getTarget() instanceof L2Npc))
 			return false;
 
 		for (int id : _npcIds)
 		{
-			if (((L2Npc) env.target).getNpcId() == id)
+			if (((L2Npc) env.getTarget()).getNpcId() == id)
 				return true;
 		}
 

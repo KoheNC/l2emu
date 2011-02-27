@@ -36,6 +36,6 @@ public final class FuncEnchantHp extends Func
 		final L2ItemInstance item = (L2ItemInstance)funcOwner;
 		
 		if (item.getEnchantLevel() > 0)
-			env.value += EnchantHPBonusData.getInstance().getHPBonus(item);
+			env.setValue(env.getValue() + EnchantHPBonusData.getInstance().getHPBonus(item));
 	}
 }

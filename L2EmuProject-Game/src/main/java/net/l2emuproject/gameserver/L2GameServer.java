@@ -225,7 +225,7 @@ public class L2GameServer extends Config
 			_log.fatal("Could not read object IDs from DB. Please Check Your Data.");
 			throw new Exception("Could not initialize the ID factory");
 		}
-		_log.info("IdFactory: Free ObjectID's remaining: " + IdFactory.getInstance().size());
+		_log.info("IdFactory : Free ObjectID's remaining: " + IdFactory.getInstance().size());
 		if (Config.OPTIMIZE_DATABASE)
 			TableOptimizer.optimize();
 		if (Config.DATABASE_BACKUP_MAKE_BACKUP_ON_STARTUP)

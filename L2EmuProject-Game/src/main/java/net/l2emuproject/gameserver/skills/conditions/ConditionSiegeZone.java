@@ -50,7 +50,7 @@ final class ConditionSiegeZone extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		L2Character target = _self ? env.player : env.target;
+		L2Character target = _self ? env.getPlayer() : env.getTarget();
 		Castle castle = CastleManager.getInstance().getCastle(target);
 		Fort fort = FortManager.getInstance().getFort(target);
 		ClanHall ch = ClanHallManager.getInstance().getClanHall(target);

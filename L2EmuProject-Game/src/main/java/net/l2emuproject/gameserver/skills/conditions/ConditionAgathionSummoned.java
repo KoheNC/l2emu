@@ -32,6 +32,6 @@ class ConditionAgathionSummoned extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		return ((L2Player)env.player).getAgathionId() == _agathionId;
+		return ((L2Player)env.getPlayer()).getAgathionId() == _agathionId;
 	}
 }

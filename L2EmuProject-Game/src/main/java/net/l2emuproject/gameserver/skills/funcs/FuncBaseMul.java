@@ -28,9 +28,9 @@ public final class FuncBaseMul extends FuncLambda
 	@Override
 	protected void calc(Env env)
 	{
-		if (Double.isNaN(env.baseValue))
+		if (Double.isNaN(env.getBaseValue()))
 			new IllegalStateException("Uninitialized 'env.baseValue' variable!").printStackTrace();
 		else
-			env.value += env.baseValue * _lambda;
+			env.setValue(env.getValue() + (env.getBaseValue() * _lambda));
 	}
 }

@@ -1948,13 +1948,13 @@ public class AdminSmartShop implements IAdminCommandHandler
 							message += func.stat.getValue() + " ";
 
 							Env env = new Env();
-							env.player = activeChar;
-							env.target = activeChar;
-							env.skill = null;
-							env.value = 1;
+							env.setPlayer(activeChar);
+							env.setTarget(activeChar);
+							env.setSkill(null);
+							env.setValue(1);
 							func.calcIfAllowed(env);
-							env.value = (param.equals("Add") || param.equals("Sub")) ? (env.value - 1) : env.value;
-							message += (param.equals("Enchant") && env.value == 1) ? "" : env.value;
+							env.setValue((param.equals("Add") || param.equals("Sub")) ? (env.getValue() - 1) : env.getValue());
+							message += (param.equals("Enchant") && env.getValue() == 1) ? "" : env.getValue();
 						}
 
 					}

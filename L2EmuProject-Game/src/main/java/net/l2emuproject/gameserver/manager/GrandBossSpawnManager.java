@@ -71,19 +71,19 @@ public class GrandBossSpawnManager extends BossSpawnManager
 				}
 				else
 				{
-					_log.warn("GrandBossSpawnManager: Could not load grandboss #" + rset.getInt("boss_id") + " from DB");
+					_log.warn(getClass().getSimpleName() + " : Could not load grandboss #" + rset.getInt("boss_id") + " from DB");
 				}
 			}
 
-			_log.info("GrandBossSpawnManager: Loaded " + _bosses.size() + " Instances");
-			_log.info("GrandBossSpawnManager: Scheduled " + _schedules.size() + " Instances");
+			_log.info(getClass().getSimpleName() + " : Loaded " + _bosses.size() + " Instances");
+			_log.info(getClass().getSimpleName() + " : Scheduled " + _schedules.size() + " Instances");
 
 			rset.close();
 			statement.close();
 		}
 		catch (SQLException e)
 		{
-			_log.warn("GrandBossSpawnManager: Couldnt load grandboss_spawnlist table");
+			_log.warn(getClass().getSimpleName() + " : Couldnt load grandboss_spawnlist table");
 		}
 		catch (Exception e)
 		{
@@ -118,7 +118,7 @@ public class GrandBossSpawnManager extends BossSpawnManager
 		catch (Exception e)
 		{
 			// Problem with storing spawn
-			_log.warn("GrandBossSpawnManager: Could not store grand boss #" + spawnDat.getNpcId() + " in the DB:" , e);
+			_log.warn(getClass().getSimpleName() + " : Could not store grand boss #" + spawnDat.getNpcId() + " in the DB:" , e);
 		}
 		finally
 		{
@@ -145,7 +145,7 @@ public class GrandBossSpawnManager extends BossSpawnManager
 		}
 		catch (Exception e)
 		{
-			_log.warn("GrandBossSpawnManager: Could not update raidboss #" + bossId + " in DB: ", e);
+			_log.warn(getClass().getSimpleName() + " : Could not update raidboss #" + bossId + " in DB: ", e);
 		}
 		finally
 		{
@@ -170,7 +170,7 @@ public class GrandBossSpawnManager extends BossSpawnManager
 		catch (Exception e)
 		{
 			// Problem with deleting spawn
-			_log.warn("GrandBossSpawnManager: Could not remove grand boss #" + bossId + " from DB: ", e);
+			_log.warn(getClass().getSimpleName() + " : Could not remove grand boss #" + bossId + " from DB: ", e);
 		}
 		finally
 		{
@@ -214,7 +214,7 @@ public class GrandBossSpawnManager extends BossSpawnManager
 			}
 			catch (SQLException e)
 			{
-				_log.error("GrandBossSpawnManager: Couldnt update grandboss_spawnlist table", e);
+				_log.error(getClass().getSimpleName() + " : Couldnt update grandboss_spawnlist table", e);
 			}
 			finally
 			{

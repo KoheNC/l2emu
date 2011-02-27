@@ -32,10 +32,10 @@ class ConditionTargetUsesWeaponKind extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (env.target == null)
+		if (env.getTarget() == null)
 			return false;
 		
-		L2Weapon item = env.target.getActiveWeaponItem();
+		L2Weapon item = env.getTarget().getActiveWeaponItem();
 		
 		if (item == null)
 			return false;

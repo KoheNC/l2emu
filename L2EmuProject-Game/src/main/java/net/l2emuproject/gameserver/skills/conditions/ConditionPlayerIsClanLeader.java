@@ -29,8 +29,8 @@ public class ConditionPlayerIsClanLeader extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2Player))
+		if (!(env.getPlayer() instanceof L2Player))
 			return false;
-		return (((L2Player)env.player).isClanLeader() == _val);
+		return (((L2Player)env.getPlayer()).isClanLeader() == _val);
 	}
 }

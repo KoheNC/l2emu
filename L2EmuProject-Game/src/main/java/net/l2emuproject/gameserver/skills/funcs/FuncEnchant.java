@@ -38,11 +38,11 @@ public final class FuncEnchant extends Func
 		int enchant = item.getEnchantLevel();
 		
 		if (Config.ALT_OLY_ENCHANT_LIMIT >= 0)
-			if (env.player instanceof L2Player && ((L2Player)env.player).getPlayerOlympiad().isInOlympiadMode())
+			if (env.getPlayer() instanceof L2Player && ((L2Player)env.getPlayer()).getPlayerOlympiad().isInOlympiadMode())
 				enchant = Math.min(Config.ALT_OLY_ENCHANT_LIMIT, enchant);
 		
 		if (enchant > 0)
-			env.value += getEnchantAddition(Math.min(enchant, 3), Math.max(0, enchant - 3), item.getItem());
+			env.setValue(env.getValue() + getEnchantAddition(Math.min(enchant, 3), Math.max(0, enchant - 3), item.getItem()));
 	}
 	
 	private int getEnchantAddition(int enchant, int overEnchant, L2Item item)

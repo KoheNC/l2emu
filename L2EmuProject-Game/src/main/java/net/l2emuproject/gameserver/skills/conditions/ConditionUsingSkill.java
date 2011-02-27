@@ -35,8 +35,8 @@ class ConditionUsingSkill extends Condition
 	@Override
 	boolean testImpl(Env env)
 	{
-		if (env.skill != null && env.skill.getId() == _skillId)
-			if (_minSkillLvl == -1 || _minSkillLvl <= env.skill.getLevel() && env.skill.getLevel() <= _maxSkillLvl)
+		if (env.getSkill() != null && env.getSkill().getId() == _skillId)
+			if (_minSkillLvl == -1 || _minSkillLvl <= env.getSkill().getLevel() && env.getSkill().getLevel() <= _maxSkillLvl)
 				return true;
 		
 		return false;

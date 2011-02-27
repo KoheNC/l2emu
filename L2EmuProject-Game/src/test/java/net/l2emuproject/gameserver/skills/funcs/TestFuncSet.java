@@ -27,9 +27,9 @@ public class TestFuncSet extends TestCase
         FuncSet fa = new FuncSet(Stats.MAX_HP, 1, null, 45, null);
 
         Env env = new Env();
-        env.value = 1;
+        env.setValue(1);
         fa.calc(env);
-        assertEquals(45.0, env.value);
+        assertEquals(45.0, env.getValue());
     }
 
 }

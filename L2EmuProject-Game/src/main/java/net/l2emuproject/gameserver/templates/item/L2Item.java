@@ -584,11 +584,11 @@ public abstract class L2Item implements FuncOwner
 		for (Condition preCondition : _preConditions)
 		{
 			Env env = new Env();
-			env.player = activeChar;
+			env.setPlayer(activeChar);
 			if (target instanceof L2Character)
-				env.target = target.getActingCharacter();
+				env.setTarget(target.getActingCharacter());
 			else
-				env.target = activeChar;
+				env.setTarget(activeChar);
 			
 			if (!preCondition.test(env))
 			{

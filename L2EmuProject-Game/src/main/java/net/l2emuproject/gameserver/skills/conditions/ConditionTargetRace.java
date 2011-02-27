@@ -30,9 +30,9 @@ final class ConditionTargetRace extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.target instanceof L2Player))
+		if (!(env.getTarget() instanceof L2Player))
 			return false;
 		
-		return ((L2Player) env.target).getRace() == _race;
+		return ((L2Player) env.getTarget()).getRace() == _race;
 	}
 }

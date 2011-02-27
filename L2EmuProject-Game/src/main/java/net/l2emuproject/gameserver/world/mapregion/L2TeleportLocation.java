@@ -19,7 +19,7 @@ package net.l2emuproject.gameserver.world.mapregion;
  *
  * @version $Revision: 1.2.4.1 $ $Date: 2005/03/27 15:29:32 $
  */
-public class L2TeleportLocation
+public final class L2TeleportLocation
 {
 	private int _teleId;
 	private int _locX;

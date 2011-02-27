@@ -31,6 +31,6 @@ final class ConditionWithSkill extends Condition
 	@Override
 	boolean testImpl(Env env)
 	{
-		return _withSkill == (env.skill != null);
+		return _withSkill == (env.getSkill() != null);
 	}
 }

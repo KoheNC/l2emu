@@ -33,6 +33,6 @@ final class ConditionPlayerFlyMounted extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		return (env.player instanceof L2Player) ? ((L2Player) env.player).isFlyingMounted() == _val : true;
+		return (env.getPlayer() instanceof L2Player) ? ((L2Player) env.getPlayer()).isFlyingMounted() == _val : true;
 	}
 }

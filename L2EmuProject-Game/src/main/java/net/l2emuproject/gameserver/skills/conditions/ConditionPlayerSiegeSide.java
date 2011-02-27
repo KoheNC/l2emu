@@ -29,6 +29,6 @@ public class ConditionPlayerSiegeSide extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		return ((L2Player) env.player).getSiegeSide() == _siegeSide;
+		return ((L2Player) env.getPlayer()).getSiegeSide() == _siegeSide;
 	}
 }

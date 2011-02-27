@@ -66,7 +66,7 @@ public final class FusionSkill implements Runnable
 	{
 		_caster.setFusionSkill(null);
 		
-		EffectFusion effect = getFusionTriggeredEffect();
+		final EffectFusion effect = getFusionTriggeredEffect();
 		if (effect != null)
 			effect.decreaseEffect();
 		

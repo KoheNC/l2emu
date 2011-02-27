@@ -29,12 +29,12 @@ class ConditionTargetDoorId extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.target instanceof L2DoorInstance))
+		if (!(env.getTarget() instanceof L2DoorInstance))
 			return false;
 
 		for (int id : _doorIds)
 		{
-			if (((L2DoorInstance) env.target).getDoorId() == id)
+			if (((L2DoorInstance) env.getTarget()).getDoorId() == id)
 				return true;
 		}
 

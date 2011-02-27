@@ -37,9 +37,9 @@ class ConditionPlayerClassIdRestriction extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2Player))
+		if (!(env.getPlayer() instanceof L2Player))
 			return false;
 		
-		return Arrays.binarySearch(_classIds, ((L2Player)env.player).getClassId().getId()) >= 0;
+		return Arrays.binarySearch(_classIds, ((L2Player)env.getPlayer()).getClassId().getId()) >= 0;
 	}
 }

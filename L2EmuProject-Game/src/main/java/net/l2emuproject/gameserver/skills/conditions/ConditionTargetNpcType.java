@@ -29,10 +29,10 @@ class ConditionTargetNpcType extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.target instanceof L2Npc))
+		if (!(env.getTarget() instanceof L2Npc))
 			return false;
 		
-		String type = ((L2Npc)env.target).getTemplate().getType();
+		String type = ((L2Npc)env.getTarget()).getTemplate().getType();
 		
 		for (String npcType : _npcTypes)
 			if (npcType.equalsIgnoreCase(type))

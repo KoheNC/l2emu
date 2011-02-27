@@ -722,9 +722,9 @@ public class Disablers implements ICubicSkillHandler
 				continue;
 
 			Env env = new Env();
-			env.player = stolen;
-			env.target = stealer;
-			env.skill = eff.getSkill();
+			env.setPlayer(stolen);
+			env.setTarget(stealer);
+			env.setSkill(eff.getSkill());
 			L2Effect e = eff.getEffectTemplate().getStolenEffect(env, eff);
 
 			// Since there is a previous check that limits allowed effects to those which come from L2SkillType.BUFF,

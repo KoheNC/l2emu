@@ -33,6 +33,6 @@ final class ConditionPlayerLandingZone extends Condition
 	@Override
 	public boolean testImpl(Env env)
 	{
-		return env.player.isInsideZone(L2Zone.FLAG_LANDING) == _val;
+		return env.getPlayer().isInsideZone(L2Zone.FLAG_LANDING) == _val;
 	}
 }

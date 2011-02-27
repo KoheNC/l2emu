@@ -37,9 +37,9 @@ class ConditionSlotItemId extends ConditionInventory
 	@Override
 	public boolean testImpl(Env env)
 	{
-		if (!(env.player instanceof L2Player))
+		if (!(env.getPlayer() instanceof L2Player))
 			return false;
-		Inventory inv = ((L2Player)env.player).getInventory();
+		Inventory inv = ((L2Player)env.getPlayer()).getInventory();
 		L2ItemInstance item = inv.getPaperdollItem(_slot);
 		if (item == null)
 			return _itemId == 0;

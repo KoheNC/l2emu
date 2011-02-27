@@ -27,8 +27,8 @@ public class TestFuncSub extends TestCase
         FuncSub fa = new FuncSub(Stats.MAX_HP, 1, null, 2, null);
 
         Env env = new Env();
-        env.value = 1;
+        env.setValue(1);
         fa.calc(env);
-        assertEquals(-1.0, env.value);
+        assertEquals(-1.0, env.getValue());
     }
 }

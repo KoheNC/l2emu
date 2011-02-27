@@ -28,6 +28,6 @@ public final class FuncSub extends FuncLambda
 	@Override
 	protected void calc(Env env)
 	{
-		env.value -= _lambda;
+		env.setValue(env.getValue() - _lambda);
 	}
 }
