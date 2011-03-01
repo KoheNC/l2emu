@@ -33425,6 +33425,22 @@ INSERT INTO `droplist` VALUES
 (22791,15641,1,1,-1,2000),-- Vesper Retributer Piece
 (22791,15642,1,1,-1,2000),-- Vesper Caster Piece
 (22791,15643,1,1,-1,2000),-- Vesper Singer Piece
+-- Disciple Solina (82)
+(22792,57,1033,2086,0,700000), -- Adena
+(22792,1895,1,1,2,74287), -- Metallic Fiber
+(22792,4043,1,1,2,8667), -- Asofe
+(22792,4040,1,1,2,5200), -- Mold Lubricant
+(22792,4042,1,1,2,4333), -- Enria
+(22792,14166,1,1,200,1526), -- Life Stone 84 lvl
+(22792,14167,1,1,200,3140), -- Mid Life Stone 84 lvl
+(22792,14168,1,1,200,31), -- High Life Stone 84 lvl
+(22792,15540,1,1,3,1000), -- Unlit Torchlight
+(22792,15644,1,1,4,621), -- Vesper Thrower Piece
+(22792,959,1,1,5,10), -- Scroll: Enchant Weapon (S)
+(22792,13467,1,1,6,1), -- Vesper Thrower
+(22792,9628,1,1,-1,33117), -- Leonard
+(22792,15644,1,1,-1,2519), -- Vesper Thrower Piece
+(22792,15825,1,1,-1,295), -- Vesper Thrower Recipe (60%)
 -- Ascetic Solina
 (22793,57,1085,2116,0,700000),-- Adena
 (22793,15637,1,1,1,1500),-- Vesper Shaper Piece
