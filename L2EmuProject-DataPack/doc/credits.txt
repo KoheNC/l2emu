@@ -10,8 +10,6 @@
  - Q.I
  - Stake
  - Intrepid
- - Janko
- - lewzer
  
  ============================
  = L2Emu Project GameServer =
@@ -28,8 +26,6 @@
  - L0ngh0rn
  - Q.I
  - Intrepid
- - Janko
- - lewzer
  
  ========================
  = Project Contributors =
