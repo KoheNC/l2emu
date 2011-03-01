@@ -26,6 +26,7 @@
  - L0ngh0rn
  - Q.I
  - Intrepid
+ - MoonFang
  
  ========================
  = Project Contributors =
