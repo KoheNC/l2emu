@@ -91,7 +91,7 @@ public class AdminAnnouncements implements IAdminCommandHandler
 				try
 				{
 					String val = command.substring(23);
-					Announcements.getInstance().addAnnouncement(val);
+					Announcements.getInstance().addAnnouncement(val, null, null);
 					Announcements.getInstance().listAnnouncements(activeChar);
 				}
 				catch (StringIndexOutOfBoundsException e)
@@ -104,7 +104,7 @@ public class AdminAnnouncements implements IAdminCommandHandler
 			try
 			{
 				int val = Integer.valueOf(command.substring(23));
-				Announcements.getInstance().delAnnouncement(val);
+				Announcements.getInstance().deleteAnnouncement(val);
 				Announcements.getInstance().listAnnouncements(activeChar);
 			}
 			catch (StringIndexOutOfBoundsException e)

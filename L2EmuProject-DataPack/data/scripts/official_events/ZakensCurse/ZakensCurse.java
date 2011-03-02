@@ -264,9 +264,6 @@ public class ZakensCurse extends QuestJython
 		{ 7, -1, 0, 10639, 2 });
 	}
 
-	private static final String[]						EVENT_ANNOUNCE			=
-																				{ "The Zaken's Curse Event is started. Go see Bonny in Floran Village for the details!" };
-
 	private static final DateRange						EVENT_DATES				= DateRange.parse(Config.ZAKENS_CURSE_DATE, new SimpleDateFormat("dd MM yyyy",
 																						Locale.US));
 
@@ -277,7 +274,8 @@ public class ZakensCurse extends QuestJython
 		addFirstTalkId(BONNY);
 		addTalkId(BONNY);
 
-		Announcements.getInstance().addEventAnnouncement(EVENT_DATES, EVENT_ANNOUNCE);
+		Announcements.getInstance().addAnnouncement("The Zaken's Curse Event is started. Go see Bonny in Floran Village for the details!",
+				EVENT_DATES.getStartDate(), EVENT_DATES.getEndDate());
 
 		final Date currentDate = new Date();
 

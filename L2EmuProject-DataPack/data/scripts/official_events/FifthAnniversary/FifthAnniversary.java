@@ -42,8 +42,7 @@ public class FifthAnniversary extends QuestJython
 	 * Event beginning and end date.
 	 */
 	private static final DateRange	EVENT_DATES				= DateRange.parse(Config.FIFTH_ANNIVERSARY_DATE, new SimpleDateFormat("dd MM yyyy", Locale.US));
-	private static final String[]	EVENT_ANNOUNCE			=
-															{ "5th Anniversary Event is currently active." };
+	private static final Date		_startDate				= EVENT_DATES.getStartDate();
 	private static final Date		_endDate				= EVENT_DATES.getEndDate();
 	private static final Date		_currentDate			= new Date();
 
@@ -148,7 +147,7 @@ public class FifthAnniversary extends QuestJython
 
 		EventDroplist.getInstance().addGlobalDrop(_dropList, _dropCount, _dropChance, EVENT_DATES);
 
-		Announcements.getInstance().addEventAnnouncement(EVENT_DATES, EVENT_ANNOUNCE);
+		Announcements.getInstance().addAnnouncement("5th Anniversary Event is currently active.", _startDate, _endDate);
 
 		addStartNpc(_eventNPC);
 		addFirstTalkId(_eventNPC);

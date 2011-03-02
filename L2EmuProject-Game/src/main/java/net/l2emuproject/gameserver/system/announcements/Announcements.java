@@ -14,26 +14,22 @@
  */
 package net.l2emuproject.gameserver.system.announcements;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
-import java.util.StringTokenizer;
+import java.util.Map;
 
-import net.l2emuproject.Config;
+import javolution.util.FastList;
+import javolution.util.FastMap;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
-import net.l2emuproject.gameserver.network.serverpackets.CreatureSay;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
-import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.cache.HtmCache;
-import net.l2emuproject.gameserver.system.script.DateRange;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
@@ -41,85 +37,95 @@ import net.l2emuproject.lang.L2TextBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
-
-/**
- * This class ...
- * 
- * @version $Revision: 1.5.2.1.2.7 $ $Date: 2005/03/29 23:15:14 $
- */
-public class Announcements
+public final class Announcements
 {
-	private final static Log _log = LogFactory.getLog(Announcements.class);
+	private static final Log			_log			= LogFactory.getLog(Announcements.class);
 
-	private final List<String> _announcements = new ArrayList<String>();
-	private final List<List<Object>> _eventAnnouncements = new ArrayList<List<Object>>();
+	private static final String			LOAD_QUERRY		= "SELECT announceId, announcement, dateStart, dateEnd FROM announcements";
+	private static final String			SAVE_QUERRY		= "INSERT INTO announcements (announceId, announcement, dateStart, dateEnd) VALUES (?, ?, ?, ?)";
+	private static final String			DELETE_QUERRY	= "DELETE FROM announcements WHERE announceId = ?";
 
-	private Announcements()
+	private final Map<Integer, String>	_announcements	= new FastMap<Integer, String>();
+	private final List<AnnounceDates>	_dates			= new FastList<AnnounceDates>();
+	private int							_nextId			= 0;
+
+	private static final class SingletonHolder
 	{
-		loadAnnouncements();
+		private static final Announcements	INSTANCE	= new Announcements();
 	}
 
 	public static Announcements getInstance()
 	{
-		return SingletonHolder._instance;
+		return SingletonHolder.INSTANCE;
 	}
 
-	public void loadAnnouncements()
+	private Announcements()
 	{
-		_announcements.clear();
-		File file = new File(Config.DATAPACK_ROOT, "data/announcements.txt");
-		if (file.exists())
-		{
-			readFromDisk(file);
-		}
-		else
-		{
-			_log.info("data/announcements.txt doesn't exist");
-		}
+		loadAnnouncements();
+		_log.info(getClass().getSimpleName() + " : Loaded " + _announcements.size() + " announcement(s).");
 	}
 
-	public void showAnnouncements(L2Player activeChar)
+	private final class AnnounceDates
 	{
-		for (int i = 0; i < _announcements.size(); i++)
+		private final Date	_startDate;
+		private final Date	_endDate;
+
+		private AnnounceDates(Date startDate, Date endDate)
 		{
-			CreatureSay cs = new CreatureSay(0, SystemChatChannelId.Chat_Announce, activeChar.getName(), _announcements.get(i).replace("%name%", activeChar.getName()));
-			activeChar.sendPacket(cs);
+			_startDate = startDate;
+			_endDate = endDate;
 		}
 
-		Date currentDate = new Date();
-		for (int i = 0; i < _eventAnnouncements.size(); i++)
+		public Date getStartDate()
 		{
-			List<Object> entry = _eventAnnouncements.get(i);
+			return _startDate;
+		}
 
-			DateRange validDateRange = (DateRange) entry.get(0);
-			String[] msg = (String[]) entry.get(1);
-
-			if (validDateRange.isValid() && validDateRange.isWithinRange(currentDate))
-			{
-				SystemMessage sm = new SystemMessage(SystemMessageId.S1);
-				for (String element : msg)
-					sm.addString(element);
-				activeChar.sendPacket(sm);
-			}
+		public Date getEndDate()
+		{
+			return _endDate;
 		}
 	}
 
-	public void addEventAnnouncement(DateRange validDateRange, String[] msg)
+	private final boolean dateIsOk()
 	{
-		ArrayList<Object> entry = new ArrayList<Object>();
-		entry.add(validDateRange);
-		entry.add(msg);
-		entry.trimToSize();
-		_eventAnnouncements.add(entry);
+		for (AnnounceDates dates : _dates)
+		{
+			final Date startDate = dates.getStartDate();
+			final Date endDate = dates.getEndDate();
+			final long current = System.currentTimeMillis();
+
+			if (startDate == null && endDate == null)
+				return true;
+
+			if (current >= startDate.getTime() && current <= endDate.getTime())
+				return true;
+		}
+
+		return false;
 	}
 
-	public void listAnnouncements(L2Player activeChar)
+	public final void showAnnouncements(final L2Player player)
 	{
-		String content = HtmCache.getInstance().getHtmForce("data/html/admin/announce.htm");
-		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
+		if (!dateIsOk())
+			return;
+
+		for (String line : _announcements.values())
+			announce(player, line.replace("%name%", player.getName()));
+	}
+
+	public final void announce(final L2Player player, final String text)
+	{
+		player.sendCreatureMessage(SystemChatChannelId.Chat_Announce, player.getName(), text);
+	}
+
+	public final void listAnnouncements(final L2Player player)
+	{
+		final String content = HtmCache.getInstance().getHtmForce("data/html/admin/announce.htm");
+		final NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
 		adminReply.setHtml(content);
-		L2TextBuilder replyMSG = L2TextBuilder.newInstance();
+
+		final L2TextBuilder replyMSG = L2TextBuilder.newInstance();
 		replyMSG.append("<br>");
 		for (int i = 0; i < _announcements.size(); i++)
 		{
@@ -130,117 +136,128 @@ public class Announcements
 			replyMSG.append("\" width=60 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr></table>");
 		}
 		adminReply.replace("%announces%", replyMSG.moveToString());
-		activeChar.sendPacket(adminReply);
+		player.sendPacket(adminReply);
 	}
 
-	public void addAnnouncement(String text)
+	public final void loadAnnouncements()
 	{
-		_announcements.add(text);
-		saveToDisk();
-	}
+		_announcements.clear();
 
-	public void delAnnouncement(int line)
-	{
-		_announcements.remove(line);
-		saveToDisk();
-	}
-
-	private void readFromDisk(File file)
-	{
-		BufferedReader lnr = null;
-		try
-		{
-			int i = 0;
-			String line = null;
-			lnr = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
-			while ((line = lnr.readLine()) != null)
-			{
-				StringTokenizer st = new StringTokenizer(line, "\n\r");
-				if (st.hasMoreTokens())
-				{
-					String announcement = st.nextToken();
-					_announcements.add(announcement);
-
-					i++;
-				}
-			}
-			_log.info(getClass().getSimpleName() + " : Loaded " + i + " announcements.");
-		}
-		catch (IOException e1)
-		{
-			_log.fatal("Error reading announcements", e1);
-		}
-		finally { try { if (lnr != null) lnr.close(); } catch (Exception e) { e.printStackTrace(); } }
-	}
-
-	private void saveToDisk()
-	{
-		File file = new File("data/announcements.txt");
-		FileWriter save = null;
+		Connection con = null;
 
 		try
 		{
-			save = new FileWriter(file);
-			for (int i = 0; i < _announcements.size(); i++)
+			con = L2DatabaseFactory.getInstance().getConnection();
+			final PreparedStatement statement = con.prepareStatement(LOAD_QUERRY);
+			final ResultSet rset = statement.executeQuery();
+
+			while (rset.next())
 			{
-				save.write(_announcements.get(i));
-				save.write("\r\n");
+				final int announceId = rset.getInt("announceId");
+				final String announcement = rset.getString("announcement");
+				final Date dateStart = rset.getDate("dateStart");
+				final Date dateEnd = rset.getDate("dateEnd");
+
+				_announcements.put(announceId, announcement);
+				_dates.add(new AnnounceDates(dateStart, dateEnd));
+				_nextId = Math.max(_nextId, announceId + 1);
 			}
+
+			rset.close();
+			statement.close();
 		}
-		catch (IOException e)
+		catch (SQLException e)
 		{
-			_log.warn("saving the announcements file has failed: ", e);
+			_log.warn("", e);
 		}
 		finally
 		{
-			try
-			{
-				if (save != null)
-					save.close();
-			}
-			catch (Exception e)
-			{
-			}
+			L2DatabaseFactory.close(con);
 		}
 	}
 
-	public void announceToAll(String text)
+	public final void addAnnouncement(final String announcement, final Date dateStart, final Date dateEnd)
 	{
-		CreatureSay cs = new CreatureSay(0, SystemChatChannelId.Chat_Announce, "", text);
+		final int announceId = _nextId++;
+		Connection con = null;
 
-		for (L2Player player : L2World.getInstance().getAllPlayers())
+		try
 		{
-			player.sendPacket(cs);
+			con = L2DatabaseFactory.getInstance().getConnection();
+			final PreparedStatement statement = con.prepareStatement(SAVE_QUERRY);
+
+			statement.setInt(1, announceId);
+			statement.setString(2, announcement);
+			statement.setDate(3, (java.sql.Date) dateStart);
+			statement.setDate(4, (java.sql.Date) dateEnd);
+			statement.execute();
+			statement.close();
 		}
+		catch (SQLException e)
+		{
+			_log.warn("", e);
+		}
+		finally
+		{
+			L2DatabaseFactory.close(con);
+		}
+
+		_announcements.put(announceId, announcement);
+		_dates.add(new AnnounceDates(dateStart, dateEnd));
 	}
 
-	public void announceToAll(L2GameServerPacket gsp)
+	public final void deleteAnnouncement(final int announceId)
+	{
+		Connection con = null;
+
+		try
+		{
+			con = L2DatabaseFactory.getInstance().getConnection();
+			final PreparedStatement statement = con.prepareStatement(DELETE_QUERRY);
+
+			statement.setInt(1, announceId);
+			statement.execute();
+			statement.close();
+		}
+		catch (SQLException e)
+		{
+			_log.warn("", e);
+		}
+		finally
+		{
+			L2DatabaseFactory.close(con);
+		}
+
+		_announcements.remove(announceId);
+	}
+
+	public final void announceToAll(final String text)
 	{
 		for (L2Player player : L2World.getInstance().getAllPlayers())
-		{
+			announce(player, text);
+	}
+
+	public final void announceToAll(final L2GameServerPacket gsp)
+	{
+		for (L2Player player : L2World.getInstance().getAllPlayers())
 			player.sendPacket(gsp);
-		}
 	}
-	
-	public void announceToAll(SystemMessageId sm)
+
+	public final void announceToAll(final SystemMessageId sm)
 	{
 		for (L2Player player : L2World.getInstance().getAllPlayers())
-		{
 			player.sendPacket(sm);
-		}
 	}
-	
-	public void announceToInstance(L2GameServerPacket gsp, int instanceId)
+
+	public final void announceToInstance(final L2GameServerPacket gsp, final int instanceId)
 	{
 		for (L2Player player : L2World.getInstance().getAllPlayers())
-		{
 			if (player.isSameInstance(instanceId))
 				player.sendPacket(gsp);
-		}
 	}
-	
+
 	// Method fo handling announcements from admin
-	public void handleAnnounce(String command, int lengthToTrim)
+	public final void handleAnnounce(final String command, final int lengthToTrim)
 	{
 		try
 		{
@@ -263,16 +280,10 @@ public class Announcements
 	 * @param message
 	 *            The String of the message to send to player
 	 */
-	public void announceToPlayers(String message)
+	public final void announceToPlayers(final String message)
 	{
 		// Get all players
 		for (L2Player player : L2World.getInstance().getAllPlayers())
 			player.sendMessage(message);
-	}
-
-	@SuppressWarnings("synthetic-access")
-	private static class SingletonHolder
-	{
-		protected static final Announcements _instance = new Announcements();
 	}
 }

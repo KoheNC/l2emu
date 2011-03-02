@@ -43,8 +43,7 @@ public class NewEra extends QuestJython
 	 */
 	//change date as you want
 	private static final DateRange	EVENT_DATES			= DateRange.parse(Config.NEW_ERA_DATE, new SimpleDateFormat("dd MM yyyy", Locale.US));
-	private static final String[]	EVENT_ANNOUNCE		=
-														{ "New Era Event is currently active." };
+	private static final Date		_startDate			= EVENT_DATES.getStartDate();
 	private static final Date		_endDate			= EVENT_DATES.getEndDate();
 	private static final Date		_currentDate		= new Date();
 
@@ -147,7 +146,7 @@ public class NewEra extends QuestJython
 
 		EventDroplist.getInstance().addGlobalDrop(GLOBAL_DROP, GLOBAL_DROP_COUNT, Config.NEW_ERA_DROP_CHANCE * 10000, EVENT_DATES);
 
-		Announcements.getInstance().addEventAnnouncement(EVENT_DATES, EVENT_ANNOUNCE);
+		Announcements.getInstance().addAnnouncement("New Era Event is currently active.", _startDate, _endDate);
 
 		addStartNpc(NPC);
 		addFirstTalkId(NPC);

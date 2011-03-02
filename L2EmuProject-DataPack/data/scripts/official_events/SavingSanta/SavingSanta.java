@@ -63,14 +63,9 @@ public class SavingSanta extends QuestJython
 	private static final int[]		EVENT_GLOBAL_DROP_COUNT		=
 																{ 1, 1 };
 
-	/**
-	 * Announcement displayed to player when entering game.
-	 */
-	private static final String[]	ON_ENTER_ANNOUNCE			=
-																{ "Christmas Event:\nAll the mobs on server have a chance of dropping Christmas tree parts and Holiday carol Echo Crystals.  See the Santa's Helpers in every town for more informations or to trade your Christmas tree parts!" };
-
 	private static final DateRange	EVENT_DATES					= DateRange.parse(Config.SAVING_SANTA_DATE, new SimpleDateFormat("dd MM yyyy", Locale.US));
 
+	private static final Date		START_DATE					= EVENT_DATES.getStartDate();
 	private static final Date		END_DATE					= EVENT_DATES.getEndDate();
 	private static final Date		CURRENT_DATE				= new Date();
 
@@ -293,7 +288,11 @@ public class SavingSanta extends QuestJython
 		super(questId, name, descr);
 
 		EventDroplist.getInstance().addGlobalDrop(EVENT_GLOBAL_DROP, EVENT_GLOBAL_DROP_COUNT, (Config.SAVING_SANTA_DROP_CHANCE * 10000), EVENT_DATES);
-		Announcements.getInstance().addEventAnnouncement(EVENT_DATES, ON_ENTER_ANNOUNCE);
+		Announcements
+				.getInstance()
+				.addAnnouncement(
+						"Christmas Event:\nAll the mobs on server have a chance of dropping Christmas tree parts and Holiday carol Echo Crystals.  See the Santa's Helpers in every town for more informations or to trade your Christmas tree parts!",
+						START_DATE, END_DATE);
 
 		addStartNpc(SANTA);
 		addFirstTalkId(SANTA);

@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.system.script.faenor;
 
 import net.l2emuproject.gameserver.datatables.EventDroplist;
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.system.announcements.Announcements;
 import net.l2emuproject.gameserver.system.script.DateRange;
 import net.l2emuproject.gameserver.system.script.EngineInterface;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
@@ -110,7 +109,6 @@ public class FaenorInterface implements EngineInterface
 	@Override
 	public void onPlayerLogin(String[] message, DateRange validDateRange)
 	{
-		Announcements.getInstance().addEventAnnouncement(validDateRange, message);
 	}
 	
 	@SuppressWarnings("synthetic-access")
