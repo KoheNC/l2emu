@@ -25,7 +25,7 @@ import java.util.Map;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.datatables.EventDroplist;
+import net.l2emuproject.gameserver.datatables.GlobalDropTable;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -57,11 +57,6 @@ public class SavingSanta extends QuestJython
 	 */
 	private static final int[]		EVENT_GLOBAL_DROP			=
 																{ 5556, 5557, 5558, 5559, 5562, 5563, 5564, 5565, 5566 };
-	/**
-	 * Minimum and maximum count of dropped items.
-	 */
-	private static final int[]		EVENT_GLOBAL_DROP_COUNT		=
-																{ 1, 1 };
 
 	private static final DateRange	EVENT_DATES					= DateRange.parse(Config.SAVING_SANTA_DATE, new SimpleDateFormat("dd MM yyyy", Locale.US));
 
@@ -287,7 +282,9 @@ public class SavingSanta extends QuestJython
 	{
 		super(questId, name, descr);
 
-		EventDroplist.getInstance().addGlobalDrop(EVENT_GLOBAL_DROP, EVENT_GLOBAL_DROP_COUNT, (Config.SAVING_SANTA_DROP_CHANCE * 10000), EVENT_DATES);
+		for (int itemId : EVENT_GLOBAL_DROP)
+			GlobalDropTable.getInstance().addGlobalDrop(itemId, 1, 1, Config.SAVING_SANTA_DROP_CHANCE * 10000, EVENT_DATES.getStartDate(),
+					EVENT_DATES.getEndDate());
 		Announcements
 				.getInstance()
 				.addAnnouncement(

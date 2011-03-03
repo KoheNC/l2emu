@@ -21,8 +21,6 @@ import java.util.Map;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.datatables.EventDroplist;
-import net.l2emuproject.gameserver.datatables.EventDroplist.DateDrop;
 import net.l2emuproject.gameserver.datatables.GlobalDropTable;
 import net.l2emuproject.gameserver.datatables.GlobalDropTable.GlobalDrop;
 import net.l2emuproject.gameserver.datatables.ItemTable;
@@ -70,7 +68,6 @@ import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.util.ArrayBunch;
 import net.l2emuproject.util.SingletonMap;
-
 
 /**
  * This class manages all NPC that can be attacked.<BR>
@@ -1704,17 +1701,6 @@ public class L2Attackable extends L2Npc
 			if (Rnd.get(L2DropData.MAX_CHANCE) < drop.getChance())
 				player.doAutoLoot(this, new RewardItem(drop.getItemId(), Rnd.get(drop.getCountMin(), drop.getCountMax())));
 		// L2EMU_ADD
-
-		// Go through DateDrop of EventDroplist allNpcDateDrops within the date range
-		for (DateDrop drop : EventDroplist.getInstance().getAllDrops())
-		{
-			if (Rnd.get(L2DropData.MAX_CHANCE) < drop.chance)
-			{
-				RewardItem item = new RewardItem(drop.items[Rnd.get(drop.items.length)], Rnd.get(drop.min, drop.max));
-
-				player.doAutoLoot(this, item);
-			}
-		}
 	}
 
 	/**

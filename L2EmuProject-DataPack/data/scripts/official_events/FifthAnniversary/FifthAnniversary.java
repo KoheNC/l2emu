@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Locale;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.datatables.EventDroplist;
+import net.l2emuproject.gameserver.datatables.GlobalDropTable;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.system.announcements.Announcements;
@@ -73,10 +73,7 @@ public class FifthAnniversary extends QuestJython
 			_letterR,
 			_letterS,
 			_letterC										};
-	private final int[]				_dropCount				=
-															{ 1, 1 };
-	private final static int		_dropChance				= 25000;																							// actually 2.5%
-																																								// Goddard,Aden,Giran, Oren,Dion,Heine,Gludio,Schuttgart,Gludin,Hunters,Rune,SoDA,Dark Elf,TI,Dwarf,Orc,Kamael
+	// Goddard,Aden,Giran, Oren,Dion,Heine,Gludio,Schuttgart,Gludin,Hunters,Rune,SoDA,Dark Elf,TI,Dwarf,Orc,Kamael
 	private final static int[]		_eventSpawnX			=
 															{
 			147698,
@@ -145,7 +142,8 @@ public class FifthAnniversary extends QuestJython
 	{
 		super(questId, name, descr);
 
-		EventDroplist.getInstance().addGlobalDrop(_dropList, _dropCount, _dropChance, EVENT_DATES);
+		for (int itemId : _dropList)
+			GlobalDropTable.getInstance().addGlobalDrop(itemId, 1, 1, 25000, EVENT_DATES.getStartDate(), EVENT_DATES.getEndDate());
 
 		Announcements.getInstance().addAnnouncement(false, "5th Anniversary Event is currently active.", _startDate, _endDate);
 

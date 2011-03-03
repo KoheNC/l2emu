@@ -32,7 +32,6 @@ import net.l2emuproject.gameserver.datatables.ClassBalanceTable;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.EnchantHPBonusData;
 import net.l2emuproject.gameserver.datatables.EnchantItemData;
-import net.l2emuproject.gameserver.datatables.EventDroplist;
 import net.l2emuproject.gameserver.datatables.ExtractableItemsData;
 import net.l2emuproject.gameserver.datatables.ExtractableSkillsData;
 import net.l2emuproject.gameserver.datatables.FishTable;
@@ -141,7 +140,6 @@ import net.l2emuproject.gameserver.system.cache.CrestCache;
 import net.l2emuproject.gameserver.system.cache.HtmCache;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.system.restriction.ObjectRestrictions;
-import net.l2emuproject.gameserver.system.script.faenor.FaenorScriptEngine;
 import net.l2emuproject.gameserver.system.scripting.CompiledScriptCache;
 import net.l2emuproject.gameserver.system.scripting.L2ScriptEngineManager;
 import net.l2emuproject.gameserver.system.taskmanager.AttackStanceTaskManager;
@@ -410,9 +408,6 @@ public class L2GameServer extends Config
 		
 		QuestService.getInstance().report();
 		TransformationService.getInstance().report();
-		
-		EventDroplist.getInstance();
-		FaenorScriptEngine.getInstance();
 		
 		Util.printSection("Economy");
 		TradeListTable.getInstance();

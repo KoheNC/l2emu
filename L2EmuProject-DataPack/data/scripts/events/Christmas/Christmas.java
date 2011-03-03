@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.datatables.EventDroplist;
+import net.l2emuproject.gameserver.datatables.GlobalDropTable;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
@@ -28,21 +28,21 @@ import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class Christmas extends QuestJython
 {
-	private static final String		QN					= "Christmas";
-	private static final int		NPC_ID				= 31863;
+	private static final String		QN			= "Christmas";
+	private static final int		NPC_ID		= 31863;
 
-	private static final int[]		GLOBAL_DROP			=
-														{ 5556, 5557, 5558, 5559 };
-	// Minimum and maximum count of dropped items
-	private static final int[]		GLOBAL_DROP_COUNT	=
-														{ 1, 1 };
-	private static final DateRange	EVENT_DATES			= DateRange.parse(Config.CHRISTMAS_EVENT_DATE, new SimpleDateFormat("dd MM yyyy", Locale.US));
+	private static final int[]		GLOBAL_DROP	=
+												{ 5556, 5557, 5558, 5559 };
+
+	private static final DateRange	EVENT_DATES	= DateRange.parse(Config.CHRISTMAS_EVENT_DATE, new SimpleDateFormat("dd MM yyyy", Locale.US));
 
 	public Christmas(int questId, String name, String descr)
 	{
 		super(questId, name, descr);
 
-		EventDroplist.getInstance().addGlobalDrop(GLOBAL_DROP, GLOBAL_DROP_COUNT, (Config.CHRISTMAS_EVENT_DROP_CHANCE * 10000), EVENT_DATES);
+		for (int itemId : GLOBAL_DROP)
+			GlobalDropTable.getInstance().addGlobalDrop(itemId, 1, 1, Config.CHRISTMAS_EVENT_DROP_CHANCE * 10000, EVENT_DATES.getStartDate(),
+					EVENT_DATES.getEndDate());
 
 		addStartNpc(NPC_ID);
 		addTalkId(NPC_ID);

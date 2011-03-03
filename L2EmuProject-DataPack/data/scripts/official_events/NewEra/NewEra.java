@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Locale;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.datatables.EventDroplist;
+import net.l2emuproject.gameserver.datatables.GlobalDropTable;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.system.announcements.Announcements;
@@ -36,31 +36,31 @@ import net.l2emuproject.tools.random.Rnd;
  */
 public class NewEra extends QuestJython
 {
-	private final static String		QN					= "NewEra";
+	private final static String		QN				= "NewEra";
 
 	/**
 	 * Event beginning and end date.
 	 */
 	//change date as you want
-	private static final DateRange	EVENT_DATES			= DateRange.parse(Config.NEW_ERA_DATE, new SimpleDateFormat("dd MM yyyy", Locale.US));
-	private static final Date		_startDate			= EVENT_DATES.getStartDate();
-	private static final Date		_endDate			= EVENT_DATES.getEndDate();
-	private static final Date		_currentDate		= new Date();
+	private static final DateRange	EVENT_DATES		= DateRange.parse(Config.NEW_ERA_DATE, new SimpleDateFormat("dd MM yyyy", Locale.US));
+	private static final Date		_startDate		= EVENT_DATES.getStartDate();
+	private static final Date		_endDate		= EVENT_DATES.getEndDate();
+	private static final Date		_currentDate	= new Date();
 
 	//Items
-	private final static int		_letterL			= 3882;
-	private final static int		_letterI			= 3881;
-	private final static int		_letterN			= 3883;
-	private final static int		_letterE			= 3877;
-	private final static int		_letterA			= 3875;
-	private final static int		_letterG			= 3879;
-	private final static int		_letterII			= 3888;
-	private final static int		_letterT			= 3887;
-	private final static int		_letterH			= 3880;
-	private final static int		_letterR			= 3885;
-	private final static int		_letterO			= 3884;
-	private final static int[]		GLOBAL_DROP			=
-														{
+	private final static int		_letterL		= 3882;
+	private final static int		_letterI		= 3881;
+	private final static int		_letterN		= 3883;
+	private final static int		_letterE		= 3877;
+	private final static int		_letterA		= 3875;
+	private final static int		_letterG		= 3879;
+	private final static int		_letterII		= 3888;
+	private final static int		_letterT		= 3887;
+	private final static int		_letterH		= 3880;
+	private final static int		_letterR		= 3885;
+	private final static int		_letterO		= 3884;
+	private final static int[]		GLOBAL_DROP		=
+													{
 			_letterL,
 			_letterI,
 			_letterN,
@@ -72,12 +72,10 @@ public class NewEra extends QuestJython
 			_letterH,
 			_letterR,
 			_letterO,
-			_letterN									};
-	private final int[]				GLOBAL_DROP_COUNT	=
-														{ 1, 1 };
+			_letterN								};
 
-	private final static int[]		_eventSpawnX		=
-														{
+	private final static int[]		_eventSpawnX	=
+													{
 			147698,
 			147443,
 			81921,
@@ -94,9 +92,9 @@ public class NewEra extends QuestJython
 			-84458,
 			114750,
 			-45656,
-			-117195									};
-	private final static int[]		_eventSpawnY		=
-														{
+			-117195								};
+	private final static int[]		_eventSpawnY	=
+													{
 			-56025,
 			26942,
 			148638,
@@ -113,9 +111,9 @@ public class NewEra extends QuestJython
 			244761,
 			-178692,
 			-113119,
-			46837										};
-	private final static int[]		_eventSpawnZ		=
-														{
+			46837									};
+	private final static int[]		_eventSpawnZ	=
+													{
 			-2775,
 			-2205,
 			-3473,
@@ -132,19 +130,20 @@ public class NewEra extends QuestJython
 			-3730,
 			-820,
 			-240,
-			367										};
+			367									};
 
-	private final static int		NPC					= 31854;
+	private final static int		NPC				= 31854;
 
-	private static List<L2Npc>		_eventManagers		= new ArrayList<L2Npc>();
+	private static List<L2Npc>		_eventManagers	= new ArrayList<L2Npc>();
 
-	private static boolean			_newEraEvent		= false;
+	private static boolean			_newEraEvent	= false;
 
 	public NewEra(int questId, String name, String descr)
 	{
 		super(questId, name, descr);
 
-		EventDroplist.getInstance().addGlobalDrop(GLOBAL_DROP, GLOBAL_DROP_COUNT, Config.NEW_ERA_DROP_CHANCE * 10000, EVENT_DATES);
+		for (int itemId : GLOBAL_DROP)
+			GlobalDropTable.getInstance().addGlobalDrop(itemId, 1, 1, Config.NEW_ERA_DROP_CHANCE * 10000, EVENT_DATES.getStartDate(), EVENT_DATES.getEndDate());
 
 		Announcements.getInstance().addAnnouncement(false, "New Era Event is currently active.", _startDate, _endDate);
 

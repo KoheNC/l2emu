@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.datatables.EventDroplist;
+import net.l2emuproject.gameserver.datatables.GlobalDropTable;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
@@ -50,9 +50,6 @@ public class TheValentine extends QuestJython
 	// Global drops for this event
 	private static final int[]		GLOBAL_DROP			=
 														{ V_DARK_CHOCOLATE, V_WHITE_CHOCOLATE, V_FRESH_CREAM };
-	// Minimum and maximum count of dropped items
-	private static final int[]		GLOBAL_DROP_COUNT	=
-														{ 1, 1 };
 	// X cords for Queen of Hearts spawn
 	private static final int[]		X_CORDS				=
 														{
@@ -120,7 +117,9 @@ public class TheValentine extends QuestJython
 	{
 		super(questId, name, descr);
 
-		EventDroplist.getInstance().addGlobalDrop(GLOBAL_DROP, GLOBAL_DROP_COUNT, (Config.THE_VALENTINE_DROP_CHANCE * 10000), EVENT_DATES);
+		for (int itemId : GLOBAL_DROP)
+			GlobalDropTable.getInstance().addGlobalDrop(itemId, 1, 1, (Config.THE_VALENTINE_DROP_CHANCE * 10000), EVENT_DATES.getStartDate(),
+					EVENT_DATES.getEndDate());
 		Announcements.getInstance().addAnnouncement(false, "Valentine's Event is currently active.\nCollect all items and make your Valentine Cake!",
 				EVENT_DATES.getStartDate(), EVENT_DATES.getEndDate());
 
