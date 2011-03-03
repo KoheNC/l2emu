@@ -176,30 +176,34 @@ public final class Announcements
 		}
 	}
 
-	public final void addAnnouncement(final String announcement, final Date dateStart, final Date dateEnd)
+	public final void addAnnouncement(boolean saveToDB, final String announcement, final Date dateStart, final Date dateEnd)
 	{
 		final int announceId = _nextId++;
-		Connection con = null;
 
-		try
+		if (saveToDB)
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
-			final PreparedStatement statement = con.prepareStatement(SAVE_QUERRY);
+			Connection con = null;
 
-			statement.setInt(1, announceId);
-			statement.setString(2, announcement);
-			statement.setDate(3, (java.sql.Date) dateStart);
-			statement.setDate(4, (java.sql.Date) dateEnd);
-			statement.execute();
-			statement.close();
-		}
-		catch (SQLException e)
-		{
-			_log.warn("", e);
-		}
-		finally
-		{
-			L2DatabaseFactory.close(con);
+			try
+			{
+				con = L2DatabaseFactory.getInstance().getConnection();
+				final PreparedStatement statement = con.prepareStatement(SAVE_QUERRY);
+
+				statement.setInt(1, announceId);
+				statement.setString(2, announcement);
+				statement.setDate(3, (java.sql.Date) dateStart);
+				statement.setDate(4, (java.sql.Date) dateEnd);
+				statement.execute();
+				statement.close();
+			}
+			catch (SQLException e)
+			{
+				_log.warn("", e);
+			}
+			finally
+			{
+				L2DatabaseFactory.close(con);
+			}
 		}
 
 		_announcements.put(announceId, announcement);

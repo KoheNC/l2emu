@@ -140,6 +140,11 @@ public final class GlobalDropTable
 		}
 	}
 
+	public final void addGlobalDrop(int itemId, int countMin, int countMax, int chance, Date dateStart, Date dateEnd)
+	{
+		_table.add(new GlobalDrop(itemId, countMin, countMax, chance, dateStart, dateEnd));
+	}
+
 	public final FastList<GlobalDrop> getDrops()
 	{
 		final FastList<GlobalDrop> list = new FastList<GlobalDrop>();

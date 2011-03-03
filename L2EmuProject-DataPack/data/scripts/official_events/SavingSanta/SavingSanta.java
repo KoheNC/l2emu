@@ -291,6 +291,7 @@ public class SavingSanta extends QuestJython
 		Announcements
 				.getInstance()
 				.addAnnouncement(
+						false,
 						"Christmas Event:\nAll the mobs on server have a chance of dropping Christmas tree parts and Holiday carol Echo Crystals.  See the Santa's Helpers in every town for more informations or to trade your Christmas tree parts!",
 						START_DATE, END_DATE);
 

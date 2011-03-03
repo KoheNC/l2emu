@@ -121,7 +121,7 @@ public class TheValentine extends QuestJython
 		super(questId, name, descr);
 
 		EventDroplist.getInstance().addGlobalDrop(GLOBAL_DROP, GLOBAL_DROP_COUNT, (Config.THE_VALENTINE_DROP_CHANCE * 10000), EVENT_DATES);
-		Announcements.getInstance().addAnnouncement("Valentine's Event is currently active.\nCollect all items and make your Valentine Cake!",
+		Announcements.getInstance().addAnnouncement(false, "Valentine's Event is currently active.\nCollect all items and make your Valentine Cake!",
 				EVENT_DATES.getStartDate(), EVENT_DATES.getEndDate());
 
 		final Date currentDate = new Date();

@@ -146,7 +146,7 @@ public class NewEra extends QuestJython
 
 		EventDroplist.getInstance().addGlobalDrop(GLOBAL_DROP, GLOBAL_DROP_COUNT, Config.NEW_ERA_DROP_CHANCE * 10000, EVENT_DATES);
 
-		Announcements.getInstance().addAnnouncement("New Era Event is currently active.", _startDate, _endDate);
+		Announcements.getInstance().addAnnouncement(false, "New Era Event is currently active.", _startDate, _endDate);
 
 		addStartNpc(NPC);
 		addFirstTalkId(NPC);

@@ -147,7 +147,7 @@ public class FifthAnniversary extends QuestJython
 
 		EventDroplist.getInstance().addGlobalDrop(_dropList, _dropCount, _dropChance, EVENT_DATES);
 
-		Announcements.getInstance().addAnnouncement("5th Anniversary Event is currently active.", _startDate, _endDate);
+		Announcements.getInstance().addAnnouncement(false, "5th Anniversary Event is currently active.", _startDate, _endDate);
 
 		addStartNpc(_eventNPC);
 		addFirstTalkId(_eventNPC);

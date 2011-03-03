@@ -274,7 +274,7 @@ public class ZakensCurse extends QuestJython
 		addFirstTalkId(BONNY);
 		addTalkId(BONNY);
 
-		Announcements.getInstance().addAnnouncement("The Zaken's Curse Event is started. Go see Bonny in Floran Village for the details!",
+		Announcements.getInstance().addAnnouncement(false, "The Zaken's Curse Event is started. Go see Bonny in Floran Village for the details!",
 				EVENT_DATES.getStartDate(), EVENT_DATES.getEndDate());
 
 		final Date currentDate = new Date();

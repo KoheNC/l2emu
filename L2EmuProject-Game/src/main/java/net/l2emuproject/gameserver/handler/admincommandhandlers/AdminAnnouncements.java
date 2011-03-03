@@ -91,7 +91,7 @@ public class AdminAnnouncements implements IAdminCommandHandler
 				try
 				{
 					String val = command.substring(23);
-					Announcements.getInstance().addAnnouncement(val, null, null);
+					Announcements.getInstance().addAnnouncement(true, val, null, null);
 					Announcements.getInstance().listAnnouncements(activeChar);
 				}
 				catch (StringIndexOutOfBoundsException e)
