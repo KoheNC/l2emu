@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.world.object.instance;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -29,7 +28,6 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
 import net.l2emuproject.tools.random.Rnd;
-
 
 public final class L2UrnInstance extends L2NpcInstance
 {
@@ -47,33 +45,6 @@ public final class L2UrnInstance extends L2NpcInstance
 	protected static int _mixTemp;
 	protected static int mixChance;
 	protected static int tempChance;
-
-	@Override
-	public void onAction(L2Player player)
-	{
-		if (!canTarget(player)) return;
-
-		// Check if the L2Player already target the L2NpcInstance
-		if (this != player.getTarget())
-		{
-			// Set the target of the L2Player player
-			player.setTarget(this);
-		}
-		else
-		{
-			// Calculate the distance between the L2Player and the L2NpcInstance
-			if (!canInteract(player))
-			{
-				// Notify the L2Player AI with AI_INTENTION_INTERACT
-				player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
-			}
-			else
-			{
-				showMessageWindow(player);
-			}
-		}
-		player.sendPacket(ActionFailed.STATIC_PACKET);
-	}
 
 	@Override
 	public void onBypassFeedback(L2Player player, String command)
@@ -184,7 +155,7 @@ public final class L2UrnInstance extends L2NpcInstance
 		}
 		else if (actualCommand.equalsIgnoreCase("urn_main"))
 		{
-			showMessageWindow(player);
+			showChatWindow(player);
 		}
 	}
 
@@ -378,7 +349,8 @@ public final class L2UrnInstance extends L2NpcInstance
 		sendHtmlMessage(player, msg.moveToString());
 	}
 
-	public void showMessageWindow(L2Player player)
+	@Override
+	public final void showChatWindow(L2Player player)
 	{
 		L2TextBuilder msg = L2TextBuilder.newInstance("<html><body>");
 		msg.append("%npcname%:<br><br>");
@@ -391,7 +363,7 @@ public final class L2UrnInstance extends L2NpcInstance
 		sendHtmlMessage(player, msg.moveToString());
 	}
 
-	private void sendHtmlMessage(L2Player player, String htmlMessage)
+	private final void sendHtmlMessage(L2Player player, String htmlMessage)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(1);
 		html.setHtml(htmlMessage);

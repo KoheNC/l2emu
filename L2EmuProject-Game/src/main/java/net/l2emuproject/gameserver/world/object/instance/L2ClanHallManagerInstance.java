@@ -43,13 +43,12 @@ import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.town.Town;
 import net.l2emuproject.gameserver.world.town.TownManager;
 
-
 public class L2ClanHallManagerInstance extends L2MerchantInstance
 {
-	protected static final int COND_OWNER_FALSE = 0;
-	protected static final int COND_ALL_FALSE = 1;
-	protected static final int COND_BUSY_BECAUSE_OF_SIEGE = 2;
-	protected static final int COND_OWNER = 3;
+	protected static final byte COND_OWNER_FALSE = 0;
+	protected static final byte COND_ALL_FALSE = 1;
+	protected static final byte COND_BUSY_BECAUSE_OF_SIEGE = 2;
+	protected static final byte COND_OWNER = 3;
 	private int _clanHallId = -1;
 
 	/**
@@ -230,7 +229,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
                 }
                 else if (val.equalsIgnoreCase("back"))
                 {
-                    showMessageWindow(player);
+                    showChatWindow(player);
                 }
                 else
                 {
@@ -1298,7 +1297,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
                         sendHtmlMessage(player, html);
                     }
                     else if (val.equalsIgnoreCase("back"))
-                        showMessageWindow(player);
+                        showChatWindow(player);
                     else
                     {
                         NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
@@ -1413,41 +1412,6 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
         }
     }
 
-    /**
-     * this is called when a player interacts with this NPC
-     * @param player
-     */
-    @Override
-    public void onAction(L2Player player)
-    {
-        if (!canTarget(player))
-            return;
-
-        player.setLastFolkNPC(this);
-
-        // Check if the L2Player already target the L2NpcInstance
-        if (this != player.getTarget())
-        {
-            // Set the target of the L2Player player
-            player.setTarget(this);
-        }
-        else
-        {
-            // Calculate the distance between the L2Player and the L2NpcInstance
-            if (!canInteract(player))
-            {
-                // Notify the L2Player AI with AI_INTENTION_INTERACT
-                //player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
-            }
-            else
-            {
-                showMessageWindow(player);
-            }
-        }
-        // Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
-        player.sendPacket(ActionFailed.STATIC_PACKET);
-    }
-
     private void sendHtmlMessage(L2Player player, NpcHtmlMessage html)
     {
         html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -1456,7 +1420,8 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
         player.sendPacket(html);
     }
     
-    private void showMessageWindow(L2Player player)
+    @Override
+    public final void showChatWindow(L2Player player)
     {
         player.sendPacket(ActionFailed.STATIC_PACKET);
         String filename = "data/html/clanHallManager/chamberlain-no.htm";

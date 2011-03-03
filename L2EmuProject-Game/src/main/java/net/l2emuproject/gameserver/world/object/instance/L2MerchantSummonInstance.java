@@ -152,7 +152,7 @@ public class L2MerchantSummonInstance extends L2SummonInstance implements L2Merc
 			}
 			else
 			{
-				showMessageWindow(player);
+				showChatWindow(player);
 			}
 		}
 		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
@@ -214,7 +214,7 @@ public class L2MerchantSummonInstance extends L2SummonInstance implements L2Merc
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	private void showMessageWindow(L2Player player)
+	public void showChatWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		String filename = "data/html/merchant/"+getNpcId()+".htm";

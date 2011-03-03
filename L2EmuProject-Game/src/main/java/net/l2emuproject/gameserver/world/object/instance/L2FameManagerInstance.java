@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -24,7 +23,6 @@ import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
-
 
 /**
  * Reputation score manager
@@ -35,41 +33,6 @@ public class L2FameManagerInstance extends L2Npc
 	public L2FameManagerInstance(int objectId, L2NpcTemplate template)
 	{
 		super(objectId, template);
-	}
-	
-	/**
-	 * this is called when a player interacts with this NPC
-	 * @param player
-	 */
-	@Override
-	public void onAction(L2Player player)
-	{
-		if (!canTarget(player))
-			return;
-
-		player.setLastFolkNPC(this);
-
-		// Check if the L2Player already target the L2Npc
-		if (this != player.getTarget())
-		{
-			// Set the target of the L2Player player
-			player.setTarget(this);
-		}
-		else
-		{
-			// Calculate the distance between the L2Player and the L2Npc
-			if (!canInteract(player))
-			{
-				// Notify the L2Player AI with AI_INTENTION_INTERACT
-				player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
-			}
-			else
-			{
-				showMessageWindow(player);
-			}
-		}
-		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
-		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
 	@Override
@@ -126,7 +89,8 @@ public class L2FameManagerInstance extends L2Npc
 		player.sendPacket(html);
 	}
 
-	private void showMessageWindow(L2Player player)
+	@Override
+	public final void showChatWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		String filename = "data/html/famemanager/"+getNpcId()+"-lowfame.htm";

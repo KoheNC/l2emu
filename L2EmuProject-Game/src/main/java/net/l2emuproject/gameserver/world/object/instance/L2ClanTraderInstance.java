@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.world.object.instance;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -29,29 +28,6 @@ public final class L2ClanTraderInstance extends L2Npc
 	public L2ClanTraderInstance(int objectId, L2NpcTemplate template)
 	{
 		super(objectId, template);
-	}
-
-	@Override
-	public void onAction(L2Player player)
-	{
-		if (!canTarget(player))
-			return;
-
-		player.setLastFolkNPC(this);
-
-		if (this != player.getTarget())
-		{
-			player.setTarget(this);
-		}
-		else
-		{
-			if (!canInteract(player))
-				player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
-			else
-				showMessageWindow(player);
-		}
-
-		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
 	@Override
@@ -124,7 +100,8 @@ public final class L2ClanTraderInstance extends L2Npc
 		player.sendPacket(html);
 	}
 
-	private void showMessageWindow(L2Player player)
+	@Override
+	public final void showChatWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		String filename = "data/html/clantrader/" + getNpcId() + "-no.htm";

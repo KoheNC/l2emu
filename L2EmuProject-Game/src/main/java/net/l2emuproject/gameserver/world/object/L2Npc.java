@@ -1500,8 +1500,8 @@ public class L2Npc extends L2Character
 				return;
 			}
 
-			long price = Config.ALT_LOTTERY_TICKET_PRICE;
-			int lotonumber = Lottery.getInstance().getId();
+			final long price = Config.ALT_LOTTERY_TICKET_PRICE;
+			final int lotonumber = Lottery.getInstance().getId();
 			int enchant = 0;
 			int type2 = 0;
 
@@ -1600,17 +1600,17 @@ public class L2Npc extends L2Character
 		}
 		else if (val > 24) // >24 - Check lottery ticket by item object id
 		{
-			int lotonumber = Lottery.getInstance().getId();
+			final int lotonumber = Lottery.getInstance().getId();
 			L2ItemInstance item = player.getInventory().getItemByObjectId(val);
 			if (item == null || item.getItemId() != 4442 || item.getCustomType1() >= lotonumber)
 				return;
-			long[] check = Lottery.getInstance().checkTicket(item);
+			final long[] check = Lottery.getInstance().checkTicket(item);
 
 			sm = new SystemMessage(SystemMessageId.S1_DISAPPEARED);
 			sm.addItemName(4442);
 			player.sendPacket(sm);
 
-			long adena = check[1];
+			final long adena = check[1];
 			if (adena > 0)
 				player.addAdena("Loto", adena, this, true);
 			player.destroyItem("Loto", item, this, false);
@@ -1648,8 +1648,7 @@ public class L2Npc extends L2Character
 			return;
 		}
 
-		int neededmoney = 100;
-		if (!player.reduceAdena("RestoreCP", neededmoney, player.getLastFolkNPC(), true))
+		if (!player.reduceAdena("RestoreCP", 100, player.getLastFolkNPC(), true))
 			return;
 
 		L2Skill skill = SkillTable.getInstance().getInfo(4380, 1);
@@ -1674,53 +1673,50 @@ public class L2Npc extends L2Character
 	 * @param player The L2Player that talk with the L2Npc
 	 *
 	 */
-	public void makeSupportMagic(L2Player player, String cmd, boolean servitor)
+	public final void makeSupportMagic(L2Player player, String cmd, boolean servitor)
 	{
 		// Prevent a cursed weapon weilder of being buffed
 		if (!cwCheck(player))
 			return;
 
-		int _newbieBuffsId = BuffTemplateTable.getInstance().getTemplateIdByName(cmd);
+		final int newbieBuffsId = BuffTemplateTable.getInstance().getTemplateIdByName(cmd);
 
-		if (_newbieBuffsId == 0)
+		if (newbieBuffsId == 0)
 			return;
 
-		int _lowestLevel = BuffTemplateTable.getInstance().getLowestLevel(_newbieBuffsId);
-		int _highestLevel = BuffTemplateTable.getInstance().getHighestLevel(_newbieBuffsId);
+		final int lowestLevel = BuffTemplateTable.getInstance().getLowestLevel(newbieBuffsId);
+		final int highestLevel = BuffTemplateTable.getInstance().getHighestLevel(newbieBuffsId);
 
 		// If the player is too high level, display a message and return
-		if (player.getLevel() > _highestLevel)
+		if (player.getLevel() > highestLevel)
 		{
-			String content = "<html><body>Newbie Guide:<br>Only a <font color=\"LEVEL\">novice character of level "
-				+ _highestLevel
-				+ " or less</font> can receive my support magic.<br>Your novice character is the first one that you created and raised in this world.</body></html>";
-			insertObjectIdAndShowChatWindow(player, content);
+			insertObjectIdAndShowChatWindow(player, "<html><body>Newbie Guide:<br>Only a <font color=\"LEVEL\">novice character of level "
+					+ highestLevel
+					+ " or less</font> can receive my support magic.<br>Your novice character is the first one that you created and raised in this world.</body></html>");
 			return;
 		}
 
 		// If the player is too low level, display a message and return
-		if (player.getLevel() < _lowestLevel)
+		if (player.getLevel() < lowestLevel)
 		{
-			String content = "<html><body>Come back here when you have reached level " + _lowestLevel + ". I will give you support magic then.</body></html>";
-			insertObjectIdAndShowChatWindow(player, content);
+			insertObjectIdAndShowChatWindow(player, "<html><body>Come back here when you have reached level " + lowestLevel + ". I will give you support magic then.</body></html>");
 			return;
 		}
 
 		if (servitor)
 		{
-			L2Summon pet = player.getPet();
+			final L2Summon pet = player.getPet();
 			if (pet == null || pet instanceof L2PetInstance)
 			{
-				String content = "<html><body>Only servitors can receive this Support Magic. If you do not have a servitor, you cannot access these spells.</body></html>";
-				insertObjectIdAndShowChatWindow(player, content);
+				insertObjectIdAndShowChatWindow(player, "<html><body>Only servitors can receive this Support Magic. If you do not have a servitor, you cannot access these spells.</body></html>");
 				return;
 			}
 		}
 
-		makeBuffs(player, _newbieBuffsId, servitor);
+		makeBuffs(player, newbieBuffsId, servitor);
 	}
 
-	public void giveBlessingSupport(L2Player player)
+	public final void giveBlessingSupport(L2Player player)
 	{
 		if (player == null)
 			return;
@@ -1730,14 +1726,12 @@ public class L2Npc extends L2Character
 		// if (player.isCursedWeaponEquiped())
 		//   return;
 
-		int player_level = player.getLevel();
 		// Select the player
 		setTarget(player);
 		// If the player is too high level, display a message and return
-		if (player_level > 39 || player.getClassId().level() >= 2)
+		if (player.getLevel() > 39 || player.getClassId().level() >= 2)
 		{
-			String content = "<html><body>Newbie Guide:<br>I'm sorry, but you are not eligible to receive the protection blessing.<br1>It can only be bestowed on <font color=\"LEVEL\">characters below level 39 who have not made a seccond transfer.</font></body></html>";
-			insertObjectIdAndShowChatWindow(player, content);
+			insertObjectIdAndShowChatWindow(player, "<html><body>Newbie Guide:<br>I'm sorry, but you are not eligible to receive the protection blessing.<br1>It can only be bestowed on <font color=\"LEVEL\">characters below level 39 who have not made a seccond transfer.</font></body></html>");
 			return;
 		}
 		L2Skill skill = SkillTable.getInstance().getInfo(5182,1);
@@ -2381,7 +2375,7 @@ public class L2Npc extends L2Character
 	
 	public void showNoTeachHtml(L2Player player)
 	{
-		int npcId = getNpcId();
+		final int npcId = getNpcId();
 		String path = null;
 		
 		if (this instanceof L2WarehouseInstance)
@@ -2508,220 +2502,187 @@ public class L2Npc extends L2Character
 	 * therefore don't expect it to work perfectly or more...
 	 * @return
 	 */
-	public int getIsChar()
+	public final L2NpcCharData getCharDataStatic()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
+		
+		return npcData.getCharDataStatic();
+	}
+	
+	public final int getIsChar()
+	{
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getIsChar();
 	}
 
-	public int getCharClass()
+	public final int getCharClass()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getCharClass();
 	}
 
-	public int getCharRace()
+	public final int getCharRace()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getCharRace();
 	}
 
-	public int getLrhand()
+	public final int getLrhand()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getLrhand();
 	}
 
-	public int getArmors()
+	public final int getArmors()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getArmor();
 	}
 
-	public int getPant()
+	public final int getPant()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getPant();
 	}
 
-	public int getHead()
+	public final int getHead()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getHead();
 	}
 
-	public int getGlove()
+	public final int getGlove()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getGlove();
 	}
 
-	public int getBoot()
+	public final int getBoot()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getBoot();
 	}
 
-	public int getDHair()
+	public final int getDHair()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getDHair();
 	}
 
-	public int getFace()
+	public final int getFace()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getFace();
 	}
 
-	public int getHair()
+	public final int getHair()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getHair();
 	}
 
-	public int getAugmentation()
+	public final int getAugmentation()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getAugmentation();
 	}
 
-	public int getEnchLvl()
+	public final int getEnchLvl()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getEnchLvl();
 	}
 
-	public int getCharFace()
+	public final int getCharFace()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getCharFace();
 	}
 
-	public int getCharHair()
+	public final int getCharHair()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getCharHair();
 	}
 
-	public int getCharHairColor()
+	public final int getCharHairColor()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getCharHairColor();
 	}
 
-	public String getCharColor()
+	public final String getCharColor()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return "0xFFFFFF";
 		else
 			return npcChar.getCharColor();
 	}
 
-	public int getCharSex()
+	public final int getCharSex()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else
 			return npcChar.getCharSex();
 	}
 
-	public int getCharHero()
+	public final int getCharHero()
 	{
-		L2NpcTemplate npcData = NpcTable.getInstance().getTemplate(getTemplate().getNpcId());
-
-		L2NpcCharData npcChar = npcData.getCharDataStatic();
+		final L2NpcCharData npcChar = getCharDataStatic();
 		if (npcChar == null)
 			return 0;
 		else

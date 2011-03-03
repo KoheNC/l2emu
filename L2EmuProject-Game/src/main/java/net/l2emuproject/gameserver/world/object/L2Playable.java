@@ -35,25 +35,23 @@ import net.l2emuproject.gameserver.world.object.instance.L2NpcInstance;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.tools.random.Rnd;
 
-
 /**
  * This class represents all Playable characters in the world.<BR><BR>
  * 
  * L2Playable :<BR><BR>
  * <li>L2Player</li>
  * <li>L2Summon</li><BR><BR>
- * 
  */
 public abstract class L2Playable extends L2Character
 {
-	public static final L2Playable[] EMPTY_ARRAY = new L2Playable[0];
+	public static final L2Playable[] 	EMPTY_ARRAY = new L2Playable[0];
 	
 	private boolean	_isNoblesseBlessed	= false;	// For Noblesse Blessing skill, restores buffs after death
 	private boolean	_getCharmOfLuck		= false;	// Charm of Luck - During a Raid/Boss war, decreased chance for death penalty
 	private boolean	_isPhoenixBlessed	= false;	// For Soul of The Phoenix or Salvation buffs
 	private boolean	_isSilentMoving		= false;	// Silent Move
 	private boolean	_protectionBlessing	= false;	// Blessed by Blessing of Protection
-	private boolean _lockedTarget = false;
+	private boolean _lockedTarget 		= false;
 
 	/**
 	 * Constructor of L2Playable (use L2Character constructor).<BR><BR>
@@ -140,8 +138,8 @@ public abstract class L2Playable extends L2Character
 	public final void sendDamageMessage(L2Character target, int damage, boolean mcrit, boolean pcrit, boolean miss)
 	{
 		// All messages are verified on retail
-		L2Player attOwner = getActingPlayer();
-		L2Player trgOwner = target.getActingPlayer();
+		final L2Player attOwner = getActingPlayer();
+		final L2Player trgOwner = target.getActingPlayer();
 		if (miss)
 		{
 			attOwner.sendPacket(new SystemMessage(SystemMessageId.C1_ATTACK_WENT_ASTRAY).addCharName(this));
@@ -420,7 +418,7 @@ public abstract class L2Playable extends L2Character
 			
 			if (obj instanceof L2Character)
 			{
-				L2Character cha = (L2Character)obj;
+				final L2Character cha = (L2Character)obj;
 				
 				cha.getAttackByList().remove(this);
 				
@@ -432,7 +430,7 @@ public abstract class L2Playable extends L2Character
 				
 				if (obj instanceof L2Attackable)
 				{
-					L2Attackable mob = (L2Attackable)obj;
+					final L2Attackable mob = (L2Attackable)obj;
 					
 					mob.getAggroList().remove(this);
 					mob.getAbsorbersList().remove(this);
@@ -479,8 +477,8 @@ public abstract class L2Playable extends L2Character
 		return true;
 	}
 	
-	public static final int WEIGHT_PENALTY_MIN = 0;
-	public static final int WEIGHT_PENALTY_MAX = 4;
+	public static final byte WEIGHT_PENALTY_MIN = 0;
+	public static final byte WEIGHT_PENALTY_MAX = 4;
 	
 	private boolean _isOverloaded = false;
 	
@@ -688,7 +686,7 @@ public abstract class L2Playable extends L2Character
 	private boolean _donator = false;
 	
 	/**
-	 * Set the Donator Flag of the L2PlayableInstance.<BR><BR>
+	 * Set the Donator Flag of the L2Playable
 	 */
 	public void setDonator(boolean value)
 	{
@@ -696,7 +694,7 @@ public abstract class L2Playable extends L2Character
 	}
 	
 	/**
-	 * Return true if the L2Playable is a Donator.<BR><BR>
+	 * Return true if the L2Playable is a Donator.
 	 */
 	public boolean isDonator()
 	{

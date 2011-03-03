@@ -20,7 +20,6 @@ import java.util.StringTokenizer;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
-import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.events.global.fortsiege.Fort;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -35,16 +34,15 @@ import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.mapregion.L2TeleportLocation;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
-
 /**
  * Fortress Foreman implementation used for:
  * Area Teleports, Support Magic, Clan Warehouse, Exp Loss Reduction
  */
 public class L2FortManagerInstance extends L2MerchantInstance
 {
-	protected static final int COND_ALL_FALSE = 0;
-	protected static final int COND_BUSY_BECAUSE_OF_SIEGE = 1;
-	protected static final int COND_OWNER = 2;
+	protected static final byte COND_ALL_FALSE = 0;
+	protected static final byte COND_BUSY_BECAUSE_OF_SIEGE = 1;
+	protected static final byte COND_OWNER = 2;
 
 	public L2FortManagerInstance(int objectId, L2NpcTemplate template)
 	{
@@ -62,38 +60,6 @@ public class L2FortManagerInstance extends L2MerchantInstance
 		html.replace("%objectId%", String.valueOf(getObjectId()));
 		html.replace("%npcId%", String.valueOf(getNpcId()));
 		player.sendPacket(html);
-	}
-
-	@Override
-	public void onAction(L2Player player)
-	{
-		if (!canTarget(player))
-			return;
-
-		player.setLastFolkNPC(this);
-
-		// Check if the L2Player already target the L2NpcInstance
-		if (this != player.getTarget())
-		{
-			// Set the target of the L2Player player
-			player.setTarget(this);
-		}
-		else
-		{
-			// Calculate the distance between the L2Player and the L2NpcInstance
-			if (!canInteract(player))
-			{
-				// Notify the L2Player AI with AI_INTENTION_INTERACT
-				player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
-			}
-			else
-			{
-				showMessageWindow(player);
-			}
-		}
-		// Send a Server->Client ActionFailed to the L2Player in order to
-		// avoid that the client wait another packet
-		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
 	@Override
@@ -255,7 +221,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 					sendHtmlMessage(player, html);
 				}
 				else if (val.equalsIgnoreCase("back"))
-					showMessageWindow(player);
+					showChatWindow(player);
 				else
 				{
 					NpcHtmlMessage html = new NpcHtmlMessage(1);
@@ -817,7 +783,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 						sendHtmlMessage(player, html);
 					}
 					else if (val.equalsIgnoreCase("back"))
-						showMessageWindow(player);
+						showChatWindow(player);
 					else
 					{
 						NpcHtmlMessage html = new NpcHtmlMessage(1);
@@ -904,12 +870,13 @@ public class L2FortManagerInstance extends L2MerchantInstance
 		}
 	}
 
-	private void showMessageWindow(L2Player player)
+	@Override
+	public final void showChatWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		String filename = "data/html/fortress/foreman-no.htm";
 
-		int condition = validateCondition(player);
+		final int condition = validateCondition(player);
 		if (condition > COND_ALL_FALSE)
 		{
 			if (condition == COND_BUSY_BECAUSE_OF_SIEGE)

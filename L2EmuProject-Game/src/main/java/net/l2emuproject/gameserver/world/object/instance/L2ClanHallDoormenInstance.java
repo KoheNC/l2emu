@@ -28,7 +28,6 @@ import net.l2emuproject.gameserver.system.util.Evolve;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
-
 public class L2ClanHallDoormenInstance extends L2DoormenInstance
 {
 	private boolean _init = false;
@@ -95,7 +94,7 @@ public class L2ClanHallDoormenInstance extends L2DoormenInstance
 	}
 
 	@Override
-	public void showMessageWindow(L2Player player)
+	public final void showChatWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 

@@ -15,18 +15,11 @@
 package net.l2emuproject.gameserver.world.object.instance;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.system.util.Evolve;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
-/**
- * This class ...
- *
- * @version $Revision$ $Date$
- */
 public class L2PetManagerInstance extends L2MerchantInstance
 {
 	public L2PetManagerInstance(int objectID, L2NpcTemplate template)
@@ -35,37 +28,7 @@ public class L2PetManagerInstance extends L2MerchantInstance
 	}
 
 	@Override
-	public void onAction(L2Player player)
-	{
-		if (!canTarget(player))
-			return;
-
-		player.setLastFolkNPC(this);
-
-		// Check if the L2Player already target the L2NpcInstance
-		if (this != player.getTarget())
-		{
-			// Set the target of the L2Player player
-			player.setTarget(this);
-		}
-		else
-		{
-			// Calculate the distance between the L2Player and the L2NpcInstance
-			if (!canInteract(player))
-			{
-				// Notify the L2Player AI with AI_INTENTION_INTERACT
-				player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
-			}
-			else
-			{
-				showMessageWindow(player);
-			}
-		}
-		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
-		player.sendPacket(ActionFailed.STATIC_PACKET);
-	}
-
-	private void showMessageWindow(L2Player player)
+	public void showChatWindow(L2Player player)
 	{
 		String filename = "data/html/petmanager/" + getNpcId() + ".htm";
 

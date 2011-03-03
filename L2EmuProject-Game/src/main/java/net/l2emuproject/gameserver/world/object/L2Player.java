@@ -341,13 +341,13 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 	private static final String	UPDATE_CHAR_SUBCLASS			= "UPDATE character_subclasses SET exp=?,sp=?,level=?,class_id=? WHERE charId=? AND class_index =?";
 	private static final String	DELETE_CHAR_SUBCLASS			= "DELETE FROM character_subclasses WHERE charId=? AND class_index=?";
 
-	public static final int		REQUEST_TIMEOUT					= 15;
+	public static final byte		REQUEST_TIMEOUT					= 15;
 
-	public static final int		STORE_PRIVATE_NONE				= 0;
-	public static final int		STORE_PRIVATE_SELL				= 1;
-	public static final int		STORE_PRIVATE_BUY				= 3;
-	public static final int		STORE_PRIVATE_MANUFACTURE		= 5;
-	public static final int		STORE_PRIVATE_PACKAGE_SELL		= 8;
+	public static final byte		STORE_PRIVATE_NONE				= 0;
+	public static final byte		STORE_PRIVATE_SELL				= 1;
+	public static final byte		STORE_PRIVATE_BUY				= 3;
+	public static final byte		STORE_PRIVATE_MANUFACTURE		= 5;
+	public static final byte		STORE_PRIVATE_PACKAGE_SELL		= 8;
 
 	/** The table containing all minimum level needed for each Expertise (None, D, C, B, A, S, S80, S84)*/
 	private static final int[]	EXPERTISE_LEVELS				=
@@ -503,7 +503,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 	private int								_newbie;
 
 	/** The table containing all Quests began by the L2Player */
-	private final Map<String, QuestState>			_quests					= new SingletonMap<String, QuestState>();
+	private final Map<String, QuestState>	_quests					= new SingletonMap<String, QuestState>();
 
 	private TradeList						_activeTradeList;
 	private ItemContainer					_activeWarehouse;
@@ -572,7 +572,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 
 	// This is needed to find the inviting player for Party response
 	// There can only be one active party request at once
-	private L2Player					_activeRequester;
+	private L2Player						_activeRequester;
 	private long							_requestExpireTime		= 0;
 	private L2Request						_request;
 	private L2ItemInstance					_arrowItem;
@@ -588,7 +588,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 	private L2Weapon						_fistsWeaponItem;
 
 	private long							_uptime;
-	private final String							_accountName;
+	private final String					_accountName;
 
 	private Map<Integer, String>			_chars;
 
@@ -628,9 +628,9 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 	public int								_telemode				= 0;
 
 	/** new loto ticket **/
-	private final int								_loto[]					= new int[5];
+	private final int						_loto[]					= new int[5];
 	/** new race ticket **/
-	private final int								_race[]					= new int[2];
+	private final int						_race[]					= new int[2];
 
 	private BlockList						_blockList;
 	private L2FriendList					_friendList;
@@ -653,7 +653,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 	/**
 	 * IMO we don't need it, as we have FIFO packet execution.
 	 */
-	private final ReentrantLock _subclassLock = new ReentrantLock();
+	private final ReentrantLock 			_subclassLock = new ReentrantLock();
 	/** The list of sub-classes this character has. */
 	private Map<Integer, SubClass>			_subClasses;
 	protected int							_baseClass;
@@ -673,10 +673,10 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 	private ScheduledFuture<?>				_taskWater;
 
 	/** Bypass validations */
-	private List<String> _validBypass;
-	private List<String> _validBypass2;
+	private List<String>					 _validBypass;
+	private List<String> 					_validBypass2;
 	
-	private List<String>	_validLink;
+	private List<String>					_validLink;
 
 	private Forum							_forumMail;
 	private Forum							_forumMemo;
@@ -754,7 +754,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 	private PlayerFish 						_fishExtension 				= null;
 	private PlayerDuel						_duelExtension				= null;
 	private PlayerSettings					_settingsExtension			= null;
-	private PlayerEventData 			_playerEventData 			= null;
+	private PlayerEventData 				_playerEventData 			= null;
 
 	@Override
 	public final boolean isAllSkillsDisabled()
@@ -818,6 +818,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 		return player;
 	}
 
+	@Override
 	public String getAccountName()
 	{
 		if (getClient() == null)

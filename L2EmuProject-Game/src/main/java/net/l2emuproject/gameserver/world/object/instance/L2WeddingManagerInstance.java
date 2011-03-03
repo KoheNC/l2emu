@@ -16,8 +16,6 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.services.couple.Couple;
@@ -35,7 +33,7 @@ import net.l2emuproject.gameserver.world.object.L2Player;
 /**
  * @author evill33t & squeezed
  */
-public class L2WeddingManagerInstance extends L2Npc
+public final class L2WeddingManagerInstance extends L2Npc
 {
 	public L2WeddingManagerInstance(int objectId, L2NpcTemplate template)
 	{
@@ -43,37 +41,7 @@ public class L2WeddingManagerInstance extends L2Npc
 	}
 
 	@Override
-	public void onAction(L2Player player)
-	{
-		if (!canTarget(player))
-			return;
-
-		player.setLastFolkNPC(this);
-
-		// Check if the L2Player already target the L2NpcInstance
-		if (this != player.getTarget())
-		{
-			// Set the target of the L2Player player
-			player.setTarget(this);
-		}
-		else
-		{
-			// Calculate the distance between the L2Player and the L2NpcInstance
-			if (!canInteract(player))
-			{
-				// Notify the L2Player AI with AI_INTENTION_INTERACT
-				player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
-			}
-			else
-			{
-				showMessageWindow(player);
-			}
-		}
-		// Send a Server->Client ActionFailed to the L2Player in order to avoid that the client wait another packet
-		player.sendPacket(ActionFailed.STATIC_PACKET);
-	}
-
-    private void showMessageWindow(L2Player player)
+    public final void showChatWindow(L2Player player)
     {
         String filename = "data/html/wedding/start.htm";
         String replace = "";
@@ -87,7 +55,7 @@ public class L2WeddingManagerInstance extends L2Npc
     }
     
     @Override
-    public synchronized void onBypassFeedback(final L2Player player, String command)
+    public final synchronized void onBypassFeedback(final L2Player player, String command)
     {
         // Standard msg
         String filename = "data/html/wedding/start.htm";
@@ -278,7 +246,7 @@ public class L2WeddingManagerInstance extends L2Npc
         sendHtmlMessage(player, filename, replace);
     }
 
-    private void sendHtmlMessage(L2Player player, String filename, String replace)
+    private final void sendHtmlMessage(L2Player player, String filename, String replace)
     {
         NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
         html.setFile(filename);

@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.events.global.siege.SiegeManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -24,7 +23,6 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
-
 
 /**
  * @author NightMarez
@@ -50,7 +48,7 @@ public final class L2ObservationInstance extends L2Npc
 			catch (Exception e)
 			{
 			}
-			showMessageWindow(player, val);
+			showChatWindow(player, val);
 		}
 		else if (command.startsWith("observeSiege"))
 		{
@@ -94,7 +92,8 @@ public final class L2ObservationInstance extends L2Npc
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
 
-	public void showMessageWindow(L2Player player, int val)
+	@Override
+	public final void showChatWindow(L2Player player, int val)
 	{
 		String filename = null;
 
@@ -117,24 +116,5 @@ public final class L2ObservationInstance extends L2Npc
 		html.setFile(filename);
 		html.replace("%objectId%", String.valueOf(getObjectId()));
 		player.sendPacket(html);
-	}
-
-	@Override
-	public void onAction(L2Player player)
-	{
-		if (!canTarget(player))
-			return;
-
-		if (this != player.getTarget())
-		{
-			player.setTarget(this);
-		}
-		else
-		{
-			if (!canInteract(player))
-				player.getAI().setIntention(CtrlIntention.AI_INTENTION_INTERACT, this);
-			else
-				showMessageWindow(player, 0);
-		}
 	}
 }
