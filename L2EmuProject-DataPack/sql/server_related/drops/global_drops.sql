@@ -1,7 +1,7 @@
-SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for global_drops
 -- ----------------------------
+DROP TABLE IF EXISTS `global_drops`;
 CREATE TABLE `global_drops` (
   `eventId` int(11) NOT NULL,
   `eventName` varchar(128) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE `global_drops` (
   `dateStart` date DEFAULT NULL,
   `dateEnd` date DEFAULT NULL,
   PRIMARY KEY (`eventId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records 
