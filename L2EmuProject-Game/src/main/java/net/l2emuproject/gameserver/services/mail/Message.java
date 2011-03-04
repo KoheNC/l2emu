@@ -29,18 +29,18 @@ import net.l2emuproject.tools.random.Rnd;
 /**
  * @author Migi, DS
  */
-public class Message
+public final class Message
 {
-	private static final int	EXPIRATION					= 360;		// 15 days
-	private static final int	COD_EXPIRATION				= 12;		// 12 hours
-																		
+	private static final short	EXPIRATION					= 360;		// 15 days
+	private static final byte	COD_EXPIRATION				= 12;		// 12 hours
+
 	private static final int	UNLOAD_ATTACHMENTS_INTERVAL	= 900000;	// 15-30 mins
-																		
+
 	// post state
-	public static final int		DELETED						= 0;
-	public static final int		READED						= 1;
-	public static final int		REJECTED					= 2;
-	
+	public static final byte	DELETED						= 0;
+	public static final byte	READED						= 1;
+	public static final byte	REJECTED					= 2;
+
 	private final int			_messageId, _senderId, _receiverId;
 	private final long			_expiration;
 	private String				_senderName					= null;
@@ -53,11 +53,11 @@ public class Message
 	private boolean				_hasAttachments;
 	private Mail				_attachments				= null;
 	private ScheduledFuture<?>	_unloadTask					= null;
-	
+
 	/*
 	 * Constructor for restoring from DB.
 	 */
-	public Message(ResultSet rset) throws SQLException
+	public Message(final ResultSet rset) throws SQLException
 	{
 		_messageId = rset.getInt("messageId");
 		_senderId = rset.getInt("senderId");
@@ -73,7 +73,7 @@ public class Message
 		_fourStars = rset.getBoolean("isFourStars");
 		_news = rset.getBoolean("isNews");
 	}
-	
+
 	/*
 	 * This constructor used for creating new message.
 	 */
@@ -94,11 +94,11 @@ public class Message
 		_deletedByReceiver = false;
 		_reqAdena = reqAdena;
 	}
-	
+
 	/*
 	 * This constructor used for auto-generation of the "return attachments" message
 	 */
-	public Message(Message msg)
+	public Message(final Message msg)
 	{
 		_messageId = IdFactory.getInstance().getNextId();
 		_senderId = msg.getSenderId();
@@ -118,12 +118,12 @@ public class Message
 		_unloadTask = ThreadPoolManager.getInstance().scheduleGeneral(new AttachmentsUnloadTask(this),
 				UNLOAD_ATTACHMENTS_INTERVAL + Rnd.get(UNLOAD_ATTACHMENTS_INTERVAL));
 	}
-	
+
 	public static final PreparedStatement getStatement(Message msg, Connection con) throws SQLException
 	{
 		PreparedStatement stmt = con
 				.prepareStatement("INSERT INTO messages (messageId, senderId, receiverId, subject, content, expiration, reqAdena, hasAttachments, isUnread, isDeletedBySender, isDeletedByReceiver, isFourStars, isNews) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		
+
 		stmt.setInt(1, msg._messageId);
 		stmt.setInt(2, msg._senderId);
 		stmt.setInt(3, msg._receiverId);
@@ -137,39 +137,39 @@ public class Message
 		stmt.setString(11, String.valueOf(msg._deletedByReceiver));
 		stmt.setString(12, String.valueOf(msg._fourStars));
 		stmt.setString(13, String.valueOf(msg._news));
-		
+
 		return stmt;
 	}
-	
+
 	public final int getId()
 	{
 		return _messageId;
 	}
-	
+
 	public final int getSenderId()
 	{
 		return _senderId;
 	}
-	
+
 	public final int getReceiverId()
 	{
 		return _receiverId;
 	}
-	
+
 	public final String getSenderName()
 	{
 		if (_senderName == null)
 		{
 			if (_fourStars)
 				return "****";
-			
+
 			_senderName = CharNameTable.getInstance().getNameByObjectId(_senderId);
 			if (_senderName == null)
 				_senderName = "";
 		}
 		return _senderName;
 	}
-	
+
 	public final String getReceiverName()
 	{
 		if (_receiverName == null)
@@ -180,37 +180,37 @@ public class Message
 		}
 		return _receiverName;
 	}
-	
+
 	public final String getSubject()
 	{
 		return _subject;
 	}
-	
+
 	public final String getContent()
 	{
 		return _content;
 	}
-	
+
 	public final boolean isLocked()
 	{
 		return _reqAdena > 0;
 	}
-	
+
 	public final long getExpiration()
 	{
 		return _expiration;
 	}
-	
+
 	public final int getExpirationSeconds()
 	{
 		return (int) (_expiration / 1000);
 	}
-	
+
 	public final boolean isUnread()
 	{
 		return _unread;
 	}
-	
+
 	public final void markAsRead()
 	{
 		if (_unread)
@@ -219,12 +219,12 @@ public class Message
 			MailService.getInstance().markAsReadInDb(_messageId);
 		}
 	}
-	
+
 	public final boolean isDeletedBySender()
 	{
 		return _deletedBySender;
 	}
-	
+
 	public final void setDeletedBySender()
 	{
 		if (!_deletedBySender)
@@ -238,12 +238,12 @@ public class Message
 				MailService.getInstance().markAsDeletedBySenderInDb(_messageId);
 		}
 	}
-	
+
 	public final boolean isDeletedByReceiver()
 	{
 		return _deletedByReceiver;
 	}
-	
+
 	public final void setDeletedByReceiver()
 	{
 		if (!_deletedByReceiver)
@@ -257,27 +257,27 @@ public class Message
 				MailService.getInstance().markAsDeletedByReceiverInDb(_messageId);
 		}
 	}
-	
+
 	public final boolean isFourStars()
 	{
 		return _fourStars;
 	}
-	
+
 	public final boolean isNews()
 	{
 		return _news;
 	}
-	
+
 	public final long getReqAdena()
 	{
 		return _reqAdena;
 	}
-	
+
 	public final synchronized Mail getAttachments()
 	{
 		if (!_hasAttachments)
 			return null;
-		
+
 		if (_attachments == null)
 		{
 			_attachments = new Mail(_senderId, _messageId);
@@ -287,12 +287,12 @@ public class Message
 		}
 		return _attachments;
 	}
-	
+
 	public final boolean hasAttachments()
 	{
 		return _hasAttachments;
 	}
-	
+
 	public final synchronized void removeAttachments()
 	{
 		if (_attachments != null)
@@ -304,19 +304,19 @@ public class Message
 				_unloadTask.cancel(false);
 		}
 	}
-	
+
 	public final synchronized Mail createAttachments()
 	{
 		if (_hasAttachments || _attachments != null)
 			return null;
-		
+
 		_attachments = new Mail(_senderId, _messageId);
 		_hasAttachments = true;
 		_unloadTask = ThreadPoolManager.getInstance().scheduleGeneral(new AttachmentsUnloadTask(this),
 				UNLOAD_ATTACHMENTS_INTERVAL + Rnd.get(UNLOAD_ATTACHMENTS_INTERVAL));
 		return _attachments;
 	}
-	
+
 	protected final synchronized void unloadAttachments()
 	{
 		if (_attachments != null)
@@ -325,18 +325,18 @@ public class Message
 			_attachments = null;
 		}
 	}
-	
-	class AttachmentsUnloadTask implements Runnable
+
+	private final class AttachmentsUnloadTask implements Runnable
 	{
 		private Message	_msg;
-		
-		AttachmentsUnloadTask(Message msg)
+
+		private AttachmentsUnloadTask(Message msg)
 		{
 			_msg = msg;
 		}
-		
+
 		@Override
-		public void run()
+		public final void run()
 		{
 			if (_msg != null)
 			{

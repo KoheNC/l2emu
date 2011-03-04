@@ -17,30 +17,29 @@ package net.l2emuproject.gameserver.services.couple;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
-import javolution.util.FastList;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.util.SingletonList;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * @author evill33t
- * 
  */
-public class CoupleService
+public final class CoupleService
 {
-	private static final Log		_log	= LogFactory.getLog(CoupleService.class);
+	private static final Log	_log	= LogFactory.getLog(CoupleService.class);
 
 	public static final CoupleService getInstance()
 	{
 		return SingletonHolder._instance;
 	}
-	
+
 	private CoupleService()
 	{
 		load();
@@ -48,7 +47,7 @@ public class CoupleService
 
 	// =========================================================
 	// Data Field
-	private FastList<Couple>	_couples;
+	private List<Couple>	_couples;
 
 	// =========================================================
 	// Method - Public
@@ -65,13 +64,10 @@ public class CoupleService
 		Connection con = null;
 		try
 		{
-			PreparedStatement statement;
-			ResultSet rs;
-
 			con = L2DatabaseFactory.getInstance().getConnection(con);
 
-			statement = con.prepareStatement("Select id from couples order by id");
-			rs = statement.executeQuery();
+			final PreparedStatement statement = con.prepareStatement("Select id from couples order by id");
+			final ResultSet rs = statement.executeQuery();
 
 			while (rs.next())
 			{
@@ -96,13 +92,13 @@ public class CoupleService
 	// Property - Public
 	public final Couple getCouple(int coupleId)
 	{
-		int index = getCoupleIndex(coupleId);
+		final int index = getCoupleIndex(coupleId);
 		if (index >= 0)
 			return getCouples().get(index);
 		return null;
 	}
 
-	public void createCouple(L2Player player1, L2Player player2)
+	public final void createCouple(L2Player player1, L2Player player2)
 	{
 		if (player1 != null && player2 != null)
 		{
@@ -111,24 +107,24 @@ public class CoupleService
 				final int player1id = player1.getObjectId();
 				final int player2id = player2.getObjectId();
 
-				Couple _new = new Couple(player1, player2);
-				getCouples().add(_new);
+				final Couple newCouple = new Couple(player1, player2);
+				getCouples().add(newCouple);
 				player1.setPartnerId(player2id);
 				player2.setPartnerId(player1id);
-				player1.setCoupleId(_new.getId());
-				player2.setCoupleId(_new.getId());
+				player1.setCoupleId(newCouple.getId());
+				player2.setCoupleId(newCouple.getId());
 			}
 		}
 	}
 
-	public void deleteCouple(int coupleId)
+	public final void deleteCouple(int coupleId)
 	{
-		int index = getCoupleIndex(coupleId);
-		Couple couple = getCouples().get(index);
+		final int index = getCoupleIndex(coupleId);
+		final Couple couple = getCouples().get(index);
 		if (couple != null)
 		{
-			L2Player player1 = L2World.getInstance().getPlayer(couple.getPlayer1Id());
-			L2Player player2 = L2World.getInstance().getPlayer(couple.getPlayer2Id());
+			final L2Player player1 = L2World.getInstance().getPlayer(couple.getPlayer1Id());
+			final L2Player player2 = L2World.getInstance().getPlayer(couple.getPlayer2Id());
 			L2ItemInstance item = null;
 			if (player1 != null)
 			{
@@ -139,20 +135,20 @@ public class CoupleService
 				if (player1.isOnline() == 1 && item != null)
 				{
 					player1.destroyItem("Removing Cupids Bow", item, player1, true);
-					
+
 					// No need to update every item in the inventory
 					//player1.getInventory().updateDatabase();
 				}
 				if (player1.isOnline() == 0 && item != null)
 				{
-					Integer PlayerId = player1.getObjectId();
-					Integer ItemId = 9140;
+					final Integer playerId = player1.getObjectId();
+					final Integer ItemId = 9140;
 					Connection con = null;
 					try
 					{
 						con = L2DatabaseFactory.getInstance().getConnection(con);
-						PreparedStatement statement = con.prepareStatement("DELETE FROM items WHERE owner_id = ? AND item_id = ?");
-						statement.setInt(1, PlayerId);
+						final PreparedStatement statement = con.prepareStatement("DELETE FROM items WHERE owner_id = ? AND item_id = ?");
+						statement.setInt(1, playerId);
 						statement.setInt(2, ItemId);
 						statement.execute();
 						statement.close();
@@ -176,7 +172,7 @@ public class CoupleService
 				if (player2.isOnline() == 1 && item != null)
 				{
 					player2.destroyItem("Removing Cupids Bow", item, player2, true);
-					
+
 					// No need to update every item in the inventory
 					//player2.getInventory().updateDatabase();
 				}
@@ -188,7 +184,7 @@ public class CoupleService
 					try
 					{
 						con = L2DatabaseFactory.getInstance().getConnection(con);
-						PreparedStatement statement = con.prepareStatement("DELETE FROM items WHERE owner_id = ? AND item_id = ?");
+						final PreparedStatement statement = con.prepareStatement("DELETE FROM items WHERE owner_id = ? AND item_id = ?");
 						statement.setInt(1, Player2Id);
 						statement.setInt(2, Item2Id);
 						statement.execute();
@@ -221,16 +217,16 @@ public class CoupleService
 		return -1;
 	}
 
-	public final FastList<Couple> getCouples()
+	public final List<Couple> getCouples()
 	{
 		if (_couples == null)
-			_couples = new FastList<Couple>();
+			_couples = new SingletonList<Couple>();
 		return _couples;
 	}
 
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final CoupleService _instance = new CoupleService();
+		protected static final CoupleService	_instance	= new CoupleService();
 	}
 }

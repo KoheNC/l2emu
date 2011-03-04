@@ -25,157 +25,168 @@ import net.l2emuproject.gameserver.world.object.L2Player;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * @author evill33t
- * 
  */
-public class Couple
+public final class Couple
 {
-    private static final Log _log = LogFactory.getLog(Couple.class);
-    
-    // =========================================================
-    // Data Field
-    private int _id                             = 0;
-    private int _player1Id                      = 0;
-    private int _player2Id                      = 0;
-    private boolean _maried                     = false;
-    private long _affiancedDate;
-    private long _weddingDate;
+	private static final Log	_log		= LogFactory.getLog(Couple.class);
 
-    // =========================================================
-    // Constructor
-    public Couple(int coupleId)
-    {
-        _id = coupleId;
-        
-        Connection con = null;
-        try
-        {
-            PreparedStatement statement;
-            ResultSet rs;
+	// =========================================================
+	// Data Field
+	private int					_id			= 0;
+	private int					_player1Id	= 0;
+	private int					_player2Id	= 0;
+	private boolean				_maried		= false;
+	private long				_affiancedDate;
+	private long				_weddingDate;
 
-            con = L2DatabaseFactory.getInstance().getConnection(con);
+	// =========================================================
+	// Constructor
+	public Couple(int coupleId)
+	{
+		_id = coupleId;
 
-            statement = con.prepareStatement("Select * from couples where id = ?");
-            statement.setInt(1, _id);
-            rs = statement.executeQuery();
+		Connection con = null;
+		try
+		{
+			con = L2DatabaseFactory.getInstance().getConnection(con);
 
-            while (rs.next())
-            {
-                _player1Id = rs.getInt("player1Id");
-                _player2Id = rs.getInt("player2Id");
-                _maried    = rs.getBoolean("maried");
+			final PreparedStatement statement = con.prepareStatement("Select * from couples where id = ?");
+			statement.setInt(1, _id);
+			final ResultSet rs = statement.executeQuery();
 
-                _affiancedDate = rs.getLong("affiancedDate");
-                _weddingDate = rs.getLong("weddingDate");
-            }
-            statement.close();
-        }
-        catch (Exception e)
-        {
-            _log.error("Exception: Couple.load(): " + e.getMessage(),e);
-        }
-        finally
-        {
-            L2DatabaseFactory.close(con);
-        }
-    }
-    
-    public Couple(L2Player player1,L2Player player2)
-    {
-        int _tempPlayer1Id = player1.getObjectId();
-        int _tempPlayer2Id = player2.getObjectId();
+			while (rs.next())
+			{
+				_player1Id = rs.getInt("player1Id");
+				_player2Id = rs.getInt("player2Id");
+				_maried = rs.getBoolean("maried");
 
-        _player1Id = _tempPlayer1Id;
-        _player2Id = _tempPlayer2Id;
+				_affiancedDate = rs.getLong("affiancedDate");
+				_weddingDate = rs.getLong("weddingDate");
+			}
+			statement.close();
+		}
+		catch (Exception e)
+		{
+			_log.error("Exception: Couple.load(): " + e.getMessage(), e);
+		}
+		finally
+		{
+			L2DatabaseFactory.close(con);
+		}
+	}
 
-        _affiancedDate = System.currentTimeMillis();
-        _weddingDate =System.currentTimeMillis();
-        
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection(con);
-            PreparedStatement statement;
-            _id = IdFactory.getInstance().getNextId();
-            statement = con.prepareStatement("INSERT INTO couples (id, player1Id, player2Id, maried, affiancedDate, weddingDate) VALUES (?, ?, ?, ?, ?, ?)");
-            statement.setInt(1, _id);
-            statement.setInt(2, _player1Id);
-            statement.setInt(3, _player2Id);
-            statement.setBoolean(4, false);
-            statement.setLong(5, _affiancedDate);
-            statement.setLong(6, _weddingDate);
-            statement.execute();
-            statement.close();
-        }
-        catch (Exception e)
-        {
-            _log.error("",e);
-        }
-        finally
-        {
-            L2DatabaseFactory.close(con);
-        }
-    }
-    
-    public void marry()
-    {
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection(con);
-            PreparedStatement statement;
+	public Couple(L2Player player1, L2Player player2)
+	{
+		final int tempPlayer1Id = player1.getObjectId();
+		final int tempPlayer2Id = player2.getObjectId();
 
-            statement = con.prepareStatement("UPDATE couples set maried = ?, weddingDate = ? where id = ?");
-            statement.setBoolean(1, true);
-            _weddingDate = System.currentTimeMillis();
-            statement.setLong(2, _weddingDate);
-            statement.setInt(3, _id);
-            statement.execute();
-            statement.close();
-            _maried = true;
-        }
-        catch (Exception e)
-        {
-            _log.error("",e);
-        }
-        finally
-        {
-            L2DatabaseFactory.close(con);
-        }
-    }
-    
-    public void divorce()
-    {
-        Connection con = null;
-        try
-        {
-            con = L2DatabaseFactory.getInstance().getConnection(con);
-            PreparedStatement statement;
-            
-            statement = con.prepareStatement("DELETE FROM couples WHERE id=?");
-            statement.setInt(1, _id);
-            statement.execute();
-            statement.close();
-        }
-        catch (Exception e)
-        {
-            _log.error("Exception: Couple.divorce(): " + e.getMessage(),e);
-        }
-        finally
-        {
-            L2DatabaseFactory.close(con);
-        }
-    }
-    
-    public final int getId() { return _id; }
+		_player1Id = tempPlayer1Id;
+		_player2Id = tempPlayer2Id;
 
-    public final int getPlayer1Id() { return _player1Id; }
-    public final int getPlayer2Id() { return _player2Id; }
+		_affiancedDate = System.currentTimeMillis();
+		_weddingDate = System.currentTimeMillis();
 
-    public final boolean getMaried() { return _maried; }
+		Connection con = null;
+		try
+		{
+			con = L2DatabaseFactory.getInstance().getConnection(con);
+			PreparedStatement statement;
+			_id = IdFactory.getInstance().getNextId();
+			statement = con.prepareStatement("INSERT INTO couples (id, player1Id, player2Id, maried, affiancedDate, weddingDate) VALUES (?, ?, ?, ?, ?, ?)");
+			statement.setInt(1, _id);
+			statement.setInt(2, _player1Id);
+			statement.setInt(3, _player2Id);
+			statement.setBoolean(4, false);
+			statement.setLong(5, _affiancedDate);
+			statement.setLong(6, _weddingDate);
+			statement.execute();
+			statement.close();
+		}
+		catch (Exception e)
+		{
+			_log.error("", e);
+		}
+		finally
+		{
+			L2DatabaseFactory.close(con);
+		}
+	}
 
-    public final long getAffiancedDate() { return _affiancedDate; }
-    public final long getWeddingDate() { return _weddingDate; }
+	public final void marry()
+	{
+		Connection con = null;
+		try
+		{
+			con = L2DatabaseFactory.getInstance().getConnection(con);
+			final PreparedStatement statement = con.prepareStatement("UPDATE couples set maried = ?, weddingDate = ? where id = ?");
+			statement.setBoolean(1, true);
+			_weddingDate = System.currentTimeMillis();
+			statement.setLong(2, _weddingDate);
+			statement.setInt(3, _id);
+			statement.execute();
+			statement.close();
+			_maried = true;
+		}
+		catch (Exception e)
+		{
+			_log.error("", e);
+		}
+		finally
+		{
+			L2DatabaseFactory.close(con);
+		}
+	}
+
+	public final void divorce()
+	{
+		Connection con = null;
+		try
+		{
+			con = L2DatabaseFactory.getInstance().getConnection(con);
+			final PreparedStatement statement = con.prepareStatement("DELETE FROM couples WHERE id=?");
+			statement.setInt(1, _id);
+			statement.execute();
+			statement.close();
+		}
+		catch (Exception e)
+		{
+			_log.error("Exception: Couple.divorce(): " + e.getMessage(), e);
+		}
+		finally
+		{
+			L2DatabaseFactory.close(con);
+		}
+	}
+
+	public final int getId()
+	{
+		return _id;
+	}
+
+	public final int getPlayer1Id()
+	{
+		return _player1Id;
+	}
+
+	public final int getPlayer2Id()
+	{
+		return _player2Id;
+	}
+
+	public final boolean getMaried()
+	{
+		return _maried;
+	}
+
+	public final long getAffiancedDate()
+	{
+		return _affiancedDate;
+	}
+
+	public final long getWeddingDate()
+	{
+		return _weddingDate;
+	}
 }

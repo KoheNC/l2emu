@@ -14,19 +14,14 @@
  */
 package net.l2emuproject.gameserver.services.shortcuts;
 
-/**
- * This class ...
- * 
- * @version $Revision: 1.3.4.1 $ $Date: 2005/03/27 15:29:32 $
- */
-public class L2ShortCut
+public final class L2ShortCut
 {
-	public final static int TYPE_ITEM = 1;
-	public final static int TYPE_SKILL = 2;
-	public final static int TYPE_ACTION = 3;
-	public final static int TYPE_MACRO = 4;
-	public final static int TYPE_RECIPE = 5;
-	public final static int TYPE_TPBOOKMARK = 6;
+	public final static byte TYPE_ITEM = 1;
+	public final static byte TYPE_SKILL = 2;
+	public final static byte TYPE_ACTION = 3;
+	public final static byte TYPE_MACRO = 4;
+	public final static byte TYPE_RECIPE = 5;
+	public final static byte TYPE_TPBOOKMARK = 6;
 
 	private final int _slot;
 	private final int _page;

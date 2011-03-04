@@ -30,31 +30,31 @@ import net.l2emuproject.gameserver.world.object.L2Player;
  */
 public final class L2FriendList
 {
-	private final L2Player _owner;
-	private final Set<Integer> _set;
-	
+	private final L2Player		_owner;
+	private final Set<Integer>	_set;
+
 	public L2FriendList(L2Player owner)
 	{
 		_owner = owner;
 		_set = FriendListService.getInstance().getFriendList(owner.getObjectId());
 	}
-	
-	public boolean contains(Integer objectId)
+
+	public final boolean contains(Integer objectId)
 	{
 		return _set.contains(objectId);
 	}
-	
-	public boolean contains(L2Player player)
+
+	public final boolean contains(L2Player player)
 	{
 		return player != null && contains(player.getObjectId());
 	}
-	
-	public Iterable<Integer> getFriendIds()
+
+	public final Iterable<Integer> getFriendIds()
 	{
 		return _set;
 	}
-	
-	public boolean canAddAsFriend(L2Player friend)
+
+	public final boolean canAddAsFriend(L2Player friend)
 	{
 		if (friend == null || friend.isOnline() == 0 || friend.getAppearance().isInvisible())
 			_owner.sendPacket(SystemMessageId.THE_USER_YOU_REQUESTED_IS_NOT_IN_GAME);
@@ -68,41 +68,41 @@ public final class L2FriendList
 			_owner.sendPacket(new SystemMessage(SystemMessageId.C1_ALREADY_ON_FRIENDS_LIST).addPcName(friend));
 		else
 			return true;
-		
+
 		return false;
 	}
-	
-	public void add(L2Player friend)
+
+	public final void add(L2Player friend)
 	{
 		if (!canAddAsFriend(friend))
 			return;
-		
+
 		if (FriendListService.getInstance().insert(_owner.getObjectId(), friend.getObjectId()))
 		{
 			_owner.sendPacket(SystemMessageId.YOU_HAVE_SUCCEEDED_INVITING_FRIEND);
-			
+
 			_owner.sendPacket(new SystemMessage(SystemMessageId.C1_ADDED_TO_FRIENDS).addPcName(friend));
 			_owner.sendPacket(new FriendPacket(FriendAction.ADD_FRIEND, friend.getObjectId()));
-			
+
 			friend.sendPacket(new SystemMessage(SystemMessageId.C1_JOINED_AS_FRIEND).addPcName(_owner));
 			friend.sendPacket(new FriendPacket(FriendAction.ADD_FRIEND, _owner.getObjectId()));
 		}
 		else
 			_owner.sendPacket(new SystemMessage(SystemMessageId.C1_ALREADY_ON_FRIENDS_LIST).addPcName(friend));
 	}
-	
-	public void remove(String name)
+
+	public final void remove(String name)
 	{
-		Integer objId = CharNameTable.getInstance().getObjectIdByName(name);
-		
+		final Integer objId = CharNameTable.getInstance().getObjectIdByName(name);
+
 		if (objId != null && FriendListService.getInstance().remove(_owner.getObjectId(), objId))
 		{
 			name = CharNameTable.getInstance().getNameByObjectId(objId);
-			
+
 			_owner.sendPacket(new SystemMessage(SystemMessageId.C1_HAS_BEEN_DELETED_FROM_YOUR_FRIENDS_LIST).addString(name));
 			_owner.sendPacket(new FriendPacket(FriendAction.REMOVE_FRIEND, objId));
-			
-			L2Player friend = L2World.getInstance().findPlayer(objId);
+
+			final L2Player friend = L2World.getInstance().findPlayer(objId);
 			if (friend != null)
 			{
 				friend.sendPacket(new SystemMessage(SystemMessageId.C1_HAS_BEEN_DELETED_FROM_YOUR_FRIENDS_LIST).addPcName(_owner));
