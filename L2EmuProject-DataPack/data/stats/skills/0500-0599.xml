@@ -1031,7 +1031,7 @@
 		<set name="chanceType" val="ON_ATTACKED" />
 	</skill>
 	<skill id="536" levels="1" name="Over the Body">
-		<set name="cpConsume" val="99999" /> <!-- When the skill is used, all of your CP are consumed. -->
+		<set name="cpConsume" val="30000" /> <!-- When the skill is used, all of your CP are consumed. -->
 		<set name="mpConsume" val="143" />
 		<set name="reuseDelay" val="900000" />
 		<set name="hitTime" val="2000" />

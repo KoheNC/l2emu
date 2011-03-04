@@ -230,7 +230,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 
 	private final boolean			_isPotion;
 	private final byte				_element;
-	private final byte				_elementPower;
+	private final short				_elementPower;
 	private final byte				_activateRate;
 	private final byte				_magicLevel;
 
@@ -444,7 +444,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 		_effectLvl = set.getFloat("effectLevel", 0.f);
 		_skill_landing_percent = set.getByte("skill_landing_percent", (byte) 0);
 		_element = set.getByte("element", (byte) -1);
-		_elementPower = set.getByte("elementPower", (byte) 0);
+		_elementPower = set.getShort("elementPower", (short) 0);
 		_activateRate = set.getByte("activateRate", (byte) -1);
 		_magicLevel = (byte) initMagicLevel(set);
 
