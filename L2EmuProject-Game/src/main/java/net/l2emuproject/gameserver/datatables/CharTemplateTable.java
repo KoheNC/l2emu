@@ -28,13 +28,7 @@ import net.l2emuproject.gameserver.templates.chars.L2PcTemplate;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
-/**
- * This class ...
- * 
- * @version $Revision: 1.6.2.1.2.10 $ $Date: 2005/03/29 14:00:54 $
- */
-public class CharTemplateTable
+public final class CharTemplateTable
 {
 	private final static Log				_log			= LogFactory.getLog(CharTemplateTable.class);
 
@@ -192,14 +186,14 @@ public class CharTemplateTable
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con.prepareStatement("SELECT * FROM class_list, char_templates, lvlupgain"
+			final PreparedStatement statement = con.prepareStatement("SELECT * FROM class_list, char_templates, lvlupgain"
 					+ " WHERE class_list.id = char_templates.classId" + " AND class_list.id = lvlupgain.classId" + " ORDER BY class_list.id");
-			ResultSet rset = statement.executeQuery();
+			final ResultSet rset = statement.executeQuery();
 			
 			int size = 0;
 			while (rset.next())
 			{
-				StatsSet set = new StatsSet();
+				final StatsSet set = new StatsSet();
 				set.set("classId", rset.getInt("id"));
 				set.set("className", rset.getString("className"));
 				set.set("raceId", rset.getInt("raceId"));
@@ -237,14 +231,12 @@ public class CharTemplateTable
 				set.set("spawnY", rset.getInt("y"));
 				set.set("spawnZ", rset.getInt("z"));
 
-				L2PcTemplate ct;
-
 				set.set("collision_radius", rset.getDouble("m_col_r"));
 				set.set("collision_height", rset.getDouble("m_col_h"));
 				// Add-on for females
 				set.set("fcollision_radius", rset.getDouble("f_col_r"));
 				set.set("fcollision_height", rset.getDouble("f_col_h"));
-				ct = new L2PcTemplate(set);
+				final L2PcTemplate ct = new L2PcTemplate(set);
 
 				_templates[ct.getClassId().getId()] = ct;
 				size++;
@@ -263,8 +255,8 @@ public class CharTemplateTable
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con.prepareStatement("SELECT classId, itemId, amount, equipped FROM char_creation_items");
-			ResultSet rset = statement.executeQuery();
+			final PreparedStatement statement = con.prepareStatement("SELECT classId, itemId, amount, equipped FROM char_creation_items");
+			final ResultSet rset = statement.executeQuery();
 			
 			int classId, itemId, amount;
 			boolean equipped;
@@ -289,7 +281,7 @@ public class CharTemplateTable
 					}
 					else
 					{
-						L2PcTemplate pct = _templates[classId];
+						final L2PcTemplate pct = _templates[classId];
 						if (pct != null)
 						{
 							pct.addItem(itemId, amount, equipped);
@@ -318,12 +310,12 @@ public class CharTemplateTable
 		}
 	}
 
-	public L2PcTemplate getTemplate(ClassId classId)
+	public final L2PcTemplate getTemplate(ClassId classId)
 	{
 		return getTemplate(classId.getId());
 	}
 
-	public L2PcTemplate getTemplate(int classId)
+	public final L2PcTemplate getTemplate(int classId)
 	{
 		if (classId < 0 || classId >= _templates.length)
 			return null;

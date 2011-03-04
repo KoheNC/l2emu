@@ -146,7 +146,7 @@ public final class DoorTable
 		L2DoorInstance door = null;
 		try
 		{
-			StringTokenizer st = new StringTokenizer(line, ";");
+			final StringTokenizer st = new StringTokenizer(line, ";");
 
 			final String name = st.nextToken();
 			final int id = Integer.parseInt(st.nextToken());
@@ -182,7 +182,7 @@ public final class DoorTable
 			else
 				collisionRadius = rangeXMax - rangeXMin;
 
-			StatsSet npcDat = new StatsSet();
+			final StatsSet npcDat = new StatsSet();
 			npcDat.set("npcId", id);
 			npcDat.set("level", 0);
 			npcDat.set("jClass", "door");
@@ -229,7 +229,7 @@ public final class DoorTable
 			npcDat.set("basePDef", pdef);
 			npcDat.set("baseMDef", mdef);
 
-			L2CharTemplate template = new L2CharTemplate(npcDat);
+			final L2CharTemplate template = new L2CharTemplate(npcDat);
 			door = new L2DoorInstance(IdFactory.getInstance().getNextId(), template, id, name, unlockable);
 			door.setRange(rangeXMin, rangeYMin, rangeZMin, rangeXMax, rangeYMax, rangeZMax);
 			door.setMapRegion(MapRegionManager.getInstance().getRegion(x, y, z));
@@ -247,12 +247,12 @@ public final class DoorTable
 		return door;
 	}
 
-	public L2DoorInstance getDoor(Integer id)
+	public final L2DoorInstance getDoor(Integer id)
 	{
 		return _doors.get(id);
 	}
 
-	public void putDoor(L2DoorInstance door)
+	public final void putDoor(L2DoorInstance door)
 	{
 		_doorArray = null;
 		_doors.put(door.getDoorId(), door);
@@ -261,7 +261,7 @@ public final class DoorTable
 
 	private L2DoorInstance[] _doorArray;
 
-	public L2DoorInstance[] getDoors()
+	public final L2DoorInstance[] getDoors()
 	{
 		if (_doorArray == null)
 			_doorArray = _doors.values().toArray(new L2DoorInstance[_doors.size()]);
@@ -272,15 +272,15 @@ public final class DoorTable
 	/**
 	 * Open list of doors in the instance
 	 */
-	public static void openInstanceDoors(final int instanceId, final int[] doorIds)
+	public static final void openInstanceDoors(final int instanceId, final int[] doorIds)
 	{
-		Instance instance = InstanceManager.getInstance().getInstance(instanceId);
+		final Instance instance = InstanceManager.getInstance().getInstance(instanceId);
 		if (instance == null || doorIds == null)
 			return;
 		
 		for (int doorId : doorIds)
 		{
-			L2DoorInstance door = instance.getDoor(doorId);
+			final L2DoorInstance door = instance.getDoor(doorId);
 			if (door != null)
 				door.openMe();
 		}
@@ -289,15 +289,15 @@ public final class DoorTable
 	/**
 	 * Close list of doors in the instance
 	 */
-	public static void closeInstanceDoors(final int instanceId, final int[] doorIds)
+	public static final void closeInstanceDoors(final int instanceId, final int[] doorIds)
 	{
-		Instance instance = InstanceManager.getInstance().getInstance(instanceId);
+		final Instance instance = InstanceManager.getInstance().getInstance(instanceId);
 		if (instance == null || doorIds == null)
 			return;
 		
 		for (int doorId : doorIds)
 		{
-			L2DoorInstance door = instance.getDoor(doorId);
+			final L2DoorInstance door = instance.getDoor(doorId);
 			if (door != null)
 				door.closeMe();
 		}
@@ -306,7 +306,7 @@ public final class DoorTable
 	/**
 	 * Close list of doors
 	 */
-	public void closeDoors(final int[] doorIds)
+	public final void closeDoors(final int[] doorIds)
 	{
 		if (doorIds == null)
 			return;
@@ -315,9 +315,9 @@ public final class DoorTable
 			closeDoor(doorId);
 	}
 	
-	public void closeDoor(int doorId)
+	public final void closeDoor(int doorId)
 	{
-		L2DoorInstance door = getDoor(doorId);
+		final L2DoorInstance door = getDoor(doorId);
 		if (door != null)
 			door.closeMe();
 	}
@@ -325,7 +325,7 @@ public final class DoorTable
 	/**
 	 * Open list of doors
 	 */
-	public void openDoors(final int[] doorIds)
+	public final void openDoors(final int[] doorIds)
 	{
 		if (doorIds == null)
 			return;
@@ -334,9 +334,9 @@ public final class DoorTable
 			openDoor(doorId);
 	}
 	
-	public void openDoor(int doorId)
+	public final void openDoor(int doorId)
 	{
-		L2DoorInstance door = getDoor(doorId);
+		final L2DoorInstance door = getDoor(doorId);
 		if (door != null)
 			door.openMe();
 	}

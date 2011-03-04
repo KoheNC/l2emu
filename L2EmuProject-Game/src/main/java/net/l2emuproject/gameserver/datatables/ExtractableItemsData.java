@@ -26,15 +26,13 @@ import net.l2emuproject.gameserver.items.extractable.L2ExtractableProductItem;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * @author FBIagent
  */
-public class ExtractableItemsData
+public final class ExtractableItemsData
 {
 	private final static Log					_log		= LogFactory.getLog(ExtractableItemsData.class);
 
-	//          Map<itemid, L2ExtractableItem>
 	private final FastMap<Integer, L2ExtractableItem>	_items  = new FastMap<Integer, L2ExtractableItem>();
 
 	public static ExtractableItemsData getInstance()
@@ -89,7 +87,7 @@ public class ExtractableItemsData
 			if (!ok)
 				continue;
 
-			FastList<L2ExtractableProductItem> product_temp = new FastList<L2ExtractableProductItem>();
+			final FastList<L2ExtractableProductItem> product_temp = new FastList<L2ExtractableProductItem>();
 
 			for (int i = 0; i < lineSplit.length -1 ; i++)
 			{
@@ -135,7 +133,7 @@ public class ExtractableItemsData
 				if (!ok)
 					continue;
 
-				L2ExtractableProductItem product = new L2ExtractableProductItem(production, amount, chance);
+				final L2ExtractableProductItem product = new L2ExtractableProductItem(production, amount, chance);
 				product_temp.add(product);
 			}
 
@@ -150,7 +148,7 @@ public class ExtractableItemsData
 				_log.warn("		" + line);
 				continue;
 			}
-			L2ExtractableItem product = new L2ExtractableItem(itemID, product_temp);
+			final L2ExtractableItem product = new L2ExtractableItem(itemID, product_temp);
 			_items.put(itemID, product);
 		}
 
@@ -158,12 +156,12 @@ public class ExtractableItemsData
 		_log.info(getClass().getSimpleName() + " : Loaded " + _items.size() + " extractable item(s).");
 	}
 
-	public L2ExtractableItem getExtractableItem(int itemID)
+	public final L2ExtractableItem getExtractableItem(int itemID)
 	{
 		return _items.get(itemID);
 	}
 
-	public int[] itemIDs()
+	public final int[] itemIDs()
 	{
 		final int size = _items.size();
 		int[] result = new int[size];
@@ -176,7 +174,7 @@ public class ExtractableItemsData
 	}
 
 	@SuppressWarnings("synthetic-access")
-	private static class SingletonHolder
+	private static final class SingletonHolder
 	{
 		protected static final ExtractableItemsData _instance = new ExtractableItemsData();
 	}

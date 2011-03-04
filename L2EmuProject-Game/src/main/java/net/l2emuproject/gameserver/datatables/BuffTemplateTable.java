@@ -29,12 +29,11 @@ import net.l2emuproject.gameserver.templates.skills.L2BuffTemplate;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * This class represents the buff templates list
  * @author G1ta0
  */
-public class BuffTemplateTable
+public final class BuffTemplateTable
 {
 	private final static Log _log = LogFactory.getLog(BuffTemplateTable.class);
 	
@@ -53,7 +52,7 @@ public class BuffTemplateTable
 	/**
 	 * Read and Load the buff templates from SQL Table buff_templates
 	 */
-	public void reloadBuffTemplates()
+	public final void reloadBuffTemplates()
 	{
 		_templates.clear();
 		
@@ -61,8 +60,8 @@ public class BuffTemplateTable
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con.prepareStatement("SELECT * FROM buff_templates ORDER BY id, skill_order");
-			ResultSet rset = statement.executeQuery();
+			final PreparedStatement statement = con.prepareStatement("SELECT * FROM buff_templates ORDER BY id, skill_order");
+			final ResultSet rset = statement.executeQuery();
 			
 			while (rset.next())
 			{
@@ -84,7 +83,7 @@ public class BuffTemplateTable
 				buff.set("points", rset.getInt("price_points"));
 				
 				// Add this buff template to the buff template list
-				L2BuffTemplate template = new L2BuffTemplate(buff);
+				final L2BuffTemplate template = new L2BuffTemplate(buff);
 				if (template.getSkill() != null)
 				{
 					TemplateList list = getBuffTemplate(templateId);
@@ -117,9 +116,9 @@ public class BuffTemplateTable
 	/**
 	 * @return Returns the buffs of template by template Id
 	 */
-	public TemplateList getBuffTemplate(int id)
+	public final TemplateList getBuffTemplate(int id)
 	{
-		TemplateList list = _templates.get(id);
+		final TemplateList list = _templates.get(id);
 		if (list == null)
 			return TemplateList.EMPTY_LIST;
 		else
@@ -129,20 +128,19 @@ public class BuffTemplateTable
 	/**
 	 * @return Returns the template Id by template Name
 	 */
-	public int getTemplateIdByName(String name)
+	public final int getTemplateIdByName(String name)
 	{
-		for (TemplateList list : _templates.values())
-		{
+		for (TemplateList list : _templates.values())		
 			if (list.getName().equals(name))
 				return list.getId();
-		}
+		
 		return -1;
 	}
 	
 	/**
 	 * @return Returns the lowest char level for Buff template
 	 */
-	public int getLowestLevel(int templateId)
+	public final int getLowestLevel(int templateId)
 	{
 		return getBuffTemplate(templateId).getLvlMin();
 	}
@@ -150,7 +148,7 @@ public class BuffTemplateTable
 	/**
 	 * @return Returns the highest char level for Buff template
 	 */
-	public int getHighestLevel(int templateId)
+	public final int getHighestLevel(int templateId)
 	{
 		return getBuffTemplate(templateId).getLvlMax();
 	}
@@ -158,12 +156,12 @@ public class BuffTemplateTable
 	/**
 	 * @return Returns the buff templates
 	 */
-	public FastMap<Integer, TemplateList> getBuffTemplateTable()
+	public final FastMap<Integer, TemplateList> getBuffTemplateTable()
 	{
 		return _templates;
 	}
 	
-	public static class TemplateList
+	public static final class TemplateList
 	{
 		private static final TemplateList EMPTY_LIST = new TemplateList(0, "<<<Empty>>>");
 		
@@ -182,7 +180,7 @@ public class BuffTemplateTable
 			_buffs = new ArrayList<L2BuffTemplate>();
 		}
 		
-		private void add(L2BuffTemplate bt)
+		private final void add(L2BuffTemplate bt)
 		{
 			if (bt == null || bt.getId() != getId() || !bt.getName().equals(getName()))
 			{

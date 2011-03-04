@@ -35,7 +35,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
-
 /**
  * @author MrPoke
  */
@@ -53,10 +52,10 @@ public final class EnchantHPBonusData
 	
 	private EnchantHPBonusData()
 	{
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(true);
 		factory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/enchantHPBonus.xml");
+		final File file = new File(Config.DATAPACK_ROOT, "data/enchantHPBonus.xml");
 		Document doc = null;
 		
 		try

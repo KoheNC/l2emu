@@ -51,8 +51,8 @@ public final class CharNameTable
 		{
 			con = L2DatabaseFactory.getInstance().getConnection();
 			
-			PreparedStatement statement = con.prepareStatement("SELECT charId, account_name, char_name, accesslevel FROM characters");
-			ResultSet rset = statement.executeQuery();
+			final PreparedStatement statement = con.prepareStatement("SELECT charId, account_name, char_name, accesslevel FROM characters");
+			final ResultSet rset = statement.executeQuery();
 			
 			while (rset.next())
 			{
@@ -79,47 +79,47 @@ public final class CharNameTable
 		_log.info(getClass().getSimpleName() + " : Loaded " + _mapByObjectId.size() + " character name(s).");
 	}
 	
-	public String getNameByObjectId(Integer objectId)
+	public final String getNameByObjectId(Integer objectId)
 	{
-		CharacterInfo characterInfo = _mapByObjectId.get(objectId);
+		final CharacterInfo characterInfo = _mapByObjectId.get(objectId);
 		
 		return characterInfo == null ? null : characterInfo._name;
 	}
 	
-	public String getNameByName(String name)
+	public final String getNameByName(String name)
 	{
-		CharacterInfo characterInfo = _mapByName.get(name.toLowerCase());
+		final CharacterInfo characterInfo = _mapByName.get(name.toLowerCase());
 		
 		return characterInfo == null ? null : characterInfo._name;
 	}
 	
-	public Integer getObjectIdByName(String name)
+	public final Integer getObjectIdByName(String name)
 	{
-		CharacterInfo characterInfo = _mapByName.get(name.toLowerCase());
+		final CharacterInfo characterInfo = _mapByName.get(name.toLowerCase());
 		
 		return characterInfo == null ? null : characterInfo._objectId;
 	}
 	
-	public int getAccessLevelByObjectId(Integer objectId)
+	public final int getAccessLevelByObjectId(Integer objectId)
 	{
-		CharacterInfo characterInfo = _mapByObjectId.get(objectId);
+		final CharacterInfo characterInfo = _mapByObjectId.get(objectId);
 		
 		return characterInfo == null ? 0 : characterInfo._accessLevel;
 	}
 	
-	public int getAccessLevelByName(String name)
+	public final int getAccessLevelByName(String name)
 	{
-		CharacterInfo characterInfo = _mapByName.get(name.toLowerCase());
+		final CharacterInfo characterInfo = _mapByName.get(name.toLowerCase());
 		
 		return characterInfo == null ? 0 : characterInfo._accessLevel;
 	}
 	
-	public void update(L2Player player)
+	public final void update(L2Player player)
 	{
 		update(player.getObjectId(), player.getAccountName(), player.getName(), player.getAccessLevel());
 	}
 	
-	public void update(int objectId, String accountName, String name, int accessLevel)
+	public final void update(int objectId, String accountName, String name, int accessLevel)
 	{
 		CharacterInfo characterInfo = _mapByObjectId.get(objectId);
 		if (characterInfo == null)
@@ -128,7 +128,7 @@ public final class CharNameTable
 		characterInfo.updateNames(accountName, name, accessLevel);
 	}
 	
-	public ICharacterInfo getICharacterInfoByObjectId(Integer objectId)
+	public final ICharacterInfo getICharacterInfoByObjectId(Integer objectId)
 	{
 		final L2Player player = L2World.getInstance().getPlayer(objectId);
 		
@@ -138,7 +138,7 @@ public final class CharNameTable
 		return _mapByObjectId.get(objectId);
 	}
 	
-	public ICharacterInfo getICharacterInfoByName(String name)
+	public final ICharacterInfo getICharacterInfoByName(String name)
 	{
 		final L2Player player = L2World.getInstance().getPlayer(name);
 		
@@ -163,7 +163,7 @@ public final class CharNameTable
 		public void sendPacket(L2GameServerPacket gsp);
 	}
 	
-	private class CharacterInfo implements ICharacterInfo
+	private final class CharacterInfo implements ICharacterInfo
 	{
 		private final Integer _objectId;
 		
@@ -172,37 +172,37 @@ public final class CharNameTable
 		private int _accessLevel;
 		
 		@Override
-		public Integer getObjectId()
+		public final Integer getObjectId()
 		{
 			return _objectId;
 		}
 		
 		@Override
-		public String getAccountName()
+		public final String getAccountName()
 		{
 			return _accountName;
 		}
 		
 		@Override
-		public String getName()
+		public final String getName()
 		{
 			return _name;
 		}
 		
 		@Override
-		public int getAccessLevel()
+		public final int getAccessLevel()
 		{
 			return _accessLevel;
 		}
 		
 		@Override
-		public boolean isGM()
+		public final boolean isGM()
 		{
 			return getAccessLevel() >= Config.GM_MIN;
 		}
 		
 		@Override
-		public void sendPacket(L2GameServerPacket gsp)
+		public final void sendPacket(L2GameServerPacket gsp)
 		{
 			// do nothing
 		}
@@ -216,7 +216,7 @@ public final class CharNameTable
 				_log.warn("CharNameTable: Duplicated objectId: [" + this + "] - [" + characterInfo + "]");
 		}
 		
-		private void updateNames(String accountName, String name, int accessLevel)
+		private final void updateNames(String accountName, String name, int accessLevel)
 		{
 			_accountName = accountName;
 			
@@ -225,7 +225,7 @@ public final class CharNameTable
 			
 			_name = name.intern();
 			
-			CharacterInfo characterInfo = _mapByName.put(_name.toLowerCase(), this);
+			final CharacterInfo characterInfo = _mapByName.put(_name.toLowerCase(), this);
 			if (characterInfo != null)
 				_log.warn("CharNameTable: Duplicated hashName: [" + this + "] - [" + characterInfo + "]");
 			
@@ -233,18 +233,18 @@ public final class CharNameTable
 		}
 		
 		@Override
-		public String toString()
+		public final String toString()
 		{
 			return "objectId: " + _objectId + ", accountName: " + _accountName + ", name: " + _name;
 		}
 	}
 	
-	public boolean doesCharNameExist(String name)
+	public final boolean doesCharNameExist(String name)
 	{
 		return getObjectIdByName(name) != null;
 	}
 	
-	public int accountCharNumber(String account)
+	public final int accountCharNumber(String account)
 	{
 		int count = 0;
 		
@@ -255,7 +255,7 @@ public final class CharNameTable
 		return count;
 	}
 	
-	public Iterable<Integer> getObjectIdsForAccount(final String account)
+	public final Iterable<Integer> getObjectIdsForAccount(final String account)
 	{
 		return L2Collections.convertingIterable(_mapByObjectId.values(),
 				new L2Collections.Converter<CharacterInfo, Integer>() {
@@ -271,8 +271,8 @@ public final class CharNameTable
 	}
 	
 	@SuppressWarnings("synthetic-access")
-	private static class SingletonHolder
+	private static final class SingletonHolder
 	{
-		protected static final CharNameTable _instance = new CharNameTable();
+		private static final CharNameTable _instance = new CharNameTable();
 	}
 }

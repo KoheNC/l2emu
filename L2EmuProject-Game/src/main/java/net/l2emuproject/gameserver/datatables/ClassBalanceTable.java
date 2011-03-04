@@ -58,8 +58,8 @@ public final class ClassBalanceTable
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement ps = con.prepareStatement(QRY_SELECT);
-			ResultSet rs = ps.executeQuery();
+			final PreparedStatement ps = con.prepareStatement(QRY_SELECT);
+			final ResultSet rs = ps.executeQuery();
 			while (rs.next())
 			{
 				final int class_id = rs.getInt("class_id");
@@ -119,7 +119,7 @@ public final class ClassBalanceTable
 		FxH, FxL, FxR, MxH, MxL, MxR;
 	}
 
-	public class ClassBalance
+	public final class ClassBalance
 	{
 		private int				_class_id;
 		private ArmorBalance	_fight;
@@ -170,7 +170,7 @@ public final class ClassBalanceTable
 		}
 	}
 
-	public class ArmorBalance
+	public final class ArmorBalance
 	{
 		private double	_heavy;
 		private double	_light;

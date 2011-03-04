@@ -57,10 +57,10 @@ public final class EnchantItemData
 	{
 		if (Config.ENCHANT_BLACK_LIST != "0" || Config.ENCHANT_BLACK_LIST != "")
 			setEnchantBlackList();
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/enchantItemData.xml");
+		final File file = new File(Config.DATAPACK_ROOT, "data/enchantItemData.xml");
 		Document doc = null;
 		if (file.exists())
 		{
@@ -235,11 +235,11 @@ public final class EnchantItemData
 		_log.info(getClass().getSimpleName() + " : Loaded: " + _scrolls.size() + " enchant scroll(s) and " + _supports.size() + " enchant support item(s).");
 	}
 
-	private void setEnchantBlackList()
+	private final void setEnchantBlackList()
 	{
 		if (!_enchantBlackList.isEmpty())
 			_enchantBlackList.clear();
-		String enchantBlackList = Config.ENCHANT_BLACK_LIST;
+		final String enchantBlackList = Config.ENCHANT_BLACK_LIST;
 		String[] splitEnchantBlackList = enchantBlackList.split(";");
 		if (splitEnchantBlackList.length >= 1)
 		{
@@ -266,14 +266,14 @@ public final class EnchantItemData
 		_log.info("EnchantItemData: Loaded: " + _enchantBlackList.size() + " EnchantBlackList Item(s).");
 	}
 
-	private void addBlackListId(int id)
+	private final void addBlackListId(int id)
 	{
 		if (isBlackListItem(id))
 			return;
 		_enchantBlackList.add(id);
 	}
 
-	private boolean isBlackListItem(int id)
+	private final boolean isBlackListItem(int id)
 	{
 		return _enchantBlackList.contains(id);
 	}
@@ -353,7 +353,7 @@ public final class EnchantItemData
 			_itemIds = items;
 		}
 
-		/*
+		/**
 		 * Return true if support item can be used for this item
 		 */
 		public final boolean isValid(L2ItemInstance enchantItem)
@@ -393,7 +393,7 @@ public final class EnchantItemData
 			return true;
 		}
 
-		/*
+		/**
 		 * return chance increase
 		 */
 		public final int getChance()
@@ -414,7 +414,7 @@ public final class EnchantItemData
 			_isSafe = safe;
 		}
 
-		/*
+		/**
 		 * Return true for blessed scrolls
 		 */
 		public final boolean isBlessed()
@@ -422,7 +422,7 @@ public final class EnchantItemData
 			return _isBlessed;
 		}
 
-		/*
+		/**
 		 * Return true for safe-enchant scrolls (enchant level will remain on failure)
 		 */
 		public final boolean isSafe()
