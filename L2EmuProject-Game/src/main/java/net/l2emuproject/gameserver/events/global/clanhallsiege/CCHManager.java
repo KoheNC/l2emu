@@ -30,20 +30,19 @@ import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * Siegeable clan hall manager.
  * @author Savormix
  */
 public final class CCHManager
 {
-	private static final Log _log = LogFactory.getLog(CCHManager.class);
-	
+	private static final Log	_log	= LogFactory.getLog(CCHManager.class);
+
 	private static final class SingletonHolder
 	{
-		private static final CCHManager INSTANCE = new CCHManager();
+		private static final CCHManager	INSTANCE	= new CCHManager();
 	}
-	
+
 	public static CCHManager getInstance()
 	{
 		return SingletonHolder.INSTANCE;
@@ -61,12 +60,12 @@ public final class CCHManager
 		return (getSiege(x, y, z) != null);
 	}
 
-	public static boolean checkIfOkToPlaceFlag(L2Player player, boolean isCheckOnly)
+	public static final boolean checkIfOkToPlaceFlag(L2Player player, boolean isCheckOnly)
 	{
 		// Get siege battleground
-		L2Clan clan = player.getClan();
-		CCHSiege siege = getInstance().getSiege(player);
-		ClanHall hideout = (siege == null) ? null : siege.getHideout();
+		final L2Clan clan = player.getClan();
+		final CCHSiege siege = getInstance().getSiege(player);
+		final ClanHall hideout = (siege == null) ? null : siege.getHideout();
 
 		SystemMessageId sm = null;
 
@@ -86,10 +85,10 @@ public final class CCHManager
 		return false;
 	}
 
-	public static boolean checkIfOkToUseStriderSiegeAssault(L2Player player, boolean isCheckOnly)
+	public static final boolean checkIfOkToUseStriderSiegeAssault(L2Player player, boolean isCheckOnly)
 	{
 		// Get siege battleground
-		CCHSiege siege = getInstance().getSiege(player);
+		final CCHSiege siege = getInstance().getSiege(player);
 
 		SystemMessageId sm = null;
 
@@ -127,7 +126,7 @@ public final class CCHManager
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con.prepareStatement("SELECT clan_id FROM siege_clans WHERE clan_id=? AND castle_id=?");
+			final PreparedStatement statement = con.prepareStatement("SELECT clan_id FROM siege_clans WHERE clan_id=? AND castle_id=?");
 			statement.setInt(1, clan.getClanId());
 			statement.setInt(2, hallid);
 			register = statement.executeQuery().next();
@@ -157,7 +156,7 @@ public final class CCHManager
 			return null;
 		for (ClanHall hideout : ClanHallManager.getInstance().getClanHalls().values())
 		{
-			CCHSiege cs = hideout.getSiege();
+			final CCHSiege cs = hideout.getSiege();
 			if (cs.getIsInProgress() && cs.checkIsAttacker(clan))
 				return cs;
 		}
@@ -168,7 +167,7 @@ public final class CCHManager
 	{
 		for (ClanHall hideout : ClanHallManager.getInstance().getAllClanHalls().values())
 		{
-			CCHSiege cs = hideout.getSiege();
+			final CCHSiege cs = hideout.getSiege();
 			if (cs == null)
 				continue;
 			if (cs.checkIfInZone(x, y, z))
@@ -179,7 +178,7 @@ public final class CCHManager
 
 	public final List<CCHSiege> getSieges()
 	{
-		FastList<CCHSiege> sieges = new FastList<CCHSiege>();
+		final FastList<CCHSiege> sieges = new FastList<CCHSiege>();
 		for (ClanHall hideout : ClanHallManager.getInstance().getClanHalls().values())
 			if (hideout.getSiege() != null)
 				sieges.add(hideout.getSiege());

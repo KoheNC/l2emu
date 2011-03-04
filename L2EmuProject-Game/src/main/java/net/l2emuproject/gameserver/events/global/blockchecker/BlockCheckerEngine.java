@@ -57,8 +57,8 @@ public final class BlockCheckerEngine
 	// The object which holds all basic members info
 	private HandysBlockCheckerManager.ArenaParticipantsHolder	_holder;
 	// Maps to hold player of each team and his points
-	private FastMap<L2Player, Integer>						_redTeamPoints		= new FastMap<L2Player, Integer>().shared();
-	private FastMap<L2Player, Integer>						_blueTeamPoints		= new FastMap<L2Player, Integer>().shared();
+	private FastMap<L2Player, Integer>							_redTeamPoints		= new FastMap<L2Player, Integer>().shared();
+	private FastMap<L2Player, Integer>							_blueTeamPoints		= new FastMap<L2Player, Integer>().shared();
 	// The initial points of the event
 	private int													_redPoints			= 15;
 	private int													_bluePoints			= 15;

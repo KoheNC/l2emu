@@ -18,9 +18,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Set;
 
-import javolution.util.FastList;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.entity.clan.L2Clan;
@@ -44,10 +44,10 @@ import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2SiegeZone;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.util.L2FastSet;
+import net.l2emuproject.util.SingletonList;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 
 /**
  * Clan hall siege, without unnecessary clutter.
@@ -81,7 +81,7 @@ public final class CCHSiege extends AbstractSiege
 		return _guardManager;
 	}
 
-	public void announceToPlayer(String message, boolean inAreaOnly)
+	public final void announceToPlayer(String message, boolean inAreaOnly)
 	{
 		// Get all players
 		for (L2Player player : L2World.getInstance().getAllPlayers())
@@ -89,20 +89,20 @@ public final class CCHSiege extends AbstractSiege
 				player.sendMessage(message);
 	}
 
-	public void announceToPlayer(SystemMessage sm, boolean inAreaOnly)
+	public final void announceToPlayer(SystemMessage sm, boolean inAreaOnly)
 	{
 		for (L2Player player : L2World.getInstance().getAllPlayers())
 			if (!inAreaOnly || (inAreaOnly && checkIfInZone(player.getX(), player.getY(), player.getZ())))
 				player.sendPacket(sm);
 	}
 
-	public void announceToParticipants(SystemMessage sm)
+	public final void announceToParticipants(SystemMessage sm)
 	{
 		for (L2SiegeClan siegeclan : _attackerClans)
 			ClanTable.getInstance().getClan(siegeclan.getClanId()).broadcastToOnlineMembers(sm);
 	}
 
-	private int calculateRepChange(L2Clan winner, L2Clan loser)
+	private final int calculateRepChange(L2Clan winner, L2Clan loser)
 	{
 		int result = 300;
 		if (!Config.ALT_CCH_REPUTATION || winner == null || loser == null)
@@ -123,7 +123,7 @@ public final class CCHSiege extends AbstractSiege
 		return result;
 	}
 
-	public void startSiege()
+	public final void startSiege()
 	{
 		if (!getIsInProgress())
 		{
@@ -153,7 +153,7 @@ public final class CCHSiege extends AbstractSiege
 		}
 	}
 
-	public void endSiege(L2Clan bossKiller)
+	public final void endSiege(L2Clan bossKiller)
 	{
 		if (getIsInProgress())
 		{
@@ -170,15 +170,15 @@ public final class CCHSiege extends AbstractSiege
 			{
 				if (_hideout.getOwnerId() <= 0)
 				{
-					L2Clan c = ClanTable.getInstance().getClan(_oldOwner);
+					final L2Clan c = ClanTable.getInstance().getClan(_oldOwner);
 					c.setReputationScore(c.getReputationScore() - calculateRepChange(null, c), true);
 					c.broadcastToOnlineMembers(SystemMessageId.CLAN_LOST_CONTESTED_CLAN_HALL_AND_300_POINTS.getSystemMessage());
 				}
 				else if (_hideout.getOwnerId() != _oldOwner)
 				{
-					L2Clan old = ClanTable.getInstance().getClan(_oldOwner);
-					L2Clan owner = _hideout.getOwnerClan();
-					int pts = calculateRepChange(owner, old);
+					final L2Clan old = ClanTable.getInstance().getClan(_oldOwner);
+					final L2Clan owner = _hideout.getOwnerClan();
+					final int pts = calculateRepChange(owner, old);
 					old.setReputationScore(old.getReputationScore() - pts, true);
 					sm = new SystemMessage(SystemMessageId.OPPOSING_CLAN_CAPTURED_CLAN_HALL_AND_YOUR_CLAN_LOSES_S1_POINTS);
 					sm.addNumber(pts);
@@ -191,8 +191,8 @@ public final class CCHSiege extends AbstractSiege
 			}
 			else if (_hideout.getOwnerId() > 0)
 			{
-				L2Clan c = _hideout.getOwnerClan();
-				int pts = calculateRepChange(c, null);
+				final L2Clan c = _hideout.getOwnerClan();
+				final int pts = calculateRepChange(c, null);
 				c.setReputationScore(c.getReputationScore() + pts, true);
 				sm = new SystemMessage(SystemMessageId.CLAN_ACQUIRED_CONTESTED_CLAN_HALL_AND_S1_REPUTATION_POINTS);
 				sm.addNumber(pts);
@@ -214,14 +214,13 @@ public final class CCHSiege extends AbstractSiege
 		}
 	}
 
-	public void updatePlayerSiegeStateFlags(boolean clear)
+	public final void updatePlayerSiegeStateFlags(boolean clear)
 	{
-		L2Clan clan;
 		for (L2SiegeClan siegeclan : _attackerClans)
 		{
 			if (siegeclan == null)
 				continue;
-			clan = ClanTable.getInstance().getClan(siegeclan.getClanId());
+			final L2Clan clan = ClanTable.getInstance().getClan(siegeclan.getClanId());
 			for (L2Player member : clan.getOnlineMembers(0))
 			{
 				if (clear)
@@ -238,18 +237,18 @@ public final class CCHSiege extends AbstractSiege
 	}
 
 	/** Return true if object is inside the zone */
-	public boolean checkIfInZone(L2Object object)
+	public final boolean checkIfInZone(L2Object object)
 	{
 		return checkIfInZone(object.getX(), object.getY(), object.getZ());
 	}
 
 	/** Return true if object is inside the zone */
-	public boolean checkIfInZone(int x, int y, int z)
+	public final boolean checkIfInZone(int x, int y, int z)
 	{
 		return (getIsInProgress() && (_hideout.checkIfInZone(x, y, z) || getZone().isInsideZone(x, y)));
 	}
 
-	public void clearSiegeClan()
+	public final void clearSiegeClan()
 	{
 		Connection con = null;
 		try
@@ -280,13 +279,12 @@ public final class CCHSiege extends AbstractSiege
 		}
 	}
 
-	public FastList<L2Player> getAttackersInZone()
+	public final List<L2Player> getAttackersInZone()
 	{
-		FastList<L2Player> players = new FastList<L2Player>();
-		L2Clan clan;
+		final List<L2Player> players = new SingletonList<L2Player>();
 		for (L2SiegeClan siegeclan : _attackerClans)
 		{
-			clan = ClanTable.getInstance().getClan(siegeclan.getClanId());
+			final L2Clan clan = ClanTable.getInstance().getClan(siegeclan.getClanId());
 			for (L2Player player : clan.getOnlineMembers(0))
 				if (checkIfInZone(player.getX(), player.getY(), player.getZ()))
 					players.add(player);
@@ -294,9 +292,9 @@ public final class CCHSiege extends AbstractSiege
 		return players;
 	}
 
-	public FastList<L2Player> getPlayersInZone()
+	public final List<L2Player> getPlayersInZone()
 	{
-		FastList<L2Player> players = new FastList<L2Player>();
+		final List<L2Player> players = new SingletonList<L2Player>();
 
 		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
@@ -310,9 +308,9 @@ public final class CCHSiege extends AbstractSiege
 		return players;
 	}
 
-	public FastList<L2Player> getSpectatorsInZone()
+	public final List<L2Player> getSpectatorsInZone()
 	{
-		FastList<L2Player> players = new FastList<L2Player>();
+		final List<L2Player> players = new SingletonList<L2Player>();
 
 		for (L2Player player : L2World.getInstance().getAllPlayers())
 		{
@@ -326,7 +324,7 @@ public final class CCHSiege extends AbstractSiege
 		return players;
 	}
 
-	public void killedFlag(L2Npc flag)
+	public final void killedFlag(L2Npc flag)
 	{
 		if (flag == null)
 			return;
@@ -335,18 +333,18 @@ public final class CCHSiege extends AbstractSiege
 				return;
 	}
 
-	public void listRegisterClan(L2Player player)
+	public final void listRegisterClan(L2Player player)
 	{
 		player.sendPacket(new SiegeInfo(_hideout));
 	}
 
-	public void registerAttacker(L2Player player, boolean force)
+	public final void registerAttacker(L2Player player, boolean force)
 	{
 		if ((force && player.getClan() != null) || checkIfCanRegister(player))
 			saveSiegeClan(player.getClan(), false); // Save to database
 	}
 
-	private void removeSiegeClan(int clanId)
+	private final void removeSiegeClan(int clanId)
 	{
 		if (clanId <= 0)
 			return;
@@ -355,7 +353,7 @@ public final class CCHSiege extends AbstractSiege
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con.prepareStatement("DELETE FROM siege_clans WHERE castle_id=? and clan_id=?");
+			final PreparedStatement statement = con.prepareStatement("DELETE FROM siege_clans WHERE castle_id=? and clan_id=?");
 			statement.setInt(1, _hideout.getId());
 			statement.setInt(2, clanId);
 			statement.execute();
@@ -377,7 +375,7 @@ public final class CCHSiege extends AbstractSiege
 	 * Remove clan from siege<BR><BR>
 	 * @param player The L2Player of player/clan being removed
 	 */
-	public void removeSiegeClan(L2Clan clan)
+	public final void removeSiegeClan(L2Clan clan)
 	{
 		if (clan == null || clan.getHasHideout() == _hideout.getId() || !CCHManager.getInstance().checkIsRegistered(clan, _hideout.getId()))
 			return;
@@ -388,12 +386,12 @@ public final class CCHSiege extends AbstractSiege
 	 * Remove clan from siege<BR><BR>
 	 * @param player The L2Player of player/clan being removed
 	 */
-	public void removeSiegeClan(L2Player player)
+	public final void removeSiegeClan(L2Player player)
 	{
 		removeSiegeClan(player.getClan());
 	}
 
-	public void startAutoTask()
+	public final void startAutoTask()
 	{
 		correctSiegeDateTime();
 
@@ -408,19 +406,19 @@ public final class CCHSiege extends AbstractSiege
 	/**
 	 * Teleport players
 	 */
-	public void teleportPlayer(TeleportWhoType teleportWho, TeleportWhereType teleportWhere)
+	public final void teleportPlayer(TeleportWhoType teleportWho, TeleportWhereType teleportWhere)
 	{
-		FastList<L2Player> players;
+		List<L2Player> players;
 		switch (teleportWho)
 		{
-		case Attacker:
-			players = getAttackersInZone();
-			break;
-		case Spectator:
-			players = getSpectatorsInZone();
-			break;
-		default:
-			players = getPlayersInZone();
+			case Attacker:
+				players = getAttackersInZone();
+				break;
+			case Spectator:
+				players = getSpectatorsInZone();
+				break;
+			default:
+				players = getPlayersInZone();
 		}
 
 		for (L2Player player : players)
@@ -431,14 +429,14 @@ public final class CCHSiege extends AbstractSiege
 		}
 	}
 
-	private void addAttacker(int clanId)
+	private final void addAttacker(int clanId)
 	{
 		_attackerClans.add(new L2SiegeClan(clanId, SiegeClanType.ATTACKER));
 	}
 
-	private boolean checkIfCanRegister(L2Player player)
+	private final boolean checkIfCanRegister(L2Player player)
 	{
-		L2Clan clan = player.getClan();
+		final L2Clan clan = player.getClan();
 		if (clan == null || clan.getLevel() < Config.SIEGE_CLAN_MIN_LEVEL)
 		{
 			if (Config.SIEGE_CLAN_MIN_LEVEL == 5) //default retail
@@ -485,7 +483,7 @@ public final class CCHSiege extends AbstractSiege
 		return true;
 	}
 
-	public boolean checkIfAlreadyRegisteredForSameDay(L2Clan clan)
+	public final boolean checkIfAlreadyRegisteredForSameDay(L2Clan clan)
 	{
 		for (Siege siege : SiegeManager.getInstance().getSieges())
 		{
@@ -512,7 +510,7 @@ public final class CCHSiege extends AbstractSiege
 		return false;
 	}
 
-	public void correctSiegeDateTime()
+	public final void correctSiegeDateTime()
 	{
 		if (getSiegeDate().getTimeInMillis() < System.currentTimeMillis())
 		{
@@ -523,7 +521,7 @@ public final class CCHSiege extends AbstractSiege
 		}
 	}
 
-	private void loadSiegeClan()
+	private final void loadSiegeClan()
 	{
 		Connection con = null;
 		try
@@ -536,7 +534,7 @@ public final class CCHSiege extends AbstractSiege
 
 			con = L2DatabaseFactory.getInstance().getConnection(con);
 
-			PreparedStatement statement = con.prepareStatement("SELECT clan_id FROM siege_clans where castle_id=?");
+			final PreparedStatement statement = con.prepareStatement("SELECT clan_id FROM siege_clans where castle_id=?");
 			statement.setInt(1, _hideout.getId());
 			ResultSet rs = statement.executeQuery();
 			while (rs.next())
@@ -554,14 +552,14 @@ public final class CCHSiege extends AbstractSiege
 		}
 	}
 
-	private void removeFlags()
+	private final void removeFlags()
 	{
 		for (L2SiegeClan sc : _attackerClans)
 			if (sc != null)
 				sc.removeFlags();
 	}
 
-	private void saveCastleSiege()
+	private final void saveCastleSiege()
 	{
 		setNextSiegeDate(); // Set the next set date for a week from now
 		// Schedule Time registration end
@@ -573,7 +571,7 @@ public final class CCHSiege extends AbstractSiege
 		startAutoTask(); // Prepare auto start siege and end registration
 	}
 
-	public void saveSiegeDate()
+	public final void saveSiegeDate()
 	{
 		if (_startSiegeTask.isScheduled())
 			_startSiegeTask.schedule(1000);
@@ -582,7 +580,7 @@ public final class CCHSiege extends AbstractSiege
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con.prepareStatement("UPDATE clanhall_sieges SET siegeDate=?,regTimeEnd=?,regTimeOver=? WHERE hallId=?");
+			final PreparedStatement statement = con.prepareStatement("UPDATE clanhall_sieges SET siegeDate=?,regTimeEnd=?,regTimeOver=? WHERE hallId=?");
 			statement.setLong(1, getSiegeDate().getTimeInMillis());
 			statement.setLong(2, getTimeRegistrationOverDate().getTimeInMillis());
 			statement.setString(3, String.valueOf(getIsTimeRegistrationOver()));
@@ -600,7 +598,7 @@ public final class CCHSiege extends AbstractSiege
 		}
 	}
 
-	private void saveSiegeClan(L2Clan clan, boolean isUpdateRegistration)
+	private final void saveSiegeClan(L2Clan clan, boolean isUpdateRegistration)
 	{
 		if (clan.getHasCastle() > 0)
 			return;
@@ -642,7 +640,7 @@ public final class CCHSiege extends AbstractSiege
 		}
 	}
 
-	private void setNextSiegeDate()
+	private final void setNextSiegeDate()
 	{
 		while (getSiegeDate().getTimeInMillis() < System.currentTimeMillis())
 		{
@@ -655,20 +653,20 @@ public final class CCHSiege extends AbstractSiege
 		_isRegistrationOver = false; // Allow registration for next siege
 	}
 
-	public Set<L2Npc> getFlag(L2Clan clan)
+	public final Set<L2Npc> getFlag(L2Clan clan)
 	{
-		L2SiegeClan sc = getAttackerClan(clan);
+		final L2SiegeClan sc = getAttackerClan(clan);
 		if (sc != null)
 			return sc.getFlag();
 		else
 			return null;
 	}
 
-	public L2Npc getClosestFlag(L2Object obj)
+	public final L2Npc getClosestFlag(L2Object obj)
 	{
 		if (obj instanceof L2Player && ((L2Player) obj).getClan() != null)
 		{
-			L2SiegeClan sc = getAttackerClan(((L2Player) obj).getClan());
+			final L2SiegeClan sc = getAttackerClan(((L2Player) obj).getClan());
 			if (sc != null)
 				return sc.getClosestFlag(obj);
 		}
@@ -695,7 +693,7 @@ public final class CCHSiege extends AbstractSiege
 		return _hideout.getTimeRegistrationOverDate();
 	}
 
-	public void endTimeRegistration(boolean automatic)
+	public final void endTimeRegistration(boolean automatic)
 	{
 		_hideout.setIsTimeRegistrationOver(true);
 		if (!automatic)
@@ -719,7 +717,7 @@ public final class CCHSiege extends AbstractSiege
 	 * @see net.l2emuproject.gameserver.model.entity.AbstractSiege#checkIsAttacker(net.l2emuproject.gameserver.model.L2Clan)
 	 */
 	@Override
-	public boolean checkIsAttacker(L2Clan clan)
+	public final boolean checkIsAttacker(L2Clan clan)
 	{
 		return getAttackerClan(clan) != null;
 	}
@@ -728,7 +726,7 @@ public final class CCHSiege extends AbstractSiege
 	 * @see net.l2emuproject.gameserver.model.entity.AbstractSiege#checkIsDefender(net.l2emuproject.gameserver.model.L2Clan)
 	 */
 	@Override
-	public boolean checkIsDefender(L2Clan clan)
+	public final boolean checkIsDefender(L2Clan clan)
 	{
 		return false;
 	}
@@ -737,7 +735,7 @@ public final class CCHSiege extends AbstractSiege
 	 * @see net.l2emuproject.gameserver.model.entity.AbstractSiege#getAttackerClan(net.l2emuproject.gameserver.model.L2Clan)
 	 */
 	@Override
-	public L2SiegeClan getAttackerClan(L2Clan clan)
+	public final L2SiegeClan getAttackerClan(L2Clan clan)
 	{
 		if (clan == null)
 			return null;
@@ -756,7 +754,7 @@ public final class CCHSiege extends AbstractSiege
 	 * @see net.l2emuproject.gameserver.model.entity.AbstractSiege#getDefenderClan(net.l2emuproject.gameserver.model.L2Clan)
 	 */
 	@Override
-	public L2SiegeClan getDefenderClan(L2Clan clan)
+	public final L2SiegeClan getDefenderClan(L2Clan clan)
 	{
 		return null;
 	}
@@ -765,7 +763,7 @@ public final class CCHSiege extends AbstractSiege
 	 * @see net.l2emuproject.gameserver.model.entity.AbstractSiege#getIsInProgress()
 	 */
 	@Override
-	public boolean getIsInProgress()
+	public final boolean getIsInProgress()
 	{
 		return _isInProgress;
 	}

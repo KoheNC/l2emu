@@ -54,8 +54,8 @@ public final class TvT extends L2Event
 	private int								_instanceId	= 0;
 
 	private final AutoEventTask				_task;
-	private volatile int					_status;
-	private int								_announced;
+	private volatile byte					_status;
+	private short							_announced;
 	private ScheduledFuture<?>				_event;
 
 	private TvT()
@@ -76,7 +76,7 @@ public final class TvT extends L2Event
 	private final class AutoEventTask implements Runnable
 	{
 		@Override
-		public void run()
+		public final void run()
 		{
 			switch (_status)
 			{

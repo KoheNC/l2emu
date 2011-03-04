@@ -27,17 +27,16 @@ import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * Alternate siege guard manager specifically for clan halls, without unnecessary clutter.
  * @author Savormix
  */
 public final class ContestableHideoutGuardManager
 {
-	private static final Log _log = LogFactory.getLog(ContestableHideoutGuardManager.class);
-	private static final String LOAD_SIEGE_GUARDS = "SELECT id,npcId,x,y,z,heading,respawnDelay FROM clanhall_siege_guards WHERE hallId=?";
-	private final ClanHall _hideout;
-	private L2Spawn[] _guardSpawn = new L2Spawn[0];
+	private static final Log	_log				= LogFactory.getLog(ContestableHideoutGuardManager.class);
+	private static final String	LOAD_SIEGE_GUARDS	= "SELECT id,npcId,x,y,z,heading,respawnDelay FROM clanhall_siege_guards WHERE hallId=?";
+	private final ClanHall		_hideout;
+	private L2Spawn[]			_guardSpawn			= new L2Spawn[0];
 
 	public ContestableHideoutGuardManager(ClanHall hideout)
 	{
@@ -48,7 +47,7 @@ public final class ContestableHideoutGuardManager
 	public final void load()
 	{
 		Connection con = null;
-		FastList<L2Spawn> guards = new FastList<L2Spawn>(50);
+		final FastList<L2Spawn> guards = new FastList<L2Spawn>(50);
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection();
@@ -91,7 +90,8 @@ public final class ContestableHideoutGuardManager
 	{
 		for (L2Spawn s : _guardSpawn)
 		{
-			if (s == null) continue;
+			if (s == null)
+				continue;
 			s.stopRespawn();
 			L2Npc guard = s.getLastSpawn();
 			if (guard != null)

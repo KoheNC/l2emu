@@ -349,8 +349,8 @@ public final class HandysBlockCheckerManager
 	public class ArenaParticipantsHolder
 	{
 		int					_arena;
-		List<L2Player>	_redPlayers;
-		List<L2Player>	_bluePlayers;
+		List<L2Player>		_redPlayers;
+		List<L2Player>		_bluePlayers;
 		BlockCheckerEngine	_engine;
 
 		public ArenaParticipantsHolder(int arena)

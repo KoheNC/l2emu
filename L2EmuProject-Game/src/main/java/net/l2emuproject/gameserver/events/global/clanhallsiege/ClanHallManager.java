@@ -31,17 +31,16 @@ import net.l2emuproject.gameserver.world.object.L2Object;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
-public class ClanHallManager
+public final class ClanHallManager
 {
-	protected static final Log				_log = LogFactory.getLog(ClanHallManager.class);
+	protected static final Log				_log	= LogFactory.getLog(ClanHallManager.class);
 
 	private final Map<Integer, ClanHall>	_clanHall;
 	private final Map<Integer, ClanHall>	_freeClanHall;
 	private final Map<Integer, ClanHall>	_allClanHalls;
 	private final Map<Integer, ClanHall[]>	_townClanHalls;
 	private final Town[]					_towns;
-	private static boolean			_loaded	= false;
+	private static boolean					_loaded	= false;
 
 	public static ClanHallManager getInstance()
 	{
@@ -183,7 +182,7 @@ public class ClanHallManager
 	/** Check is free ClanHall */
 	public final boolean isFree(int chId)
 	{
-        return _freeClanHall.containsKey(chId);
+		return _freeClanHall.containsKey(chId);
 	}
 
 	/** Free a ClanHall */
@@ -272,29 +271,31 @@ public class ClanHallManager
 	{
 		ClanHall clanH = null;
 		double distance;
-		
+
 		for (Map.Entry<Integer, ClanHall> ch : _allClanHalls.entrySet())
 		{
 			distance = ch.getValue().getDistanceToZone(x, y);
-		
+
 			if (distance < maxDist)
 			{
-				if(clanH == null)
+				if (clanH == null)
 					clanH = ch.getValue();
-				else if(distance < clanH.getDistanceToZone(x, y))
+				else if (distance < clanH.getDistanceToZone(x, y))
 					clanH = ch.getValue();
 			}
 		}
-		
+
 		return clanH;
 	}
 
-	public final ClanHall[] getTownClanHalls(int townId) {
+	public final ClanHall[] getTownClanHalls(int townId)
+	{
 		return _townClanHalls.get(townId);
 	}
 
 	// Currently unused
-	public final int getTown(ClanHall hideout) {
+	public final int getTown(ClanHall hideout)
+	{
 		String loc = hideout.getLocation();
 		for (Town t : _towns)
 			if (loc.equals(t.toString()))
@@ -305,28 +306,33 @@ public class ClanHallManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final ClanHallManager _instance = new ClanHallManager();
+		protected static final ClanHallManager	_instance	= new ClanHallManager();
 	}
 
-	private class Town {
-		private final int _id;
-		private final String _loc;
+	private class Town
+	{
+		private final int		_id;
+		private final String	_loc;
 
-		private Town(int id, String loc) {
+		private Town(int id, String loc)
+		{
 			_id = id;
 			_loc = loc;
 		}
 
-		private final int getId() {
+		private final int getId()
+		{
 			return _id;
 		}
 
-		private final String getLocation() {
+		private final String getLocation()
+		{
 			return _loc;
 		}
 
 		@Override
-		public final String toString() {
+		public final String toString()
+		{
 			return getLocation();
 		}
 	}
