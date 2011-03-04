@@ -1,4 +1,4 @@
-SET PATH="C:\Program Files (x86)\Java\jre6\bin"
+REM SET PATH="C:\Program Files (x86)\Java\jre6\bin"
 
 SET CLASSPATH=%CLASSPATH%;./libs/*
 
