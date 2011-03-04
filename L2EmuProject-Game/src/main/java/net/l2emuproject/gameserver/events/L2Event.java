@@ -51,13 +51,13 @@ public abstract class L2Event
 	 * @param coordY
 	 * @param coordZ
 	 */
-	protected final void spawnNpc(int npcId, int coordX, int coordY, int coordZ, int instanceId)
+	protected final void spawnNpc(final int npcId, final int coordX, final int coordY, final int coordZ, final int instanceId)
 	{
-		L2NpcTemplate template = NpcTable.getInstance().getTemplate(npcId);
+		final L2NpcTemplate template = NpcTable.getInstance().getTemplate(npcId);
 
 		try
 		{
-			L2Spawn spawnData = new L2Spawn(template);
+			final L2Spawn spawnData = new L2Spawn(template);
 
 			spawnData.setLocx(coordX);
 			spawnData.setLocy(coordY);
@@ -75,7 +75,7 @@ public abstract class L2Event
 		}
 	}
 
-	protected final void deleteNpc(int npcId)
+	protected final void deleteNpc(final int npcId)
 	{
 		for (L2Npc npc : _npcs)
 		{
@@ -98,31 +98,31 @@ public abstract class L2Event
 
 	public abstract void endEvent();
 
-	protected abstract void giveRewards(L2Player player);
+	protected abstract void giveRewards(final L2Player player);
 
-	protected abstract boolean canJoin(L2Player player);
+	protected abstract boolean canJoin(final L2Player player);
 
-	public abstract void registerPlayer(L2Player player);
+	public abstract void registerPlayer(final L2Player player);
 
-	public abstract void cancelRegistration(L2Player player);
+	public abstract void cancelRegistration(final L2Player player);
 
-	public abstract void removeDisconnected(L2Player player);
+	public abstract void removeDisconnected(final L2Player player);
 
 	protected abstract void initInstance();
 
-	protected final void sendMessage(L2Player player, String text, int time)
+	protected final void sendMessage(final L2Player player, final String text, final int time)
 	{
 		player.sendPacket(new ExShowScreenMessage(text, time));
 		player.sendMessage(text);
 	}
 
-	protected final void teleportPlayer(L2Player player, int coords[], int instanceId)
+	protected final void teleportPlayer(final L2Player player, final int coords[], final int instanceId)
 	{
 		player.setInstanceId(instanceId);
 		player.teleToLocation(coords[0], coords[1], coords[2], true);
 	}
 
-	protected final void setTeamColor(L2Player player, int color)
+	protected final void setTeamColor(final L2Player player, final int color)
 	{
 		player.getAppearance().setNameColor(color);
 		player.getAppearance().setTitleColor(color);
@@ -135,7 +135,7 @@ public abstract class L2Event
 		private final int[]		_coords;
 		private final int		_instanceId;
 
-		public ReviveTask(L2Player player, int[] coords, int instanceId)
+		public ReviveTask(final L2Player player, final int[] coords, final int instanceId)
 		{
 			_player = player;
 			_coords = coords;

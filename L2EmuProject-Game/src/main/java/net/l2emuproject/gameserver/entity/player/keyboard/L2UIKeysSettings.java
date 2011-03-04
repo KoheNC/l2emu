@@ -21,10 +21,10 @@ import java.util.List;
 import java.util.Map;
 
 import javolution.util.FastList;
-import javolution.util.FastMap;
 import net.l2emuproject.gameserver.datatables.UITable;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.util.SingletonMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -160,7 +160,7 @@ public final class L2UIKeysSettings
 		if (_storedCategories != null)
 			return;
 
-		_storedCategories = new FastMap<Integer, List<Integer>>();
+		_storedCategories = new SingletonMap<Integer, List<Integer>>();
 
 		Connection con = null;
 		try
@@ -198,7 +198,7 @@ public final class L2UIKeysSettings
 		if (_storedKeys != null)
 			return;
 
-		_storedKeys = new FastMap<Integer, List<ActionKey>>();
+		_storedKeys = new SingletonMap<Integer, List<ActionKey>>();
 
 		Connection con = null;
 		try

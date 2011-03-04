@@ -32,7 +32,7 @@ public final class L2EventTeam
 	private int								_points;
 	private final int[]						_coords;
 
-	public L2EventTeam(String teamName, int color, int[] coords)
+	public L2EventTeam(final String teamName, final int color, final int[] coords)
 	{
 		_players = new FastMap<Integer, L2Player>().shared();
 		_teamName = teamName;
@@ -46,7 +46,7 @@ public final class L2EventTeam
 		return _teamName;
 	}
 
-	public final void addPlayer(L2Player player)
+	public final void addPlayer(final L2Player player)
 	{
 		if (player == null)
 			return;
@@ -54,12 +54,12 @@ public final class L2EventTeam
 		_players.put(player.getObjectId(), player);
 	}
 
-	public final void removePlayer(L2Player player)
+	public final void removePlayer(final L2Player player)
 	{
 		_players.remove(player.getObjectId());
 	}
 
-	public final boolean containsPlayer(L2Player player)
+	public final boolean containsPlayer(final L2Player player)
 	{
 		return _players.containsValue(player);
 	}
@@ -84,7 +84,7 @@ public final class L2EventTeam
 		return _coords;
 	}
 
-	private final void setPoints(int points)
+	private final void setPoints(final int points)
 	{
 		_points = points;
 	}
