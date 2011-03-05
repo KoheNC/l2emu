@@ -14,8 +14,6 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.communitybbs.CommunityBoard;
 
 /**
  * This class ...
@@ -47,7 +45,7 @@ public class RequestShowBoard extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		CommunityBoard.handleCommands(getClient(), Config.BBS_DEFAULT);
+
 	}
 
 	@Override

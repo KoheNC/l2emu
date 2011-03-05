@@ -20,7 +20,6 @@ import java.util.Calendar;
 import java.util.Set;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.communitybbs.Manager.ForumsBBSManager;
 import net.l2emuproject.gameserver.config.PersistentProperties;
 import net.l2emuproject.gameserver.datatables.ArmorSetsTable;
 import net.l2emuproject.gameserver.datatables.AugmentationData;
@@ -294,10 +293,6 @@ public class L2GameServer extends Config
 		if (Config.ALLOW_WEDDING)
 			CoupleService.getInstance();
 		CursedWeaponsService.getInstance();
-		
-		// forums must be loaded before clan data, because of last forum id used should have also memo included
-		if (Config.COMMUNITY_TYPE > 0)
-			ForumsBBSManager.getInstance().initRoot();
 		
 		ClanTable.getInstance();
 		CrestCache.getInstance();

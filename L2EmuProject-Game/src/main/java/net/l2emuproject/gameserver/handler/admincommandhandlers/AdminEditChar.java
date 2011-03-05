@@ -27,8 +27,6 @@ import java.util.StringTokenizer;
 
 import javolution.text.TextBuilder;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager;
-import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerStateOnCommunity;
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
@@ -388,8 +386,6 @@ public class AdminEditChar implements IAdminCommandHandler
 					{
 						player.getClan().broadcastClanStatus();
 					}
-
-					RegionBBSManager.changeCommunityBoard(player, PlayerStateOnCommunity.NONE);
 				}
 				else if (target instanceof L2Npc)
 				{

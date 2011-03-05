@@ -39,10 +39,6 @@ import net.l2emuproject.gameserver.L2GameServer;
 import net.l2emuproject.gameserver.LoginServerThread;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
-import net.l2emuproject.gameserver.communitybbs.Manager.ForumsBBSManager;
-import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager;
-import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerStateOnCommunity;
-import net.l2emuproject.gameserver.communitybbs.bb.Forum;
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.datatables.CharNameTable.ICharacterInfo;
 import net.l2emuproject.gameserver.datatables.CharTemplateTable;
@@ -677,9 +673,6 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 	private List<String> 					_validBypass2;
 	
 	private List<String>					_validLink;
-
-	private Forum							_forumMail;
-	private Forum							_forumMemo;
 
 	/** The number of evaluation points obtained by this player */
 	private int								_evalPoints;
@@ -1703,7 +1696,6 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 		}
 		_karma = karma;
 		broadcastKarma();
-		RegionBBSManager.changeCommunityBoard(this, PlayerStateOnCommunity.KARMA_OWNER);
 	}
 
 	/**
@@ -6482,62 +6474,6 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 	}
 
 	/**
-	 * @return
-	 */
-	public Forum getMail()
-	{
-		if (_forumMail == null)
-		{
-			setMail(ForumsBBSManager.getInstance().getForumByName("MailRoot").getChildByName(getName()));
-
-			if (_forumMail == null)
-			{
-				ForumsBBSManager.getInstance().createNewForum(getName(), ForumsBBSManager.getInstance().getForumByName("MailRoot"), Forum.MAIL,
-						Forum.OWNERONLY, getObjectId());
-				setMail(ForumsBBSManager.getInstance().getForumByName("MailRoot").getChildByName(getName()));
-			}
-		}
-
-		return _forumMail;
-	}
-
-	/**
-	 * @param forum
-	 */
-	public void setMail(Forum forum)
-	{
-		_forumMail = forum;
-	}
-
-	/**
-	 * @return
-	 */
-	public Forum getMemo()
-	{
-		if (_forumMemo == null)
-		{
-			setMemo(ForumsBBSManager.getInstance().getForumByName("MemoRoot").getChildByName(_accountName));
-
-			if (_forumMemo == null)
-			{
-				ForumsBBSManager.getInstance().createNewForum(_accountName, ForumsBBSManager.getInstance().getForumByName("MemoRoot"), Forum.MEMO,
-						Forum.OWNERONLY, getObjectId());
-				setMemo(ForumsBBSManager.getInstance().getForumByName("MemoRoot").getChildByName(_accountName));
-			}
-		}
-
-		return _forumMemo;
-	}
-
-	/**
-	 * @param forum
-	 */
-	public void setMemo(Forum forum)
-	{
-		_forumMemo = forum;
-	}
-
-	/**
 	 * Restores sub-class data for the L2Player, used to check the current
 	 * class index for the character.
 	 */
@@ -10208,8 +10144,6 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 		{
 			_log.fatal( "deleteMe()", e);
 		}
-
-		RegionBBSManager.changeCommunityBoard(this, PlayerStateOnCommunity.NONE);
 		
 		notifyFriends();
 
@@ -10543,7 +10477,6 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 		// Store in database
 		storeCharBase();
 
-		RegionBBSManager.changeCommunityBoard(this, PlayerStateOnCommunity.IN_JAIL);
 	}
 
 	public long getJailTimer()
@@ -10645,7 +10578,6 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 	{
 		_cursedWeaponEquippedId = value;
 
-		RegionBBSManager.changeCommunityBoard(this, PlayerStateOnCommunity.CURSED_WEAPON_OWNER);
 	}
 
 	public int getCursedWeaponEquippedId()
@@ -11882,7 +11814,6 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 
 		new Disconnection(this).store().close(false);
 
-		RegionBBSManager.changeCommunityBoard(this, PlayerStateOnCommunity.OFFLINE);
 		return true;
 	}
 
@@ -12239,7 +12170,6 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 
 			setMessageRefusal(true);
 
-			RegionBBSManager.changeCommunityBoard(this, PlayerStateOnCommunity.NONE);
 			GmListTable.addGm(this, false);
 
 			if (enterWorld)
@@ -12256,7 +12186,6 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 
 			setMessageRefusal(false);
 
-			RegionBBSManager.changeCommunityBoard(this, PlayerStateOnCommunity.NONE);
 			GmListTable.addGm(this, true);
 
 			sendCreatureMessage(SystemChatChannelId.Chat_Normal, "SYS", "Now, you can be seen.");

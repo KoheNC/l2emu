@@ -2168,21 +2168,7 @@ public class Config extends L2Config
 
 	// *******************************************************************************************
 	public static final String	COMMUNITY_FILE	= "./config/main/community_board.properties";
-	// *******************************************************************************************
-	public static int			COMMUNITY_TYPE;												// Community Board
-	public static boolean		BBS_SHOW_PLAYERLIST;
-	public static String		BBS_DEFAULT;
-	public static boolean		MAIL_STORE_DELETED_LETTERS;
-	public static boolean		SHOW_LEVEL_COMMUNITYBOARD;
-	public static boolean		SHOW_STATUS_COMMUNITYBOARD;
-	public static int			NAME_PAGE_SIZE_COMMUNITYBOARD;
-	public static int			NAME_PER_ROW_COMMUNITYBOARD;
-	public static boolean		SHOW_LEGEND;
-	public static boolean		SHOW_CLAN_LEADER;
-	public static int			SHOW_CLAN_LEADER_CLAN_LEVEL;
-	public static boolean		SHOW_CURSED_WEAPON_OWNER;										// Show Owner(s) of Cursed Weapons in CB ?
-	public static boolean		SHOW_KARMA_PLAYERS;											// Show Player(s) with karma in CB ?
-	public static boolean		SHOW_JAILED_PLAYERS;											// Show player(s) in jail in CB ?
+	// *******************************************************************************************											// Show player(s) in jail in CB ?
 
 	// *******************************************************************************************
 	private static final class CommunityConfig extends ConfigPropertiesLoader
@@ -2196,24 +2182,7 @@ public class Config extends L2Config
 		@Override
 		protected void loadImpl(L2Properties cbSettings)
 		{
-			COMMUNITY_TYPE = Integer.parseInt(cbSettings.getProperty("CommunityType", "2"));
-			BBS_SHOW_PLAYERLIST = Boolean.parseBoolean(cbSettings.getProperty("BBSShowPlayerList", "false"));
-			BBS_DEFAULT = cbSettings.getProperty("BBSDefault", "_bbshome");
-			MAIL_STORE_DELETED_LETTERS = Boolean.parseBoolean(cbSettings.getProperty("MailStoreDeletedLetters", "False"));
-			SHOW_LEVEL_COMMUNITYBOARD = Boolean.parseBoolean(cbSettings.getProperty("ShowLevelOnCommunityBoard", "False"));
-			SHOW_STATUS_COMMUNITYBOARD = Boolean.parseBoolean(cbSettings.getProperty("ShowStatusOnCommunityBoard", "True"));
-			NAME_PAGE_SIZE_COMMUNITYBOARD = Integer.parseInt(cbSettings.getProperty("NamePageSizeOnCommunityBoard", "50"));
-			if (NAME_PAGE_SIZE_COMMUNITYBOARD > 70)
-				NAME_PAGE_SIZE_COMMUNITYBOARD = 70; //can be displayed more then 70 but for best window showup limited to 70
-			NAME_PER_ROW_COMMUNITYBOARD = Integer.parseInt(cbSettings.getProperty("NamePerRowOnCommunityBoard", "5"));
-			if (NAME_PER_ROW_COMMUNITYBOARD > 5)
-				NAME_PER_ROW_COMMUNITYBOARD = 5;
-			SHOW_LEGEND = Boolean.parseBoolean(cbSettings.getProperty("ShowLegend", "False"));
-			SHOW_CLAN_LEADER = Boolean.parseBoolean(cbSettings.getProperty("ShowClanLeader", "False"));
-			SHOW_CLAN_LEADER_CLAN_LEVEL = Integer.parseInt(cbSettings.getProperty("ShowClanLeaderAtClanLevel", "3"));
-			SHOW_CURSED_WEAPON_OWNER = Boolean.parseBoolean(cbSettings.getProperty("ShowCursedWeaponOwner", "False"));
-			SHOW_KARMA_PLAYERS = Boolean.parseBoolean(cbSettings.getProperty("ShowKarmaPlayers", "False"));
-			SHOW_JAILED_PLAYERS = Boolean.parseBoolean(cbSettings.getProperty("ShowJailedPlayers", "False"));
+
 		}
 	}
 
@@ -4876,12 +4845,6 @@ public class Config extends L2Config
 			ALLOW_WATER = Boolean.parseBoolean(pValue);
 		else if (pName.equalsIgnoreCase("AllowRentPet"))
 			ALLOW_RENTPET = Boolean.parseBoolean(pValue);
-		else if (pName.equalsIgnoreCase("CommunityType"))
-			COMMUNITY_TYPE = Integer.parseInt(pValue);
-		else if (pName.equalsIgnoreCase("BBSShowPlayerList"))
-			BBS_SHOW_PLAYERLIST = Boolean.parseBoolean(pValue);
-		else if (pName.equalsIgnoreCase("BBSDefault"))
-			BBS_DEFAULT = pValue;
 		else if (pName.equalsIgnoreCase("AllowBoat"))
 			ALLOW_BOAT = Boolean.parseBoolean(pValue);
 		else if (pName.equalsIgnoreCase("AllowCursedWeapons"))
@@ -4890,17 +4853,6 @@ public class Config extends L2Config
 			ALLOW_MANOR = Boolean.parseBoolean(pValue);
 		else if (pName.equalsIgnoreCase("AllowPetWalkers"))
 			ALLOW_PET_WALKERS = Boolean.parseBoolean(pValue);
-
-		else if (pName.equalsIgnoreCase("ShowLevelOnCommunityBoard"))
-			SHOW_LEVEL_COMMUNITYBOARD = Boolean.parseBoolean(pValue);
-		else if (pName.equalsIgnoreCase("ShowStatusOnCommunityBoard"))
-			SHOW_STATUS_COMMUNITYBOARD = Boolean.parseBoolean(pValue);
-		else if (pName.equalsIgnoreCase("NamePageSizeOnCommunityBoard"))
-			NAME_PAGE_SIZE_COMMUNITYBOARD = Integer.parseInt(pValue);
-		else if (pName.equalsIgnoreCase("NamePerRowOnCommunityBoard"))
-			NAME_PER_ROW_COMMUNITYBOARD = Integer.parseInt(pValue);
-		else if (pName.equalsIgnoreCase("ShowCursedWeaponOwner"))
-			SHOW_CURSED_WEAPON_OWNER = Boolean.parseBoolean(pValue);
 
 		else if (pName.equalsIgnoreCase("ShowMonsterLevel"))
 			SHOW_MONSTER_LVL = Boolean.parseBoolean(pValue);
@@ -5336,12 +5288,6 @@ public class Config extends L2Config
 		// Options
 		else if (pName.equalsIgnoreCase("ShowHTMLGm"))
 			SHOW_HTML_GM = Boolean.parseBoolean(pValue);
-		else if (pName.equalsIgnoreCase("ShowLegend"))
-			SHOW_LEGEND = Boolean.parseBoolean(pValue);
-		else if (pName.equalsIgnoreCase("ShowKarmaPlayers"))
-			SHOW_KARMA_PLAYERS = Boolean.parseBoolean(pValue);
-		else if (pName.equalsIgnoreCase("ShowJailedPlayers"))
-			SHOW_JAILED_PLAYERS = Boolean.parseBoolean(pValue);
 
 		else if (pName.equalsIgnoreCase("MaxPersonalFamePoints"))
 			MAX_PERSONAL_FAME_POINTS = Integer.parseInt(pValue);

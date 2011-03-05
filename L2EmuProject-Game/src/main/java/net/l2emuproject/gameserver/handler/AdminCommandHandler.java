@@ -22,7 +22,6 @@ import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminAI;
 import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminAdmin;
 import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminAnnouncements;
 import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminAutoAnnouncements;
-import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminBBS;
 import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminBan;
 import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminBanChat;
 import net.l2emuproject.gameserver.handler.admincommandhandlers.AdminBuffs;
@@ -114,7 +113,6 @@ public final class AdminCommandHandler extends HandlerRegistry<String, IAdminCom
 		register(new AdminAI());
 		register(new AdminAdmin());
 		register(new AdminAnnouncements());
-		register(new AdminBBS());
 		register(new AdminBan());
 		register(new AdminBanChat());
 		register(new AdminBuffs());

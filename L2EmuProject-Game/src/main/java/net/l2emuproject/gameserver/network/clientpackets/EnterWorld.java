@@ -16,8 +16,6 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.LoginServerThread;
-import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager;
-import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerStateOnCommunity;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.entity.clan.L2ClanMember;
@@ -474,8 +472,6 @@ public class EnterWorld extends L2GameClientPacket
 		if (MailService.getInstance().hasUnreadPost(activeChar))
 			sendPacket(new ExNoticePostArrived(false));
 		
-		RegionBBSManager.changeCommunityBoard(activeChar, PlayerStateOnCommunity.NONE);
-
 		if (!activeChar.getPlayerTransformation().isTransformed())
 			activeChar.regiveTemporarySkills();
 

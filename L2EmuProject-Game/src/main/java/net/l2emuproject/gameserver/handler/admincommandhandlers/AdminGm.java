@@ -14,9 +14,6 @@
  */
 package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
-
-import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager;
-import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerStateOnCommunity;
 import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.world.object.L2Player;
@@ -76,7 +73,5 @@ public class AdminGm implements IAdminCommandHandler
 			if (_log.isDebugEnabled())
 				_log.debug("GM: " + activeChar.getName() + "(" + activeChar.getObjectId() + ") turned his GM status on");
 		}
-		
-		RegionBBSManager.changeCommunityBoard(activeChar, PlayerStateOnCommunity.GM);
 	}
 }

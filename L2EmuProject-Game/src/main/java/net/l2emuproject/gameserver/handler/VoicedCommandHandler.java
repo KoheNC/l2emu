@@ -16,11 +16,9 @@ package net.l2emuproject.gameserver.handler;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.handler.voicedcommandhandlers.Auction;
 import net.l2emuproject.gameserver.handler.voicedcommandhandlers.Banking;
 import net.l2emuproject.gameserver.handler.voicedcommandhandlers.CastleDoors;
 import net.l2emuproject.gameserver.handler.voicedcommandhandlers.Hellbound;
-import net.l2emuproject.gameserver.handler.voicedcommandhandlers.Mail;
 import net.l2emuproject.gameserver.handler.voicedcommandhandlers.Offline;
 import net.l2emuproject.gameserver.handler.voicedcommandhandlers.Report;
 import net.l2emuproject.gameserver.handler.voicedcommandhandlers.TvTCommand;
@@ -44,11 +42,9 @@ public final class VoicedCommandHandler extends HandlerRegistry<String, IVoicedC
 	
 	private VoicedCommandHandler()
 	{
-		registerVoicedCommandHandler(new Auction());
 		registerVoicedCommandHandler(new Banking());
 		registerVoicedCommandHandler(new CastleDoors());
 		registerVoicedCommandHandler(new Hellbound());
-		registerVoicedCommandHandler(new Mail());
 		registerVoicedCommandHandler(new Offline());
 		registerVoicedCommandHandler(new Report());
 		registerVoicedCommandHandler(new VersionInfo());

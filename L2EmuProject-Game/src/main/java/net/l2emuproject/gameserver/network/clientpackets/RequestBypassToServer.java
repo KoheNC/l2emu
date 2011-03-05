@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.network.clientpackets;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.communitybbs.CommunityBoard;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.events.global.olympiad.Olympiad;
@@ -155,12 +154,6 @@ public class RequestBypassToServer extends L2GameClientPacket
 			if (object instanceof L2Npc)
 				((L2Npc) object).onBypassFeedback(activeChar, _command);
 		}
-		else if (_command.startsWith("bbs_"))
-			CommunityBoard.handleCommands(getClient(), _command);
-		else if (_command.startsWith("_bbs"))
-			CommunityBoard.handleCommands(getClient(), _command);
-		else if (_command.startsWith("_maillist_0_1_0_"))
-			CommunityBoard.handleCommands(getClient(), _command);
 		else if (_command.startsWith("Quest "))
 		{
 			activeChar.validateBypass(_command);

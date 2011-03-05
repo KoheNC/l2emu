@@ -23,8 +23,6 @@ import java.util.Map;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.communitybbs.Manager.ForumsBBSManager;
-import net.l2emuproject.gameserver.communitybbs.bb.Forum;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.entity.itemcontainer.ClanWarehouse;
@@ -100,8 +98,6 @@ public class L2Clan
 	private final List<Integer>					_atWarAttackers				= new FastList<Integer>();
 
 	private boolean							_hasCrestLarge;
-
-	private Forum							_forum;
 
 	private final List<L2Skill>					_skillList					= new FastList<L2Skill>();
 
@@ -888,21 +884,6 @@ public class L2Clan
 	public void setLevel(int level)
 	{
 		_level = level;
-		if (_level >= 2 && _forum == null && Config.COMMUNITY_TYPE > 0)
-		{
-			Forum forum = ForumsBBSManager.getInstance().getForumByName("ClanRoot");
-			
-			if (forum != null)
-			{
-				_forum = forum.getChildByName(_name);
-				
-				if (_forum == null)
-				{
-					_forum = ForumsBBSManager.getInstance().createNewForum(_name, ForumsBBSManager.getInstance().getForumByName("ClanRoot"), Forum.CLAN,
-							Forum.CLANMEMBERONLY, getClanId());
-				}
-			}
-		}
 	}
 
 	/**

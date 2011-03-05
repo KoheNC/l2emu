@@ -18,7 +18,6 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Config;
-import net.l2emuproject.gameserver.communitybbs.Manager.AuctionBBSManager;
 import net.l2emuproject.gameserver.datatables.ClassBalanceTable;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.GmListTable;
@@ -441,13 +440,6 @@ public class AdminAdmin implements IAdminCommandHandler
 						activeChar.showHTMLFile(AdminHelpPage.ADMIN_HELP_PAGE + "mods_menu.htm");
 				}
 			}
-		}
-		
-		else if (command.equals("admin_process_auction"))
-		{
-			AuctionBBSManager.getInstance().processAuctions();
-			AuctionBBSManager.getInstance().removeOldAuctions();
-			_log.info("Process Auction Task: launched.");
 		}
 		
 		else if (command.startsWith("admin_debug"))

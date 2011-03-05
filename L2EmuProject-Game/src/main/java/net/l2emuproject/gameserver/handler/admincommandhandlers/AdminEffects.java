@@ -16,8 +16,6 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager;
-import net.l2emuproject.gameserver.communitybbs.Manager.RegionBBSManager.PlayerStateOnCommunity;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.manager.grandbosses.FrintezzaManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -121,19 +119,16 @@ public class AdminEffects implements IAdminCommandHandler
 				activeChar.getAppearance().setVisible();
 				activeChar.broadcastUserInfo();
 			}
-			RegionBBSManager.changeCommunityBoard(activeChar, PlayerStateOnCommunity.NONE);
 		}
 		else if (command.startsWith("admin_invis"))
 		{
 			activeChar.getAppearance().setInvisible();
 			activeChar.updateInvisibilityStatus();
-			RegionBBSManager.changeCommunityBoard(activeChar, PlayerStateOnCommunity.NONE);
 		}
 		else if (command.startsWith("admin_vis"))
 		{
 			activeChar.getAppearance().setVisible();
 			activeChar.broadcastUserInfo();
-			RegionBBSManager.changeCommunityBoard(activeChar, PlayerStateOnCommunity.NONE);
 		}
 		else if (command.startsWith("admin_earthquake"))
 		{
