@@ -15,6 +15,8 @@
 package quests._999_T1Tutorial;
 
 import javolution.util.FastMap;
+import quests._255_Tutorial.Tutorial;
+
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.State;
@@ -23,18 +25,17 @@ import net.l2emuproject.gameserver.world.Location;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2MonsterInstance;
-import quests._255_Tutorial.Tutorial;
 
 /**
  * @author L0ngh0rn
  */
 public final class T1Tutorial extends QuestJython
 {
-	public static final String						QN					= "_999_T1Tutorial";
-	private static final String						QN_TUTORIAL			= Tutorial.QN;
+	public static final String	QN					= "_999_T1Tutorial";
+	private static final String	QN_TUTORIAL			= Tutorial.QN;
 
-	private static final int[]						NPCS				= new int[]
-																		{
+	private static final int[]	NPCS				= new int[]
+													{
 			30008,
 			30009,
 			30017,
@@ -58,195 +59,139 @@ public final class T1Tutorial extends QuestJython
 			30599,
 			32133,
 			32134,
-			32135														};
-	private static final int[]						NPCS_KILL			= new int[]
-																		{ 18342, 20001 };
+			32135									};
+	private static final int[]	NPCS_KILL			= new int[]
+													{ 18342, 20001 };
 
 	// Quest Item
-	private static final int						RECOMMENDATION_01	= 1067;
-	private static final int						RECOMMENDATION_02	= 1068;
-	private static final int						LEAF_OF_MOTHERTREE	= 1069;
-	private static final int						BLOOD_OF_JUNDIN		= 1070;
-	private static final int						LICENSE_OF_MINER	= 1498;
-	private static final int						VOUCHER_OF_FLAME	= 1496;
-	private static final int						SOULSHOT_NOVICE		= 5789;
-	private static final int						SPIRITSHOT_NOVICE	= 5790;
-	private static final int						BLUE_GEM			= 6353;
-	private static final int						TOKEN				= 8542;
-	private static final int						SCROLL				= 8594;
-	private static final int						DIPLOMA				= 9881;
+	private static final int	RECOMMENDATION_01	= 1067;
+	private static final int	RECOMMENDATION_02	= 1068;
+	private static final int	LEAF_OF_MOTHERTREE	= 1069;
+	private static final int	BLOOD_OF_JUNDIN		= 1070;
+	private static final int	LICENSE_OF_MINER	= 1498;
+	private static final int	VOUCHER_OF_FLAME	= 1496;
+	private static final int	SOULSHOT_NOVICE		= 5789;
+	private static final int	SPIRITSHOT_NOVICE	= 5790;
+	private static final int	BLUE_GEM			= 6353;
+	private static final int	DIPLOMA				= 9881;
 
-	// Events
-	private static final FastMap<String, String>	EVENTS_HTML			= new FastMap<String, String>();
-	private static final FastMap<String, Location>	EVENTS_RADAR		= new FastMap<String, Location>();
-	private static final FastMap<String, int[]>		EVENTS_OTHERS		= new FastMap<String, int[]>();
+	private static class Event
+	{
+		public String	_htm;
+		public Location	_loc;
+		public int		_item;
+		public int		_classId1;
+		public int		_gift1;
+		public int		_count1;
+		public int		_classId2;
+		public int		_gift2;
+		public int		_count2;
 
-	// Talks
-	private static final FastMap<Integer, String[]>	TALKS_HTML			= new FastMap<Integer, String[]>();
-	private static final FastMap<Integer, int[]>	TALKS_OTHERS		= new FastMap<Integer, int[]>();
+		public Event(String htm, Location loc, int item, int classId1, int gift1, int count1, int classId2, int gift2, int count2)
+		{
+			this._htm = htm;
+			this._loc = loc;
+			this._item = item;
+			this._classId1 = classId1;
+			this._gift1 = gift1;
+			this._count1 = count1;
+			this._classId2 = classId2;
+			this._gift2 = gift2;
+			this._count2 = count2;
+		}
+	}
+
+	private static class Talk
+	{
+		public int		_raceId;
+		public String[]	_htm;
+		public int		_npcType;
+		public int		_item;
+
+		public Talk(int raceId, String[] htm, int npcType, int item)
+		{
+			this._raceId = raceId;
+			this._htm = htm;
+			this._npcType = npcType;
+			this._item = item;
+		}
+	}
+
+	private static final FastMap<String, Event>	EVENTS	= new FastMap<String, Event>();
+	private static final FastMap<Integer, Talk>	TALKS	= new FastMap<Integer, Talk>();
 
 	static
 	{
-		// Events
-		EVENTS_HTML.put("30008_02", "30008-03.htm");
-		EVENTS_HTML.put("30008_04", "30008-04.htm");
-		EVENTS_HTML.put("30017_02", "30017-03.htm");
-		EVENTS_HTML.put("30017_04", "30017-04.htm");
-		EVENTS_HTML.put("30129_02", "30129-03.htm");
-		EVENTS_HTML.put("30129_04", "30129-04.htm");
-		EVENTS_HTML.put("30370_02", "30370-03.htm");
-		EVENTS_HTML.put("30370_04", "30370-04.htm");
-		EVENTS_HTML.put("30528_02", "30528-03.htm");
-		EVENTS_HTML.put("30528_04", "30528-04.htm");
-		EVENTS_HTML.put("30573_02", "30573-03.htm");
-		EVENTS_HTML.put("30573_04", "30573-04.htm");
-		EVENTS_HTML.put("32133_02", "32133-03.htm");
+		EVENTS.put("30008_02", new Event("30008-03.htm", null, RECOMMENDATION_01, 0x00, SOULSHOT_NOVICE, 200, 0x00, 0, 0));
+		EVENTS.put("30008_04", new Event("30008-04.htm", new Location(-84058, 243239, -3730), 0, 0x00, 0, 0, 0, 0, 0));
+		EVENTS.put("30017_02", new Event("30017-03.htm", null, RECOMMENDATION_02, 0x0a, SPIRITSHOT_NOVICE, 100, 0x00, 0, 0));
+		EVENTS.put("30017_04", new Event("30017-04.htm", new Location(-84058, 243239, -3730), 0, 0x0a, 0, 0, 0x00, 0, 0));
+		EVENTS.put("30129_02", new Event("30129-03.htm", null, BLOOD_OF_JUNDIN, 0x26, SPIRITSHOT_NOVICE, 100, 0x1f, SOULSHOT_NOVICE, 200));
+		EVENTS.put("30129_04", new Event("30129-04.htm", new Location(12116, 16666, -4610), 0, 0x26, 0, 0, 0x1f, 0, 0));
+		EVENTS.put("30370_02", new Event("30370-03.htm", null, LEAF_OF_MOTHERTREE, 0x19, SPIRITSHOT_NOVICE, 100, 0x12, SOULSHOT_NOVICE, 200));
+		EVENTS.put("30370_04", new Event("30370-04.htm", new Location(45491, 48359, -3086), 0, 0x19, 0, 0, 0x12, 0, 0));
+		EVENTS.put("30528_02", new Event("30528-03.htm", null, LICENSE_OF_MINER, 0x35, SOULSHOT_NOVICE, 200, 0x00, 0, 0));
+		EVENTS.put("30528_04", new Event("30528-04.htm", new Location(115642, -178046, -941), 0, 0x35, 0, 0, 0x00, 0, 0));
+		EVENTS.put("30573_02", new Event("30573-03.htm", null, VOUCHER_OF_FLAME, 0x31, SPIRITSHOT_NOVICE, 100, 0x2c, SOULSHOT_NOVICE, 200));
+		EVENTS.put("30573_04", new Event("30573-04.htm", new Location(-45067, -113549, -235), 0, 0x31, 0, 0, 0x2c, 0, 0));
+		EVENTS.put("32133_02", new Event("32133-03.htm", new Location(-119692, 44504, 380), DIPLOMA, 0x7b, SOULSHOT_NOVICE, 200, 0x7c, SOULSHOT_NOVICE, 200));
 
-		EVENTS_RADAR.put("30008_02", new Location(0, 0, 0));
-		EVENTS_RADAR.put("30008_04", new Location(-84058, 243239, -3730));
-		EVENTS_RADAR.put("30017_02", new Location(0, 0, 0));
-		EVENTS_RADAR.put("30017_04", new Location(-84058, 243239, -3730));
-		EVENTS_RADAR.put("30129_02", new Location(0, 0, 0));
-		EVENTS_RADAR.put("30129_04", new Location(12116, 16666, -4610));
-		EVENTS_RADAR.put("30370_02", new Location(0, 0, 0));
-		EVENTS_RADAR.put("30370_04", new Location(45491, 48359, -3086));
-		EVENTS_RADAR.put("30528_02", new Location(0, 0, 0));
-		EVENTS_RADAR.put("30528_04", new Location(115642, -178046, -941));
-		EVENTS_RADAR.put("30573_02", new Location(0, 0, 0));
-		EVENTS_RADAR.put("30573_04", new Location(-45067, -113549, -235));
-		EVENTS_RADAR.put("32133_02", new Location(-119692, 44504, 380));
-
-		// Model: item,classId1,gift1,count1,classId2,gift2,count2
-		EVENTS_OTHERS.put("30008_02", new int[]
-		{ RECOMMENDATION_01, 0x00, SOULSHOT_NOVICE, 200, 0x00, 0, 0 });
-		EVENTS_OTHERS.put("30008_04", new int[]
-		{ 0, 0x00, 0, 0, 0, 0, 0 });
-		EVENTS_OTHERS.put("30017_02", new int[]
-		{ RECOMMENDATION_02, 0x0a, SPIRITSHOT_NOVICE, 100, 0x00, 0, 0 });
-		EVENTS_OTHERS.put("30017_04", new int[]
-		{ 0, 0x0a, 0, 0, 0x00, 0, 0 });
-		EVENTS_OTHERS.put("30129_02", new int[]
-		{ BLOOD_OF_JUNDIN, 0x26, SPIRITSHOT_NOVICE, 100, 0x1f, SOULSHOT_NOVICE, 200 });
-		EVENTS_OTHERS.put("30129_04", new int[]
-		{ 0, 0x26, 0, 0, 0x1f, 0, 0 });
-		EVENTS_OTHERS.put("30370_02", new int[]
-		{ LEAF_OF_MOTHERTREE, 0x19, SPIRITSHOT_NOVICE, 100, 0x12, SOULSHOT_NOVICE, 200 });
-		EVENTS_OTHERS.put("30370_04", new int[]
-		{ 0, 0x19, 0, 0, 0x12, 0, 0 });
-		EVENTS_OTHERS.put("30528_02", new int[]
-		{ LICENSE_OF_MINER, 0x35, SOULSHOT_NOVICE, 200, 0x00, 0, 0 });
-		EVENTS_OTHERS.put("30528_04", new int[]
-		{ 0, 0x35, 0, 0, 0x00, 0, 0 });
-		EVENTS_OTHERS.put("30573_02", new int[]
-		{ VOUCHER_OF_FLAME, 0x31, SPIRITSHOT_NOVICE, 100, 0x2c, SOULSHOT_NOVICE, 200 });
-		EVENTS_OTHERS.put("30573_04", new int[]
-		{ 0, 0x31, 0, 0, 0x2c, 0, 0 });
-		EVENTS_OTHERS.put("32133_02", new int[]
-		{ DIPLOMA, 0x7b, SOULSHOT_NOVICE, 200, 0x7c, SOULSHOT_NOVICE, 200 });
-
-		// Talks
-		TALKS_HTML.put(30008, new String[]
-		{ "30008-01.htm", "30008-02.htm", "30008-04.htm", "0" });
-		TALKS_HTML.put(30009, new String[]
-		{ "30530-01.htm", "30009-03.htm", "0", "30009-04.htm" });
-		TALKS_HTML.put(30011, new String[]
-		{ "30530-01.htm", "30009-03.htm", "0", "30009-04.htm" });
-		TALKS_HTML.put(30012, new String[]
-		{ "30530-01.htm", "30009-03.htm", "0", "30009-04.htm" });
-		TALKS_HTML.put(30017, new String[]
-		{ "30017-01.htm", "30017-02.htm", "30017-04.htm", "0" });
-		TALKS_HTML.put(30018, new String[]
-		{ "30131-01.htm", "0", "30019-03a.htm", "30019-04.htm" });
-		TALKS_HTML.put(30019, new String[]
-		{ "30131-01.htm", "0", "30019-03a.htm", "30019-04.htm" });
-		TALKS_HTML.put(30020, new String[]
-		{ "30131-01.htm", "0", "30019-03a.htm", "30019-04.htm" });
-		TALKS_HTML.put(30021, new String[]
-		{ "30131-01.htm", "0", "30019-03a.htm", "30019-04.htm" });
-		TALKS_HTML.put(30056, new String[]
-		{ "30530-01.htm", "30009-03.htm", "0", "30009-04.htm" });
-		TALKS_HTML.put(30129, new String[]
-		{ "30129-01.htm", "30129-02.htm", "30129-04.htm", "0" });
-		TALKS_HTML.put(30131, new String[]
-		{ "30131-01.htm", "30131-03.htm", "30131-03a.htm", "30131-04.htm" });
-		TALKS_HTML.put(30370, new String[]
-		{ "30370-01.htm", "30370-02.htm", "30370-04.htm", "0" });
-		TALKS_HTML.put(30400, new String[]
-		{ "30131-01.htm", "30400-03.htm", "30400-03a.htm", "30400-04.htm" });
-		TALKS_HTML.put(30401, new String[]
-		{ "30131-01.htm", "30400-03.htm", "30400-03a.htm", "30400-04.htm" });
-		TALKS_HTML.put(30402, new String[]
-		{ "30131-01.htm", "30400-03.htm", "30400-03a.htm", "30400-04.htm" });
-		TALKS_HTML.put(30403, new String[]
-		{ "30131-01.htm", "30400-03.htm", "30400-03a.htm", "30400-04.htm" });
-		TALKS_HTML.put(30404, new String[]
-		{ "30131-01.htm", "30131-03.htm", "30131-03a.htm", "30131-04.htm" });
-		TALKS_HTML.put(30528, new String[]
-		{ "30528-01.htm", "30528-02.htm", "30528-04.htm", "0" });
-		TALKS_HTML.put(30530, new String[]
-		{ "30530-01.htm", "30530-03.htm", "0", "30530-04.htm" });
-		TALKS_HTML.put(30573, new String[]
-		{ "30573-01.htm", "30573-02.htm", "30573-04.htm", "0" });
-		TALKS_HTML.put(30574, new String[]
-		{ "30575-01.htm", "30575-03.htm", "30575-03a.htm", "30575-04.htm" });
-		TALKS_HTML.put(30575, new String[]
-		{ "30575-01.htm", "30575-03.htm", "30575-03a.htm", "30575-04.htm" });
-		TALKS_HTML.put(32133, new String[]
-		{ "32133-01.htm", "32133-02.htm", "32133-04.htm", "0" });
-		TALKS_HTML.put(32134, new String[]
-		{ "32134-01.htm", "32134-03.htm", "0", "32134-04.htm" });
-
-		// Model: raceId,npcTyp,item
-		TALKS_OTHERS.put(30008, new int[]
-		{ 0, 0, 0 });
-		TALKS_OTHERS.put(30009, new int[]
-		{ 0, 1, RECOMMENDATION_01 });
-		TALKS_OTHERS.put(30011, new int[]
-		{ 0, 1, RECOMMENDATION_01 });
-		TALKS_OTHERS.put(30012, new int[]
-		{ 0, 1, RECOMMENDATION_01 });
-		TALKS_OTHERS.put(30017, new int[]
-		{ 0, 0, 0 });
-		TALKS_OTHERS.put(30018, new int[]
-		{ 0, 1, RECOMMENDATION_02 });
-		TALKS_OTHERS.put(30019, new int[]
-		{ 0, 1, RECOMMENDATION_02 });
-		TALKS_OTHERS.put(30020, new int[]
-		{ 0, 1, RECOMMENDATION_02 });
-		TALKS_OTHERS.put(30021, new int[]
-		{ 0, 1, RECOMMENDATION_02 });
-		TALKS_OTHERS.put(30056, new int[]
-		{ 0, 1, RECOMMENDATION_01 });
-		TALKS_OTHERS.put(30129, new int[]
-		{ 2, 0, 0 });
-		TALKS_OTHERS.put(30131, new int[]
-		{ 2, 1, BLOOD_OF_JUNDIN });
-		TALKS_OTHERS.put(30370, new int[]
-		{ 1, 0, 0 });
-		TALKS_OTHERS.put(30400, new int[]
-		{ 1, 1, LEAF_OF_MOTHERTREE });
-		TALKS_OTHERS.put(30401, new int[]
-		{ 1, 1, LEAF_OF_MOTHERTREE });
-		TALKS_OTHERS.put(30402, new int[]
-		{ 1, 1, LEAF_OF_MOTHERTREE });
-		TALKS_OTHERS.put(30403, new int[]
-		{ 1, 1, LEAF_OF_MOTHERTREE });
-		TALKS_OTHERS.put(30404, new int[]
-		{ 2, 1, BLOOD_OF_JUNDIN });
-		TALKS_OTHERS.put(30528, new int[]
-		{ 4, 0, 0 });
-		TALKS_OTHERS.put(30530, new int[]
-		{ 4, 1, LICENSE_OF_MINER });
-		TALKS_OTHERS.put(30573, new int[]
-		{ 3, 0, 0 });
-		TALKS_OTHERS.put(30574, new int[]
-		{ 3, 1, VOUCHER_OF_FLAME });
-		TALKS_OTHERS.put(30575, new int[]
-		{ 3, 1, VOUCHER_OF_FLAME });
-		TALKS_OTHERS.put(32133, new int[]
-		{ 5, 0, 0 });
-		TALKS_OTHERS.put(32134, new int[]
-		{ 5, 1, DIPLOMA });
+		TALKS.put(30008, new Talk(0, new String[]
+		{ "30008-01.htm", "30008-02.htm", "30008-04.htm" }, 0, 0));
+		TALKS.put(30009, new Talk(0, new String[]
+		{ "30530-01.htm", "30009-03.htm", "", "30009-04.htm", }, 1, RECOMMENDATION_01));
+		TALKS.put(30011, new Talk(0, new String[]
+		{ "30530-01.htm", "30009-03.htm", "", "30009-04.htm", }, 1, RECOMMENDATION_01));
+		TALKS.put(30012, new Talk(0, new String[]
+		{ "30530-01.htm", "30009-03.htm", "", "30009-04.htm", }, 1, RECOMMENDATION_01));
+		TALKS.put(30017, new Talk(0, new String[]
+		{ "30017-01.htm", "30017-02.htm", "30017-04.htm" }, 0, 0));
+		TALKS.put(30018, new Talk(0, new String[]
+		{ "30131-01.htm", "", "30019-03a.htm", "30019-04.htm", }, 1, RECOMMENDATION_02));
+		TALKS.put(30019, new Talk(0, new String[]
+		{ "30131-01.htm", "", "30019-03a.htm", "30019-04.htm", }, 1, RECOMMENDATION_02));
+		TALKS.put(30020, new Talk(0, new String[]
+		{ "30131-01.htm", "", "30019-03a.htm", "30019-04.htm", }, 1, RECOMMENDATION_02));
+		TALKS.put(30021, new Talk(0, new String[]
+		{ "30131-01.htm", "", "30019-03a.htm", "30019-04.htm", }, 1, RECOMMENDATION_02));
+		TALKS.put(30056, new Talk(0, new String[]
+		{ "30530-01.htm", "30009-03.htm", "", "30009-04.htm", }, 1, RECOMMENDATION_01));
+		TALKS.put(30129, new Talk(2, new String[]
+		{ "30129-01.htm", "30129-02.htm", "30129-04.htm" }, 0, 0));
+		TALKS.put(30131, new Talk(2, new String[]
+		{ "30131-01.htm", "30131-03.htm", "30131-03a.htm", "30131-04.htm", }, 1, BLOOD_OF_JUNDIN));
+		TALKS.put(30370, new Talk(1, new String[]
+		{ "30370-01.htm", "30370-02.htm", "30370-04.htm" }, 0, 0));
+		TALKS.put(30400, new Talk(1, new String[]
+		{ "30131-01.htm", "30400-03.htm", "30400-03a.htm", "30400-04.htm", }, 1, LEAF_OF_MOTHERTREE));
+		TALKS.put(30401, new Talk(1, new String[]
+		{ "30131-01.htm", "30400-03.htm", "30400-03a.htm", "30400-04.htm", }, 1, LEAF_OF_MOTHERTREE));
+		TALKS.put(30402, new Talk(1, new String[]
+		{ "30131-01.htm", "30400-03.htm", "30400-03a.htm", "30400-04.htm", }, 1, LEAF_OF_MOTHERTREE));
+		TALKS.put(30403, new Talk(1, new String[]
+		{ "30131-01.htm", "30400-03.htm", "30400-03a.htm", "30400-04.htm", }, 1, LEAF_OF_MOTHERTREE));
+		TALKS.put(30404, new Talk(2, new String[]
+		{ "30131-01.htm", "30131-03.htm", "30131-03a.htm", "30131-04.htm", }, 1, BLOOD_OF_JUNDIN));
+		TALKS.put(30528, new Talk(4, new String[]
+		{ "30528-01.htm", "30528-02.htm", "30528-04.htm" }, 0, 0));
+		TALKS.put(30530, new Talk(4, new String[]
+		{ "30530-01.htm", "30530-03.htm", "", "30530-04.htm", }, 1, LICENSE_OF_MINER));
+		TALKS.put(30573, new Talk(3, new String[]
+		{ "30573-01.htm", "30573-02.htm", "30573-04.htm" }, 0, 0));
+		TALKS.put(30574, new Talk(3, new String[]
+		{ "30575-01.htm", "30575-03.htm", "30575-03a.htm", "30575-04.htm", }, 1, VOUCHER_OF_FLAME));
+		TALKS.put(30575, new Talk(3, new String[]
+		{ "30575-01.htm", "30575-03.htm", "30575-03a.htm", "30575-04.htm", }, 1, VOUCHER_OF_FLAME));
+		TALKS.put(30598, new Talk(0, null, 0, 0));
+		TALKS.put(30599, new Talk(0, null, 0, 0));
+		TALKS.put(30600, new Talk(0, null, 0, 0));
+		TALKS.put(30601, new Talk(0, null, 0, 0));
+		TALKS.put(30602, new Talk(0, null, 0, 0));
+		TALKS.put(32133, new Talk(5, new String[]
+		{ "32133-01.htm", "32133-02.htm", "32133-04.htm" }, 0, 0));
+		TALKS.put(32134, new Talk(5, new String[]
+		{ "32134-01.htm", "32134-03.htm", "", "32134-04.htm", }, 1, DIPLOMA));
+		TALKS.put(32135, new Talk(0, null, 0, 0));
 	}
 
 	public T1Tutorial(int questId, String name, String descr, String folder)
@@ -272,14 +217,14 @@ public final class T1Tutorial extends QuestJython
 
 		QuestState st = player.getQuestState(QN);
 		if (st == null)
-			return null;
+			return event;
 
 		QuestState qs = st.getPlayer().getQuestState(QN_TUTORIAL);
 		if (qs == null)
-			return null;
+			return event;
 
 		final int ex = qs.getInt("Ex");
-		String htmltext = null;
+		String htmltext = event;
 
 		if (event.equalsIgnoreCase("TimerEx_NewbieHelper"))
 		{
@@ -317,55 +262,52 @@ public final class T1Tutorial extends QuestJython
 					+ npc.getName()
 					+ ":<br>Go to the <font color=\"LEVEL\">Isle of Souls</font> and meet the <font color=\"LEVEL\">Newbie Guide</font> there to learn a number of important tips. He will also give you an item to assist your development. <br>Follow the direction arrow above your head and it will lead you to the Newbie Guide. Good luck!</body></html>";
 		}
-		else if (EVENTS_HTML.containsKey(event))
+		else if (EVENTS.containsKey(event))
 		{
-			if (!EVENTS_RADAR.get(event).isEmpty())
-				st.addRadar(EVENTS_RADAR.get(event));
+			Event e = EVENTS.get(event);
 
-			final int item = EVENTS_OTHERS.get(event)[0];
-			final int classId1 = EVENTS_OTHERS.get(event)[1];
-			final int gift1 = EVENTS_OTHERS.get(event)[2];
-			final int count1 = EVENTS_OTHERS.get(event)[3];
-			final int classId2 = EVENTS_OTHERS.get(event)[4];
-			final int gift2 = EVENTS_OTHERS.get(event)[5];
-			final int count2 = EVENTS_OTHERS.get(event)[6];
+			if (e._loc != null)
+				st.addRadar(e._loc);
 
-			if (st.getQuestItemsCount(item) == 0 && st.getInt("onlyone") == 0)
+			htmltext = e._htm;
+
+			if (st.getQuestItemsCount(e._item) > 0 && st.getInt("onlyone") == 0)
 			{
 				st.addExpAndSp(0, 50);
 				st.startQuestTimer("TimerEx_GrandMaster", 60000);
-				st.takeItems(item, 1);
+				st.takeItems(e._item, 1);
 				if (ex <= 3)
 					qs.set("Ex", 4);
-
-				if (st.getPlayer().getClassId().getId() == classId1)
+				final int classId = player.getClassId().getId();
+				if (classId == e._classId1)
 				{
-					st.giveItems(gift1, count1);
-					if (gift1 == SPIRITSHOT_NOVICE)
+					st.giveItems(e._gift1, e._count1);
+					if (e._gift1 == SPIRITSHOT_NOVICE)
 						st.playTutorialVoice("tutorial_voice_027");
 					else
 						st.playTutorialVoice("tutorial_voice_026");
 				}
-				else if (st.getPlayer().getClassId().getId() == classId2)
+				else if (classId == e._classId2)
 				{
-					if (gift2 != 0)
+					if (e._gift2 != 0)
 					{
-						st.giveItems(gift2, count2);
+						st.giveItems(e._gift2, e._count2);
 						st.playTutorialVoice("tutorial_voice_026");
 					}
 				}
-				st.unset("step");
-				st.set("onlyone", 1);
 			}
-			htmltext = EVENTS_HTML.get(event);
+			st.unset("step");
+			st.set("onlyone", 1);
 		}
-
 		return htmltext;
 	}
 
 	@Override
 	public String onFirstTalk(L2Npc npc, L2Player player)
 	{
+		if (Config.ALT_DISABLE_TUTORIAL)
+			return null;
+
 		QuestState qs = player.getQuestState(QN_TUTORIAL);
 		if (qs == null)
 		{
@@ -373,11 +315,11 @@ public final class T1Tutorial extends QuestJython
 			return null;
 		}
 
-		String htmltext = NO_QUEST;
 		QuestState st = player.getQuestState(QN);
-
 		if (st == null)
 			st = newQuestState(player);
+
+		String htmltext = "";
 
 		final int ex = qs.getInt("Ex");
 		final int npcId = npc.getNpcId();
@@ -387,150 +329,99 @@ public final class T1Tutorial extends QuestJython
 		final int level = player.getLevel();
 		final boolean isMage = player.getClassId().isMage();
 
-		if (TALKS_HTML.containsKey(npcId))
+		Talk t = TALKS.get(npcId);
+		if (t == null)
+			return null;
+		else if (level >= 10 && t._npcType == 1)
+			htmltext = "30575-05.htm";
+		else if (level < 10 && onlyone == 0)
 		{
-			final int raceId = TALKS_OTHERS.get(npcId)[0];
-			final int npcTyp = TALKS_OTHERS.get(npcId)[1];
-			final int item = TALKS_OTHERS.get(npcId)[2];
-
-			if ((level >= 10 || onlyone != 0) && npcTyp == 1)
-				htmltext = "30575-05.htm";
-			else if (onlyone == 0 && level < 10)
+			if (player.getRace().ordinal() == t._raceId)
 			{
-				if (player.getRace().ordinal() == raceId)
+				htmltext = t._htm[0];
+				switch (t._npcType)
 				{
-					htmltext = TALKS_HTML.get(npcId)[0];
-					switch (npcTyp)
-					{
-						case 0:
-							switch (step)
-							{
-								case 1:
-									htmltext = TALKS_HTML.get(npcId)[0];
-									break;
-								case 2:
-									htmltext = TALKS_HTML.get(npcId)[1];
-									break;
-								case 3:
-									htmltext = TALKS_HTML.get(npcId)[2];
-									break;
-							}
-							break;
-						case 1:
-							switch (step)
-							{
-								case 0:
-									if (ex < 0)
-									{
-										qs.set("Ex", 0);
-										st.startQuestTimer("TimerEx_NewbieHelper", 30000);
-										if (isMage)
-										{
-											st.set("step", 1);
-											st.setState(State.STARTED);
-										}
-										else
-										{
-											htmltext = "30530-01.htm";
-											st.set("step", 1);
-											st.setState(State.STARTED);
-										}
-									}
-									break;
-								case 1:
-									if (st.getQuestItemsCount(item) == 0)
-									{
-										switch (ex)
-										{
-											case 0:
-											case 1:
-											case 2:
-												if (st.getQuestItemsCount(BLUE_GEM) > 0)
-												{
-													st.takeItems(BLUE_GEM, st.getQuestItemsCount(BLUE_GEM));
-													st.giveItems(item, 1);
-													st.set("step", 2);
-													qs.set("Ex", 3);
-													st.startQuestTimer("TimerEx_NewbieHelper", 30000);
-													qs.set("ucMemo", 3);
-													if (isMage)
-													{
-														st.playTutorialVoice("tutorial_voice_027");
-														st.rewardItems(SPIRITSHOT_NOVICE, 100);
-														htmltext = TALKS_HTML.get(npcId)[2];
-														if (htmltext.equalsIgnoreCase("0"))
-															htmltext = "<html><body>I am sorry.  I only help warriors.  Please go to another Newbie Helper who may assist you.</body></html>";
-													}
-													else
-													{
-														st.playTutorialVoice("tutorial_voice_026");
-														st.rewardItems(SOULSHOT_NOVICE, 200);
-														htmltext = TALKS_HTML.get(npcId)[1];
-														if (htmltext.equalsIgnoreCase("0"))
-															htmltext = "<html><body>I am sorry.  I only help mystics.  Please go to another Newbie Helper who may assist you.</body></html>";
-													}
-												}
-												else
-												{
-													if (isMage)
-													{
-														htmltext = "30131-02.htm";
-														if (player.getRace().ordinal() == 3)
-															htmltext = "30575-02.htm";
-													}
-													else
-														htmltext = "30530-02.htm";
-												}
-												break;
-										}
-									}
-									break;
-								case 2:
-									htmltext = TALKS_HTML.get(npcId)[3];
-									break;
-							}
-							break;
-					}
-				}
-			}
-			else if (state == State.COMPLETED && npcTyp == 0)
-				htmltext = npcId + "-04.htm";
-			else
-			{
-				switch (npcId)
-				{
-					case 30600:
-					case 30601:
-					case 30602:
-					case 30598:
-					case 30599:
-					case 32135:
-						final int reward = qs.getInt("reward");
-						if (reward == 0)
+					case 0:
+						switch (step)
 						{
+							case 1:
+								htmltext = t._htm[0];
+								break;
+							case 2:
+								htmltext = t._htm[1];
+								break;
+							case 3:
+								htmltext = t._htm[2];
+								break;
+						}
+						break;
+					case 1:
+						if (step == 0 && ex < 0)
+						{
+							qs.set("Ex", 0);
+							st.startQuestTimer("TimerEx_NewbieHelper", 30000);
 							if (isMage)
 							{
-								st.playTutorialVoice("tutorial_voice_027");
-								st.rewardItems(SPIRITSHOT_NOVICE, 100);
+								st.set("step", 1);
+								st.setState(State.STARTED);
 							}
 							else
 							{
-								st.playTutorialVoice("tutorial_voice_026");
-								st.rewardItems(SOULSHOT_NOVICE, 200);
+								htmltext = "30530-01.htm";
+								st.set("step", 1);
+								st.setState(State.STARTED);
 							}
-							st.giveItems(TOKEN, 12);
-							st.giveItems(SCROLL, 2);
-							qs.set("reward", 1);
-							st.exitQuest(false);
 						}
-						npc.showChatWindow(player);
-						return null;
+						else if (step == 1 && st.getQuestItemsCount(t._item) == 0 && ex <= 2)
+						{
+							if (st.getQuestItemsCount(BLUE_GEM) > 0)
+							{
+								st.takeItems(BLUE_GEM, st.getQuestItemsCount(BLUE_GEM));
+								st.giveItems(t._item, 1);
+								st.set("step", 2);
+								qs.set("Ex", 3);
+								st.startQuestTimer("TimerEx_NewbieHelper", 30000);
+								qs.set("ucMemo", 3);
+								if (isMage)
+								{
+									st.playTutorialVoice("tutorial_voice_027");
+									st.giveItems(SPIRITSHOT_NOVICE, 100);
+									htmltext = t._htm[2];
+									if (htmltext.isEmpty())
+										htmltext = "<html><body>" + npc.getName()
+												+ ":<br>I am sorry. I only help warriors. Please go to another Newbie Helper who may assist you.</body></html>";
+								}
+								else
+								{
+									st.playTutorialVoice("tutorial_voice_026");
+									st.giveItems(SOULSHOT_NOVICE, 200);
+									htmltext = t._htm[1];
+									if (htmltext.isEmpty())
+										htmltext = "<html><body>" + npc.getName()
+												+ ":<br>I am sorry. I only help mystics. Please go to another Newbie Helper who may assist you.</body></html>";
+								}
+							}
+							else if (isMage)
+							{
+								htmltext = "30131-02.htm";
+								if (player.getRace().ordinal() == 3)
+									htmltext = "30575-02.htm";
+							}
+							else
+								htmltext = "30530-02.htm";
+						}
+						else if (step == 2)
+							htmltext = t._htm[3];
+						break;
 				}
 			}
 		}
+		else if (state == State.COMPLETED && t._npcType == 0)
+			htmltext = (npc.getNpcId()) + "-04.htm";
 
-		if (htmltext == null || htmltext.equalsIgnoreCase("") || htmltext.equalsIgnoreCase("0"))
+		if (htmltext == null || htmltext == "")
 			npc.showChatWindow(player);
+
 		return htmltext;
 	}
 
@@ -544,16 +435,17 @@ public final class T1Tutorial extends QuestJython
 		QuestState qs = st.getPlayer().getQuestState(QN_TUTORIAL);
 		if (qs == null)
 			return null;
+
 		final int ex = qs.getInt("Ex");
 
-		if (ex >= 0 && ex <= 1)
+		if (ex <= 1)
 		{
 			st.playTutorialVoice("tutorial_voice_011");
 			st.showQuestionMark(3);
 			qs.set("Ex", 2);
 		}
 
-		if ((ex >= 0 && ex <= 2) && st.getQuestItemsCount(BLUE_GEM) < 1)
+		if (ex <= 2 && st.getQuestItemsCount(BLUE_GEM) < 1)
 		{
 			if (st.getRandom(100) < 50)
 			{
