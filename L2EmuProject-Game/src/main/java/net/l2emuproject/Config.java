@@ -2703,12 +2703,6 @@ public class Config extends L2Config
 	// *******************************************************************************************
 	public static final String	FOUR_SEPULCHERS_FILE	= "./config/main/four_sepulchers.properties";
 	// *******************************************************************************************
-	// Four Sepulchers
-	public static int			ALT_FS_TIME_ATTACK;
-	public static int			ALT_FS_TIME_COOLDOWN;
-	public static int			ALT_FS_TIME_ENTRY;
-	public static int			ALT_FS_TIME_WARMUP;
-	public static int			ALT_FS_PARTY_MEMBER_COUNT;
 
 	// *******************************************************************************************
 	private static final class FourSepulchersConfig extends ConfigPropertiesLoader
@@ -2721,21 +2715,6 @@ public class Config extends L2Config
 		@Override
 		protected void loadImpl(L2Properties foursepulchersSettings)
 		{
-			ALT_FS_TIME_ATTACK = Integer.parseInt(foursepulchersSettings.getProperty("TimeOfAttack", "50"));
-			ALT_FS_TIME_COOLDOWN = Integer.parseInt(foursepulchersSettings.getProperty("TimeOfCoolDown", "5"));
-			ALT_FS_TIME_ENTRY = Integer.parseInt(foursepulchersSettings.getProperty("TimeOfEntry", "3"));
-			ALT_FS_TIME_WARMUP = Integer.parseInt(foursepulchersSettings.getProperty("TimeOfWarmUp", "2"));
-			ALT_FS_PARTY_MEMBER_COUNT = Integer.parseInt(foursepulchersSettings.getProperty("NumberOfNecessaryPartyMembers", "4"));
-			if (ALT_FS_TIME_ATTACK <= 0)
-				ALT_FS_TIME_ATTACK = 50;
-			if (ALT_FS_TIME_COOLDOWN <= 0)
-				ALT_FS_TIME_COOLDOWN = 5;
-			if (ALT_FS_TIME_ENTRY <= 0)
-				ALT_FS_TIME_ENTRY = 3;
-			if (ALT_FS_TIME_ENTRY <= 0)
-				ALT_FS_TIME_ENTRY = 3;
-			if (ALT_FS_TIME_ENTRY <= 0)
-				ALT_FS_TIME_ENTRY = 3;
 		}
 	}
 
