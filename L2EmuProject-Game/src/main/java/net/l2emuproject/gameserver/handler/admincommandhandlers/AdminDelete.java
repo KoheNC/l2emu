@@ -16,8 +16,6 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.manager.GrandBossSpawnManager;
-import net.l2emuproject.gameserver.manager.RaidBossSpawnManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
@@ -63,12 +61,7 @@ public class AdminDelete implements IAdminCommandHandler
 			{
 				spawn.stopRespawn();
 
-				if (RaidBossSpawnManager.getInstance().isDefined(spawn.getNpcId()))
-					RaidBossSpawnManager.getInstance().deleteSpawn(spawn, true);
-				else if (GrandBossSpawnManager.getInstance().isDefined(spawn.getNpcId()))
-					GrandBossSpawnManager.getInstance().deleteSpawn(spawn, true);
-				else
-					SpawnTable.getInstance().deleteSpawn(spawn, true);
+				SpawnTable.getInstance().deleteSpawn(spawn, true);
 			}
 
 			activeChar.sendMessage("Deleted " + target.getName() + " from " + target.getObjectId() + ".");

@@ -16,23 +16,15 @@ package net.l2emuproject.gameserver.manager;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.system.time.GameTimeController;
-import net.l2emuproject.gameserver.world.object.L2Boss;
 import net.l2emuproject.gameserver.world.object.L2Npc;
-import net.l2emuproject.gameserver.world.object.instance.L2GrandBossInstance;
-import net.l2emuproject.gameserver.world.object.instance.L2RaidBossInstance;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
- * This class ...
- * 
- * @version $Revision: $ $Date: $
  * @author godson
  */
-
 public class DayNightSpawnManager
 {
 	private final static Log _log = LogFactory.getLog(DayNightSpawnManager.class);
@@ -49,13 +41,11 @@ public class DayNightSpawnManager
 	
 	private final FastMap<L2Spawn, L2Npc> _dayCreatures;
 	private final FastMap<L2Spawn, L2Npc> _nightCreatures;
-	private final FastMap<L2Spawn, L2Boss> _bosses;
 	
 	private DayNightSpawnManager()
 	{
 		_dayCreatures = new FastMap<L2Spawn, L2Npc>();
 		_nightCreatures = new FastMap<L2Spawn, L2Npc>();
-		_bosses = new FastMap<L2Spawn, L2Boss>();
 
 		_log.info(getClass().getSimpleName() + " : Day/Night handler initialized.");
 	}
@@ -211,85 +201,10 @@ public class DayNightSpawnManager
 	{
 		_nightCreatures.clear();
 		_dayCreatures.clear();
-		_bosses.clear();
 	}
 
 	private void specialNightBoss(int mode)
 	{
-		try
-		{
-			for (L2Spawn spawn : _bosses.keySet())
-			{
-				L2Boss boss = _bosses.get(spawn);
 
-				if (boss == null && mode == 1)
-				{
-					L2Npc npc = spawn.doSpawn();
-					if (npc instanceof L2RaidBossInstance)
-					{
-						boss = (L2Boss) npc;
-						RaidBossSpawnManager.getInstance().notifySpawnNightBoss(boss);
-					}
-					else if (npc instanceof L2GrandBossInstance)
-					{
-						boss = (L2Boss) npc;
-						GrandBossSpawnManager.getInstance().notifySpawnNightBoss(boss);
-					}
-					else
-						continue;
-
-					_bosses.remove(spawn);
-					_bosses.put(spawn, boss);
-					continue;
-				}
-
-				if (boss == null)
-					continue;
-
-				if (boss.getNpcId() == 25328 && boss.getRaidStatus().equals(BossSpawnManager.StatusEnum.ALIVE))
-					handleHellmans(boss, mode);
-
-				if (mode == 0)
-					continue;
-
-				return;
-			}
-		}
-		catch (Exception e)
-		{
-			_log.error(e.getMessage(), e);
-		}
-	}
-
-	private void handleHellmans(L2Boss boss, int mode)
-	{
-		switch (mode)
-		{
-		case 0:
-			boss.deleteMe();
-			if (_log.isDebugEnabled())
-				_log.info("DayNightSpawnManager: Deleting Hellman raidboss");
-			break;
-		case 1:
-			boss.spawnMe();
-			if (_log.isDebugEnabled())
-				_log.info("DayNightSpawnManager: Spawning Hellman raidboss");
-			break;
-		}
-	}
-
-	public L2Boss handleBoss(L2Spawn spawnDat)
-	{
-		if (_bosses.containsKey(spawnDat))
-			return _bosses.get(spawnDat);
-
-		if (GameTimeController.getInstance().isNowNight())
-		{
-			L2Boss raidboss = (L2Boss) spawnDat.doSpawn();
-			_bosses.put(spawnDat, raidboss);
-			return raidboss;
-		}
-		_bosses.put(spawnDat, null);
-		return null;
 	}
 }

@@ -14,77 +14,19 @@
  */
 package net.l2emuproject.gameserver.world.zone;
 
-import net.l2emuproject.gameserver.manager.FourSepulchersManager;
-import net.l2emuproject.gameserver.manager.grandbosses.AntharasManager;
-import net.l2emuproject.gameserver.manager.grandbosses.BaiumManager;
-import net.l2emuproject.gameserver.manager.grandbosses.BaylorManager;
-import net.l2emuproject.gameserver.manager.grandbosses.BelethManager;
-import net.l2emuproject.gameserver.manager.grandbosses.FrintezzaManager;
-import net.l2emuproject.gameserver.manager.grandbosses.SailrenManager;
-import net.l2emuproject.gameserver.manager.grandbosses.ValakasManager;
-import net.l2emuproject.gameserver.manager.grandbosses.VanHalterManager;
-import net.l2emuproject.gameserver.manager.lastimperialtomb.LastImperialTombManager;
 import net.l2emuproject.gameserver.world.object.L2Character;
-import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class L2BossZone extends L2Zone
 {
 	@Override
 	protected void register()
 	{
-		switch (getBoss())
-		{
-			case ANTHARAS:
-				AntharasManager.getInstance().registerZone(this);
-				break;
-			case BAIUM:
-				BaiumManager.getInstance().registerZone(this);
-				break;
-			case BAYLOR:
-				BaylorManager.getInstance().registerZone(this);
-				break;
-			case BELETH:
-				BelethManager.getInstance().registerZone(this);
-				break;
-			case FRINTEZZA:
-				FrintezzaManager.getInstance().registerZone(this);
-				break;
-			case FOURSEPULCHERS:
-				FourSepulchersManager.getInstance().registerZone(this);
-				break;
-			case LASTIMPERIALTOMB:
-				LastImperialTombManager.getInstance().registerZone(this);
-				break;
-			case SAILREN:
-				SailrenManager.getInstance().registerZone(this);
-				break;
-			case VALAKAS:
-				ValakasManager.getInstance().registerZone(this);
-				break;
-			case VANHALTER:
-				VanHalterManager.getInstance().registerZone(this);
-				break;
-		}
+
 	}
 	
 	@Override
 	protected void onEnter(L2Character character)
 	{
-		switch (getBoss())
-		{
-			case SUNLIGHTROOM:
-			{
-				character.setInsideZone(FLAG_SUNLIGHTROOM, true);
-				break;
-			}
-			case FRINTEZZA:
-			{
-				if (character instanceof L2Player)
-					FrintezzaManager.getInstance().setScarletSpawnTask();
-				break;
-			}
-		}
-		
 		character.setInsideZone(FLAG_NOSUMMON, true);
 		
 		super.onEnter(character);

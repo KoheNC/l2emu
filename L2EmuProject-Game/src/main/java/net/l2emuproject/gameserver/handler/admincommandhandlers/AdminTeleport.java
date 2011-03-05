@@ -32,8 +32,6 @@ import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.manager.GrandBossSpawnManager;
-import net.l2emuproject.gameserver.manager.RaidBossSpawnManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.system.L2DatabaseFactory;
@@ -50,7 +48,6 @@ import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 
 /**
  * This class handles following admin commands:
@@ -568,16 +565,6 @@ public class AdminTeleport implements IAdminCommandHandler
 			spawn.respawnNpc(target);
 			spawn.setInstanceId(activeChar.getInstanceId());
 			SpawnTable.getInstance().updateSpawn(spawn);
-		}
-		else if (obj instanceof L2RaidBossInstance)
-		{
-			L2RaidBossInstance target = (L2RaidBossInstance) obj;
-			RaidBossSpawnManager.getInstance().updateSpawn(target.getNpcId(), activeChar.getX(), activeChar.getY(), activeChar.getZ(), activeChar.getHeading());
-		}
-		else if (obj instanceof L2GrandBossInstance)
-		{
-			L2GrandBossInstance target = (L2GrandBossInstance) obj;
-			GrandBossSpawnManager.getInstance().updateSpawn(target.getNpcId(), activeChar.getX(), activeChar.getY(), activeChar.getZ(), activeChar.getHeading());
 		}
 		else
 		{

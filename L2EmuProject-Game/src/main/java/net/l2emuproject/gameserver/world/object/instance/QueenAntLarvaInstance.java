@@ -14,29 +14,12 @@
  */
 package net.l2emuproject.gameserver.world.object.instance;
 
-import net.l2emuproject.gameserver.entity.status.CharStatus;
-import net.l2emuproject.gameserver.entity.status.QueenAntLarvaStatus;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
-/**
- * @author hex1r0
- */
 public class QueenAntLarvaInstance extends L2MonsterInstance
 {
 	public QueenAntLarvaInstance(int objectId, L2NpcTemplate template)
 	{
 		super(objectId, template);
-	}
-	
-	@Override
-	protected CharStatus initStatus()
-	{
-		return new QueenAntLarvaStatus(this);
-	}
-	
-	@Override
-	public QueenAntLarvaStatus getStatus()
-	{
-		return (QueenAntLarvaStatus)_status;
 	}
 }

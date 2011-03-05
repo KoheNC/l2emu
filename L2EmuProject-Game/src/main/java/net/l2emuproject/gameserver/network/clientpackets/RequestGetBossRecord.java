@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.manager.RaidPointsManager;
 import net.l2emuproject.gameserver.network.serverpackets.ExGetBossRecord;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
@@ -37,10 +36,10 @@ public class RequestGetBossRecord extends L2GameClientPacket
 		if (activeChar == null)
 			return;
 
-		int points = RaidPointsManager.getPointsByOwnerId(activeChar.getObjectId());
-		int ranking = RaidPointsManager.calculateRanking(activeChar.getObjectId());
+		int points = 0;
+		int ranking = 0;
 
-		sendPacket(new ExGetBossRecord(ranking, points, RaidPointsManager.getList(activeChar)));
+		sendPacket(new ExGetBossRecord(ranking, points, null));
 
 		// no AF here
 	}

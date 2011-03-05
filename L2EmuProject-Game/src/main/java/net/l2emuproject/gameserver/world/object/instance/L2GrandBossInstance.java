@@ -14,118 +14,13 @@
  */
 package net.l2emuproject.gameserver.world.object.instance;
 
-import net.l2emuproject.gameserver.entity.status.CharStatus;
-import net.l2emuproject.gameserver.entity.status.GrandBossStatus;
-import net.l2emuproject.gameserver.manager.GrandBossSpawnManager;
-import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Boss;
-import net.l2emuproject.gameserver.world.object.L2Character;
 
-/**
- * This class manages all Bosses.
- * 
- * @version $Revision: 1.0.0.0 $ $Date: 2006/06/16 $
- */
 public class L2GrandBossInstance extends L2Boss
 {
-	protected boolean	_isInSocialAction		= false;
-
-	public boolean isInSocialAction()
-	{
-		return _isInSocialAction;
-	}
-
-	public void setIsInSocialAction(boolean value)
-	{
-		_isInSocialAction = value;
-	}
-
-	/**
-	 * Constructor for L2GrandBossInstance. This represent all grandbosses:
-	 * <ul>
-	 * <li>29001    Queen Ant</li>
-	 * <li>29014    Orfen</li>
-	 * <li>29019    Antharas</li>
-	 * <li>29067    Antharas</li>
-	 * <li>29068    Antharas</li>
-	 * <li>29020    Baium</li>
-	 * <li>29022    Zaken</li>
-	 * <li>29028    Valakas</li>
-	 * <li>29006    Core</li>
-	 * <li>29045    Frintezza</li>
-	 * <li>29046    Scarlet Van Halisha 1st Morph</li>
-	 * <li>29047    Scarlet Van Halisha 3rd Morph</li>
-	 * </ul>
-	 * <br>
-	 * <b>For now it's (mostly) nothing more than a L2Monster but there'll be a scripting<br>
-	 * engine for AI soon and we could add special behaviour for those boss</b><br>
-	 * <br>
-	 * @param objectId ID of the instance
-	 * @param template L2NpcTemplate of the instance
-	 */
 	public L2GrandBossInstance(int objectId, L2NpcTemplate template)
 	{
 		super(objectId, template);
-	}
-
-	@Override
-	public boolean doDie(L2Character killer)
-	{
-		if (!super.doDie(killer))
-			return false;
-
-		GrandBossSpawnManager.getInstance().updateStatus(this, true);
-		return true;
-	}
-	
-	@Override
-	protected CharStatus initStatus()
-	{
-		return new GrandBossStatus(this);
-	}
-	
-	@Override
-	public GrandBossStatus getStatus()
-	{
-		return (GrandBossStatus) _status;
-	}
-	
-	@Override
-	public void doAttack(L2Character target)
-	{
-		if (_isInSocialAction)
-			return;
-		super.doAttack(target);
-	}
-
-	@Override
-	public void doCast(L2Skill skill)
-	{
-		if (_isInSocialAction)
-			return;
-		super.doCast(skill);
-	}
-
-	@Override
-	public void onSpawn()
-	{
-		setIsRaid(true);
-		setIsNoRndWalk(true);
-		//if (getNpcId() == 29020 || getNpcId() == 29028) // baium and valakas are all the time in passive mode, theirs attack AI handled in AI scripts
-			//super.disableCoreAI(true);
-		super.onSpawn();
-	}
-
-	@Override
-	public float getVitalityPoints(int damage)
-	{
-		return - super.getVitalityPoints(damage) / 100;
-	}
-
-	@Override
-	public boolean useVitalityRate()
-	{
-		return false;
 	}
 }

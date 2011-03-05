@@ -14,27 +14,12 @@
  */
 package net.l2emuproject.gameserver.world.object.instance;
 
-import net.l2emuproject.gameserver.manager.grandbosses.QueenAntManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
-import net.l2emuproject.gameserver.world.object.L2Character;
 
-/**
- * @author hex1r0
- */
 public class QueenAntInstance extends L2GrandBossInstance
 {
 	public QueenAntInstance(int objectId, L2NpcTemplate template)
 	{
 		super(objectId, template);
-	}
-	
-	@Override
-	public boolean doDie(L2Character killer)
-	{
-		if (!super.doDie(killer))
-			return false;
-		
-		QueenAntManager.getInstance().queenAntDied();
-		return true;
 	}
 }

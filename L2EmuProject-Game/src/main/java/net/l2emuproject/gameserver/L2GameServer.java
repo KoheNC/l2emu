@@ -95,24 +95,10 @@ import net.l2emuproject.gameserver.manager.AutoSpawnManager;
 import net.l2emuproject.gameserver.manager.BoatManager;
 import net.l2emuproject.gameserver.manager.CrownManager;
 import net.l2emuproject.gameserver.manager.DayNightSpawnManager;
-import net.l2emuproject.gameserver.manager.FourSepulchersManager;
-import net.l2emuproject.gameserver.manager.GrandBossSpawnManager;
 import net.l2emuproject.gameserver.manager.MercTicketManager;
-import net.l2emuproject.gameserver.manager.RaidBossSpawnManager;
-import net.l2emuproject.gameserver.manager.RaidPointsManager;
 import net.l2emuproject.gameserver.manager.gracia.SeedOfDestructionManager;
-import net.l2emuproject.gameserver.manager.grandbosses.AntharasManager;
-import net.l2emuproject.gameserver.manager.grandbosses.BaiumManager;
-import net.l2emuproject.gameserver.manager.grandbosses.BaylorManager;
-import net.l2emuproject.gameserver.manager.grandbosses.BelethManager;
-import net.l2emuproject.gameserver.manager.grandbosses.FrintezzaManager;
-import net.l2emuproject.gameserver.manager.grandbosses.QueenAntManager;
-import net.l2emuproject.gameserver.manager.grandbosses.SailrenManager;
-import net.l2emuproject.gameserver.manager.grandbosses.ValakasManager;
-import net.l2emuproject.gameserver.manager.grandbosses.VanHalterManager;
 import net.l2emuproject.gameserver.manager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.manager.instances.InstanceManager;
-import net.l2emuproject.gameserver.manager.lastimperialtomb.LastImperialTombManager;
 import net.l2emuproject.gameserver.network.L2GameSelectorThread;
 import net.l2emuproject.gameserver.services.SystemService;
 import net.l2emuproject.gameserver.services.VersionService;
@@ -344,14 +330,10 @@ public class L2GameServer extends Config
 		PartyRoomManager.getInstance();
 		
 		Util.printSection("Spawns");
-		QueenAntManager.getInstance();
 		SpawnTable.getInstance();
 		for (Fort fort : FortManager.getInstance().getForts())
 			fort.getSpawnManager().initNpcs();
 		DayNightSpawnManager.getInstance().notifyChangeMode();
-		RaidBossSpawnManager.getInstance();
-		GrandBossSpawnManager.getInstance();
-		RaidPointsManager.init();
 		AutoChatManager.getInstance();
 		AutoSpawnManager.getInstance();
 		
@@ -420,18 +402,6 @@ public class L2GameServer extends Config
 		
 		Util.printSection("Dungeons");
 		DimensionalRiftManager.getInstance();
-		FourSepulchersManager.getInstance().init();
-		
-		Util.printSection("Bosses");
-		AntharasManager.getInstance().init();
-		BaiumManager.getInstance().init();
-		BaylorManager.getInstance().init();
-		BelethManager.getInstance().init();
-		SailrenManager.getInstance().init();
-		ValakasManager.getInstance().init();
-		VanHalterManager.getInstance().init();
-		LastImperialTombManager.getInstance().init();
-		FrintezzaManager.getInstance().init();
 		
 		Util.printSection("Handlers");
 		ItemHandler.getInstance();

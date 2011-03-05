@@ -25,7 +25,6 @@ import net.l2emuproject.gameserver.entity.clan.L2ClanMember;
 import net.l2emuproject.gameserver.entity.party.L2Party;
 import net.l2emuproject.gameserver.events.global.siege.Siege;
 import net.l2emuproject.gameserver.events.global.siege.SiegeManager;
-import net.l2emuproject.gameserver.manager.FourSepulchersManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.FlyToLocation.FlyType;
@@ -3535,7 +3534,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 				}
 			}
 		}
-		else if (activeChar.isInsideZone(L2Zone.FLAG_STADIUM) || activeChar.isInsideZone(L2Zone.FLAG_PVP) || FourSepulchersManager.getInstance().checkIfInZone(activeChar))
+		else if (activeChar.isInsideZone(L2Zone.FLAG_STADIUM) || activeChar.isInsideZone(L2Zone.FLAG_PVP))
 		{
 			for (final L2Object obj : activeChar.getKnownList().getKnownObjects().values())
 			{

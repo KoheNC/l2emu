@@ -32,7 +32,6 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
 import net.l2emuproject.gameserver.datatables.ItemTable;
-import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlEvent;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
@@ -119,6 +118,7 @@ import net.l2emuproject.gameserver.world.object.instance.L2BoatInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2MinionInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2NpcWalkerInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2RaidBossInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2RiftInvaderInstance;
 import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
@@ -130,7 +130,6 @@ import net.l2emuproject.util.SingletonSet;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 
 /**
  * Mother class of all character objects of the world (PC, NPC...)<BR>
@@ -219,7 +218,6 @@ public abstract class L2Character extends L2Object
 	/** Current force buff this caster is casting to a target */
 	protected FusionSkill			_fusionSkill;
 
-	private boolean					_isRaid								= false;
 	private boolean					_isFlying;
 
 	/**
@@ -2246,16 +2244,7 @@ public abstract class L2Character extends L2Object
 	/** Return True if the L2Character is RaidBoss or his minion. */
 	public boolean isRaid()
 	{
-		return _isRaid;
-	}
-
-	/**
-	 * Set this Npc as a Raid instance.<BR><BR>
-	 * @param isRaid
-	 */
-	public void setIsRaid(boolean isRaid)
-	{
-		_isRaid = isRaid;
+		return this instanceof L2RaidBossInstance;
 	}
 
 	/** Return a list of L2Character that attacked. */
@@ -5191,7 +5180,7 @@ public abstract class L2Character extends L2Object
 			// Check Raidboss attack
 			// Character will be petrified if attacking a raid that's more
 			// than 8 levels lower
-			if (target.isRaid() && !Config.ALT_DISABLE_RAIDBOSS_PETRIFICATION
+			/*if (target.isRaid() && !Config.ALT_DISABLE_RAIDBOSS_PETRIFICATION
 					&& getSkillLevel(L2Boss.BOSS_PENALTY_RESISTANCE) == -1)
 			{
 				int level = 0;
@@ -5211,7 +5200,7 @@ public abstract class L2Character extends L2Object
 
 					damage = 0; // prevents messing up drop calculation
 				}
-			}
+			}*/
 
 			// If L2Character target is a L2Player, send a system message
 			if (target instanceof L2Player)
@@ -6357,15 +6346,15 @@ public abstract class L2Character extends L2Object
 
 				// Check Raidboss attack and
 				// check buffing chars who attack raidboss. Results in mute.
-				L2Character targetsAttackTarget = null;
+				/*L2Character targetsAttackTarget = null;
 				L2Character targetsCastTarget = null;
 				if (target.hasAI())
 				{
 					targetsAttackTarget = target.getAI().getAttackTarget();
 					targetsCastTarget = target.getAI().getCastTarget();
-				}
+				}*/
 
-				if (!Config.ALT_DISABLE_RAIDBOSS_PETRIFICATION
+				/*if (!Config.ALT_DISABLE_RAIDBOSS_PETRIFICATION
 				&& getSkillLevel(L2Boss.BOSS_PENALTY_RESISTANCE) == -1
 				&& ((target.isRaid() && getLevel() > target.getLevel() + 8) || (!skill.isOffensive() && targetsAttackTarget != null && targetsAttackTarget.isRaid()
 				&& targetsAttackTarget.getAttackByList().contains(target) // has attacked raid
@@ -6390,7 +6379,7 @@ public abstract class L2Character extends L2Object
 							_log.warn("Skill " + L2Boss.BOSS_PENALTY_PETRIFICATION + " at level 1 is missing in DP.");
 					}
 					return;
-				}
+				}*/
 
 				// Check if over-hit is possible
 				if (skill.isOverhit())
@@ -6603,8 +6592,6 @@ public abstract class L2Character extends L2Object
 	}
 	
 	private boolean		_AIdisabled	= false;
-
-	private boolean		_isMinion = false;
 
 	/**
 	 * Return a Random Damage in function of the weapon.<BR>
@@ -6930,26 +6917,6 @@ public abstract class L2Character extends L2Object
 		{
 			doSimultaneousCast(_skill);
 		}
-	}
-
-	public boolean isRaidMinion()
-	{
-		return _isMinion;
-	}
-
-	public boolean isRaidBoss()
-	{
-		return _isRaid && !_isMinion;
-	}
-
-	/**
-	 * Set this Npc as a Minion instance.<BR><BR>
-	 * @param val
-	 */
-	public void setIsRaidMinion(boolean val)
-	{
-		_isRaid = val;
-		_isMinion = val;
 	}
 
 	private volatile byte _packetBroadcastMask;

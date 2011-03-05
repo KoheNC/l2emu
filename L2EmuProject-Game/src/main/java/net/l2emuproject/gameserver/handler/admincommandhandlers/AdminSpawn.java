@@ -26,8 +26,6 @@ import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.manager.AutoChatManager;
 import net.l2emuproject.gameserver.manager.AutoSpawnManager;
 import net.l2emuproject.gameserver.manager.DayNightSpawnManager;
-import net.l2emuproject.gameserver.manager.GrandBossSpawnManager;
-import net.l2emuproject.gameserver.manager.RaidBossSpawnManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.services.quest.QuestService;
@@ -41,7 +39,6 @@ import net.l2emuproject.tools.random.Rnd;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 
 public class AdminSpawn implements IAdminCommandHandler
 {
@@ -258,7 +255,7 @@ public class AdminSpawn implements IAdminCommandHandler
 			L2Npc target = null;
 
 			if (activeChar.getTarget() instanceof L2Npc)
-				target = (L2Npc)activeChar.getTarget();
+				target = (L2Npc) activeChar.getTarget();
 
 			if (st.hasMoreTokens() && target != null)
 			{
@@ -336,7 +333,6 @@ public class AdminSpawn implements IAdminCommandHandler
 				player.sendPacket(SystemMessageId.NPC_SERVER_NOT_OPERATING);
 			}
 
-			RaidBossSpawnManager.getInstance().cleanUp();
 			DayNightSpawnManager.getInstance().cleanUp();
 			L2World.getInstance().deleteVisibleNpcSpawns();
 			activeChar.sendMessage("All NPCs unspawned.");
@@ -354,14 +350,12 @@ public class AdminSpawn implements IAdminCommandHandler
 		else if (cmd.equals("admin_respawnall"))
 		{
 			activeChar.sendMessage("NPCs respawn sequence initiated.");
-			RaidBossSpawnManager.getInstance().cleanUp();
 			DayNightSpawnManager.getInstance().cleanUp();
 			L2World.getInstance().deleteVisibleNpcSpawns();
 			NpcTable.getInstance().cleanUp();
 
 			NpcTable.getInstance().reloadAll(false); // quest reloading will be done 6 lines under
 			SpawnTable.getInstance().reloadAll();
-			RaidBossSpawnManager.getInstance().reloadBosses();
 			AutoSpawnManager.getInstance().reload();
 			AutoChatManager.getInstance().reload();
 			SevenSigns.getInstance().spawnSevenSignsNPC();
@@ -442,47 +436,21 @@ public class AdminSpawn implements IAdminCommandHandler
 				spawn.setRespawnDelay(Config.STANDARD_RESPAWN_DELAY);
 				spawn.setInstanceId(activeChar.getInstanceId());
 
-				if (RaidBossSpawnManager.getInstance().isDefined(spawn.getNpcId()) && respawn && !Config.ALT_DEV_NO_SPAWNS && spawn.getInstanceId() == 0)
+				if (saveInDb && !Config.ALT_DEV_NO_SPAWNS && spawn.getInstanceId() == 0)
 				{
-					activeChar.sendMessage("You cannot spawn another instance of " + template.getName() + ".");
-				}
-				else if (GrandBossSpawnManager.getInstance().isDefined(spawn.getNpcId()) && respawn && !Config.ALT_DEV_NO_SPAWNS && spawn.getInstanceId() == 0)
-				{
-					activeChar.sendMessage("You cannot spawn another instance of " + template.getName() + ".");
+					SpawnTable.getInstance().addNewSpawn(spawn, respawn);
 				}
 				else
 				{
-					if (saveInDb && !Config.ALT_DEV_NO_SPAWNS && spawn.getInstanceId() == 0)
-					{
-						if (RaidBossSpawnManager.getInstance().getValidTemplate(spawn.getNpcId()) != null)
-						{
-							spawn.setRespawnMinDelay(43200);
-							spawn.setRespawnMaxDelay(129600);
-							RaidBossSpawnManager.getInstance().addNewSpawn(spawn, 0, template.getBaseHpMax(), template.getBaseMpMax(), true);
-						}
-						else if (GrandBossSpawnManager.getInstance().getValidTemplate(spawn.getNpcId()) != null)
-						{
-							spawn.setRespawnMinDelay(43200);
-							spawn.setRespawnMaxDelay(129600);
-							GrandBossSpawnManager.getInstance().addNewSpawn(spawn, 0, template.getBaseHpMax(), template.getBaseMpMax(), true);
-						}
-						else
-						{
-							SpawnTable.getInstance().addNewSpawn(spawn, respawn);
-						}
-					}
-					else
-					{
-						spawn.spawnOne(false);
-					}
-
-					spawn.init();
-					
-					if (!respawn)
-						spawn.stopRespawn();
-
-					activeChar.sendMessage("Created " + template.getName() + " on " + target.getX() + " " + target.getY() + " " + target.getZ() + ".");
+					spawn.spawnOne(false);
 				}
+
+				spawn.init();
+
+				if (!respawn)
+					spawn.stopRespawn();
+
+				activeChar.sendMessage("Created " + template.getName() + " on " + target.getX() + " " + target.getY() + " " + target.getZ() + ".");
 			}
 		}
 		catch (Exception e)
@@ -560,8 +528,7 @@ public class AdminSpawn implements IAdminCommandHandler
 
 		replyMSG.append("<table width=260><tr>");
 		if (page == 0)
-			replyMSG
-					.append("<td width=40><button value=\"Back\" action=\"bypass -h admin_spawn_menu\" width=40 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>");
+			replyMSG.append("<td width=40><button value=\"Back\" action=\"bypass -h admin_spawn_menu\" width=40 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>");
 		else
 			replyMSG.append("<td width=40><button value=\"Back\" action=\"bypass -h admin_spawnsearch_menu " + mode + " " + string + " " + (page - 1)
 					+ "\" width=40 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>");
@@ -596,7 +563,7 @@ public class AdminSpawn implements IAdminCommandHandler
 
 	/**
 	 * List all spawns of NPC.
-     * @param activeChar
+	 * @param activeChar
 	 * @param npc name
 	 */
 	private void showSpawns(L2Player activeChar, String npcName)
@@ -675,8 +642,7 @@ public class AdminSpawn implements IAdminCommandHandler
 
 			replyMSG.append("<table width=260><tr>");
 			if (page == 0)
-				replyMSG
-						.append("<td width=40><button value=\"Back\" action=\"bypass -h admin_spawn_menu\" width=40 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>");
+				replyMSG.append("<td width=40><button value=\"Back\" action=\"bypass -h admin_spawn_menu\" width=40 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>");
 			else
 				replyMSG.append("<td width=40><button value=\"Back\" action=\"bypass -h admin_spawnlist_menu " + npcId + " " + (page - 1)
 						+ "\" width=40 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>");

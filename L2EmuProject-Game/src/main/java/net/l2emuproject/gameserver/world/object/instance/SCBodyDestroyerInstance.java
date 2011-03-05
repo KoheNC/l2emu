@@ -14,23 +14,12 @@
  */
 package net.l2emuproject.gameserver.world.object.instance;
 
-import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
-import net.l2emuproject.gameserver.entity.ai.SCBodyDestroyerAI;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 
-/**
- * @author hex1r0
- */
 public class SCBodyDestroyerInstance extends L2MonsterInstance
 {
 	public SCBodyDestroyerInstance(int objectId, L2NpcTemplate template)
 	{
 		super(objectId, template);
-	}
-	
-	@Override
-	protected L2CharacterAI initAI()
-	{
-		return new SCBodyDestroyerAI(new AIAccessor());
 	}
 }

@@ -75,8 +75,6 @@ public final class Statistics extends GameStatusCommand
 			else if (obj instanceof L2MonsterInstance)
 			{
 				monsterCount++;
-				minionCount += ((L2MonsterInstance)obj).getTotalSpawnedMinionsInstances();
-				minionsGroupCount += ((L2MonsterInstance)obj).getTotalSpawnedMinionsGroups();
 			}
 			else if (obj instanceof L2Npc)
 				npcCount++;

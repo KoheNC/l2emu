@@ -14,16 +14,10 @@
  */
 package ai.zone.hellbound.Slaves;
 
-import java.util.Set;
-
-import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.manager.hellbound.HellboundManager;
-import net.l2emuproject.gameserver.system.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2MinionInstance;
-import net.l2emuproject.gameserver.world.object.instance.L2MonsterInstance;
-import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 import ai.L2AttackableAIScript;
 
 /**
@@ -38,7 +32,7 @@ public final class Slaves extends L2AttackableAIScript
 
 	private static final int			TRUST	= -10;
 
-	private static final L2CharPosition	MOVE_TO	= new L2CharPosition(-25451, 252291, -3252, 3500);
+//	private static final L2CharPosition	MOVE_TO	= new L2CharPosition(-25451, 252291, -3252, 3500);
 
 	public Slaves(int questId, String name, String descr)
 	{
@@ -67,7 +61,7 @@ public final class Slaves extends L2AttackableAIScript
 			// Slaves does not have spawns and trust can't be handled by manager
 			HellboundManager.getInstance().addTrustPoints(TRUST);
 		}
-		else
+		/*else
 		{
 			Set<L2MinionInstance> slaves = ((L2MonsterInstance) npc).getSpawnedMinions();
 			if (slaves != null && !slaves.isEmpty())
@@ -84,7 +78,7 @@ public final class Slaves extends L2AttackableAIScript
 					DecayTaskManager.getInstance().addDecayTask(slave);
 				}
 			}
-		}
+		}*/
 
 		return super.onKill(npc, killer, isPet);
 	}

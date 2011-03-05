@@ -213,7 +213,6 @@ public final class TaskManager extends HandlerRegistry<String, TaskHandler>
 	{
 		registerTaskHandler(new TaskCron());
 		registerTaskHandler(new TaskOlympiadSave());
-		registerTaskHandler(new TaskRaidPointsReset());
 		registerTaskHandler(new TaskRestart());
 		registerTaskHandler(new TaskSevenSignsUpdate());
 		

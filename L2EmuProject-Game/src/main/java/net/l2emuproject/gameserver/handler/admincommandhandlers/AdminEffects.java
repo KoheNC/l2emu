@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.manager.grandbosses.FrintezzaManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Earthquake;
 import net.l2emuproject.gameserver.network.serverpackets.ExRedSky;
@@ -36,8 +35,6 @@ import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2ChestInstance;
-
-
 
 /**
  * This class handles following admin commands:
@@ -246,8 +243,6 @@ public class AdminEffects implements IAdminCommandHandler
 		}
 		else if (command.equals("admin_frintezza"))
 		{
-			FrintezzaManager.getInstance().setScarletSpawnTask();
-			activeChar.sendMessage("Frintezza was Initialized.");
 		}
 		else if (command.equals("admin_unpara") || command.equals("admin_unpara_menu"))
 		{
