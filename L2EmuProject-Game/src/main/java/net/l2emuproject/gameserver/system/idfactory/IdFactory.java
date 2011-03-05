@@ -88,7 +88,6 @@ public abstract class IdFactory
 			"UPDATE couples                  SET player1Id = ?      WHERE player1Id = ?",
 			"UPDATE couples                  SET player2Id = ?      WHERE player2Id = ?",
 			"UPDATE cursed_weapons           SET playerId = ?       WHERE playerId = ?",
-			"UPDATE forums                   SET forum_owner_id = ? WHERE forum_owner_id = ?",
 			"UPDATE heroes                   SET charId = ?         WHERE charId = ?" };
 
 	protected static final String[]	ID_CHECKS			=
@@ -213,7 +212,6 @@ public abstract class IdFactory
 			cleanCount += stmt.executeUpdate("DELETE FROM clan_skills WHERE clan_skills.clan_id NOT IN (SELECT clan_id FROM clan_data);");
 			cleanCount += stmt.executeUpdate("DELETE FROM clan_subpledges WHERE clan_subpledges.clan_id NOT IN (SELECT clan_id FROM clan_data);");
 			cleanCount += stmt.executeUpdate("DELETE FROM clan_wars WHERE clan_wars.clan1 NOT IN (SELECT clan_id FROM clan_data) OR clan_wars.clan2 NOT IN (SELECT clan_id FROM clan_data);");
-			cleanCount += stmt.executeUpdate("DELETE FROM forums WHERE forum_owner_id <> 0 AND forums.forum_owner_id NOT IN (SELECT clan_id FROM clan_data);");
 			cleanCount += stmt.executeUpdate("DELETE FROM items WHERE loc = 'clanwh' AND items.owner_id NOT IN (SELECT clan_id FROM clan_data);");
 			cleanCount += stmt.executeUpdate("DELETE FROM siege_clans WHERE siege_clans.clan_id NOT IN (SELECT clan_id FROM clan_data);");
 			
