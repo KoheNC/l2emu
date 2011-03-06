@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
-import net.l2emuproject.gameserver.entity.clan.L2ClanMember;
 import net.l2emuproject.gameserver.network.serverpackets.PledgeReceivePowerInfo;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
+import net.l2emuproject.gameserver.services.clan.L2ClanMember;
 
 /**
  * This class ...

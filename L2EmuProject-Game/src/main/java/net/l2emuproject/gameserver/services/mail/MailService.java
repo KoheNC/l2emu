@@ -24,7 +24,7 @@ import java.util.Map;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExNoticePostArrived;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.L2World;

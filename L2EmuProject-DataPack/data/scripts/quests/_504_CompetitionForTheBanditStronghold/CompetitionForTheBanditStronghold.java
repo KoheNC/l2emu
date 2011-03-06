@@ -16,7 +16,7 @@ package quests._504_CompetitionForTheBanditStronghold;
 
 import org.apache.commons.lang.ArrayUtils;
 
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.services.quest.jython.QuestJython;

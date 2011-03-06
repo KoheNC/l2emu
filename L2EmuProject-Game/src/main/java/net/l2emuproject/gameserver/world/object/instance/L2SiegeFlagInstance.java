@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.entity.status.CharStatus;
 import net.l2emuproject.gameserver.entity.status.SiegeFlagStatus;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.CCHManager;
@@ -30,6 +29,7 @@ import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManage
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.StatusUpdate;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;

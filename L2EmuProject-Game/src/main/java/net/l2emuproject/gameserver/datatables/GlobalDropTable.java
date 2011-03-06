@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

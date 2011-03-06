@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.system.taskmanager;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.sql.SQLQueryQueue;
 

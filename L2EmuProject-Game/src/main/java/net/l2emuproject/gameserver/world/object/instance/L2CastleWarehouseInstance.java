@@ -15,7 +15,6 @@
 package net.l2emuproject.gameserver.world.object.instance;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -23,6 +22,7 @@ import net.l2emuproject.gameserver.network.serverpackets.SortedWareHouseWithdraw
 import net.l2emuproject.gameserver.network.serverpackets.SortedWareHouseWithdrawalList.WarehouseListType;
 import net.l2emuproject.gameserver.network.serverpackets.WareHouseDepositList;
 import net.l2emuproject.gameserver.network.serverpackets.WareHouseWithdrawalList;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.system.cache.HtmCache;
 import net.l2emuproject.gameserver.system.util.IllegalPlayerAction;
 import net.l2emuproject.gameserver.system.util.Util;

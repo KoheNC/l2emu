@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.events.global.siege;
 
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 
 /**
  * @author NB4L1

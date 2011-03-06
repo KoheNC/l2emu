@@ -20,7 +20,7 @@ import java.sql.ResultSet;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.mapregion.L2TeleportLocation;
 
 import org.apache.commons.logging.Log;

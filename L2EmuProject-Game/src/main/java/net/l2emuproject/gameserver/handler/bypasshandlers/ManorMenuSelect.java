@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.handler.bypasshandlers;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.events.global.siege.Castle;
 import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.handler.IBypassHandler;
@@ -31,6 +30,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExShowSeedInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowSeedSetting;
 import net.l2emuproject.gameserver.network.serverpackets.ExShowSellCropList;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;

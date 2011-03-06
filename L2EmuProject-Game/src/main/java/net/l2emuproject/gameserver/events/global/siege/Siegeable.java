@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.events.global.siege;
 
 import net.l2emuproject.gameserver.datatables.ResidentialSkillTable;
 import net.l2emuproject.gameserver.entity.Entity;
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager;
 import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager.Territory;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;

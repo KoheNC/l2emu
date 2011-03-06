@@ -19,8 +19,8 @@ import java.util.TimerTask;
 
 import javolution.util.FastList;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.entity.party.L2Party;
 import net.l2emuproject.gameserver.events.global.dimensionalrift.DimensionalRiftManager.DimensionalRiftRoom;
+import net.l2emuproject.gameserver.services.party.L2Party;
 import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.services.quest.QuestService;
 import net.l2emuproject.gameserver.services.quest.QuestState;

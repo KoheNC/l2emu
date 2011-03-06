@@ -16,12 +16,12 @@ package quests._501_ProofOfClanAlliance;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
-import net.l2emuproject.gameserver.entity.clan.L2ClanMember;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
+import net.l2emuproject.gameserver.services.clan.L2ClanMember;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.services.quest.jython.QuestJython;

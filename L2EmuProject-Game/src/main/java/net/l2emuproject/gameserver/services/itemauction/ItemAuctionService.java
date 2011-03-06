@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

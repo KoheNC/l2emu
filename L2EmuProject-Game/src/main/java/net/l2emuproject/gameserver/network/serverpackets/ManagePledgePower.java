@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 
 
 public class ManagePledgePower extends L2GameServerPacket

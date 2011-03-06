@@ -23,7 +23,7 @@ import java.util.List;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExGetBookMarkInfoPacket;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.util.SingletonList;

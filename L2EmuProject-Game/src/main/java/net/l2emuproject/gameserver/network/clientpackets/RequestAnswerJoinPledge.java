@@ -14,7 +14,6 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.JoinPledge;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
@@ -22,6 +21,7 @@ import net.l2emuproject.gameserver.network.serverpackets.PledgeShowInfoUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.PledgeShowMemberListAdd;
 import net.l2emuproject.gameserver.network.serverpackets.PledgeShowMemberListAll;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**

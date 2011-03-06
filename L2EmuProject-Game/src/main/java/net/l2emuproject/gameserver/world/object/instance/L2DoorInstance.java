@@ -21,7 +21,6 @@ import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
 import net.l2emuproject.gameserver.entity.ai.L2DoorAI;
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.entity.stat.CharStat;
 import net.l2emuproject.gameserver.entity.stat.DoorStat;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
@@ -38,6 +37,7 @@ import net.l2emuproject.gameserver.network.clientpackets.ConfirmDlgAnswer.Answer
 import net.l2emuproject.gameserver.network.serverpackets.ConfirmDlg;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.StaticObject;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.templates.chars.L2CharTemplate;

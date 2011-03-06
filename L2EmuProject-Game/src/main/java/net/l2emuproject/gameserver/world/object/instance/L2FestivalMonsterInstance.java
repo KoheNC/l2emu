@@ -15,10 +15,10 @@
 package net.l2emuproject.gameserver.world.object.instance;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.entity.party.L2Party;
 import net.l2emuproject.gameserver.events.global.sevensigns.SevenSignsFestival;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
+import net.l2emuproject.gameserver.services.party.L2Party;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;

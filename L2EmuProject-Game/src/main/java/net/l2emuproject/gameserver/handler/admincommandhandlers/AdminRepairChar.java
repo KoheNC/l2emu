@@ -19,7 +19,7 @@ import java.sql.PreparedStatement;
 
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 import org.apache.commons.logging.Log;

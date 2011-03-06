@@ -15,9 +15,9 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
-import net.l2emuproject.gameserver.entity.clan.L2Clan.RankPrivs;
 import net.l2emuproject.gameserver.network.serverpackets.PledgePowerGradeList;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
+import net.l2emuproject.gameserver.services.clan.L2Clan.RankPrivs;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestPledgePowerGradeList extends L2GameClientPacket

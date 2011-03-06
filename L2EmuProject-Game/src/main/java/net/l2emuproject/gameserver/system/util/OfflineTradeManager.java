@@ -23,7 +23,7 @@ import net.l2emuproject.gameserver.services.crafting.L2ManufactureItem;
 import net.l2emuproject.gameserver.services.crafting.L2ManufactureList;
 import net.l2emuproject.gameserver.services.transactions.TradeList;
 import net.l2emuproject.gameserver.services.transactions.TradeList.TradeItem;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

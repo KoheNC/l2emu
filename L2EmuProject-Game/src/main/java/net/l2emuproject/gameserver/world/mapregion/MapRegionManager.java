@@ -25,8 +25,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
-import net.l2emuproject.gameserver.entity.party.L2Party;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHallManager;
 import net.l2emuproject.gameserver.events.global.dimensionalrift.DimensionalRiftManager;
@@ -40,6 +38,8 @@ import net.l2emuproject.gameserver.events.global.siege.Siege;
 import net.l2emuproject.gameserver.events.global.siege.SiegeManager;
 import net.l2emuproject.gameserver.manager.instances.Instance;
 import net.l2emuproject.gameserver.manager.instances.InstanceManager;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
+import net.l2emuproject.gameserver.services.party.L2Party;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.L2WorldRegion;

@@ -40,7 +40,7 @@ import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.recommendation.RecommendationService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
 import net.l2emuproject.gameserver.skills.skilllearn.L2SkillLearn;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.system.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.templates.chars.L2PcTemplate;

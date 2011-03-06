@@ -23,7 +23,6 @@ import java.util.Set;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.events.global.siege.AbstractSiege;
 import net.l2emuproject.gameserver.events.global.siege.L2SiegeClan;
 import net.l2emuproject.gameserver.events.global.siege.Siege;
@@ -33,7 +32,8 @@ import net.l2emuproject.gameserver.events.global.siege.Siege.TeleportWhoType;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SiegeInfo;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.threadmanager.ExclusiveTask;
 import net.l2emuproject.gameserver.system.util.Broadcast;
 import net.l2emuproject.gameserver.world.L2World;

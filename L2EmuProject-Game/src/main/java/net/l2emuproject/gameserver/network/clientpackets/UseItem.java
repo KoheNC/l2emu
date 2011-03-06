@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ShotTable;
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.entity.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.events.global.fortsiege.FortSiegeManager;
@@ -27,6 +26,7 @@ import net.l2emuproject.gameserver.network.serverpackets.InventoryUpdate;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
 import net.l2emuproject.gameserver.network.serverpackets.ShowCalculator;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.system.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
 import net.l2emuproject.gameserver.templates.item.L2Armor;

@@ -44,7 +44,7 @@ import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.system.taskmanager.SQLQueue;
 import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;

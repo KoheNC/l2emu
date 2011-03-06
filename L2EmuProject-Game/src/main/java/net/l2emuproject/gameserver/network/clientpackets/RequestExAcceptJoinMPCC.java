@@ -14,10 +14,10 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.entity.party.L2CommandChannel;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.services.party.L2CommandChannel;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**

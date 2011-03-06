@@ -21,7 +21,7 @@ import java.sql.ResultSet;
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -24,7 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ExBasicActionList;
 import net.l2emuproject.gameserver.services.transformation.L2Transformation;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.SingletonList;

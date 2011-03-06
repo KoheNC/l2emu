@@ -47,7 +47,7 @@ import net.l2emuproject.gameserver.network.serverpackets.StopMove;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.network.serverpackets.ValidateLocation;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.system.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;

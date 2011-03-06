@@ -27,7 +27,7 @@ import java.util.Map.Entry;
 import java.util.concurrent.ScheduledFuture;
 
 import javolution.util.FastMap;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;

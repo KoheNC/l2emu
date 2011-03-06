@@ -22,7 +22,7 @@ import java.util.Map;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.datatables.UITable;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.SingletonMap;
 

@@ -22,7 +22,7 @@ import java.sql.Statement;
 import javolution.util.FastList;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Object;

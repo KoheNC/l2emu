@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.entity.party.L2PartyRoom;
+import net.l2emuproject.gameserver.services.party.L2PartyRoom;
 import net.l2emuproject.gameserver.world.mapregion.MapRegionManager;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

@@ -23,9 +23,9 @@ import java.util.Map;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.services.auction.AuctionService;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Object;
 
 import org.apache.commons.logging.Log;

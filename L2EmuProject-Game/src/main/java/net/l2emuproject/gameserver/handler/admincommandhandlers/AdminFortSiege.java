@@ -17,12 +17,12 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 import java.util.StringTokenizer;
 
 import javolution.text.TextBuilder;
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.events.global.fortsiege.Fort;
 import net.l2emuproject.gameserver.events.global.fortsiege.FortManager;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
 

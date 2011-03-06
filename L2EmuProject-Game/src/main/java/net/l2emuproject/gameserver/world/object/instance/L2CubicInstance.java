@@ -19,11 +19,11 @@ import java.util.concurrent.Future;
 
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.entity.party.L2Party;
 import net.l2emuproject.gameserver.events.global.olympiad.Olympiad;
 import net.l2emuproject.gameserver.handler.SkillHandler;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillUse;
 import net.l2emuproject.gameserver.services.duel.DuelService;
+import net.l2emuproject.gameserver.services.party.L2Party;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.system.taskmanager.AttackStanceTaskManager;

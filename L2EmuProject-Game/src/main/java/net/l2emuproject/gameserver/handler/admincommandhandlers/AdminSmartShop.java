@@ -40,7 +40,7 @@ import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.skilllearn.L2SkillLearn;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.item.L2Armor;
 import net.l2emuproject.gameserver.templates.item.L2Equip;
 import net.l2emuproject.gameserver.templates.item.L2EtcItem;

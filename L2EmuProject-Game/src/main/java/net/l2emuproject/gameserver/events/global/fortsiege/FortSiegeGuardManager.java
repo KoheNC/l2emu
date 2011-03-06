@@ -21,7 +21,7 @@ import java.sql.ResultSet;
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.instance.L2FortBallistaInstance;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;

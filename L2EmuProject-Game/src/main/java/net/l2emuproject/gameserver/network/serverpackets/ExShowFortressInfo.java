@@ -16,9 +16,9 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import java.util.List;
 
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.events.global.fortsiege.Fort;
 import net.l2emuproject.gameserver.events.global.fortsiege.FortManager;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 
 
 public class ExShowFortressInfo extends StaticPacket

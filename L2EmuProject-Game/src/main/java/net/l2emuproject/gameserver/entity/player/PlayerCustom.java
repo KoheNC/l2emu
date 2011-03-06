@@ -21,7 +21,7 @@ import java.sql.SQLException;
 import java.util.Calendar;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class PlayerCustom extends PlayerExtension

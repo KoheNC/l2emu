@@ -20,7 +20,7 @@ import java.sql.ResultSet;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.items.L2ArmorSet;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

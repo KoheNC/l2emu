@@ -14,11 +14,11 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import static net.l2emuproject.gameserver.entity.party.PartyRoomManager.ENTRIES_PER_PAGE;
+import static net.l2emuproject.gameserver.services.party.PartyRoomManager.ENTRIES_PER_PAGE;
 
 import java.util.List;
 
-import net.l2emuproject.gameserver.entity.party.PartyRoomManager;
+import net.l2emuproject.gameserver.services.party.PartyRoomManager;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 

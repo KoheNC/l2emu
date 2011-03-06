@@ -23,7 +23,7 @@ import java.util.Map;
 import net.l2emuproject.gameserver.services.crafting.L2RecipeList;
 import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.services.shortcuts.L2ShortCut;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.SingletonMap;
 

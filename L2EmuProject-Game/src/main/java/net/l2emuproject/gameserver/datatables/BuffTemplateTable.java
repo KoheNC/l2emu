@@ -22,7 +22,7 @@ import java.util.List;
 
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.entity.base.Experience;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.skills.L2BuffTemplate;
 

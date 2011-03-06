@@ -21,10 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.events.global.siege.Castle;
 import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.services.manor.CastleManorService;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
 import net.l2emuproject.gameserver.world.object.L2Object;

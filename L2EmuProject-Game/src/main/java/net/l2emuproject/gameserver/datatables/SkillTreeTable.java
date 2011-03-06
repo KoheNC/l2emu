@@ -35,7 +35,7 @@ import net.l2emuproject.gameserver.skills.skilllearn.L2PledgeSkillLearn;
 import net.l2emuproject.gameserver.skills.skilllearn.L2SkillLearn;
 import net.l2emuproject.gameserver.skills.skilllearn.L2TransformSkillLearn;
 import net.l2emuproject.gameserver.skills.skilllearn.L2EnchantSkillLearn.EnchantSkillDetail;
-import net.l2emuproject.gameserver.system.L2DatabaseFactory;
+import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.ArrayBunch;
 import net.l2emuproject.util.L2Collections;

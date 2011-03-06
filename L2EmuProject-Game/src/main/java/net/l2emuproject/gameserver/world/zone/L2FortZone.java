@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.world.zone;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.entity.clan.L2Clan;
 import net.l2emuproject.gameserver.events.global.fortsiege.FortSiege;
+import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
