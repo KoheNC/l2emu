@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.loginserver.network.clientpackets;
 
-import net.l2emuproject.loginserver.L2LoginClient;
-import net.l2emuproject.loginserver.L2LoginClient.LoginClientState;
+import net.l2emuproject.loginserver.network.L2LoginClient;
+import net.l2emuproject.loginserver.network.L2LoginClient.LoginClientState;
 import net.l2emuproject.loginserver.network.serverpackets.GGAuth;
 import net.l2emuproject.loginserver.network.serverpackets.LoginFail;
 

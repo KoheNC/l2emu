@@ -12,12 +12,12 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.loginserver;
+package net.l2emuproject.loginserver.network;
 
 import java.nio.ByteBuffer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.loginserver.L2LoginClient.LoginClientState;
+import net.l2emuproject.loginserver.network.L2LoginClient.LoginClientState;
 import net.l2emuproject.loginserver.network.clientpackets.AuthGameGuard;
 import net.l2emuproject.loginserver.network.clientpackets.L2LoginClientPacket;
 import net.l2emuproject.loginserver.network.clientpackets.RequestAuthLogin;

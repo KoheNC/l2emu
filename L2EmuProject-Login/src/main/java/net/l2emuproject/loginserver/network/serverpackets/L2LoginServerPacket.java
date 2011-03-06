@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.loginserver.network.serverpackets;
 
-import net.l2emuproject.loginserver.L2LoginClient;
+import net.l2emuproject.loginserver.network.L2LoginClient;
 import net.l2emuproject.loginserver.network.clientpackets.L2LoginClientPacket;
 
 import org.apache.commons.logging.Log;

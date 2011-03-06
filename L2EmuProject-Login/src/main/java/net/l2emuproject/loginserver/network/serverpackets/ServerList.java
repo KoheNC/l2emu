@@ -19,9 +19,9 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Map;
 
-import net.l2emuproject.loginserver.L2LoginClient;
 import net.l2emuproject.loginserver.beans.GameServerInfo;
 import net.l2emuproject.loginserver.manager.GameServerManager;
+import net.l2emuproject.loginserver.network.L2LoginClient;
 
 import javolution.util.FastMap;
 

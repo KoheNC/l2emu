@@ -15,7 +15,7 @@
 package net.l2emuproject.loginserver.network.clientpackets;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.loginserver.L2LoginClient;
+import net.l2emuproject.loginserver.network.L2LoginClient;
 import net.l2emuproject.loginserver.network.serverpackets.LoginFail;
 import net.l2emuproject.loginserver.network.serverpackets.ServerList;
 

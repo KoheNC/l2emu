@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.loginserver.network.serverpackets;
 
-import net.l2emuproject.loginserver.L2LoginClient;
 import net.l2emuproject.loginserver.beans.SessionKey;
+import net.l2emuproject.loginserver.network.L2LoginClient;
 
 /**
  * Format: dddddddd

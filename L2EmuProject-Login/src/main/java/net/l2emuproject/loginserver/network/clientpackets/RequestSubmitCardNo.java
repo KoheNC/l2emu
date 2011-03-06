@@ -17,7 +17,7 @@ package net.l2emuproject.loginserver.network.clientpackets;
 import java.nio.BufferOverflowException;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.loginserver.L2LoginClient;
+import net.l2emuproject.loginserver.network.L2LoginClient;
 import net.l2emuproject.loginserver.network.serverpackets.LoginOk;
 import net.l2emuproject.loginserver.network.serverpackets.ServerList;
 

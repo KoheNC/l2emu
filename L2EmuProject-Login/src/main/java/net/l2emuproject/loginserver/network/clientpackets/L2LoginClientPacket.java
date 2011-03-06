@@ -16,7 +16,7 @@ package net.l2emuproject.loginserver.network.clientpackets;
 
 import java.nio.BufferUnderflowException;
 
-import net.l2emuproject.loginserver.L2LoginClient;
+import net.l2emuproject.loginserver.network.L2LoginClient;
 import net.l2emuproject.loginserver.network.serverpackets.L2LoginServerPacket;
 
 import org.apache.commons.logging.Log;

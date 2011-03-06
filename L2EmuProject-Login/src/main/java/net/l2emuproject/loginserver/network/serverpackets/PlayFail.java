@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.loginserver.network.serverpackets;
 
-import net.l2emuproject.loginserver.L2LoginClient;
+import net.l2emuproject.loginserver.network.L2LoginClient;
 
 /**
  * This class represents a packet sent to the client when it fails to login to a GameServer.

@@ -36,11 +36,11 @@ import javolution.util.FastMap;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Registry;
-import net.l2emuproject.loginserver.L2LoginClient;
 import net.l2emuproject.loginserver.beans.Accounts;
 import net.l2emuproject.loginserver.beans.FailedLoginAttempt;
 import net.l2emuproject.loginserver.beans.GameServerInfo;
 import net.l2emuproject.loginserver.beans.SessionKey;
+import net.l2emuproject.loginserver.network.L2LoginClient;
 import net.l2emuproject.loginserver.services.AccountsServices;
 import net.l2emuproject.loginserver.services.exception.AccountBannedException;
 import net.l2emuproject.loginserver.services.exception.AccountModificationException;
