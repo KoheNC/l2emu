@@ -70,18 +70,18 @@ public final class Announcements
 		private final Date	_startDate;
 		private final Date	_endDate;
 
-		private AnnounceDates(Date startDate, Date endDate)
+		private AnnounceDates(final Date startDate, final Date endDate)
 		{
 			_startDate = startDate;
 			_endDate = endDate;
 		}
 
-		public Date getStartDate()
+		public final Date getDateStart()
 		{
 			return _startDate;
 		}
 
-		public Date getEndDate()
+		public final Date getDateEnd()
 		{
 			return _endDate;
 		}
@@ -91,8 +91,8 @@ public final class Announcements
 	{
 		for (AnnounceDates dates : _dates)
 		{
-			final Date startDate = dates.getStartDate();
-			final Date endDate = dates.getEndDate();
+			final Date startDate = dates.getDateStart();
+			final Date endDate = dates.getDateEnd();
 			final long current = System.currentTimeMillis();
 
 			if (startDate == null && endDate == null)

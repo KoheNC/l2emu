@@ -99,7 +99,7 @@ public final class GlobalDropTable
 		private final Date	_dateStart;
 		private final Date	_dateEnd;
 
-		private GlobalDrop(int itemId, int countMin, int countMax, int chance, Date dateStart, Date dateEnd)
+		private GlobalDrop(final int itemId, final int countMin, final int countMax, final int chance, final Date dateStart, final Date dateEnd)
 		{
 			_itemId = itemId;
 			_countMin = countMin;
@@ -109,32 +109,32 @@ public final class GlobalDropTable
 			_dateEnd = dateEnd;
 		}
 
-		public int getItemId()
+		public final int getItemId()
 		{
 			return _itemId;
 		}
 
-		public int getCountMin()
+		public final int getCountMin()
 		{
 			return _countMin;
 		}
 
-		public int getCountMax()
+		public final int getCountMax()
 		{
 			return _countMax;
 		}
 
-		public int getChance()
+		public final int getChance()
 		{
 			return _chance;
 		}
 
-		public Date getDateStart()
+		public final Date getDateStart()
 		{
 			return _dateStart;
 		}
 
-		public Date getDateEnd()
+		public final Date getDateEnd()
 		{
 			return _dateEnd;
 		}
@@ -151,11 +151,11 @@ public final class GlobalDropTable
 
 		for (GlobalDrop drop : _table)
 		{
-			final long startTime = drop.getDateStart().getTime();
-			final long endTime = drop.getDateEnd().getTime();
+			final Date startDate = drop.getDateStart();
+			final Date endDate = drop.getDateEnd();
 			final long current = System.currentTimeMillis();
 
-			if (current >= startTime && current <= endTime)
+			if (startDate == null && endDate == null || current >= startDate.getTime() && current <= endDate.getTime())
 				list.add(drop);
 		}
 
