@@ -103,6 +103,7 @@ import net.l2emuproject.gameserver.services.SystemService;
 import net.l2emuproject.gameserver.services.VersionService;
 import net.l2emuproject.gameserver.services.auction.AuctionService;
 import net.l2emuproject.gameserver.services.blocklist.BlockListService;
+import net.l2emuproject.gameserver.services.community.CommunityService;
 import net.l2emuproject.gameserver.services.couple.CoupleService;
 import net.l2emuproject.gameserver.services.crafting.RecipeService;
 import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
@@ -280,6 +281,7 @@ public class L2GameServer extends Config
 			CoupleService.getInstance();
 		CursedWeaponsService.getInstance();
 		
+		CommunityService.getInstance();
 		ClanTable.getInstance();
 		CrestCache.getInstance();
 		Hero.getInstance();

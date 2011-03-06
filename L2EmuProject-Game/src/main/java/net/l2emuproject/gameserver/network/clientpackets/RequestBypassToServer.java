@@ -25,6 +25,7 @@ import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExHeroList;
 import net.l2emuproject.gameserver.network.serverpackets.GMViewPledgeInfo;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.l2emuproject.gameserver.services.community.CommunityService;
 import net.l2emuproject.gameserver.system.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
@@ -171,8 +172,14 @@ public class RequestBypassToServer extends L2GameClientPacket
 		{
 			activeChar.sendPacket(new ExHeroList());
 		}
+		else if (_command.startsWith("_bbs"))		
+			CommunityService.getInstance().parseCommand(activeChar, _command);
+		else if (_command.startsWith("_mail"))
+			CommunityService.getInstance().parseCommand(activeChar, "_bbsmail");
+		else if (_command.startsWith("_friend"))
+			CommunityService.getInstance().parseCommand(activeChar, "_bbsfriend");
 
-		sendPacket(ActionFailed.STATIC_PACKET);
+		sendAF();
 	}
 
 	private void comeHere(L2Player activeChar)
