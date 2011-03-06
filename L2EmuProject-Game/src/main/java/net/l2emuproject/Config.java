@@ -2169,8 +2169,7 @@ public class Config extends L2Config
 	// *******************************************************************************************
 	public static final String	COMMUNITY_FILE	= "./config/main/community_board.properties";
 	// *******************************************************************************************											// Show player(s) in jail in CB ?
-	public static int MIN_CLAN_LVL_FOR_FORUM;
-	public static int MIN_PLAYER_LVL_FOR_FORUM;
+
 	// *******************************************************************************************
 	private static final class CommunityConfig extends ConfigPropertiesLoader
 	{
