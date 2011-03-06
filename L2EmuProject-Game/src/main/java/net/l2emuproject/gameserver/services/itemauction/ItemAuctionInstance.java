@@ -169,7 +169,7 @@ public final class ItemAuctionInstance
 		}
 		catch (final SQLException e)
 		{
-			_log.error("L2ItemAuctionInstance: Failed loading auctions.", e);
+			_log.error(getClass().getSimpleName() + " : Failed loading auctions.", e);
 			return;
 		}
 		finally
@@ -177,8 +177,8 @@ public final class ItemAuctionInstance
 			L2DatabaseFactory.close(con);
 		}
 
-		_log.info("L2ItemAuctionInstance: Loaded " + _items.size() + " item(s) and registered " + _auctions.size() + " auction(s) for instance " + _instanceId
-				+ ".");
+		_log.info(getClass().getSimpleName() + " : Loaded " + _items.size() + " item(s) and registered " + _auctions.size() + " auction(s) for instance "
+				+ _instanceId + ".");
 		checkAndSetCurrentAndNextAuction();
 	}
 
@@ -321,13 +321,13 @@ public final class ItemAuctionInstance
 			else
 				setStateTask(ThreadPoolManager.getInstance().scheduleGeneral(new ScheduleAuctionTask(currentAuction),
 						Math.max(currentAuction.getStartingTime() - System.currentTimeMillis(), 0L)));
-			_log.info("L2ItemAuctionInstance: Schedule current auction " + currentAuction.getAuctionId() + " for instance " + _instanceId);
+			_log.info(getClass().getSimpleName() + " : Schedule current auction " + currentAuction.getAuctionId() + " for instance " + _instanceId);
 		}
 		else
 		{
 			setStateTask(ThreadPoolManager.getInstance().scheduleGeneral(new ScheduleAuctionTask(nextAuction),
 					Math.max(nextAuction.getStartingTime() - System.currentTimeMillis(), 0L)));
-			_log.info("L2ItemAuctionInstance: Schedule next auction " + nextAuction.getAuctionId() + " on "
+			_log.info(getClass().getSimpleName() + " : Schedule next auction " + nextAuction.getAuctionId() + " on "
 					+ DATE_FORMAT.format(new Date(nextAuction.getStartingTime())) + " for instance " + _instanceId);
 		}
 	}
@@ -383,7 +383,7 @@ public final class ItemAuctionInstance
 			}
 			catch (final Exception e)
 			{
-				_log.error("L2ItemAuctionInstance: Failed scheduling auction " + _auction.getAuctionId(), e);
+				_log.error(getClass().getSimpleName() + " : Failed scheduling auction " + _auction.getAuctionId(), e);
 			}
 		}
 
@@ -398,7 +398,7 @@ public final class ItemAuctionInstance
 						throw new IllegalStateException("Could not set auction state: " + ItemAuctionState.STARTED.toString() + ", expected: "
 								+ state.toString());
 
-					_log.info("L2ItemAuctionInstance: Auction " + _auction.getAuctionId() + " has started for instance " + _auction.getInstanceId());
+					_log.info(getClass().getSimpleName() + " : Auction " + _auction.getAuctionId() + " has started for instance " + _auction.getInstanceId());
 					checkAndSetCurrentAndNextAuction();
 					break;
 				}
@@ -484,7 +484,7 @@ public final class ItemAuctionInstance
 				player.getWarehouse().addItem("ItemAuction", item, null, null);
 				player.sendPacket(new SystemMessage(SystemMessageId.WON_BID_ITEM_CAN_BE_FOUND_IN_WAREHOUSE));
 
-				_log.info("L2ItemAuctionInstance: Auction " + auction.getAuctionId() + " has finished. Highest bid by " + player.getName() + " for instance "
+				_log.info(getClass().getSimpleName() + " : Auction " + auction.getAuctionId() + " has finished. Highest bid by " + player.getName() + " for instance "
 						+ _instanceId);
 			}
 			else
@@ -494,7 +494,7 @@ public final class ItemAuctionInstance
 				item.updateDatabase();
 				L2World.getInstance().removeObject(item);
 
-				_log.info("L2ItemAuctionInstance: Auction " + auction.getAuctionId() + " has finished.");
+				_log.info(getClass().getSimpleName() + " : Auction " + auction.getAuctionId() + " has finished.");
 			}
 
 			// Clean all canceled bids
@@ -502,7 +502,7 @@ public final class ItemAuctionInstance
 		}
 		else
 		{
-			_log.info("L2ItemAuctionInstance: Auction " + auction.getAuctionId() + " has finished. There have not been any bid for instance " + _instanceId);
+			_log.info(getClass().getSimpleName() + " : Auction " + auction.getAuctionId() + " has finished. There have not been any bid for instance " + _instanceId);
 		}
 	}
 

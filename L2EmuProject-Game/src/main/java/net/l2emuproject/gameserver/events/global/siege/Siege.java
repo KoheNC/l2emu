@@ -918,7 +918,7 @@ public class Siege extends AbstractSiege
 	{
 		correctSiegeDateTime();
 
-		_log.info("Siege of " + getCastle().getName() + ": "
+		_log.info("Siege of " + getCastle().getName() + " : "
 			+ getCastle().getSiegeDate().getTime());
 
 		loadSiegeClan();

@@ -3,7 +3,7 @@
 
 import sys
 from java.util                                    import Iterator
-from net.l2emuproject.gameserver.system                                  import L2DatabaseFactory
+from net.l2emuproject.gameserver.system.database                                  import L2DatabaseFactory
 from net.l2emuproject.tools.random                     import Rnd
 from net.l2emuproject.gameserver.services.quest           import State
 from net.l2emuproject.gameserver.services.quest           import QuestState

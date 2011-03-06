@@ -6,7 +6,7 @@ import sys
 from java.sql import PreparedStatement
 from java.sql import ResultSet
 from java.sql import SQLException
-from net.l2emuproject.gameserver.system import L2DatabaseFactory
+from net.l2emuproject.gameserver.system.database import L2DatabaseFactory
 from net.l2emuproject.gameserver.datatables import SkillTable
 from net.l2emuproject.gameserver.services.quest import State
 from net.l2emuproject.gameserver.services.quest import QuestState
