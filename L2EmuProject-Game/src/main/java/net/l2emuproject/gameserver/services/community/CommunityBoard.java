@@ -14,6 +14,9 @@
  */
 package net.l2emuproject.gameserver.services.community;
 
+import java.util.List;
+
+import javolution.util.FastList;
 import net.l2emuproject.gameserver.network.serverpackets.PlayerShowBoard;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
@@ -22,14 +25,15 @@ import org.apache.commons.logging.LogFactory;
 
 public abstract class CommunityBoard
 {
-	protected static final Log		_log		= LogFactory.getLog(CommunityBoard.class);
+	protected static final Log		_log				= LogFactory.getLog(CommunityBoard.class);
 
 	private final CommunityService	_service;
 
-	protected static final String	TOP_PATH	= "data/html/CommunityBoard/top/";
+	protected static final String	TOP_PATH			= "data/html/CommunityBoard/top/";
+	protected static final String	STATICFILES_PATH	= "data/html/CommunityBoard/staticfiles/";
 
-	public static final String[]	HEADER		=
-												{
+	public static final String[]	HEADER				=
+														{
 			"bypass _bbshome",
 			"bypass _bbsgetfav",
 			"bypass _bbsloc",
@@ -37,7 +41,7 @@ public abstract class CommunityBoard
 			"bypass _bbsmemo",
 			"bypass _bbsmail",
 			"bypass _bbsfriends",
-			"bypass _bbs_add_fav"				};
+			"bypass _bbs_add_fav"						};
 
 	public CommunityBoard(CommunityService service)
 	{
@@ -70,6 +74,46 @@ public abstract class CommunityBoard
 			player.sendPacket(new PlayerShowBoard(html.substring(4090, 8180), "102"));
 			player.sendPacket(new PlayerShowBoard(html.substring(8180, length), "103"));
 		}
+	}
+
+	protected final void sendWrite(final L2Player player, final String html, String string, String string2, String string3)
+	{
+		string = editSavedText(string);
+		string2 = editSavedText(string2);
+		string3 = editSavedText(string3);
+		player.sendPacket(new PlayerShowBoard(html));
+		List<String> arg = new FastList<String>();
+		arg.add("0");
+		arg.add("0");
+		arg.add("0");
+		arg.add("0");
+		arg.add("0");
+		arg.add("0");
+		arg.add(player.getName());
+		arg.add(Integer.toString(player.getObjectId()));
+		arg.add(player.getAccountName());
+		arg.add("9");
+		arg.add(string3);
+		arg.add(string2);
+		arg.add(string);
+		arg.add(string3);
+		arg.add(string3);
+		arg.add("0");
+		arg.add("0");
+		player.sendPacket(new PlayerShowBoard(arg));
+	}
+
+	protected final String editSavedText(String text)
+	{
+		if (text == null)
+			return "";
+
+		text = text.replace("&gt;", ">");
+		text = text.replace("&lt;", "<");
+		text = text.replace("<br1>", "\n");
+		text = text.replace("\\$", "$");
+
+		return text;
 	}
 
 	protected final void notImplementedYet(final L2Player player, final String command)
