@@ -17,6 +17,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import java.util.List;
 
 import net.l2emuproject.gameserver.network.L2GameClient;
+import net.l2emuproject.gameserver.services.community.CommunityBoard;
 import net.l2emuproject.gameserver.system.util.StringUtil;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
@@ -26,20 +27,9 @@ import net.l2emuproject.gameserver.world.object.L2Player;
  */
 public final class PlayerShowBoard extends L2GameServerPacket
 {
-	private static final String		_S__6E_SHOWBOARD	= "[S] 6e ShowBoard";
+	private static final String	_S__6E_SHOWBOARD	= "[S] 6e ShowBoard";
 
-	private final StringBuilder		_htmlCode;
-
-	private static final String[]	HEADER				=
-														{
-			"bypass _bbshome",
-			"bypass _bbsgetfav",
-			"bypass _bbsloc",
-			"bypass _bbsclan",
-			"bypass _bbsmemo",
-			"bypass _bbsmail",
-			"bypass _bbsfriends",
-			"bypass _bbs_add_fav"						};
+	private final StringBuilder	_htmlCode;
 
 	public PlayerShowBoard(final String htmlCode, final String id)
 	{
@@ -64,14 +54,8 @@ public final class PlayerShowBoard extends L2GameServerPacket
 		writeC(0x7b);
 		writeC(0x01); // c4 1 to show community 00 to hide
 
-		writeS(HEADER[0]);
-		writeS(HEADER[1]);
-		writeS(HEADER[2]);
-		writeS(HEADER[3]);
-		writeS(HEADER[4]);
-		writeS(HEADER[5]);
-		writeS(HEADER[6]);
-		writeS(HEADER[7]);
+		for (String line : CommunityBoard.HEADER)
+			writeS(line);
 
 		if (_htmlCode.length() < 8192)
 			writeS(_htmlCode.toString());

@@ -28,6 +28,17 @@ public abstract class CommunityBoard
 
 	protected static final String	TOP_PATH	= "data/html/CommunityBoard/top/";
 
+	public static final String[]	HEADER		=
+												{
+			"bypass _bbshome",
+			"bypass _bbsgetfav",
+			"bypass _bbsloc",
+			"bypass _bbsclan",
+			"bypass _bbsmemo",
+			"bypass _bbsmail",
+			"bypass _bbsfriends",
+			"bypass _bbs_add_fav"				};
+
 	public CommunityBoard(CommunityService service)
 	{
 		_service = service;
@@ -61,7 +72,7 @@ public abstract class CommunityBoard
 		}
 	}
 
-	protected final void notImplementedYet(L2Player player, String command)
+	protected final void notImplementedYet(final L2Player player, final String command)
 	{
 		if (player == null || command == null)
 			return;
