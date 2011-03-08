@@ -20,10 +20,10 @@ import java.sql.ResultSet;
 import java.util.List;
 import java.util.Map;
 
-import javolution.util.FastList;
 import net.l2emuproject.gameserver.datatables.UITable;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.util.SingletonList;
 import net.l2emuproject.util.SingletonMap;
 
 import org.apache.commons.logging.Log;
@@ -49,14 +49,14 @@ public final class L2UIKeysSettings
 		loadFromDB();
 	}
 
-	public final void storeAll(Map<Integer, List<Integer>> catMap, Map<Integer, List<ActionKey>> keyMap)
+	public final void storeAll(final Map<Integer, List<Integer>> catMap, final Map<Integer, List<ActionKey>> keyMap)
 	{
 		_saved = false;
 		_storedCategories = catMap;
 		_storedKeys = keyMap;
 	}
 
-	public final void storeCategories(Map<Integer, List<Integer>> catMap)
+	public final void storeCategories(final Map<Integer, List<Integer>> catMap)
 	{
 		_saved = false;
 		_storedCategories = catMap;
@@ -67,7 +67,7 @@ public final class L2UIKeysSettings
 		return _storedCategories;
 	}
 
-	public final void storeKeys(Map<Integer, List<ActionKey>> keyMap)
+	public final void storeKeys(final Map<Integer, List<ActionKey>> keyMap)
 	{
 		_saved = false;
 		_storedKeys = keyMap;
@@ -235,26 +235,26 @@ public final class L2UIKeysSettings
 			_storedKeys = UITable.getInstance().getKeys();
 	}
 
-	public final void insertCategory(int cat, int cmd)
+	public final void insertCategory(final int cat, final int cmd)
 	{
 		if (_storedCategories.containsKey(cat))
 			_storedCategories.get(cat).add(cmd);
 		else
 		{
-			List<Integer> tmp = new FastList<Integer>();
+			final List<Integer> tmp = new SingletonList<Integer>();
 			tmp.add(cmd);
 			_storedCategories.put(cat, tmp);
 		}
 	}
 
-	public final void insertKey(int cat, int cmdId, int key, int tgKey1, int tgKey2, int show)
+	public final void insertKey(final int cat, final int cmdId, final int key, final int tgKey1, final int tgKey2, final int show)
 	{
-		ActionKey tmk = new ActionKey(cat, cmdId, key, tgKey1, tgKey2, show);
+		final ActionKey tmk = new ActionKey(cat, cmdId, key, tgKey1, tgKey2, show);
 		if (_storedKeys.containsKey(cat))
 			_storedKeys.get(cat).add(tmk);
 		else
 		{
-			List<ActionKey> tmp = new FastList<ActionKey>();
+			final List<ActionKey> tmp = new SingletonList<ActionKey>();
 			tmp.add(tmk);
 			_storedKeys.put(cat, tmp);
 		}

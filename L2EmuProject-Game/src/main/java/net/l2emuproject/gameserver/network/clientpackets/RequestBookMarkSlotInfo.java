@@ -22,21 +22,21 @@ public final class RequestBookMarkSlotInfo extends L2GameClientPacket
 	private static final String _C__REQUESTBOOKMARKSLOTINFO = "[C] D0:51:00 RequestBookMarkSlotInfo chd";
 
 	@Override
-	protected void readImpl()
+	protected final void readImpl()
 	{
 		// trigger packet
 	}
 
 	@Override
-	protected void runImpl()
+	protected final void runImpl()
 	{
-		L2Player player = getActiveChar();
+		final L2Player player = getActiveChar();
 		if (player != null)
-			sendPacket(new ExGetBookMarkInfoPacket(player));
+			sendPacket(new ExGetBookMarkInfoPacket());
 	}
 
 	@Override
-	public String getType()
+	public final String getType()
 	{
 		return _C__REQUESTBOOKMARKSLOTINFO;
 	}

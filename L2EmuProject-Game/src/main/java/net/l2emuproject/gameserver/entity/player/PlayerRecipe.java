@@ -42,13 +42,13 @@ public final class PlayerRecipe extends PlayerExtension
 		super(activeChar);
 	}
 
-	private final void insertNewRecipeData(int recipeId, boolean isDwarf)
+	private final void insertNewRecipeData(final int recipeId, final boolean isDwarf)
 	{
 		Connection con = null;
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement(INSERT_RECIPE);
+			final PreparedStatement statement = con.prepareStatement(INSERT_RECIPE);
 			statement.setInt(1, getPlayer().getObjectId());
 			statement.setInt(2, recipeId);
 			statement.setInt(3, isDwarf ? getPlayer().getClassIndex() : 0);
@@ -66,13 +66,13 @@ public final class PlayerRecipe extends PlayerExtension
 		}
 	}
 
-	private final void deleteRecipeData(int recipeId, boolean isDwarf)
+	private final void deleteRecipeData(final int recipeId, final boolean isDwarf)
 	{
 		Connection con = null;
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement(DELETE_RECIPE);
+			final PreparedStatement statement = con.prepareStatement(DELETE_RECIPE);
 			statement.setInt(1, getPlayer().getObjectId());
 			statement.setInt(2, recipeId);
 			statement.setInt(3, isDwarf ? getPlayer().getClassIndex() : 0);
@@ -92,7 +92,7 @@ public final class PlayerRecipe extends PlayerExtension
 	/**
 	 * Restore recipe book data for this L2Player.
 	 */
-	public final void restoreRecipeBook(boolean loadCommon)
+	public final void restoreRecipeBook(final boolean loadCommon)
 	{
 		Connection con = null;
 
@@ -100,11 +100,11 @@ public final class PlayerRecipe extends PlayerExtension
 		{
 			con = L2DatabaseFactory.getInstance().getConnection(con);
 			String sql = loadCommon ? SELECT_RECIPE1 : SELECT_RECIPE2;
-			PreparedStatement statement = con.prepareStatement(sql);
+			final PreparedStatement statement = con.prepareStatement(sql);
 			statement.setInt(1, getPlayer().getObjectId());
 			if (!loadCommon)
 				statement.setInt(2, getPlayer().getClassIndex());
-			ResultSet rset = statement.executeQuery();
+			final ResultSet rset = statement.executeQuery();
 
 			_dwarvenRecipeBook.clear();
 
@@ -162,7 +162,7 @@ public final class PlayerRecipe extends PlayerExtension
 	 * @param recipe The L2RecipeList to add to the _recipebook
 	 * @param saveToDb true to save infos into the DB
 	 */
-	public final void registerCommonRecipeList(L2RecipeList recipe, boolean saveToDb)
+	public final void registerCommonRecipeList(final L2RecipeList recipe, final boolean saveToDb)
 	{
 		_commonRecipeBook.put(recipe.getId(), recipe);
 
@@ -176,7 +176,7 @@ public final class PlayerRecipe extends PlayerExtension
 	 * @param recipe The L2Recipe to add to the _recipebook
 	 * @param saveToDb true to save infos into the DB
 	 */
-	public final void registerDwarvenRecipeList(L2RecipeList recipe, boolean saveToDb)
+	public final void registerDwarvenRecipeList(final L2RecipeList recipe, final boolean saveToDb)
 	{
 		_dwarvenRecipeBook.put(recipe.getId(), recipe);
 
@@ -190,7 +190,7 @@ public final class PlayerRecipe extends PlayerExtension
 	 * @return
 	 * <b>TRUE</b> if player has the recipe on Common or Dwarven Recipe book else returns <b>FALSE</b>
 	 */
-	public final boolean hasRecipeList(int recipeId)
+	public final boolean hasRecipeList(final int recipeId)
 	{
 		if (_dwarvenRecipeBook.containsKey(recipeId))
 			return true;
@@ -204,7 +204,7 @@ public final class PlayerRecipe extends PlayerExtension
 	 * @param recipeId The Identifier of the L2Recipe to remove from the _recipebook
 	 *
 	 */
-	public final void unregisterRecipeList(int recipeId)
+	public final void unregisterRecipeList(final int recipeId)
 	{
 		if (_dwarvenRecipeBook.remove(recipeId) != null)
 			deleteRecipeData(recipeId, true);

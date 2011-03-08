@@ -16,35 +16,34 @@ package net.l2emuproject.gameserver.services.duel;
 
 import java.util.Map;
 
-import javolution.util.FastMap;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.system.restriction.global.DuelRestriction;
 import net.l2emuproject.gameserver.system.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.util.SingletonMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
-public class DuelService
+public final class DuelService
 {
-	private final static Log _log = LogFactory.getLog(DuelService.class);
-	
+	private final static Log	_log	= LogFactory.getLog(DuelService.class);
+
 	private static final class SingletonHolder
 	{
-		private static final DuelService INSTANCE = new DuelService();
+		private static final DuelService	INSTANCE	= new DuelService();
 	}
-	
+
 	public static DuelService getInstance()
 	{
 		return SingletonHolder.INSTANCE;
 	}
-	
+
 	// =========================================================
 	// Data Field
-	private final Map<Integer, Duel> _duels = new FastMap<Integer, Duel>().shared();
-	private int				_currentDuelId	= 0x90;
+	private final Map<Integer, Duel>	_duels			= new SingletonMap<Integer, Duel>().shared();
+	private int							_currentDuelId	= 0x90;
 
 	// =========================================================
 	// Constructor
@@ -56,7 +55,7 @@ public class DuelService
 	// =========================================================
 	// Method - Private
 
-	private synchronized int getNextDuelId()
+	private final synchronized int getNextDuelId()
 	{
 		// In case someone wants to run the server forever :)
 		if (++_currentDuelId >= 2147483640)
@@ -67,18 +66,18 @@ public class DuelService
 	// =========================================================
 	// Method - Public
 
-	public Duel getDuel(int duelId)
+	public final Duel getDuel(final int duelId)
 	{
 		return _duels.get(duelId);
 	}
 
-	public void addDuel(L2Player playerA, L2Player playerB, int partyDuel)
+	public final void addDuel(final L2Player playerA, final L2Player playerB, final int partyDuel)
 	{
 		if (playerA == null || playerB == null)
 			return;
 
 		// Return if a player has PvPFlag
-		String engagedInPvP = "The duel was canceled because a duelist engaged in PvP combat.";
+		final String engagedInPvP = "The duel was canceled because a duelist engaged in PvP combat.";
 		if (partyDuel == 1)
 		{
 			boolean playerInPvP = false;
@@ -146,8 +145,7 @@ public class DuelService
 				playerB.sendMessage(engagedInPvP);
 				return;
 			}
-			else if (GlobalRestrictions.isRestricted(playerA, DuelRestriction.class)
-				|| GlobalRestrictions.isRestricted(playerB, DuelRestriction.class))
+			else if (GlobalRestrictions.isRestricted(playerA, DuelRestriction.class) || GlobalRestrictions.isRestricted(playerB, DuelRestriction.class))
 			{
 				playerA.sendMessage("The duel was canceled because a duelist is in a restricted state.");
 				playerB.sendMessage("The duel was canceled because a duelist is in a restricted state.");
@@ -155,20 +153,20 @@ public class DuelService
 			}
 		}
 
-		Duel duel = new Duel(playerA, playerB, partyDuel, getNextDuelId());
+		final Duel duel = new Duel(playerA, playerB, partyDuel, getNextDuelId());
 		_duels.put(duel.getId(), duel);
 	}
 
-	public void removeDuel(Duel duel)
+	public final void removeDuel(final Duel duel)
 	{
 		_duels.remove(duel.getId());
 	}
 
-	public void doSurrender(L2Player player)
+	public final void doSurrender(final L2Player player)
 	{
 		if (player == null || !player.getPlayerDuel().isInDuel())
 			return;
-		Duel duel = getDuel(player.getPlayerDuel().getDuelId());
+		final Duel duel = getDuel(player.getPlayerDuel().getDuelId());
 		duel.doSurrender(player);
 	}
 
@@ -176,7 +174,7 @@ public class DuelService
 	 * Updates player states.
 	 * @param player - the dieing player
 	 */
-	public void onPlayerDefeat(L2Player player)
+	public final void onPlayerDefeat(final L2Player player)
 	{
 		if (player == null || !player.getPlayerDuel().isInDuel())
 			return;
@@ -190,11 +188,11 @@ public class DuelService
 	 * @param player
 	 * @param debuff
 	 */
-	public void onBuff(L2Player player, L2Effect buff)
+	public final void onBuff(final L2Player player, final L2Effect buff)
 	{
 		if (player == null || !player.getPlayerDuel().isInDuel() || buff == null)
 			return;
-		Duel duel = getDuel(player.getPlayerDuel().getDuelId());
+		final Duel duel = getDuel(player.getPlayerDuel().getDuelId());
 		if (duel != null)
 			duel.onBuff(player, buff);
 	}
@@ -203,11 +201,11 @@ public class DuelService
 	 * Removes player from duel.
 	 * @param player - the removed player
 	 */
-	public void onRemoveFromParty(L2Player player)
+	public final void onRemoveFromParty(final L2Player player)
 	{
 		if (player == null || !player.getPlayerDuel().isInDuel())
 			return;
-		Duel duel = getDuel(player.getPlayerDuel().getDuelId());
+		final Duel duel = getDuel(player.getPlayerDuel().getDuelId());
 		if (duel != null)
 			duel.onRemoveFromParty(player);
 	}
@@ -217,11 +215,11 @@ public class DuelService
 	 * @param player
 	 * @param packet
 	 */
-	public void broadcastToOppositTeam(L2Player player, L2GameServerPacket packet)
+	public final void broadcastToOppositTeam(final L2Player player, final L2GameServerPacket packet)
 	{
 		if (player == null || !player.getPlayerDuel().isInDuel())
 			return;
-		Duel duel = getDuel(player.getPlayerDuel().getDuelId());
+		final Duel duel = getDuel(player.getPlayerDuel().getDuelId());
 		if (duel == null)
 			return;
 

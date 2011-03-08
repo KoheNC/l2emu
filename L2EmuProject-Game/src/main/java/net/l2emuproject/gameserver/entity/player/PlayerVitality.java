@@ -48,10 +48,10 @@ public final class PlayerVitality extends PlayerExtension
 			if (!getPlayer().isInsideZone(L2Zone.FLAG_PEACE))
 				return;
 
-			if (getPlayer().getPlayerVitality().getVitalityPoints() >= PcStat.MAX_VITALITY_POINTS)
+			if (getVitalityPoints() >= PcStat.MAX_VITALITY_POINTS)
 				return;
 
-			getPlayer().getPlayerVitality().updateVitalityPoints(Config.RATE_RECOVERY_VITALITY_PEACE_ZONE, false, false);
+			updateVitalityPoints(Config.RATE_RECOVERY_VITALITY_PEACE_ZONE, false, false);
 			getPlayer().sendPacket(new ExVitalityPointInfo(getVitalityPoints()));
 		}
 	}
@@ -78,12 +78,12 @@ public final class PlayerVitality extends PlayerExtension
 		return getPlayer().getStat().getVitalityPoints();
 	}
 
-	public final void setVitalityPoints(int points, boolean quiet)
+	public final void setVitalityPoints(final int points, final boolean quiet)
 	{
 		getPlayer().getStat().setVitalityPoints(points, quiet);
 	}
 
-	public synchronized final void updateVitalityPoints(float points, boolean useRates, boolean quiet)
+	public synchronized final void updateVitalityPoints(final float points, final boolean useRates, final boolean quiet)
 	{
 		getPlayer().getStat().updateVitalityPoints(points, useRates, quiet);
 	}

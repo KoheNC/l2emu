@@ -44,7 +44,7 @@ public final class PlayerTransformation extends PlayerExtension
 		super(activeChar);
 	}
 
-	public final boolean isTransformationDisabledSkill(L2Skill skill)
+	public final boolean isTransformationDisabledSkill(final L2Skill skill)
 	{
 		if (_transformation != null && !containsAllowedTransformSkill(skill.getId()) && !skill.allowOnTransform())
 			return true;
@@ -62,7 +62,7 @@ public final class PlayerTransformation extends PlayerExtension
 		return _transformation != null && _transformation.isStance();
 	}
 
-	public final void transform(L2Transformation transformation)
+	public final void transform(final L2Transformation transformation)
 	{
 		if (_transformation != null)
 		{
@@ -121,7 +121,7 @@ public final class PlayerTransformation extends PlayerExtension
 	 */
 	public final int getTransformationId()
 	{
-		L2Transformation transformation = getTransformation();
+		final L2Transformation transformation = getTransformation();
 		if (transformation == null)
 			return 0;
 		return transformation.getId();
@@ -202,25 +202,25 @@ public final class PlayerTransformation extends PlayerExtension
 		return _transformationId;
 	}
 
-	public final void setTransformAllowedSkills(int[] ids)
+	public final void setTransformAllowedSkills(final int[] ids)
 	{
 		_transformAllowedSkills.clear();
 		for (int id : ids)
 			addTransformAllowedSkill(id);
 	}
 
-	public final void addTransformAllowedSkill(int[] ids)
+	public final void addTransformAllowedSkill(final int[] ids)
 	{
 		for (int id : ids)
 			addTransformAllowedSkill(id);
 	}
 
-	public final void addTransformAllowedSkill(int id)
+	public final void addTransformAllowedSkill(final int id)
 	{
 		_transformAllowedSkills.add(id);
 	}
 
-	public final boolean containsAllowedTransformSkill(int id)
+	public final boolean containsAllowedTransformSkill(final int id)
 	{
 		return _transformAllowedSkills.contains(id);
 	}

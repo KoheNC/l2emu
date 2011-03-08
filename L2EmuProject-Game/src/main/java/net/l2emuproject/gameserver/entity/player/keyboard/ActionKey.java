@@ -35,7 +35,7 @@ public final class ActionKey
 	 * @param tgKey2: 2nd Toogled Key (eg. Alt, Ctrl or Shift)
 	 * @param show: Show Action in UI
 	 */
-	public ActionKey(int cat, int cmd, int key, int tgKey1, int tgKey2, int show)
+	public ActionKey(final int cat, final int cmd, final int key, final int tgKey1, final int tgKey2, final int show)
 	{
 		_cat = cat;
 		_cmd = cmd;
@@ -75,7 +75,7 @@ public final class ActionKey
 		return _show;
 	}
 
-	public final String getSqlSaveString(int playerId, int order)
+	public final String getSqlSaveString(final int playerId, final int order)
 	{
 		return "(" + playerId + ", " + _cat + ", " + order + ", " + _cmd + "," + _key + ", " + _tgKey1 + ", " + _tgKey2 + ", " + _show + ")";
 	}

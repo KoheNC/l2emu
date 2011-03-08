@@ -30,13 +30,13 @@ import net.l2emuproject.util.SingletonList;
 
 public final class PlayerTeleportBookmark extends PlayerExtension
 {
-	private static final String			INSERT_TP_BOOKMARK	= "INSERT INTO character_tpbookmark (charId,Id,x,y,z,icon,tag,name) values (?,?,?,?,?,?,?,?)";
-	private static final String			UPDATE_TP_BOOKMARK	= "UPDATE character_tpbookmark SET icon=?,tag=?,name=? where charId=? AND Id=?";
-	private static final String			RESTORE_TP_BOOKMARK	= "SELECT Id,x,y,z,icon,tag,name FROM character_tpbookmark WHERE charId=?";
-	private static final String			DELETE_TP_BOOKMARK	= "DELETE FROM character_tpbookmark WHERE charId=? AND Id=?";
+	private static final String				INSERT_TP_BOOKMARK	= "INSERT INTO character_tpbookmark (charId,Id,x,y,z,icon,tag,name) values (?,?,?,?,?,?,?,?)";
+	private static final String				UPDATE_TP_BOOKMARK	= "UPDATE character_tpbookmark SET icon=?,tag=?,name=? where charId=? AND Id=?";
+	private static final String				RESTORE_TP_BOOKMARK	= "SELECT Id,x,y,z,icon,tag,name FROM character_tpbookmark WHERE charId=?";
+	private static final String				DELETE_TP_BOOKMARK	= "DELETE FROM character_tpbookmark WHERE charId=? AND Id=?";
 
-	public int							_bookmarkslot		= 0;																							// The Teleport Bookmark Slot
-	public final List<TeleportBookmark>	tpbookmark			= new SingletonList<TeleportBookmark>();
+	private int								_bookmarkslot		= 0;																							// The Teleport Bookmark Slot
+	private final List<TeleportBookmark>	_tpbookmark			= new SingletonList<TeleportBookmark>();
 
 	public PlayerTeleportBookmark(L2Player activeChar)
 	{
@@ -45,10 +45,10 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 
 	public static final class TeleportBookmark
 	{
-		public int	_id, _x, _y, _z, _icon;
-		public String	_name, _tag;
+		private int	_id, _x, _y, _z, _icon;
+		private String	_name, _tag;
 
-		public TeleportBookmark(int id, int x, int y, int z, int icon, String tag, String name)
+		public TeleportBookmark(final int id, final int x, final int y, final int z, final int icon, final String tag, final String name)
 		{
 			_id = id;
 			_x = x;
@@ -58,25 +58,60 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 			_name = name;
 			_tag = tag;
 		}
+
+		public final int getId()
+		{
+			return _id;
+		}
+
+		public final int getX()
+		{
+			return _x;
+		}
+
+		public final int getY()
+		{
+			return _y;
+		}
+
+		public final int getZ()
+		{
+			return _z;
+		}
+
+		public final int getIcon()
+		{
+			return _icon;
+		}
+
+		public final String getName()
+		{
+			return _name;
+		}
+
+		public final String getTag()
+		{
+			return _tag;
+		}
 	}
 
-	public final void teleportBookmarkModify(int Id, int icon, String tag, String name)
+	public final void teleportBookmarkModify(final int Id, final int icon, final String tag, final String name)
 	{
 		int count = 0;
-		int size = tpbookmark.size();
+		int size = _tpbookmark.size();
 		while (size > count)
 		{
-			if (tpbookmark.get(count)._id == Id)
+			if (_tpbookmark.get(count)._id == Id)
 			{
-				tpbookmark.get(count)._icon = icon;
-				tpbookmark.get(count)._tag = tag;
-				tpbookmark.get(count)._name = name;
+				_tpbookmark.get(count)._icon = icon;
+				_tpbookmark.get(count)._tag = tag;
+				_tpbookmark.get(count)._name = name;
 
 				Connection con = null;
 				try
 				{
 					con = L2DatabaseFactory.getInstance().getConnection();
-					PreparedStatement statement = con.prepareStatement(UPDATE_TP_BOOKMARK);
+					final PreparedStatement statement = con.prepareStatement(UPDATE_TP_BOOKMARK);
 
 					statement.setInt(1, icon);
 					statement.setString(2, tag);
@@ -98,16 +133,16 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 			}
 			count++;
 		}
-		getPlayer().sendPacket(new ExGetBookMarkInfoPacket(getPlayer()));
+		getPlayer().sendPacket(new ExGetBookMarkInfoPacket());
 	}
 
-	public final void teleportBookmarkDelete(int Id)
+	public final void teleportBookmarkDelete(final int Id)
 	{
 		Connection con = null;
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement(DELETE_TP_BOOKMARK);
+			final PreparedStatement statement = con.prepareStatement(DELETE_TP_BOOKMARK);
 
 			statement.setInt(1, getPlayer().getObjectId());
 			statement.setInt(2, Id);
@@ -125,22 +160,22 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 		}
 
 		int count = 0;
-		int size = tpbookmark.size();
+		int size = _tpbookmark.size();
 
 		while (size > count)
 		{
-			if (tpbookmark.get(count)._id == Id)
+			if (_tpbookmark.get(count)._id == Id)
 			{
-				tpbookmark.remove(count);
+				_tpbookmark.remove(count);
 				break;
 			}
 			count++;
 		}
 
-		getPlayer().sendPacket(new ExGetBookMarkInfoPacket(getPlayer()));
+		getPlayer().sendPacket(new ExGetBookMarkInfoPacket());
 	}
 
-	public final void teleportBookmarkGo(int Id)
+	public final void teleportBookmarkGo(final int Id)
 	{
 		if (!teleportBookmarkCondition(0))
 			return;
@@ -154,21 +189,21 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 		getPlayer().sendPacket(sm);
 
 		int count = 0;
-		int size = tpbookmark.size();
+		int size = _tpbookmark.size();
 		while (size > count)
 		{
-			if (tpbookmark.get(count)._id == Id)
+			if (_tpbookmark.get(count)._id == Id)
 			{
 				getPlayer().destroyItem("Consume", getPlayer().getInventory().getItemByItemId(20025).getObjectId(), 1, null, false);
-				getPlayer().teleToLocation(tpbookmark.get(count)._x, tpbookmark.get(count)._y, tpbookmark.get(count)._z);
+				getPlayer().teleToLocation(_tpbookmark.get(count)._x, _tpbookmark.get(count)._y, _tpbookmark.get(count)._z);
 				break;
 			}
 			count++;
 		}
-		getPlayer().sendPacket(new ExGetBookMarkInfoPacket(getPlayer()));
+		getPlayer().sendPacket(new ExGetBookMarkInfoPacket());
 	}
 
-	public final boolean teleportBookmarkCondition(int type)
+	public final boolean teleportBookmarkCondition(final int type)
 	{
 		if (getPlayer().isInCombat())
 		{
@@ -229,12 +264,12 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 			return true;
 	}
 
-	public final void teleportBookmarkAdd(int x, int y, int z, int icon, String tag, String name)
+	public final void teleportBookmarkAdd(final int x, final int y, final int z, final int icon, final String tag, final String name)
 	{
 		if (!teleportBookmarkCondition(1))
 			return;
 
-		if (tpbookmark.size() >= _bookmarkslot)
+		if (_tpbookmark.size() >= _bookmarkslot)
 		{
 			getPlayer().sendPacket(SystemMessageId.UNNAMED_2358);
 			return;
@@ -248,12 +283,12 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 
 		int count = 0;
 		int id = 1;
-		List<Integer> idlist = new ArrayList<Integer>();
+		final List<Integer> idlist = new ArrayList<Integer>();
 
-		int size = tpbookmark.size();
+		int size = _tpbookmark.size();
 		while (size > count)
 		{
-			idlist.add(tpbookmark.get(count)._id);
+			idlist.add(_tpbookmark.get(count)._id);
 			count++;
 		}
 
@@ -267,7 +302,7 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 		}
 
 		TeleportBookmark tpadd = new TeleportBookmark(id, x, y, z, icon, tag, name);
-		tpbookmark.add(tpadd);
+		_tpbookmark.add(tpadd);
 
 		getPlayer().destroyItem("Consume", getPlayer().getInventory().getItemByItemId(20033).getObjectId(), 1, null, false);
 
@@ -280,7 +315,7 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 		{
 
 			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement(INSERT_TP_BOOKMARK);
+			final PreparedStatement statement = con.prepareStatement(INSERT_TP_BOOKMARK);
 
 			statement.setInt(1, getPlayer().getObjectId());
 			statement.setInt(2, id);
@@ -303,7 +338,7 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 			L2DatabaseFactory.close(con);
 		}
 
-		getPlayer().sendPacket(new ExGetBookMarkInfoPacket(getPlayer()));
+		getPlayer().sendPacket(new ExGetBookMarkInfoPacket());
 	}
 
 	public final void restoreTeleportBookmark()
@@ -312,13 +347,13 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 		try
 		{
 			con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement(RESTORE_TP_BOOKMARK);
+			final PreparedStatement statement = con.prepareStatement(RESTORE_TP_BOOKMARK);
 			statement.setInt(1, getPlayer().getObjectId());
-			ResultSet rset = statement.executeQuery();
+			final ResultSet rset = statement.executeQuery();
 
 			while (rset.next())
 			{
-				tpbookmark.add(new TeleportBookmark(rset.getInt("Id"), rset.getInt("x"), rset.getInt("y"), rset.getInt("z"), rset.getInt("icon"), rset
+				_tpbookmark.add(new TeleportBookmark(rset.getInt("Id"), rset.getInt("x"), rset.getInt("y"), rset.getInt("z"), rset.getInt("icon"), rset
 						.getString("tag"), rset.getString("name")));
 			}
 
@@ -340,9 +375,14 @@ public final class PlayerTeleportBookmark extends PlayerExtension
 		return _bookmarkslot;
 	}
 
-	public final void setBookMarkSlot(int slot)
+	public final void setBookMarkSlot(final int slot)
 	{
 		_bookmarkslot = slot;
-		getPlayer().sendPacket(new ExGetBookMarkInfoPacket(getPlayer()));
+		getPlayer().sendPacket(new ExGetBookMarkInfoPacket());
+	}
+
+	public final List<TeleportBookmark> getTpbookmark()
+	{
+		return _tpbookmark;
 	}
 }

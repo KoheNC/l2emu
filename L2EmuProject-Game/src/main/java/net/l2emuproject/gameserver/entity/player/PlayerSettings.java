@@ -70,7 +70,7 @@ public final class PlayerSettings extends PlayerExtension
 	/**
 	 * Add a L2shortCut to the L2Player shortCuts<BR><BR>
 	 */
-	public final void registerShortCut(L2ShortCut shortcut)
+	public final void registerShortCut(final L2ShortCut shortcut)
 	{
 		getShortCuts().registerShortCut(shortcut);
 	}
@@ -78,7 +78,7 @@ public final class PlayerSettings extends PlayerExtension
 	/**
 	 * Delete the L2ShortCut corresponding to the position (page-slot) from the L2Player shortCuts.<BR><BR>
 	 */
-	public final void deleteShortCut(int slot, int page)
+	public final void deleteShortCut(final int slot, final int page)
 	{
 		getShortCuts().deleteShortCut(slot, page);
 	}
@@ -86,7 +86,7 @@ public final class PlayerSettings extends PlayerExtension
 	/**
 	 * Delete a ShortCut of the L2Player shortCuts.<BR><BR>
 	 */
-	public final void removeItemFromShortCut(int objectId)
+	public final void removeItemFromShortCut(final int objectId)
 	{
 		getShortCuts().deleteShortCutByObjectId(objectId);
 	}
@@ -94,7 +94,7 @@ public final class PlayerSettings extends PlayerExtension
 	/**
 	 * Add a L2Macro to the L2Player macroses<BR><BR>
 	 */
-	public final void registerMacro(L2Macro macro)
+	public final void registerMacro(final L2Macro macro)
 	{
 		getMacroses().registerMacro(macro);
 	}
@@ -102,7 +102,7 @@ public final class PlayerSettings extends PlayerExtension
 	/**
 	 * Delete the L2Macro corresponding to the Identifier from the L2Player macroses.<BR><BR>
 	 */
-	public final void deleteMacro(int id)
+	public final void deleteMacro(final int id)
 	{
 		getMacroses().deleteMacro(id);
 	}

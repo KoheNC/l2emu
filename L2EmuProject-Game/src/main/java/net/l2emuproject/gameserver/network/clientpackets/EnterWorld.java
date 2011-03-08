@@ -476,7 +476,7 @@ public class EnterWorld extends L2GameClientPacket
 			activeChar.regiveTemporarySkills();
 
 		// Send Teleport Bookmark List
-		sendPacket(new ExGetBookMarkInfoPacket(activeChar));
+		sendPacket(new ExGetBookMarkInfoPacket());
 
 		ExBasicActionList.sendTo(activeChar);
 

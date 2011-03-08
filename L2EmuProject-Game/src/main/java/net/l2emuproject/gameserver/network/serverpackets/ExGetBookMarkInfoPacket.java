@@ -15,47 +15,40 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.entity.player.PlayerTeleportBookmark.TeleportBookmark;
+import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
- *
  * @author ShanSoft
  * @Structure d dd (ddddSdS)
  */
-public class ExGetBookMarkInfoPacket extends L2GameServerPacket
+public final class ExGetBookMarkInfoPacket extends L2GameServerPacket
 {
-	private static final String _S__FE_84_EXGETBOOKMARKINFOPACKET = "[S] FE:84 ExGetBookMarkInfoPacket";
-	
-	private final L2Player player;
-	public ExGetBookMarkInfoPacket(L2Player cha)
-	{
-		player = cha;
-	}
+	private static final String	_S__FE_84_EXGETBOOKMARKINFOPACKET	= "[S] FE:84 ExGetBookMarkInfoPacket";
 
 	@Override
-	protected final void writeImpl()
+	protected final void writeImpl(final L2GameClient client, final L2Player player)
 	{
 		writeC(0xFE);
 		writeH(0x84);
 		writeD(0x00); // Dummy
-		writeD(player.getPlayerBookmark()._bookmarkslot);
-		writeD(player.getPlayerBookmark().tpbookmark.size());
-      
+		writeD(player.getPlayerBookmark().getBookMarkSlot());
+		writeD(player.getPlayerBookmark().getTpbookmark().size());
 
-		for (TeleportBookmark tpbm : player.getPlayerBookmark().tpbookmark)
+		for (TeleportBookmark tpbm : player.getPlayerBookmark().getTpbookmark())
 		{
-			writeD(tpbm._id);
-			writeD(tpbm._x);
-			writeD(tpbm._y);
-			writeD(tpbm._z);
-			writeS(tpbm._name);
-			writeD(tpbm._icon);
-			writeS(tpbm._tag);
+			writeD(tpbm.getId());
+			writeD(tpbm.getX());
+			writeD(tpbm.getY());
+			writeD(tpbm.getZ());
+			writeS(tpbm.getName());
+			writeD(tpbm.getIcon());
+			writeS(tpbm.getTag());
 		}
 	}
 
 	@Override
-	public String getType()
+	public final String getType()
 	{
 		return _S__FE_84_EXGETBOOKMARKINFOPACKET;
 	}
