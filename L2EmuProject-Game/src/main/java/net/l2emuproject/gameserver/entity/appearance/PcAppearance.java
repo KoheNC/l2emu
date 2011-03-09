@@ -40,8 +40,6 @@ public final class PcAppearance
 	/** The default hexadecimal color of players' title (light blue is 0xFFFF77) */
 	public static final int		DEFAULT_TITLE_COLOR	= 0xFFFF77;
 
-	// =========================================================
-	// Data Field
 	private L2Player			_owner;
 	private byte				_face;
 	private byte				_hairColor;
@@ -61,8 +59,6 @@ public final class PcAppearance
 	/** The hexadecimal Color of players title (light blue is 0xFFFF77) */
 	private int					_titleColor			= DEFAULT_TITLE_COLOR;
 
-	// =========================================================
-	// Constructor
 	public PcAppearance(byte face, byte hColor, byte hStyle, boolean sex)
 	{
 		_face = face;
@@ -189,7 +185,9 @@ public final class PcAppearance
 
 	public final void updateNameTitleColor()
 	{
-		// L2EMU_EDIT: START
+		_nameColor = DEFAULT_NAME_COLOR;
+		_titleColor = DEFAULT_TITLE_COLOR;
+		
 		if (_owner.isClanLeader() && Config.CLAN_LEADER_COLOR_ENABLED && _owner.getClan().getLevel() >= Config.CLAN_LEADER_COLOR_CLAN_LEVEL)
 		{
 			if (Config.CLAN_LEADER_COLORED == Config.ClanLeaderColored.name)
@@ -197,12 +195,8 @@ public final class PcAppearance
 			else
 				_titleColor = Config.CLAN_LEADER_COLOR;
 		}
-
 		else if (Config.CHAR_VIP_COLOR_ENABLED && _owner.isCharViP())
-		{
 			_nameColor = Config.CHAR_VIP_COLOR;
-		}
-
 		else if (_owner.isGM())
 		{
 			if (Config.GM_NAME_COLOR_ENABLED)
@@ -221,29 +215,18 @@ public final class PcAppearance
 					_titleColor = Config.GM_TITLE_COLOR;
 			}
 		}
-
-		// L2EMU_ADD
 		else if (_owner.isDonator())
 		{
 			_nameColor = Config.DONATOR_NAME_COLOR;
 			_titleColor = Config.DONATOR_TITLE_COLOR;
 		}
-		// L2EMU_ADD
-
 		else if (Config.ALLOW_OFFLINE_TRADE_COLOR_NAME && _owner.isInOfflineMode())
-		{
 			_nameColor = Config.OFFLINE_TRADE_COLOR_NAME;
-		}
-
 		else
 		{
 			updatePvPColor(_owner.getPvpKills());
 			updatePkColor(_owner.getPkKills());
-
-			_nameColor = DEFAULT_NAME_COLOR;
-			_titleColor = DEFAULT_TITLE_COLOR;
 		}
-		// L2EMU_EDIT: END
 
 		_owner.broadcastUserInfo();
 	}
@@ -252,13 +235,13 @@ public final class PcAppearance
 	{
 		if (Config.PVP_COLOR_SYSTEM_ENABLED)
 		{
-			if ((pvpKillAmount >= (Config.PVP_AMOUNT1)) && (pvpKillAmount <= (Config.PVP_AMOUNT2)))
+			if ((pvpKillAmount >= (Config.PVP_AMOUNT1)) && (pvpKillAmount < (Config.PVP_AMOUNT2)))
 				_nameColor = (Config.NAME_COLOR_FOR_PVP_AMOUNT1);
-			else if ((pvpKillAmount >= (Config.PVP_AMOUNT2)) && (pvpKillAmount <= (Config.PVP_AMOUNT3)))
+			else if ((pvpKillAmount >= (Config.PVP_AMOUNT2)) && (pvpKillAmount < (Config.PVP_AMOUNT3)))
 				_nameColor = (Config.NAME_COLOR_FOR_PVP_AMOUNT2);
-			else if ((pvpKillAmount >= (Config.PVP_AMOUNT3)) && (pvpKillAmount <= (Config.PVP_AMOUNT4)))
+			else if ((pvpKillAmount >= (Config.PVP_AMOUNT3)) && (pvpKillAmount < (Config.PVP_AMOUNT4)))
 				_nameColor = (Config.NAME_COLOR_FOR_PVP_AMOUNT3);
-			else if ((pvpKillAmount >= (Config.PVP_AMOUNT4)) && (pvpKillAmount <= (Config.PVP_AMOUNT5)))
+			else if ((pvpKillAmount >= (Config.PVP_AMOUNT4)) && (pvpKillAmount < (Config.PVP_AMOUNT5)))
 				_nameColor = (Config.NAME_COLOR_FOR_PVP_AMOUNT4);
 			else if (pvpKillAmount >= (Config.PVP_AMOUNT5))
 				_nameColor = (Config.NAME_COLOR_FOR_PVP_AMOUNT5);
@@ -269,13 +252,13 @@ public final class PcAppearance
 	{
 		if (Config.PK_COLOR_SYSTEM_ENABLED)
 		{
-			if ((pkKillAmount >= (Config.PK_AMOUNT1)) && (pkKillAmount <= (Config.PVP_AMOUNT2)))
+			if ((pkKillAmount >= (Config.PK_AMOUNT1)) && (pkKillAmount < (Config.PK_AMOUNT2)))
 				_titleColor = (Config.TITLE_COLOR_FOR_PK_AMOUNT1);
-			else if ((pkKillAmount >= (Config.PK_AMOUNT2)) && (pkKillAmount <= (Config.PVP_AMOUNT3)))
+			else if ((pkKillAmount >= (Config.PK_AMOUNT2)) && (pkKillAmount < (Config.PK_AMOUNT3)))
 				_titleColor = (Config.TITLE_COLOR_FOR_PK_AMOUNT2);
-			else if ((pkKillAmount >= (Config.PK_AMOUNT3)) && (pkKillAmount <= (Config.PVP_AMOUNT4)))
+			else if ((pkKillAmount >= (Config.PK_AMOUNT3)) && (pkKillAmount < (Config.PK_AMOUNT4)))
 				_titleColor = (Config.TITLE_COLOR_FOR_PK_AMOUNT3);
-			else if ((pkKillAmount >= (Config.PK_AMOUNT4)) && (pkKillAmount <= (Config.PVP_AMOUNT5)))
+			else if ((pkKillAmount >= (Config.PK_AMOUNT4)) && (pkKillAmount < (Config.PK_AMOUNT5)))
 				_titleColor = (Config.TITLE_COLOR_FOR_PK_AMOUNT4);
 			else if (pkKillAmount >= (Config.PK_AMOUNT5))
 				_titleColor = (Config.TITLE_COLOR_FOR_PK_AMOUNT5);

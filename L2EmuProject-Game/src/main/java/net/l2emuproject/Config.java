@@ -4093,7 +4093,7 @@ public class Config extends L2Config
 			NAME_COLOR_FOR_PVP_AMOUNT2 = Integer.decode("0x" + customSettings.getProperty("ColorForAmount2", "00FF00"));
 			NAME_COLOR_FOR_PVP_AMOUNT3 = Integer.decode("0x" + customSettings.getProperty("ColorForAmount3", "00FF00"));
 			NAME_COLOR_FOR_PVP_AMOUNT4 = Integer.decode("0x" + customSettings.getProperty("ColorForAmount4", "00FF00"));
-			NAME_COLOR_FOR_PVP_AMOUNT5 = Integer.decode("0x" + customSettings.getProperty("ColorForAmount4", "00FF00"));
+			NAME_COLOR_FOR_PVP_AMOUNT5 = Integer.decode("0x" + customSettings.getProperty("ColorForAmount5", "00FF00"));
 			// PvP Name Color System configs - End
 
 			// PK Title Color System configs - Start
