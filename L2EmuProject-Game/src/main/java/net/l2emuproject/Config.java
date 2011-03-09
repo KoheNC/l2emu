@@ -1392,7 +1392,6 @@ public class Config extends L2Config
 	public static int					TELEPORT_WATCHDOG_TIMEOUT;
 	public static int					PLAYER_SPAWN_PROTECTION;											// Player Protection control
 	public static int					PLAYER_FAKEDEATH_UP_PROTECTION;
-	public static int					MAX_ITEM_IN_PACKET;
 
 	/**
 	 * Allow lesser effects to be canceled if stronger effects are used when
@@ -1525,12 +1524,15 @@ public class Config extends L2Config
 	public static int			INVENTORY_MAXIMUM_NO_DWARF;							// Inventory slots limits
 	public static int			INVENTORY_MAXIMUM_DWARF;								// Inventory slots limits
 	public static int			INVENTORY_MAXIMUM_GM;									// Inventory slots limits
+	public static int			INVENTORY_MAXIMUM_QUEST_ITEMS;
 
 	public static boolean		FORCE_INVENTORY_UPDATE;
+	public static int			MAX_ITEM_IN_PACKET;
 
 	// *******************************************************************************************
 	private static final class InventoryConfig extends ConfigPropertiesLoader
 	{
+		@Override
 		protected String getName()
 		{
 			return "main/inventory";
@@ -1548,6 +1550,8 @@ public class Config extends L2Config
 			INVENTORY_MAXIMUM_NO_DWARF = Integer.parseInt(inventorySettings.getProperty("MaximumSlotsForNoDwarf", "80"));
 			INVENTORY_MAXIMUM_DWARF = Integer.parseInt(inventorySettings.getProperty("MaximumSlotsForDwarf", "100"));
 			INVENTORY_MAXIMUM_GM = Integer.parseInt(inventorySettings.getProperty("MaximumSlotsForGMPlayer", "250"));
+
+			INVENTORY_MAXIMUM_QUEST_ITEMS = Integer.parseInt(inventorySettings.getProperty("MaximumSlotsForQuestItems", "100"));
 
 			/* Inventory slots limits */
 			MAX_ITEM_IN_PACKET = Math.max(INVENTORY_MAXIMUM_NO_DWARF, Math.max(INVENTORY_MAXIMUM_DWARF, INVENTORY_MAXIMUM_GM));
@@ -2168,6 +2172,7 @@ public class Config extends L2Config
 
 	// *******************************************************************************************
 	public static final String	COMMUNITY_FILE	= "./config/main/community_board.properties";
+
 	// *******************************************************************************************											// Show player(s) in jail in CB ?
 
 	// *******************************************************************************************
@@ -2702,6 +2707,7 @@ public class Config extends L2Config
 
 	// *******************************************************************************************
 	public static final String	FOUR_SEPULCHERS_FILE	= "./config/main/four_sepulchers.properties";
+
 	// *******************************************************************************************
 
 	// *******************************************************************************************
@@ -3754,6 +3760,7 @@ public class Config extends L2Config
 
 	// *******************************************************************************************
 	public static final String	BOSS_FILE	= "./config/main/boss.properties";
+
 	// *******************************************************************************************
 
 	// *******************************************************************************************

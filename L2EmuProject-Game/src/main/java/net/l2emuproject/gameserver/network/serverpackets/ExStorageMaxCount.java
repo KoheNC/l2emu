@@ -55,7 +55,7 @@ public final class ExStorageMaxCount extends L2GameServerPacket
 		_receipeD = _activeChar.getDwarfRecipeLimit();
 		_recipe = _activeChar.getCommonRecipeLimit();
 		_inventoryExtraSlots = (int) _activeChar.getStat().calcStat(Stats.INV_LIM, 0, null, null);
-		_inventoryQuestItems = 100; // TODO: Config...
+		_inventoryQuestItems = Config.INVENTORY_MAXIMUM_QUEST_ITEMS;
 	}
 
 	/* (non-Javadoc)
