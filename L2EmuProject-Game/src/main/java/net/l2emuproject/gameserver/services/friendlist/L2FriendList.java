@@ -14,7 +14,10 @@
  */
 package net.l2emuproject.gameserver.services.friendlist;
 
+import java.util.List;
 import java.util.Set;
+
+import javolution.util.FastList;
 
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -111,5 +114,28 @@ public final class L2FriendList
 		}
 		else
 			_owner.sendPacket(new SystemMessage(SystemMessageId.C1_NOT_ON_YOUR_FRIENDS_LIST).addString(name));
+	}
+
+	private final List<Integer> _selectedFriends = new FastList<Integer>();
+	
+	public final void selectFriend(Integer friendId)
+	{
+		if (_selectedFriends.contains(friendId))
+			return;
+		
+		_selectedFriends.add(friendId);
+	}
+	
+	public final void deselectFriend(Integer friendId)
+	{
+		if (!_selectedFriends.contains(friendId))
+			return;
+		
+		_selectedFriends.remove(friendId);
+	}
+	
+	public final List<Integer> getSelectedFriends()
+	{
+		return _selectedFriends;
 	}
 }
