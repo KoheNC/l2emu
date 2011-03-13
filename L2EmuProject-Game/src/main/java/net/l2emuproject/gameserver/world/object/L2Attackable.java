@@ -640,7 +640,7 @@ public class L2Attackable extends L2Npc
 							}
 							
 							// L2EMU_ADD
-							if (Config.ALLOW_LEVEL_DIFFERENCE && attacker.getActingPlayer().getLevel() - getLevel() > Config.LEVEL_DIFFERENCE)
+							if (Config.ALLOW_LEVEL_DIFFERENCE && Math.abs(attacker.getActingPlayer().getLevel() - getLevel()) > Config.LEVEL_DIFFERENCE)
 							{
 								exp = 0;
 								sp = 0;

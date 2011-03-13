@@ -28,7 +28,7 @@ public final class ErrorBoard extends CommunityBoard
 	@Override
 	public final void parseCommand(final L2Player player, final String command)
 	{
-		showHTML(player, "<html><body>Error 404 I can't find page" + command.split(";")[1] + "</body></html>");
+		showHTML(player, "<html><body><br><br>&nbsp;Error 404 I can't find page " + command.split(";")[1] + "</body></html>");
 	}
 
 	@Override
