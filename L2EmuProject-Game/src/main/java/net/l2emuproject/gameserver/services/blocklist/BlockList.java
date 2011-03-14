@@ -36,6 +36,11 @@ public final class BlockList
 		_owner = owner;
 		_set = BlockListService.getInstance().getBlockList(_owner.getObjectId());
 	}
+	
+	public final Iterable<String> getBlocks()
+	{
+		return _set;
+	}
 
 	public final void add(String name)
 	{

@@ -16,6 +16,7 @@ package net.l2emuproject.gameserver.services.community;
 
 import javolution.util.FastMap;
 
+import net.l2emuproject.gameserver.services.community.boards.BlockBoard;
 import net.l2emuproject.gameserver.services.community.boards.ClanBoard;
 import net.l2emuproject.gameserver.services.community.boards.ClanPostBoard;
 import net.l2emuproject.gameserver.services.community.boards.ErrorBoard;
@@ -51,6 +52,7 @@ public final class CommunityService
 
 		_boards.put("_bbsloc", new RegionBoard(this));
 		_boards.put("_bbsfriend", new FriendBoard(this));
+		_boards.put("_bbsblock", new BlockBoard(this));
 		_boards.put("_bbsclan", new ClanBoard(this));
 		_boards.put("_bbscpost", new ClanPostBoard(this));
 		_boards.put("_bbsmail", new MailBoard(this));
