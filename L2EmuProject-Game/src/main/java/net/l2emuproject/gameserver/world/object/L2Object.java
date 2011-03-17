@@ -202,7 +202,7 @@ public abstract class L2Object implements L2Entity<Integer>
 		//if (Config.ASSERT)
 		//	assert getPosition().getWorldRegion() != null;
 		
-		L2WorldRegion reg = getWorldRegion();
+		final L2WorldRegion reg = getWorldRegion();
 		
 		synchronized (this)
 		{
@@ -472,7 +472,7 @@ public abstract class L2Object implements L2Entity<Integer>
 				
 				for (int slot : L2GameServerPacket.getPaperdollSlots(true))
 				{
-					L2ItemInstance ii = getActingPlayer().getInventory().getPaperdollItem(slot);
+					final L2ItemInstance ii = getActingPlayer().getInventory().getPaperdollItem(slot);
 					if (ii != null && !ii.getItem().checkCondition(getActingPlayer(), false))
 						while (ii.isEquipped())
 							getActingPlayer().useEquippableItem(ii, true);

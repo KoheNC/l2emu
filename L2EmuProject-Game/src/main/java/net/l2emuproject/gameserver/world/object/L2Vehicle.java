@@ -17,7 +17,6 @@ package net.l2emuproject.gameserver.world.object;
 import java.util.Iterator;
 import java.util.List;
 
-import javolution.util.FastList;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
 import net.l2emuproject.gameserver.entity.stat.VehicleStat;
@@ -39,6 +38,7 @@ import net.l2emuproject.gameserver.world.knownlist.VehicleKnownList;
 import net.l2emuproject.gameserver.world.mapregion.MapRegionManager;
 import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
+import net.l2emuproject.util.SingletonList;
 
 /**
  * @author DS
@@ -46,13 +46,13 @@ import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
  */
 public abstract class L2Vehicle extends L2Character
 {
-	protected int							_dockId			= 0;
-	protected final FastList<L2Player>	_passengers		= new FastList<L2Player>();
-	protected Location						_oustLoc		= null;
-	private Runnable						_engine			= null;
+	protected int					_dockId			= 0;
+	protected final List<L2Player>	_passengers		= new SingletonList<L2Player>();
+	protected Location				_oustLoc		= null;
+	private Runnable				_engine			= null;
 
-	protected VehiclePathPoint[]			_currentPath	= null;
-	protected int							_runState		= 0;
+	protected VehiclePathPoint[]	_currentPath	= null;
+	protected int					_runState		= 0;
 
 	public L2Vehicle(int objectId, L2CharTemplate template)
 	{

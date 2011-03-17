@@ -124,7 +124,7 @@ public abstract class L2Summon extends L2Playable
 			setFollowStatus(true);
 			broadcastFullInfoImpl(0);
 			getOwner().broadcastRelationChanged();
-			L2Party party = getOwner().getParty();
+			final L2Party party = getOwner().getParty();
 			if (party != null)
 			{
 				party.broadcastToPartyMembers(getOwner(), new ExPartyPetWindowAdd(this));
@@ -397,7 +397,7 @@ public abstract class L2Summon extends L2Playable
 	{
 		getAI().stopFollow();
 		owner.sendPacket(new PetDelete(getObjectId(), 2));
-		L2Party party = owner.getParty();
+		final L2Party party = owner.getParty();
 		if (party != null)
 			party.broadcastToPartyMembers(owner, new ExPartyPetWindowDelete(this));
 
@@ -410,7 +410,7 @@ public abstract class L2Summon extends L2Playable
 		stopAllEffects();
 		getStatus().stopHpMpRegeneration();
 
-		L2WorldRegion oldRegion = getWorldRegion();
+		final L2WorldRegion oldRegion = getWorldRegion();
 		decayMe();
 		if (oldRegion != null)
 			oldRegion.removeFromZones(this);
@@ -451,7 +451,7 @@ public abstract class L2Summon extends L2Playable
 	        stopAllEffects();
 			getStatus().stopHpMpRegeneration();
 
-			L2WorldRegion oldRegion = getWorldRegion();
+			final L2WorldRegion oldRegion = getWorldRegion();
 			decayMe();
 			if (oldRegion != null)
 				oldRegion.removeFromZones(this);
