@@ -1685,6 +1685,32 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 							canTargetSelf = true;
 							break;
 					}
+					// Find me
+					switch(skillType)
+					{
+						case CONFUSION:
+						case DEBUFF:
+						case STUN:
+						case ROOT:
+						case FEAR:
+						case SLEEP:
+						case MUTE:
+						case WEAKNESS:
+						case PARALYZE:
+						case CANCEL:
+						case MAGE_BANE:
+						case WARRIOR_BANE:
+						case DISARM:
+							if(checkPartyCheckClan(activeChar,target))
+							{
+								activeChar.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
+								activeChar.sendPacket(ActionFailed.STATIC_PACKET);
+								return null;
+							}
+							break;
+					}
+					
+					
 
 					// Check for null target or any other invalid target
 					if (target == null || target.isDead() || (target == activeChar && !canTargetSelf))
@@ -4006,7 +4032,32 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 
 		_preCondition = c;
 	}
+	
+	
+	private boolean checkPartyCheckClan(L2Character activeChar,L2Object target)
+	{
+		if(activeChar instanceof L2Player && target instanceof L2Player)
+		{
+			L2Player targetChar = (L2Player) target;
+			L2Player activeCh = (L2Player) activeChar;
+			
+			if(activeCh.getPlayerOlympiad().isInOlympiadMode() && activeCh.getPlayerOlympiad().isOlympiadStart() && targetChar.getPlayerOlympiad().isInOlympiadMode() && targetChar.getPlayerOlympiad().isOlympiadStart())
+				return false;
+			if(activeCh.getPlayerDuel().isInDuel() && targetChar.getPlayerDuel().isInDuel() && activeCh.getPlayerDuel().getDuelId() == targetChar.getPlayerDuel().getDuelId())
+				return false;
+			if(activeCh.getParty() !=null && targetChar.getParty() != null && activeCh.getParty().getPartyMembers().contains(targetChar))
+				return true;
+			if(activeCh.getClan() !=null && targetChar.getClan() != null && activeCh.getClan().getClanId() == targetChar.getClan().getClanId())
+				return true;
 
+			//Finally set the targets to null.
+			targetChar = null;
+			activeCh = null;
+		}
+		return false;
+	}
+	
+	
 	@Override
 	public final String toString()
 	{
