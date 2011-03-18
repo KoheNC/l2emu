@@ -51,66 +51,65 @@ import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-
 /**
  * @author evill33t
  * 
  */
 public class Instance
 {
-	private final static Log _log = LogFactory.getLog(Instance.class);
-	
+	private final static Log	_log	= LogFactory.getLog(Instance.class);
+
 	public interface InstanceFactory
 	{
 		public Instance createInstance(int instanceId, String template);
-		
+
 		public String[] getInstanceTemplates();
 	}
-	
-	private static final Map<String, InstanceFactory> _factories = new HashMap<String, InstanceFactory>();
-	
+
+	private static final Map<String, InstanceFactory>	_factories	= new HashMap<String, InstanceFactory>();
+
 	public static void registerInstanceFactory(InstanceFactory factory)
 	{
 		for (String template : factory.getInstanceTemplates())
 			_factories.put(template, factory);
 	}
-	
+
 	public static Instance createInstance(int id, String template)
 	{
 		final InstanceFactory factory = _factories.get(template);
-		
+
 		if (factory != null)
 			return factory.createInstance(id, template);
-		
+
 		return new Instance(id, template);
 	}
 
-	private final int					_id;
-	private int							_template;
-	private Location					_tp;
-	private String						_name;
-	private final Set<Integer>			_players			= new L2FastSet<Integer>().shared();
-	private final Set<L2Npc>			_npcs				= new L2FastSet<L2Npc>().shared();
-	private final Map<Integer, L2DoorInstance> _doors		= new FastMap<Integer, L2DoorInstance>().shared();
-	private L2DoorInstance[]			_doorArray;
-	private Location					_spawnLoc;
-	private boolean						_allowSummon		= true;
-	private boolean						_isPvPInstance		= false;
-	protected ScheduledFuture<?>		_checkTimeUpTask	= null;
-	private long						_emptyDestroyTime	= -1;
-	private long						_lastLeft			= -1;
-	private long						_instanceEndTime	= -1;
-	
+	private final int							_id;
+	private int									_template;
+	private Location							_tp;
+	private String								_name;
+	private final Set<Integer>					_players			= new L2FastSet<Integer>().shared();
+	private final Set<L2Npc>					_npcs				= new L2FastSet<L2Npc>().shared();
+	private final Map<Integer, L2DoorInstance>	_doors				= new FastMap<Integer, L2DoorInstance>().shared();
+	private L2DoorInstance[]					_doorArray;
+	private Location							_spawnLoc;
+	private boolean								_allowSummon		= true;
+	private boolean								_isPvPInstance		= false;
+	protected ScheduledFuture<?>				_checkTimeUpTask	= null;
+	private long								_emptyDestroyTime	= -1;
+	private long								_lastLeft			= -1;
+	private long								_instanceEndTime	= -1;
+
 	public Instance(int id)
 	{
 		_id = id;
 		_template = -1;
 	}
-	
+
 	public Instance(int id, String fileName)
 	{
 		this(id);
-		
+
 		loadInstanceTemplate(fileName);
 	}
 
@@ -265,9 +264,10 @@ public class Instance
 			_log.warn("Door ID " + doorId + " already exists in instance " + getId());
 			return;
 		}
-		
+
 		L2DoorInstance temp = DoorTable.getInstance().getDoor(doorId);
-		L2DoorInstance newdoor = new L2DoorInstance(IdFactory.getInstance().getNextId(), temp.getTemplate(), temp.getDoorId(), temp.getName(), temp.isUnlockable());
+		L2DoorInstance newdoor = new L2DoorInstance(IdFactory.getInstance().getNextId(), temp.getTemplate(), temp.getDoorId(), temp.getName(),
+				temp.isUnlockable());
 		newdoor.setInstanceId(getId());
 		newdoor.setRange(temp.getXMin(), temp.getYMin(), temp.getZMin(), temp.getXMax(), temp.getYMax(), temp.getZMax());
 		try
@@ -301,7 +301,7 @@ public class Instance
 	{
 		if (_doorArray == null)
 			_doorArray = _doors.values().toArray(new L2DoorInstance[_doors.size()]);
-		
+
 		return _doorArray;
 	}
 
@@ -319,12 +319,12 @@ public class Instance
 	{
 		return _spawnLoc;
 	}
-	
+
 	public void setSpawnLoc(Location loc)
 	{
 		_spawnLoc = loc;
 	}
-	
+
 	/**
 	 * Sets the spawn location for this instance to be used when leaving the instance
 	 */
@@ -453,13 +453,13 @@ public class Instance
 			}
 			else if ("returnTeleport".equalsIgnoreCase(n.getNodeName()))
 			{
-					int tpx = 0, tpy = 0, tpz = 0;
+				int tpx = 0, tpy = 0, tpz = 0;
 
-					tpx = Integer.parseInt(n.getAttributes().getNamedItem("x").getNodeValue());
-					tpy = Integer.parseInt(n.getAttributes().getNamedItem("y").getNodeValue());
-					tpz = Integer.parseInt(n.getAttributes().getNamedItem("z").getNodeValue());
-					
-					setReturnTeleport(tpx, tpy, tpz);
+				tpx = Integer.parseInt(n.getAttributes().getNamedItem("x").getNodeValue());
+				tpy = Integer.parseInt(n.getAttributes().getNamedItem("y").getNodeValue());
+				tpz = Integer.parseInt(n.getAttributes().getNamedItem("z").getNodeValue());
+
+				setReturnTeleport(tpx, tpy, tpz);
 			}
 			else if ("doorList".equalsIgnoreCase(n.getNodeName()))
 			{
@@ -528,7 +528,7 @@ public class Instance
 					int x = Integer.parseInt(n.getAttributes().getNamedItem("x").getNodeValue());
 					int y = Integer.parseInt(n.getAttributes().getNamedItem("y").getNodeValue());
 					int z = Integer.parseInt(n.getAttributes().getNamedItem("z").getNodeValue());
-					
+
 					_spawnLoc = new Location(x, y, z);
 				}
 				catch (Exception e)
@@ -624,7 +624,7 @@ public class Instance
 				}
 			}
 		}
-		
+
 		cancelTimer();
 		scheduleCheckTimeUp(remaining, interval);
 	}

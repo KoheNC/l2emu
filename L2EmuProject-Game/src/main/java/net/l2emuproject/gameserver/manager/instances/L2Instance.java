@@ -15,6 +15,7 @@
 package net.l2emuproject.gameserver.manager.instances;
 
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
+import net.l2emuproject.gameserver.manager.instances.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Player;
@@ -37,6 +38,11 @@ public abstract class L2Instance extends Quest
 	protected abstract void enterInstance(final L2Player player);
 
 	protected abstract void exitInstance(final L2Player player);
+
+	protected final void addPlayer(final InstanceWorld world, final L2Player player)
+	{
+		world.allowed.add(player.getObjectId());
+	}
 
 	protected final void setInstanceTime(final L2Player player, final int instanceId, final long time)
 	{

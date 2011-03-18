@@ -14,6 +14,7 @@
  */
 package net.l2emuproject.gameserver.manager.instances;
 
+import net.l2emuproject.gameserver.manager.instances.InstanceManager.InstanceWorld;
 import net.l2emuproject.gameserver.services.party.L2Party;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
@@ -26,6 +27,16 @@ public abstract class PartyInstance extends L2Instance
 	public PartyInstance(int questId, String name, String descr, String folder)
 	{
 		super(questId, name, descr, folder);
+	}
+
+	protected final void addParty(final InstanceWorld world, final L2Player player)
+	{
+		final L2Party party = player.getParty();
+
+		if (party != null)
+			for (L2Player members : party.getPartyMembers())
+				if (members != null)
+					addPlayer(world, members);
 	}
 
 	protected final void teleportParty(final L2Player player, final int[] coords, final int instanceId)

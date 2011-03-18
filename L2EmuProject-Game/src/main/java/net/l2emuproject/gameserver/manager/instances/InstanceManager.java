@@ -38,28 +38,27 @@ import net.l2emuproject.util.LookupTable;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * @author evill33t, GodKratos
  * 
  */
 public class InstanceManager
 {
-	private final static Log _log = LogFactory.getLog(InstanceManager.class);
+	private final static Log						_log					= LogFactory.getLog(InstanceManager.class);
 
-	private final FastMap<Integer, Instance> _instanceList = new FastMap<Integer, Instance>();
-	private final FastMap<Integer, InstanceWorld> _instanceWorlds = new FastMap<Integer, InstanceWorld>();
+	private final FastMap<Integer, Instance>		_instanceList			= new FastMap<Integer, Instance>();
+	private final FastMap<Integer, InstanceWorld>	_instanceWorlds			= new FastMap<Integer, InstanceWorld>();
 
-	private final AtomicInteger _instanceIds = new AtomicInteger(300000);
+	private final AtomicInteger						_instanceIds			= new AtomicInteger(300000);
 
 	// InstanceId Names
-	private final LookupTable<String> _instanceIdNames = new LookupTable<String>();
-	private final Map<Integer, Map<Integer, Long>> _playerInstanceTimes = new FastMap<Integer, Map<Integer, Long>>();
-	
-	private static final String ADD_INSTANCE_TIME = "INSERT INTO character_instance_time (charId,instanceId,time) values (?,?,?) ON DUPLICATE KEY UPDATE time=?";
-	private static final String RESTORE_INSTANCE_TIMES = "SELECT instanceId,time FROM character_instance_time WHERE charId=?";
-	private static final String DELETE_INSTANCE_TIME = "DELETE FROM character_instance_time WHERE charId=? AND instanceId=?";
-	
+	private final LookupTable<String>				_instanceIdNames		= new LookupTable<String>();
+	private final Map<Integer, Map<Integer, Long>>	_playerInstanceTimes	= new FastMap<Integer, Map<Integer, Long>>();
+
+	private static final String						ADD_INSTANCE_TIME		= "INSERT INTO character_instance_time (charId,instanceId,time) values (?,?,?) ON DUPLICATE KEY UPDATE time=?";
+	private static final String						RESTORE_INSTANCE_TIMES	= "SELECT instanceId,time FROM character_instance_time WHERE charId=?";
+	private static final String						DELETE_INSTANCE_TIME	= "DELETE FROM character_instance_time WHERE charId=? AND instanceId=?";
+
 	public long getInstanceTime(int playerObjId, int id)
 	{
 		if (!_playerInstanceTimes.containsKey(playerObjId))
@@ -69,7 +68,7 @@ public class InstanceManager
 		return -1;
 	}
 
-	public Map<Integer,Long> getAllInstanceTimes(int playerObjId)
+	public Map<Integer, Long> getAllInstanceTimes(int playerObjId)
 	{
 		if (!_playerInstanceTimes.containsKey(playerObjId))
 			restoreInstanceTimes(playerObjId);
@@ -170,7 +169,7 @@ public class InstanceManager
 			return _instanceIdNames.get(id);
 		return ("UnknownInstance");
 	}
-	
+
 	private void loadInstanceNames()
 	{
 		InputStream in = null;
@@ -215,10 +214,10 @@ public class InstanceManager
 
 	public class InstanceWorld
 	{
-		public int instanceId;
-		public int templateId = -1;
-		public final L2FastSet<Integer> allowed = new L2FastSet<Integer>().shared();
-		public int status;
+		public int						instanceId;
+		public int						templateId	= -1;
+		public final L2FastSet<Integer>	allowed		= new L2FastSet<Integer>().shared();
+		public int						status;
 	}
 
 	public void addWorld(InstanceWorld world)
@@ -233,8 +232,7 @@ public class InstanceManager
 
 	public InstanceWorld getPlayerWorld(L2Player player)
 	{
-		for (FastMap.Entry<Integer, InstanceWorld> entry = _instanceWorlds.head(), end = _instanceWorlds.tail();
-				(entry = entry.getNext()) != end;)
+		for (FastMap.Entry<Integer, InstanceWorld> entry = _instanceWorlds.head(), end = _instanceWorlds.tail(); (entry = entry.getNext()) != end;)
 		{
 			// check if the player have a World Instance where he/she is allowed to enter
 			InstanceWorld iw = entry.getValue();
@@ -246,8 +244,7 @@ public class InstanceManager
 
 	public Instance getDynamicInstance(L2Player player)
 	{
-		for (FastMap.Entry<Integer, Instance> entry = _instanceList.head(), end = _instanceList.tail();
-				(entry = entry.getNext()) != end;)
+		for (FastMap.Entry<Integer, Instance> entry = _instanceList.head(), end = _instanceList.tail(); (entry = entry.getNext()) != end;)
 		{
 			// check if the player is in a dynamic instance
 			Instance i = entry.getValue();
@@ -261,13 +258,13 @@ public class InstanceManager
 	{
 		return SingletonHolder._instance;
 	}
-	
+
 	private InstanceManager()
 	{
 		_log.info(getClass().getSimpleName() + " : Initialized.");
 		loadInstanceNames();
 		_log.info(getClass().getSimpleName() + " : Loaded " + _instanceIdNames.size() + " instancename(s).");
-		
+
 		Instance themultiverse = new Instance(-1);
 		themultiverse.setName("multiverse");
 		_instanceList.put(themultiverse.getId(), themultiverse);
@@ -300,46 +297,46 @@ public class InstanceManager
 	{
 		return _instanceList.get(instanceid);
 	}
-	
-	public FastMap<Integer,Instance> getInstances()
+
+	public FastMap<Integer, Instance> getInstances()
 	{
 		return _instanceList;
 	}
-	
+
 	@Deprecated
 	public boolean createInstance(int id)
 	{
 		if (getInstance(id) != null)
 			return false;
-		
+
 		Instance instance = new Instance(id);
 		_instanceList.put(instance.getId(), instance);
 		return true;
 	}
-	
+
 	@Deprecated
 	public boolean createInstanceFromTemplate(int id, String template)
 	{
 		if (getInstance(id) != null)
 			return false;
-		
+
 		Instance instance = Instance.createInstance(id, template);
 		_instanceList.put(instance.getId(), instance);
-		
+
 		return true;
 	}
-	
+
 	public int createDynamicInstance(String template)
 	{
 		Instance instance = Instance.createInstance(_instanceIds.incrementAndGet(), template);
 		_instanceList.put(instance.getId(), instance);
-		
+
 		return instance.getId();
 	}
-	
+
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final InstanceManager _instance = new InstanceManager();
+		protected static final InstanceManager	_instance	= new InstanceManager();
 	}
 }

@@ -27,12 +27,12 @@ public interface InstanceListManager
 	 * NOTE: This method has no side effect as calling methods of another instance manager.
 	 */
 	public void loadInstances();
-	
+
 	/**
 	 * For each loaded instance, updates references to related instances.
 	 */
 	public void updateReferences();
-	
+
 	/**
 	 * Activates instances so their setup is performed.
 	 */
