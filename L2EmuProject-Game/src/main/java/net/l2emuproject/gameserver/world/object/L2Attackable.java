@@ -1693,7 +1693,7 @@ public class L2Attackable extends L2Npc
 		if (player.getLevel() - getLevel() > 9)
 			return;
 		
-		if (isRaid() && !Config.ALT_ENABLE_EVENT_ITEM_DROP_FOR_BOSSES)
+		if (this instanceof L2Boss && !Config.ALT_ENABLE_EVENT_ITEM_DROP_FOR_BOSSES)
 			return;
 		
 		// L2EMU_ADD
