@@ -39,12 +39,6 @@ public final class BlockBoard extends CommunityBoard
 	{
 		if (command.equals("_bbsblock"))
 			showMainPage(player, MAIN_PAGE);
-		else if (command.split(";")[1].equalsIgnoreCase("block"))
-		{
-			final String name = String.valueOf(command.split(";")[2]);
-			player.getBlockList().add(name);
-			showMainPage(player, MAIN_PAGE);
-		}
 		else if (command.split(";")[1].equalsIgnoreCase("delete"))
 		{
 			final String name = String.valueOf(command.split(";")[2]);
@@ -67,6 +61,8 @@ public final class BlockBoard extends CommunityBoard
 	@Override
 	public final void parseWrite(final L2Player player, final String ar1, final String ar2, final String ar3, final String ar4, final String ar5)
 	{
+		if (ar1.equals("Block"))
+			player.getBlockList().add(ar3);
 	}
 
 	private final void showMainPage(final L2Player player, final byte pageId)
