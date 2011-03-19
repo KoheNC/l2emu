@@ -14,9 +14,6 @@
  */
 package net.l2emuproject.gameserver.services.community;
 
-import java.util.List;
-
-import javolution.util.FastList;
 import net.l2emuproject.gameserver.network.serverpackets.PlayerShowBoard;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
@@ -55,65 +52,7 @@ public abstract class CommunityBoard
 
 	protected final void showHTML(final L2Player player, final String html)
 	{
-		final int length = html.length();
-		if (length < 4090)
-		{
-			player.sendPacket(new PlayerShowBoard(html, "101"));
-			player.sendPacket(new PlayerShowBoard(null, "102"));
-			player.sendPacket(new PlayerShowBoard(null, "103"));
-		}
-		else if (length < 8180)
-		{
-			player.sendPacket(new PlayerShowBoard(html.substring(0, 4090), "101"));
-			player.sendPacket(new PlayerShowBoard(html.substring(4090, length), "102"));
-			player.sendPacket(new PlayerShowBoard(null, "103"));
-		}
-		else if (length < 12270)
-		{
-			player.sendPacket(new PlayerShowBoard(html.substring(0, 4090), "101"));
-			player.sendPacket(new PlayerShowBoard(html.substring(4090, 8180), "102"));
-			player.sendPacket(new PlayerShowBoard(html.substring(8180, length), "103"));
-		}
-	}
-
-	protected final void sendWrite(final L2Player player, final String html, String string, String string2, String string3)
-	{
-		string = editSavedText(string);
-		string2 = editSavedText(string2);
-		string3 = editSavedText(string3);
 		player.sendPacket(new PlayerShowBoard(html));
-		List<String> arg = new FastList<String>();
-		arg.add("0");
-		arg.add("0");
-		arg.add("0");
-		arg.add("0");
-		arg.add("0");
-		arg.add("0");
-		arg.add(player.getName());
-		arg.add(Integer.toString(player.getObjectId()));
-		arg.add(player.getAccountName());
-		arg.add("9");
-		arg.add(string3);
-		arg.add(string2);
-		arg.add(string);
-		arg.add(string3);
-		arg.add(string3);
-		arg.add("0");
-		arg.add("0");
-		player.sendPacket(new PlayerShowBoard(arg));
-	}
-
-	protected final String editSavedText(String text)
-	{
-		if (text == null)
-			return "";
-
-		text = text.replace("&gt;", ">");
-		text = text.replace("&lt;", "<");
-		text = text.replace("<br1>", "\n");
-		text = text.replace("\\$", "$");
-
-		return text;
 	}
 
 	protected final void notImplementedYet(final L2Player player, final String command)
