@@ -62,7 +62,10 @@ public final class BlockBoard extends CommunityBoard
 	public final void parseWrite(final L2Player player, final String ar1, final String ar2, final String ar3, final String ar4, final String ar5)
 	{
 		if (ar1.equals("Block"))
+		{
 			player.getBlockList().add(ar3);
+			showMainPage(player, MAIN_PAGE);
+		}
 	}
 
 	private final void showMainPage(final L2Player player, final byte pageId)
