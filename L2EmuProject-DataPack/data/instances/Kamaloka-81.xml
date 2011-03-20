@@ -8,6 +8,26 @@
 	<emptyDestroyTime val="300" />
 	<returnTeleport x="42673" y="-47988" z="-797" />
 	<spawnList>
-		<spawn npcId="32496" x="-10857" y="-174902" z="-10946" heading="3355" />
+		<spawn npcId="32496" x="21843" y="-174886" z="-10912" heading="0" />
+		<spawn npcId="22503" x="20501" y="-174885" z="-10916" heading="0" />
+		<spawn npcId="22504" x="20366" y="-174886" z="-10916" heading="0" />
+		<spawn npcId="22504" x="20450" y="-174834" z="-10916" heading="0" />
+		<spawn npcId="22504" x="20536" y="-174836" z="-10916" heading="0" />
+		<spawn npcId="22504" x="20617" y="-174883" z="-10916" heading="0" />
+		<spawn npcId="22504" x="20496" y="-174765" z="-10916" heading="0" />
+		<spawn npcId="22504" x="20444" y="-174938" z="-10916" heading="0" />
+		<spawn npcId="22504" x="20548" y="-174939" z="-10916" heading="0" />
+		<spawn npcId="22504" x="20489" y="-175010" z="-10916" heading="0" />
+		<spawn npcId="22505" x="18030" y="-174884" z="-10653" heading="0" />
+		<spawn npcId="22505" x="18168" y="-174887" z="-10653" heading="0" />
+		<spawn npcId="22505" x="18289" y="-174884" z="-10653" heading="0" />
+		<spawn npcId="22505" x="18161" y="-174764" z="-10653" heading="0" />
+		<spawn npcId="22505" x="18160" y="-175007" z="-10653" heading="0" />
+		<spawn npcId="29149" x="11832" y="-174885" z="-9963" heading="0" />
+		<spawn npcId="29149" x="12035" y="-174700" z="-9963" heading="0" />
+		<spawn npcId="29148" x="12049" y="-175088" z="-9963" heading="0" />
+		<spawn npcId="29148" x="11867" y="-175131" z="-9963" heading="0" />
+		<spawn npcId="25622" x="15823" y="-174884" z="-10390" heading="0" />
+		<spawn npcId="29147" x="12047" y="-174885" z="-9946" heading="0" />
 	</spawnList>
 </instance>

@@ -8,6 +8,6 @@
 	<emptyDestroyTime val="300" />
 	<returnTeleport x="18149" y="146024" z="-3100" />
 	<spawnList>
-		<spawn npcId="18558" x="-56284" y="-206144" z="-8117" heading="0" />
+		<spawn npcId="18558" x="-89183" y="-213564" z="-8100" heading="55000" />
 	</spawnList>
 </instance>

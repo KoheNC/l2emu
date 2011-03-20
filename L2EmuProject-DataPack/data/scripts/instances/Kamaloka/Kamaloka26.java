@@ -16,9 +16,23 @@ package instances.Kamaloka;
 
 /**
  * @author lord_rex
- *
  */
-public class Kamaloka26
+public final class Kamaloka26 extends BasicKamaloka
 {
+	public static final String	QN	= "Kamaloka26";
 
+	public Kamaloka26(int questId, String name, String descr, String folder)
+	{
+		super(questId, name, descr, folder);
+
+		_clientInstanceId = 58;
+		_xmlTemplate = "Kamaloka-26.xml";
+
+		_enterLocation = new int[]
+		{ -81890, -220819, -7898 };
+		_bossId = 18555;
+		_requiredLevel = 26;
+
+		addKillId(_bossId);
+	}
 }

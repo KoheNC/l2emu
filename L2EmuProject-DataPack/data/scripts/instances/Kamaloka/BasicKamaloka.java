@@ -35,11 +35,11 @@ import teleports.KamalokaEscaper.KamalokaEscaper;
  */
 public abstract class BasicKamaloka extends PartyInstance
 {
-	private static final int[]	NPCS			=
-												{ 30332, 30071, 30916, 30196, 31981, 31340 };
+	private static final int[]	NPCS					=
+														{ 30332, 30071, 30916, 30196, 31981, 31340 };
 
-	private static final int[]	ALLOWED_BUFFS	=
-												{ 5627, 5628, 5629, 5630, 5631, 5632, 5633, 5634, 5635, 5636, 5637, 5950 };
+	private static final int[]	ALLOWED_BUFFS			=
+														{ 5627, 5628, 5629, 5630, 5631, 5632, 5633, 5634, 5635, 5636, 5637, 5950 };
 
 	private int					_instanceId;
 
@@ -49,6 +49,7 @@ public abstract class BasicKamaloka extends PartyInstance
 	protected int[]				_enterLocation;
 	protected int				_bossId;
 	protected byte				_requiredLevel;
+	protected byte				_maximumPartyMembers	= 6;
 
 	public BasicKamaloka(int questId, String name, String descr, String folder)
 	{
@@ -76,7 +77,7 @@ public abstract class BasicKamaloka extends PartyInstance
 
 		if (party == null)
 			return false;
-		else if (party.getMemberCount() > 6)
+		else if (party.getMemberCount() > _maximumPartyMembers)
 		{
 			player.sendMessage("Your party size is bigger than allowed!");
 			return false;
@@ -222,5 +223,13 @@ public abstract class BasicKamaloka extends PartyInstance
 	public static void main(String[] args)
 	{
 		new Kamaloka23(-1, Kamaloka23.class.getSimpleName(), Kamaloka23.QN, "Kamaloka");
+		new Kamaloka26(-1, Kamaloka26.class.getSimpleName(), Kamaloka26.QN, "Kamaloka");
+		new Kamaloka29(-1, Kamaloka29.class.getSimpleName(), Kamaloka29.QN, "Kamaloka");
+		new Kamaloka33(-1, Kamaloka33.class.getSimpleName(), Kamaloka33.QN, "Kamaloka");
+		new Kamaloka36(-1, Kamaloka36.class.getSimpleName(), Kamaloka36.QN, "Kamaloka");
+		new Kamaloka39(-1, Kamaloka39.class.getSimpleName(), Kamaloka39.QN, "Kamaloka");
+		new Kamaloka43(-1, Kamaloka43.class.getSimpleName(), Kamaloka43.QN, "Kamaloka");
+		new Kamaloka46(-1, Kamaloka46.class.getSimpleName(), Kamaloka46.QN, "Kamaloka");
+		new Kamaloka49(-1, Kamaloka49.class.getSimpleName(), Kamaloka49.QN, "Kamaloka");
 	}
 }

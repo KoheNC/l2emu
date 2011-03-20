@@ -16,9 +16,24 @@ package instances.Kamaloka;
 
 /**
  * @author lord_rex
- *
  */
-public class Kamaloka39
+public final class Kamaloka39 extends BasicKamaloka
 {
+	public static final String	QN	= "Kamaloka39";
 
+	public Kamaloka39(int questId, String name, String descr, String folder)
+	{
+		super(questId, name, descr, folder);
+
+		_clientInstanceId = 74;
+		_xmlTemplate = "Kamaloka-39.xml";
+
+		_enterLocation = new int[]
+		{ -76547, -185548, -11008 };
+		_bossId = 29132;
+		_requiredLevel = 39;
+		_maximumPartyMembers = 9;
+
+		addKillId(_bossId);
+	}
 }
