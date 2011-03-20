@@ -231,5 +231,14 @@ public abstract class BasicKamaloka extends PartyInstance
 		new Kamaloka43(-1, Kamaloka43.class.getSimpleName(), Kamaloka43.QN, "Kamaloka");
 		new Kamaloka46(-1, Kamaloka46.class.getSimpleName(), Kamaloka46.QN, "Kamaloka");
 		new Kamaloka49(-1, Kamaloka49.class.getSimpleName(), Kamaloka49.QN, "Kamaloka");
+		new Kamaloka53(-1, Kamaloka53.class.getSimpleName(), Kamaloka53.QN, "Kamaloka");
+		new Kamaloka56(-1, Kamaloka56.class.getSimpleName(), Kamaloka56.QN, "Kamaloka");
+		new Kamaloka59(-1, Kamaloka59.class.getSimpleName(), Kamaloka59.QN, "Kamaloka");
+		new Kamaloka63(-1, Kamaloka63.class.getSimpleName(), Kamaloka63.QN, "Kamaloka");
+		new Kamaloka66(-1, Kamaloka66.class.getSimpleName(), Kamaloka66.QN, "Kamaloka");
+		new Kamaloka69(-1, Kamaloka69.class.getSimpleName(), Kamaloka69.QN, "Kamaloka");
+		new Kamaloka73(-1, Kamaloka73.class.getSimpleName(), Kamaloka73.QN, "Kamaloka");
+		new Kamaloka78(-1, Kamaloka78.class.getSimpleName(), Kamaloka78.QN, "Kamaloka");
+		new Kamaloka81(-1, Kamaloka81.class.getSimpleName(), Kamaloka81.QN, "Kamaloka");
 	}
 }
