@@ -75,8 +75,11 @@ public abstract class BasicKamaloka extends PartyInstance
 	{
 		final L2Party party = player.getParty();
 
-		if (party == null)
+		if (party == null || !player.isInParty())
+		{
+			player.sendMessage("You need party to join!");
 			return false;
+		}
 		else if (party.getMemberCount() > _maximumPartyMembers)
 		{
 			player.sendMessage("Your party size is bigger than allowed!");
