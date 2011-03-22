@@ -97,9 +97,16 @@ public abstract class BasicKamaloka extends PartyInstance
 
 	private final boolean canEnterPlayer(final L2Player player)
 	{
-		if (player.getLevel() < _requiredLevel)
+		final int requiredLevelmin = _requiredLevel - 5;
+		final int requiredLevelmax = _requiredLevel + 5;
+		if (player.getLevel() < requiredLevelmin)
 		{
 			player.sendMessage("Your level is too low to enter Kamaloka!");
+			return false;
+		}
+		else if (player.getLevel() > requiredLevelmax)
+		{
+			player.sendMessage("Your level is too high to enter Kamaloka!");
 			return false;
 		}
 		else if (System.currentTimeMillis() < InstanceManager.getInstance().getInstanceTime(player.getObjectId(), _clientInstanceId))
