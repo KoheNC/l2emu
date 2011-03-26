@@ -12012,102 +12012,73 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 		return _hiding;
 	}
 	
-	// extensions
 	public final PlayerTeleportBookmark getPlayerBookmark()
 	{
-		if (_teleBookmarkExtension == null)
-			_teleBookmarkExtension = new PlayerTeleportBookmark(this);
-		return _teleBookmarkExtension;
+		return _teleBookmarkExtension == null ? _teleBookmarkExtension : new PlayerTeleportBookmark(this);
 	}
-	
+
 	public final PlayerVitality getPlayerVitality()
 	{
-		if (_vitalityExtension == null)
-			_vitalityExtension = new PlayerVitality(this);
-		return _vitalityExtension;
+		return _vitalityExtension == null ? _vitalityExtension : new PlayerVitality(this);
 	}
-	
+
 	public final PlayerCertification getPlayerCertification()
 	{
-		if (_certificationExtension == null)
-			_certificationExtension = new PlayerCertification(this);
-		return _certificationExtension;
+		return _certificationExtension == null ? _certificationExtension : new PlayerCertification(this);
 	}
-	
+
 	public final PlayerBirthday getPlayerBirthday()
 	{
-		if (_birthdayExtension == null)
-			_birthdayExtension = new PlayerBirthday(this);
-		return _birthdayExtension;
+		return _birthdayExtension == null ? _birthdayExtension : new PlayerBirthday(this);
 	}
-	
+
 	public final PlayerTransformation getPlayerTransformation()
 	{
-		if (_transformationExtension == null)
-			_transformationExtension = new PlayerTransformation(this);
-		return _transformationExtension;
+		return _transformationExtension == null ? _transformationExtension : new PlayerTransformation(this);
 	}
-	
+
 	public final PlayerHenna getPlayerHenna()
 	{
-		if (_hennaExtension == null)
-			_hennaExtension = new PlayerHenna(this);
-		return _hennaExtension;
+		return _hennaExtension == null ? _hennaExtension : new PlayerHenna(this);
 	}
-	
+
 	public final PlayerRecipe getPlayerRecipe()
 	{
-		if (_recipeExtension == null)
-			_recipeExtension = new PlayerRecipe(this);
-		return _recipeExtension;
+		return _recipeExtension == null ? _recipeExtension : new PlayerRecipe(this);
 	}
-	
+
 	public final PlayerCustom getPlayerCustom()
 	{
-		if (_customExtension == null)
-			_customExtension = new PlayerCustom(this);
-		return _customExtension;
+		return _customExtension == null ? _customExtension : new PlayerCustom(this);
 	}
-	
+
 	public final PlayerObserver getPlayerObserver()
 	{
-		if (_observerExtension == null)
-			_observerExtension = new PlayerObserver(this);
-		return _observerExtension;
+		return _observerExtension == null ? _observerExtension : new PlayerObserver(this);
 	}
-	
+
 	public final PlayerOlympiad getPlayerOlympiad()
 	{
-		if (_olympiadExtension == null)
-			_olympiadExtension = new PlayerOlympiad(this);
-		return _olympiadExtension;
+		return _olympiadExtension == null ? _olympiadExtension : new PlayerOlympiad(this);
 	}
-	
+
 	public final PlayerFish getPlayerFish()
 	{
-		if (_fishExtension == null)
-			_fishExtension = new PlayerFish(this);
-		return _fishExtension;
+		return _fishExtension == null ? _fishExtension : new PlayerFish(this);
 	}
-	
+
 	public final PlayerDuel getPlayerDuel()
 	{
-		if (_duelExtension == null)
-			_duelExtension = new PlayerDuel(this);
-		return _duelExtension;
+		return _duelExtension == null ? _duelExtension : new PlayerDuel(this);
 	}
-	
+
 	public final PlayerSettings getPlayerSettings()
 	{
-		if (_settingsExtension == null)
-			_settingsExtension = new PlayerSettings(this);
-		return _settingsExtension;
+		return _settingsExtension == null ? _settingsExtension : new PlayerSettings(this);
 	}
-	
+
 	public final PlayerEventData getPlayerEventData()
 	{
-		if (_playerEventData == null)
-			_playerEventData = new PlayerEventData(this);
-		return _playerEventData;
+		return _playerEventData == null ? _playerEventData : new PlayerEventData(this);
 	}
 }

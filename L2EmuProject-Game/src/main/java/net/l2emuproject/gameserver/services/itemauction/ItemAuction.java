@@ -402,6 +402,7 @@ public final class ItemAuction
 							_auctionEndingExtendState = ItemAuctionExtendState.EXTEND_BY_CONFIG_PHASE_A;
 						}
 					}
+					break;
 				}
 			}
 		}
