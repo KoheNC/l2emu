@@ -15,6 +15,8 @@
 package net.l2emuproject.gameserver.entity.stat;
 
 import net.l2emuproject.Config;
+import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 
 public class NpcStat extends CharStat
@@ -72,5 +74,19 @@ public class NpcStat extends CharStat
 			
 			return getWalkSpeed() * 1f / base;
 		}
+	}
+	
+	@Override
+	public final int getPAtk(final L2Character target)
+	{
+		final int val = super.getPAtk(target);		
+		return (int) (val * Config.ALT_NPC_PHYSICAL_DAMAGE_MULTI);
+	}
+	
+	@Override
+	public final int getMAtk(final L2Character target, final L2Skill skill)
+	{
+		final int val = super.getMAtk(target, skill);		
+		return (int) (val * Config.ALT_NPC_MAGICAL_DAMAGE_MULTI);
 	}
 }

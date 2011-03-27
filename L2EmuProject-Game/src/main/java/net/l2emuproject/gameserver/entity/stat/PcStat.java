@@ -28,6 +28,7 @@ import net.l2emuproject.gameserver.network.serverpackets.TutorialShowQuestionMar
 import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.recommendation.RecoBonus;
+import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.world.npc.L2PetData;
 import net.l2emuproject.gameserver.world.object.L2Character;
@@ -625,5 +626,29 @@ public class PcStat extends PlayableStat
 
 		_vitalityPoints = points;
 		updateVitalityLevel(quiet);
+	}
+	
+	@Override
+	public final int getPAtk(final L2Character target)
+	{
+		final L2Player player = getActiveChar();
+		final int val = super.getPAtk(target);
+		
+		if (player.isMageClass())		
+			return (int) (val * Config.ALT_MAGES_PHYSICAL_DAMAGE_MULTI);
+		else
+			return (int) (val * Config.ALT_FIGHTERS_PHYSICAL_DAMAGE_MULTI);
+	}
+	
+	@Override
+	public final int getMAtk(final L2Character target, final L2Skill skill)
+	{
+		final L2Player player = getActiveChar();
+		final int val = super.getMAtk(target, skill);
+		
+		if (player.isMageClass())		
+			return (int) (val * Config.ALT_MAGES_MAGICAL_DAMAGE_MULTI);
+		else
+			return (int) (val * Config.ALT_FIGHTERS_MAGICAL_DAMAGE_MULTI);
 	}
 }

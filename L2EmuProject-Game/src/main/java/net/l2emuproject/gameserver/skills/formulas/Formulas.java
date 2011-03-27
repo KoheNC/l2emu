@@ -1565,18 +1565,6 @@ public final class Formulas
 			damage = 0;
 		}
 		
-		if (attacker instanceof L2Player)
-		{
-			if (((L2Player) attacker).getClassId().isMage())
-				damage *= Config.ALT_MAGES_PHYSICAL_DAMAGE_MULTI;
-			else
-				damage *= Config.ALT_FIGHTERS_PHYSICAL_DAMAGE_MULTI;
-		}
-		else if (attacker instanceof L2Summon)
-			damage *= Config.ALT_PETS_PHYSICAL_DAMAGE_MULTI;
-		else if (attacker instanceof L2Npc)
-			damage *= Config.ALT_NPC_PHYSICAL_DAMAGE_MULTI;
-		
 		// +20% damage from behind attacks, +5% from side attacks
 		damage *= calcPositionRate(attacker, target);
 		
@@ -1633,7 +1621,6 @@ public final class Formulas
 
 		// CT2.3 general magic vuln
 		damage *= target.calcStat(Stats.MAGIC_DAMAGE_VULN, 1, null, null);
-		damage *= Config.ALT_PETS_MAGICAL_DAMAGE_MULTI;
 		
 		if (target instanceof L2Attackable)
 		{
@@ -1707,20 +1694,8 @@ public final class Formulas
 
 		// CT2.3 general magic vuln
 		damage *= target.calcStat(Stats.MAGIC_DAMAGE_VULN, 1, null, null);
-
-		if (attacker instanceof L2Player)
-		{
-			if (((L2Player) attacker).getClassId().isMage())
-				damage *= Config.ALT_MAGES_MAGICAL_DAMAGE_MULTI;
-			else
-				damage *= Config.ALT_FIGHTERS_MAGICAL_DAMAGE_MULTI;
-		}
-		else if (attacker instanceof L2Summon)
-			damage *= Config.ALT_PETS_MAGICAL_DAMAGE_MULTI;
-		else if (attacker instanceof L2Npc)
-			damage *= Config.ALT_NPC_MAGICAL_DAMAGE_MULTI;
 		
-		else if (target instanceof L2Attackable)
+		if (target instanceof L2Attackable)
 		{
 			damage *= attacker.calcStat(Stats.PVE_MAGICAL_DMG, 1, null, null);
 		}

@@ -14,6 +14,7 @@
  */
 package net.l2emuproject.gameserver.entity.stat;
 
+import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.PetDataTable;
 import net.l2emuproject.gameserver.entity.base.Experience;
 import net.l2emuproject.gameserver.network.SystemMessageId;
@@ -162,35 +163,16 @@ public class PetStat extends SummonStat
 	}
 	
 	@Override
-	public int getMAtk(L2Character target, L2Skill skill)
+	public final int getMAtk(final L2Character target, final L2Skill skill)
 	{
 		double attack = getActiveChar().getPetData().getPetMAtk();
-		/*
-		Stats stat = skill == null? null : skill.getStat();
-		if (stat != null)
-		{
-			switch (stat)
-			{
-			case AGGRESSION: attack += getActiveChar().getTemplate().getBaseAggression(); break;
-			case BLEED:	  attack += getActiveChar().getTemplate().getBaseBleed();	  break;
-			case POISON:	 attack += getActiveChar().getTemplate().getBasePoison();	 break;
-			case STUN:	   attack += getActiveChar().getTemplate().getBaseStun();	   break;
-			case ROOT:	   attack += getActiveChar().getTemplate().getBaseRoot();	   break;
-			case MOVEMENT:   attack += getActiveChar().getTemplate().getBaseMovement();   break;
-			case CONFUSION:  attack += getActiveChar().getTemplate().getBaseConfusion();  break;
-			case SLEEP:	  attack += getActiveChar().getTemplate().getBaseSleep();	  break;
-			case FIRE:	   attack += getActiveChar().getTemplate().getBaseFire();	   break;
-			case WIND:	   attack += getActiveChar().getTemplate().getBaseWind();	   break;
-			case WATER:	  attack += getActiveChar().getTemplate().getBaseWater();	  break;
-			case EARTH:	  attack += getActiveChar().getTemplate().getBaseEarth();	  break;
-			case HOLY:	   attack += getActiveChar().getTemplate().getBaseHoly();	   break;
-			case DARK:	   attack += getActiveChar().getTemplate().getBaseDark();	   break;
-			}
-		}
-		*/
+
 		if (skill != null)
 			attack += skill.getPower();
-		return (int) calcStat(Stats.MAGIC_ATTACK, attack, target, skill);
+		
+		final int val = (int) calcStat(Stats.MAGIC_ATTACK, attack, target, skill);
+		
+		return (int) (val * Config.ALT_PETS_MAGICAL_DAMAGE_MULTI);
 	}
 
 	@Override
@@ -201,9 +183,10 @@ public class PetStat extends SummonStat
 	}
 
 	@Override
-	public int getPAtk(L2Character target)
+	public final int getPAtk(final L2Character target)
 	{
-		return (int)calcStat(Stats.POWER_ATTACK, getActiveChar().getPetData().getPetPAtk(), target, null);
+		final int val = (int) calcStat(Stats.POWER_ATTACK, getActiveChar().getPetData().getPetPAtk(), target, null);
+		return (int) (val * Config.ALT_PETS_PHYSICAL_DAMAGE_MULTI);
 	}
 
 	@Override
