@@ -77,28 +77,28 @@ public class NpcStat extends CharStat
 	}
 	
 	@Override
-	public final int getPAtk(final L2Character target)
+	public int getPAtk(final L2Character target)
 	{
 		final int val = super.getPAtk(target);		
 		return (int) (val * Config.ALT_NPC_PHYSICAL_DAMAGE_MULTI);
 	}
 	
 	@Override
-	public final int getMAtk(final L2Character target, final L2Skill skill)
+	public int getMAtk(final L2Character target, final L2Skill skill)
 	{
 		final int val = super.getMAtk(target, skill);		
 		return (int) (val * Config.ALT_NPC_MAGICAL_DAMAGE_MULTI);
 	}
 	
 	@Override
-	public final int getPDef(final L2Character target)
+	public int getPDef(final L2Character target)
 	{
 		final int val = super.getPDef(target);		
 		return (int) (val * Config.ALT_NPC_MAGICAL_DEFENSE_MULTI);
 	}
 	
 	@Override
-	public final int getMDef(final L2Character target, final L2Skill skill)
+	public int getMDef(final L2Character target, final L2Skill skill)
 	{
 		final int val = super.getMDef(target, skill);		
 		return (int) (val * Config.ALT_NPC_MAGICAL_DEFENSE_MULTI);

@@ -335,10 +335,6 @@ public class CharStat
 		// Get the base MAtk of the L2Character
 		double defence = _activeChar.getTemplate().getBaseMDef();
 
-		// Calculate modifier for Raid Bosses
-		if (_activeChar.isRaid())
-			defence *= Config.RAID_MDEFENCE_MULTIPLIER;
-
 		// Calculate modifiers Magic Attack
 		return (int) calcStat(Stats.MAGIC_DEFENCE, defence, target, skill);
 	}
@@ -415,7 +411,7 @@ public class CharStat
 	/** Return the PDef (base+modifier) of the L2Character. */
 	public int getPDef(L2Character target)
 	{
-		return (int) calcStat(Stats.POWER_DEFENCE, (_activeChar.isRaid()) ? _activeChar.getTemplate().getBasePDef() * Config.RAID_PDEFENCE_MULTIPLIER : _activeChar.getTemplate().getBasePDef(), target, null);
+		return (int) calcStat(Stats.POWER_DEFENCE, _activeChar.getTemplate().getBasePDef(), target, null);
 	}
 
 	/** Return the Physical Attack range (base+modifier) of the L2Character. */

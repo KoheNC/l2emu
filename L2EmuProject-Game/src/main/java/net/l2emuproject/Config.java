@@ -2451,8 +2451,17 @@ public class Config extends L2Config
 	public static float			ALT_NPC_PHYSICAL_DEFENSE_MULTI;					// Config for defense multiplies
 	public static float			ALT_NPC_MAGICAL_DEFENSE_MULTI;						// Config for defense multiplies
 
+	public static double		RAID_PDAMAGE_MULTIPLIER;							// Multiplier for Raid boss power damage multiplier
+	public static double		RAID_MDAMAGE_MULTIPLIER;							// Multiplier for Raid boss magic damage multiplier
+
 	public static double		RAID_PDEFENCE_MULTIPLIER;							// Multiplier for Raid boss power defense multiplier
 	public static double		RAID_MDEFENCE_MULTIPLIER;							// Multiplier for Raid boss magic defense multiplier
+
+	public static double		GB_PDAMAGE_MULTIPLIER;								// Multiplier for Grand boss power damage multiplier
+	public static double		GB_MDAMAGE_MULTIPLIER;								// Multiplier for Grand boss magic damage multiplier
+
+	public static double		GB_PDEFENCE_MULTIPLIER;							// Multiplier for Grand boss power defense multiplier
+	public static double		GB_MDEFENCE_MULTIPLIER;							// Multiplier for Grand boss magic defense multiplier
 
 	public static int			ALT_URN_TEMP_FAIL;									// Config for URN temp fail
 	public static int			ALT_BUFFER_HATE;									// Buffer Hate
@@ -2532,8 +2541,17 @@ public class Config extends L2Config
 			ALT_NPC_PHYSICAL_DEFENSE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltPDefenseNpc", "1.00"));
 			ALT_NPC_MAGICAL_DEFENSE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltMDefenseNpc", "1.00"));
 
-			RAID_PDEFENCE_MULTIPLIER = Double.parseDouble(skillsSettings.getProperty("RaidPDefenceMultiplier", "100")) / 100;
-			RAID_MDEFENCE_MULTIPLIER = Double.parseDouble(skillsSettings.getProperty("RaidMDefenceMultiplier", "100")) / 100;
+			RAID_PDAMAGE_MULTIPLIER = Float.parseFloat(skillsSettings.getProperty("RaidPDamageMultiplier", "1.00"));
+			RAID_MDAMAGE_MULTIPLIER = Float.parseFloat(skillsSettings.getProperty("RaidMDamageMultiplier", "1.00"));
+
+			RAID_PDEFENCE_MULTIPLIER = Float.parseFloat(skillsSettings.getProperty("RaidPDefenceMultiplier", "1.00"));
+			RAID_MDEFENCE_MULTIPLIER = Float.parseFloat(skillsSettings.getProperty("RaidMDefenceMultiplier", "1.00"));
+
+			GB_PDAMAGE_MULTIPLIER = Float.parseFloat(skillsSettings.getProperty("GrandBossPDamageMultiplier", "1.00"));
+			GB_MDAMAGE_MULTIPLIER = Float.parseFloat(skillsSettings.getProperty("GrandBossMDamageMultiplier", "1.00"));
+
+			GB_PDEFENCE_MULTIPLIER = Float.parseFloat(skillsSettings.getProperty("GrandBossPDefenceMultiplier", "1.00"));
+			GB_MDEFENCE_MULTIPLIER = Float.parseFloat(skillsSettings.getProperty("GrandBossMDefenceMultiplier", "1.00"));
 
 			ALT_BUFFER_HATE = Integer.parseInt(skillsSettings.getProperty("BufferHate", "4"));
 			ALT_URN_TEMP_FAIL = Integer.parseInt(skillsSettings.getProperty("UrnTempFail", "10"));

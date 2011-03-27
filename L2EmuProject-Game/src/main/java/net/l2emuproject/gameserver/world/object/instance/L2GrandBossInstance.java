@@ -14,6 +14,7 @@
  */
 package net.l2emuproject.gameserver.world.object.instance;
 
+import net.l2emuproject.gameserver.entity.stat.GrandBossStat;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Boss;
 
@@ -22,5 +23,17 @@ public class L2GrandBossInstance extends L2Boss
 	public L2GrandBossInstance(int objectId, L2NpcTemplate template)
 	{
 		super(objectId, template);
+	}
+
+	@Override
+	protected final GrandBossStat initStat()
+	{
+		return new GrandBossStat(this);
+	}
+
+	@Override
+	public final GrandBossStat getStat()
+	{
+		return (GrandBossStat) super.getStat();
 	}
 }

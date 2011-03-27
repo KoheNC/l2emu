@@ -14,13 +14,26 @@
  */
 package net.l2emuproject.gameserver.world.object.instance;
 
+import net.l2emuproject.gameserver.entity.stat.RaidBossStat;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Boss;
 
 public class L2RaidBossInstance extends L2Boss
 {
-    public L2RaidBossInstance(int objectId, L2NpcTemplate template)
-    {
-        super(objectId, template);
-    }
+	public L2RaidBossInstance(int objectId, L2NpcTemplate template)
+	{
+		super(objectId, template);
+	}
+
+	@Override
+	protected final RaidBossStat initStat()
+	{
+		return new RaidBossStat(this);
+	}
+
+	@Override
+	public final RaidBossStat getStat()
+	{
+		return (RaidBossStat) super.getStat();
+	}
 }
