@@ -651,4 +651,28 @@ public class PcStat extends PlayableStat
 		else
 			return (int) (val * Config.ALT_FIGHTERS_MAGICAL_DAMAGE_MULTI);
 	}
+	
+	@Override
+	public final int getPDef(final L2Character target)
+	{
+		final L2Player player = getActiveChar();
+		final int val = super.getPDef(target);
+		
+		if (player.isMageClass())		
+			return (int) (val * Config.ALT_MAGES_PHYSICAL_DEFENSE_MULTI);
+		else
+			return (int) (val * Config.ALT_FIGHTERS_PHYSICAL_DEFENSE_MULTI);
+	}
+	
+	@Override
+	public final int getMDef(final L2Character target, final L2Skill skill)
+	{
+		final L2Player player = getActiveChar();
+		final int val = super.getMDef(target, skill);
+		
+		if (player.isMageClass())		
+			return (int) (val * Config.ALT_MAGES_MAGICAL_DEFENSE_MULTI);
+		else
+			return (int) (val * Config.ALT_FIGHTERS_MAGICAL_DEFENSE_MULTI);
+	}
 }

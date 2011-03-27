@@ -1603,8 +1603,6 @@ public class Config extends L2Config
 	public static double		PLAYER_CP_REGEN_MULTIPLIER;									// Player regen multipliers
 	public static double		RAID_HP_REGEN_MULTIPLIER;										// Multiplier for Raid boss HP regeneration
 	public static double		RAID_MP_REGEN_MULTIPLIER;										// Mulitplier for Raid boss MP regeneration
-	public static double		RAID_PDEFENCE_MULTIPLIER;										// Multiplier for Raid boss power defense multiplier
-	public static double		RAID_MDEFENCE_MULTIPLIER;										// Multiplier for Raid boss magic defense multiplier
 
 	// *******************************************************************************************
 	private static final class RegenerationConfig extends ConfigPropertiesLoader
@@ -1628,8 +1626,6 @@ public class Config extends L2Config
 
 			RAID_HP_REGEN_MULTIPLIER = Double.parseDouble(regenerationSettings.getProperty("RaidHpRegenMultiplier", "100")) / 100;
 			RAID_MP_REGEN_MULTIPLIER = Double.parseDouble(regenerationSettings.getProperty("RaidMpRegenMultiplier", "100")) / 100;
-			RAID_PDEFENCE_MULTIPLIER = Double.parseDouble(regenerationSettings.getProperty("RaidPDefenceMultiplier", "100")) / 100;
-			RAID_MDEFENCE_MULTIPLIER = Double.parseDouble(regenerationSettings.getProperty("RaidMDefenceMultiplier", "100")) / 100;
 		}
 	}
 
@@ -2436,6 +2432,7 @@ public class Config extends L2Config
 	public static boolean		ALT_DANCE_MP_CONSUME;
 	public static int			ALT_MAX_PATK_SPEED;								// Config for limit physical attack speed
 	public static int			ALT_MAX_MATK_SPEED;								// Config for limit magical attack speed
+
 	public static float			ALT_MAGES_PHYSICAL_DAMAGE_MULTI;					// Config for damage multiplies
 	public static float			ALT_MAGES_MAGICAL_DAMAGE_MULTI;					// Config for damage multiplies
 	public static float			ALT_FIGHTERS_PHYSICAL_DAMAGE_MULTI;				// Config for damage multiplies
@@ -2444,6 +2441,19 @@ public class Config extends L2Config
 	public static float			ALT_PETS_MAGICAL_DAMAGE_MULTI;						// Config for damage multiplies
 	public static float			ALT_NPC_PHYSICAL_DAMAGE_MULTI;						// Config for damage multiplies
 	public static float			ALT_NPC_MAGICAL_DAMAGE_MULTI;						// Config for damage multiplies
+
+	public static float			ALT_MAGES_PHYSICAL_DEFENSE_MULTI;					// Config for defense multiplies
+	public static float			ALT_MAGES_MAGICAL_DEFENSE_MULTI;					// Config for defense multiplies
+	public static float			ALT_FIGHTERS_PHYSICAL_DEFENSE_MULTI;				// Config for defense multiplies
+	public static float			ALT_FIGHTERS_MAGICAL_DEFENSE_MULTI;				// Config for defense multiplies
+	public static float			ALT_PETS_PHYSICAL_DEFENSE_MULTI;					// Config for defense multiplies
+	public static float			ALT_PETS_MAGICAL_DEFENSE_MULTI;					// Config for defense multiplies
+	public static float			ALT_NPC_PHYSICAL_DEFENSE_MULTI;					// Config for defense multiplies
+	public static float			ALT_NPC_MAGICAL_DEFENSE_MULTI;						// Config for defense multiplies
+
+	public static double		RAID_PDEFENCE_MULTIPLIER;							// Multiplier for Raid boss power defense multiplier
+	public static double		RAID_MDEFENCE_MULTIPLIER;							// Multiplier for Raid boss magic defense multiplier
+
 	public static int			ALT_URN_TEMP_FAIL;									// Config for URN temp fail
 	public static int			ALT_BUFFER_HATE;									// Buffer Hate
 	public static int			ALT_PCRITICAL_CAP;									// PCritical Cap
@@ -2503,6 +2513,7 @@ public class Config extends L2Config
 			ALT_AUTO_LEARN_DIVINE_INSPIRATION = Boolean.parseBoolean(skillsSettings.getProperty("AutoLearnDivineInspiration", "false"));
 			ALT_MAX_PATK_SPEED = Integer.parseInt(skillsSettings.getProperty("MaxPAtkSpeed", "1500"));
 			ALT_MAX_MATK_SPEED = Integer.parseInt(skillsSettings.getProperty("MaxMAtkSpeed", "1999"));
+
 			ALT_MAGES_PHYSICAL_DAMAGE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltPDamageMages", "1.00"));
 			ALT_MAGES_MAGICAL_DAMAGE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltMDamageMages", "1.00"));
 			ALT_FIGHTERS_PHYSICAL_DAMAGE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltPDamageFighters", "1.00"));
@@ -2511,6 +2522,19 @@ public class Config extends L2Config
 			ALT_PETS_MAGICAL_DAMAGE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltMDamagePets", "1.00"));
 			ALT_NPC_PHYSICAL_DAMAGE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltPDamageNpc", "1.00"));
 			ALT_NPC_MAGICAL_DAMAGE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltMDamageNpc", "1.00"));
+
+			ALT_MAGES_PHYSICAL_DEFENSE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltPDefenseMages", "1.00"));
+			ALT_MAGES_MAGICAL_DEFENSE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltMDefenseMages", "1.00"));
+			ALT_FIGHTERS_PHYSICAL_DEFENSE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltPDefenseFighters", "1.00"));
+			ALT_FIGHTERS_MAGICAL_DEFENSE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltMDefenseFighters", "1.00"));
+			ALT_PETS_PHYSICAL_DEFENSE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltPDefensePets", "1.00"));
+			ALT_PETS_MAGICAL_DEFENSE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltMDefensePets", "1.00"));
+			ALT_NPC_PHYSICAL_DEFENSE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltPDefenseNpc", "1.00"));
+			ALT_NPC_MAGICAL_DEFENSE_MULTI = Float.parseFloat(skillsSettings.getProperty("AltMDefenseNpc", "1.00"));
+
+			RAID_PDEFENCE_MULTIPLIER = Double.parseDouble(skillsSettings.getProperty("RaidPDefenceMultiplier", "100")) / 100;
+			RAID_MDEFENCE_MULTIPLIER = Double.parseDouble(skillsSettings.getProperty("RaidMDefenceMultiplier", "100")) / 100;
+
 			ALT_BUFFER_HATE = Integer.parseInt(skillsSettings.getProperty("BufferHate", "4"));
 			ALT_URN_TEMP_FAIL = Integer.parseInt(skillsSettings.getProperty("UrnTempFail", "10"));
 			ALT_PCRITICAL_CAP = Integer.parseInt(skillsSettings.getProperty("AltPCriticalCap", "500"));

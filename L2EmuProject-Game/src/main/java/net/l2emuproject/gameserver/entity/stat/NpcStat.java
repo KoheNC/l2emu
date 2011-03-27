@@ -89,4 +89,18 @@ public class NpcStat extends CharStat
 		final int val = super.getMAtk(target, skill);		
 		return (int) (val * Config.ALT_NPC_MAGICAL_DAMAGE_MULTI);
 	}
+	
+	@Override
+	public final int getPDef(final L2Character target)
+	{
+		final int val = super.getPDef(target);		
+		return (int) (val * Config.ALT_NPC_MAGICAL_DEFENSE_MULTI);
+	}
+	
+	@Override
+	public final int getMDef(final L2Character target, final L2Skill skill)
+	{
+		final int val = super.getMDef(target, skill);		
+		return (int) (val * Config.ALT_NPC_MAGICAL_DEFENSE_MULTI);
+	}
 }
