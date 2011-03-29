@@ -1,0 +1,2 @@
+net.l2emuproject.gameserver.system.scripting.engine.java.JavaScriptEngineFactory
+net.l2emuproject.gameserver.system.scripting.engine.jython.JythonScriptEngineFactory
