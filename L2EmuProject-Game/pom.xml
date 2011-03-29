@@ -181,6 +181,17 @@
 			</releases>
 		</repository>
 		<repository>
+			<id>Java Forum Nexus</id>
+			<name>java forum nexus repo</name>
+			<url>http://nexus.javaforum.hu/nexus/content/repositories/public</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
 			<id>central l2emuproject</id>
 			<name>l2emuproject repo</name>
 			<url>http://repo.l2emuproject.info/</url>
