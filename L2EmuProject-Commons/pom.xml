@@ -64,12 +64,6 @@
 			<artifactId>javolution</artifactId>
 			<version>5.5.1</version>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.2</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 	<build>
 		<defaultGoal>install</defaultGoal>
@@ -104,16 +98,6 @@
 							<Implementation-Time>${timestamp}</Implementation-Time>
 						</manifestEntries>
 					</archive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<skipTests>true</skipTests>
-					<forkMode>pertest</forkMode>
-					<argLine>-enableassertions</argLine>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -189,17 +173,6 @@
 		<repository>
 			<id>repository.jboss.org</id>
 			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</repository>
-		<repository>
-			<id>central l2emuproject</id>
-			<name>l2emuproject repo</name>
-			<url>http://repo.l2emuproject.info/</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
