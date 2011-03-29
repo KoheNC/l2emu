@@ -15,7 +15,7 @@
 package net.l2emuproject.loginserver.beans;
 
 import net.l2emuproject.loginserver.thread.GameServerThread;
-import net.l2emuproject.network.ServerStatus;
+import net.l2emuproject.network.status.ServerStatus;
 
 
 /**

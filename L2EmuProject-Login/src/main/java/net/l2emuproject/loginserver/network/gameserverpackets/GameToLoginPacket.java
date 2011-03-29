@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.loginserver.network.gameserverpackets;
 
-import net.l2emuproject.network.ReceivableBasePacket;
+import net.l2emuproject.network.mmocore.ReceivableBasePacket;
 
 /**
  * @author savormix

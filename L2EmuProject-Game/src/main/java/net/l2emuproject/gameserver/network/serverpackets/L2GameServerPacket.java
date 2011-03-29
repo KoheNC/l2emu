@@ -21,10 +21,10 @@ import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.network.clientpackets.L2GameClientPacket;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.network.mmocore.SendablePacket;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mmocore.network.SendablePacket;
 
 
 /**

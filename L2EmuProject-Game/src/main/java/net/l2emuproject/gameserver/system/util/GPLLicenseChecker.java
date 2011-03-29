@@ -173,7 +173,7 @@ public final class GPLLicenseChecker extends Config
 	
 	private static final String[] WHOLE_PROJECT_PACKAGE_NAMES = {
 		"package net.l2emuproject",
-		"package org.mmocore.network",
+		"package net.l2emuproject.network.mmocore",
 		"package ai",
 		"package cron",
 		"package custom",

@@ -12,17 +12,26 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.network.loginserverpackets;
+package net.l2emuproject.network.status;
 
-import net.l2emuproject.network.mmocore.ReceivableBasePacket;
-
-/**
- * @author -Wooden-
- */
-public abstract class LoginServerBasePacket  extends ReceivableBasePacket
+// Good, Normal and Full are not used for years
+// Oh and they wont be used. ever.
+public enum ServerStatus
 {
-	protected LoginServerBasePacket(byte[] decrypt)
+	STATUS_AUTO,
+	STATUS_GOOD,
+	STATUS_NORMAL,
+	STATUS_FULL,
+	STATUS_DOWN,
+	STATUS_GM_ONLY;
+	
+	private static final ServerStatus[] VALUES = ServerStatus.values();
+	
+	public static ServerStatus valueOf(int index)
 	{
-		super(decrypt);
+		if (index < 0 || VALUES.length <= index)
+			return STATUS_AUTO;
+		
+		return VALUES[index];
 	}
 }

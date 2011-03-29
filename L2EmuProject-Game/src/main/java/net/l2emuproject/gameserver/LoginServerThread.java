@@ -52,9 +52,9 @@ import net.l2emuproject.gameserver.network.serverpackets.CharSelectionInfo;
 import net.l2emuproject.gameserver.network.serverpackets.LoginFail;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.object.L2Player;
-import net.l2emuproject.network.NetworkThread;
-import net.l2emuproject.network.ServerStatus;
-import net.l2emuproject.network.ServerStatusAttributes;
+import net.l2emuproject.network.status.ServerStatus;
+import net.l2emuproject.network.status.ServerStatusAttributes;
+import net.l2emuproject.network.thread.NetworkThread;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.tools.security.NewCrypt;
 

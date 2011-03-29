@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.clientpackets;
 
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.network.mmocore.InvalidPacketException;
 
-import org.mmocore.network.InvalidPacketException;
 
 
 public final class ConfirmDlgAnswer extends L2GameClientPacket

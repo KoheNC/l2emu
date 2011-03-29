@@ -41,14 +41,14 @@ import net.l2emuproject.gameserver.system.util.TableOptimizer.CharacterRelatedTa
 import net.l2emuproject.gameserver.system.util.TableOptimizer.ItemRelatedTable;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
+import net.l2emuproject.network.mmocore.MMOConnection;
+import net.l2emuproject.network.mmocore.SelectorThread;
 import net.l2emuproject.tools.security.BlowFishKeygen;
 import net.l2emuproject.tools.security.GameCrypt;
 import net.l2emuproject.util.concurrent.RunnableStatsManager;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mmocore.network.MMOConnection;
-import org.mmocore.network.SelectorThread;
 
 
 /**

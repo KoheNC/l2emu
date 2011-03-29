@@ -12,29 +12,33 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.network;
+package net.l2emuproject.network.mmocore;
 
-// Compatible, legacy values
-public enum ServerStatusAttributes
+import java.util.Timer;
+import java.util.TimerTask;
+
+/**
+ * @author NB4L1
+ */
+public final class MMOFlusher
 {
-	NONE,
-	SERVER_LIST_STATUS,
-	SERVER_LIST_CLOCK,
-	SERVER_LIST_BRACKETS,
-	SERVER_LIST_MAX_PLAYERS,
-	TEST_SERVER,
-	SERVER_LIST_PVP,
-	SERVER_LIST_UNK,
-	SERVER_LIST_HIDE_NAME,
-	SERVER_AGE_LIMITATION;
+	private static final Timer _timer = new Timer(MMOFlusher.class.getName(), true);
 	
-	private static final ServerStatusAttributes[] VALUES = ServerStatusAttributes.values();
-	
-	public static ServerStatusAttributes valueOf(int index)
+	public static void add(final Runnable runnable, long interval)
 	{
-		if (index < 0 || VALUES.length <= index)
-			return NONE;
-		
-		return VALUES[index];
+		_timer.scheduleAtFixedRate(new TimerTask() {
+			@Override
+			public void run()
+			{
+				try
+				{
+					runnable.run();
+				}
+				catch (RuntimeException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}, interval, interval);
 	}
 }

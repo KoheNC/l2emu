@@ -25,8 +25,8 @@ import net.l2emuproject.loginserver.network.clientpackets.RequestServerList;
 import net.l2emuproject.loginserver.network.clientpackets.RequestServerLogin;
 import net.l2emuproject.loginserver.network.clientpackets.RequestSubmitCardNo;
 import net.l2emuproject.loginserver.network.serverpackets.L2LoginServerPacket;
+import net.l2emuproject.network.mmocore.IPacketHandler;
 
-import org.mmocore.network.IPacketHandler;
 
 
 /**

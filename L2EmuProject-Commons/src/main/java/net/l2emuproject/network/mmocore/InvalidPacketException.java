@@ -12,17 +12,34 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.network.loginserverpackets;
-
-import net.l2emuproject.network.mmocore.ReceivableBasePacket;
+package net.l2emuproject.network.mmocore;
 
 /**
- * @author -Wooden-
+ * Exception thrown by ReceivablePacket.runImpl() to trigger IOFloodManager.report().
+ * 
+ * @author NB4L1
  */
-public abstract class LoginServerBasePacket  extends ReceivableBasePacket
+public class InvalidPacketException extends Exception
 {
-	protected LoginServerBasePacket(byte[] decrypt)
+	private static final long serialVersionUID = -8023992556276431695L;
+	
+	public InvalidPacketException()
 	{
-		super(decrypt);
+		super();
+	}
+	
+	public InvalidPacketException(String message)
+	{
+		super(message);
+	}
+	
+	public InvalidPacketException(String message, Throwable cause)
+	{
+		super(message, cause);
+	}
+	
+	public InvalidPacketException(Throwable cause)
+	{
+		super(cause);
 	}
 }

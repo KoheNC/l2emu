@@ -16,7 +16,7 @@ package net.l2emuproject.loginserver.network.gameserverpackets;
 
 import net.l2emuproject.loginserver.beans.GameServerInfo;
 import net.l2emuproject.loginserver.manager.GameServerManager;
-import net.l2emuproject.network.ServerStatusAttributes;
+import net.l2emuproject.network.status.ServerStatusAttributes;
 
 
 /**

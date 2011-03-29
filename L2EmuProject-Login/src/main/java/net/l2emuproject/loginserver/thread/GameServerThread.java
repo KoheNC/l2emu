@@ -47,8 +47,8 @@ import net.l2emuproject.loginserver.network.loginserverpackets.LoginServerFail;
 import net.l2emuproject.loginserver.network.loginserverpackets.PlayerAuthResponse;
 import net.l2emuproject.loginserver.network.loginserverpackets.PlayerLoginAttempt;
 import net.l2emuproject.loginserver.status.LoginStatusServer;
-import net.l2emuproject.network.LoginServerFailReason;
-import net.l2emuproject.network.NetworkThread;
+import net.l2emuproject.network.login.LoginServerFailReason;
+import net.l2emuproject.network.thread.NetworkThread;
 import net.l2emuproject.tools.network.SubNetHost;
 import net.l2emuproject.tools.security.NewCrypt;
 

@@ -12,17 +12,32 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.network.loginserverpackets;
+package net.l2emuproject.network.mmocore;
 
-import net.l2emuproject.network.mmocore.ReceivableBasePacket;
+import java.nio.ByteBuffer;
 
 /**
- * @author -Wooden-
+ * @author KenM
  */
-public abstract class LoginServerBasePacket  extends ReceivableBasePacket
+abstract class AbstractPacket
 {
-	protected LoginServerBasePacket(byte[] decrypt)
+	private ByteBuffer _buf;
+	
+	final void setByteBuffer(ByteBuffer buf)
 	{
-		super(decrypt);
+		_buf = buf;
+	}
+	
+	protected final ByteBuffer getByteBuffer()
+	{
+		return _buf;
+	}
+	
+	/**
+	 * @return a String with this packet name for debugging purposes
+	 */
+	public String getType()
+	{
+		return getClass().getSimpleName();
 	}
 }

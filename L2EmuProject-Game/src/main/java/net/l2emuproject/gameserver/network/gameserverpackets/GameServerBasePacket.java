@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.gameserverpackets;
 
-import net.l2emuproject.network.SendableBasePacket;
+import net.l2emuproject.network.mmocore.SendableBasePacket;
 
 /**
  * @author -Wooden-

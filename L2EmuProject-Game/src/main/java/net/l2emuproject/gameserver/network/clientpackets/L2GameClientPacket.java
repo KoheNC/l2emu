@@ -21,11 +21,11 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.world.object.L2Player;
+import net.l2emuproject.network.mmocore.InvalidPacketException;
+import net.l2emuproject.network.mmocore.ReceivablePacket;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mmocore.network.InvalidPacketException;
-import org.mmocore.network.ReceivablePacket;
 
 
 /**

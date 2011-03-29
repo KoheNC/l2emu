@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.loginserverpackets;
 
-import net.l2emuproject.network.LoginServerFailReason;
+import net.l2emuproject.network.login.LoginServerFailReason;
 
 public final class LoginServerFail extends LoginServerBasePacket
 {

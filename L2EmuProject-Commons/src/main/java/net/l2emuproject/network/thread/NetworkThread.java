@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.network;
+package net.l2emuproject.network.thread;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketException;
 
+import net.l2emuproject.network.mmocore.SendableBasePacket;
 import net.l2emuproject.tools.security.NewCrypt;
 import net.l2emuproject.tools.util.HexUtil;
 

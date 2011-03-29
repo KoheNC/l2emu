@@ -20,10 +20,10 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.network.L2GameClient.GameClientState;
 import net.l2emuproject.gameserver.network.clientpackets.*;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
+import net.l2emuproject.network.mmocore.IPacketHandler;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mmocore.network.IPacketHandler;
 
 /**
  * Stateful Packet Handler<BR>

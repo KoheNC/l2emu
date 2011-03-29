@@ -12,17 +12,29 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.network.loginserverpackets;
+package net.l2emuproject.network.status;
 
-import net.l2emuproject.network.mmocore.ReceivableBasePacket;
-
-/**
- * @author -Wooden-
- */
-public abstract class LoginServerBasePacket  extends ReceivableBasePacket
+// Compatible, legacy values
+public enum ServerStatusAttributes
 {
-	protected LoginServerBasePacket(byte[] decrypt)
+	NONE,
+	SERVER_LIST_STATUS,
+	SERVER_LIST_CLOCK,
+	SERVER_LIST_BRACKETS,
+	SERVER_LIST_MAX_PLAYERS,
+	TEST_SERVER,
+	SERVER_LIST_PVP,
+	SERVER_LIST_UNK,
+	SERVER_LIST_HIDE_NAME,
+	SERVER_AGE_LIMITATION;
+	
+	private static final ServerStatusAttributes[] VALUES = ServerStatusAttributes.values();
+	
+	public static ServerStatusAttributes valueOf(int index)
 	{
-		super(decrypt);
+		if (index < 0 || VALUES.length <= index)
+			return NONE;
+		
+		return VALUES[index];
 	}
 }

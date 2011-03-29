@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.loginserver.network.loginserverpackets;
 
-import net.l2emuproject.network.SendableBasePacket;
+import net.l2emuproject.network.mmocore.SendableBasePacket;
 
 public abstract class LoginToGamePacket extends SendableBasePacket
 {

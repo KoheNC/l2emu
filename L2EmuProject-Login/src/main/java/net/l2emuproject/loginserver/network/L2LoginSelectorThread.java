@@ -27,14 +27,14 @@ import net.l2emuproject.loginserver.manager.LoginManager;
 import net.l2emuproject.loginserver.network.clientpackets.L2LoginClientPacket;
 import net.l2emuproject.loginserver.network.serverpackets.Init;
 import net.l2emuproject.loginserver.network.serverpackets.L2LoginServerPacket;
+import net.l2emuproject.network.mmocore.IPacketHandler;
+import net.l2emuproject.network.mmocore.SelectorConfig;
+import net.l2emuproject.network.mmocore.SelectorThread;
+import net.l2emuproject.network.mmocore.FloodManager.ErrorMode;
 import net.l2emuproject.tools.util.HexUtil;
 import net.l2emuproject.util.concurrent.ExecuteWrapper;
 
 import org.apache.commons.lang.StringUtils;
-import org.mmocore.network.IPacketHandler;
-import org.mmocore.network.SelectorConfig;
-import org.mmocore.network.SelectorThread;
-import org.mmocore.network.FloodManager.ErrorMode;
 
 
 public final class L2LoginSelectorThread extends

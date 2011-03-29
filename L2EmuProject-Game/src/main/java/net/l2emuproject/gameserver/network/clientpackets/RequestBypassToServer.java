@@ -32,8 +32,8 @@ import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2MerchantSummonInstance;
 import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
+import net.l2emuproject.network.mmocore.InvalidPacketException;
 
-import org.mmocore.network.InvalidPacketException;
 
 
 /**

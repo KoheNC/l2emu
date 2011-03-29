@@ -18,10 +18,10 @@ import java.nio.BufferUnderflowException;
 
 import net.l2emuproject.loginserver.network.L2LoginClient;
 import net.l2emuproject.loginserver.network.serverpackets.L2LoginServerPacket;
+import net.l2emuproject.network.mmocore.ReceivablePacket;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mmocore.network.ReceivablePacket;
 
 
 /**

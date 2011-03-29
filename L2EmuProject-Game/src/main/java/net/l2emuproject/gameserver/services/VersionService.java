@@ -19,9 +19,9 @@ import java.util.Date;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Config;
 import net.l2emuproject.gameserver.L2GameServer;
+import net.l2emuproject.network.mmocore.SelectorThread;
 import net.l2emuproject.versionning.Version;
 
-import org.mmocore.network.SelectorThread;
 
 /**
  * @author lord_rex

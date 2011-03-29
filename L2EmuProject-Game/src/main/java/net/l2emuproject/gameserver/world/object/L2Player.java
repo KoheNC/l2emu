@@ -284,6 +284,7 @@ import net.l2emuproject.gameserver.world.zone.ZoneManager;
 import net.l2emuproject.lang.L2Math;
 import net.l2emuproject.lang.L2System;
 import net.l2emuproject.lang.Replaceable;
+import net.l2emuproject.network.mmocore.InvalidPacketException;
 import net.l2emuproject.sql.SQLQuery;
 import net.l2emuproject.tools.geometry.Point3D;
 import net.l2emuproject.tools.random.Rnd;
@@ -294,7 +295,6 @@ import net.l2emuproject.util.SingletonList;
 import net.l2emuproject.util.SingletonMap;
 
 import org.apache.commons.lang.ArrayUtils;
-import org.mmocore.network.InvalidPacketException;
 
 /**
  * This class represents all player characters in the world.

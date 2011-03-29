@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.network.gameserverpackets;
 
 import java.util.ArrayList;
 
-import net.l2emuproject.network.ServerStatusAttributes;
+import net.l2emuproject.network.status.ServerStatusAttributes;
 
 
 public final class ServerStatusPacket extends GameServerBasePacket

@@ -29,14 +29,14 @@ import net.l2emuproject.loginserver.network.clientpackets.L2LoginClientPacket;
 import net.l2emuproject.loginserver.network.serverpackets.L2LoginServerPacket;
 import net.l2emuproject.loginserver.network.serverpackets.LoginFail;
 import net.l2emuproject.loginserver.network.serverpackets.PlayFail;
+import net.l2emuproject.network.mmocore.MMOConnection;
+import net.l2emuproject.network.mmocore.SelectorThread;
 import net.l2emuproject.tools.math.ScrambledKeyPair;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.tools.security.LoginCrypt;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mmocore.network.MMOConnection;
-import org.mmocore.network.SelectorThread;
 
 
 /**

@@ -16,10 +16,10 @@ package net.l2emuproject.loginserver.network.serverpackets;
 
 import net.l2emuproject.loginserver.network.L2LoginClient;
 import net.l2emuproject.loginserver.network.clientpackets.L2LoginClientPacket;
+import net.l2emuproject.network.mmocore.SendablePacket;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mmocore.network.SendablePacket;
 
 
 /**

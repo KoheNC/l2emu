@@ -12,26 +12,14 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.network;
+package net.l2emuproject.network.mmocore;
 
-// Good, Normal and Full are not used for years
-// Oh and they wont be used. ever.
-public enum ServerStatus
+import java.nio.ByteBuffer;
+
+/**
+ * @author KenM
+ */
+public interface IPacketHandler<T extends MMOConnection<T, RP, SP>, RP extends ReceivablePacket<T, RP, SP>, SP extends SendablePacket<T, RP, SP>>
 {
-	STATUS_AUTO,
-	STATUS_GOOD,
-	STATUS_NORMAL,
-	STATUS_FULL,
-	STATUS_DOWN,
-	STATUS_GM_ONLY;
-	
-	private static final ServerStatus[] VALUES = ServerStatus.values();
-	
-	public static ServerStatus valueOf(int index)
-	{
-		if (index < 0 || VALUES.length <= index)
-			return STATUS_AUTO;
-		
-		return VALUES[index];
-	}
+	public RP handlePacket(ByteBuffer buf, T client, int opcode);
 }

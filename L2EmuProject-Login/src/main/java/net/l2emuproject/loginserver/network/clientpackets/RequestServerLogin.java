@@ -83,7 +83,7 @@ public class RequestServerLogin extends L2LoginClientPacket
 	}
 
 	/**
-	 * @see org.mmocore.network.ReceivablePacket#run()
+	 * @see net.l2emuproject.network.mmocore.ReceivablePacket#run()
 	 */
 	@Override
 	public void runImpl()
