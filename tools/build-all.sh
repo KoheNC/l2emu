@@ -12,9 +12,6 @@ MAVEN="mvn"
 
 echo ""
 cd ..
-cd L2J-MMOCore
-$MAVEN clean:clean install -Dmaven.test.skip=true
-cd ..
 cd L2EmuProject-Commons
 $MAVEN clean:clean install -Dmaven.test.skip=true
 cd ..

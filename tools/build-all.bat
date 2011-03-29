@@ -45,7 +45,6 @@ if "%1" == "" (
 
 
 cd ..
-call :execute-maven-inside l2j-mmocore %CLEAN% %COMPILE% %INSTALL% %DEPLOY%
 call :execute-maven-inside l2emuproject-commons %CLEAN% %COMPILE% %INSTALL% %DEPLOY%
 call :execute-maven-inside l2emuproject-login %CLEAN% %COMPILE% %ASSEMBLY_ASSEMBLY%
 call :execute-maven-inside l2emuproject-game %CLEAN% %COMPILE% %INSTALL% %DEPLOY% %ASSEMBLY_ASSEMBLY%
