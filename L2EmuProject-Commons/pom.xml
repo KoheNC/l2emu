@@ -180,5 +180,27 @@
 				<enabled>true</enabled>
 			</releases>
 		</repository>
+		<repository>
+			<id>nexus.javaforum.hu</id>
+			<name>java forum nexus repo</name>
+			<url>http://nexus.javaforum.hu/nexus/content/repositories/public/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>maven.couldhopper.com</id>
+			<name>couldhopper repo</name>
+			<url>http://maven.cloudhopper.com/repos/third-party/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
 	</repositories>
 </project>

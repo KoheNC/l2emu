@@ -181,9 +181,9 @@
 			</releases>
 		</repository>
 		<repository>
-			<id>Java Forum Nexus</id>
+			<id>nexus.javaforum.hu</id>
 			<name>java forum nexus repo</name>
-			<url>http://nexus.javaforum.hu/nexus/content/repositories/public</url>
+			<url>http://nexus.javaforum.hu/nexus/content/repositories/public/</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -192,9 +192,9 @@
 			</releases>
 		</repository>
 		<repository>
-			<id>central l2emuproject</id>
-			<name>l2emuproject repo</name>
-			<url>http://repo.l2emuproject.info/</url>
+			<id>maven.couldhopper.com</id>
+			<name>couldhopper repo</name>
+			<url>http://maven.cloudhopper.com/repos/third-party/</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
