@@ -297,6 +297,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 	private final boolean			_isSuicideAttack;
 	private final boolean			_canBeReflected;
 	private final boolean			_canBeDispeled;
+	private final boolean 			_isClanSkill;
 	private final boolean			_dispelOnAction;
 	private final boolean			_dispelOnAttack;
 	private final short				_afterEffectId;
@@ -500,6 +501,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 		_flyCourse = set.getFloat("flyCourse", 0);
 		_canBeReflected = set.getBool("canBeReflected", true);
 		_canBeDispeled = set.getBool("canBeDispeled", true);
+		_isClanSkill = set.getBool("isClanSkill", false);
 		_dispelOnAction = set.getBool("dispelOnAction", false);
 		_dispelOnAttack = set.getBool("dispelOnAttack", false);
 		_attribute = set.getString("attribute", "");
@@ -4176,6 +4178,11 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 	public boolean canBeDispeled()
 	{
 		return _canBeDispeled;
+	}
+	
+	public boolean isClanSkill()
+	{
+		return _isClanSkill;
 	}
 	
 	public boolean isDispeledOnAction()

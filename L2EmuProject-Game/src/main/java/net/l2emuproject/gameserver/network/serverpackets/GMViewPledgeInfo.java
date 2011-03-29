@@ -23,25 +23,25 @@ import net.l2emuproject.gameserver.world.object.L2Player;
  * 
  * @version $Revision: 1.1.2.1.2.3 $ $Date: 2005/03/27 15:29:57 $
  */
-public class GMViewPledgeInfo extends L2GameServerPacket
+public final class GMViewPledgeInfo extends L2GameServerPacket
 {
-	private static final String _S__A9_GMVIEWPLEDGEINFO = "[S] 90 GMViewPledgeInfo";
-	private final L2Clan _clan;
-	private final L2Player _activeChar;
-	
+	private static final String	_S__A9_GMVIEWPLEDGEINFO	= "[S] 90 GMViewPledgeInfo";
+	private final L2Clan		_clan;
+	private final L2Player		_activeChar;
+
 	public GMViewPledgeInfo(L2Clan clan, L2Player activeChar)
 	{
 		_clan = clan;
 		_activeChar = activeChar;
 	}
-	
+
 	@Override
 	protected final void writeImpl()
 	{
 		writeC(0x96);
 		writeS(_activeChar.getName());
 		writeD(_clan.getClanId());
-		writeD(0x00); // Ashitaka fix
+		writeD(0x00);
 		writeS(_clan.getName());
 		writeS(_clan.getLeaderName());
 		writeD(_clan.getCrestId()); // -> no, it's no longer used (nuocnam) fix by game
@@ -49,41 +49,37 @@ public class GMViewPledgeInfo extends L2GameServerPacket
 		writeD(_clan.getHasCastle());
 		writeD(_clan.getHasHideout());
 		writeD(_clan.getHasFort());
-		writeD(_clan.getRank()); // Ashitaka fix
-		writeD(_clan.getReputationScore());//writeD(_activeChar.getLevel()); Ashitaka Fix
+		writeD(_clan.getRank());
+		writeD(_clan.getReputationScore());
 		writeD(0);
 		writeD(0);
-		
+
 		writeD(_clan.getAllyId()); //c2
 		writeS(_clan.getAllyName()); //c2
 		writeD(_clan.getAllyCrestId()); //c2
 		writeD(_clan.isAtWar() ? 1 : 0); //c3
-		writeD(0x00);
-		
+		writeD(0); // T3 Unknown
+
 		L2ClanMember[] members = _clan.getMembers();
 		writeD(members.length);
-
-		for (L2ClanMember element : members)
+		for (L2ClanMember member : members)
 		{
-			if (element == null) continue;
-
-			writeS(element.getName());
-			writeD(element.getLevel());
-			writeD(element.getClassId());
-			writeD(element.getSex());
-			writeD(element.getRace());
-			writeD(element.isOnline() ? element.getObjectId() : 0);
-			writeD(element.getSponsor());
+			if (member != null)
+			{
+				writeS(member.getName());
+				writeD(member.getLevel());
+				writeD(member.getClassId());
+				writeD(member.getSex());
+				writeD(member.getRace());
+				writeD(member.isOnline() ? member.getObjectId() : 0);
+				writeD(member.getSponsor() != 0 ? 1 : 0);
+			}
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see net.l2emuproject.gameserver.serverpackets.ServerBasePacket#getType()
-	 */
 	@Override
-	public String getType()
+	public final String getType()
 	{
 		return _S__A9_GMVIEWPLEDGEINFO;
 	}
-
 }

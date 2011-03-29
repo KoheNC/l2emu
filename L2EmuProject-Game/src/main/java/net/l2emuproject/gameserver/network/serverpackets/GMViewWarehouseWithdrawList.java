@@ -17,22 +17,22 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
-public class GMViewWarehouseWithdrawList extends L2GameServerPacket
+public final class GMViewWarehouseWithdrawList extends L2GameServerPacket
 {
 	private static final String		_S__95_GMViewWarehouseWithdrawList	= "[S] 95 GMViewWarehouseWithdrawList";
 	private final L2ItemInstance[]	_items;
 	private final String			_playerName;
-	private final L2Player		_activeChar;
+	private final L2Player			_player;
 	private final long				_money;
-	
-	public GMViewWarehouseWithdrawList(L2Player cha)
+
+	public GMViewWarehouseWithdrawList(final L2Player player)
 	{
-		_activeChar = cha;
-		_items = _activeChar.getWarehouse().getItems();
-		_playerName = _activeChar.getName();
-		_money = _activeChar.getAdena();
+		_player = player;
+		_items = _player.getWarehouse().getItems();
+		_playerName = _player.getName();
+		_money = _player.getAdena();
 	}
-	
+
 	@Override
 	protected final void writeImpl()
 	{
@@ -40,44 +40,33 @@ public class GMViewWarehouseWithdrawList extends L2GameServerPacket
 		writeS(_playerName);
 		writeQ(_money);
 		writeH(_items.length);
-		
+
 		for (L2ItemInstance item : _items)
 		{
-			writeH(item.getItem().getType1());
 			writeD(item.getObjectId());
-			writeD(item.getItemDisplayId());
+			writeD(item.getItemId());
+			writeD(item.getLocationSlot());
 			writeQ(item.getCount());
 			writeH(item.getItem().getType2());
 			writeH(item.getCustomType1());
-			
+			writeH(item.isEquipped() ? 0x01 : 0x00);
 			writeD(item.getItem().getBodyPart());
 			writeH(item.getEnchantLevel());
-			writeH(0x00);
 			writeH(item.getCustomType2());
-			writeD(item.getObjectId());
-			
 			if (item.isAugmented())
-			{
-				writeD(0x0000FFFF & item.getAugmentation().getAugmentationId());
-				writeD(item.getAugmentation().getAugmentationId() >> 16);
-			}
+				writeD(item.getAugmentation().getAugmentationId());
 			else
-			{
-				writeQ(0);
-			}
-			writeD(item.getObjectId());
-			writeElementalInfo(item);
-			
+				writeD(0x00);
 			writeD(item.getMana());
-			// T2
-			writeD(item.isTimeLimitedItem() ? (int) (item.getRemainingTime() / 1000) : -1);
-			
+			writeD(item.isTimeLimitedItem() ? (int) (item.getRemainingTime() / 1000) : -9999);
+			writeElementalInfo(item);
 			writeEnchantEffectInfo();
+			writeD(item.getObjectId());
 		}
 	}
-	
+
 	@Override
-	public String getType()
+	public final String getType()
 	{
 		return _S__95_GMViewWarehouseWithdrawList;
 	}

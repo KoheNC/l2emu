@@ -14,50 +14,45 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 public final class GMViewSkillInfo extends L2GameServerPacket
 {
 	private static final String	_S__91_GMViewSkillInfo	= "[S] 91 GMViewSkillInfo";
-	
-	private final L2Player	_activeChar;
+
+	private final L2Player		_player;
 	private final L2Skill[]		_skills;
-	
-	public GMViewSkillInfo(L2Player activeChar)
+
+	public GMViewSkillInfo(final L2Player player)
 	{
-		_activeChar = activeChar;
-		_skills = activeChar.getSortedAllSkills(true);
+		_player = player;
+		_skills = player.getSortedAllSkills(true);
 	}
-	
+
 	@Override
-	protected void writeImpl()
+	protected final void writeImpl()
 	{
 		writeC(0x97);
-		writeS(_activeChar.getName());
+		writeS(_player.getName());
 		writeD(_skills.length);
-		
-		@SuppressWarnings("unused")
+
 		boolean isDisabled = false;
-		L2Clan clan = _activeChar.getClan();
-		if (clan != null)
-			isDisabled = clan.getReputationScore() < 0;
-		
+		if (_player.getClan() != null)
+			isDisabled = _player.getClan().getReputationScore() < 0;
+
 		for (L2Skill skill : _skills)
 		{
 			writeD(skill.isPassive() ? 1 : 0);
 			writeD(skill.getLevel());
-			writeD(skill.getDisplayId());
-			
-			// FIXME
-			writeC(/* isDisabled && skill.isClanSkill() ? 1 : */0);
-			writeC(skill.isEnchantable());			
+			writeD(skill.getId());
+			writeC(isDisabled && skill.isClanSkill() ? 1 : 0);
+			writeC(skill.isEnchantable());
 		}
 	}
-	
+
 	@Override
-	public String getType()
+	public final String getType()
 	{
 		return _S__91_GMViewSkillInfo;
 	}
