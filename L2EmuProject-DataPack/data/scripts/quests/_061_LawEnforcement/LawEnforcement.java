@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package quests._61_LawEnforcement;
+package quests._061_LawEnforcement;
 
 import net.l2emuproject.gameserver.entity.base.ClassId;
 import net.l2emuproject.gameserver.entity.base.Race;
@@ -29,7 +29,7 @@ import net.l2emuproject.gameserver.world.object.L2Player;
  */
 public final class LawEnforcement extends QuestJython
 {
-	private static final String	QN			= "_61_LawEnforcement";
+	private static final String	QN			= "_061_LawEnforcement";
 
 	// Quest NPCs
 	private static final int	LIANE		= 32222;
