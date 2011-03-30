@@ -26,7 +26,7 @@ public class RequestKeyMapping extends L2GameClientPacket
 {
 
     /**
-     * @see net.l2emuproject.gameserver.clientpackets.L2GameClientPacket#getType()
+     * @see net.l2emuproject.gameserver.clientpackets.L2GameClientPacket#getPostType()
      */
     @Override
     public String getType()

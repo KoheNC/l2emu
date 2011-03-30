@@ -47,7 +47,7 @@ public class ExVariationResult extends L2GameServerPacket
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.BasePacket#getType()
+	 * @see net.l2emuproject.gameserver.BasePacket#getPostType()
 	 */
 	@Override
 	public String getType()

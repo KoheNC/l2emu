@@ -42,7 +42,7 @@ public class TutorialEnableClientEvent extends L2GameServerPacket
     }
 
     /**
-     * @see net.l2emuproject.gameserver.network.BasePacket#getType()
+     * @see net.l2emuproject.gameserver.network.BasePacket#getPostType()
      */
     @Override
     public String getType()

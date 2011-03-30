@@ -70,7 +70,7 @@ public final class ServerObjectInfo extends L2GameServerPacket
 	}
 
 	/**
-	 * @see net.sf.l2j.gameserver.network.serverpackets.L2GameServerPacket#getType()
+	 * @see net.sf.l2j.gameserver.network.serverpackets.L2GameServerPacket#getPostType()
 	 */
 	@Override
 	public String getType()

@@ -157,6 +157,7 @@ public final class L2Clan
 	private int									_rank						= 0;
 
 	private String								_notice;
+	private String								_introduction;
 
 	//	private boolean							_noticeEnabled				= true;
 
@@ -377,6 +378,16 @@ public final class L2Clan
 
 		//		_noticeEnabled = noticeEnabled;
 
+	}
+
+	public String getIndtroduction()
+	{
+		return _introduction;
+	}
+
+	public void setIntroduction(final String introduction)
+	{
+		_introduction = introduction;
 	}
 
 	/**

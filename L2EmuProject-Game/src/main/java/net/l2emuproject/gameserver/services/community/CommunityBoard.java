@@ -14,6 +14,9 @@
  */
 package net.l2emuproject.gameserver.services.community;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.l2emuproject.gameserver.network.serverpackets.PlayerShowBoard;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
@@ -53,6 +56,70 @@ public abstract class CommunityBoard
 	protected final void showHTML(final L2Player player, final String html)
 	{
 		player.sendPacket(new PlayerShowBoard(html));
+	}
+
+	protected final void sendWrite(final L2Player player, final String html, String string, String string2, String string3)
+	{
+		try
+		{
+			string = editSavedText(string);
+			string2 = editSavedText(string2);
+			string3 = editSavedText(string3);
+
+			player.sendPacket(new PlayerShowBoard(html));
+
+			final List<String> arg = new ArrayList<String>();
+
+			arg.add("0");
+			arg.add("0");
+			arg.add("0");
+			arg.add("0");
+			arg.add("0");
+			arg.add("0");
+			arg.add(player.getName());
+			arg.add(Integer.toString(player.getObjectId()));
+			arg.add(player.getAccountName());
+			arg.add("9");
+			arg.add(string3);
+			arg.add(string2);
+			arg.add(string);
+			arg.add(string3);
+			arg.add(string3);
+			arg.add("0");
+			arg.add("0");
+
+			player.sendPacket(new PlayerShowBoard(arg.toString()));
+		}
+		catch (Exception e)
+		{
+			_log.warn("", e);
+		}
+	}
+
+	protected final String editPlayerText(String text)
+	{
+		if (text == null)
+			return "";
+
+		text = text.replace(">", "&gt;");
+		text = text.replace("<", "&lt;");
+		text = text.replace("\n", "<br1>");
+		text = text.replace("$", "\\$");
+
+		return text;
+	}
+
+	protected final String editSavedText(String text)
+	{
+		if (text == null)
+			return "";
+
+		text = text.replace("&gt;", ">");
+		text = text.replace("&lt;", "<");
+		text = text.replace("<br1>", "\n");
+		text = text.replace("\\$", "$");
+
+		return text;
 	}
 
 	protected final void notImplementedYet(final L2Player player, final String command)

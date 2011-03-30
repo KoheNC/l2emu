@@ -47,7 +47,7 @@ public class RequestPCCafeCouponUse extends L2GameClientPacket
     }
 
     /**
-     * @see net.l2emuproject.gameserver.network.BasePacket#getType()
+     * @see net.l2emuproject.gameserver.network.BasePacket#getPostType()
      */
     @Override
     public String getType()

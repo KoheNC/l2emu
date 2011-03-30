@@ -45,7 +45,7 @@ public final class ExPutItemResultForVariationMake extends L2GameServerPacket
 	}
 
 	/**
-	 * @see net.l2emuproject.gameserver.BasePacket#getType()
+	 * @see net.l2emuproject.gameserver.BasePacket#getPostType()
 	 */
 	@Override
 	public final String getType()

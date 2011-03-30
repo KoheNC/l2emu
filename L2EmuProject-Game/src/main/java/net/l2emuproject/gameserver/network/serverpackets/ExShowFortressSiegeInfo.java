@@ -43,7 +43,7 @@ public class ExShowFortressSiegeInfo extends L2GameServerPacket
 	}
 
     /**
-     * @see net.l2emuproject.gameserver.serverpackets.L2GameServerPacket#getType()
+     * @see net.l2emuproject.gameserver.serverpackets.L2GameServerPacket#getPostType()
      */
     @Override
     public String getType()
