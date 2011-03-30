@@ -15,6 +15,7 @@
 package net.l2emuproject.gameserver.world;
 
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.tools.random.Rnd;
 
 public final class Location
 {
@@ -23,11 +24,23 @@ public final class Location
 	private final int				_x;
 	private final int				_y;
 	private final int				_z;
+	private final int				_rndX;
+	private final int				_rndY;
 	private final int				_heading;
 
 	public Location(int x, int y, int z)
 	{
 		this(x, y, z, 0);
+	}
+	
+	public Location(int x, int y, int z, int rndX, int rndY)
+	{
+		_x = x;
+		_y = y;
+		_z = z;
+		_rndX = rndX;
+		_rndY = rndY;
+		_heading = 0;
 	}
 
 	public Location(int x, int y, int z, int heading)
@@ -35,6 +48,8 @@ public final class Location
 		_x = x;
 		_y = y;
 		_z = z;
+		_rndX = 0;
+		_rndY = 0;
 		_heading = heading;
 	}
 
@@ -43,17 +58,23 @@ public final class Location
 		_x = cha.getX();
 		_y = cha.getY();
 		_z = cha.getZ();
+		_rndX = 0;
+		_rndY = 0;
 		_heading = cha.getHeading();
 	}
 
 	public int getX()
 	{
-		return _x;
+		if (_rndX == 0)
+			return _x;
+		return (_x + Rnd.get(_rndX));
 	}
 
 	public int getY()
 	{
-		return _y;
+		if (_rndY == 0)
+			return _y;
+		return (_y + Rnd.get(_rndY));
 	}
 
 	public int getZ()
