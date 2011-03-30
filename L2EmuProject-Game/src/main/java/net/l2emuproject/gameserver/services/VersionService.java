@@ -19,38 +19,18 @@ import java.util.Date;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Config;
 import net.l2emuproject.gameserver.L2GameServer;
-import net.l2emuproject.network.mmocore.SelectorThread;
 import net.l2emuproject.versionning.Version;
-
 
 /**
  * @author lord_rex
  */
-public class VersionService
+public final class VersionService
 {
-	private static final CoreVersion	_mmocore	= new CoreVersion(SelectorThread.class);
 	private static final CoreVersion	_commons	= new CoreVersion(L2Config.class);
 	private static final CoreVersion	_game		= new CoreVersion(L2GameServer.class);
 
 	private VersionService()
 	{
-	}
-
-	// =====================================================================================
-	// Version Info - MMOCore
-	public static String getMMOCoreVersion()
-	{
-		return _mmocore._version;
-	}
-
-	public static String getMMOCoreRevision()
-	{
-		return _mmocore._revision;
-	}
-
-	public static Date getMMOCoreBuildDate()
-	{
-		return _mmocore._buildDate;
 	}
 
 	// =====================================================================================
@@ -125,9 +105,6 @@ public class VersionService
 	{
 		return new String[] {
 				"L2EmuProject-Library: ",
-				" - MMOCore Version: " + getMMOCoreVersion(),
-				" - MMOCore Revision: " + getMMOCoreRevision(),
-				" - MMOCore Build Date: " + getMMOCoreBuildDate(),
 				" - Commons Version: " + getCommonsVersion(),
 				" - Commons Revision: " + getCommonsRevision(),
 				" - Commons Build Date: " + getCommonsBuildDate(),
