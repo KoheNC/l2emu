@@ -84,19 +84,19 @@ public final class ClanPostBoard extends CommunityBoard
 		}
 		else if (command.split(";")[1].equalsIgnoreCase("read"))
 		{
-			Topic t = clanForum.getTopic(type);
-			Post p = t.getPost(Integer.valueOf(command.split(";")[4]));
-			if (p == null)
+			final Topic topic = clanForum.getTopic(type);
+			final Post post = topic.getPost(Integer.valueOf(command.split(";")[4]));
+			if (post == null)
 				_log.info("Missing post: " + command);
 			else
 			{
 				if (command.split(";").length > 5)
 				{
 					_log.info("Index: " + command.split(";")[5] + ";" + command.split(";")[6]);
-					showPost(player, t, p, clanId, type, Integer.valueOf(command.split(";")[5]), Integer.valueOf(command.split(";")[6]));
+					showPost(player, topic, post, clanId, type, Integer.valueOf(command.split(";")[5]), Integer.valueOf(command.split(";")[6]));
 				}
 				else
-					showPost(player, t, p, clanId, type, 1, 1);
+					showPost(player, topic, post, clanId, type, 1, 1);
 			}
 		}
 		else if (!isLeader && ((isPlayerMember && perMem == 1) || (!isPlayerMember && perNon == 1)))
@@ -115,20 +115,20 @@ public final class ClanPostBoard extends CommunityBoard
 		}
 		else if (command.split(";")[1].equalsIgnoreCase("delcom"))
 		{
-			Topic t = clanForum.getTopic(type);
-			Post p = t.getPost(Integer.valueOf(command.split(";")[4]));
-			p.rmCommentByID(Integer.valueOf(command.split(";")[5]));
-			showPost(player, t, p, clanId, type, 1, 1);
+			final Topic topic = clanForum.getTopic(type);
+			final Post post = topic.getPost(Integer.valueOf(command.split(";")[4]));
+			post.rmCommentById(Integer.valueOf(command.split(";")[5]));
+			showPost(player, topic, post, clanId, type, 1, 1);
 		}
 		else if (command.split(";")[1].equalsIgnoreCase("edit"))
 		{
-			Post p = clanForum.getTopic(type).getPost(Integer.valueOf(command.split(";")[4]));
-			showWrite(player, p, clanId, type);
+			final Post post = clanForum.getTopic(type).getPost(Integer.valueOf(command.split(";")[4]));
+			showWrite(player, post, clanId, type);
 		}
 		else if (command.split(";")[1].equalsIgnoreCase("reply"))
 		{
-			Post p = clanForum.getTopic(type).getPost(Integer.valueOf(command.split(";")[4]));
-			showReply(player, p, clanId, type);
+			final Post post = clanForum.getTopic(type).getPost(Integer.valueOf(command.split(";")[4]));
+			showReply(player, post, clanId, type);
 		}
 	}
 
@@ -219,20 +219,20 @@ public final class ClanPostBoard extends CommunityBoard
 		return content;
 	}
 
-	private void showPage(final L2Player player, final Forum f, final int type, final int index)
+	private void showPage(final L2Player player, final Forum forum, final int type, final int index)
 	{
 		String content = HtmCache.getInstance().getHtm(STATICFILES_PATH + "clanpost.htm");
-		if (f == null)
+		if (forum == null)
 		{
 			_log.info("Forum is NULL!!!");
 			showHTML(player, content);
 			return;
 		}
 
-		final Topic t = f.getTopic(type);
+		final Topic topic = forum.getTopic(type);
 		final L2TextBuilder tb = L2TextBuilder.newInstance();
 		int i = 0;
-		for (Post p : t.getAllPosts())
+		for (Post p : topic.getAllPosts())
 		{
 			if (i > ((index - 1) * 10 + 9))
 			{
@@ -245,7 +245,7 @@ public final class ClanPostBoard extends CommunityBoard
 				tb.append("<tr> ");
 				tb.append("<td FIXWIDTH=5></td>");
 				tb.append("<td FIXWIDTH=80 align=center>" + p.getPostId() + "</td>");
-				tb.append("<td FIXWIDTH=340><a action=\"bypass _bbscpost;read;%type%;" + f.getOwner() + ";" + p.getPostId() + "\">" + p.getPostTypeName()
+				tb.append("<td FIXWIDTH=340><a action=\"bypass _bbscpost;read;%type%;" + forum.getOwner() + ";" + p.getPostId() + "\">" + p.getPostTypeName()
 						+ p.getPostTitle() + "</a></td>");
 				tb.append("<td FIXWIDTH=120 align=center>" + p.getOwnerName() + "</td>");
 				tb.append("<td FIXWIDTH=120 align=center>" + DateFormat.getInstance().format(new Date(p.getPostDate())) + "</td>");
@@ -258,7 +258,7 @@ public final class ClanPostBoard extends CommunityBoard
 				tb.append("<img src=\"L2UI.SquareGray\" width=\"750\" height=\"1\">");
 			}
 		}
-		content = content.replaceAll("%postList%", tb.toString());
+		content = content.replaceAll("%postList%", tb.moveToString());
 		tb.clear();
 		if (index == 1)
 		{
@@ -271,8 +271,8 @@ public final class ClanPostBoard extends CommunityBoard
 		}
 
 		int nbp;
-		nbp = t.getAllPosts().size() / 10;
-		if (nbp * 10 != t.getAllPosts().size())
+		nbp = topic.getAllPosts().size() / 10;
+		if (nbp * 10 != topic.getAllPosts().size())
 		{
 			nbp++;
 		}
@@ -296,21 +296,21 @@ public final class ClanPostBoard extends CommunityBoard
 			tb.append("<td><button action=\"bypass _bbscpost;list;%type%;%clanid%;" + (index + 1)
 					+ "\" back=\"l2ui_ch3.next1_down\" fore=\"l2ui_ch3.next1\" width=16 height=16 ></td>");
 		}
-		content = content.replaceAll("%postListLength%", tb.toString());
+		content = content.replaceAll("%postListLength%", tb.moveToString());
 		content = replace(content, type);
-		content = content.replaceAll("%clanid%", String.valueOf(f.getOwner()));
+		content = content.replaceAll("%clanid%", String.valueOf(forum.getOwner()));
 
 		showHTML(player, content);
 	}
 
-	private void showWrite(final L2Player player, final Post p, final int clanId, final int type)
+	private void showWrite(final L2Player player, final Post post, final int clanId, final int type)
 	{
 		String title = " ";
 		String message = " ";
 		String content = HtmCache.getInstance().getHtm(STATICFILES_PATH + "clanpost-write.htm");
 		content = replace(content, type);
 		content = content.replaceAll("%clanid%", String.valueOf(clanId));
-		if (p == null)
+		if (post == null)
 		{
 			content = content.replaceAll("%job%", "new");
 			content = content.replaceAll("%postId%", "-1");
@@ -318,19 +318,19 @@ public final class ClanPostBoard extends CommunityBoard
 		else
 		{
 			content = content.replaceAll("%job%", "edit");
-			content = content.replaceAll("%postId%", String.valueOf(p.getPostId()));
-			title = p.getPostTitle();
-			message = p.getPostText();
+			content = content.replaceAll("%postId%", String.valueOf(post.getPostId()));
+			title = post.getPostTitle();
+			message = post.getPostText();
 		}
 
 		sendWrite(player, content, message, title, title);
 	}
 
-	private void showReply(final L2Player player, final Post p, final int clanId, final int type)
+	private void showReply(final L2Player player, final Post post, final int clanId, final int type)
 	{
-		if (p == null)
+		if (post == null)
 		{
-			showWrite(player, p, clanId, type);
+			showWrite(player, post, clanId, type);
 			return;
 		}
 		String title = " ";
@@ -339,72 +339,72 @@ public final class ClanPostBoard extends CommunityBoard
 		content = replace(content, type);
 		content = content.replaceAll("%clanid%", String.valueOf(clanId));
 		content = content.replaceAll("%job%", "reply");
-		content = content.replaceAll("%postId%", String.valueOf(p.getPostId()));
+		content = content.replaceAll("%postId%", String.valueOf(post.getPostId()));
 
 		sendWrite(player, content, message, title, " ");
 	}
 
-	private void showPost(final L2Player player, final Topic t, final Post p, final int clanId, final int type, final int indexR, final int indexC)
+	private void showPost(final L2Player player, final Topic topic, final Post post, final int clanId, final int type, final int indexR, final int indexC)
 	{
-		p.increaseReadCount();
+		post.increaseReadCount();
 		String content = HtmCache.getInstance().getHtm(STATICFILES_PATH + "clanpost-show.htm");
-		content = content.replaceAll("%postTitle%", p.getPostTitle());
-		content = content.replaceAll("%postId%", String.valueOf(p.getPostId()));
-		Post parent = p;
+		content = content.replaceAll("%postTitle%", post.getPostTitle());
+		content = content.replaceAll("%postId%", String.valueOf(post.getPostId()));
+		Post parent = post;
 
-		if (p.getParentId() != -1)
+		if (post.getParentId() != -1)
 		{
-			content = content.replaceAll("%postParentId%", String.valueOf(p.getParentId()));
-			parent = t.getPost(p.getParentId());
+			content = content.replaceAll("%postParentId%", String.valueOf(post.getParentId()));
+			parent = topic.getPost(post.getParentId());
 		}
 		else
-			content = content.replaceAll("%postParentId%", String.valueOf(p.getPostId()));
+			content = content.replaceAll("%postParentId%", String.valueOf(post.getPostId()));
 
-		content = content.replaceAll("%postOwnerName%", p.getOwnerName());
-		content = content.replaceAll("%postReadCount%", String.valueOf(p.getReadCount()));
-		content = content.replaceAll("%postDate%", DateFormat.getInstance().format(new Date(p.getPostDate())));
-		content = content.replaceAll("%mes%", p.getPostText());
+		content = content.replaceAll("%postOwnerName%", post.getOwnerName());
+		content = content.replaceAll("%postReadCount%", String.valueOf(post.getReadCount()));
+		content = content.replaceAll("%postDate%", DateFormat.getInstance().format(new Date(post.getPostDate())));
+		content = content.replaceAll("%mes%", post.getPostText());
 
 		// reply list
-		final L2TextBuilder mList = L2TextBuilder.newInstance();
+		final L2TextBuilder tb = L2TextBuilder.newInstance();
 		int i = 1;
-		final FastList<Post> childrenList = t.getChildrenPosts(parent);
+		final FastList<Post> childrenList = topic.getChildrenPosts(parent);
 		for (Post child : childrenList)
 		{
 			if (i++ == indexR)
 			{
-				mList.append("<table border=0 cellspacing=5 cellpadding=0 WIDTH=750>");
-				mList.append("<tr>");
-				mList.append("<td WIDTH=60 align=center>" + child.getPostId() + "</td>");
-				if (child != p)
-					mList.append("<td width=415><a action=\"bypass _bbscpost;read;%type%;" + clanId + ";" + child.getPostId() + "\">" + child.getPostTypeName()
+				tb.append("<table border=0 cellspacing=5 cellpadding=0 WIDTH=750>");
+				tb.append("<tr>");
+				tb.append("<td WIDTH=60 align=center>" + child.getPostId() + "</td>");
+				if (child != post)
+					tb.append("<td width=415><a action=\"bypass _bbscpost;read;%type%;" + clanId + ";" + child.getPostId() + "\">" + child.getPostTypeName()
 							+ child.getPostTitle() + "</a></td>");
 				else
-					mList.append("<td width=415>" + child.getPostTypeName() + child.getPostTitle() + "</td>");
-				mList.append("<td WIDTH=130 align=center>" + child.getOwnerName() + "</td>");
-				mList.append("<td WIDTH=80 align=center>" + DateFormat.getInstance().format(new Date(child.getPostDate())) + "</td>");
-				mList.append("<td WIDTH=65 align=center>" + child.getReadCount() + "</td>");
-				mList.append("</tr>");
-				mList.append("</table>");
+					tb.append("<td width=415>" + child.getPostTypeName() + child.getPostTitle() + "</td>");
+				tb.append("<td WIDTH=130 align=center>" + child.getOwnerName() + "</td>");
+				tb.append("<td WIDTH=80 align=center>" + DateFormat.getInstance().format(new Date(child.getPostDate())) + "</td>");
+				tb.append("<td WIDTH=65 align=center>" + child.getReadCount() + "</td>");
+				tb.append("</tr>");
+				tb.append("</table>");
 			}
 		}
-		content = content.replaceAll("%replyList%", mList.moveToString());
+		content = content.replaceAll("%replyList%", tb.moveToString());
 		if (indexR == 1)
 			content = content.replaceAll("%prevReply%", "[Previous Reply]");
 		else
-			content = content.replaceAll("%prevReply%", "<a action=\"bypass _bbscpost;read;%type%;" + clanId + ";" + p.getPostId() + ";" + (indexR - 1) + ";"
-					+ indexC + "\">[Previous Reply]</a>");
+			content = content.replaceAll("%prevReply%", "<a action=\"bypass _bbscpost;read;%type%;" + clanId + ";" + post.getPostId() + ";" + (indexR - 1)
+					+ ";" + indexC + "\">[Previous Reply]</a>");
 		content = content.replaceAll("%replyCount%", indexR + "/" + childrenList.size());
 		if (indexR == childrenList.size())
 			content = content.replaceAll("%nextReply%", "[Next Reply]");
 		else
-			content = content.replaceAll("%nextReply%", "<a action=\"bypass _bbscpost;read;%type%;" + clanId + ";" + p.getPostId() + ";" + (indexR + 1) + ";"
-					+ indexC + "\">[Next Reply]</a>");
+			content = content.replaceAll("%nextReply%", "<a action=\"bypass _bbscpost;read;%type%;" + clanId + ";" + post.getPostId() + ";" + (indexR + 1)
+					+ ";" + indexC + "\">[Next Reply]</a>");
 
 		// comment list
-		mList.clear();
+		tb.clear();
 		i = 1;
-		Collection<Comment> commentsList = p.getAllComments();
+		Collection<Comment> commentsList = post.getAllComments();
 		int csize = commentsList.size();
 		if (csize == 0)
 			csize = 1;
@@ -414,33 +414,33 @@ public final class ClanPostBoard extends CommunityBoard
 			{
 				if (i++ == indexC)
 				{
-					mList.append("<tr><td><img src=\"L2UI.squaregray\" width=\"750\" height=\"1\"></td></tr>");
-					mList.append("<tr><td>");
-					mList.append("<table>");
-					mList.append("<tr>");
-					mList.append("<td WIDTH=100 valign=top>" + p.getOwnerName() + "</td>");
-					mList.append("<td width=10 valign=top><img src=\"L2UI.squaregray\" width=\"5\" height=\"28\"></td>");
-					mList.append("<td FIXWIDTH=560 valign=top><font color=\"AAAAAA\">" + c.getCommentText() + "</font></td>");
-					mList.append("<td WIDTH=20 valign=top><a action=\"bypass _bbscpost;delcom;%type%;" + clanId + ";" + p.getPostId() + ";" + c.getCommentId()
+					tb.append("<tr><td><img src=\"L2UI.squaregray\" width=\"750\" height=\"1\"></td></tr>");
+					tb.append("<tr><td>");
+					tb.append("<table>");
+					tb.append("<tr>");
+					tb.append("<td WIDTH=100 valign=top>" + post.getOwnerName() + "</td>");
+					tb.append("<td width=10 valign=top><img src=\"L2UI.squaregray\" width=\"5\" height=\"28\"></td>");
+					tb.append("<td FIXWIDTH=560 valign=top><font color=\"AAAAAA\">" + c.getCommentText() + "</font></td>");
+					tb.append("<td WIDTH=20 valign=top><a action=\"bypass _bbscpost;delcom;%type%;" + clanId + ";" + post.getPostId() + ";" + c.getCommentId()
 							+ "\">&\\$425;</a></td>");
-					mList.append("<td WIDTH=60 valign=top>" + DateFormat.getInstance().format(new Date(c.getCommentDate())) + "</td>");
-					mList.append("</tr>");
-					mList.append("</table>");
-					mList.append("</td></tr>");
+					tb.append("<td WIDTH=60 valign=top>" + DateFormat.getInstance().format(new Date(c.getCommentDate())) + "</td>");
+					tb.append("</tr>");
+					tb.append("</table>");
+					tb.append("</td></tr>");
 				}
 			}
 		}
-		content = content.replaceAll("%commentList%", mList.toString());
+		content = content.replaceAll("%commentList%", tb.moveToString());
 		if (indexC == 1)
 			content = content.replaceAll("%prevCom%", "[Previous Comment]");
 		else
-			content = content.replaceAll("%prevCom%", "<a action=\"bypass _bbscpost;read;%type%;" + clanId + ";" + p.getPostId() + ";" + indexR + ";"
+			content = content.replaceAll("%prevCom%", "<a action=\"bypass _bbscpost;read;%type%;" + clanId + ";" + post.getPostId() + ";" + indexR + ";"
 					+ (indexC - 1) + "\">[Previous Comment]</a>");
 		content = content.replaceAll("%comCount%", indexC + "/" + csize);
 		if (indexC == csize)
 			content = content.replaceAll("%nextCom%", "[Next Comment]");
 		else
-			content = content.replaceAll("%nextCom%", "<a action=\"bypass _bbscpost;read;%type%;" + clanId + ";" + p.getPostId() + ";" + indexR + ";"
+			content = content.replaceAll("%nextCom%", "<a action=\"bypass _bbscpost;read;%type%;" + clanId + ";" + post.getPostId() + ";" + indexR + ";"
 					+ (indexC + 1) + "\">[Next Comment]</a>");
 
 		content = replace(content, type);

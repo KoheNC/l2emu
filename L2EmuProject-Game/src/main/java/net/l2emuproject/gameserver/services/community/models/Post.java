@@ -245,7 +245,7 @@ public final class Post
 		_comments.put(c.getCommentId(), c);
 	}
 
-	public void rmCommentByID(final int id)
+	public void rmCommentById(final int id)
 	{
 		_comments.get(id).deleteFromDB();
 		_comments.remove(id);

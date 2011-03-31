@@ -339,7 +339,7 @@ public final class ClanBoard extends CommunityBoard
 		sendWrite(player, content, clan.getIndtroduction(), "", "");
 	}
 
-	private final void showNoticePage(final L2Player player, L2Clan clan)
+	private final void showNoticePage(final L2Player player, final L2Clan clan)
 	{
 		String content = HtmCache.getInstance().getHtm(STATICFILES_PATH + "clanhome-notice.htm");
 		content = content.replaceAll("%clanid%", String.valueOf(clan.getClanId()));
