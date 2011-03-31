@@ -20,9 +20,9 @@ import java.sql.ResultSet;
 import java.util.Collection;
 import java.util.Map;
 
+import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
-import net.l2emuproject.util.SingletonList;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -195,9 +195,9 @@ public final class Topic
 		return ret;
 	}
 
-	public SingletonList<Post> getChildrenPosts(final Post parent)
+	public FastList<Post> getChildrenPosts(final Post parent)
 	{
-		final SingletonList<Post> ret = new SingletonList<Post>();
+		final FastList<Post> ret = new FastList<Post>();
 		if (parent == null)
 			return ret;
 		// parent post always the first
