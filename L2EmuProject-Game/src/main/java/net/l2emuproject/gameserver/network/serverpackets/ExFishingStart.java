@@ -19,21 +19,21 @@ import net.l2emuproject.gameserver.world.object.L2Character;
 /**
  * @author -Wooden-
  */
-public class ExFishingStart extends L2GameServerPacket
+public final class ExFishingStart extends L2GameServerPacket
 {
-	private static final String _S__FE_1E_EXFISHINGSTART = "[S] FE:1e ExFishingStart [ddddd cccc]";
-	private final L2Character _activeChar;
-	private final int _x,_y,_z, _fishType;
-//	private final boolean _isNightLure;
-	
-	public ExFishingStart(L2Character character, int fishType, int x, int y,int z, boolean isNightLure)
+	private static final String	_S__FE_1E_EXFISHINGSTART	= "[S] FE:1e ExFishingStart [ddddd cccc]";
+	private final L2Character	_activeChar;
+	private final int			_x, _y, _z, _fishType;
+	private final boolean		_isNightLure;
+
+	public ExFishingStart(final L2Character character, final int fishType, final int x, final int y, final int z, final boolean isNightLure)
 	{
 		_activeChar = character;
 		_fishType = fishType;
 		_x = x;
 		_y = y;
 		_z = z;
-//		_isNightLure = isNightLure;
+		_isNightLure = isNightLure;
 	}
 
 	@Override
@@ -43,13 +43,11 @@ public class ExFishingStart extends L2GameServerPacket
 		writeH(0x1e);
 		writeD(_activeChar.getObjectId());
 		writeD(_fishType); // fish type
-		writeD(_x); // x poisson
-		writeD(_y); // y poisson
-		writeD(_z); // z poisson
-		writeC(0x00); // night lure
-		writeC(0x00); //??
-		writeC((_fishType >= 7 && _fishType <= 9) ? 0x01 : 0x00); // 0 = day lure  1 = night lure
-		writeC(0x00);
+		writeD(_x); // x position
+		writeD(_y); // y position
+		writeD(_z); // z position
+		writeC(_isNightLure ? 0x01 : 0x00); // night lure
+		writeC(0x00); //show fish rank result button
 	}
 
 	@Override

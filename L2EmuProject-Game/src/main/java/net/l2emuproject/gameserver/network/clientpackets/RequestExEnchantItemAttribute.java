@@ -25,6 +25,7 @@ import net.l2emuproject.gameserver.network.serverpackets.UserInfo;
 import net.l2emuproject.gameserver.services.attribute.AttributeItems;
 import net.l2emuproject.gameserver.services.attribute.Attributes;
 import net.l2emuproject.gameserver.system.util.Util;
+import net.l2emuproject.gameserver.templates.item.L2ArmorType;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
 import net.l2emuproject.gameserver.world.object.L2Player;
@@ -94,13 +95,13 @@ public class RequestExEnchantItemAttribute extends L2GameClientPacket
 		}
 		
 		//can't enchant rods, shadow items, adventurers', PvP items, hero items, cloaks, bracelets, underwear (e.g. shirt), belt, necklace, earring, ring
-		if (item.getItem().getItemType() == L2WeaponType.ROD || item.isShadowItem() || item.isPvp() ||
-			(!Config.ENCHANT_HERO_WEAPONS && item.isHeroItem()) || item.isTimeLimitedItem() ||
-			(item.getItem().getItemId() >= 7816 && item.getItem().getItemId() <= 7831) || (item.getItem().getItemType() == L2WeaponType.NONE) ||
-			item.getItem().getItemGradeSPlus() != L2Item.CRYSTAL_S || item.getItem().getBodyPart() == L2Item.SLOT_BACK ||
-			item.getItem().getBodyPart() == L2Item.SLOT_R_BRACELET || item.getItem().getBodyPart() == L2Item.SLOT_UNDERWEAR ||
-			item.getItem().getBodyPart() == L2Item.SLOT_BELT || item.getItem().getBodyPart() == L2Item.SLOT_NECK ||
-			item.getItem().getBodyPart() == L2Item.SLOT_R_EAR || item.getItem().getBodyPart() == L2Item.SLOT_R_FINGER)
+		if (item.getItem().getItemType() == L2WeaponType.ROD || item.isShadowItem() || item.isPvp() || item.isHeroItem() || item.isTimeLimitedItem() ||
+				(item.getItemId() >= 7816 && item.getItemId() <= 7831) || (item.getItem().getItemType() == L2WeaponType.NONE) ||
+				item.getItem().getItemGradeSPlus() != L2Item.CRYSTAL_S || item.getItem().getBodyPart() == L2Item.SLOT_BACK ||
+				item.getItem().getBodyPart() == L2Item.SLOT_R_BRACELET || item.getItem().getBodyPart() == L2Item.SLOT_UNDERWEAR ||
+				item.getItem().getBodyPart() == L2Item.SLOT_BELT || item.getItem().getBodyPart() == L2Item.SLOT_NECK ||
+				(item.getItem().getBodyPart() & L2Item.SLOT_R_EAR) != 0 || (item.getItem().getBodyPart() & L2Item.SLOT_R_FINGER) != 0 ||
+				item.getItem().getElementals() != null || /*item.getItemType() == L2ArmorType.SHIELD ||*/ item.getItemType() == L2ArmorType.SIGIL)
 		{
 			player.sendPacket(SystemMessageId.ELEMENTAL_ENHANCE_REQUIREMENT_NOT_SUFFICIENT);
 			player.setActiveEnchantAttrItem(null);

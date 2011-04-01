@@ -86,6 +86,9 @@ public final class EffectFear extends L2Effect
 		
 		if (!getEffected().isAfraid())
 		{
+			if (getEffected().isCastingNow() && getEffected().canAbortCast())
+				getEffected().abortCast();
+			
 			if (getEffected().getX() > getEffector().getX())
 				_dX = 1;
 			if (getEffected().getY() > getEffector().getY())
@@ -110,12 +113,17 @@ public final class EffectFear extends L2Effect
 	{
 		int posX = getEffected().getX();
 		int posY = getEffected().getY();
-		int posZ = getEffected().getZ();
+		final int posZ = getEffected().getZ();
+		
+		if (getEffected().getX() > getEffector().getX())
+			_dX = 1;
+		if (getEffected().getY() > getEffector().getY())
+			_dY = 1;
 		
 		posX += _dX * FEAR_RANGE;
 		posY += _dY * FEAR_RANGE;
 		
-		Location destiny = GeoData.getInstance().moveCheck(getEffected().getX(), getEffected().getY(),
+		final Location destiny = GeoData.getInstance().moveCheck(getEffected().getX(), getEffected().getY(),
 				getEffected().getZ(), posX, posY, posZ, getEffected().getInstanceId());
 		if (!(getEffected() instanceof L2PetInstance))
 			getEffected().setRunning();

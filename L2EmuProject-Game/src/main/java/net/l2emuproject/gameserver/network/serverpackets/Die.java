@@ -152,6 +152,10 @@ public class Die extends L2GameServerPacket
 		writeD(_sweepable);
 		writeD(_showFeather);
 		writeD(_showFortress);
+		
+        writeC(0x00); // show die animation
+        writeD(0x00); // agathion ress button
+        writeD(0x00); // additional free space
 	}
 
 	@Override

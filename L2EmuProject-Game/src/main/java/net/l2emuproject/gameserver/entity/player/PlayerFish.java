@@ -22,6 +22,7 @@ import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExFishingEnd;
 import net.l2emuproject.gameserver.network.serverpackets.ExFishingStart;
+import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.gameserver.services.fishing.FishData;
 import net.l2emuproject.gameserver.services.fishing.L2Fishing;
 import net.l2emuproject.gameserver.skills.L2Effect;
@@ -108,9 +109,8 @@ public final class PlayerFish extends PlayerExtension
 		fishs.clear();
 		fishs = null;
 		getPlayer().sendPacket(SystemMessageId.CAST_LINE_AND_START_FISHING);
-		ExFishingStart efs = null;
-		efs = new ExFishingStart(getPlayer(), _fish.getType(), x, y, z, _lure.isNightLure());
-		getPlayer().broadcastPacket(efs);
+		getPlayer().broadcastPacket(new ExFishingStart(getPlayer(),_fish.getType(),_fishx,_fishy,_fishz,_lure.isNightLure()));
+		getPlayer().sendPacket(new PlaySound(1, "SF_P_01", 0, 0, 0, 0, 0));
 		startLookingForFishTask();
 	}
 
@@ -355,8 +355,6 @@ public final class PlayerFish extends PlayerExtension
 
 	public final void endFishing(boolean win)
 	{
-		ExFishingEnd efe = new ExFishingEnd(win, getPlayer());
-		getPlayer().broadcastPacket(efe);
 		_fishing = false;
 		_fishx = 0;
 		_fishy = 0;
@@ -368,6 +366,7 @@ public final class PlayerFish extends PlayerExtension
 
 		_lure = null;
 		// End Fishing
+		getPlayer().broadcastPacket(new ExFishingEnd(win, getPlayer()));
 		getPlayer().sendPacket(SystemMessageId.REEL_LINE_AND_STOP_FISHING);
 		getPlayer().setIsImmobilized(false);
 		stopLookingForFishTask();
