@@ -19,12 +19,15 @@ import java.util.Date;
 
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.network.serverpackets.ExMailArrived;
 import net.l2emuproject.gameserver.services.clan.L2Clan;
+import net.l2emuproject.gameserver.services.clan.L2ClanMember;
 import net.l2emuproject.gameserver.services.community.CommunityBoard;
 import net.l2emuproject.gameserver.services.community.CommunityService;
 import net.l2emuproject.gameserver.services.community.models.Forum;
 import net.l2emuproject.gameserver.services.community.models.Post;
 import net.l2emuproject.gameserver.services.community.models.Topic;
+import net.l2emuproject.gameserver.services.community.models.Topic.ConstructorType;
 import net.l2emuproject.gameserver.system.cache.HtmCache;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.lang.L2TextBuilder;
@@ -79,7 +82,7 @@ public final class ClanBoard extends CommunityBoard
 				showClanManagementPage(player, Integer.valueOf(command.split(";")[2]));
 		}
 		else if (command.split(";")[1].equalsIgnoreCase("mail"))
-			notImplementedYet(player, command);
+			showClanMailPage(player, Integer.valueOf(command.split(";")[2]));
 		else if (command.split(";")[1].equalsIgnoreCase("permission"))
 		{
 			final int topicId = (command.split(";")[2].equalsIgnoreCase("cbb") ? Topic.BULLETIN : Topic.ANNOUNCE);
@@ -128,7 +131,26 @@ public final class ClanBoard extends CommunityBoard
 		}
 		else if (ar1.equalsIgnoreCase("mail"))
 		{
-			// TODO: Implement me...
+			final L2Clan clan = player.getClan();
+
+			if (clan == null)
+				return;
+
+			for (L2ClanMember member : ClanTable.getInstance().getClan(clan.getClanId()).getMembers())
+			{
+				final Forum receiverForum = CommunityService.getInstance().getPlayerForum(member.getObjectId());
+				final int postId = receiverForum.getTopic(Topic.INBOX).getNewPostId();
+				final Post post = new Post(ConstructorType.CREATE, postId, player.getObjectId(), player.getName(), clan.getName(), System.currentTimeMillis(),
+						Topic.INBOX, receiverForum.getForumId(), editPlayerText(ar4), editPlayerText(ar5), 0, 0);
+				receiverForum.getTopic(Topic.INBOX).addPost(post);
+				final L2Player reciever = member.getPlayerInstance();
+				if (reciever != null)
+				{
+					reciever.sendPacket(ExMailArrived.STATIC_PACKET);
+					reciever.sendPacket(SystemMessageId.NEW_MAIL);
+				}
+			}
+			showClanPage(player, clan.getClanId());
 		}
 	}
 
@@ -347,5 +369,24 @@ public final class ClanBoard extends CommunityBoard
 		content = content.replaceAll("%flag%", (clan.isNoticeEnabled() ? "False" : "True"));
 
 		sendWrite(player, content, clan.getNotice(), "", "");
+	}
+
+	private final void showClanMailPage(final L2Player player, final int clanId)
+	{
+		final L2Clan clan = player.getClan();
+
+		if (clan == null)
+			return;
+
+		if (clan.getClanId() != clanId)
+			return;
+
+		String content;
+		content = HtmCache.getInstance().getHtm(STATICFILES_PATH + "clanhome-mail.htm");
+
+		content = content.replaceAll("%clanid%", String.valueOf(clanId));
+		content = content.replaceAll("%clanName%", clan.getName());
+
+		showHTML(player, content);
 	}
 }
