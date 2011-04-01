@@ -14,10 +14,9 @@
  */
 package teleports.KamalokaEscaper;
 
-import net.l2emuproject.gameserver.manager.instances.Instance;
-import net.l2emuproject.gameserver.manager.instances.InstanceManager;
 import net.l2emuproject.gameserver.services.party.L2Party;
 import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.world.mapregion.TeleportWhereType;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
@@ -45,10 +44,14 @@ public final class KamalokaEscaper extends Quest
 
 		if (npcId == GATEKEEPER && party != null && party.isLeader(player))
 		{
-			final int instanceId = player.getInstanceId();
-			final Instance instance = InstanceManager.getInstance().getInstance(instanceId);
+			for (L2Player members : party.getPartyMembers())
+			{
+				if (members == null)
+					break;
 
-			instance.removePlayers();
+				members.teleToLocation(TeleportWhereType.Town);
+				members.setInstanceId(0);
+			}
 		}
 
 		return null;
