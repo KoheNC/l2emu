@@ -17,6 +17,7 @@ package net.l2emuproject.gameserver.services.community.boards;
 import java.text.DateFormat;
 import java.util.Date;
 
+import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExMailArrived;
@@ -51,7 +52,7 @@ public final class ClanBoard extends CommunityBoard
 			final int clanId = Integer.valueOf(command.split(";")[2]);
 			final L2Clan clan = ClanTable.getInstance().getClan(clanId);
 
-			if (clan == null || clan.getLevel() < CommunityService.MIN_CLAN_LVL_FOR_FORUM)
+			if (clan == null || clan.getLevel() < Config.MIN_CLAN_LVL_FOR_FORUM)
 				player.sendPacket(SystemMessageId.NO_CB_IN_MY_CLAN);
 
 			showClanPage(player, clanId);

@@ -12,42 +12,29 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.network.clientpackets;
+package net.l2emuproject.gameserver.services.community.boards;
 
-import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.network.SystemMessageId;
+import net.l2emuproject.gameserver.services.community.CommunityBoard;
 import net.l2emuproject.gameserver.services.community.CommunityService;
+import net.l2emuproject.gameserver.system.cache.HtmCache;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
-public final class RequestShowBoard extends L2GameClientPacket
+public final class HomePageBoard extends CommunityBoard
 {
-	private static final String	_C__57_REQUESTSHOWBOARD	= "[C] 57 RequestShowBoard";
-
-	@Override
-	protected final void readImpl()
+	public HomePageBoard(CommunityService service)
 	{
-		readD();
+		super(service);
 	}
 
 	@Override
-	protected final void runImpl()
+	public final void parseCommand(final L2Player player, final String command)
 	{
-		final L2Player player = getActiveChar();
-		if (player == null)
-			return;
-		
-		if (!Config.ALLOW_COMMUNITY_BOARD)
-		{
-			player.sendPacket(SystemMessageId.CB_OFFLINE);
-			return;
-		}
-
-		CommunityService.getInstance().parseCommand(player, "_bbshome");
+		final String content = HtmCache.getInstance().getHtm(STATICFILES_PATH + "home-page.htm");
+		showHTML(player, content);
 	}
 
 	@Override
-	public final String getType()
+	public final void parseWrite(final L2Player player, final String ar1, final String ar2, final String ar3, final String ar4, final String ar5)
 	{
-		return _C__57_REQUESTSHOWBOARD;
 	}
 }

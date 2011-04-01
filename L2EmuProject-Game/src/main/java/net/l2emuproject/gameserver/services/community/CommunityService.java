@@ -20,13 +20,16 @@ import java.sql.ResultSet;
 
 import javolution.util.FastMap;
 
+import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.services.clan.L2Clan;
 import net.l2emuproject.gameserver.services.community.boards.BlockBoard;
 import net.l2emuproject.gameserver.services.community.boards.ClanBoard;
 import net.l2emuproject.gameserver.services.community.boards.ClanPostBoard;
 import net.l2emuproject.gameserver.services.community.boards.ErrorBoard;
+import net.l2emuproject.gameserver.services.community.boards.FavoriteBoard;
 import net.l2emuproject.gameserver.services.community.boards.FriendBoard;
+import net.l2emuproject.gameserver.services.community.boards.HomePageBoard;
 import net.l2emuproject.gameserver.services.community.boards.MailBoard;
 import net.l2emuproject.gameserver.services.community.boards.MemoBoard;
 import net.l2emuproject.gameserver.services.community.boards.RegionBoard;
@@ -40,10 +43,7 @@ import org.apache.commons.logging.LogFactory;
 
 public final class CommunityService
 {
-	private static final Log	_log						= LogFactory.getLog(CommunityService.class);
-
-	public static final byte	MIN_CLAN_LVL_FOR_FORUM		= 1;
-	private static final byte	MIN_PLAYER_LVL_FOR_FORUM	= 1;
+	private static final Log	_log	= LogFactory.getLog(CommunityService.class);
 
 	private static final class SingletonHolder
 	{
@@ -62,21 +62,32 @@ public final class CommunityService
 
 	private CommunityService()
 	{
-		_forumRoot = new FastMap<Integer, Forum>();
-		_boards = new FastMap<String, CommunityBoard>();
+		if (Config.ALLOW_COMMUNITY_BOARD)
+		{
+			_forumRoot = new FastMap<Integer, Forum>();
+			_boards = new FastMap<String, CommunityBoard>();
 
-		_boards.put("_bbsloc", new RegionBoard(this));
-		_boards.put("_bbsfriend", new FriendBoard(this));
-		_boards.put("_bbsblock", new BlockBoard(this));
-		_boards.put("_bbsclan", new ClanBoard(this));
-		_boards.put("_bbscpost", new ClanPostBoard(this));
-		_boards.put("_bbsmail", new MailBoard(this));
-		_boards.put("_bbsmemo", new MemoBoard(this));
-		_boards.put("_bbshome", new TopBoard(this));
-		_boards.put("_bbserror", new ErrorBoard(this));
+			_boards.put("_bbsloc", new RegionBoard(this));
+			_boards.put("_bbsfriend", new FriendBoard(this));
+			_boards.put("_bbsblock", new BlockBoard(this));
+			_boards.put("_bbsclan", new ClanBoard(this));
+			_boards.put("_bbscpost", new ClanPostBoard(this));
+			_boards.put("_bbsmail", new MailBoard(this));
+			_boards.put("_bbsmemo", new MemoBoard(this));
+			_boards.put("_bbshome", new TopBoard(this));
+			_boards.put("_bbslink", new HomePageBoard(this));
+			_boards.put("_bbsgetfav", new FavoriteBoard(this));
+			_boards.put("_bbserror", new ErrorBoard(this));
 
-		loadDB();
-		_log.info(getClass().getSimpleName() + " : Loaded " + _boards.size() + " board(s).");
+			loadDB();
+			_log.info(getClass().getSimpleName() + " : Loaded " + _boards.size() + " board(s).");
+		}
+		else
+		{
+			_forumRoot = null;
+			_boards = null;
+			_log.info(getClass().getSimpleName() + " : Disabled.");
+		}
 	}
 
 	private void loadDB()
@@ -144,7 +155,7 @@ public final class CommunityService
 
 		Forum forum = null;
 
-		if (player != null && player.getLevel() >= MIN_PLAYER_LVL_FOR_FORUM)
+		if (player != null && player.getLevel() >= Config.MIN_PLAYER_LVL_FOR_FORUM)
 		{
 			forum = new Forum(getNewForumId(), player.getName(), Forum.PLAYER, player.getObjectId());
 			_forumRoot.put(player.getObjectId(), forum);
@@ -166,7 +177,7 @@ public final class CommunityService
 		final L2Clan clan = ClanTable.getInstance().getClan(clanId);
 		Forum forum = null;
 
-		if (clan != null && clan.getLevel() >= MIN_CLAN_LVL_FOR_FORUM)
+		if (clan != null && clan.getLevel() >= Config.MIN_CLAN_LVL_FOR_FORUM)
 		{
 			forum = new Forum(getNewForumId(), clan.getName(), Forum.CLAN, clanId);
 			_forumRoot.put(clanId, forum);

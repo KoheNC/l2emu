@@ -14,6 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
+import net.l2emuproject.Config;
+import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.services.community.CommunityService;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
@@ -49,6 +51,12 @@ public final class RequestBBSwrite extends L2GameClientPacket
 		final L2Player player = getActiveChar();
 		if (player == null)
 			return;
+
+		if (!Config.ALLOW_COMMUNITY_BOARD)
+		{
+			player.sendPacket(SystemMessageId.CB_OFFLINE);
+			return;
+		}
 
 		CommunityService.getInstance().parseWrite(player, _url, _arg1, _arg2, _arg3, _arg4, _arg5);
 	}
