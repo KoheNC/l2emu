@@ -3709,6 +3709,9 @@ public class Config extends L2Config
 
 	public static int			TVT_REGISTRATION_ANNOUNCEMENT_COUNT;
 
+	public static int			MINIMUM_LEVEL_FOR_TVT;
+	public static int			MAXIMUM_LEVEL_FOR_TVT;
+
 	public static String		TVT_INSTANCE_FILE;
 	public static int			TVT_START_LEAVE_TELEPORT_DELAY;
 
@@ -3726,6 +3729,7 @@ public class Config extends L2Config
 	public static int[]			TVT_FIRST_TEAM_COORDS	= new int[3];
 	public static int[]			TVT_SECOND_TEAM_COORDS	= new int[3];
 
+	public static int			REQUIRED_KILLS_FOR_REWARD;
 	public static int[]			TVT_REWARD_IDS;
 	public static long[]		TVT_REWARD_COUNT;
 
@@ -3762,6 +3766,9 @@ public class Config extends L2Config
 			TVT_PERIOD_LENGHT_REWARDS = Long.parseLong(funEnginesSettings.getProperty("TvTLengthRewards", "15000"));
 			TVT_REGISTRATION_ANNOUNCEMENT_COUNT = Integer.parseInt(funEnginesSettings.getProperty("TvTAnnounceRegistration", "3"));
 
+			MINIMUM_LEVEL_FOR_TVT = Integer.parseInt(funEnginesSettings.getProperty("MinimumLevelForTvT", "1"));
+			MAXIMUM_LEVEL_FOR_TVT = Integer.parseInt(funEnginesSettings.getProperty("MaximumLevelForTvT", "85"));
+
 			TVT_INSTANCE_FILE = funEnginesSettings.getProperty("TvTInstanceFile", "coliseum.xml");
 			TVT_START_LEAVE_TELEPORT_DELAY = Integer.parseInt(funEnginesSettings.getProperty("TvTStartLeaveTeleportDelay", "20000"));
 
@@ -3786,6 +3793,7 @@ public class Config extends L2Config
 			TVT_SECOND_TEAM_COORDS[1] = Integer.parseInt(secondTeamCoords[1]);
 			TVT_SECOND_TEAM_COORDS[2] = Integer.parseInt(secondTeamCoords[2]);
 
+			REQUIRED_KILLS_FOR_REWARD = Integer.parseInt(funEnginesSettings.getProperty("RequiredKillsForReward", "3"));
 			StringTokenizer coords;
 			StringTokenizer locations = new StringTokenizer(funEnginesSettings.getProperty("TvTRewards", ""), ";");
 			TVT_REWARD_IDS = new int[locations.countTokens()];

@@ -266,9 +266,16 @@ public final class TvT extends L2Event
 	}
 
 	@Override
-	protected final void giveRewards(L2Player player)
+	protected final void giveRewards(final L2Player player)
 	{
 		final int deathPoints = player.getPlayerEventData().getDeathPoints();
+		final int points = player.getPlayerEventData().getPoints();
+
+		if (points < Config.REQUIRED_KILLS_FOR_REWARD)
+		{
+			Announcements.getInstance().announceToAll("TvT : Not enough kills to earn reward. Required kills are " + Config.REQUIRED_KILLS_FOR_REWARD + ".");
+			return;
+		}
 
 		if (deathPoints == 0)
 			Announcements.getInstance().announceToAll("TvT : Player " + player.getName() + " is God-like!");
@@ -281,11 +288,23 @@ public final class TvT extends L2Event
 	}
 
 	@Override
-	protected final boolean canJoin(L2Player player)
+	protected final boolean canJoin(final L2Player player)
 	{
 		if (_status != STATUS_REGISTRATION || _gamers.size() >= Config.TVT_PARTICIPANTS_MAX)
 		{
 			sendMessage(player, "You are too late, there is no registration period.", 5000);
+			return false;
+		}
+
+		if (player.getLevel() < Config.MINIMUM_LEVEL_FOR_TVT)
+		{
+			sendMessage(player, "Your level is too low for TvT.", 5000);
+			return false;
+		}
+
+		if (player.getLevel() > Config.MAXIMUM_LEVEL_FOR_TVT)
+		{
+			sendMessage(player, "Your level is too high for TvT.", 5000);
 			return false;
 		}
 
@@ -299,7 +318,7 @@ public final class TvT extends L2Event
 	}
 
 	@Override
-	public final void registerPlayer(L2Player player)
+	public final void registerPlayer(final L2Player player)
 	{
 		if (!canJoin(player))
 			return;
@@ -309,7 +328,7 @@ public final class TvT extends L2Event
 	}
 
 	@Override
-	public final void cancelRegistration(L2Player player)
+	public final void cancelRegistration(final L2Player player)
 	{
 		if (_gamers.containsKey(player.getObjectId()))
 		{
@@ -319,7 +338,7 @@ public final class TvT extends L2Event
 	}
 
 	@Override
-	public final void removeDisconnected(L2Player player)
+	public final void removeDisconnected(final L2Player player)
 	{
 		_gamers.remove(player.getObjectId());
 	}
@@ -343,13 +362,13 @@ public final class TvT extends L2Event
 		}
 	}
 
-	private final void reviveTask(L2Player player)
+	private final void reviveTask(final L2Player player)
 	{
 		ThreadPoolManager.getInstance().scheduleGeneral(new ReviveTask(player, _teams[getPlayerTeamId(player)].getCoords(), _instanceId),
 				Config.TVT_REVIVE_DELAY);
 	}
 
-	public static final void revive(L2Player player)
+	public static final void revive(final L2Player player)
 	{
 		getInstance().sendMessage(player, "You will be revived in " + Config.TVT_REVIVE_DELAY / 1000 + " seconds!", 5000);
 		getInstance().reviveTask(player);
@@ -367,17 +386,17 @@ public final class TvT extends L2Event
 		}
 	}
 
-	public static final boolean isPlaying(L2Player player)
+	public static final boolean isPlaying(final L2Player player)
 	{
 		return isInProgress() && isMember(player.getObjectId());
 	}
 
-	private final static boolean isMember(int objectId)
+	private final static boolean isMember(final int objectId)
 	{
 		return getInstance()._gamers.containsKey(objectId);
 	}
 
-	public static byte getPlayerTeamId(L2Player player)
+	public static byte getPlayerTeamId(final L2Player player)
 	{
 		return (byte) (getInstance()._teams[0].containsPlayer(player) ? 0 : (getInstance()._teams[1].containsPlayer(player) ? 1 : -1));
 	}
@@ -402,14 +421,14 @@ public final class TvT extends L2Event
 		return getInstance()._teams;
 	}
 
-	public static final void givePoint(L2Player killer)
+	public static final void givePoint(final L2Player killer)
 	{
 		L2EventTeam team = getInstance()._teams[getPlayerTeamId(killer)];
 		team.addPoint();
 		Announcements.getInstance().announceToAll("TvT : Number " + team.getTeamName() + " team points : " + team.getPoints());
 	}
 
-	public static final void removePoint(L2Player target)
+	public static final void removePoint(final L2Player target)
 	{
 		L2EventTeam team = getInstance()._teams[getPlayerTeamId(target)];
 		team.removePoint();
