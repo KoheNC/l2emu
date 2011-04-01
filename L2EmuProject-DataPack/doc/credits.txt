@@ -5,15 +5,18 @@
  ==============
  = Developers =
  ==============
+ 
  - LordRex
  - L0ngh0rn
  - Q.I
  - Stake
  - Intrepid
+ - MoonFang
  
  ============================
  = L2Emu Project GameServer =
  ============================
+ 
  - LordRex
  - L0ngh0rn
  - Stake
@@ -22,6 +25,7 @@
  ==========================
  = L2Emu Project DataPack =
  ==========================
+ 
  - LordRex
  - L0ngh0rn
  - Q.I
@@ -31,18 +35,21 @@
  ========================
  = Project Contributors =
  ========================
+ 
  -
 
  ============
  = Contacts =
  ============
+ 
  - http://www.l2emuproject.net
 
- ============
+ =========
  = Notes =
- ============
- * For any troubleshooting or any issue
+ =========
+ 
+ - For any troubleshooting or any issue
   Thank you for choosing L2Emu Project!
-  Special Greetings from the Dev Team :) *
+  Special Greetings from the Dev Team :)
   
-  L2Emu Project 2010-2011
+L2Emu Project 2010-2011

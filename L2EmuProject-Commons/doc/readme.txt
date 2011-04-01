@@ -1,0 +1,1 @@
+All document is in trunk/L2EmuProject-DataPack/doc folder.
