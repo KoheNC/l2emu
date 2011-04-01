@@ -14,7 +14,6 @@
   </build>
   <modules>
     <module>l2emuproject-commons</module>
-    <module>l2j-mmocore</module>
     <module>l2emuproject-game</module>
     <module>l2emuproject-login</module>
     <module>l2emuproject-datapack</module>
