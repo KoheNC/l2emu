@@ -176,9 +176,24 @@
 		<set name="operateType" val="OP_PASSIVE" />
 	</skill>
 	<skill id="5919" levels="1" name="Obey">
-		<set name="target" val="TARGET_NONE" />
-		<set name="skillType" val="NOTDONE" />
-		<set name="operateType" val="OP_PASSIVE" />
+		<!-- Confirmed CT2.5 -->
+		<!-- Ekimus Skills -->
+		<set name="castRange" val="300" />
+		<set name="effectRange" val="600" />
+		<set name="hitTime" val="12610" />
+		<set name="ignoreResists" val="true" />
+		<set name="isDebuff" val="true" />
+		<set name="isMagic" val="true" />
+		<set name="mpConsume" val="60" />
+		<set name="mpInitialConsume" val="15" />
+		<set name="operateType" val="OP_ACTIVE" />
+		<set name="power" val="100" /> <!-- Base Land Rate -->
+		<set name="skillType" val="DEBUFF" />
+		<set name="stayAfterDeath" val="true" />
+		<set name="target" val="TARGET_ONE" />
+		<for>
+			<effect name="BlockResurrection" time="300" val="0" stackOrder="1" stackType="block_resurrection" />
+		</for>
 	</skill>
 	<skill id="5920" levels="1" name="Tentacle of Agony">
 		<set name="target" val="TARGET_NONE" />

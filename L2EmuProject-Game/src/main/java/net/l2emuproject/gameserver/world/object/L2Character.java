@@ -158,7 +158,6 @@ public abstract class L2Character extends L2Object
 	// =========================================================
 	// Data Field
 	private Set<L2Character>		_attackByList;
-	//private L2Character				_attackingChar;
 	private volatile boolean		_isCastingNow						= false;
 	private volatile boolean		_isCastingSimultaneouslyNow			= false;
 	private L2Skill					_lastSimultaneousSkillCast;
@@ -193,7 +192,7 @@ public abstract class L2Character extends L2Object
 	protected boolean				_isDisarmed							= false;
 	protected boolean				_isMarked							= false;
 	protected boolean				_isEradicated						= false;
-	private final int[]					lastPosition						=
+	private final int[]				_lastPosition						=
 																		{ 0, 0, 0 };
 	protected final CharLikeView	_view;
 	protected final CharStat		_stat;
@@ -218,12 +217,13 @@ public abstract class L2Character extends L2Object
 	/** Current force buff this caster is casting to a target */
 	protected FusionSkill			_fusionSkill;
 
+	private boolean					_isResurrectionBlocked;
 	private boolean					_isFlying;
 
 	/**
 	 * Objects known by this object
 	 */
-	protected final CharKnownList _knownList;
+	protected final CharKnownList 	_knownList;
 
 	// =========================================================
 	// Constructor
@@ -684,18 +684,18 @@ public abstract class L2Character extends L2Object
 			return -1;
 
 		// If the boolean falling is set to false, just initialize this fall
-		if (!falling || (lastPosition[0] == 0 && lastPosition[1] == 0 && lastPosition[2] == 0))
+		if (!falling || (_lastPosition[0] == 0 && _lastPosition[1] == 0 && _lastPosition[2] == 0))
 		{
-			lastPosition[0] = getPosition().getX();
-			lastPosition[1] = getPosition().getY();
-			lastPosition[2] = getPosition().getZ();
+			_lastPosition[0] = getPosition().getX();
+			_lastPosition[1] = getPosition().getY();
+			_lastPosition[2] = getPosition().getZ();
 			setIsFallsdown(false);
 			return -1;
 		}
 
-		int moveChangeX = Math.abs(lastPosition[0] - getPosition().getX()), moveChangeY = Math.abs(lastPosition[1] - getPosition().getY()),
+		int moveChangeX = Math.abs(_lastPosition[0] - getPosition().getX()), moveChangeY = Math.abs(_lastPosition[1] - getPosition().getY()),
 		// Z has a Positive value ONLY if the L2Character is moving down!
-		moveChangeZ = Math.max(lastPosition[2] - getPosition().getZ(), lastPosition[2] - getZ());
+		moveChangeZ = Math.max(_lastPosition[2] - getPosition().getZ(), _lastPosition[2] - getZ());
 
 		// Add acumulated damage to this fall, calling this function at a short delay while the fall is in progress
 		if (moveChangeZ > fallSafeHeight() && moveChangeY < moveChangeZ && moveChangeX < moveChangeZ && !isFlying())
@@ -706,10 +706,10 @@ public abstract class L2Character extends L2Object
 			fallHeight += moveChangeZ;
 
 			// set the last position to the current one for the next future calculation
-			lastPosition[0] = getPosition().getX();
-			lastPosition[1] = getPosition().getY();
-			lastPosition[2] = getPosition().getZ();
-			getPosition().setXYZ(lastPosition[0], lastPosition[1], lastPosition[2]);
+			_lastPosition[0] = getPosition().getX();
+			_lastPosition[1] = getPosition().getY();
+			_lastPosition[2] = getPosition().getZ();
+			getPosition().setXYZ(_lastPosition[0], _lastPosition[1], _lastPosition[2]);
 
 			// Call this function for further checks in the short future (next time we either keep falling, or finalize the fall)
 			// This "next time" check is a rough estimate on how much time is needed to calculate the next check, and it is based on the current fall height.
@@ -720,10 +720,10 @@ public abstract class L2Character extends L2Object
 		}
 
 		// Stopped falling or is not falling at all.
-		lastPosition[0] = getPosition().getX();
-		lastPosition[1] = getPosition().getY();
-		lastPosition[2] = getPosition().getZ();
-		getPosition().setXYZ(lastPosition[0], lastPosition[1], lastPosition[2]);
+		_lastPosition[0] = getPosition().getX();
+		_lastPosition[1] = getPosition().getY();
+		_lastPosition[2] = getPosition().getZ();
+		getPosition().setXYZ(_lastPosition[0], _lastPosition[1], _lastPosition[2]);
 
 		if (fallHeight > fallSafeHeight())
 		{
@@ -784,9 +784,9 @@ public abstract class L2Character extends L2Object
 				setIsFallsdown(false);
 
 				// For some reason this is needed since the client side changes back to last airborn position after 1 second
-				lastPosition[0] = getPosition().getX();
-				lastPosition[1] = getPosition().getY();
-				lastPosition[2] = getPosition().getZ();
+				_lastPosition[0] = getPosition().getX();
+				_lastPosition[1] = getPosition().getY();
+				_lastPosition[2] = getPosition().getZ();
 			}
 		}, 1100);
 
@@ -1568,6 +1568,27 @@ public abstract class L2Character extends L2Object
 			}
 			
 			return;
+		}
+		
+		if (skill.getSkillType() == L2SkillType.RESURRECT)
+		{
+			if (isResurrectionBlocked() || target.isResurrectionBlocked())
+			{
+				getActingPlayer().sendPacket(new SystemMessage(356)); // Reject resurrection
+				target.getActingPlayer().sendPacket(new SystemMessage(356)); // Reject resurrection
+				
+				if (simultaneously)
+					setIsCastingSimultaneouslyNow(false);
+				else
+					setIsCastingNow(false);
+				
+				if (this instanceof L2Player)
+				{
+					getAI().setIntention(AI_INTENTION_ACTIVE);
+					sendPacket(ActionFailed.STATIC_PACKET);
+				}
+				return;
+			}
 		}
 
 		//setAttackingChar(this);
@@ -2694,6 +2715,16 @@ public abstract class L2Character extends L2Object
 	public boolean isUndead()
 	{
 		return _template.isUndead();
+	}
+	
+	public final void setResurrectionBlocked(boolean blocked)
+	{
+		_isResurrectionBlocked = blocked;
+	}
+	
+	public final boolean isResurrectionBlocked()
+	{
+		return _isResurrectionBlocked;
 	}
 
 	public final boolean isFlying()

@@ -9068,6 +9068,9 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 	
 	public void reviveRequest(L2Player reviver, L2Skill skill)
 	{
+		if (isResurrectionBlocked())
+			return;
+		
 		if (_reviveRequested || _revivePetRequested)
 		{
 			reviver.sendPacket(SystemMessageId.RES_HAS_ALREADY_BEEN_PROPOSED); // Resurrection is already been proposed.
