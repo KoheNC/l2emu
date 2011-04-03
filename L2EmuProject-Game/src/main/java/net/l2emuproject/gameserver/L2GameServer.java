@@ -21,6 +21,7 @@ import java.util.Set;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.config.PersistentProperties;
+import net.l2emuproject.gameserver.dataholders.UIDataHolder;
 import net.l2emuproject.gameserver.datatables.ArmorSetsTable;
 import net.l2emuproject.gameserver.datatables.AugmentationData;
 import net.l2emuproject.gameserver.datatables.BuffTemplateTable;
@@ -59,7 +60,6 @@ import net.l2emuproject.gameserver.datatables.StaticObjects;
 import net.l2emuproject.gameserver.datatables.SummonItemsData;
 import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
-import net.l2emuproject.gameserver.datatables.UITable;
 import net.l2emuproject.gameserver.events.custom.TvT.TvT;
 import net.l2emuproject.gameserver.events.custom.leaderboards.ArenaManager;
 import net.l2emuproject.gameserver.events.custom.leaderboards.FishermanManager;
@@ -290,7 +290,7 @@ public class L2GameServer extends Config
 		FriendListService.getInstance();
 		
 		// L2EMU_ADD
-		UITable.getInstance();
+		UIDataHolder.getInstance();
 		// L2EMU_ADD
 		
 		Util.printSection("NPCs");
