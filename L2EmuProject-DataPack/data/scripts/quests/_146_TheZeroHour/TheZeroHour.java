@@ -41,7 +41,7 @@ public final class TheZeroHour extends QuestJython
 	private static final int	SHYEED[]	=
 											{ 25514, 25671 };
 
-	public TheZeroHour(int questId, String name, String descr)
+	public TheZeroHour(final int questId, final String name, final String descr)
 	{
 		super(questId, name, descr);
 
@@ -56,10 +56,10 @@ public final class TheZeroHour extends QuestJython
 	}
 
 	@Override
-	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
+	public final String onAdvEvent(final String event, final L2Npc npc, final L2Player player)
 	{
 		String htmltext = event;
-		QuestState st = player.getQuestState(QN);
+		final QuestState st = player.getQuestState(QN);
 
 		if (st == null)
 			return htmltext;
@@ -75,10 +75,10 @@ public final class TheZeroHour extends QuestJython
 	}
 
 	@Override
-	public final String onTalk(L2Npc npc, L2Player player)
+	public final String onTalk(final L2Npc npc, final L2Player player)
 	{
 		String htmltext = NO_QUEST;
-		QuestState st = player.getQuestState(QN);
+		final QuestState st = player.getQuestState(QN);
 
 		if (st == null)
 			return htmltext;
@@ -103,7 +103,7 @@ public final class TheZeroHour extends QuestJython
 				htmltext = QUEST_DONE;
 				break;
 			default:
-				if (player.getLevel() >= 81)
+				if (player.getLevel() >= 61)
 					htmltext = "31554-01.htm";
 				else
 					htmltext = "31554-00.htm";
@@ -114,10 +114,10 @@ public final class TheZeroHour extends QuestJython
 	}
 
 	@Override
-	public final String onKill(L2Npc npc, L2Player player, boolean isPet)
+	public final String onKill(final L2Npc npc, final L2Player player, final boolean isPet)
 	{
 		String htmltext = "";
-		QuestState st = player.getQuestState(QN);
+		final QuestState st = player.getQuestState(QN);
 
 		if (st == null)
 			return htmltext;
