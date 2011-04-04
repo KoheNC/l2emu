@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="12148" description="Narsell Fortress -> Fortress West Gate" locX="153112" locY="56872" locZ="-3256" price"0" isNoble="false" />
-	<teleport id="12149" description="Narsell Fortress -> Fortress East Gate" locX="156730" locY="53921" locZ="-3256" price"0" isNoble="false" />
-	<teleport id="12150" description="Narsell Fortress -> Aden Town Square" locX="147450" locY="28081" locZ="-2264" price"0" isNoble="false" />
-	<teleport id="12151" description="Narsell Fortress -> Front of the Aden Castle Gate" locX="147428" locY="20161" locZ="-2008" price"0" isNoble="false" />
-	<teleport id="12152" description="Narsell Fortress -> Ancient Battleground" locX="118509" locY="-4779" locZ="-4000" price"500" isNoble="false" />
-	<teleport id="12153" description="Narsell Fortress -> Enchanted Valley, Southern Region" locX="124904" locY="61992" locZ="-3920" price"500" isNoble="false" />
-	<teleport id="12154" description="Narsell Fortress -> Enchanted Valley, Northern Region" locX="104426" locY="33746" locZ="-3800" price"500" isNoble="false" />
-	<teleport id="12155" description="Narsell Fortress -> Blazing Swamp" locX="155310" locY="-16339" locZ="-3320" price"500" isNoble="false" />
+	<teleport id="12148" description="Narsell Fortress -> Fortress West Gate" locX="153112" locY="56872" locZ="-3256" price="0" isNoble="false" />
+	<teleport id="12149" description="Narsell Fortress -> Fortress East Gate" locX="156730" locY="53921" locZ="-3256" price="0" isNoble="false" />
+	<teleport id="12150" description="Narsell Fortress -> Aden Town Square" locX="147450" locY="28081" locZ="-2264" price="0" isNoble="false" />
+	<teleport id="12151" description="Narsell Fortress -> Front of the Aden Castle Gate" locX="147428" locY="20161" locZ="-2008" price="0" isNoble="false" />
+	<teleport id="12152" description="Narsell Fortress -> Ancient Battleground" locX="118509" locY="-4779" locZ="-4000" price="500" isNoble="false" />
+	<teleport id="12153" description="Narsell Fortress -> Enchanted Valley, Southern Region" locX="124904" locY="61992" locZ="-3920" price="500" isNoble="false" />
+	<teleport id="12154" description="Narsell Fortress -> Enchanted Valley, Northern Region" locX="104426" locY="33746" locZ="-3800" price="500" isNoble="false" />
+	<teleport id="12155" description="Narsell Fortress -> Blazing Swamp" locX="155310" locY="-16339" locZ="-3320" price="500" isNoble="false" />
 </list>

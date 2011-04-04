@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="12188" description="Shanty Fortress -> Fortress West Gate" locX="-55240" locY="157193" locZ="-2048" price"0" isNoble="false" />
-	<teleport id="12189" description="Shanty Fortress -> Fortress East Gate" locX="-50296" locY="155793" locZ="-2056" price"0" isNoble="false" />
-	<teleport id="12190" description="Shanty Fortress -> Gludio Town Square" locX="-14393" locY="123671" locZ="-3112" price"0" isNoble="false" />
-	<teleport id="12191" description="Shanty Fortress -> Front of the Gludio Castle Gate" locX="-15043" locY="116596" locZ="-3208" price"0" isNoble="false" />
-	<teleport id="12192" description="Shanty Fortress -> Ruins of Agony" locX="-41248" locY="122848" locZ="-2904" price"500" isNoble="false" />
-	<teleport id="12193" description="Shanty Fortress -> Ruins of Despair" locX="-19120" locY="136816" locZ="-3752" price"500" isNoble="false" />
-	<teleport id="12194" description="Shanty Fortress -> The Ant Nest" locX="-9959" locY="176184" locZ="-4160" price"500" isNoble="false" />
-	<teleport id="12195" description="Shanty Fortress -> Windawood Manor" locX="-28327" locY="155125" locZ="-3496" price"500" isNoble="false" />
+	<teleport id="12188" description="Shanty Fortress -> Fortress West Gate" locX="-55240" locY="157193" locZ="-2048" price="0" isNoble="false" />
+	<teleport id="12189" description="Shanty Fortress -> Fortress East Gate" locX="-50296" locY="155793" locZ="-2056" price="0" isNoble="false" />
+	<teleport id="12190" description="Shanty Fortress -> Gludio Town Square" locX="-14393" locY="123671" locZ="-3112" price="0" isNoble="false" />
+	<teleport id="12191" description="Shanty Fortress -> Front of the Gludio Castle Gate" locX="-15043" locY="116596" locZ="-3208" price="0" isNoble="false" />
+	<teleport id="12192" description="Shanty Fortress -> Ruins of Agony" locX="-41248" locY="122848" locZ="-2904" price="500" isNoble="false" />
+	<teleport id="12193" description="Shanty Fortress -> Ruins of Despair" locX="-19120" locY="136816" locZ="-3752" price="500" isNoble="false" />
+	<teleport id="12194" description="Shanty Fortress -> The Ant Nest" locX="-9959" locY="176184" locZ="-4160" price="500" isNoble="false" />
+	<teleport id="12195" description="Shanty Fortress -> Windawood Manor" locX="-28327" locY="155125" locZ="-3496" price="500" isNoble="false" />
 </list>

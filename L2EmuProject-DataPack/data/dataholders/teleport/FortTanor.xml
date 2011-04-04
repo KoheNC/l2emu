@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="12131" description="Tanor Fort -> Fortress North Gate" locX="58923" locY="137789" locZ="-1752" price"0" isNoble="false" />
-	<teleport id="12132" description="Tanor Fort -> Fortress South Gate" locX="61551" locY="141036" locZ="-1752" price"0" isNoble="false" />
-	<teleport id="12133" description="Tanor Fort -> Dion Town Square" locX="19025" locY="145245" locZ="-3120" price"0" isNoble="false" />
-	<teleport id="12134" description="Tanor Fort -> Giran Town Square" locX="81749" locY="149171" locZ="-3464" price"0" isNoble="false" />
-	<teleport id="12135" description="Tanor Fort -> The Ant Nest" locX="-9959" locY="176184" locZ="-4160" price"500" isNoble="false" />
-	<teleport id="12136" description="Tanor Fort -> Windawood Manor" locX="-28327" locY="155125" locZ="-3496" price"500" isNoble="false" />
-	<teleport id="12137" description="Tanor Fort -> Dragon Valley" locX="73024" locY="118485" locZ="-3688" price"500" isNoble="false" />
-	<teleport id="12138" description="Tanor Fort -> Tanor Canyon" locX="60374" locY="164301" locZ="-2856" price"500" isNoble="false" />
+	<teleport id="12131" description="Tanor Fort -> Fortress North Gate" locX="58923" locY="137789" locZ="-1752" price="0" isNoble="false" />
+	<teleport id="12132" description="Tanor Fort -> Fortress South Gate" locX="61551" locY="141036" locZ="-1752" price="0" isNoble="false" />
+	<teleport id="12133" description="Tanor Fort -> Dion Town Square" locX="19025" locY="145245" locZ="-3120" price="0" isNoble="false" />
+	<teleport id="12134" description="Tanor Fort -> Giran Town Square" locX="81749" locY="149171" locZ="-3464" price="0" isNoble="false" />
+	<teleport id="12135" description="Tanor Fort -> The Ant Nest" locX="-9959" locY="176184" locZ="-4160" price="500" isNoble="false" />
+	<teleport id="12136" description="Tanor Fort -> Windawood Manor" locX="-28327" locY="155125" locZ="-3496" price="500" isNoble="false" />
+	<teleport id="12137" description="Tanor Fort -> Dragon Valley" locX="73024" locY="118485" locZ="-3688" price="500" isNoble="false" />
+	<teleport id="12138" description="Tanor Fort -> Tanor Canyon" locX="60374" locY="164301" locZ="-2856" price="500" isNoble="false" />
 </list>

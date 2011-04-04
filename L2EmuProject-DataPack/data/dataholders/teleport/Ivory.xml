@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="31" description="Ivory Tower Basement" locX="84915" locY="15969" locZ="-4294" price"0" isNoble="false" />
-	<teleport id="32" description="Ivory Tower Ground Floor" locX="85399" locY="16197" locZ="-3679" price"0" isNoble="false" />
-	<teleport id="33" description="Ivory Tower 1st Floor" locX="85399" locY="16197" locZ="-2809" price"0" isNoble="false" />
-	<teleport id="34" description="Ivory Tower 2nd Floor" locX="85399" locY="16197" locZ="-2293" price"0" isNoble="false" />
-	<teleport id="35" description="Ivory Tower 3th Floor" locX="85399" locY="16197" locZ="-1776" price"0" isNoble="false" />
-	<teleport id="36" description="Ivory Tower Ground Floor -> Oren Castle Town" locX="82956" locY="53162" locZ="-1495" price"3700" isNoble="false" />
-	<teleport id="37" description="Ivory Tower Ground Floor -> Hunter's Village" locX="116819" locY="76994" locZ="-2714" price"6800" isNoble="false" />
-	<teleport id="38" description="Ivory Tower Ground Floor -> Aden Castle Town" locX="146331" locY="25762" locZ="-2018" price"6200" isNoble="false" />
+	<teleport id="31" description="Ivory Tower Basement" locX="84915" locY="15969" locZ="-4294" price="0" isNoble="false" />
+	<teleport id="32" description="Ivory Tower Ground Floor" locX="85399" locY="16197" locZ="-3679" price="0" isNoble="false" />
+	<teleport id="33" description="Ivory Tower 1st Floor" locX="85399" locY="16197" locZ="-2809" price="0" isNoble="false" />
+	<teleport id="34" description="Ivory Tower 2nd Floor" locX="85399" locY="16197" locZ="-2293" price="0" isNoble="false" />
+	<teleport id="35" description="Ivory Tower 3th Floor" locX="85399" locY="16197" locZ="-1776" price="0" isNoble="false" />
+	<teleport id="36" description="Ivory Tower Ground Floor -> Oren Castle Town" locX="82956" locY="53162" locZ="-1495" price="3700" isNoble="false" />
+	<teleport id="37" description="Ivory Tower Ground Floor -> Hunter's Village" locX="116819" locY="76994" locZ="-2714" price="6800" isNoble="false" />
+	<teleport id="38" description="Ivory Tower Ground Floor -> Aden Castle Town" locX="146331" locY="25762" locZ="-2018" price="6200" isNoble="false" />
 </list>

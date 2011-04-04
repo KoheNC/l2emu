@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="200919" description="Giant's Cave -> Lower" locX="191754" locY="56760" locZ="-7624" price"0" isNoble="false" />
-	<teleport id="200920" description="Giant's Cave -> Upper" locX="183985" locY="61424" locZ="-3992" price"0" isNoble="false" />
+	<teleport id="200919" description="Giant's Cave -> Lower" locX="191754" locY="56760" locZ="-7624" price="0" isNoble="false" />
+	<teleport id="200920" description="Giant's Cave -> Upper" locX="183985" locY="61424" locZ="-3992" price="0" isNoble="false" />
 </list>

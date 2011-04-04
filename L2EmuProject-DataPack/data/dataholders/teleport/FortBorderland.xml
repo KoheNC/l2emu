@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="12180" description="Borderland Fort -> Fortress North Gate" locX="156997" locY="-68857" locZ="-2866" price"0" isNoble="false" />
-	<teleport id="12181" description="Borderland Fort -> Fortress South Gate" locX="161574" locY="-71979" locZ="-2866" price"0" isNoble="false" />
-	<teleport id="12182" description="Borderland Fort -> Goddard Town Square" locX="147682" locY="-56426" locZ="-2781" price"0" isNoble="false" />
-	<teleport id="12183" description="Borderland Fort -> Front of Goddard Castle" locX="154660" locY="-51605" locZ="-3012" price"500" isNoble="false" />
-	<teleport id="12184" description="Borderland Fort -> Varkas Outpost" locX="125894" locY="-40853" locZ="-3771" price"500" isNoble="false" />
-	<teleport id="12185" description="Borderland Fort -> Ketra Barracks" locX="130498" locY="-72324" locZ="-3533" price"500" isNoble="false" />
-	<teleport id="12186" description="Borderland Fort -> Forge of the Gods Entrance" locX="169018" locY="-116303" locZ="-2432" price"500" isNoble="false" />
-	<teleport id="12187" description="Borderland Fort -> Wall of Argos" locX="165054" locY="-47861" locZ="-3560" price"500" isNoble="false" />
+	<teleport id="12180" description="Borderland Fort -> Fortress North Gate" locX="156997" locY="-68857" locZ="-2866" price="0" isNoble="false" />
+	<teleport id="12181" description="Borderland Fort -> Fortress South Gate" locX="161574" locY="-71979" locZ="-2866" price="0" isNoble="false" />
+	<teleport id="12182" description="Borderland Fort -> Goddard Town Square" locX="147682" locY="-56426" locZ="-2781" price="0" isNoble="false" />
+	<teleport id="12183" description="Borderland Fort -> Front of Goddard Castle" locX="154660" locY="-51605" locZ="-3012" price="500" isNoble="false" />
+	<teleport id="12184" description="Borderland Fort -> Varkas Outpost" locX="125894" locY="-40853" locZ="-3771" price="500" isNoble="false" />
+	<teleport id="12185" description="Borderland Fort -> Ketra Barracks" locX="130498" locY="-72324" locZ="-3533" price="500" isNoble="false" />
+	<teleport id="12186" description="Borderland Fort -> Forge of the Gods Entrance" locX="169018" locY="-116303" locZ="-2432" price="500" isNoble="false" />
+	<teleport id="12187" description="Borderland Fort -> Wall of Argos" locX="165054" locY="-47861" locZ="-3560" price="500" isNoble="false" />
 </list>

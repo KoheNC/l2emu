@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="12061" description="Clan Hall Schuttgart -> Village Square" locX="87379" locY="-142322" locZ="-1336" price"0" isNoble="false" />
-	<teleport id="12062" description="Clan Hall Schuttgart -> West Gate Entrance" locX="84753" locY="-141051" locZ="-1536" price"0" isNoble="false" />
-	<teleport id="12063" description="Clan Hall Schuttgart -> South Gate Entrance" locX="87343" locY="-139802" locZ="-1536" price"0" isNoble="false" />
-	<teleport id="12064" description="Clan Hall Schuttgart -> East Gate Entrance" locX="89959" locY="-141034" locZ="-1536" price"0" isNoble="false" />
-	<teleport id="12065" description="Clan Hall Schuttgart -> Crypt of Disgrace" locX="47692" locY="-115745" locZ="-3744" price"500" isNoble="false" />
-	<teleport id="12066" description="Clan Hall Schuttgart -> Plunderous Plains" locX="111965" locY="-154172" locZ="-1528" price"500" isNoble="false" />
-	<teleport id="12067" description="Clan Hall Schuttgart -> Den of Evil" locX="68693" locY="-110438" locZ="-1904" price"500" isNoble="false" />
-	<teleport id="12068" description="Clan Hall Schuttgart -> Frozen Labyrinth" locX="113903" locY="-108752" locZ="-848" price"500" isNoble="false" />
+	<teleport id="12061" description="Clan Hall Schuttgart -> Village Square" locX="87379" locY="-142322" locZ="-1336" price="0" isNoble="false" />
+	<teleport id="12062" description="Clan Hall Schuttgart -> West Gate Entrance" locX="84753" locY="-141051" locZ="-1536" price="0" isNoble="false" />
+	<teleport id="12063" description="Clan Hall Schuttgart -> South Gate Entrance" locX="87343" locY="-139802" locZ="-1536" price="0" isNoble="false" />
+	<teleport id="12064" description="Clan Hall Schuttgart -> East Gate Entrance" locX="89959" locY="-141034" locZ="-1536" price="0" isNoble="false" />
+	<teleport id="12065" description="Clan Hall Schuttgart -> Crypt of Disgrace" locX="47692" locY="-115745" locZ="-3744" price="500" isNoble="false" />
+	<teleport id="12066" description="Clan Hall Schuttgart -> Plunderous Plains" locX="111965" locY="-154172" locZ="-1528" price="500" isNoble="false" />
+	<teleport id="12067" description="Clan Hall Schuttgart -> Den of Evil" locX="68693" locY="-110438" locZ="-1904" price="500" isNoble="false" />
+	<teleport id="12068" description="Clan Hall Schuttgart -> Frozen Labyrinth" locX="113903" locY="-108752" locZ="-848" price="500" isNoble="false" />
 </list>

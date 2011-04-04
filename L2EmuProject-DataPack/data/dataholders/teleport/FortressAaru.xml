@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="12237" description="Aaru Fortress -> Fortress North Gate" locX="73205" locY="183893" locZ="-2584" price"0" isNoble="false" />
-	<teleport id="12238" description="Aaru Fortress -> Fortress South Gate" locX="72822" locY="188128" locZ="-2584" price"0" isNoble="false" />
-	<teleport id="12239" description="Aaru Fortress -> Heine Town Square" locX="111455" locY="219400" locZ="-3546" price"0" isNoble="false" />
-	<teleport id="12240" description="Aaru Fortress -> Giran Town Square" locX="81749" locY="149171" locZ="-3464" price"0" isNoble="false" />
-	<teleport id="12241" description="Aaru Fortress -> Inside the Garden of Eva" locX="82693" locY="242220" locZ="-6712" price"500" isNoble="false" />
-	<teleport id="12242" description="Aaru Fortress -> The Center of Alligator Island" locX="113708" locY="178387" locZ="-3232" price"500" isNoble="false" />
-	<teleport id="12243" description="Aaru Fortress -> Dragon Valley" locX="73024" locY="118485" locZ="-3720" price"500" isNoble="false" />
-	<teleport id="12244" description="Aaru Fortress -> Tanor Canyon" locX="60374" locY="164301" locZ="-2856" price"500" isNoble="false" />
+	<teleport id="12237" description="Aaru Fortress -> Fortress North Gate" locX="73205" locY="183893" locZ="-2584" price="0" isNoble="false" />
+	<teleport id="12238" description="Aaru Fortress -> Fortress South Gate" locX="72822" locY="188128" locZ="-2584" price="0" isNoble="false" />
+	<teleport id="12239" description="Aaru Fortress -> Heine Town Square" locX="111455" locY="219400" locZ="-3546" price="0" isNoble="false" />
+	<teleport id="12240" description="Aaru Fortress -> Giran Town Square" locX="81749" locY="149171" locZ="-3464" price="0" isNoble="false" />
+	<teleport id="12241" description="Aaru Fortress -> Inside the Garden of Eva" locX="82693" locY="242220" locZ="-6712" price="500" isNoble="false" />
+	<teleport id="12242" description="Aaru Fortress -> The Center of Alligator Island" locX="113708" locY="178387" locZ="-3232" price="500" isNoble="false" />
+	<teleport id="12243" description="Aaru Fortress -> Dragon Valley" locX="73024" locY="118485" locZ="-3720" price="500" isNoble="false" />
+	<teleport id="12244" description="Aaru Fortress -> Tanor Canyon" locX="60374" locY="164301" locZ="-2856" price="500" isNoble="false" />
 </list>

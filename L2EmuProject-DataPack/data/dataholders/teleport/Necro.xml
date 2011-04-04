@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="262" description="Necro Sacrifice Entrance" locX="-41570" locY="209785" locZ="-5089" price"0" isNoble="false" />
-	<teleport id="263" description="Necro Sacrifice Exit" locX="-41567" locY="209292" locZ="-5091" price"0" isNoble="false" />
-	<teleport id="264" description="Necro Pilgrims Entrance" locX="45251" locY="123890" locZ="-5415" price"0" isNoble="false" />
-	<teleport id="265" description="Necro Pilgrims Exit" locX="45250" locY="124366" locZ="-5417" price"0" isNoble="false" />
-	<teleport id="266" description="Necro Worshippers Entrance" locX="111273" locY="174015" locZ="-5417" price"0" isNoble="false" />
-	<teleport id="267" description="Necro Worshippers Exit" locX="110818" locY="174010" locZ="-5443" price"0" isNoble="false" />
-	<teleport id="268" description="Necro Patriots Entrance" locX="-21726" locY="77385" locZ="-5177" price"0" isNoble="false" />
-	<teleport id="269" description="Necro Patriots Exit" locX="-22197" locY="77369" locZ="-5177" price"0" isNoble="false" />
-	<teleport id="270" description="Necro Ascetics Entrance" locX="-52254" locY="79103" locZ="-4743" price"0" isNoble="false" />
-	<teleport id="271" description="Necro Ascetics Exit" locX="-52716" locY="79106" locZ="-4745" price"0" isNoble="false" />
-	<teleport id="272" description="Necro Martyrs Entrance" locX="118308" locY="132800" locZ="-4833" price"0" isNoble="false" />
-	<teleport id="273" description="Necro Martyrs Exit" locX="117793" locY="132810" locZ="-4835" price"0" isNoble="false" />
-	<teleport id="274" description="Necro Saints Entrance" locX="83000" locY="209213" locZ="-5443" price"0" isNoble="false" />
-	<teleport id="275" description="Necro Saints Exit" locX="82608" locY="209225" locZ="-5443" price"0" isNoble="false" />
-	<teleport id="276" description="Necro Disciples Entrance" locX="172251" locY="-17605" locZ="-4903" price"0" isNoble="false" />
-	<teleport id="277" description="Necro Disciples Exit" locX="171902" locY="-17595" locZ="-4905" price"0" isNoble="false" />
+	<teleport id="262" description="Necro Sacrifice Entrance" locX="-41570" locY="209785" locZ="-5089" price="0" isNoble="false" />
+	<teleport id="263" description="Necro Sacrifice Exit" locX="-41567" locY="209292" locZ="-5091" price="0" isNoble="false" />
+	<teleport id="264" description="Necro Pilgrims Entrance" locX="45251" locY="123890" locZ="-5415" price="0" isNoble="false" />
+	<teleport id="265" description="Necro Pilgrims Exit" locX="45250" locY="124366" locZ="-5417" price="0" isNoble="false" />
+	<teleport id="266" description="Necro Worshippers Entrance" locX="111273" locY="174015" locZ="-5417" price="0" isNoble="false" />
+	<teleport id="267" description="Necro Worshippers Exit" locX="110818" locY="174010" locZ="-5443" price="0" isNoble="false" />
+	<teleport id="268" description="Necro Patriots Entrance" locX="-21726" locY="77385" locZ="-5177" price="0" isNoble="false" />
+	<teleport id="269" description="Necro Patriots Exit" locX="-22197" locY="77369" locZ="-5177" price="0" isNoble="false" />
+	<teleport id="270" description="Necro Ascetics Entrance" locX="-52254" locY="79103" locZ="-4743" price="0" isNoble="false" />
+	<teleport id="271" description="Necro Ascetics Exit" locX="-52716" locY="79106" locZ="-4745" price="0" isNoble="false" />
+	<teleport id="272" description="Necro Martyrs Entrance" locX="118308" locY="132800" locZ="-4833" price="0" isNoble="false" />
+	<teleport id="273" description="Necro Martyrs Exit" locX="117793" locY="132810" locZ="-4835" price="0" isNoble="false" />
+	<teleport id="274" description="Necro Saints Entrance" locX="83000" locY="209213" locZ="-5443" price="0" isNoble="false" />
+	<teleport id="275" description="Necro Saints Exit" locX="82608" locY="209225" locZ="-5443" price="0" isNoble="false" />
+	<teleport id="276" description="Necro Disciples Entrance" locX="172251" locY="-17605" locZ="-4903" price="0" isNoble="false" />
+	<teleport id="277" description="Necro Disciples Exit" locX="171902" locY="-17595" locZ="-4905" price="0" isNoble="false" />
 </list>

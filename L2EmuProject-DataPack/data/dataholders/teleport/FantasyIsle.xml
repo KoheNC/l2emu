@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="12060" description="Fantasy Isle -> Underground Coliseum" locX="-81490" locY="-49167" locZ="-10352" price"0" isNoble="false" />
-	<teleport id="12108" description="Fantasy Isle -> Krateis Cube" locX="-70293" locY="-71029" locZ="-1416" price"0" isNoble="false" />
-	<teleport id="12121" description="Fantasy Isle -> Handys Block" locX="-57328" locY="-60566" locZ="-2360" price"0" isNoble="false" />
+	<teleport id="12060" description="Fantasy Isle -> Underground Coliseum" locX="-81490" locY="-49167" locZ="-10352" price="0" isNoble="false" />
+	<teleport id="12108" description="Fantasy Isle -> Krateis Cube" locX="-70293" locY="-71029" locZ="-1416" price="0" isNoble="false" />
+	<teleport id="12121" description="Fantasy Isle -> Handys Block" locX="-57328" locY="-60566" locZ="-2360" price="0" isNoble="false" />
 </list>

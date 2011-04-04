@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="12261" description="Hunters Fortress -> Fortress North Gate" locX="124180" locY="93249" locZ="-2144" price"0" isNoble="false" />
-	<teleport id="12262" description="Hunters Fortress -> Fortress South Gate" locX="126155" locY="97124" locZ="-2144" price"0" isNoble="false" />
-	<teleport id="12263" description="Hunters Fortress -> Aden Town Square" locX="147450" locY="28081" locZ="-2294" price"0" isNoble="false" />
-	<teleport id="12264" description="Hunters Fortress -> Giran Town Square" locX="81749" locY="149171" locZ="-3464" price"0" isNoble="false" />
-	<teleport id="12265" description="Hunters Fortress -> Enchanted Valley, Northern Region" locX="104426" locY="33746" locZ="-3825" price"500" isNoble="false" />
-	<teleport id="12266" description="Hunters Fortress -> Blazing Swamp" locX="155310" locY="-16339" locZ="-3320" price"500" isNoble="false" />
-	<teleport id="12267" description="Hunters Fortress -> Dragon Valley" locX="73024" locY="118485" locZ="-3720" price"500" isNoble="false" />
-	<teleport id="12268" description="Hunters Fortress -> Tanor Canyon" locX="60374" locY="164301" locZ="-2856" price"500" isNoble="false" />
-	<teleport id="12269" description="Hunters Fortress -> The Giants Cave Upper Layer" locX="183985" locY="61424" locZ="-3992" price"500" isNoble="false" />
-	<teleport id="12270" description="Hunters Fortress -> The Giants Cave Lower Layer" locX="191754" locY="56760" locZ="-7624" price"500" isNoble="false" />
+	<teleport id="12261" description="Hunters Fortress -> Fortress North Gate" locX="124180" locY="93249" locZ="-2144" price="0" isNoble="false" />
+	<teleport id="12262" description="Hunters Fortress -> Fortress South Gate" locX="126155" locY="97124" locZ="-2144" price="0" isNoble="false" />
+	<teleport id="12263" description="Hunters Fortress -> Aden Town Square" locX="147450" locY="28081" locZ="-2294" price="0" isNoble="false" />
+	<teleport id="12264" description="Hunters Fortress -> Giran Town Square" locX="81749" locY="149171" locZ="-3464" price="0" isNoble="false" />
+	<teleport id="12265" description="Hunters Fortress -> Enchanted Valley, Northern Region" locX="104426" locY="33746" locZ="-3825" price="500" isNoble="false" />
+	<teleport id="12266" description="Hunters Fortress -> Blazing Swamp" locX="155310" locY="-16339" locZ="-3320" price="500" isNoble="false" />
+	<teleport id="12267" description="Hunters Fortress -> Dragon Valley" locX="73024" locY="118485" locZ="-3720" price="500" isNoble="false" />
+	<teleport id="12268" description="Hunters Fortress -> Tanor Canyon" locX="60374" locY="164301" locZ="-2856" price="500" isNoble="false" />
+	<teleport id="12269" description="Hunters Fortress -> The Giants Cave Upper Layer" locX="183985" locY="61424" locZ="-3992" price="500" isNoble="false" />
+	<teleport id="12270" description="Hunters Fortress -> The Giants Cave Lower Layer" locX="191754" locY="56760" locZ="-7624" price="500" isNoble="false" />
 </list>

@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="1106" description="Schuttgart -> Rune" locX="43835" locY="-47749" locZ="-792" price"10000" isNoble="false" />
-	<teleport id="1107" description="Schuttgart -> Goddard" locX="148024" locY="-55281" locZ="-2728" price"10000" isNoble="false" />
-	<teleport id="1108" description="Schuttgart -> Aden" locX="146783" locY="25808" locZ="-2008" price"53000" isNoble="false" />
-	<teleport id="1109" description="Schuttgart -> Oren" locX="82971" locY="53207" locZ="-1488" price"59000" isNoble="false" />
-	<teleport id="1110" description="Schuttgart -> Heine" locX="111455" locY="219400" locZ="-3544" price"100000" isNoble="false" />
-	<teleport id="1111" description="Schuttgart -> Giran" locX="83551" locY="147945" locZ="-3400" price"87000" isNoble="false" />
-	<teleport id="1112" description="Schuttgart -> Dion" locX="15472" locY="142880" locZ="-2688" price"88000" isNoble="false" />
-	<teleport id="1113" description="Schuttgart -> Gludio" locX="-12787" locY="122779" locZ="-3112" price"85000" isNoble="false" />
-	<teleport id="1114" description="Schuttgart -> Orc Village" locX="-45158" locY="-112583" locZ="-240" price"13000" isNoble="false" />
-	<teleport id="1115" description="Schuttgart -> Dwarven Village" locX="115120" locY="-178224" locZ="-880" price"4400" isNoble="false" />
-	<teleport id="1116" description="Schuttgart -> Den of Evil" locX="68693" locY="-110438" locZ="-1904" price"7500" isNoble="false" />
-	<teleport id="1117" description="Schuttgart -> Plunderous Plains" locX="111965" locY="-154172" locZ="-1528" price"1600" isNoble="false" />
-	<teleport id="1118" description="Schuttgart -> Frozen Labyrinth" locX="113903" locY="-108752" locZ="-848" price"3500" isNoble="false" />
-	<teleport id="1119" description="Schuttgart -> Crypt of Disgrace" locX="47692" locY="-115745" locZ="-3744" price"9600" isNoble="false" />
-	<teleport id="1120" description="Schuttgart -> Pavel Ruins" locX="91280" locY="-117152" locZ="-3928" price"2100" isNoble="false" />
-	<teleport id="2047" description="Schuttgart Outer -> Out" locX="77544" locY="-149250" locZ="-355" price"0" isNoble="false" />
-	<teleport id="2048" description="Schuttgart Outer -> In" locX="77544" locY="-149869" locZ="-355" price"0" isNoble="false" />
-	<teleport id="2049" description="Schuttgart Inner -> Out" locX="75577" locY="-152303" locZ="-651" price"0" isNoble="false" />
-	<teleport id="2050" description="Schuttgart Inner -> In" locX="76091" locY="-152303" locZ="-651" price"0" isNoble="false" />
-	<teleport id="2051" description="Schuttgart Inner -> Out" locX="79519" locY="-152303" locZ="-651" price"0" isNoble="false" />
-	<teleport id="2052" description="Schuttgart Inner -> In" locX="79009" locY="-152303" locZ="-651" price"0" isNoble="false" />
-	<teleport id="2053" description="Schuttgart Terrace -> Out" locX="76260" locY="-152991" locZ="1044" price"0" isNoble="false" />
-	<teleport id="2054" description="Schuttgart Terrace -> In" locX="76267" locY="-153275" locZ="1044" price"0" isNoble="false" />
-	<teleport id="2055" description="Schuttgart Terrace -> Out" locX="78843" locY="-153008" locZ="1044" price"0" isNoble="false" />
-	<teleport id="2056" description="Schuttgart Terrace -> In" locX="78832" locY="-153271" locZ="1044" price"0" isNoble="false" />
-	<teleport id="2072" description="Schuttgart -> Mithril Mines" locX="171946" locY="-173352" locZ="3440" price"5300" isNoble="false" />
-	<teleport id="13063" description="Schuttgart Castle -> Front Of Schuttgart Castle" locX="84233" locY="-140659" locZ="-1638" price"0" isNoble="false" />
-	<teleport id="13064" description="Schuttgart Castle -> Schuttgart Town Square" locX="87379" locY="-142049" locZ="-1367" price"0" isNoble="false" />
-	<teleport id="13065" description="Schuttgart Castle -> Front of the Archaic Fortress" locX="105039" locY="-140416" locZ="-3300" price"0" isNoble="false" />
-	<teleport id="13066" description="Schuttgart Castle -> Front of the Monastic Fortress" locX="70539" locY="-90311" locZ="-2039" price"0" isNoble="false" />
-	<teleport id="13067" description="Schuttgart Castle -> Plunderous Plains" locX="111965" locY="-154172" locZ="-1528" price"500" isNoble="false" />
-	<teleport id="13068" description="Schuttgart Castle -> Frozen Labyrinth" locX="113903" locY="-108752" locZ="-848" price"500" isNoble="false" />
-	<teleport id="13069" description="Schuttgart Castle -> Crypts of Disgrace" locX="47692" locY="-115745" locZ="-3744" price"500" isNoble="false" />
-	<teleport id="13070" description="Schuttgart Castle -> Pavel Ruins" locX="91280" locY="-117152" locZ="-3928" price"500" isNoble="false" />
-	<teleport id="15037" description="Schuttgart(hall -> outofcastle)" locX="77562" locY="-149119" locZ="-353" price"0" isNoble="false" />
-	<teleport id="15038" description="Schuttgart(hall -> out)" locX="77501" locY="-149943" locZ="-353" price"0" isNoble="false" />
-	<teleport id="15039" description="Schuttgart(hall -> artifact)" locX="77557" locY="-154975" locZ="387" price"0" isNoble="false" />
-	<teleport id="15040" description="Schuttgart(out -> artifact)" locX="77557" locY="-154975" locZ="387" price"0" isNoble="false" />
-	<teleport id="15041" description="Schuttgart(out -> outofcastle)" locX="77562" locY="-149119" locZ="-353" price"0" isNoble="false" />
-	<teleport id="15042" description="Schuttgart(out -> hall)" locX="77547" locY="-152461" locZ="-545" price"0" isNoble="false" />
-	<teleport id="15043" description="Schuttgart(outofcastle -> artifact)" locX="77557" locY="-154975" locZ="387" price"0" isNoble="false" />
-	<teleport id="15044" description="Schuttgart(outofcastle -> out)" locX="77501" locY="-149943" locZ="-353" price"0" isNoble="false" />
-	<teleport id="15045" description="Schuttgart(outofcastle -> hall)" locX="77547" locY="-152461" locZ="-545" price"0" isNoble="false" />
-	<teleport id="15046" description="Schuttgart(artifact -> out)" locX="77501" locY="-149943" locZ="-353" price"0" isNoble="false" />
-	<teleport id="15047" description="Schuttgart(artifact -> hall)" locX="77547" locY="-152461" locZ="-545" price"0" isNoble="false" />
-	<teleport id="15048" description="Schuttgart(artifact -> outofcastle)" locX="77562" locY="-149119" locZ="-353" price"0" isNoble="false" />
+	<teleport id="1106" description="Schuttgart -> Rune" locX="43835" locY="-47749" locZ="-792" price="10000" isNoble="false" />
+	<teleport id="1107" description="Schuttgart -> Goddard" locX="148024" locY="-55281" locZ="-2728" price="10000" isNoble="false" />
+	<teleport id="1108" description="Schuttgart -> Aden" locX="146783" locY="25808" locZ="-2008" price="53000" isNoble="false" />
+	<teleport id="1109" description="Schuttgart -> Oren" locX="82971" locY="53207" locZ="-1488" price="59000" isNoble="false" />
+	<teleport id="1110" description="Schuttgart -> Heine" locX="111455" locY="219400" locZ="-3544" price="100000" isNoble="false" />
+	<teleport id="1111" description="Schuttgart -> Giran" locX="83551" locY="147945" locZ="-3400" price="87000" isNoble="false" />
+	<teleport id="1112" description="Schuttgart -> Dion" locX="15472" locY="142880" locZ="-2688" price="88000" isNoble="false" />
+	<teleport id="1113" description="Schuttgart -> Gludio" locX="-12787" locY="122779" locZ="-3112" price="85000" isNoble="false" />
+	<teleport id="1114" description="Schuttgart -> Orc Village" locX="-45158" locY="-112583" locZ="-240" price="13000" isNoble="false" />
+	<teleport id="1115" description="Schuttgart -> Dwarven Village" locX="115120" locY="-178224" locZ="-880" price="4400" isNoble="false" />
+	<teleport id="1116" description="Schuttgart -> Den of Evil" locX="68693" locY="-110438" locZ="-1904" price="7500" isNoble="false" />
+	<teleport id="1117" description="Schuttgart -> Plunderous Plains" locX="111965" locY="-154172" locZ="-1528" price="1600" isNoble="false" />
+	<teleport id="1118" description="Schuttgart -> Frozen Labyrinth" locX="113903" locY="-108752" locZ="-848" price="3500" isNoble="false" />
+	<teleport id="1119" description="Schuttgart -> Crypt of Disgrace" locX="47692" locY="-115745" locZ="-3744" price="9600" isNoble="false" />
+	<teleport id="1120" description="Schuttgart -> Pavel Ruins" locX="91280" locY="-117152" locZ="-3928" price="2100" isNoble="false" />
+	<teleport id="2047" description="Schuttgart Outer -> Out" locX="77544" locY="-149250" locZ="-355" price="0" isNoble="false" />
+	<teleport id="2048" description="Schuttgart Outer -> In" locX="77544" locY="-149869" locZ="-355" price="0" isNoble="false" />
+	<teleport id="2049" description="Schuttgart Inner -> Out" locX="75577" locY="-152303" locZ="-651" price="0" isNoble="false" />
+	<teleport id="2050" description="Schuttgart Inner -> In" locX="76091" locY="-152303" locZ="-651" price="0" isNoble="false" />
+	<teleport id="2051" description="Schuttgart Inner -> Out" locX="79519" locY="-152303" locZ="-651" price="0" isNoble="false" />
+	<teleport id="2052" description="Schuttgart Inner -> In" locX="79009" locY="-152303" locZ="-651" price="0" isNoble="false" />
+	<teleport id="2053" description="Schuttgart Terrace -> Out" locX="76260" locY="-152991" locZ="1044" price="0" isNoble="false" />
+	<teleport id="2054" description="Schuttgart Terrace -> In" locX="76267" locY="-153275" locZ="1044" price="0" isNoble="false" />
+	<teleport id="2055" description="Schuttgart Terrace -> Out" locX="78843" locY="-153008" locZ="1044" price="0" isNoble="false" />
+	<teleport id="2056" description="Schuttgart Terrace -> In" locX="78832" locY="-153271" locZ="1044" price="0" isNoble="false" />
+	<teleport id="2072" description="Schuttgart -> Mithril Mines" locX="171946" locY="-173352" locZ="3440" price="5300" isNoble="false" />
+	<teleport id="13063" description="Schuttgart Castle -> Front Of Schuttgart Castle" locX="84233" locY="-140659" locZ="-1638" price="0" isNoble="false" />
+	<teleport id="13064" description="Schuttgart Castle -> Schuttgart Town Square" locX="87379" locY="-142049" locZ="-1367" price="0" isNoble="false" />
+	<teleport id="13065" description="Schuttgart Castle -> Front of the Archaic Fortress" locX="105039" locY="-140416" locZ="-3300" price="0" isNoble="false" />
+	<teleport id="13066" description="Schuttgart Castle -> Front of the Monastic Fortress" locX="70539" locY="-90311" locZ="-2039" price="0" isNoble="false" />
+	<teleport id="13067" description="Schuttgart Castle -> Plunderous Plains" locX="111965" locY="-154172" locZ="-1528" price="500" isNoble="false" />
+	<teleport id="13068" description="Schuttgart Castle -> Frozen Labyrinth" locX="113903" locY="-108752" locZ="-848" price="500" isNoble="false" />
+	<teleport id="13069" description="Schuttgart Castle -> Crypts of Disgrace" locX="47692" locY="-115745" locZ="-3744" price="500" isNoble="false" />
+	<teleport id="13070" description="Schuttgart Castle -> Pavel Ruins" locX="91280" locY="-117152" locZ="-3928" price="500" isNoble="false" />
+	<teleport id="15037" description="Schuttgart(hall -> outofcastle)" locX="77562" locY="-149119" locZ="-353" price="0" isNoble="false" />
+	<teleport id="15038" description="Schuttgart(hall -> out)" locX="77501" locY="-149943" locZ="-353" price="0" isNoble="false" />
+	<teleport id="15039" description="Schuttgart(hall -> artifact)" locX="77557" locY="-154975" locZ="387" price="0" isNoble="false" />
+	<teleport id="15040" description="Schuttgart(out -> artifact)" locX="77557" locY="-154975" locZ="387" price="0" isNoble="false" />
+	<teleport id="15041" description="Schuttgart(out -> outofcastle)" locX="77562" locY="-149119" locZ="-353" price="0" isNoble="false" />
+	<teleport id="15042" description="Schuttgart(out -> hall)" locX="77547" locY="-152461" locZ="-545" price="0" isNoble="false" />
+	<teleport id="15043" description="Schuttgart(outofcastle -> artifact)" locX="77557" locY="-154975" locZ="387" price="0" isNoble="false" />
+	<teleport id="15044" description="Schuttgart(outofcastle -> out)" locX="77501" locY="-149943" locZ="-353" price="0" isNoble="false" />
+	<teleport id="15045" description="Schuttgart(outofcastle -> hall)" locX="77547" locY="-152461" locZ="-545" price="0" isNoble="false" />
+	<teleport id="15046" description="Schuttgart(artifact -> out)" locX="77501" locY="-149943" locZ="-353" price="0" isNoble="false" />
+	<teleport id="15047" description="Schuttgart(artifact -> hall)" locX="77547" locY="-152461" locZ="-545" price="0" isNoble="false" />
+	<teleport id="15048" description="Schuttgart(artifact -> outofcastle)" locX="77562" locY="-149119" locZ="-353" price="0" isNoble="false" />
 </list>

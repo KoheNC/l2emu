@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<teleport id="12245" description="Antharas Fortress -> Fortress West Gate" locX="77834" locY="89176" locZ="-2880" price"0" isNoble="false" />
-	<teleport id="12246" description="Antharas Fortress -> Fortress East Gate" locX="80441" locY="92831" locZ="-2880" price"0" isNoble="false" />
-	<teleport id="12247" description="Antharas Fortress -> Oren Town Square" locX="82323" locY="55466" locZ="-1480" price"0" isNoble="false" />
-	<teleport id="12248" description="Antharas Fortress -> Giran Town Square" locX="81749" locY="149171" locZ="-3464" price"0" isNoble="false" />
-	<teleport id="12249" description="Antharas Fortress -> Sea of Spores" locX="64328" locY="26803" locZ="-3768" price"500" isNoble="false" />
-	<teleport id="12250" description="Antharas Fortress -> Ancient Battleground" locX="118509" locY="-4779" locZ="-4000" price"500" isNoble="false" />
-	<teleport id="12251" description="Antharas Fortress -> Dragon Valley" locX="73024" locY="118485" locZ="-3720" price"500" isNoble="false" />
-	<teleport id="12252" description="Antharas Fortress -> Tanor Canyon" locX="60374" locY="164301" locZ="-2856" price"500" isNoble="false" />
+	<teleport id="12245" description="Antharas Fortress -> Fortress West Gate" locX="77834" locY="89176" locZ="-2880" price="0" isNoble="false" />
+	<teleport id="12246" description="Antharas Fortress -> Fortress East Gate" locX="80441" locY="92831" locZ="-2880" price="0" isNoble="false" />
+	<teleport id="12247" description="Antharas Fortress -> Oren Town Square" locX="82323" locY="55466" locZ="-1480" price="0" isNoble="false" />
+	<teleport id="12248" description="Antharas Fortress -> Giran Town Square" locX="81749" locY="149171" locZ="-3464" price="0" isNoble="false" />
+	<teleport id="12249" description="Antharas Fortress -> Sea of Spores" locX="64328" locY="26803" locZ="-3768" price="500" isNoble="false" />
+	<teleport id="12250" description="Antharas Fortress -> Ancient Battleground" locX="118509" locY="-4779" locZ="-4000" price="500" isNoble="false" />
+	<teleport id="12251" description="Antharas Fortress -> Dragon Valley" locX="73024" locY="118485" locZ="-3720" price="500" isNoble="false" />
+	<teleport id="12252" description="Antharas Fortress -> Tanor Canyon" locX="60374" locY="164301" locZ="-2856" price="500" isNoble="false" />
 </list>
