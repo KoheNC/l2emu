@@ -19,6 +19,7 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.ai.L2SummonAI;
 import net.l2emuproject.gameserver.events.global.territorywar.TerritoryWarManager;
+import net.l2emuproject.gameserver.manager.AirShipManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.ExAskCoupleAction;
@@ -643,11 +644,30 @@ public class RequestActionUse extends L2GameClientPacket
 		case 66:
 			useSocial(15, activeChar);
 			break;
-		case 67:
-		case 68:
-		case 69:
-		case 70:
-			sendPacket(SystemMessageId.NOT_WORKING_PLEASE_TRY_AGAIN_LATER);
+		case 67: // Steer
+			if (activeChar.isInAirShip())
+				if (activeChar.getAirShip().setCaptain(activeChar))
+					activeChar.broadcastUserInfo();
+			break;
+		case 68: // Cancel Control
+			if (activeChar.isInAirShip() && activeChar.getAirShip().isCaptain(activeChar))
+				if (activeChar.getAirShip().setCaptain(null))
+					activeChar.broadcastUserInfo();
+			break;
+		case 69: // Destination Map
+			AirShipManager.getInstance().sendAirShipTeleportList(activeChar);
+			break;
+		case 70: // Exit Airship
+			if (activeChar.isInAirShip())
+			{
+				if (activeChar.getAirShip().isCaptain(activeChar))
+				{
+					if (activeChar.getAirShip().setCaptain(null))
+						activeChar.broadcastUserInfo();
+				}
+				else if (activeChar.getAirShip().isInDock())
+					activeChar.getAirShip().oustPlayer(activeChar);
+			}
 			break;
 		case 71:
 		case 72:
