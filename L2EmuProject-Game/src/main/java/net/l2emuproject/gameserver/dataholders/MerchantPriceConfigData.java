@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.datatables;
+package net.l2emuproject.gameserver.dataholders;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,11 +39,11 @@ import org.xml.sax.SAXException;
  *
  * @author  KenM
  */
-public class MerchantPriceConfigTable implements InstanceListManager
+public class MerchantPriceConfigData implements InstanceListManager
 {
-	private static final Log				_log	= LogFactory.getLog(MerchantPriceConfigTable.class);
+	private static final Log				_log	= LogFactory.getLog(MerchantPriceConfigData.class);
 
-	public static MerchantPriceConfigTable getInstance()
+	public static MerchantPriceConfigData getInstance()
 	{
 		return SingletonHolder._instance;
 	}
@@ -53,7 +53,7 @@ public class MerchantPriceConfigTable implements InstanceListManager
 	private final Map<Integer, MerchantPriceConfig>	_mpcs		= new FastMap<Integer, MerchantPriceConfig>();
 	private MerchantPriceConfig					_defaultMpc;
 
-	private MerchantPriceConfigTable()
+	private MerchantPriceConfigData()
 	{
 	}
 
@@ -84,7 +84,7 @@ public class MerchantPriceConfigTable implements InstanceListManager
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(true);
 		factory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/" + MPCS_FILE);
+		File file = new File(Config.DATAPACK_ROOT, "data/static_data/merchant/price_config/" + MPCS_FILE);
 		if (file.exists())
 		{
 			int defaultPriceConfigId;
@@ -297,6 +297,6 @@ public class MerchantPriceConfigTable implements InstanceListManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final MerchantPriceConfigTable _instance = new MerchantPriceConfigTable();
+		protected static final MerchantPriceConfigData _instance = new MerchantPriceConfigData();
 	}
 }

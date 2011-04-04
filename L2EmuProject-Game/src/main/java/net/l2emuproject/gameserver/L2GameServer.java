@@ -23,6 +23,7 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.config.PersistentProperties;
 import net.l2emuproject.gameserver.dataholders.EnchantHPBonusData;
 import net.l2emuproject.gameserver.dataholders.EnchantItemData;
+import net.l2emuproject.gameserver.dataholders.MerchantPriceConfigData;
 import net.l2emuproject.gameserver.dataholders.SummonItemsData;
 import net.l2emuproject.gameserver.dataholders.TeleportData;
 import net.l2emuproject.gameserver.dataholders.UIData;
@@ -46,7 +47,6 @@ import net.l2emuproject.gameserver.datatables.HeroSkillTable;
 import net.l2emuproject.gameserver.datatables.ItemMarketTable;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.LevelUpData;
-import net.l2emuproject.gameserver.datatables.MerchantPriceConfigTable;
 import net.l2emuproject.gameserver.datatables.NobleSkillTable;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.NpcWalkerRoutesTable;
@@ -234,7 +234,7 @@ public class L2GameServer extends Config
 		TeleportData.getInstance();
 		BoatManager.getInstance();
 		InstanceManager.getInstance();
-		MerchantPriceConfigTable.getInstance().loadInstances();
+		MerchantPriceConfigData.getInstance().loadInstances();
 		
 		Util.printSection("TaskManagers");
 		AttackStanceTaskManager.getInstance();
@@ -432,7 +432,7 @@ public class L2GameServer extends Config
 		if (Config.FISHERMAN_ENABLED)
 			FishermanManager.getInstance().engineInit();
 		
-		MerchantPriceConfigTable.getInstance().updateReferences();
+		MerchantPriceConfigData.getInstance().updateReferences();
 		CastleManager.getInstance().activateInstances();
 		FortManager.getInstance().activateInstances();
 		

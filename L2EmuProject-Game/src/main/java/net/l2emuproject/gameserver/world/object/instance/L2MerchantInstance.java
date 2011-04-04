@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.world.object.instance;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
-import net.l2emuproject.gameserver.datatables.MerchantPriceConfigTable;
-import net.l2emuproject.gameserver.datatables.MerchantPriceConfigTable.MerchantPriceConfig;
+import net.l2emuproject.gameserver.dataholders.MerchantPriceConfigData;
+import net.l2emuproject.gameserver.dataholders.MerchantPriceConfigData.MerchantPriceConfig;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -74,7 +74,7 @@ public class L2MerchantInstance extends L2NpcInstance implements L2Merchant
 	public void onSpawn()
 	{
 		super.onSpawn();
-		_mpc = MerchantPriceConfigTable.getInstance().getMerchantPriceConfig(this);
+		_mpc = MerchantPriceConfigData.getInstance().getMerchantPriceConfig(this);
 	}
 
 	/**

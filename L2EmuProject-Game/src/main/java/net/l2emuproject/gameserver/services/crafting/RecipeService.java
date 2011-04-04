@@ -233,7 +233,7 @@ public class RecipeService
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(true);
 		factory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/static_data/" + RECIPES_FILE);
+		File file = new File(Config.DATAPACK_ROOT, "data/static_data/recipe/" + RECIPES_FILE);
 		if (file.exists())
 		{
 			Document doc = factory.newDocumentBuilder().parse(file);
