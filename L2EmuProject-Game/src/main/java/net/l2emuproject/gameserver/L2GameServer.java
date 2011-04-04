@@ -21,6 +21,7 @@ import java.util.Set;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.config.PersistentProperties;
+import net.l2emuproject.gameserver.dataholders.AugmentationData;
 import net.l2emuproject.gameserver.dataholders.EnchantHPBonusData;
 import net.l2emuproject.gameserver.dataholders.EnchantItemData;
 import net.l2emuproject.gameserver.dataholders.MerchantPriceConfigData;
@@ -28,7 +29,6 @@ import net.l2emuproject.gameserver.dataholders.SummonItemsData;
 import net.l2emuproject.gameserver.dataholders.TeleportData;
 import net.l2emuproject.gameserver.dataholders.UIData;
 import net.l2emuproject.gameserver.datatables.ArmorSetsTable;
-import net.l2emuproject.gameserver.datatables.AugmentationData;
 import net.l2emuproject.gameserver.datatables.BuffTemplateTable;
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.datatables.CharTemplateTable;

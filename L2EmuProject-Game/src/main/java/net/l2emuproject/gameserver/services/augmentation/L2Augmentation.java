@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.services.augmentation;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.datatables.AugmentationData;
+import net.l2emuproject.gameserver.dataholders.AugmentationData;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.funcs.Func;

@@ -34,24 +34,23 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-
 /**
  *
  * @author  KenM
  */
 public class MerchantPriceConfigData implements InstanceListManager
 {
-	private static final Log				_log	= LogFactory.getLog(MerchantPriceConfigData.class);
+	private static final Log	_log	= LogFactory.getLog(MerchantPriceConfigData.class);
 
 	public static MerchantPriceConfigData getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 
-	private static final String					MPCS_FILE	= "MerchantPriceConfig.xml";
+	private static final String						MPCS_FILE	= "MerchantPriceConfig.xml";
 
 	private final Map<Integer, MerchantPriceConfig>	_mpcs		= new FastMap<Integer, MerchantPriceConfig>();
-	private MerchantPriceConfig					_defaultMpc;
+	private MerchantPriceConfig						_defaultMpc;
 
 	private MerchantPriceConfigData()
 	{
@@ -297,6 +296,6 @@ public class MerchantPriceConfigData implements InstanceListManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final MerchantPriceConfigData _instance = new MerchantPriceConfigData();
+		protected static final MerchantPriceConfigData	_instance	= new MerchantPriceConfigData();
 	}
 }

@@ -175,7 +175,7 @@ public class InstanceManager
 		InputStream in = null;
 		try
 		{
-			in = new FileInputStream(Config.DATAPACK_ROOT + "/data/instancenames.xml");
+			in = new FileInputStream(Config.DATAPACK_ROOT + "/data/static_data/instances/instancenames.xml");
 			XMLStreamReaderImpl xpp = new XMLStreamReaderImpl();
 			xpp.setInput(new UTF8StreamReader().setInput(in));
 			for (int e = xpp.getEventType(); e != XMLStreamConstants.END_DOCUMENT; e = xpp.next())
