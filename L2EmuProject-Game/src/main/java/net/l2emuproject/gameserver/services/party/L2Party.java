@@ -20,7 +20,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Future;
 
 import javolution.util.FastList;
-
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
@@ -53,8 +52,8 @@ import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
-import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.object.instance.L2PetInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2SummonInstance;

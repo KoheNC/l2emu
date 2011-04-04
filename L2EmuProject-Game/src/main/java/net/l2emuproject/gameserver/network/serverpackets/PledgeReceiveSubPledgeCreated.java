@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.services.clan.L2Clan;
-import net.l2emuproject.gameserver.services.clan.L2ClanMember;
 import net.l2emuproject.gameserver.services.clan.L2Clan.SubPledge;
+import net.l2emuproject.gameserver.services.clan.L2ClanMember;
 
 /**
  *

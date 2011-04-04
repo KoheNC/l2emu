@@ -19,7 +19,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javolution.util.FastMap;
-
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.services.clan.L2Clan;

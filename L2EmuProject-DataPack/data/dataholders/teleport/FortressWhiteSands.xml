@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<teleport id="12164" description="White Sands Fortress -> Fortress West Gate" locX="116336" locY="203775" locZ="-3336" price"0" isNoble="false" />
+	<teleport id="12165" description="White Sands Fortress -> Fortress East Gate" locX="120487" locY="206093" locZ="-3336" price"0" isNoble="false" />
+	<teleport id="12166" description="White Sands Fortress -> Heine Town Square" locX="111455" locY="219400" locZ="-3544" price"0" isNoble="false" />
+	<teleport id="12167" description="White Sands Fortress -> Front of the Innadril Castle Gate" locX="117608" locY="241660" locZ="-1408" price"0" isNoble="false" />
+	<teleport id="12168" description="White Sands Fortress -> Field of Silence (Western Section)" locX="75387" locY="195263" locZ="-3000" price"500" isNoble="false" />
+	<teleport id="12169" description="White Sands Fortress -> Field of Whispers (Eastern Section)" locX="47382" locY="111278" locZ="-2104" price"500" isNoble="false" />
+	<teleport id="12170" description="White Sands Fortress -> The Center of Alligator Island" locX="113708" locY="178387" locZ="-3232" price"500" isNoble="false" />
+	<teleport id="12171" description="White Sands Fortress -> Inside the Garden of Eva" locX="82693" locY="242220" locZ="-6712" price"500" isNoble="false" />
+</list>

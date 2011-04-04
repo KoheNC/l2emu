@@ -24,8 +24,8 @@ import net.l2emuproject.gameserver.skills.funcs.FuncOwner;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
-import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 
 import org.apache.commons.lang.ArrayUtils;

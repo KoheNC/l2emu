@@ -21,7 +21,6 @@ import java.util.List;
 
 import javolution.util.FastList;
 import javolution.util.FastMap;
-
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.network.SystemMessageId;

@@ -14,11 +14,11 @@
  */
 package net.l2emuproject.gameserver.status.commands;
 
+import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
 import net.l2emuproject.gameserver.manager.Manager;
 import net.l2emuproject.gameserver.services.transactions.L2Multisell;
@@ -55,7 +55,7 @@ public final class Reload extends GameStatusCommand
 			else if (type.equals("teleport"))
 			{
 				print("Reloading teleports... ");
-				TeleportLocationTable.getInstance().reloadAll();
+				TeleportDataHolder.getInstance().load();
 				println("done");
 			}
 			else if (type.equals("skill"))

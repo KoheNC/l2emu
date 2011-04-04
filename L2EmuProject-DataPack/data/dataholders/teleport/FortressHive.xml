@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<teleport id="12156" description="Hive Fortress -> Fortress North Gate" locX="15383" locY="186025" locZ="-2920" price"0" isNoble="false" />
+	<teleport id="12157" description="Hive Fortress -> Fortress South Gate" locX="18046" locY="190017" locZ="-2920" price"0" isNoble="false" />
+	<teleport id="12158" description="Hive Fortress -> Dion Town Square" locX="19025" locY="145245" locZ="-3120" price"0" isNoble="false" />
+	<teleport id="12159" description="Hive Fortress -> Front of the Dion Castle Gate" locX="19888" locY="153395" locZ="-3144" price"0" isNoble="false" />
+	<teleport id="12160" description="Hive Fortress -> Cruma Marshlands" locX="5106" locY="126916" locZ="-3664" price"500" isNoble="false" />
+	<teleport id="12161" description="Hive Fortress -> Fortress of Resistance" locX="47382" locY="111278" locZ="-2104" price"500" isNoble="false" />
+	<teleport id="12162" description="Hive Fortress -> Plains of Dion" locX="630" locY="179184" locZ="-3720" price"500" isNoble="false" />
+	<teleport id="12163" description="Hive Fortress -> Tanor Canyon" locX="60374" locY="164301" locZ="-2856" price"500" isNoble="false" />
+</list>

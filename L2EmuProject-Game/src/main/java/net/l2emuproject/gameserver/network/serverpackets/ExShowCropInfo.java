@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.network.serverpackets;
 
 import java.util.List;
 
-import net.l2emuproject.gameserver.services.manor.L2Manor;
 import net.l2emuproject.gameserver.services.manor.CastleManorService.CropProcure;
+import net.l2emuproject.gameserver.services.manor.L2Manor;
 
 
 /**

@@ -415,8 +415,6 @@ update_db()
 	$MYG < ../sql/server_related/spawns/spawnlist_fantasy_island.sql  &> /dev/null &> /dev/null
 	$MYG < ../sql/server_related/spawns/territory_spawnlist.sql  &> /dev/null &> /dev/null
 	$MYG < ../sql/server_related/spawns/vanhalter_spawnlist.sql  &> /dev/null &> /dev/null
-	echo "Teleport Related Tables"
-	$MYG < ../sql/server_related/teleports/teleport.sql  &> /dev/null &> /dev/null
 	echo "User Related Tables"
 	$MYG < ../sql/user_related/auto_announcements.sql  &> /dev/null &> /dev/null
 	$MYG < ../sql/user_related/class_balance.sql  &> /dev/null &> /dev/null

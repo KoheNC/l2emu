@@ -21,6 +21,7 @@ import java.util.Set;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.config.PersistentProperties;
+import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.dataholders.UIDataHolder;
 import net.l2emuproject.gameserver.datatables.ArmorSetsTable;
 import net.l2emuproject.gameserver.datatables.AugmentationData;
@@ -58,7 +59,6 @@ import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.datatables.StaticObjects;
 import net.l2emuproject.gameserver.datatables.SummonItemsData;
-import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
 import net.l2emuproject.gameserver.events.custom.TvT.TvT;
 import net.l2emuproject.gameserver.events.custom.leaderboards.ArenaManager;
@@ -231,7 +231,7 @@ public class L2GameServer extends Config
 		Util.printSection("World");
 		StaticObjects.getInstance();
 		GameTimeController.getInstance();
-		TeleportLocationTable.getInstance();
+		TeleportDataHolder.getInstance();
 		BoatManager.getInstance();
 		InstanceManager.getInstance();
 		MerchantPriceConfigTable.getInstance().loadInstances();

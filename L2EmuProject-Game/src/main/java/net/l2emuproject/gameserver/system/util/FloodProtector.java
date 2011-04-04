@@ -16,13 +16,13 @@ package net.l2emuproject.gameserver.system.util;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.L2GameClient;
 import net.l2emuproject.gameserver.system.time.GameTimeController;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * Flood protector

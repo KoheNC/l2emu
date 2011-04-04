@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<teleport id="12123" description="Valley Fort -> Fortress North Gate" locX="126066" locY="120350" locZ="-2584" price"0" isNoble="false" />
+	<teleport id="12124" description="Valley Fort -> Fortress South Gate" locX="126023" locY="125853" locZ="-2584" price"0" isNoble="false" />
+	<teleport id="12125" description="Valley Fort -> Giran Town Square" locX="81749" locY="149171" locZ="-3464" price"0" isNoble="false" />
+	<teleport id="12126" description="Valley Fort -> Front of the Giran Castle Gate" locX="107954" locY="145841" locZ="-3224" price"0" isNoble="false" />
+	<teleport id="12127" description="Valley Fort -> Brekas Stronghold" locX="85546" locY="131328" locZ="-3672" price"500" isNoble="false" />
+	<teleport id="12128" description="Valley Fort -> Devils Isle" locX="43408" locY="206811" locZ="-3752" price"500" isNoble="false" />
+	<teleport id="12129" description="Valley Fort -> Dragon Valley" locX="73024" locY="118485" locZ="-3688" price"500" isNoble="false" />
+	<teleport id="12130" description="Valley Fort -> Tanor Canyon" locX="60374" locY="164301" locZ="-2856" price"500" isNoble="false" />
+</list>

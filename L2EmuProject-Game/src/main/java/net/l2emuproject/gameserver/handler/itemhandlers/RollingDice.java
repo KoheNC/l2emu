@@ -21,8 +21,8 @@ import net.l2emuproject.gameserver.network.serverpackets.Dice;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.system.util.Broadcast;
 import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
-import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.town.TownManager;
 import net.l2emuproject.tools.random.Rnd;
 

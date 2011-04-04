@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<teleport id="12253" description="Cloud Mountain -> Fortress North Gate" locX="-54275" locY="89255" locZ="-2824" price"0" isNoble="false" />
+	<teleport id="12254" description="Cloud Mountain -> Fortress South Gate" locX="-52274" locY="93334" locZ="-2816" price"0" isNoble="false" />
+	<teleport id="12255" description="Cloud Mountain -> Gludio Town Square" locX="-14393" locY="123671" locZ="-3144" price"0" isNoble="false" />
+	<teleport id="12256" description="Cloud Mountain -> Oren Town Square" locX="82323" locY="55466" locZ="-1480" price"0" isNoble="false" />
+	<teleport id="12257" description="Cloud Mountain -> The Ant Nest" locX="-9959" locY="176184" locZ="-4160" price"500" isNoble="false" />
+	<teleport id="12258" description="Cloud Mountain -> Windawood Manor" locX="-28327" locY="155125" locZ="-3496" price"500" isNoble="false" />
+	<teleport id="12259" description="Cloud Mountain -> Sea of Spores" locX="64328" locY="26803" locZ="-3768" price"500" isNoble="false" />
+	<teleport id="12260" description="Cloud Mountain -> Ancient Battleground" locX="118509" locY="-4779" locZ="-4000" price"500" isNoble="false" />
+</list>

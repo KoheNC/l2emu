@@ -18,8 +18,8 @@ import net.l2emuproject.gameserver.handler.IItemHandler;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.clientpackets.RequestChangeNicknameColor;
 import net.l2emuproject.gameserver.network.serverpackets.ExChangeNicknameNColor;
-import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class ColorName implements IItemHandler
 {

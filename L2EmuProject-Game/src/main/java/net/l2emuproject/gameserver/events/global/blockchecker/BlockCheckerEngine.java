@@ -17,9 +17,6 @@ package net.l2emuproject.gameserver.events.global.blockchecker;
 import java.util.Map.Entry;
 import java.util.concurrent.ScheduledFuture;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import javolution.util.FastList;
 import javolution.util.FastMap;
 import net.l2emuproject.gameserver.datatables.NpcTable;
@@ -47,6 +44,9 @@ import net.l2emuproject.gameserver.world.object.instance.L2BlockInstance;
 import net.l2emuproject.gameserver.world.spawn.L2Spawn;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.tools.random.Rnd;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  * @author BiggBoss

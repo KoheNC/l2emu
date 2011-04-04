@@ -18,8 +18,8 @@ import java.text.SimpleDateFormat;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
+import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
 import net.l2emuproject.gameserver.events.global.fortsiege.Fort;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -896,7 +896,7 @@ public class L2FortManagerInstance extends L2MerchantInstance
 	{
 		if (_log.isDebugEnabled())
 			_log.warn("doTeleport(L2Player player, int val) is called");
-		L2TeleportLocation list = TeleportLocationTable.getInstance().getTemplate(val);
+		L2TeleportLocation list = TeleportDataHolder.getInstance().getTemplate(val);
 		if (list != null)
 		{
 			if (player.reduceAdena("Teleport", list.getPrice(), this, true))

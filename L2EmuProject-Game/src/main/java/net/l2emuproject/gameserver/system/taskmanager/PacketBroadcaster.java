@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.system.taskmanager;
 
 import net.l2emuproject.gameserver.world.object.L2Character;
-import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author NB4L1

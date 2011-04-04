@@ -18,8 +18,8 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
-import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.system.util.FloodProtector.Protected;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
 public class RequestSocialAction extends L2GameClientPacket

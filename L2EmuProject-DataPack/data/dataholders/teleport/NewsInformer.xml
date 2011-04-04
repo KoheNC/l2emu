@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<teleport id="200901" description="News Informer -> Forge of the Gods" locX="169018" locY="-116303" locZ="-2432" price"10000" isNoble="false" />
+	<teleport id="200902" description="News Informer -> Primeval Isle Wharf" locX="11235" locY="-24026" locZ="-3640" price"10000" isNoble="false" />
+	<teleport id="200903" description="News Informer -> The Giant's Cave" locX="174491" locY="50942" locZ="-4360" price"10000" isNoble="false" />
+	<teleport id="200904" description="News Informer -> Den of Evil" locX="68693" locY="-110438" locZ="-1904" price"10000" isNoble="false" />
+	<teleport id="200905" description="News Informer -> Mithril Mines Western Entrance" locX="171946" locY="-173352" locZ="3440" price"10000" isNoble="false" />
+	<teleport id="200906" description="News Informer -> Mithril Mines Eastern Entrance" locX="178591" locY="-184615" locZ="360" price"10000" isNoble="false" />
+	<teleport id="200907" description="News Informer -> Field of Silence" locX="87691" locY="162835" locZ="-3520" price"10000" isNoble="false" />
+	<teleport id="200908" description="News Informer -> Field of Whispers" locX="82192" locY="226128" locZ="-3656" price"10000" isNoble="false" />
+	<teleport id="200909" description="News Informer -> Crypts of Disgrace" locX="47692" locY="-115745" locZ="-3744" price"10000" isNoble="false" />
+	<teleport id="200910" description="News Informer -> Stakato Nest" locX="89513" locY="-44800" locZ="-2136" price"10000" isNoble="false" />
+	<teleport id="200911" description="News Informer -> Town of Giran" locX="83551" locY="147945" locZ="-3400" price"100000" isNoble="false" />
+	<teleport id="200912" description="News Informer -> Town of Aden" locX="146783" locY="25808" locZ="-2008" price"100000" isNoble="false" />
+	<teleport id="200913" description="News Informer -> Town of Oren" locX="82971" locY="53207" locZ="-1488" price"100000" isNoble="false" />
+	<teleport id="200914" description="News Informer -> Rune Township" locX="43835" locY="-47749" locZ="-792" price"100000" isNoble="false" />
+	<teleport id="200915" description="News Informer -> Town of Goddard" locX="148024" locY="-55281" locZ="-2728" price"100000" isNoble="false" />
+</list>

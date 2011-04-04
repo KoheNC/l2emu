@@ -17,8 +17,8 @@ package net.l2emuproject.gameserver.handler.itemhandlers;
 import net.l2emuproject.gameserver.handler.IItemHandler;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.serverpackets.ShowMiniMap;
-import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * This class provides handling for items that should display a map when double clicked.

@@ -24,8 +24,8 @@ import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
-import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2ClanHallManagerInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2CubicInstance;
 

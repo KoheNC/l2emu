@@ -16,9 +16,8 @@ package net.l2emuproject.gameserver.events;
 
 import java.util.Map;
 
-import net.l2emuproject.gameserver.world.object.L2Player;
-
 import javolution.util.FastMap;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author lord_rex

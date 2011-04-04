@@ -20,9 +20,9 @@ import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_R
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Character.AIAccessor;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
-import net.l2emuproject.gameserver.world.object.L2Character.AIAccessor;
 import net.l2emuproject.gameserver.world.object.instance.L2StaticObjectInstance;
 
 

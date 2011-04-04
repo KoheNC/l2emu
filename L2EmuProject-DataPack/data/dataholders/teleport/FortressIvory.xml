@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<teleport id="12279" description="Ivory Fortress -> Fortress North Gate" locX="74367" locY="2533" locZ="-3040" price"0" isNoble="false" />
+	<teleport id="12280" description="Ivory Fortress -> Fortress South Gate" locX="71388" locY="6235" locZ="-3032" price"0" isNoble="false" />
+	<teleport id="12281" description="Ivory Fortress -> Oren Town Square" locX="82323" locY="55466" locZ="-1480" price"0" isNoble="false" />
+	<teleport id="12282" description="Ivory Fortress -> Front of the Oren Castle Gate" locX="75648" locY="39380" locZ="-2952" price"0" isNoble="false" />
+	<teleport id="12283" description="Ivory Fortress -> Sea of Spores" locX="64328" locY="26803" locZ="-3768" price"500" isNoble="false" />
+	<teleport id="12284" description="Ivory Fortress -> Enchanted Valley,Southern Region" locX="124904" locY="61992" locZ="-3973" price"500" isNoble="false" />
+	<teleport id="12285" description="Ivory Fortress -> Enchanted Valley,Northern Region" locX="104426" locY="33746" locZ="-3825" price"500" isNoble="false" />
+	<teleport id="12286" description="Ivory Fortress -> Ancient Battleground" locX="118509" locY="-4779" locZ="-4000" price"500" isNoble="false" />
+</list>

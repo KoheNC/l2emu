@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Set;
 
 import javolution.util.FastList;
-
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.FriendPacket;

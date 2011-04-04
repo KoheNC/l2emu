@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import java.util.StringTokenizer;
 
+import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.datatables.DoorTable;
-import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
@@ -128,7 +128,7 @@ public class L2DoormenInstance extends L2NpcInstance
 	protected void doTeleport(L2Player player, String command)
 	{
 		final int whereTo = Integer.parseInt(command.substring(5).trim());
-		L2TeleportLocation list = TeleportLocationTable.getInstance().getTemplate(whereTo);
+		L2TeleportLocation list = TeleportDataHolder.getInstance().getTemplate(whereTo);
 		if (list != null)
 		{
 			if (!player.isAlikeDead())

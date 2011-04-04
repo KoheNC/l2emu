@@ -96,7 +96,6 @@ DROP TABLE IF EXISTS
 	skill_trees,
 	spawnlist,
 	special_skill_trees,
-	teleport,
 	topic,
     territories,
     territory_registrations,

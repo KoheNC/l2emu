@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<teleport id="2064" description="Underground Colliseum lvl 40" locX="-84580" locY="-45587" locZ="-10728" price"0" isNoble="false" />
+	<teleport id="2065" description="Underground Colliseum lvl 50" locX="-86118" locY="-50624" locZ="-10728" price"0" isNoble="false" />
+	<teleport id="2066" description="Underground Colliseum lvl 60" locX="-81802" locY="-53665" locZ="-10728" price"0" isNoble="false" />
+	<teleport id="2067" description="Underground Colliseum lvl 70" locX="-77603" locY="-50673" locZ="-10728" price"0" isNoble="false" />
+	<teleport id="2068" description="Underground Colliseum lvl 80" locX="-79186" locY="-45644" locZ="-10728" price"0" isNoble="false" />
+	<teleport id="12059" description="Underground Coliseum -> Fantasy Isle" locX="-59224" locY="-56837" locZ="-2032" price"0" isNoble="false" />
+</list>

@@ -18,7 +18,6 @@ import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_A
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_ATTACK;
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_IDLE;
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_INTERACT;
-
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.skills.L2Skill;
@@ -31,8 +30,8 @@ import net.l2emuproject.gameserver.world.object.L2Boss;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
-import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Summon;
 import net.l2emuproject.gameserver.world.object.instance.L2ChestInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2DoorInstance;

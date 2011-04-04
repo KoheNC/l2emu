@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<teleport id="2073" description="Entrance SOA -> Enter the Seed of Annihilation" locX="-180218" locY="185923" locZ="-10576" price"0" isNoble="false" />
+	<teleport id="2074" description="Enter the Seed of Annihilation -> Entrance SOA" locX="-178262" locY="153430" locZ="2472" price"0" isNoble="false" />
+</list>

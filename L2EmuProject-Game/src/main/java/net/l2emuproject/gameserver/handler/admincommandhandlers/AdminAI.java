@@ -23,10 +23,10 @@ import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
+import net.l2emuproject.gameserver.world.object.L2Attackable.AggroInfo;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
-import net.l2emuproject.gameserver.world.object.L2Attackable.AggroInfo;
 import net.l2emuproject.lang.L2TextBuilder;
 
 

@@ -26,8 +26,8 @@ import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
-import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2PetInstance;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 

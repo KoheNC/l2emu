@@ -21,10 +21,6 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import javolution.util.FastMap;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import net.l2emuproject.gameserver.network.serverpackets.ExAirShipTeleportList;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
@@ -34,6 +30,9 @@ import net.l2emuproject.gameserver.world.VehiclePathPoint;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2AirShipInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2ControllableAirShipInstance;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 public class AirShipManager
 {

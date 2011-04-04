@@ -112,7 +112,6 @@ for %%S in (../sql/server_related/npcs/*.sql) do %mysqlPath% -h %gshost% -u %gsu
 for %%S in (../sql/server_related/shops/*.sql) do %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/server_related/shops/%%S
 for %%S in (../sql/server_related/skills/*.sql) do %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/server_related/skills/%%S
 for %%S in (../sql/server_related/spawns/*.sql) do %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/server_related/spawns/%%S
-for %%S in (../sql/server_related/teleports/*.sql) do %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/server_related/teleports/%%S
 echo.
 echo.
 echo Installing User Related datatables...

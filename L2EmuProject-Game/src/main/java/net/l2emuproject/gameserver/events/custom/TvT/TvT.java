@@ -18,7 +18,6 @@ import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 
 import javolution.util.FastMap;
-
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.events.L2Event;
 import net.l2emuproject.gameserver.events.L2EventTeam;

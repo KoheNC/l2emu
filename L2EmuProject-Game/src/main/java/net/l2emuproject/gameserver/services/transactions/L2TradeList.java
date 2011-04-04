@@ -16,10 +16,8 @@ package net.l2emuproject.gameserver.services.transactions;
 
 import java.util.List;
 
-import net.l2emuproject.gameserver.items.L2ItemInstance;
-
-
 import javolution.util.FastList;
+import net.l2emuproject.gameserver.items.L2ItemInstance;
 
 public class L2TradeList
 {

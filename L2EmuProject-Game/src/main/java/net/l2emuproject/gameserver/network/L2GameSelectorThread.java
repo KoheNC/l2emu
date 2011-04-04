@@ -27,10 +27,10 @@ import net.l2emuproject.gameserver.network.clientpackets.L2GameClientPacket;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
 import net.l2emuproject.gameserver.services.VersionService;
 import net.l2emuproject.lang.L2TextBuilder;
+import net.l2emuproject.network.mmocore.FloodManager.ErrorMode;
 import net.l2emuproject.network.mmocore.IPacketHandler;
 import net.l2emuproject.network.mmocore.SelectorConfig;
 import net.l2emuproject.network.mmocore.SelectorThread;
-import net.l2emuproject.network.mmocore.FloodManager.ErrorMode;
 import net.l2emuproject.tools.util.HexUtil;
 
 import org.apache.commons.lang.StringUtils;

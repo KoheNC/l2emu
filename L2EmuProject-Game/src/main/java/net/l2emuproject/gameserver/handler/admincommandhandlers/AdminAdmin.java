@@ -18,6 +18,7 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Config;
+import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.datatables.ClassBalanceTable;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.GmListTable;
@@ -25,7 +26,6 @@ import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.datatables.NpcWalkerRoutesTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.datatables.TeleportLocationTable;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
 import net.l2emuproject.gameserver.entity.base.Experience;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.CCHManager;
@@ -316,7 +316,7 @@ public class AdminAdmin implements IAdminCommandHandler
 				}
 				else if (type.startsWith("teleport"))
 				{
-					TeleportLocationTable.getInstance().reloadAll();
+					TeleportDataHolder.getInstance().load();
 					activeChar.sendMessage("Teleport location table reloaded");
 				}
 				else if (type.startsWith("skill"))

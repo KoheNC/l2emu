@@ -16,8 +16,8 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
-import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  * @author Visor123
