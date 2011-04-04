@@ -101,7 +101,7 @@ public class DimensionalRiftManager
 			factory.setValidating(true);
 			factory.setIgnoringComments(true);
 
-			File file = new File(Config.DATAPACK_ROOT, "data/dimensionalRift.xml");
+			File file = new File(Config.DATAPACK_ROOT, "data/static_data/dimensionalRift.xml");
 			if (!file.exists())
 				throw new IOException();
 

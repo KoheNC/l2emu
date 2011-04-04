@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.skills.funcs;
 
-import net.l2emuproject.gameserver.datatables.EnchantHPBonusData;
+import net.l2emuproject.gameserver.dataholders.EnchantHPBonusData;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.Stats;

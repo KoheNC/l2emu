@@ -37,9 +37,9 @@ import org.xml.sax.SAXException;
 /**
  * @author  mrTJO
  */
-public final class UIDataHolder
+public final class UIData
 {
-	private static final Log					_log				= LogFactory.getLog(UIDataHolder.class);
+	private static final Log					_log				= LogFactory.getLog(UIData.class);
 
 	private final Map<Integer, List<ActionKey>>	_storedKeys			= new FastMap<Integer, List<ActionKey>>();
 	private final Map<Integer, List<Integer>>	_storedCategories	= new FastMap<Integer, List<Integer>>();
@@ -47,15 +47,15 @@ public final class UIDataHolder
 	@SuppressWarnings("synthetic-access")
 	private static final class SingletonHolder
 	{
-		private static final UIDataHolder	_instance	= new UIDataHolder();
+		private static final UIData	_instance	= new UIData();
 	}
 
-	public static UIDataHolder getInstance()
+	public static UIData getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 
-	private UIDataHolder()
+	private UIData()
 	{
 		reload();
 	}

@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.Config;
+import net.l2emuproject.gameserver.dataholders.SummonItemsData;
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.datatables.SummonItemsData;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHallManager;
 import net.l2emuproject.gameserver.handler.IItemHandler;

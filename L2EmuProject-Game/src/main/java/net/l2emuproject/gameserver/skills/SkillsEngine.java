@@ -61,7 +61,7 @@ public final class SkillsEngine
 	{
 		final List<L2Skill> list = new ArrayList<L2Skill>();
 		
-		for (File file : listFiles("data/stats/skills"))
+		for (File file : listFiles("data/static_data/stats/skills"))
 		{
 			DocumentSkill doc = new DocumentSkill(file);
 			doc.parse();
@@ -73,7 +73,7 @@ public final class SkillsEngine
 	
 	public static List<L2Item> loadArmors(Map<Integer, Item> armorData)
 	{
-		final List<L2Item> list = loadData(armorData, listFiles("data/stats/armor"));
+		final List<L2Item> list = loadData(armorData, listFiles("data/static_data/stats/armor"));
 		
 		Set<Integer> xmlItem = new HashSet<Integer>();
 		
@@ -89,7 +89,7 @@ public final class SkillsEngine
 	
 	public static List<L2Item> loadWeapons(Map<Integer, Item> weaponData)
 	{
-		final List<L2Item> list = loadData(weaponData, listFiles("data/stats/weapon"));
+		final List<L2Item> list = loadData(weaponData, listFiles("data/static_data/stats/weapon"));
 		
 		Set<Integer> xmlItem = new HashSet<Integer>();
 		
@@ -105,7 +105,7 @@ public final class SkillsEngine
 	
 	public static List<L2Item> loadItems(Map<Integer, Item> itemData)
 	{
-		final List<L2Item> list = loadData(itemData, listFiles("data/stats/etcitem"));
+		final List<L2Item> list = loadData(itemData, listFiles("data/static_data/stats/etcitem"));
 		
 		Set<Integer> xmlItem = new HashSet<Integer>();
 		

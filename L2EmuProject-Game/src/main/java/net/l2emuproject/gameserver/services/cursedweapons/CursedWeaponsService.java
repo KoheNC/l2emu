@@ -85,7 +85,7 @@ public class CursedWeaponsService
 			factory.setValidating(true);
 			factory.setIgnoringComments(true);
 
-			File file = new File(Config.DATAPACK_ROOT, "data/cursedWeapons.xml");
+			File file = new File(Config.DATAPACK_ROOT, "data/static_data/cursedWeapons.xml");
 			if (!file.exists())
 				throw new IOException();
 

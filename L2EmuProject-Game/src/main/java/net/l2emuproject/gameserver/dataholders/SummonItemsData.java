@@ -12,7 +12,7 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.datatables;
+package net.l2emuproject.gameserver.dataholders;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,18 +28,17 @@ import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-
 /**
  * @author FBIagent
  * @reworked by Michiru
  */
 public class SummonItemsData
 {
-	private static final Log				_log	= LogFactory.getLog(SummonItemsData.class);
+	private static final Log						_log	= LogFactory.getLog(SummonItemsData.class);
 
 	private final FastMap<Integer, L2SummonItem>	_summonitems;
 
-	private int[] _summonItemIds;
+	private int[]									_summonItemIds;
 
 	public static SummonItemsData getInstance()
 	{
@@ -48,10 +47,10 @@ public class SummonItemsData
 
 	private SummonItemsData()
 	{
-		_summonitems	= new FastMap<Integer, L2SummonItem>();
-		Document doc	= null;
-		File file		= new File(Config.DATAPACK_ROOT, "data/summon_items.xml");
-	
+		_summonitems = new FastMap<Integer, L2SummonItem>();
+		Document doc = null;
+		File file = new File(Config.DATAPACK_ROOT, "data/static_data/summon_items.xml");
+
 		try
 		{
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -71,21 +70,24 @@ public class SummonItemsData
 						if ("item".equalsIgnoreCase(d.getNodeName()))
 						{
 							a = d.getAttributes().getNamedItem("id");
-							if (a == null) throw new Exception("Error in summon item defenition!");
+							if (a == null)
+								throw new Exception("Error in summon item defenition!");
 							itemID = Integer.parseInt(a.getNodeValue());
-							
+
 							for (Node e = d.getFirstChild(); e != null; e = e.getNextSibling())
 							{
 								if ("npcId".equalsIgnoreCase(e.getNodeName()))
 								{
 									a = e.getAttributes().getNamedItem("val");
-									if (a == null) throw new Exception("Not defined npc id for summon item id=" + itemID + "!");
+									if (a == null)
+										throw new Exception("Not defined npc id for summon item id=" + itemID + "!");
 									npcID = Integer.parseInt(a.getNodeValue());
 								}
 								else if ("summonType".equalsIgnoreCase(e.getNodeName()))
 								{
 									a = e.getAttributes().getNamedItem("val");
-									if (a == null) throw new Exception("Not defined summon type for summon item id=" + itemID + "!");
+									if (a == null)
+										throw new Exception("Not defined summon type for summon item id=" + itemID + "!");
 									summonType = Byte.parseByte(a.getNodeValue());
 								}
 							}
@@ -97,7 +99,7 @@ public class SummonItemsData
 			}
 			_summonItemIds = new int[_summonitems.size()];
 			int i = 0;
-			for(int itemId : _summonitems.keySet())
+			for (int itemId : _summonitems.keySet())
 				_summonItemIds[i++] = itemId;
 		}
 		catch (IOException e)
@@ -124,6 +126,6 @@ public class SummonItemsData
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final SummonItemsData _instance = new SummonItemsData();
+		protected static final SummonItemsData	_instance	= new SummonItemsData();
 	}
 }

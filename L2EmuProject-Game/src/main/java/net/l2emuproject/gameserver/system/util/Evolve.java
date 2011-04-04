@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.system.util;
 
+import net.l2emuproject.gameserver.dataholders.SummonItemsData;
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.datatables.SummonItemsData;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.items.L2SummonItem;
 import net.l2emuproject.gameserver.network.SystemMessageId;

@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
+import net.l2emuproject.gameserver.dataholders.TeleportData;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHallManager;
@@ -1503,7 +1503,7 @@ public class L2ClanHallManagerInstance extends L2MerchantInstance
     {
         if(_log.isDebugEnabled())
             _log.warn("doTeleport(L2Player player, int val) is called");
-        L2TeleportLocation list = TeleportDataHolder.getInstance().getTemplate(val);
+        L2TeleportLocation list = TeleportData.getInstance().getTemplate(val);
         if (list != null)
         {
 			if (player.isCombatFlagEquipped())

@@ -21,8 +21,11 @@ import java.util.Set;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.config.PersistentProperties;
-import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
-import net.l2emuproject.gameserver.dataholders.UIDataHolder;
+import net.l2emuproject.gameserver.dataholders.EnchantHPBonusData;
+import net.l2emuproject.gameserver.dataholders.EnchantItemData;
+import net.l2emuproject.gameserver.dataholders.SummonItemsData;
+import net.l2emuproject.gameserver.dataholders.TeleportData;
+import net.l2emuproject.gameserver.dataholders.UIData;
 import net.l2emuproject.gameserver.datatables.ArmorSetsTable;
 import net.l2emuproject.gameserver.datatables.AugmentationData;
 import net.l2emuproject.gameserver.datatables.BuffTemplateTable;
@@ -31,8 +34,6 @@ import net.l2emuproject.gameserver.datatables.CharTemplateTable;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.datatables.ClassBalanceTable;
 import net.l2emuproject.gameserver.datatables.DoorTable;
-import net.l2emuproject.gameserver.datatables.EnchantHPBonusData;
-import net.l2emuproject.gameserver.datatables.EnchantItemData;
 import net.l2emuproject.gameserver.datatables.ExtractableItemsData;
 import net.l2emuproject.gameserver.datatables.ExtractableSkillsData;
 import net.l2emuproject.gameserver.datatables.FishTable;
@@ -58,7 +59,6 @@ import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.datatables.StaticObjects;
-import net.l2emuproject.gameserver.datatables.SummonItemsData;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
 import net.l2emuproject.gameserver.events.custom.TvT.TvT;
 import net.l2emuproject.gameserver.events.custom.leaderboards.ArenaManager;
@@ -231,7 +231,7 @@ public class L2GameServer extends Config
 		Util.printSection("World");
 		StaticObjects.getInstance();
 		GameTimeController.getInstance();
-		TeleportDataHolder.getInstance();
+		TeleportData.getInstance();
 		BoatManager.getInstance();
 		InstanceManager.getInstance();
 		MerchantPriceConfigTable.getInstance().loadInstances();
@@ -290,7 +290,7 @@ public class L2GameServer extends Config
 		FriendListService.getInstance();
 		
 		// L2EMU_ADD
-		UIDataHolder.getInstance();
+		UIData.getInstance();
 		// L2EMU_ADD
 		
 		Util.printSection("NPCs");

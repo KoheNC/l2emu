@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
+import net.l2emuproject.gameserver.dataholders.TeleportData;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.events.global.siege.CastleManager;
 import net.l2emuproject.gameserver.events.global.siege.SiegeManager;
@@ -253,7 +253,7 @@ public class L2TeleporterInstance extends L2Npc
 
 	private void doTeleport(L2Player player, int val)
 	{
-		L2TeleportLocation list = TeleportDataHolder.getInstance().getTemplate(val);
+		L2TeleportLocation list = TeleportData.getInstance().getTemplate(val);
 		if (list != null)
 		{
 			if (isInsideZone(L2Zone.FLAG_TOWN))

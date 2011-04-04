@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.datatables.EnchantItemData;
-import net.l2emuproject.gameserver.datatables.EnchantItemData.EnchantItem;
+import net.l2emuproject.gameserver.dataholders.EnchantItemData;
+import net.l2emuproject.gameserver.dataholders.EnchantItemData.EnchantItem;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExPutEnchantSupportItemResult;
