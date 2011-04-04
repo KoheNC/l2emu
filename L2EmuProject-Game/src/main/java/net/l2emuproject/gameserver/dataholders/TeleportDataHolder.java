@@ -30,11 +30,9 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 /**
- * 
  * @author Intrepid
- *
  */
-public class TeleportDataHolder
+public final class TeleportDataHolder
 {
 	private final static Log						_log	= LogFactory.getLog(TeleportDataHolder.class);
 
@@ -52,10 +50,10 @@ public class TeleportDataHolder
 	}
 
 	public void load()
-	{	
+	{
 		Document doc = null;
-		
-		for (File f : Util.getDatapackFiles("dataholders/teleport", ".xml"))
+
+		for (File f : Util.getDatapackFiles("static_data/teleport", ".xml"))
 		{
 			int count = 0;
 			try
@@ -86,9 +84,9 @@ public class TeleportDataHolder
 	private int parseDocument(Document doc)
 	{
 		int teleportCount = 0;
-		
+
 		L2TeleportLocation teleport = new L2TeleportLocation();
-		
+
 		for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
 		{
 			if ("list".equalsIgnoreCase(n.getNodeName()))
@@ -99,7 +97,7 @@ public class TeleportDataHolder
 					{
 						NamedNodeMap attrs = d.getAttributes();
 						Node att;
-						
+
 						att = attrs.getNamedItem("id");
 						if (att == null)
 						{
@@ -107,7 +105,7 @@ public class TeleportDataHolder
 							continue;
 						}
 						teleport.setTeleId(Integer.parseInt(att.getNodeValue()));
-						
+
 						att = attrs.getNamedItem("locX");
 						if (att == null)
 						{
@@ -115,7 +113,7 @@ public class TeleportDataHolder
 							continue;
 						}
 						teleport.setLocX(Integer.parseInt(att.getNodeValue()));
-						
+
 						att = attrs.getNamedItem("locY");
 						if (att == null)
 						{
@@ -123,7 +121,7 @@ public class TeleportDataHolder
 							continue;
 						}
 						teleport.setLocY(Integer.parseInt(att.getNodeValue()));
-						
+
 						att = attrs.getNamedItem("locZ");
 						if (att == null)
 						{
@@ -131,7 +129,7 @@ public class TeleportDataHolder
 							continue;
 						}
 						teleport.setLocZ(Integer.parseInt(att.getNodeValue()));
-						
+
 						att = attrs.getNamedItem("price");
 						if (att == null)
 						{
@@ -142,7 +140,7 @@ public class TeleportDataHolder
 							teleport.setPrice(0);
 						else
 							teleport.setPrice(Integer.parseInt(att.getNodeValue()));
-						
+
 						att = attrs.getNamedItem("isNoble");
 						if (att == null)
 						{
@@ -150,15 +148,15 @@ public class TeleportDataHolder
 							continue;
 						}
 						teleport.setIsForNoble(Boolean.parseBoolean(att.getNodeValue()));
-						
+
 						_teleports.put(teleport.getTeleId(), teleport);
-						
+
 						teleportCount++;
 					}
 				}
 			}
 		}
-		
+
 		return teleportCount;
 	}
 
@@ -174,6 +172,6 @@ public class TeleportDataHolder
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final TeleportDataHolder _instance = new TeleportDataHolder();
+		protected static final TeleportDataHolder	_instance	= new TeleportDataHolder();
 	}
 }

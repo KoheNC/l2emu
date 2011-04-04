@@ -39,7 +39,7 @@ import org.xml.sax.SAXException;
  */
 public final class UIDataHolder
 {
-	private static final Log							_log				= LogFactory.getLog(UIDataHolder.class);
+	private static final Log					_log				= LogFactory.getLog(UIDataHolder.class);
 
 	private final Map<Integer, List<ActionKey>>	_storedKeys			= new FastMap<Integer, List<ActionKey>>();
 	private final Map<Integer, List<Integer>>	_storedCategories	= new FastMap<Integer, List<Integer>>();
@@ -75,7 +75,7 @@ public final class UIDataHolder
 		DocumentBuilderFactory dbfactory = DocumentBuilderFactory.newInstance();
 		dbfactory.setValidating(false);
 		dbfactory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/dataholders/ui/uicats_en.xml");
+		File file = new File(Config.DATAPACK_ROOT, "data/static_data/ui/uicats_en.xml");
 		Document doc = null;
 		if (file.exists())
 		{
@@ -105,7 +105,7 @@ public final class UIDataHolder
 						{
 							NamedNodeMap attrs = d.getAttributes();
 							Node att;
-							int cat,cmd;
+							int cat, cmd;
 							att = attrs.getNamedItem("category");
 							if (att == null)
 							{
@@ -120,7 +120,7 @@ public final class UIDataHolder
 								continue;
 							}
 							cmd = Integer.parseInt(att.getNodeValue());
-							
+
 							insertCategory(cat, cmd);
 						}
 					}
@@ -134,7 +134,7 @@ public final class UIDataHolder
 		DocumentBuilderFactory dbfactory = DocumentBuilderFactory.newInstance();
 		dbfactory.setValidating(false);
 		dbfactory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/dataholders/ui/uikeys_en.xml");
+		File file = new File(Config.DATAPACK_ROOT, "data/static_data/ui/uikeys_en.xml");
 		Document doc = null;
 		if (file.exists())
 		{
@@ -164,7 +164,7 @@ public final class UIDataHolder
 						{
 							NamedNodeMap attrs = d.getAttributes();
 							Node att;
-							int cat,cmd,key,tk1,tk2,shw;
+							int cat, cmd, key, tk1, tk2, shw;
 							att = attrs.getNamedItem("category");
 							if (att == null)
 							{
@@ -207,7 +207,7 @@ public final class UIDataHolder
 								continue;
 							}
 							shw = Integer.parseInt(att.getNodeValue());
-							
+
 							insertKey(cat, cmd, key, tk1, tk2, shw);
 						}
 					}
