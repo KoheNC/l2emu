@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<list>
-	<teleport id="70501" description="Fortress of Destruction" locX="-251426" locY="213810" locZ="-12090" price="0" isNoble="false" />
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../templates/teleport.xsd">
+	<teleport id="70501" description="Fortress of Destruction"
+		locX="-251426" locY="213810" locZ="-12090" price="0" isNoble="false" />
 </list>

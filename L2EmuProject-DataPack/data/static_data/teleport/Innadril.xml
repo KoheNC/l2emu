@@ -1,30 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<list>
-	<teleport id="2027" description="Innadril Outer -> Out" locX="116263" locY="245174" locZ="-1058" price="0" isNoble="false" />
-	<teleport id="2028" description="Innadril Outer -> In" locX="116263" locY="245750" locZ="-1058" price="0" isNoble="false" />
-	<teleport id="2029" description="Innadril Inner -> Out" locX="116021" locY="247821" locZ="-826" price="0" isNoble="false" />
-	<teleport id="2030" description="Innadril Inner -> In" locX="116021" locY="248272" locZ="-805" price="0" isNoble="false" />
-	<teleport id="13040" description="Innadril Castle -> Front Of Innadril Castle" locX="118795" locY="219276" locZ="-3611" price="0" isNoble="false" />
-	<teleport id="13041" description="Innadril Castle -> Innadril Town Square" locX="110788" locY="220506" locZ="-3697" price="0" isNoble="false" />
-	<teleport id="13042" description="Innadril Castle -> Front of the White Sands Fortress" locX="124542" locY="207762" locZ="-3240" price="0" isNoble="false" />
-	<teleport id="13043" description="Innadril Castle -> The Center of Alligator Island" locX="113708" locY="178387" locZ="-3232" price="500" isNoble="false" />
-	<teleport id="13044" description="Innadril Castle -> Field of Silence" locX="75387" locY="195263" locZ="-3000" price="500" isNoble="false" />
-	<teleport id="13045" description="Innadril Castle -> Field of Whispers" locX="97786" locY="209303" locZ="-3040" price="500" isNoble="false" />
-	<teleport id="13046" description="Innadril Castle -> Inside the Garden of Eva" locX="82693" locY="242220" locZ="-6712" price="500" isNoble="false" />
-	<teleport id="15000" description="Innadril(artifact -> out)" locX="116046" locY="247094" locZ="-930" price="0" isNoble="false" />
-	<teleport id="15001" description="Innadril(artifact -> hall)" locX="116028" locY="249163" locZ="-787" price="0" isNoble="false" />
-	<teleport id="15002" description="Innadril(artifact -> outofcastle)" locX="116373" locY="244729" locZ="-1059" price="0" isNoble="false" />
-	<teleport id="15003" description="Innadril(hall -> artifact)" locX="116028" locY="250136" locZ="-867" price="0" isNoble="false" />
-	<teleport id="15004" description="Innadril(hall -> out)" locX="116046" locY="247094" locZ="-930" price="0" isNoble="false" />
-	<teleport id="15005" description="Innadril(hall -> outofcastle)" locX="116373" locY="244729" locZ="-1059" price="0" isNoble="false" />
-	<teleport id="15006" description="Innadril(out -> artifact)" locX="116028" locY="250136" locZ="-867" price="0" isNoble="false" />
-	<teleport id="15007" description="Innadril(out -> hall)" locX="116028" locY="249163" locZ="-787" price="0" isNoble="false" />
-	<teleport id="15008" description="Innadril(out -> outofcastle)" locX="116373" locY="244729" locZ="-1059" price="0" isNoble="false" />
-	<teleport id="15009" description="Innadril(outofcastle -> artifact)" locX="116028" locY="250136" locZ="-867" price="0" isNoble="false" />
-	<teleport id="15010" description="Innadril(outofcastle -> out)" locX="116046" locY="247094" locZ="-930" price="0" isNoble="false" />
-	<teleport id="15011" description="Innadril(outofcastle -> hall)" locX="116028" locY="249163" locZ="-787" price="0" isNoble="false" />
-	<teleport id="60018" description="Innadril Throne" locX="116025" locY="249097" locZ="-787" price="0" isNoble="false" />
-	<teleport id="60019" description="Innadril Inside" locX="116026" locY="246975" locZ="-967" price="0" isNoble="false" />
-	<teleport id="60020" description="Innadril Artefacts Room" locX="116033" locY="250158" locZ="-867" price="0" isNoble="false" />
-	<teleport id="60021" description="Innadril Out of the Castle" locX="116265" locY="244631" locZ="-1057" price="0" isNoble="false" />
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../templates/teleport.xsd">
+	<teleport id="2027" description="Innadril Outer -> Out" locX="116263"
+		locY="245174" locZ="-1058" price="0" isNoble="false" />
+	<teleport id="2028" description="Innadril Outer -> In" locX="116263"
+		locY="245750" locZ="-1058" price="0" isNoble="false" />
+	<teleport id="2029" description="Innadril Inner -> Out" locX="116021"
+		locY="247821" locZ="-826" price="0" isNoble="false" />
+	<teleport id="2030" description="Innadril Inner -> In" locX="116021"
+		locY="248272" locZ="-805" price="0" isNoble="false" />
+	<teleport id="13040" description="Innadril Castle -> Front Of Innadril Castle"
+		locX="118795" locY="219276" locZ="-3611" price="0" isNoble="false" />
+	<teleport id="13041" description="Innadril Castle -> Innadril Town Square"
+		locX="110788" locY="220506" locZ="-3697" price="0" isNoble="false" />
+	<teleport id="13042"
+		description="Innadril Castle -> Front of the White Sands Fortress"
+		locX="124542" locY="207762" locZ="-3240" price="0" isNoble="false" />
+	<teleport id="13043"
+		description="Innadril Castle -> The Center of Alligator Island" locX="113708"
+		locY="178387" locZ="-3232" price="500" isNoble="false" />
+	<teleport id="13044" description="Innadril Castle -> Field of Silence"
+		locX="75387" locY="195263" locZ="-3000" price="500" isNoble="false" />
+	<teleport id="13045" description="Innadril Castle -> Field of Whispers"
+		locX="97786" locY="209303" locZ="-3040" price="500" isNoble="false" />
+	<teleport id="13046" description="Innadril Castle -> Inside the Garden of Eva"
+		locX="82693" locY="242220" locZ="-6712" price="500" isNoble="false" />
+	<teleport id="15000" description="Innadril(artifact -> out)"
+		locX="116046" locY="247094" locZ="-930" price="0" isNoble="false" />
+	<teleport id="15001" description="Innadril(artifact -> hall)"
+		locX="116028" locY="249163" locZ="-787" price="0" isNoble="false" />
+	<teleport id="15002" description="Innadril(artifact -> outofcastle)"
+		locX="116373" locY="244729" locZ="-1059" price="0" isNoble="false" />
+	<teleport id="15003" description="Innadril(hall -> artifact)"
+		locX="116028" locY="250136" locZ="-867" price="0" isNoble="false" />
+	<teleport id="15004" description="Innadril(hall -> out)" locX="116046"
+		locY="247094" locZ="-930" price="0" isNoble="false" />
+	<teleport id="15005" description="Innadril(hall -> outofcastle)"
+		locX="116373" locY="244729" locZ="-1059" price="0" isNoble="false" />
+	<teleport id="15006" description="Innadril(out -> artifact)"
+		locX="116028" locY="250136" locZ="-867" price="0" isNoble="false" />
+	<teleport id="15007" description="Innadril(out -> hall)" locX="116028"
+		locY="249163" locZ="-787" price="0" isNoble="false" />
+	<teleport id="15008" description="Innadril(out -> outofcastle)"
+		locX="116373" locY="244729" locZ="-1059" price="0" isNoble="false" />
+	<teleport id="15009" description="Innadril(outofcastle -> artifact)"
+		locX="116028" locY="250136" locZ="-867" price="0" isNoble="false" />
+	<teleport id="15010" description="Innadril(outofcastle -> out)"
+		locX="116046" locY="247094" locZ="-930" price="0" isNoble="false" />
+	<teleport id="15011" description="Innadril(outofcastle -> hall)"
+		locX="116028" locY="249163" locZ="-787" price="0" isNoble="false" />
+	<teleport id="60018" description="Innadril Throne" locX="116025"
+		locY="249097" locZ="-787" price="0" isNoble="false" />
+	<teleport id="60019" description="Innadril Inside" locX="116026"
+		locY="246975" locZ="-967" price="0" isNoble="false" />
+	<teleport id="60020" description="Innadril Artefacts Room"
+		locX="116033" locY="250158" locZ="-867" price="0" isNoble="false" />
+	<teleport id="60021" description="Innadril Out of the Castle"
+		locX="116265" locY="244631" locZ="-1057" price="0" isNoble="false" />
 </list>

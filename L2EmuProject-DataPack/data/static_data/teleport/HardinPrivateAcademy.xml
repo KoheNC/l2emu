@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<list>
-	<teleport id="52" description="Hardin's Private Academy -> Giran Town" locX="83400" locY="147943" locZ="-3404" price="4400" isNoble="false" />
-	<teleport id="53" description="Hardin's Private Academy -> Oren Town" locX="82956" locY="53162" locZ="-1495" price="6100" isNoble="false" />
-	<teleport id="54" description="Hardin's Private Academy -> Hunter's Village" locX="116819" locY="76994" locZ="-2714" price="3400" isNoble="false" />
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../templates/teleport.xsd">
+	<teleport id="52" description="Hardin's Private Academy -> Giran Town"
+		locX="83400" locY="147943" locZ="-3404" price="4400" isNoble="false" />
+	<teleport id="53" description="Hardin's Private Academy -> Oren Town"
+		locX="82956" locY="53162" locZ="-1495" price="6100" isNoble="false" />
+	<teleport id="54" description="Hardin's Private Academy -> Hunter's Village"
+		locX="116819" locY="76994" locZ="-2714" price="3400" isNoble="false" />
 </list>

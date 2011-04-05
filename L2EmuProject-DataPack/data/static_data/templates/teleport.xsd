@@ -1,0 +1,23 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="teleport" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="teleport">
+		<xs:complexType>
+			<xs:attribute name="description" use="required" />
+			<xs:attribute name="id" use="required" type="xs:integer" />
+			<xs:attribute name="isNoble" use="required" type="xs:boolean" />
+			<xs:attribute name="locX" use="required" type="xs:integer" />
+			<xs:attribute name="locY" use="required" type="xs:integer" />
+			<xs:attribute name="locZ" use="required" type="xs:integer" />
+			<xs:attribute name="price" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

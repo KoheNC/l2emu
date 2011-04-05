@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<list>
-	<teleport id="15" description="TI -> Village of Gludin" locX="-80826" locY="149775" locZ="-3043" price="18000" isNoble="false" />
-	<teleport id="29" description="TI Dungeon inside -> outside" locX="-113329" locY="235327" locZ="-3653" price="0" isNoble="false" />
-	<teleport id="30" description="TI Dungeon outside -> inside" locX="48736" locY="248463" locZ="-6162" price="0" isNoble="false" />
-	<teleport id="460" description="Talking Island -> Obelisk of Victory" locX="-99843" locY="237583" locZ="-3568" price="200" isNoble="false" />
-	<teleport id="461" description="Talking Island -> Western Territory of Talking Island (Northern Area)" locX="-102850" locY="215932" locZ="-3424" price="3000" isNoble="false" />
-	<teleport id="462" description="Talking Island -> Elven Ruins" locX="49315" locY="248452" locZ="-5960" price="2500" isNoble="false" />
-	<teleport id="463" description="Talking Island -> Singing Waterfall" locX="-113686" locY="235723" locZ="-3640" price="2300" isNoble="false" />
-	<teleport id="1001" description="TI -> Obelisk of Victory" locX="-99678" locY="237562" locZ="-3567" price="470" isNoble="false" />
-	<teleport id="1002" description="TI -> Western Territory" locX="-101294" locY="212553" locZ="-3093" price="1000" isNoble="false" />
-	<teleport id="1003" description="TI -> Elven Ruins" locX="-113329" locY="235327" locZ="-3653" price="830" isNoble="false" />
-	<teleport id="1004" description="TI -> Singing Waterfall" locX="-107456" locY="242669" locZ="-3493" price="770" isNoble="false" />
-	<teleport id="1005" description="TI -> Dark Elven Village" locX="9745" locY="15606" locZ="-4574" price="24000" isNoble="false" />
-	<teleport id="1006" description="TI -> Dwarven Village" locX="115113" locY="-178212" locZ="-901" price="46000" isNoble="false" />
-	<teleport id="1007" description="TI -> Elven Village" locX="46934" locY="51467" locZ="-2977" price="23000" isNoble="false" />
-	<teleport id="1008" description="TI -> Orc Village" locX="-44836" locY="-112524" locZ="-235" price="35000" isNoble="false" />
-	<teleport id="12055" description="Talking Village -> Kamael Village" locX="-117251" locY="46771" locZ="360" price="20000" isNoble="false" />
-	<teleport id="12120" description="Talking Island -> Airship dock" locX="-149406" locY="255247" locZ="-80" price="0" isNoble="false" />
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../templates/teleport.xsd">
+	<teleport id="15" description="TI -> Village of Gludin" locX="-80826"
+		locY="149775" locZ="-3043" price="18000" isNoble="false" />
+	<teleport id="29" description="TI Dungeon inside -> outside"
+		locX="-113329" locY="235327" locZ="-3653" price="0" isNoble="false" />
+	<teleport id="30" description="TI Dungeon outside -> inside"
+		locX="48736" locY="248463" locZ="-6162" price="0" isNoble="false" />
+	<teleport id="460" description="Talking Island -> Obelisk of Victory"
+		locX="-99843" locY="237583" locZ="-3568" price="200" isNoble="false" />
+	<teleport id="461"
+		description="Talking Island -> Western Territory of Talking Island (Northern Area)"
+		locX="-102850" locY="215932" locZ="-3424" price="3000" isNoble="false" />
+	<teleport id="462" description="Talking Island -> Elven Ruins"
+		locX="49315" locY="248452" locZ="-5960" price="2500" isNoble="false" />
+	<teleport id="463" description="Talking Island -> Singing Waterfall"
+		locX="-113686" locY="235723" locZ="-3640" price="2300" isNoble="false" />
+	<teleport id="1001" description="TI -> Obelisk of Victory"
+		locX="-99678" locY="237562" locZ="-3567" price="470" isNoble="false" />
+	<teleport id="1002" description="TI -> Western Territory"
+		locX="-101294" locY="212553" locZ="-3093" price="1000" isNoble="false" />
+	<teleport id="1003" description="TI -> Elven Ruins" locX="-113329"
+		locY="235327" locZ="-3653" price="830" isNoble="false" />
+	<teleport id="1004" description="TI -> Singing Waterfall"
+		locX="-107456" locY="242669" locZ="-3493" price="770" isNoble="false" />
+	<teleport id="1005" description="TI -> Dark Elven Village"
+		locX="9745" locY="15606" locZ="-4574" price="24000" isNoble="false" />
+	<teleport id="1006" description="TI -> Dwarven Village" locX="115113"
+		locY="-178212" locZ="-901" price="46000" isNoble="false" />
+	<teleport id="1007" description="TI -> Elven Village" locX="46934"
+		locY="51467" locZ="-2977" price="23000" isNoble="false" />
+	<teleport id="1008" description="TI -> Orc Village" locX="-44836"
+		locY="-112524" locZ="-235" price="35000" isNoble="false" />
+	<teleport id="12055" description="Talking Village -> Kamael Village"
+		locX="-117251" locY="46771" locZ="360" price="20000" isNoble="false" />
+	<teleport id="12120" description="Talking Island -> Airship dock"
+		locX="-149406" locY="255247" locZ="-80" price="0" isNoble="false" />
 </list>

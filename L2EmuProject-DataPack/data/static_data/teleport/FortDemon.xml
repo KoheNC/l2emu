@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<list>
-	<teleport id="12110" description="Demon Fort -> Fortress West Gate" locX="98920" locY="-56423" locZ="-624" price="0" isNoble="false" />
-	<teleport id="12111" description="Demon Fort -> Fortress East Gate" locX="102390" locY="-54320" locZ="-632" price="0" isNoble="false" />
-	<teleport id="12112" description="Demon Fort -> Rune Town Square" locX="43889" locY="-49101" locZ="-792" price="0" isNoble="false" />
-	<teleport id="12113" description="Demon Fort -> Goddard Town Square" locX="147728" locY="-56331" locZ="-2776" price="0" isNoble="false" />
-	<teleport id="12114" description="Demon Fort -> Swamp of Screams" locX="69340" locY="-50203" locZ="-3288" price="500" isNoble="false" />
-	<teleport id="12115" description="Demon Fort -> Valley of Saints" locX="65307" locY="-71445" locZ="-3688" price="500" isNoble="false" />
-	<teleport id="12116" description="Demon Fort -> Entrance to the Forge of the Gods" locX="169018" locY="-116303" locZ="-2432" price="500" isNoble="false" />
-	<teleport id="12117" description="Demon Fort -> Wall of Argos" locX="165054" locY="-47861" locZ="-3560" price="500" isNoble="false" />
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../templates/teleport.xsd">
+	<teleport id="12110" description="Demon Fort -> Fortress West Gate"
+		locX="98920" locY="-56423" locZ="-624" price="0" isNoble="false" />
+	<teleport id="12111" description="Demon Fort -> Fortress East Gate"
+		locX="102390" locY="-54320" locZ="-632" price="0" isNoble="false" />
+	<teleport id="12112" description="Demon Fort -> Rune Town Square"
+		locX="43889" locY="-49101" locZ="-792" price="0" isNoble="false" />
+	<teleport id="12113" description="Demon Fort -> Goddard Town Square"
+		locX="147728" locY="-56331" locZ="-2776" price="0" isNoble="false" />
+	<teleport id="12114" description="Demon Fort -> Swamp of Screams"
+		locX="69340" locY="-50203" locZ="-3288" price="500" isNoble="false" />
+	<teleport id="12115" description="Demon Fort -> Valley of Saints"
+		locX="65307" locY="-71445" locZ="-3688" price="500" isNoble="false" />
+	<teleport id="12116" description="Demon Fort -> Entrance to the Forge of the Gods"
+		locX="169018" locY="-116303" locZ="-2432" price="500" isNoble="false" />
+	<teleport id="12117" description="Demon Fort -> Wall of Argos"
+		locX="165054" locY="-47861" locZ="-3560" price="500" isNoble="false" />
 </list>

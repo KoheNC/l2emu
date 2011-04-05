@@ -1,49 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<list>
-	<teleport id="47" description="Oren Town -> Giran Town" locX="83400" locY="147943" locZ="-3404" price="9400" isNoble="false" />
-	<teleport id="48" description="Oren Town -> Ivory Tower" locX="85348" locY="16142" locZ="-3699" price="3700" isNoble="false" />
-	<teleport id="49" description="Oren Town -> Hunter's Village" locX="116819" locY="76994" locZ="-2714" price="4100" isNoble="false" />
-	<teleport id="50" description="Oren Town -> Hardin's Private Academy" locX="105918" locY="109759" locZ="-3207" price="6100" isNoble="false" />
-	<teleport id="51" description="Oren Town -> Aden Town" locX="146331" locY="25762" locZ="-2018" price="6900" isNoble="false" />
-	<teleport id="97" description="Oren -> Plains of Lizardmen" locX="87252" locY="85514" locZ="-3056" price="1900" isNoble="false" />
-	<teleport id="98" description="Oren -> Sea of Spores" locX="64328" locY="26803" locZ="-3768" price="2500" isNoble="false" />
-	<teleport id="374" description="Oren(artifact -> out)" locX="79956" locY="36351" locZ="-2532" price="0" isNoble="false" />
-	<teleport id="375" description="Oren(artifact -> hall)" locX="82113" locY="37217" locZ="-2311" price="0" isNoble="false" />
-	<teleport id="376" description="Oren(artifact -> outofcastle)" locX="78079" locY="36809" locZ="-2566" price="0" isNoble="false" />
-	<teleport id="377" description="Oren(in -> artifact)" locX="83710" locY="36713" locZ="-2375" price="0" isNoble="false" />
-	<teleport id="378" description="Oren(in -> out)" locX="79956" locY="36351" locZ="-2532" price="0" isNoble="false" />
-	<teleport id="379" description="Oren(in -> outofcastle)" locX="78079" locY="36809" locZ="-2566" price="0" isNoble="false" />
-	<teleport id="380" description="Oren(out -> artifact)" locX="83710" locY="36713" locZ="-2375" price="0" isNoble="false" />
-	<teleport id="381" description="Oren(out -> hall)" locX="82113" locY="37217" locZ="-2311" price="0" isNoble="false" />
-	<teleport id="382" description="Oren(out -> outofcastle)" locX="78079" locY="36809" locZ="-2566" price="0" isNoble="false" />
-	<teleport id="383" description="Oren(outofcastle -> artifact)" locX="83710" locY="36713" locZ="-2375" price="0" isNoble="false" />
-	<teleport id="384" description="Oren(outofcastle -> out)" locX="79956" locY="36351" locZ="-2532" price="0" isNoble="false" />
-	<teleport id="385" description="Oren(outofcastle -> hall)" locX="82113" locY="37217" locZ="-2311" price="0" isNoble="false" />
-	<teleport id="1070" description="Oren -> Rune" locX="43799" locY="-47727" locZ="-798" price="10000" isNoble="false" />
-	<teleport id="1071" description="Oren -> Goddard" locX="147928" locY="-55273" locZ="-2734" price="37000" isNoble="false" />
-	<teleport id="1072" description="Oren -> Heine" locX="111409" locY="219364" locZ="-3545" price="50000" isNoble="false" />
-	<teleport id="1073" description="Oren -> Dion" locX="15670" locY="142983" locZ="-2705" price="33000" isNoble="false" />
-	<teleport id="1074" description="Oren -> Schuttgart" locX="87386" locY="-143246" locZ="-1293" price="59000" isNoble="false" />
-	<teleport id="1075" description="Oren -> Gludio" locX="-12672" locY="122776" locZ="-3116" price="35000" isNoble="false" />
-	<teleport id="1076" description="Oren -> Skyshadow Meadow" locX="82764" locY="61145" locZ="-3502" price="780" isNoble="false" />
-	<teleport id="1077" description="Oren -> Outlaw Forest" locX="91539" locY="-12204" locZ="-2440" price="5200" isNoble="false" />
-	<teleport id="2013" description="Oren Outer -> Out" locX="78618" locY="36955" locZ="-2562" price="0" isNoble="false" />
-	<teleport id="2014" description="Oren Outer -> In" locX="79211" locY="36955" locZ="-2562" price="0" isNoble="false" />
-	<teleport id="2015" description="Oren Inner -> Out" locX="81285" locY="37190" locZ="-2337" price="0" isNoble="false" />
-	<teleport id="2016" description="Oren Inner -> In" locX="81789" locY="37190" locZ="-2306" price="0" isNoble="false" />
-	<teleport id="2069" description="Oren -> Sel Mahum Training Grounds (West Gate)" locX="76839" locY="63851" locZ="-3648" price="2400" isNoble="false" />
-	<teleport id="2070" description="Oren -> Sel Mahum Training Grounds (South Gate)" locX="79414" locY="71496" locZ="-3448" price="3700" isNoble="false" />
-	<teleport id="2071" description="Oren -> Sel Mahum Training Grounds (Center)" locX="87448" locY="61460" locZ="-3664" price="1800" isNoble="false" />
-	<teleport id="13024" description="Oren Castle -> Front Of Oren Castle" locX="81030" locY="52096" locZ="-1752" price="0" isNoble="false" />
-	<teleport id="13025" description="Oren Castle -> Oren Town Square" locX="82402" locY="53568" locZ="-1522" price="0" isNoble="false" />
-	<teleport id="13026" description="Oren Castle -> Front of the Ivory Fortress" locX="77376" locY="941" locZ="-3708" price="0" isNoble="false" />
-	<teleport id="13027" description="Oren Castle -> Front of the Antharas Fortress" locX="84942" locY="89019" locZ="-3367" price="0" isNoble="false" />
-	<teleport id="13028" description="Oren Castle -> Skyshadow Meadow" locX="89914" locY="46276" locZ="-3616" price="500" isNoble="false" />
-	<teleport id="13029" description="Oren Castle -> Plains of the Lizardmen" locX="87252" locY="85514" locZ="-3056" price="500" isNoble="false" />
-	<teleport id="13030" description="Oren Castle -> Outlaw Forest" locX="91539" locY="-12204" locZ="-2440" price="500" isNoble="false" />
-	<teleport id="13031" description="Oren Castle -> Sea of Spores" locX="64328" locY="26803" locZ="-3768" price="500" isNoble="false" />
-	<teleport id="60008" description="Oren Throne" locX="82576" locY="37189" locZ="-2290" price="0" isNoble="false" />
-	<teleport id="60009" description="Oren Inside" locX="80318" locY="37174" locZ="-2561" price="0" isNoble="false" />
-	<teleport id="60010" description="Oren Artefacts Room" locX="83638" locY="37180" locZ="-2371" price="0" isNoble="false" />
-	<teleport id="60011" description="Oren Out of the Castle" locX="78116" locY="36961" locZ="-2458" price="0" isNoble="false" />
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../templates/teleport.xsd">
+	<teleport id="47" description="Oren Town -> Giran Town" locX="83400"
+		locY="147943" locZ="-3404" price="9400" isNoble="false" />
+	<teleport id="48" description="Oren Town -> Ivory Tower" locX="85348"
+		locY="16142" locZ="-3699" price="3700" isNoble="false" />
+	<teleport id="49" description="Oren Town -> Hunter's Village"
+		locX="116819" locY="76994" locZ="-2714" price="4100" isNoble="false" />
+	<teleport id="50" description="Oren Town -> Hardin's Private Academy"
+		locX="105918" locY="109759" locZ="-3207" price="6100" isNoble="false" />
+	<teleport id="51" description="Oren Town -> Aden Town" locX="146331"
+		locY="25762" locZ="-2018" price="6900" isNoble="false" />
+	<teleport id="97" description="Oren -> Plains of Lizardmen"
+		locX="87252" locY="85514" locZ="-3056" price="1900" isNoble="false" />
+	<teleport id="98" description="Oren -> Sea of Spores" locX="64328"
+		locY="26803" locZ="-3768" price="2500" isNoble="false" />
+	<teleport id="374" description="Oren(artifact -> out)" locX="79956"
+		locY="36351" locZ="-2532" price="0" isNoble="false" />
+	<teleport id="375" description="Oren(artifact -> hall)" locX="82113"
+		locY="37217" locZ="-2311" price="0" isNoble="false" />
+	<teleport id="376" description="Oren(artifact -> outofcastle)"
+		locX="78079" locY="36809" locZ="-2566" price="0" isNoble="false" />
+	<teleport id="377" description="Oren(in -> artifact)" locX="83710"
+		locY="36713" locZ="-2375" price="0" isNoble="false" />
+	<teleport id="378" description="Oren(in -> out)" locX="79956"
+		locY="36351" locZ="-2532" price="0" isNoble="false" />
+	<teleport id="379" description="Oren(in -> outofcastle)" locX="78079"
+		locY="36809" locZ="-2566" price="0" isNoble="false" />
+	<teleport id="380" description="Oren(out -> artifact)" locX="83710"
+		locY="36713" locZ="-2375" price="0" isNoble="false" />
+	<teleport id="381" description="Oren(out -> hall)" locX="82113"
+		locY="37217" locZ="-2311" price="0" isNoble="false" />
+	<teleport id="382" description="Oren(out -> outofcastle)"
+		locX="78079" locY="36809" locZ="-2566" price="0" isNoble="false" />
+	<teleport id="383" description="Oren(outofcastle -> artifact)"
+		locX="83710" locY="36713" locZ="-2375" price="0" isNoble="false" />
+	<teleport id="384" description="Oren(outofcastle -> out)"
+		locX="79956" locY="36351" locZ="-2532" price="0" isNoble="false" />
+	<teleport id="385" description="Oren(outofcastle -> hall)"
+		locX="82113" locY="37217" locZ="-2311" price="0" isNoble="false" />
+	<teleport id="1070" description="Oren -> Rune" locX="43799"
+		locY="-47727" locZ="-798" price="10000" isNoble="false" />
+	<teleport id="1071" description="Oren -> Goddard" locX="147928"
+		locY="-55273" locZ="-2734" price="37000" isNoble="false" />
+	<teleport id="1072" description="Oren -> Heine" locX="111409"
+		locY="219364" locZ="-3545" price="50000" isNoble="false" />
+	<teleport id="1073" description="Oren -> Dion" locX="15670"
+		locY="142983" locZ="-2705" price="33000" isNoble="false" />
+	<teleport id="1074" description="Oren -> Schuttgart" locX="87386"
+		locY="-143246" locZ="-1293" price="59000" isNoble="false" />
+	<teleport id="1075" description="Oren -> Gludio" locX="-12672"
+		locY="122776" locZ="-3116" price="35000" isNoble="false" />
+	<teleport id="1076" description="Oren -> Skyshadow Meadow"
+		locX="82764" locY="61145" locZ="-3502" price="780" isNoble="false" />
+	<teleport id="1077" description="Oren -> Outlaw Forest" locX="91539"
+		locY="-12204" locZ="-2440" price="5200" isNoble="false" />
+	<teleport id="2013" description="Oren Outer -> Out" locX="78618"
+		locY="36955" locZ="-2562" price="0" isNoble="false" />
+	<teleport id="2014" description="Oren Outer -> In" locX="79211"
+		locY="36955" locZ="-2562" price="0" isNoble="false" />
+	<teleport id="2015" description="Oren Inner -> Out" locX="81285"
+		locY="37190" locZ="-2337" price="0" isNoble="false" />
+	<teleport id="2016" description="Oren Inner -> In" locX="81789"
+		locY="37190" locZ="-2306" price="0" isNoble="false" />
+	<teleport id="2069" description="Oren -> Sel Mahum Training Grounds (West Gate)"
+		locX="76839" locY="63851" locZ="-3648" price="2400" isNoble="false" />
+	<teleport id="2070" description="Oren -> Sel Mahum Training Grounds (South Gate)"
+		locX="79414" locY="71496" locZ="-3448" price="3700" isNoble="false" />
+	<teleport id="2071" description="Oren -> Sel Mahum Training Grounds (Center)"
+		locX="87448" locY="61460" locZ="-3664" price="1800" isNoble="false" />
+	<teleport id="13024" description="Oren Castle -> Front Of Oren Castle"
+		locX="81030" locY="52096" locZ="-1752" price="0" isNoble="false" />
+	<teleport id="13025" description="Oren Castle -> Oren Town Square"
+		locX="82402" locY="53568" locZ="-1522" price="0" isNoble="false" />
+	<teleport id="13026" description="Oren Castle -> Front of the Ivory Fortress"
+		locX="77376" locY="941" locZ="-3708" price="0" isNoble="false" />
+	<teleport id="13027" description="Oren Castle -> Front of the Antharas Fortress"
+		locX="84942" locY="89019" locZ="-3367" price="0" isNoble="false" />
+	<teleport id="13028" description="Oren Castle -> Skyshadow Meadow"
+		locX="89914" locY="46276" locZ="-3616" price="500" isNoble="false" />
+	<teleport id="13029" description="Oren Castle -> Plains of the Lizardmen"
+		locX="87252" locY="85514" locZ="-3056" price="500" isNoble="false" />
+	<teleport id="13030" description="Oren Castle -> Outlaw Forest"
+		locX="91539" locY="-12204" locZ="-2440" price="500" isNoble="false" />
+	<teleport id="13031" description="Oren Castle -> Sea of Spores"
+		locX="64328" locY="26803" locZ="-3768" price="500" isNoble="false" />
+	<teleport id="60008" description="Oren Throne" locX="82576"
+		locY="37189" locZ="-2290" price="0" isNoble="false" />
+	<teleport id="60009" description="Oren Inside" locX="80318"
+		locY="37174" locZ="-2561" price="0" isNoble="false" />
+	<teleport id="60010" description="Oren Artefacts Room" locX="83638"
+		locY="37180" locZ="-2371" price="0" isNoble="false" />
+	<teleport id="60011" description="Oren Out of the Castle"
+		locX="78116" locY="36961" locZ="-2458" price="0" isNoble="false" />
 </list>

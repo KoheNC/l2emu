@@ -1,52 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<list>
-	<teleport id="108" description="Goddard -> Rune Castle Village" locX="43799" locY="-47727" locZ="-798" price="10000" isNoble="false" />
-	<teleport id="109" description="Goddard -> Varka Silenos Stronghold" locX="125543" locY="-40953" locZ="-3724" price="4200" isNoble="false" />
-	<teleport id="110" description="Goddard -> Ketra Orc Outpost" locX="146954" locY="-67390" locZ="-3660" price="1800" isNoble="false" />
-	<teleport id="111" description="Goddard -> Entrance to the Forge of the Gods" locX="169178" locY="-116244" locZ="-2421" price="2300" isNoble="false" />
-	<teleport id="132" description="Goddard -> Aden Castle Town" locX="146331" locY="25762" locZ="-2018" price="8100" isNoble="false" />
-	<teleport id="1089" description="Goddard -> Gludio" locX="-12672" locY="122776" locZ="-3116" price="71000" isNoble="false" />
-	<teleport id="1090" description="Goddard -> Giran" locX="83400" locY="147943" locZ="-3404" price="63000" isNoble="false" />
-	<teleport id="1091" description="Goddard -> Dion" locX="15670" locY="142983" locZ="-2705" price="71000" isNoble="false" />
-	<teleport id="1092" description="Goddard -> Heine" locX="111409" locY="219364" locZ="-3545" price="83000" isNoble="false" />
-	<teleport id="1093" description="Goddard -> Schuttgart" locX="87386" locY="-143246" locZ="-1293" price="10000" isNoble="false" />
-	<teleport id="1094" description="Goddard -> Oren" locX="82956" locY="53162" locZ="-1495" price="37000" isNoble="false" />
-	<teleport id="1095" description="Goddard -> Hot Springs" locX="149594" locY="-112698" locZ="-2065" price="9300" isNoble="false" />
-	<teleport id="1096" description="Goddard -> Wall of Argos" locX="165054" locY="-47861" locZ="-3560" price="2200" isNoble="false" />
-	<teleport id="1097" description="Goddard -> Monastery of silence" locX="106414" locY="-87799" locZ="-2920" price="10000" isNoble="false" />
-	<teleport id="2031" description="Goddard Outer -> Out" locX="147459" locY="-45221" locZ="-2084" price="0" isNoble="false" />
-	<teleport id="2032" description="Goddard Outer -> In" locX="147459" locY="-45789" locZ="-2084" price="0" isNoble="false" />
-	<teleport id="2033" description="Goddard Inner -> Out" locX="145514" locY="-48241" locZ="-2383" price="0" isNoble="false" />
-	<teleport id="2034" description="Goddard Inner -> In" locX="146026" locY="-48241" locZ="-2383" price="0" isNoble="false" />
-	<teleport id="2035" description="Goddard Inner -> Out" locX="149430" locY="-48245" locZ="-2383" price="0" isNoble="false" />
-	<teleport id="2036" description="Goddard Inner -> In" locX="148928" locY="-48245" locZ="-2383" price="0" isNoble="false" />
-	<teleport id="2037" description="Goddard Terrace -> Out" locX="148748" locY="-48951" locZ="-687" price="0" isNoble="false" />
-	<teleport id="2038" description="Goddard Terrace -> In" locX="148736" locY="-49201" locZ="-688" price="0" isNoble="false" />
-	<teleport id="2039" description="Goddard Terrace -> Out" locX="146177" locY="-48942" locZ="-687" price="0" isNoble="false" />
-	<teleport id="2040" description="Goddard Terrace -> In" locX="146181" locY="-49209" locZ="-686" price="0" isNoble="false" />
-	<teleport id="13047" description="Goddard Castle -> Front Of Goddard Castle" locX="144253" locY="-57895" locZ="-3032" price="0" isNoble="false" />
-	<teleport id="13048" description="Goddard Castle -> Goddard Town Square" locX="147699" locY="-56530" locZ="-2807" price="0" isNoble="false" />
-	<teleport id="13049" description="Goddard Castle -> Front of the Borderland Fortress" locX="161963" locY="-74544" locZ="-3078" price="0" isNoble="false" />
-	<teleport id="13050" description="Goddard Castle -> Front of the Demon Fortress" locX="105983" locY="-59121" locZ="-1328" price="0" isNoble="false" />
-	<teleport id="13051" description="Goddard Castle -> Varka Silenos Stronghold" locX="125740" locY="-40864" locZ="-3726" price="500" isNoble="false" />
-	<teleport id="13052" description="Goddard Castle -> Ketra Orc Outpost" locX="146990" locY="-67128" locZ="-3640" price="500" isNoble="false" />
-	<teleport id="13053" description="Goddard Castle -> Hot Springs" locX="144880" locY="-113468" locZ="-2560" price="500" isNoble="false" />
-	<teleport id="13054" description="Goddard Castle -> Wall of Argos" locX="165054" locY="-47861" locZ="-3560" price="500" isNoble="false" />
-	<teleport id="15012" description="Goddard(artifact -> out)" locX="147466" locY="-48514" locZ="-2085" price="0" isNoble="false" />
-	<teleport id="15013" description="Goddard(artifact -> hall)" locX="147463" locY="-48504" locZ="-2277" price="0" isNoble="false" />
-	<teleport id="15014" description="Goddard(artifact -> outofcastle)" locX="147265" locY="-44908" locZ="-2085" price="0" isNoble="false" />
-	<teleport id="15015" description="Goddard(hall -> artifact)" locX="146165" locY="-50478" locZ="-1604" price="0" isNoble="false" />
-	<teleport id="15016" description="Goddard(hall -> out)" locX="147466" locY="-48514" locZ="-2085" price="0" isNoble="false" />
-	<teleport id="15017" description="Goddard(hall -> outofcastle)" locX="147265" locY="-44908" locZ="-2085" price="0" isNoble="false" />
-	<teleport id="15018" description="Goddard(out -> artifact)" locX="146165" locY="-50478" locZ="-1604" price="0" isNoble="false" />
-	<teleport id="15019" description="Goddard(out -> hall)" locX="147463" locY="-48504" locZ="-2277" price="0" isNoble="false" />
-	<teleport id="15020" description="Goddard(out -> outofcastle)" locX="147265" locY="-44908" locZ="-2085" price="0" isNoble="false" />
-	<teleport id="15021" description="Goddard(outofcastle -> artifact)" locX="146165" locY="-50478" locZ="-1604" price="0" isNoble="false" />
-	<teleport id="15022" description="Goddard(outofcastle -> out)" locX="147466" locY="-48514" locZ="-2085" price="0" isNoble="false" />
-	<teleport id="15023" description="Goddard(outofcastle -> hall)" locX="147463" locY="-48504" locZ="-2277" price="0" isNoble="false" />
-	<teleport id="60022" description="Goddard Throne" locX="147460" locY="-48274" locZ="-2276" price="0" isNoble="false" />
-	<teleport id="60023" description="Goddard Inside" locX="145671" locY="-46510" locZ="-1743" price="0" isNoble="false" />
-	<teleport id="60024" description="Goddard Artefacts Room" locX="148899" locY="-50461" locZ="-1603" price="0" isNoble="false" />
-	<teleport id="60025" description="Goddard Out of the Castle" locX="147482" locY="-45026" locZ="-2084" price="0" isNoble="false" />
-	<teleport id="200926" description="Goddard -> Forge of the Gods" locX="169018" locY="-116303" locZ="-2432" price="10000" isNoble="false" />
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../templates/teleport.xsd">
+	<teleport id="108" description="Goddard -> Rune Castle Village"
+		locX="43799" locY="-47727" locZ="-798" price="10000" isNoble="false" />
+	<teleport id="109" description="Goddard -> Varka Silenos Stronghold"
+		locX="125543" locY="-40953" locZ="-3724" price="4200" isNoble="false" />
+	<teleport id="110" description="Goddard -> Ketra Orc Outpost"
+		locX="146954" locY="-67390" locZ="-3660" price="1800" isNoble="false" />
+	<teleport id="111" description="Goddard -> Entrance to the Forge of the Gods"
+		locX="169178" locY="-116244" locZ="-2421" price="2300" isNoble="false" />
+	<teleport id="132" description="Goddard -> Aden Castle Town"
+		locX="146331" locY="25762" locZ="-2018" price="8100" isNoble="false" />
+	<teleport id="1089" description="Goddard -> Gludio" locX="-12672"
+		locY="122776" locZ="-3116" price="71000" isNoble="false" />
+	<teleport id="1090" description="Goddard -> Giran" locX="83400"
+		locY="147943" locZ="-3404" price="63000" isNoble="false" />
+	<teleport id="1091" description="Goddard -> Dion" locX="15670"
+		locY="142983" locZ="-2705" price="71000" isNoble="false" />
+	<teleport id="1092" description="Goddard -> Heine" locX="111409"
+		locY="219364" locZ="-3545" price="83000" isNoble="false" />
+	<teleport id="1093" description="Goddard -> Schuttgart" locX="87386"
+		locY="-143246" locZ="-1293" price="10000" isNoble="false" />
+	<teleport id="1094" description="Goddard -> Oren" locX="82956"
+		locY="53162" locZ="-1495" price="37000" isNoble="false" />
+	<teleport id="1095" description="Goddard -> Hot Springs" locX="149594"
+		locY="-112698" locZ="-2065" price="9300" isNoble="false" />
+	<teleport id="1096" description="Goddard -> Wall of Argos"
+		locX="165054" locY="-47861" locZ="-3560" price="2200" isNoble="false" />
+	<teleport id="1097" description="Goddard -> Monastery of silence"
+		locX="106414" locY="-87799" locZ="-2920" price="10000" isNoble="false" />
+	<teleport id="2031" description="Goddard Outer -> Out" locX="147459"
+		locY="-45221" locZ="-2084" price="0" isNoble="false" />
+	<teleport id="2032" description="Goddard Outer -> In" locX="147459"
+		locY="-45789" locZ="-2084" price="0" isNoble="false" />
+	<teleport id="2033" description="Goddard Inner -> Out" locX="145514"
+		locY="-48241" locZ="-2383" price="0" isNoble="false" />
+	<teleport id="2034" description="Goddard Inner -> In" locX="146026"
+		locY="-48241" locZ="-2383" price="0" isNoble="false" />
+	<teleport id="2035" description="Goddard Inner -> Out" locX="149430"
+		locY="-48245" locZ="-2383" price="0" isNoble="false" />
+	<teleport id="2036" description="Goddard Inner -> In" locX="148928"
+		locY="-48245" locZ="-2383" price="0" isNoble="false" />
+	<teleport id="2037" description="Goddard Terrace -> Out" locX="148748"
+		locY="-48951" locZ="-687" price="0" isNoble="false" />
+	<teleport id="2038" description="Goddard Terrace -> In" locX="148736"
+		locY="-49201" locZ="-688" price="0" isNoble="false" />
+	<teleport id="2039" description="Goddard Terrace -> Out" locX="146177"
+		locY="-48942" locZ="-687" price="0" isNoble="false" />
+	<teleport id="2040" description="Goddard Terrace -> In" locX="146181"
+		locY="-49209" locZ="-686" price="0" isNoble="false" />
+	<teleport id="13047" description="Goddard Castle -> Front Of Goddard Castle"
+		locX="144253" locY="-57895" locZ="-3032" price="0" isNoble="false" />
+	<teleport id="13048" description="Goddard Castle -> Goddard Town Square"
+		locX="147699" locY="-56530" locZ="-2807" price="0" isNoble="false" />
+	<teleport id="13049"
+		description="Goddard Castle -> Front of the Borderland Fortress" locX="161963"
+		locY="-74544" locZ="-3078" price="0" isNoble="false" />
+	<teleport id="13050" description="Goddard Castle -> Front of the Demon Fortress"
+		locX="105983" locY="-59121" locZ="-1328" price="0" isNoble="false" />
+	<teleport id="13051" description="Goddard Castle -> Varka Silenos Stronghold"
+		locX="125740" locY="-40864" locZ="-3726" price="500" isNoble="false" />
+	<teleport id="13052" description="Goddard Castle -> Ketra Orc Outpost"
+		locX="146990" locY="-67128" locZ="-3640" price="500" isNoble="false" />
+	<teleport id="13053" description="Goddard Castle -> Hot Springs"
+		locX="144880" locY="-113468" locZ="-2560" price="500" isNoble="false" />
+	<teleport id="13054" description="Goddard Castle -> Wall of Argos"
+		locX="165054" locY="-47861" locZ="-3560" price="500" isNoble="false" />
+	<teleport id="15012" description="Goddard(artifact -> out)"
+		locX="147466" locY="-48514" locZ="-2085" price="0" isNoble="false" />
+	<teleport id="15013" description="Goddard(artifact -> hall)"
+		locX="147463" locY="-48504" locZ="-2277" price="0" isNoble="false" />
+	<teleport id="15014" description="Goddard(artifact -> outofcastle)"
+		locX="147265" locY="-44908" locZ="-2085" price="0" isNoble="false" />
+	<teleport id="15015" description="Goddard(hall -> artifact)"
+		locX="146165" locY="-50478" locZ="-1604" price="0" isNoble="false" />
+	<teleport id="15016" description="Goddard(hall -> out)" locX="147466"
+		locY="-48514" locZ="-2085" price="0" isNoble="false" />
+	<teleport id="15017" description="Goddard(hall -> outofcastle)"
+		locX="147265" locY="-44908" locZ="-2085" price="0" isNoble="false" />
+	<teleport id="15018" description="Goddard(out -> artifact)"
+		locX="146165" locY="-50478" locZ="-1604" price="0" isNoble="false" />
+	<teleport id="15019" description="Goddard(out -> hall)" locX="147463"
+		locY="-48504" locZ="-2277" price="0" isNoble="false" />
+	<teleport id="15020" description="Goddard(out -> outofcastle)"
+		locX="147265" locY="-44908" locZ="-2085" price="0" isNoble="false" />
+	<teleport id="15021" description="Goddard(outofcastle -> artifact)"
+		locX="146165" locY="-50478" locZ="-1604" price="0" isNoble="false" />
+	<teleport id="15022" description="Goddard(outofcastle -> out)"
+		locX="147466" locY="-48514" locZ="-2085" price="0" isNoble="false" />
+	<teleport id="15023" description="Goddard(outofcastle -> hall)"
+		locX="147463" locY="-48504" locZ="-2277" price="0" isNoble="false" />
+	<teleport id="60022" description="Goddard Throne" locX="147460"
+		locY="-48274" locZ="-2276" price="0" isNoble="false" />
+	<teleport id="60023" description="Goddard Inside" locX="145671"
+		locY="-46510" locZ="-1743" price="0" isNoble="false" />
+	<teleport id="60024" description="Goddard Artefacts Room"
+		locX="148899" locY="-50461" locZ="-1603" price="0" isNoble="false" />
+	<teleport id="60025" description="Goddard Out of the Castle"
+		locX="147482" locY="-45026" locZ="-2084" price="0" isNoble="false" />
+	<teleport id="200926" description="Goddard -> Forge of the Gods"
+		locX="169018" locY="-116303" locZ="-2432" price="10000" isNoble="false" />
 </list>

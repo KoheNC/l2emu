@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<list>
-	<teleport id="12140" description="Monastic Fort -> Fortress North Gate" locX="72388" locY="-96770" locZ="-1424" price="0" isNoble="false" />
-	<teleport id="12141" description="Monastic Fort -> Fortress South Gate" locX="71937" locY="-92600" locZ="-1416" price="0" isNoble="false" />
-	<teleport id="12142" description="Monastic Fort -> Rune Town Square" locX="43889" locY="-49101" locZ="-792" price="0" isNoble="false" />
-	<teleport id="12143" description="Monastic Fort -> Schuttgart Town Square" locX="87379" locY="-142322" locZ="-1336" price="0" isNoble="false" />
-	<teleport id="12144" description="Monastic Fort -> Swamp of Screams" locX="69340" locY="-50203" locZ="-3288" price="500" isNoble="false" />
-	<teleport id="12145" description="Monastic Fort -> Valley of Saints" locX="65307" locY="-71445" locZ="-3688" price="500" isNoble="false" />
-	<teleport id="12146" description="Monastic Fort -> Den of Evil" locX="68693" locY="-110438" locZ="-1904" price="500" isNoble="false" />
-	<teleport id="12147" description="Monastic Fort -> Frozen Labyrinth" locX="113910" locY="-108732" locZ="-848" price="500" isNoble="false" />
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../templates/teleport.xsd">
+	<teleport id="12140" description="Monastic Fort -> Fortress North Gate"
+		locX="72388" locY="-96770" locZ="-1424" price="0" isNoble="false" />
+	<teleport id="12141" description="Monastic Fort -> Fortress South Gate"
+		locX="71937" locY="-92600" locZ="-1416" price="0" isNoble="false" />
+	<teleport id="12142" description="Monastic Fort -> Rune Town Square"
+		locX="43889" locY="-49101" locZ="-792" price="0" isNoble="false" />
+	<teleport id="12143" description="Monastic Fort -> Schuttgart Town Square"
+		locX="87379" locY="-142322" locZ="-1336" price="0" isNoble="false" />
+	<teleport id="12144" description="Monastic Fort -> Swamp of Screams"
+		locX="69340" locY="-50203" locZ="-3288" price="500" isNoble="false" />
+	<teleport id="12145" description="Monastic Fort -> Valley of Saints"
+		locX="65307" locY="-71445" locZ="-3688" price="500" isNoble="false" />
+	<teleport id="12146" description="Monastic Fort -> Den of Evil"
+		locX="68693" locY="-110438" locZ="-1904" price="500" isNoble="false" />
+	<teleport id="12147" description="Monastic Fort -> Frozen Labyrinth"
+		locX="113910" locY="-108732" locZ="-848" price="500" isNoble="false" />
 </list>
