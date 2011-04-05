@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<list>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../templates/enchantItemData.xsd">
 	<!-- Scroll: Enchant Weapon (A) -->
 	<scrolls id="729" isWeapon="true" isBlessed="false" isSafe="false"
 		grade="4" maxEnchant="0" chance="66" />

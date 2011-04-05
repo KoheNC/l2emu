@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="scrolls" />
+				<xs:element maxOccurs="unbounded" ref="supports" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="scrolls">
+		<xs:complexType>
+			<xs:attribute name="allowedItemID" type="xs:integer" />
+			<xs:attribute name="chance" use="required" type="xs:integer" />
+			<xs:attribute name="grade" use="required" type="xs:integer" />
+			<xs:attribute name="id" use="required" type="xs:integer" />
+			<xs:attribute name="isBlessed" use="required" type="xs:boolean" />
+			<xs:attribute name="isSafe" use="required" type="xs:boolean" />
+			<xs:attribute name="isWeapon" use="required" type="xs:boolean" />
+			<xs:attribute name="maxEnchant" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="supports">
+		<xs:complexType>
+			<xs:attribute name="chance" use="required" type="xs:integer" />
+			<xs:attribute name="grade" use="required" type="xs:integer" />
+			<xs:attribute name="id" use="required" type="xs:integer" />
+			<xs:attribute name="isWeapon" use="required" type="xs:boolean" />
+			<xs:attribute name="maxEnchant" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
