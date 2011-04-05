@@ -59,7 +59,7 @@ public final class TeleportData
 			try
 			{
 				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-				factory.setValidating(true);
+				factory.setValidating(false);
 				factory.setIgnoringComments(true);
 				doc = factory.newDocumentBuilder().parse(f);
 			}
