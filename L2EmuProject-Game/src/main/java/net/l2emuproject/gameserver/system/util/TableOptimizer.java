@@ -161,6 +161,8 @@ public final class TableOptimizer
 		new CharacterRelatedTable("character_subclass_certification", "charId");
 		new CharacterRelatedTable("character_subclasses", "charId");
 		new CharacterRelatedTable("character_tpbookmark", "charId");
+		new CharacterRelatedTable("character_ui_actions", "charId");
+		new CharacterRelatedTable("character_ui_categories", "charId");
 		new CharacterRelatedTable("couples", "player1Id");
 		new CharacterRelatedTable("couples", "player2Id");
 		new CharacterRelatedTable("heroes", "charId");
