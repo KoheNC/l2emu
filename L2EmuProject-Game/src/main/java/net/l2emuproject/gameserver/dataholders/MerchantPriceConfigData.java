@@ -83,7 +83,7 @@ public class MerchantPriceConfigData implements InstanceListManager
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(true);
 		factory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/static_data/merchant/" + MPCS_FILE);
+		File file = new File(Config.DATAPACK_ROOT, "data/merchant/" + MPCS_FILE);
 		if (file.exists())
 		{
 			int defaultPriceConfigId;

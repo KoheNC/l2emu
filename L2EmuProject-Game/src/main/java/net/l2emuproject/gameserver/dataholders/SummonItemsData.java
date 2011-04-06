@@ -49,7 +49,7 @@ public class SummonItemsData
 	{
 		_summonitems = new FastMap<Integer, L2SummonItem>();
 		Document doc = null;
-		File file = new File(Config.DATAPACK_ROOT, "data/static_data/summon_data/summon_items.xml");
+		File file = new File(Config.DATAPACK_ROOT, "data/summon_data/summon_items.xml");
 
 		try
 		{

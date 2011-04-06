@@ -75,7 +75,7 @@ public final class UIData
 		DocumentBuilderFactory dbfactory = DocumentBuilderFactory.newInstance();
 		dbfactory.setValidating(false);
 		dbfactory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/static_data/ui/uicats_en.xml");
+		File file = new File(Config.DATAPACK_ROOT, "data/ui/uicats_en.xml");
 		Document doc = null;
 		if (file.exists())
 		{
@@ -134,7 +134,7 @@ public final class UIData
 		DocumentBuilderFactory dbfactory = DocumentBuilderFactory.newInstance();
 		dbfactory.setValidating(false);
 		dbfactory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/static_data/ui/uikeys_en.xml");
+		File file = new File(Config.DATAPACK_ROOT, "data/ui/uikeys_en.xml");
 		Document doc = null;
 		if (file.exists())
 		{

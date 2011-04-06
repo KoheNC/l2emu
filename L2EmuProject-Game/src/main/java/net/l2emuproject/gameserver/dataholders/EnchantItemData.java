@@ -60,7 +60,7 @@ public final class EnchantItemData
 		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(false);
 		factory.setIgnoringComments(true);
-		final File file = new File(Config.DATAPACK_ROOT, "data/static_data/enchant/enchantItemData.xml");
+		final File file = new File(Config.DATAPACK_ROOT, "data/enchant/enchantItemData.xml");
 		Document doc = null;
 		if (file.exists())
 		{

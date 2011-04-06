@@ -81,7 +81,7 @@ public final class MapRegionManager
 	
 	private void load()
 	{
-		for (File xml : Util.getDatapackFiles("static_data/mapregion", ".xml"))
+		for (File xml : Util.getDatapackFiles("mapregion", ".xml"))
 		{
 			Document doc = null;
 			

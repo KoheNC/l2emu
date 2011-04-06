@@ -664,7 +664,7 @@ public final class L2Multisell
 	
 	private void parse()
 	{
-		for (File f : Util.getDatapackFiles("static_data/multisell", ".xml"))
+		for (File f : Util.getDatapackFiles("multisell", ".xml"))
 		{
 			try
 			{

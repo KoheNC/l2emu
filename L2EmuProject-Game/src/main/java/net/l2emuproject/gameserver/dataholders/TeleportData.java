@@ -53,7 +53,7 @@ public final class TeleportData
 	{
 		Document doc = null;
 
-		for (File f : Util.getDatapackFiles("static_data/teleport", ".xml"))
+		for (File f : Util.getDatapackFiles("teleport", ".xml"))
 		{
 			int count = 0;
 			try
