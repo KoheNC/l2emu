@@ -25,6 +25,7 @@ import javolution.util.FastList;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.LoginServerThread;
 import net.l2emuproject.gameserver.LoginServerThread.SessionKey;
+import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.network.clientpackets.L2GameClientPacket;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
@@ -316,6 +317,8 @@ public final class L2GameClient extends MMOConnection<L2GameClient, L2GameClient
 			statement.setInt(1, objid);
 			statement.execute();
 			statement.close();
+			
+			CharNameTable.getInstance().removeCharInfoByObjId(objid);
 		}
 		catch (Exception e)
 		{

@@ -239,6 +239,11 @@ public final class CharNameTable
 		}
 	}
 	
+	public void removeCharInfoByObjId(int objid) {
+		_mapByName.remove(getNameByObjectId(objid).toLowerCase());
+		_mapByObjectId.remove(objid);
+	}
+	
 	public final boolean doesCharNameExist(String name)
 	{
 		return getObjectIdByName(name) != null;
