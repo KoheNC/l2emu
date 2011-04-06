@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.dataholders.TeleportData;
+import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.system.restriction.AvailableRestriction;
 import net.l2emuproject.gameserver.system.restriction.ObjectRestrictions;
@@ -73,7 +73,7 @@ public final class L2SiegeTeleporterInstance extends L2Npc
 			}
 			if (where == -1 || player.isAlikeDead())
 				return;
-			L2TeleportLocation list = TeleportData.getInstance().getTemplate(where);
+			L2TeleportLocation list = TeleportDataHolder.getInstance().getTemplate(where);
 			player.teleToLocation(list.getLocX(), list.getLocY(), list.getLocZ(), true);
 		}
 	}

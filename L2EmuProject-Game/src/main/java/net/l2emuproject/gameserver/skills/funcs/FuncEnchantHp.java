@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.skills.funcs;
 
-import net.l2emuproject.gameserver.dataholders.EnchantHPBonusData;
+import net.l2emuproject.gameserver.dataholders.EnchantHPBonusDataHolder;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.Stats;
@@ -36,6 +36,6 @@ public final class FuncEnchantHp extends Func
 		final L2ItemInstance item = (L2ItemInstance)funcOwner;
 		
 		if (item.getEnchantLevel() > 0)
-			env.setValue(env.getValue() + EnchantHPBonusData.getInstance().getHPBonus(item));
+			env.setValue(env.getValue() + EnchantHPBonusDataHolder.getInstance().getHPBonus(item));
 	}
 }

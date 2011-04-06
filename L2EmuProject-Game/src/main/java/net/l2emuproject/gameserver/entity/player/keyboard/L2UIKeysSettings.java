@@ -20,7 +20,7 @@ import java.sql.ResultSet;
 import java.util.List;
 import java.util.Map;
 
-import net.l2emuproject.gameserver.dataholders.UIData;
+import net.l2emuproject.gameserver.dataholders.UIDataHolder;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.util.SingletonList;
@@ -190,7 +190,7 @@ public final class L2UIKeysSettings
 		}
 
 		if (_storedCategories.size() < 1)
-			_storedCategories = UIData.getInstance().getCategories();
+			_storedCategories = UIDataHolder.getInstance().getCategories();
 	}
 
 	public final void getKeysFromDB()
@@ -232,7 +232,7 @@ public final class L2UIKeysSettings
 		}
 
 		if (_storedKeys.size() < 1)
-			_storedKeys = UIData.getInstance().getKeys();
+			_storedKeys = UIDataHolder.getInstance().getKeys();
 	}
 
 	public final void insertCategory(final int cat, final int cmd)

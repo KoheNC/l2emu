@@ -40,20 +40,20 @@ import org.xml.sax.SAXException;
 /**
  * @author MrPoke
  */
-public final class EnchantItemData
+public final class EnchantItemDataHolder
 {
-	private final static Log					_log				= LogFactory.getLog(EnchantItemData.class);
+	private final static Log					_log				= LogFactory.getLog(EnchantItemDataHolder.class);
 
 	private final LookupTable<EnchantScroll>	_scrolls			= new LookupTable<EnchantScroll>();
 	private final LookupTable<EnchantItem>		_supports			= new LookupTable<EnchantItem>();
 	private final Vector<Integer>				_enchantBlackList	= new Vector<Integer>();
 
-	public static final EnchantItemData getInstance()
+	public static final EnchantItemDataHolder getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 
-	private EnchantItemData()
+	private EnchantItemDataHolder()
 	{
 		if (Config.ENCHANT_BLACK_LIST != "0" || Config.ENCHANT_BLACK_LIST != "")
 			setEnchantBlackList();
@@ -462,6 +462,6 @@ public final class EnchantItemData
 	@SuppressWarnings("synthetic-access")
 	private static final class SingletonHolder
 	{
-		private static final EnchantItemData	_instance	= new EnchantItemData();
+		private static final EnchantItemDataHolder	_instance	= new EnchantItemDataHolder();
 	}
 }

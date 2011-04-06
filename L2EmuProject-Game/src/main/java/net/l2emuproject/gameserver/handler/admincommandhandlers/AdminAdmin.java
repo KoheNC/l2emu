@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Config;
-import net.l2emuproject.gameserver.dataholders.TeleportData;
+import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.datatables.ClassBalanceTable;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.GmListTable;
@@ -316,7 +316,7 @@ public class AdminAdmin implements IAdminCommandHandler
 				}
 				else if (type.startsWith("teleport"))
 				{
-					TeleportData.getInstance().load();
+					TeleportDataHolder.getInstance().load();
 					activeChar.sendMessage("Teleport location table reloaded");
 				}
 				else if (type.startsWith("skill"))

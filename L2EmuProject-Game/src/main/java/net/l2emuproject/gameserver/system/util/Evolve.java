@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.system.util;
 
-import net.l2emuproject.gameserver.dataholders.SummonItemsData;
+import net.l2emuproject.gameserver.dataholders.SummonItemsDataHolder;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.items.L2SummonItem;
@@ -55,7 +55,7 @@ public final class Evolve
 		int oldY = currentPet.getY();
 		int oldZ = currentPet.getZ();
 
-		L2SummonItem olditem = SummonItemsData.getInstance().getSummonItem(itemIdtake);
+		L2SummonItem olditem = SummonItemsDataHolder.getInstance().getSummonItem(itemIdtake);
 
 		if (olditem == null)
 			return false;
@@ -65,7 +65,7 @@ public final class Evolve
 		if (currentPet.getStat().getLevel() < petminlvl || currentPet.getNpcId() != oldnpcID)
 			return false;
 
-		L2SummonItem sitem = SummonItemsData.getInstance().getSummonItem(itemIdgive);
+		L2SummonItem sitem = SummonItemsDataHolder.getInstance().getSummonItem(itemIdgive);
 
 		if (sitem == null)
 			return false;

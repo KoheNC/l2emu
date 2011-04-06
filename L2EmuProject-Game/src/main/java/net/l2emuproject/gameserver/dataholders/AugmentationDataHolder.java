@@ -43,11 +43,11 @@ import org.w3c.dom.Node;
  * @author  durgus
  * edited by Gigiikun
  */
-public final class AugmentationData
+public final class AugmentationDataHolder
 {
-	private final static Log	_log	= LogFactory.getLog(AugmentationData.class);
+	private final static Log	_log	= LogFactory.getLog(AugmentationDataHolder.class);
 
-	public static final AugmentationData getInstance()
+	public static final AugmentationDataHolder getInstance()
 	{
 		return SingletonHolder._instance;
 	}
@@ -116,7 +116,7 @@ public final class AugmentationData
 
 	// =========================================================
 	// Constructor
-	private AugmentationData()
+	private AugmentationDataHolder()
 	{
 		_log.info(getClass().getSimpleName() + " : Initialized.");
 
@@ -884,6 +884,6 @@ public final class AugmentationData
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final AugmentationData	_instance	= new AugmentationData();
+		protected static final AugmentationDataHolder	_instance	= new AugmentationDataHolder();
 	}
 }

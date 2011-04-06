@@ -95,31 +95,6 @@ public class SkillTreeTable
 		_log.fatal("Expertise not found for grade " + grade);
 		return 0;
 	}
-
-	/**
-	 * Each class receives new skill on certain levels, this methods allow the
-	 * retrieval of the minimun character level of given class required to learn
-	 * a given skill
-	 * 
-	 * @param skillId The iD of the skill
-	 * @param classID The classId of the character
-	 * @param skillLvl The SkillLvl
-	 * @return The min level
-	 */
-	@Deprecated
-	public int getMinSkillLevel(int skillId, ClassId classId, int skillLvl)
-	{
-		final Map<Integer, L2SkillLearn> map = getSkillTrees()[classId.ordinal()];
-
-		final int skillHashCode = SkillTable.getSkillUID(skillId, skillLvl);
-
-		if (map.containsKey(skillHashCode))
-		{
-			return map.get(skillHashCode).getMinLevel();
-		}
-
-		return 0;
-	}
 	
 	public int getMinSkillLevel(int skillId, int skillLvl)
 	{

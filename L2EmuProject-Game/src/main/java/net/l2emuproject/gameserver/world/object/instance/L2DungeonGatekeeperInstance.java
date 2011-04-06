@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.world.object.instance;
 
 import java.util.StringTokenizer;
 
-import net.l2emuproject.gameserver.dataholders.TeleportData;
+import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ActionFailed;
@@ -142,7 +142,7 @@ public class L2DungeonGatekeeperInstance extends L2Npc
 
 	private void doTeleport(L2Player player, int val)
 	{
-		L2TeleportLocation list = TeleportData.getInstance().getTemplate(val);
+		L2TeleportLocation list = TeleportDataHolder.getInstance().getTemplate(val);
 		if (list != null)
 		{
 			if (player.isAlikeDead())

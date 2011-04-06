@@ -39,11 +39,11 @@ import org.w3c.dom.Node;
 /**
  * @author MrPoke
  */
-public final class EnchantHPBonusData
+public final class EnchantHPBonusDataHolder
 {
-	private static final Log	_log	= LogFactory.getLog(EnchantHPBonusData.class);
+	private static final Log	_log	= LogFactory.getLog(EnchantHPBonusDataHolder.class);
 
-	public static EnchantHPBonusData getInstance()
+	public static EnchantHPBonusDataHolder getInstance()
 	{
 		return SingletonHolder._instance;
 	}
@@ -51,7 +51,7 @@ public final class EnchantHPBonusData
 	private final LookupTable<Integer[]>	_singleArmorHPBonus	= new LookupTable<Integer[]>();
 	private final LookupTable<Integer[]>	_fullArmorHPBonus	= new LookupTable<Integer[]>();
 
-	private EnchantHPBonusData()
+	private EnchantHPBonusDataHolder()
 	{
 		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(true);
@@ -200,6 +200,6 @@ public final class EnchantHPBonusData
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final EnchantHPBonusData	_instance	= new EnchantHPBonusData();
+		protected static final EnchantHPBonusDataHolder	_instance	= new EnchantHPBonusDataHolder();
 	}
 }

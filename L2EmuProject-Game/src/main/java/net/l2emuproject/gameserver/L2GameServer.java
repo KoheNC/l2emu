@@ -21,13 +21,13 @@ import java.util.Set;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.config.PersistentProperties;
-import net.l2emuproject.gameserver.dataholders.AugmentationData;
-import net.l2emuproject.gameserver.dataholders.EnchantHPBonusData;
-import net.l2emuproject.gameserver.dataholders.EnchantItemData;
-import net.l2emuproject.gameserver.dataholders.MerchantPriceConfigData;
-import net.l2emuproject.gameserver.dataholders.SummonItemsData;
-import net.l2emuproject.gameserver.dataholders.TeleportData;
-import net.l2emuproject.gameserver.dataholders.UIData;
+import net.l2emuproject.gameserver.dataholders.AugmentationDataHolder;
+import net.l2emuproject.gameserver.dataholders.EnchantHPBonusDataHolder;
+import net.l2emuproject.gameserver.dataholders.EnchantItemDataHolder;
+import net.l2emuproject.gameserver.dataholders.MerchantPriceConfigDataHolder;
+import net.l2emuproject.gameserver.dataholders.SummonItemsDataHolder;
+import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
+import net.l2emuproject.gameserver.dataholders.UIDataHolder;
 import net.l2emuproject.gameserver.datatables.ArmorSetsTable;
 import net.l2emuproject.gameserver.datatables.BuffTemplateTable;
 import net.l2emuproject.gameserver.datatables.CharNameTable;
@@ -231,10 +231,10 @@ public class L2GameServer extends Config
 		Util.printSection("World");
 		StaticObjects.getInstance();
 		GameTimeController.getInstance();
-		TeleportData.getInstance();
+		TeleportDataHolder.getInstance();
 		BoatManager.getInstance();
 		InstanceManager.getInstance();
-		MerchantPriceConfigData.getInstance().loadInstances();
+		MerchantPriceConfigDataHolder.getInstance().loadInstances();
 		
 		Util.printSection("TaskManagers");
 		AttackStanceTaskManager.getInstance();
@@ -257,13 +257,13 @@ public class L2GameServer extends Config
 		Class.forName(ShotTable.class.getName());
 		ItemTable.getInstance();
 		ArmorSetsTable.getInstance();
-		AugmentationData.getInstance();
+		AugmentationDataHolder.getInstance();
 		SkillSpellbookTable.getInstance();
-		SummonItemsData.getInstance();
+		SummonItemsDataHolder.getInstance();
 		ExtractableItemsData.getInstance();
 		ExtractableSkillsData.getInstance();
-		EnchantHPBonusData.getInstance();
-		EnchantItemData.getInstance();
+		EnchantHPBonusDataHolder.getInstance();
+		EnchantItemDataHolder.getInstance();
 		L2Multisell.getInstance();
 		if (Config.ALLOW_FISHING)
 			FishTable.getInstance();
@@ -290,7 +290,7 @@ public class L2GameServer extends Config
 		FriendListService.getInstance();
 		
 		// L2EMU_ADD
-		UIData.getInstance();
+		UIDataHolder.getInstance();
 		// L2EMU_ADD
 		
 		Util.printSection("NPCs");
@@ -432,7 +432,7 @@ public class L2GameServer extends Config
 		if (Config.FISHERMAN_ENABLED)
 			FishermanManager.getInstance().engineInit();
 		
-		MerchantPriceConfigData.getInstance().updateReferences();
+		MerchantPriceConfigDataHolder.getInstance().updateReferences();
 		CastleManager.getInstance().activateInstances();
 		FortManager.getInstance().activateInstances();
 		

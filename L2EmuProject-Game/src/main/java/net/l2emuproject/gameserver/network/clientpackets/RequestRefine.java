@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.dataholders.AugmentationData;
+import net.l2emuproject.gameserver.dataholders.AugmentationDataHolder;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExVariationResult;
@@ -88,7 +88,7 @@ public final class RequestRefine extends AbstractRefinePacket
 		if (!activeChar.destroyItem("RequestRefine", gemStoneItem, getGemStoneCount(targetItem.getItem().getItemGrade(), lifeStoneGrade), null, false))
 			return;
 
-		final L2Augmentation aug = AugmentationData.getInstance()
+		final L2Augmentation aug = AugmentationDataHolder.getInstance()
 				.generateRandomAugmentation(lifeStoneLevel, lifeStoneGrade, targetItem.getItem().getBodyPart());
 		targetItem.setAugmentation(aug);
 

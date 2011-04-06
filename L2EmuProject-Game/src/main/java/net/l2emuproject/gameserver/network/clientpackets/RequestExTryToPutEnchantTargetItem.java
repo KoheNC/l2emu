@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.dataholders.EnchantItemData;
-import net.l2emuproject.gameserver.dataholders.EnchantItemData.EnchantScroll;
+import net.l2emuproject.gameserver.dataholders.EnchantItemDataHolder;
+import net.l2emuproject.gameserver.dataholders.EnchantItemDataHolder.EnchantScroll;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExPutEnchantTargetItemResult;
@@ -75,7 +75,7 @@ public class RequestExTryToPutEnchantTargetItem extends L2GameClientPacket
 		}
 
 		// template for scroll
-		EnchantItemData enchantData = EnchantItemData.getInstance();
+		EnchantItemDataHolder enchantData = EnchantItemDataHolder.getInstance();
 		EnchantScroll scrollTemplate = enchantData.getEnchantScroll(scroll);
 		if (!scrollTemplate.isValid(item) || !enchantData.isEnchantable(activeChar, item))
 		{

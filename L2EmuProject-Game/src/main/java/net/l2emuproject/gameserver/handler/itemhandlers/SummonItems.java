@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.handler.itemhandlers;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.dataholders.SummonItemsData;
+import net.l2emuproject.gameserver.dataholders.SummonItemsDataHolder;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHallManager;
@@ -65,7 +65,7 @@ public class SummonItems implements IItemHandler
 		if (activeChar.isAllSkillsDisabled() || activeChar.isCastingNow())
 			return;
 
-		final L2SummonItem sitem = SummonItemsData.getInstance().getSummonItem(item.getItemId());
+		final L2SummonItem sitem = SummonItemsDataHolder.getInstance().getSummonItem(item.getItemId());
 
 		if ((activeChar.getPet() != null || activeChar.isMounted()) && sitem.isPetSummon())
 		{
@@ -286,6 +286,6 @@ public class SummonItems implements IItemHandler
 	@Override
 	public int[] getItemIds()
 	{
-		return SummonItemsData.getInstance().itemIDs();
+		return SummonItemsDataHolder.getInstance().itemIDs();
 	}
 }

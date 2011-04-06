@@ -21,7 +21,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.dataholders.TeleportData;
+import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
@@ -1670,7 +1670,7 @@ public class L2CastleChamberlainInstance extends L2MerchantInstance
 	{
 		if (_log.isDebugEnabled())
 			_log.warn("doTeleport(L2Player player, int val) is called");
-		L2TeleportLocation list = TeleportData.getInstance().getTemplate(val);
+		L2TeleportLocation list = TeleportDataHolder.getInstance().getTemplate(val);
 		if (list != null)
 		{
 			if (player.reduceAdena("Teleport", list.getPrice(), this, true))

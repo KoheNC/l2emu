@@ -32,20 +32,20 @@ import org.w3c.dom.Node;
  * @author FBIagent
  * @reworked by Michiru
  */
-public class SummonItemsData
+public class SummonItemsDataHolder
 {
-	private static final Log						_log	= LogFactory.getLog(SummonItemsData.class);
+	private static final Log						_log	= LogFactory.getLog(SummonItemsDataHolder.class);
 
 	private final FastMap<Integer, L2SummonItem>	_summonitems;
 
 	private int[]									_summonItemIds;
 
-	public static SummonItemsData getInstance()
+	public static SummonItemsDataHolder getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 
-	private SummonItemsData()
+	private SummonItemsDataHolder()
 	{
 		_summonitems = new FastMap<Integer, L2SummonItem>();
 		Document doc = null;
@@ -126,6 +126,6 @@ public class SummonItemsData
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final SummonItemsData	_instance	= new SummonItemsData();
+		protected static final SummonItemsDataHolder	_instance	= new SummonItemsDataHolder();
 	}
 }

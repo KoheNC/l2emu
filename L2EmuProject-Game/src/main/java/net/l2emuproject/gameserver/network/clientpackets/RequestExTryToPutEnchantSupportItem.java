@@ -14,8 +14,8 @@
  */
 package net.l2emuproject.gameserver.network.clientpackets;
 
-import net.l2emuproject.gameserver.dataholders.EnchantItemData;
-import net.l2emuproject.gameserver.dataholders.EnchantItemData.EnchantItem;
+import net.l2emuproject.gameserver.dataholders.EnchantItemDataHolder;
+import net.l2emuproject.gameserver.dataholders.EnchantItemDataHolder.EnchantItem;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExPutEnchantSupportItemResult;
@@ -56,7 +56,7 @@ public class RequestExTryToPutEnchantSupportItem extends L2GameClientPacket
 			if (item == null || support == null)
 				return;
 
-			EnchantItem supportTemplate = EnchantItemData.getInstance().getSupportItem(support);
+			EnchantItem supportTemplate = EnchantItemDataHolder.getInstance().getSupportItem(support);
 			if (supportTemplate == null || !supportTemplate.isValid(item))
 			{
 				// message may be custom

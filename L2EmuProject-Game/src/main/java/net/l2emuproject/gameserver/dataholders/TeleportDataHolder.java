@@ -32,18 +32,18 @@ import org.w3c.dom.Node;
 /**
  * @author Intrepid
  */
-public final class TeleportData
+public final class TeleportDataHolder
 {
-	private final static Log						_log	= LogFactory.getLog(TeleportData.class);
+	private final static Log						_log	= LogFactory.getLog(TeleportDataHolder.class);
 
 	private FastMap<Integer, L2TeleportLocation>	_teleports;
 
-	public static TeleportData getInstance()
+	public static TeleportDataHolder getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 
-	private TeleportData()
+	private TeleportDataHolder()
 	{
 		_teleports = new FastMap<Integer, L2TeleportLocation>();
 		load();
@@ -172,6 +172,6 @@ public final class TeleportData
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final TeleportData	_instance	= new TeleportData();
+		protected static final TeleportDataHolder	_instance	= new TeleportDataHolder();
 	}
 }

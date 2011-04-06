@@ -14,7 +14,7 @@
  */
 package net.l2emuproject.gameserver.status.commands;
 
-import net.l2emuproject.gameserver.dataholders.TeleportData;
+import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.NpcTable;
@@ -55,7 +55,7 @@ public final class Reload extends GameStatusCommand
 			else if (type.equals("teleport"))
 			{
 				print("Reloading teleports... ");
-				TeleportData.getInstance().load();
+				TeleportDataHolder.getInstance().load();
 				println("done");
 			}
 			else if (type.equals("skill"))

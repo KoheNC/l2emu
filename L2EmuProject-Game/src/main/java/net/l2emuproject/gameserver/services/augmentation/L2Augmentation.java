@@ -15,7 +15,7 @@
 package net.l2emuproject.gameserver.services.augmentation;
 
 import javolution.util.FastList;
-import net.l2emuproject.gameserver.dataholders.AugmentationData;
+import net.l2emuproject.gameserver.dataholders.AugmentationDataHolder;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.funcs.Func;
@@ -58,12 +58,12 @@ public final class L2Augmentation
 		
 		public AugmentationStatBoni(int augmentationId)
 		{
-			FastList<AugmentationData.AugStat> as = AugmentationData.getInstance().getAugStatsById(augmentationId);
+			FastList<AugmentationDataHolder.AugStat> as = AugmentationDataHolder.getInstance().getAugStatsById(augmentationId);
 			
 			_statFuncs = new Func[as.size()];
 			
 			int i = 0;
-			for (AugmentationData.AugStat aStat : as)
+			for (AugmentationDataHolder.AugStat aStat : as)
 			{
 				_statFuncs[i] = new FuncAdd(aStat.getStat(), 0x40, this, aStat.getValue(), null);
 				i++;

@@ -38,11 +38,11 @@ import org.xml.sax.SAXException;
  *
  * @author  KenM
  */
-public class MerchantPriceConfigData implements InstanceListManager
+public class MerchantPriceConfigDataHolder implements InstanceListManager
 {
-	private static final Log	_log	= LogFactory.getLog(MerchantPriceConfigData.class);
+	private static final Log	_log	= LogFactory.getLog(MerchantPriceConfigDataHolder.class);
 
-	public static MerchantPriceConfigData getInstance()
+	public static MerchantPriceConfigDataHolder getInstance()
 	{
 		return SingletonHolder._instance;
 	}
@@ -52,7 +52,7 @@ public class MerchantPriceConfigData implements InstanceListManager
 	private final Map<Integer, MerchantPriceConfig>	_mpcs		= new FastMap<Integer, MerchantPriceConfig>();
 	private MerchantPriceConfig						_defaultMpc;
 
-	private MerchantPriceConfigData()
+	private MerchantPriceConfigDataHolder()
 	{
 	}
 
@@ -296,6 +296,6 @@ public class MerchantPriceConfigData implements InstanceListManager
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final MerchantPriceConfigData	_instance	= new MerchantPriceConfigData();
+		protected static final MerchantPriceConfigDataHolder	_instance	= new MerchantPriceConfigDataHolder();
 	}
 }
