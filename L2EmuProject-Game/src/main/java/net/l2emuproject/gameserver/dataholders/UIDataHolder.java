@@ -15,12 +15,10 @@
 package net.l2emuproject.gameserver.dataholders;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import javolution.util.FastList;
 import javolution.util.FastMap;
@@ -30,9 +28,7 @@ import net.l2emuproject.gameserver.entity.player.keyboard.ActionKey;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
 
 /**
  * @author  mrTJO
@@ -44,15 +40,14 @@ public final class UIDataHolder
 	private final Map<Integer, List<ActionKey>>	_storedKeys			= new FastMap<Integer, List<ActionKey>>();
 	private final Map<Integer, List<Integer>>	_storedCategories	= new FastMap<Integer, List<Integer>>();
 
-	@SuppressWarnings("synthetic-access")
 	private static final class SingletonHolder
 	{
-		private static final UIDataHolder	_instance	= new UIDataHolder();
+		private static final UIDataHolder	INSTANCE	= new UIDataHolder();
 	}
 
 	public static UIDataHolder getInstance()
 	{
-		return SingletonHolder._instance;
+		return SingletonHolder.INSTANCE;
 	}
 
 	private UIDataHolder()
@@ -72,172 +67,100 @@ public final class UIDataHolder
 
 	private void parseCatData()
 	{
-		DocumentBuilderFactory dbfactory = DocumentBuilderFactory.newInstance();
-		dbfactory.setValidating(false);
-		dbfactory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/ui/uicats_en.xml");
 		Document doc = null;
-		if (file.exists())
+
+		try
 		{
-			try
-			{
-				doc = dbfactory.newDocumentBuilder().parse(file);
-			}
-			catch (SAXException e)
-			{
-				e.printStackTrace();
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
-			catch (ParserConfigurationException e)
-			{
-				e.printStackTrace();
-			}
+			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			factory.setValidating(false);
+			factory.setIgnoringComments(true);
+			final File file = new File(Config.DATAPACK_ROOT, "data/ui/uicats_en.xml");
+			doc = factory.newDocumentBuilder().parse(file);
+
 			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
 			{
 				if ("list".equalsIgnoreCase(n.getNodeName()))
 				{
 					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
 					{
+						int category = 0, command = 0;
 						if ("uicat".equalsIgnoreCase(d.getNodeName()))
 						{
-							NamedNodeMap attrs = d.getAttributes();
-							Node att;
-							int cat, cmd;
-							att = attrs.getNamedItem("category");
-							if (att == null)
-							{
-								_log.warn("UIDataHolder: Missing category.");
-								continue;
-							}
-							cat = Integer.parseInt(att.getNodeValue());
-							att = attrs.getNamedItem("command");
-							if (att == null)
-							{
-								_log.warn("UIDataHolder: Missing command.");
-								continue;
-							}
-							cmd = Integer.parseInt(att.getNodeValue());
-
-							insertCategory(cat, cmd);
+							category = Integer.parseInt(d.getAttributes().getNamedItem("category").getNodeValue());
+							command = Integer.parseInt(d.getAttributes().getNamedItem("command").getNodeValue());
+							insertCategory(category, command);
 						}
 					}
 				}
 			}
+		}
+		catch (Exception e)
+		{
+			_log.warn("", e);
 		}
 	}
 
 	private void parseKeyData()
 	{
-		DocumentBuilderFactory dbfactory = DocumentBuilderFactory.newInstance();
-		dbfactory.setValidating(false);
-		dbfactory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/ui/uikeys_en.xml");
 		Document doc = null;
-		if (file.exists())
+
+		try
 		{
-			try
-			{
-				doc = dbfactory.newDocumentBuilder().parse(file);
-			}
-			catch (SAXException e)
-			{
-				e.printStackTrace();
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
-			catch (ParserConfigurationException e)
-			{
-				e.printStackTrace();
-			}
+			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			factory.setValidating(false);
+			factory.setIgnoringComments(true);
+			final File file = new File(Config.DATAPACK_ROOT, "data/ui/uikeys_en.xml");
+			doc = factory.newDocumentBuilder().parse(file);
+
 			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
 			{
 				if ("list".equalsIgnoreCase(n.getNodeName()))
 				{
 					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
 					{
+						int category = 0, command = 0, key = 0, toogleKey1 = 0, toogleKey2 = 0, showType = 0;
 						if ("uikey".equalsIgnoreCase(d.getNodeName()))
 						{
-							NamedNodeMap attrs = d.getAttributes();
-							Node att;
-							int cat, cmd, key, tk1, tk2, shw;
-							att = attrs.getNamedItem("category");
-							if (att == null)
-							{
-								_log.warn("UIDataHolder: Missing category.");
-								continue;
-							}
-							cat = Integer.parseInt(att.getNodeValue());
-							att = attrs.getNamedItem("command");
-							if (att == null)
-							{
-								_log.warn("UIDataHolder: Missing command.");
-								continue;
-							}
-							cmd = Integer.parseInt(att.getNodeValue());
-							att = attrs.getNamedItem("key");
-							if (att == null)
-							{
-								_log.warn("UIDataHolder: Missing key.");
-								continue;
-							}
-							key = Integer.parseInt(att.getNodeValue());
-							att = attrs.getNamedItem("toogleKey1");
-							if (att == null)
-							{
-								_log.warn("UIDataHolder: Missing toggleKey1.");
-								continue;
-							}
-							tk1 = Integer.parseInt(att.getNodeValue());
-							att = attrs.getNamedItem("toogleKey2");
-							if (att == null)
-							{
-								_log.warn("UIDataHolder: Missing toogleKey2.");
-								continue;
-							}
-							tk2 = Integer.parseInt(att.getNodeValue());
-							att = attrs.getNamedItem("showType");
-							if (att == null)
-							{
-								_log.warn("UIDataHolder: Missing showType.");
-								continue;
-							}
-							shw = Integer.parseInt(att.getNodeValue());
-
-							insertKey(cat, cmd, key, tk1, tk2, shw);
+							category = Integer.parseInt(d.getAttributes().getNamedItem("category").getNodeValue());
+							command = Integer.parseInt(d.getAttributes().getNamedItem("command").getNodeValue());
+							key = Integer.parseInt(d.getAttributes().getNamedItem("key").getNodeValue());
+							toogleKey1 = Integer.parseInt(d.getAttributes().getNamedItem("toogleKey1").getNodeValue());
+							toogleKey2 = Integer.parseInt(d.getAttributes().getNamedItem("toogleKey2").getNodeValue());
+							showType = Integer.parseInt(d.getAttributes().getNamedItem("showType").getNodeValue());
+							insertKey(category, command, key, toogleKey1, toogleKey2, showType);
 						}
 					}
 				}
 			}
 		}
-	}
-
-	private void insertCategory(int cat, int cmd)
-	{
-		if (_storedCategories.containsKey(cat))
-			_storedCategories.get(cat).add(cmd);
-		else
+		catch (Exception e)
 		{
-			List<Integer> tmp = new FastList<Integer>();
-			tmp.add(cmd);
-			_storedCategories.put(cat, tmp);
+			_log.warn("", e);
 		}
 	}
 
-	private void insertKey(int cat, int cmdId, int key, int tgKey1, int tgKey2, int show)
+	private void insertCategory(int category, int command)
 	{
-		ActionKey tmk = new ActionKey(cat, cmdId, key, tgKey1, tgKey2, show);
-		if (_storedKeys.containsKey(cat))
-			_storedKeys.get(cat).add(tmk);
+		if (_storedCategories.containsKey(category))
+			_storedCategories.get(category).add(command);
 		else
 		{
-			List<ActionKey> tmp = new FastList<ActionKey>();
+			final List<Integer> tmp = new FastList<Integer>();
+			tmp.add(command);
+			_storedCategories.put(category, tmp);
+		}
+	}
+
+	private void insertKey(int category, int commandId, int key, int toogleKey1, int toogleKey2, int showType)
+	{
+		final ActionKey tmk = new ActionKey(category, commandId, key, toogleKey1, toogleKey2, showType);
+		if (_storedKeys.containsKey(category))
+			_storedKeys.get(category).add(tmk);
+		else
+		{
+			final List<ActionKey> tmp = new FastList<ActionKey>();
 			tmp.add(tmk);
-			_storedKeys.put(cat, tmp);
+			_storedKeys.put(category, tmp);
 		}
 	}
 
