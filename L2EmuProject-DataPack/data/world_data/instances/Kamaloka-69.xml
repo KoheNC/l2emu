@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<instance template="77" name="Kamaloka-69" xmlns="http://www.l2jfree.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/instances.xsd">
+	<activityTime val="45" />
+	<timeDelay val="24" />
+	<allowSummon val="false" />
+	<emptyDestroyTime val="300" />
+	<returnTeleport x="85945" y="-142176" z="-1341" />
+	<spawnList>
+		<spawn npcId="32496" x="-10863" y="-174902" z="-10944" heading="0" />
+		<spawn npcId="22497" x="-12256" y="-174948" z="-10948" heading="0" />
+		<spawn npcId="22498" x="-12209" y="-175029" z="-10948" heading="0" />
+		<spawn npcId="22498" x="-12340" y="-174900" z="-10948" heading="0" />
+		<spawn npcId="22498" x="-12209" y="-174900" z="-10948" heading="0" />
+		<spawn npcId="22498" x="-12085" y="-174902" z="-10948" heading="0" />
+		<spawn npcId="22498" x="-12146" y="-174949" z="-10948" heading="0" />
+		<spawn npcId="22498" x="-12258" y="-174852" z="-10948" heading="0" />
+		<spawn npcId="22498" x="-12164" y="-174854" z="-10948" heading="0" />
+		<spawn npcId="22498" x="-12210" y="-174773" z="-10948" heading="0" />
+		<spawn npcId="22499" x="-14662" y="-174904" z="-10685" heading="0" />
+		<spawn npcId="22499" x="-14542" y="-174903" z="-10685" heading="0" />
+		<spawn npcId="22499" x="-14419" y="-174906" z="-10685" heading="0" />
+		<spawn npcId="22499" x="-14544" y="-174779" z="-10685" heading="0" />
+		<spawn npcId="22499" x="-14543" y="-175024" z="-10685" heading="0" />
+		<spawn npcId="29143" x="-20870" y="-174902" z="-9995" heading="0" />
+		<spawn npcId="29143" x="-20664" y="-174724" z="-9995" heading="0" />
+		<spawn npcId="29142" x="-20676" y="-175102" z="-9995" heading="0" />
+		<spawn npcId="29142" x="-20860" y="-175130" z="-9995" heading="0" />
+		<spawn npcId="25620" x="-16877" y="-174904" z="-10422" heading="0" />
+		<spawn npcId="29141" x="-20660" y="-174901" z="-9978" heading="0" />
+	</spawnList>
+</instance>

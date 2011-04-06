@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<instance name="Rim Pailaka: Castle Dungeon" xmlns="http://www.l2jfree.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/instances.xsd">
+	<activityTime val="60" />
+	<timeDelay val="4" />
+	<allowSummon val="false" />
+	<emptyDestroyTime val="5" />
+</instance>

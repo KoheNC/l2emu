@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<instance template="44" name="Pailaka (Devils Legacy)" xmlns="http://www.l2jfree.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/instances.xsd">
+	<activityTime val="60" />
+	<emptyDestroyTime val="3000" />
+	<allowSummon val="false" />
+	<returnTeleport x="85019" y="147563" z="-3400" />
+	<doorList>
+		<!-- doors openable with pailaka keys that drop there -->
+		<door doorId="22110100" />
+		<door doorId="22110101" />
+		<door doorId="22110102" />
+		<door doorId="22110103" />
+		<door doorId="22110104" />
+		<door doorId="22110105" />
+	</doorList>
+	<spawnList>
+		<spawn npcId="18622" x="79189" y="-210458" z="-3753" heading="8353" />
+		<spawn npcId="18622" x="77923" y="-205411" z="-3585" heading="32501" />
+		<spawn npcId="18622" x="78213" y="-205549" z="-3585" heading="13028" />
+		<spawn npcId="18622" x="79420" y="-209913" z="-3753" heading="24575" />
+		<spawn npcId="18622" x="79100" y="-205721" z="-3585" heading="8231" />
+		<spawn npcId="18622" x="79254" y="-205268" z="-3585" heading="3283" />
+		<spawn npcId="18623" x="87222" y="-209251" z="-3747" heading="41489" />
+		<spawn npcId="18623" x="87964" y="-212354" z="-4222" heading="49807" />
+		<spawn npcId="18623" x="86829" y="-209914" z="-4058" heading="50941" />
+		<spawn npcId="18623" x="87018" y="-209216" z="-3747" heading="49151" />
+		<spawn npcId="18623" x="87888" y="-212418" z="-4224" heading="40068" />
+		<spawn npcId="18623" x="86742" y="-209412" z="-3826" heading="1075" />
+		<spawn npcId="18624" x="79486" y="-215189" z="-3586" heading="55522" />
+		<spawn npcId="18624" x="79611" y="-215670" z="-3573" heading="3572" />
+		<spawn npcId="18624" x="76454" y="-215338" z="-3697" heading="62044" />
+		<spawn npcId="18624" x="78906" y="-213577" z="-3745" heading="32890" />
+		<spawn npcId="18624" x="76759" y="-215785" z="-3713" heading="11152" />
+		<spawn npcId="18624" x="74707" y="-215828" z="-3713" heading="64106" />
+		<spawn npcId="18624" x="78818" y="-212675" z="-3753" heading="49009" />
+		<spawn npcId="18624" x="78286" y="-214185" z="-3649" heading="1605" />
+		<spawn npcId="18624" x="74678" y="-213426" z="-3713" heading="45938" />
+		<spawn npcId="18624" x="78330" y="-214027" z="-3674" heading="61972" />
+		<spawn npcId="18624" x="75010" y="-215381" z="-3713" heading="58176" />
+		<spawn npcId="18624" x="80271" y="-216861" z="-3588" heading="33758" />
+		<spawn npcId="18624" x="79815" y="-216744" z="-3575" heading="39237" />
+		<spawn npcId="18624" x="79403" y="-220622" z="-3624" heading="31252" />
+		<spawn npcId="18624" x="79911" y="-216924" z="-3572" heading="32563" />
+		<spawn npcId="18624" x="78460" y="-213654" z="-3733" heading="34295" />
+		<spawn npcId="18624" x="79361" y="-220351" z="-3630" heading="35178" />
+		<spawn npcId="18624" x="82238" y="-217209" z="-3729" heading="46104" />
+		<spawn npcId="18624" x="82651" y="-217111" z="-3729" heading="50219" />
+		<spawn npcId="18624" x="78997" y="-220017" z="-3628" heading="40111" />
+		<spawn npcId="18624" x="83245" y="-216852" z="-3729" heading="56758" />
+		<spawn npcId="18624" x="83217" y="-215436" z="-3729" heading="53234" />
+		<spawn npcId="18624" x="79296" y="-219808" z="-3641" heading="42225" />
+		<spawn npcId="18624" x="82393" y="-215414" z="-3729" heading="54126" />
+		<spawn npcId="18624" x="78512" y="-218154" z="-3697" heading="57046" />
+		<spawn npcId="18624" x="78296" y="-218497" z="-3697" heading="58070" />
+		<spawn npcId="18625" x="79342" y="-205928" z="-3585" heading="62817" />
+		<spawn npcId="18625" x="79625" y="-208324" z="-3753" heading="49477" />
+		<spawn npcId="18625" x="79422" y="-206109" z="-3585" heading="19137" />
+		<spawn npcId="18625" x="79886" y="-205132" z="-3585" heading="37757" />
+		<spawn npcId="18625" x="79058" y="-205470" z="-3585" heading="24122" />
+		<spawn npcId="18625" x="78857" y="-205432" z="-3585" heading="26526" />
+		<spawn npcId="18625" x="78935" y="-205219" z="-3585" heading="27835" />
+		<spawn npcId="18625" x="78918" y="-205266" z="-3585" heading="24094" />
+		<spawn npcId="18625" x="79167" y="-205395" z="-3585" heading="27931" />
+		<spawn npcId="18625" x="79414" y="-205263" z="-3585" heading="33316" />
+		<spawn npcId="18625" x="81320" y="-206750" z="-3585" heading="11373" />
+		<spawn npcId="18625" x="81573" y="-207488" z="-3585" heading="12160" />
+		<spawn npcId="18625" x="79044" y="-207967" z="-3753" heading="21699" />
+		<spawn npcId="18625" x="81631" y="-208349" z="-3585" heading="45651" />
+		<spawn npcId="18625" x="79587" y="-207997" z="-3756" heading="15805" />
+		<spawn npcId="18625" x="82232" y="-205882" z="-3585" heading="21479" />
+		<spawn npcId="18625" x="79368" y="-208051" z="-3753" heading="15162" />
+		<spawn npcId="18625" x="82001" y="-205932" z="-3585" heading="23053" />
+		<spawn npcId="18625" x="82343" y="-205311" z="-3585" heading="29058" />
+		<spawn npcId="18625" x="79465" y="-205126" z="-3585" heading="29412" />
+		<spawn npcId="18625" x="81931" y="-208453" z="-3585" heading="37604" />
+		<spawn npcId="18625" x="79295" y="-210439" z="-3753" heading="55955" />
+		<spawn npcId="18625" x="79522" y="-209584" z="-3756" heading="29801" />
+		<spawn npcId="18625" x="79265" y="-209751" z="-3753" heading="40463" />
+		<spawn npcId="18625" x="79301" y="-210104" z="-3753" heading="52776" />
+		<spawn npcId="18625" x="79451" y="-210279" z="-3753" heading="56543" />
+		<spawn npcId="18625" x="79686" y="-209965" z="-3756" heading="12073" />
+		<spawn npcId="18625" x="79888" y="-215504" z="-3593" heading="63852" />
+		<spawn npcId="18625" x="78530" y="-218248" z="-3697" heading="56462" />
+		<spawn npcId="18625" x="79420" y="-209698" z="-3753" heading="25422" />
+		<spawn npcId="18625" x="86624" y="-219483" z="-3721" heading="29643" />
+		<spawn npcId="18625" x="83051" y="-216042" z="-3729" heading="57233" />
+		<spawn npcId="18625" x="79143" y="-210240" z="-3756" heading="46228" />
+		<spawn npcId="18625" x="83640" y="-219434" z="-4004" heading="24575" />
+		<spawn npcId="18625" x="83412" y="-219389" z="-4004" heading="8804" />
+		<spawn npcId="18625" x="78855" y="-214065" z="-3669" heading="53553" />
+		<spawn npcId="18625" x="78780" y="-214164" z="-3653" heading="60512" />
+		<spawn npcId="18625" x="79299" y="-208457" z="-3753" heading="36821" />
+		<spawn npcId="18625" x="77356" y="-205470" z="-3585" heading="55355" />
+		<spawn npcId="18625" x="77775" y="-205628" z="-3585" heading="50928" />
+		<spawn npcId="18625" x="77716" y="-205324" z="-3585" heading="55863" />
+		<spawn npcId="18625" x="79664" y="-208559" z="-3753" heading="61651" />
+		<spawn npcId="18625" x="78317" y="-208988" z="-3921" heading="46182" />
+		<spawn npcId="18625" x="77932" y="-208870" z="-3927" heading="49151" />
+		<spawn npcId="18625" x="77612" y="-209977" z="-3908" heading="46498" />
+		<spawn npcId="18625" x="78055" y="-209934" z="-3908" heading="48076" />
+		<spawn npcId="18625" x="78584" y="-212812" z="-3753" heading="666" />
+		<spawn npcId="18625" x="78720" y="-212881" z="-3753" heading="48947" />
+		<spawn npcId="18625" x="78844" y="-213375" z="-3753" heading="41833" />
+		<spawn npcId="18625" x="78836" y="-213555" z="-3748" heading="29591" />
+		<spawn npcId="18625" x="79457" y="-208682" z="-3753" heading="20607" />
+		<spawn npcId="18626" x="83267" y="-213306" z="-3345" heading="33653" />
+		<spawn npcId="18626" x="82833" y="-213431" z="-3345" heading="37385" />
+		<spawn npcId="18626" x="81171" y="-212063" z="-3425" heading="42114" />
+		<spawn npcId="18626" x="80936" y="-212424" z="-3425" heading="54292" />
+		<spawn npcId="18626" x="83460" y="-213867" z="-3345" heading="32670" />
+		<spawn npcId="18626" x="83089" y="-213820" z="-3345" heading="20229" />
+		<spawn npcId="18626" x="81099" y="-213800" z="-3348" heading="58641" />
+		<spawn npcId="18626" x="81092" y="-213544" z="-3345" heading="15086" />
+		<spawn npcId="18626" x="80644" y="-213255" z="-3345" heading="26956" />
+		<spawn npcId="18626" x="80249" y="-213787" z="-3345" heading="3243" />
+		<spawn npcId="18626" x="80772" y="-212208" z="-3425" heading="9977" />
+		<spawn npcId="18626" x="80642" y="-212382" z="-3425" heading="5139" />
+		<spawn npcId="18626" x="81621" y="-209250" z="-3585" heading="9457" />
+		<spawn npcId="18626" x="81754" y="-208403" z="-3585" heading="38697" />
+		<spawn npcId="18626" x="81905" y="-208811" z="-3585" heading="26769" />
+		<spawn npcId="18626" x="81173" y="-207246" z="-3585" heading="7437" />
+		<spawn npcId="18626" x="81637" y="-207101" z="-3585" heading="2612" />
+		<spawn npcId="18626" x="81756" y="-207296" z="-3585" heading="2762" />
+		<spawn npcId="18626" x="82104" y="-207234" z="-3588" heading="3742" />
+		<spawn npcId="18626" x="82400" y="-205624" z="-3585" heading="19198" />
+		<spawn npcId="18626" x="81922" y="-209050" z="-3585" heading="24780" />
+		<spawn npcId="18626" x="82279" y="-205774" z="-3585" heading="26243" />
+		<spawn npcId="18626" x="83209" y="-211920" z="-3425" heading="34872" />
+		<spawn npcId="18626" x="82759" y="-212205" z="-3425" heading="44874" />
+		<spawn npcId="18626" x="82631" y="-212425" z="-3425" heading="52034" />
+		<spawn npcId="18626" x="82614" y="-212207" z="-3428" heading="53485" />
+		<spawn npcId="18627" x="86049" y="-216957" z="-2465" heading="41586" />
+		<spawn npcId="18627" x="85355" y="-214573" z="-2465" heading="55310" />
+		<spawn npcId="18627" x="85134" y="-216585" z="-2465" heading="7334" />
+		<spawn npcId="18627" x="84935" y="-216565" z="-2465" heading="16549" />
+		<spawn npcId="18627" x="84821" y="-216989" z="-2465" heading="46401" />
+		<spawn npcId="18627" x="85362" y="-217332" z="-2465" heading="12227" />
+		<spawn npcId="18627" x="86153" y="-215291" z="-2465" heading="10142" />
+		<spawn npcId="18627" x="86361" y="-215239" z="-2464" heading="2555" />
+		<spawn npcId="18627" x="86111" y="-215590" z="-2468" heading="38573" />
+		<spawn npcId="18627" x="86400" y="-215389" z="-2464" heading="3792" />
+		<spawn npcId="18627" x="84941" y="-214854" z="-2465" heading="17871" />
+		<spawn npcId="18627" x="86214" y="-216540" z="-2468" heading="31298" />
+		<spawn npcId="18627" x="86260" y="-216719" z="-2465" heading="63227" />
+		<spawn npcId="18627" x="86558" y="-216544" z="-2465" heading="46930" />
+		<spawn npcId="18627" x="85056" y="-215233" z="-2465" heading="24159" />
+		<spawn npcId="18627" x="84372" y="-214622" z="-3025" heading="26546" />
+		<spawn npcId="18627" x="84178" y="-213369" z="-3345" heading="46395" />
+		<spawn npcId="18627" x="84441" y="-213264" z="-3345" heading="59962" />
+		<spawn npcId="18627" x="82914" y="-215701" z="-2708" heading="49730" />
+		<spawn npcId="18627" x="84378" y="-213761" z="-3345" heading="20607" />
+		<spawn npcId="18627" x="83045" y="-215412" z="-2705" heading="50043" />
+		<spawn npcId="18627" x="84599" y="-213811" z="-3345" heading="38965" />
+		<spawn npcId="18627" x="82800" y="-215391" z="-2705" heading="36991" />
+		<spawn npcId="18627" x="82449" y="-215572" z="-2705" heading="39097" />
+		<spawn npcId="18627" x="85325" y="-215400" z="-2465" heading="20126" />
+		<spawn npcId="18627" x="84543" y="-214290" z="-3025" heading="31692" />
+		<spawn npcId="18629" x="80699" y="-219268" z="-3521" heading="11650" />
+		<spawn npcId="18630" x="77981" y="-205910" z="-3585" heading="1186" />
+		<spawn npcId="18631" x="82629" y="-209487" z="-3585" heading="142" />
+		<spawn npcId="18632" x="82387" y="-217356" z="-2705" heading="64839" />
+		<spawn npcId="18633" x="87881" y="-209137" z="-3747" heading="32525" />
+		<spawn npcId="32495" x="80069" y="-213849" z="-3345" heading="2092" />
+		<spawn npcId="32495" x="75940" y="-205504" z="-3688" heading="47671" />
+		<spawn npcId="32495" x="74933" y="-212142" z="-3713" heading="49251" />
+		<spawn npcId="32495" x="77032" y="-213457" z="-3713" heading="33057" />
+		<spawn npcId="32495" x="76248" y="-216565" z="-3658" heading="11667" />
+		<spawn npcId="32495" x="78570" y="-216344" z="-3593" heading="32767" />
+		<spawn npcId="32495" x="80152" y="-214362" z="-3593" heading="32591" />
+		<spawn npcId="32495" x="87113" y="-219160" z="-3700" heading="36919" />
+		<spawn npcId="32495" x="82069" y="-215191" z="-3729" heading="0" />
+		<spawn npcId="32495" x="81474" y="-218808" z="-3521" heading="36284" />
+		<spawn npcId="32495" x="85297" y="-214369" z="-2465" heading="48897" />
+		<spawn npcId="32495" x="82079" y="-215290" z="-2705" heading="356" />
+		<spawn npcId="32495" x="77317" y="-205198" z="-3585" heading="55710" />
+		<spawn npcId="32495" x="85090" y="-214689" z="-3025" heading="33482" />
+		<spawn npcId="32495" x="86736" y="-217103" z="-2465" heading="16383" />
+		<spawn npcId="32495" x="85187" y="-213664" z="-3345" heading="32091" />
+		<spawn npcId="32495" x="82764" y="-217077" z="-2705" heading="0" />
+		<spawn npcId="32495" x="86020" y="-220575" z="-3729" heading="14459" />
+		<spawn npcId="32495" x="86058" y="-215531" z="-2465" heading="65255" />
+		<spawn npcId="32495" x="85263" y="-217540" z="-2465" heading="19243" />
+		<spawn npcId="32495" x="83316" y="-212502" z="-3425" heading="31644" />
+		<spawn npcId="32495" x="80352" y="-212518" z="-3425" heading="707" />
+		<spawn npcId="32501" x="77015" y="-218933" z="-3757" heading="31871" />
+		<spawn npcId="32508" x="82736" y="-205312" z="-3585" heading="32767" />
+		<spawn npcId="32508" x="81719" y="-210866" z="-3585" heading="10557" />
+		<spawn npcId="32508" x="78696" y="-214888" z="-3593" heading="50891" />
+	</spawnList>
+</instance>
