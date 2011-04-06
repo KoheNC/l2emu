@@ -117,7 +117,6 @@ echo.
 echo Installing User Related datatables...
 for %%S in (../sql/user_related/*.sql) do %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/user_related/%%S
 for %%S in (../sql/user_related/7signs/*.sql) do %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/user_related/7signs/%%S
-for %%S in (../sql/user_related/bosses/*.sql) do %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/user_related/bosses/%%S
 for %%S in (../sql/user_related/character_data/*.sql) do %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/user_related/character_data/%%S
 for %%S in (../sql/user_related/clan_data/*.sql) do %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/user_related/clan_data/%%S
 for %%S in (../sql/user_related/community_board/*.sql) do %mysqlPath% -h %gshost% -u %gsuser% --password=%gspass% -D %gsdb% < ../sql/user_related/community_board/%%S
