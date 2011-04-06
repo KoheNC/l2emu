@@ -79,7 +79,7 @@ public final class ZoneManager
 	{
 		Document doc = null;
 		
-		for (File f : Util.getDatapackFiles("zone", ".xml"))
+		for (File f : Util.getDatapackFiles("world_data/zone", ".xml"))
 		{
 			int count = 0;
 			try

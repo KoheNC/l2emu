@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE list SYSTEM "../templates/zones.dtd">
+<!DOCTYPE list SYSTEM "../../templates/zones.dtd">
 <!-- The effect of these zones is only applied during siege. The strength 
 	of the effect depends on the adena invested (lvl 1-4). The zones affect both 
 	attackers and defenders. The zones are set up via Chamberlain; when Flame 

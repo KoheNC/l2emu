@@ -74,7 +74,7 @@ public final class UIDataHolder
 			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			factory.setValidating(false);
 			factory.setIgnoringComments(true);
-			final File file = new File(Config.DATAPACK_ROOT, "data/ui/uicats_en.xml");
+			final File file = new File(Config.DATAPACK_ROOT, "data/char_data/ui/uicats_en.xml");
 			doc = factory.newDocumentBuilder().parse(file);
 
 			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
@@ -109,7 +109,7 @@ public final class UIDataHolder
 			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			factory.setValidating(false);
 			factory.setIgnoringComments(true);
-			final File file = new File(Config.DATAPACK_ROOT, "data/ui/uikeys_en.xml");
+			final File file = new File(Config.DATAPACK_ROOT, "data/char_data/ui/uikeys_en.xml");
 			doc = factory.newDocumentBuilder().parse(file);
 
 			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
