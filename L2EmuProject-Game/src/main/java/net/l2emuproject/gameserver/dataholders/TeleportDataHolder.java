@@ -18,15 +18,13 @@ import java.io.File;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import javolution.util.FastMap;
-import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.mapregion.L2TeleportLocation;
+import net.l2emuproject.util.LookupTable;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 /**
@@ -36,16 +34,21 @@ public final class TeleportDataHolder
 {
 	private final static Log						_log	= LogFactory.getLog(TeleportDataHolder.class);
 
-	private FastMap<Integer, L2TeleportLocation>	_teleports;
+	private final LookupTable<L2TeleportLocation>	_teleports;
+
+	private static final class SingletonHolder
+	{
+		private static final TeleportDataHolder	INSTANCE	= new TeleportDataHolder();
+	}
 
 	public static TeleportDataHolder getInstance()
 	{
-		return SingletonHolder._instance;
+		return SingletonHolder.INSTANCE;
 	}
 
 	private TeleportDataHolder()
 	{
-		_teleports = new FastMap<Integer, L2TeleportLocation>();
+		_teleports = new LookupTable<L2TeleportLocation>();
 		load();
 	}
 
@@ -55,123 +58,55 @@ public final class TeleportDataHolder
 
 		for (File f : Util.getDatapackFiles("teleport", ".xml"))
 		{
-			int count = 0;
 			try
 			{
-				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+				final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 				factory.setValidating(false);
 				factory.setIgnoringComments(true);
 				doc = factory.newDocumentBuilder().parse(f);
-			}
-			catch (Exception e)
-			{
-				_log.fatal("TeleportDataHolder: Error loading file " + f.getAbsolutePath(), e);
-				continue;
-			}
-			try
-			{
-				count = parseDocument(doc);
+
+				for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
+				{
+					if ("list".equalsIgnoreCase(n.getNodeName()))
+					{
+						for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
+						{
+							int teleportId = 0, locX = 0, locY = 0, locZ = 0, price = 0;
+							boolean isNoble = false;
+							if ("teleport".equalsIgnoreCase(d.getNodeName()))
+							{
+								final L2TeleportLocation teleport = new L2TeleportLocation();
+								teleportId = Integer.parseInt(d.getAttributes().getNamedItem("id").getNodeValue());
+								locX = Integer.parseInt(d.getAttributes().getNamedItem("locX").getNodeValue());
+								locY = Integer.parseInt(d.getAttributes().getNamedItem("locY").getNodeValue());
+								locZ = Integer.parseInt(d.getAttributes().getNamedItem("locZ").getNodeValue());
+								price = Integer.parseInt(d.getAttributes().getNamedItem("price").getNodeValue());
+								isNoble = Boolean.parseBoolean(d.getAttributes().getNamedItem("isNoble").getNodeValue());
+
+								teleport.setTeleId(teleportId);
+								teleport.setLocX(locX);
+								teleport.setLocY(locY);
+								teleport.setLocZ(locZ);
+								teleport.setPrice(price);
+								teleport.setIsForNoble(isNoble);
+
+								_teleports.put(teleport.getTeleId(), teleport);
+							}
+						}
+					}
+				}
 			}
 			catch (Exception e)
 			{
 				_log.fatal("TeleportDataHolder: Error in file " + f.getAbsolutePath(), e);
 				continue;
 			}
-			_log.info(getClass().getSimpleName() + " : " + f.getName() + " loaded with " + count + " teleport(s).");
+			_log.info(getClass().getSimpleName() + " : " + f.getName() + " loaded with " + _teleports.size() + " teleport(s).");
 		}
 	}
 
-	private int parseDocument(Document doc)
-	{
-		int teleportCount = 0;
-
-		L2TeleportLocation teleport = new L2TeleportLocation();
-
-		for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-		{
-			if ("list".equalsIgnoreCase(n.getNodeName()))
-			{
-				for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-				{
-					if ("teleport".equalsIgnoreCase(d.getNodeName()))
-					{
-						NamedNodeMap attrs = d.getAttributes();
-						Node att;
-
-						att = attrs.getNamedItem("id");
-						if (att == null)
-						{
-							_log.warn("TeleportDataHolder: Missing id.");
-							continue;
-						}
-						teleport.setTeleId(Integer.parseInt(att.getNodeValue()));
-
-						att = attrs.getNamedItem("locX");
-						if (att == null)
-						{
-							_log.warn("TeleportDataHolder: Missing locX.");
-							continue;
-						}
-						teleport.setLocX(Integer.parseInt(att.getNodeValue()));
-
-						att = attrs.getNamedItem("locY");
-						if (att == null)
-						{
-							_log.warn("TeleportDataHolder: Missing locY.");
-							continue;
-						}
-						teleport.setLocY(Integer.parseInt(att.getNodeValue()));
-
-						att = attrs.getNamedItem("locZ");
-						if (att == null)
-						{
-							_log.warn("TeleportDataHolder: Missing locZ.");
-							continue;
-						}
-						teleport.setLocZ(Integer.parseInt(att.getNodeValue()));
-
-						att = attrs.getNamedItem("price");
-						if (att == null)
-						{
-							_log.warn("TeleportDataHolder: Missing price.");
-							continue;
-						}
-						if (Config.ALT_GAME_FREE_TELEPORT)
-							teleport.setPrice(0);
-						else
-							teleport.setPrice(Integer.parseInt(att.getNodeValue()));
-
-						att = attrs.getNamedItem("isNoble");
-						if (att == null)
-						{
-							_log.warn("TeleportDataHolder: Missing isNoble.");
-							continue;
-						}
-						teleport.setIsForNoble(Boolean.parseBoolean(att.getNodeValue()));
-
-						_teleports.put(teleport.getTeleId(), teleport);
-
-						teleportCount++;
-					}
-				}
-			}
-		}
-
-		return teleportCount;
-	}
-
-	/**
-	 * @param template id
-	 * @return
-	 */
 	public L2TeleportLocation getTemplate(int id)
 	{
 		return _teleports.get(id);
-	}
-
-	@SuppressWarnings("synthetic-access")
-	private static class SingletonHolder
-	{
-		protected static final TeleportDataHolder	_instance	= new TeleportDataHolder();
 	}
 }
