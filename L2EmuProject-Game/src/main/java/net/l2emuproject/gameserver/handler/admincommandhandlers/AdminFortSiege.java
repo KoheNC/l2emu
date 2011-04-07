@@ -150,7 +150,7 @@ public class AdminFortSiege implements IAdminCommandHandler
 	{
 		int i = 0;
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
-		adminReply.setFile("data/html/admin/forts.htm");
+		adminReply.setFile("data/npc_data/html/admin/forts.htm");
 		TextBuilder cList = new TextBuilder();
 		for (Fort fort : FortManager.getInstance().getForts())
 		{
@@ -173,7 +173,7 @@ public class AdminFortSiege implements IAdminCommandHandler
 	private void showFortSiegePage(L2Player activeChar, Fort fort)
 	{
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
-		adminReply.setFile("data/html/admin/fort.htm");
+		adminReply.setFile("data/npc_data/html/admin/fort.htm");
 		adminReply.replace("%fortName%", fort.getName());
 		adminReply.replace("%fortId%", fort.getFortId());
 		activeChar.sendPacket(adminReply);

@@ -590,7 +590,7 @@ public class AdminEditChar implements IAdminCommandHandler
 			CharactersEnd = CharactersStart + MaxCharactersPerPage;
 
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
-		adminReply.setFile("data/html/admin/charlist.htm");
+		adminReply.setFile("data/npc_data/html/admin/charlist.htm");
 		TextBuilder replyMSG = new TextBuilder();
 		for (int x = 0; x < MaxPages; x++)
 		{
@@ -640,7 +640,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		{
 		}
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
-		adminReply.setFile("data/html/admin/" + filename);
+		adminReply.setFile("data/npc_data/html/admin/" + filename);
 		adminReply.replace("%name%", player.getName());
 		adminReply.replace("%level%", String.valueOf(player.getLevel()));
 		adminReply.replace("%clan%", String.valueOf(ClanTable.getInstance().getClan(player.getClanId())));
@@ -798,7 +798,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		Collection<L2Player> allPlayers = L2World.getInstance().getAllPlayers();
 		L2Player[] players = allPlayers.toArray(new L2Player[allPlayers.size()]);
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
-		adminReply.setFile("data/html/admin/charfind.htm");
+		adminReply.setFile("data/npc_data/html/admin/charfind.htm");
 		TextBuilder replyMSG = new TextBuilder();
 		for (L2Player element : players)
 		{ //Add player info into new Table row
@@ -847,7 +847,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		String name, ip = "0.0.0.0";
 		TextBuilder replyMSG = new TextBuilder();
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
-		adminReply.setFile("data/html/admin/ipfind.htm");
+		adminReply.setFile("data/npc_data/html/admin/ipfind.htm");
 		for (L2Player player : players)
 		{
 			client = player.getClient();
@@ -904,7 +904,7 @@ public class AdminEditChar implements IAdminCommandHandler
 			account = player.getAccountName();
 			TextBuilder replyMSG = new TextBuilder();
 			NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
-			adminReply.setFile("data/html/admin/accountinfo.htm");
+			adminReply.setFile("data/npc_data/html/admin/accountinfo.htm");
 			for (String charname : chars.values())
 				replyMSG.append(charname + "<br1>");
 			adminReply.replace("%characters%", replyMSG.toString());
@@ -968,7 +968,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		}
 
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
-		adminReply.setFile("data/html/admin/dualbox.htm");
+		adminReply.setFile("data/npc_data/html/admin/dualbox.htm");
 		adminReply.replace("%multibox%", String.valueOf(multibox));
 		adminReply.replace("%results%", results.moveToString());
 		adminReply.replace("%strict%", "");
@@ -1026,7 +1026,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		}
 
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
-		adminReply.setFile("data/html/admin/dualbox.htm");
+		adminReply.setFile("data/npc_data/html/admin/dualbox.htm");
 		adminReply.replace("%multibox%", String.valueOf(multibox));
 		adminReply.replace("%results%", results.moveToString());
 		adminReply.replace("%strict%", "strict_");

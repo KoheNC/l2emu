@@ -25,7 +25,7 @@ import net.l2emuproject.gameserver.world.object.L2Player;
  */
 public final class AdminHelpPage implements IAdminCommandHandler
 {
-	public static final String		ADMIN_HELP_PAGE	= "data/html/admin/";
+	public static final String		ADMIN_HELP_PAGE	= "data/npc_data/html/admin/";
 	private static final String[]	ADMIN_COMMANDS	=
 													{ "admin_help" };
 

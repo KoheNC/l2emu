@@ -151,7 +151,7 @@ public class AdminBan implements IAdminCommandHandler
 	private void sendBanSelect(L2Player gm, String account)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(gm.getObjectId());
-		html.setFile("data/html/admin/ban_selection.htm");
+		html.setFile("data/npc_data/html/admin/ban_selection.htm");
 		html.replace("%account%", account);
 		gm.sendPacket(html);
 	}

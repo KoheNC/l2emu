@@ -36,7 +36,7 @@ public class AdminLogin implements IAdminCommandHandler
 		"admin_login_age"
 	};
 
-	private static final String HTML_ROOT = "data/html/admin/";
+	private static final String HTML_ROOT = "data/npc_data/html/admin/";
 
 	private static final String ON = "ON";
 	private static final String OFF = "OFF";
