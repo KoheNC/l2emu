@@ -1,441 +1,660 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<uikey category="0" command="59" key="59" toogleKey1="18"
+	<uikey category="0" command="59" key="67" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="60" key="60" toogleKey1="18"
+
+	<uikey category="0" command="60" key="66" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="62" key="62" toogleKey1="18"
+
+	<uikey category="0" command="62" key="74" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="63" key="63" toogleKey1="18"
+
+	<uikey category="0" command="63" key="78" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="64" key="64" toogleKey1="18"
+
+	<uikey category="0" command="64" key="84" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="65" key="65" toogleKey1="18"
+
+	<uikey category="0" command="65" key="72" toogleKey1="18"
 		toogleKey2="16" showType="1" />
-	<uikey category="0" command="66" key="66" toogleKey1="18"
+
+	<uikey category="0" command="66" key="86" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="67" key="67" toogleKey1="18"
+
+	<uikey category="0" command="67" key="82" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="68" key="68" toogleKey1="18"
+
+	<uikey category="0" command="68" key="75" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="78" key="78" toogleKey1="18"
+
+	<uikey category="0" command="78" key="77" toogleKey1="18"
 		toogleKey2="16" showType="1" />
-	<uikey category="0" command="70" key="70" toogleKey1="18"
+
+	<uikey category="0" command="70" key="77" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="71" key="71" toogleKey1="18"
+
+	<uikey category="0" command="71" key="79" toogleKey1="18"
 		toogleKey2="16" showType="1" />
-	<uikey category="0" command="72" key="72" toogleKey1="18"
+
+	<uikey category="0" command="72" key="80" toogleKey1="18"
 		toogleKey2="16" showType="1" />
-	<uikey category="0" command="73" key="73" toogleKey1="18"
+
+	<uikey category="0" command="73" key="85" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="74" key="74" toogleKey1="18"
+
+	<uikey category="0" command="74" key="82" toogleKey1="18"
 		toogleKey2="16" showType="1" />
-	<uikey category="0" command="75" key="75" toogleKey1="18"
+
+	<uikey category="0" command="75" key="83" toogleKey1="18"
 		toogleKey2="16" showType="1" />
-	<uikey category="0" command="76" key="76" toogleKey1="18"
+
+	<uikey category="0" command="76" key="88" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="77" key="77" toogleKey1="18"
+
+	<uikey category="0" command="77" key="73" toogleKey1="18"
 		toogleKey2="16" showType="1" />
-	<uikey category="0" command="79" key="79" toogleKey1="18"
+
+	<uikey category="0" command="79" key="190" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="80" key="80" toogleKey1="18"
+
+	<uikey category="0" command="80" key="69" toogleKey1="18"
 		toogleKey2="16" showType="1" />
-	<uikey category="0" command="81" key="81" toogleKey1="18"
+
+	<uikey category="0" command="81" key="76" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="1" key="1" toogleKey1="18"
+
+	<uikey category="0" command="1" key="33" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="2" key="2" toogleKey1="18"
+
+	<uikey category="0" command="2" key="34" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="3" key="3" toogleKey1="0"
+
+	<uikey category="0" command="3" key="27" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="4" key="4" toogleKey1="0"
+
+	<uikey category="0" command="4" key="13" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="5" key="5" toogleKey1="0"
+
+	<uikey category="0" command="5" key="9" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="6" key="6" toogleKey1="18"
+
+	<uikey category="0" command="6" key="72" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="7" key="7" toogleKey1="18"
+
+	<uikey category="0" command="7" key="87" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="10" key="10" toogleKey1="18"
+
+	<uikey category="0" command="10" key="70" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="11" key="11" toogleKey1="18"
+
+	<uikey category="0" command="11" key="80" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="12" key="12" toogleKey1="18"
+
+	<uikey category="0" command="12" key="89" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="49" key="49" toogleKey1="18"
+
+	<uikey category="0" command="49" key="112" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="50" key="50" toogleKey1="18"
+
+	<uikey category="0" command="50" key="113" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="51" key="51" toogleKey1="18"
+
+	<uikey category="0" command="51" key="114" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="52" key="52" toogleKey1="18"
+
+	<uikey category="0" command="52" key="115" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="53" key="53" toogleKey1="18"
+
+	<uikey category="0" command="53" key="116" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="54" key="54" toogleKey1="18"
+
+	<uikey category="0" command="54" key="117" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="55" key="55" toogleKey1="18"
+
+	<uikey category="0" command="55" key="118" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="56" key="56" toogleKey1="18"
+
+	<uikey category="0" command="56" key="119" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="57" key="57" toogleKey1="18"
+
+	<uikey category="0" command="57" key="120" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="58" key="58" toogleKey1="18"
+
+	<uikey category="0" command="58" key="121" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="13" key="13" toogleKey1="0"
+
+	<uikey category="0" command="13" key="112" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="14" key="14" toogleKey1="0"
+
+	<uikey category="0" command="14" key="113" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="15" key="15" toogleKey1="0"
+
+	<uikey category="0" command="15" key="114" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="16" key="16" toogleKey1="0"
+
+	<uikey category="0" command="16" key="115" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="17" key="17" toogleKey1="0"
+
+	<uikey category="0" command="17" key="116" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="18" key="18" toogleKey1="0"
+
+	<uikey category="0" command="18" key="117" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="19" key="19" toogleKey1="0"
+
+	<uikey category="0" command="19" key="118" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="20" key="20" toogleKey1="0"
+
+	<uikey category="0" command="20" key="119" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="21" key="21" toogleKey1="0"
+
+	<uikey category="0" command="21" key="120" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="22" key="22" toogleKey1="0"
+
+	<uikey category="0" command="22" key="121" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="23" key="23" toogleKey1="0"
+
+	<uikey category="0" command="23" key="122" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="24" key="24" toogleKey1="0"
+
+	<uikey category="0" command="24" key="123" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="25" key="25" toogleKey1="18"
+
+	<uikey category="0" command="25" key="49" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="26" key="26" toogleKey1="18"
+
+	<uikey category="0" command="26" key="50" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="27" key="27" toogleKey1="18"
+
+	<uikey category="0" command="27" key="51" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="28" key="28" toogleKey1="18"
+
+	<uikey category="0" command="28" key="52" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="29" key="29" toogleKey1="18"
+
+	<uikey category="0" command="29" key="53" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="30" key="30" toogleKey1="18"
+
+	<uikey category="0" command="30" key="54" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="31" key="31" toogleKey1="18"
+
+	<uikey category="0" command="31" key="55" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="32" key="32" toogleKey1="18"
+
+	<uikey category="0" command="32" key="56" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="33" key="33" toogleKey1="18"
+
+	<uikey category="0" command="33" key="57" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="34" key="34" toogleKey1="18"
+
+	<uikey category="0" command="34" key="48" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="35" key="35" toogleKey1="18"
+
+	<uikey category="0" command="35" key="189" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="36" key="36" toogleKey1="18"
+
+	<uikey category="0" command="36" key="187" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="37" key="37" toogleKey1="18"
+
+	<uikey category="0" command="37" key="97" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="38" key="38" toogleKey1="18"
+
+	<uikey category="0" command="38" key="98" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="39" key="39" toogleKey1="18"
+
+	<uikey category="0" command="39" key="99" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="40" key="40" toogleKey1="18"
+
+	<uikey category="0" command="40" key="100" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="41" key="41" toogleKey1="18"
+
+	<uikey category="0" command="41" key="101" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="42" key="42" toogleKey1="18"
+
+	<uikey category="0" command="42" key="102" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="43" key="43" toogleKey1="18"
+
+	<uikey category="0" command="43" key="103" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="44" key="44" toogleKey1="18"
+
+	<uikey category="0" command="44" key="104" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="45" key="45" toogleKey1="18"
+
+	<uikey category="0" command="45" key="105" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="46" key="46" toogleKey1="18"
+
+	<uikey category="0" command="46" key="96" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="47" key="47" toogleKey1="18"
+
+	<uikey category="0" command="47" key="111" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="48" key="48" toogleKey1="18"
+
+	<uikey category="0" command="48" key="106" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="92" key="92" toogleKey1="18"
+
+	<uikey category="0" command="92" key="32" toogleKey1="18"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="93" key="93" toogleKey1="0"
+
+	<uikey category="0" command="93" key="33" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="94" key="94" toogleKey1="0"
+
+	<uikey category="0" command="94" key="34" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="95" key="95" toogleKey1="0"
+
+	<uikey category="0" command="95" key="36" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="89" key="89" toogleKey1="0"
+
+	<uikey category="0" command="89" key="35" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="0" command="86" key="86" toogleKey1="0"
+
+	<uikey category="0" command="86" key="46" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="59" key="59" toogleKey1="0"
+
+	<uikey category="1" command="59" key="67" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="60" key="60" toogleKey1="0"
+
+	<uikey category="1" command="60" key="66" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="63" key="63" toogleKey1="0"
+
+	<uikey category="1" command="63" key="78" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="64" key="64" toogleKey1="0"
+
+	<uikey category="1" command="64" key="84" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="66" key="66" toogleKey1="0"
+
+	<uikey category="1" command="66" key="86" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="67" key="67" toogleKey1="0"
+
+	<uikey category="1" command="67" key="82" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="68" key="68" toogleKey1="0"
+
+	<uikey category="1" command="68" key="75" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="70" key="70" toogleKey1="0"
+
+	<uikey category="1" command="70" key="77" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="73" key="73" toogleKey1="0"
+
+	<uikey category="1" command="73" key="85" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="76" key="76" toogleKey1="0"
+
+	<uikey category="1" command="76" key="88" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="79" key="79" toogleKey1="0"
+
+	<uikey category="1" command="79" key="190" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="80" key="80" toogleKey1="0"
+
+	<uikey category="1" command="80" key="69" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="13" key="13" toogleKey1="0"
+
+	<uikey category="1" command="13" key="112" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="14" key="14" toogleKey1="0"
+
+	<uikey category="1" command="14" key="113" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="15" key="15" toogleKey1="0"
+
+	<uikey category="1" command="15" key="114" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="16" key="16" toogleKey1="0"
+
+	<uikey category="1" command="16" key="115" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="17" key="17" toogleKey1="0"
+
+	<uikey category="1" command="17" key="116" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="18" key="18" toogleKey1="0"
+
+	<uikey category="1" command="18" key="117" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="19" key="19" toogleKey1="0"
+
+	<uikey category="1" command="19" key="118" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="20" key="20" toogleKey1="0"
+
+	<uikey category="1" command="20" key="119" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="21" key="21" toogleKey1="0"
+
+	<uikey category="1" command="21" key="120" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="22" key="22" toogleKey1="0"
+
+	<uikey category="1" command="22" key="121" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="23" key="23" toogleKey1="0"
+
+	<uikey category="1" command="23" key="122" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="24" key="24" toogleKey1="0"
+
+	<uikey category="1" command="24" key="123" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="25" key="25" toogleKey1="0"
+
+	<uikey category="1" command="25" key="49" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="26" key="26" toogleKey1="0"
+
+	<uikey category="1" command="26" key="50" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="27" key="27" toogleKey1="0"
+
+	<uikey category="1" command="27" key="51" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="28" key="28" toogleKey1="0"
+
+	<uikey category="1" command="28" key="52" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="29" key="29" toogleKey1="0"
+
+	<uikey category="1" command="29" key="53" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="30" key="30" toogleKey1="0"
+
+	<uikey category="1" command="30" key="54" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="31" key="31" toogleKey1="0"
+
+	<uikey category="1" command="31" key="55" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="32" key="32" toogleKey1="0"
+
+	<uikey category="1" command="32" key="56" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="33" key="33" toogleKey1="0"
+
+	<uikey category="1" command="33" key="57" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="34" key="34" toogleKey1="0"
+
+	<uikey category="1" command="34" key="48" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="35" key="35" toogleKey1="0"
+
+	<uikey category="1" command="35" key="189" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="36" key="36" toogleKey1="0"
+
+	<uikey category="1" command="36" key="187" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="37" key="37" toogleKey1="0"
+
+	<uikey category="1" command="37" key="97" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="38" key="38" toogleKey1="0"
+
+	<uikey category="1" command="38" key="98" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="39" key="39" toogleKey1="0"
+
+	<uikey category="1" command="39" key="99" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="40" key="40" toogleKey1="0"
+
+	<uikey category="1" command="40" key="100" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="41" key="41" toogleKey1="0"
+
+	<uikey category="1" command="41" key="101" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="42" key="42" toogleKey1="0"
+
+	<uikey category="1" command="42" key="102" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="43" key="43" toogleKey1="0"
+
+	<uikey category="1" command="43" key="103" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="44" key="44" toogleKey1="0"
+
+	<uikey category="1" command="44" key="104" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="45" key="45" toogleKey1="0"
+
+	<uikey category="1" command="45" key="105" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="46" key="46" toogleKey1="0"
+
+	<uikey category="1" command="46" key="96" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="47" key="47" toogleKey1="0"
+
+	<uikey category="1" command="47" key="111" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="48" key="48" toogleKey1="0"
+
+	<uikey category="1" command="48" key="106" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="82" key="82" toogleKey1="0"
+
+	<uikey category="1" command="82" key="65" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="83" key="83" toogleKey1="0"
+
+	<uikey category="1" command="83" key="68" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="84" key="84" toogleKey1="0"
+
+	<uikey category="1" command="84" key="87" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="85" key="85" toogleKey1="0"
+
+	<uikey category="1" command="85" key="83" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="86" key="86" toogleKey1="0"
+
+	<uikey category="1" command="86" key="46" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="1" command="96" key="96" toogleKey1="0"
+
+	<uikey category="1" command="96" key="65" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="1" command="97" key="97" toogleKey1="0"
+
+	<uikey category="1" command="97" key="68" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="1" command="98" key="98" toogleKey1="0"
+
+	<uikey category="1" command="98" key="87" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="1" command="99" key="99" toogleKey1="0"
+
+	<uikey category="1" command="99" key="83" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="2" command="59" key="59" toogleKey1="0"
+
+	<uikey category="2" command="59" key="67" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="60" key="60" toogleKey1="0"
+
+	<uikey category="2" command="60" key="66" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="63" key="63" toogleKey1="0"
+
+	<uikey category="2" command="63" key="78" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="64" key="64" toogleKey1="0"
+
+	<uikey category="2" command="64" key="84" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="66" key="66" toogleKey1="0"
+
+	<uikey category="2" command="66" key="86" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="67" key="67" toogleKey1="0"
+
+	<uikey category="2" command="67" key="82" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="68" key="68" toogleKey1="0"
+
+	<uikey category="2" command="68" key="75" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="70" key="70" toogleKey1="0"
+
+	<uikey category="2" command="70" key="77" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="73" key="73" toogleKey1="0"
+
+	<uikey category="2" command="73" key="85" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="76" key="76" toogleKey1="0"
+
+	<uikey category="2" command="76" key="88" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="79" key="79" toogleKey1="0"
+
+	<uikey category="2" command="79" key="190" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="128" key="128" toogleKey1="0"
+
+	<uikey category="2" command="128" key="49" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="129" key="129" toogleKey1="0"
+
+	<uikey category="2" command="129" key="50" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="130" key="130" toogleKey1="0"
+
+	<uikey category="2" command="130" key="51" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="131" key="131" toogleKey1="0"
+
+	<uikey category="2" command="131" key="52" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="132" key="132" toogleKey1="0"
+
+	<uikey category="2" command="132" key="53" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="133" key="133" toogleKey1="0"
+
+	<uikey category="2" command="133" key="54" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="134" key="134" toogleKey1="0"
+
+	<uikey category="2" command="134" key="55" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="135" key="135" toogleKey1="0"
+
+	<uikey category="2" command="135" key="56" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="136" key="136" toogleKey1="0"
+
+	<uikey category="2" command="136" key="57" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="137" key="137" toogleKey1="0"
+
+	<uikey category="2" command="137" key="48" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="138" key="138" toogleKey1="0"
+
+	<uikey category="2" command="138" key="189" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="139" key="139" toogleKey1="0"
+
+	<uikey category="2" command="139" key="187" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="140" key="140" toogleKey1="0"
+
+	<uikey category="2" command="140" key="32" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="86" key="86" toogleKey1="0"
+
+	<uikey category="2" command="86" key="46" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="82" key="82" toogleKey1="0"
+
+	<uikey category="2" command="82" key="65" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="83" key="83" toogleKey1="0"
+
+	<uikey category="2" command="83" key="68" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="84" key="84" toogleKey1="0"
+
+	<uikey category="2" command="84" key="87" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="152" key="152" toogleKey1="0"
+
+	<uikey category="2" command="152" key="83" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="143" key="143" toogleKey1="0"
+
+	<uikey category="2" command="143" key="69" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="144" key="144" toogleKey1="0"
+
+	<uikey category="2" command="144" key="81" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="96" key="96" toogleKey1="0"
+
+	<uikey category="2" command="96" key="65" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="2" command="97" key="97" toogleKey1="0"
+
+	<uikey category="2" command="97" key="68" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="2" command="98" key="98" toogleKey1="0"
+
+	<uikey category="2" command="98" key="87" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="2" command="147" key="147" toogleKey1="0"
+
+	<uikey category="2" command="147" key="69" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="2" command="148" key="148" toogleKey1="0"
+
+	<uikey category="2" command="148" key="81" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="2" command="93" key="93" toogleKey1="0"
+
+	<uikey category="2" command="93" key="33" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="94" key="94" toogleKey1="0"
+
+	<uikey category="2" command="94" key="34" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="2" command="95" key="95" toogleKey1="0"
+
+	<uikey category="2" command="95" key="36" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="59" key="59" toogleKey1="0"
+
+	<uikey category="3" command="59" key="67" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="60" key="60" toogleKey1="0"
+
+	<uikey category="3" command="60" key="66" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="63" key="63" toogleKey1="0"
+
+	<uikey category="3" command="63" key="78" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="64" key="64" toogleKey1="0"
+
+	<uikey category="3" command="64" key="84" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="66" key="66" toogleKey1="0"
+
+	<uikey category="3" command="66" key="86" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="67" key="67" toogleKey1="0"
+
+	<uikey category="3" command="67" key="82" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="68" key="68" toogleKey1="0"
+
+	<uikey category="3" command="68" key="75" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="70" key="70" toogleKey1="0"
+
+	<uikey category="3" command="70" key="77" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="73" key="73" toogleKey1="0"
+
+	<uikey category="3" command="73" key="85" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="76" key="76" toogleKey1="0"
+
+	<uikey category="3" command="76" key="88" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="79" key="79" toogleKey1="0"
+
+	<uikey category="3" command="79" key="190" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="116" key="116" toogleKey1="0"
+
+	<uikey category="3" command="116" key="49" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="117" key="117" toogleKey1="0"
+
+	<uikey category="3" command="117" key="50" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="118" key="118" toogleKey1="0"
+
+	<uikey category="3" command="118" key="51" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="119" key="119" toogleKey1="0"
+
+	<uikey category="3" command="119" key="52" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="120" key="120" toogleKey1="0"
+
+	<uikey category="3" command="120" key="53" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="121" key="121" toogleKey1="0"
+
+	<uikey category="3" command="121" key="54" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="122" key="122" toogleKey1="0"
+
+	<uikey category="3" command="122" key="55" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="123" key="123" toogleKey1="0"
+
+	<uikey category="3" command="123" key="56" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="124" key="124" toogleKey1="0"
+
+	<uikey category="3" command="124" key="57" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="125" key="125" toogleKey1="0"
+
+	<uikey category="3" command="125" key="48" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="126" key="126" toogleKey1="0"
+
+	<uikey category="3" command="126" key="189" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="127" key="127" toogleKey1="0"
+
+	<uikey category="3" command="127" key="187" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="140" key="140" toogleKey1="0"
+
+	<uikey category="3" command="140" key="32" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="86" key="86" toogleKey1="0"
+
+	<uikey category="3" command="86" key="46" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="145" key="145" toogleKey1="0"
+
+	<uikey category="3" command="145" key="106" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="82" key="82" toogleKey1="0"
+
+	<uikey category="3" command="82" key="65" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="83" key="83" toogleKey1="0"
+
+	<uikey category="3" command="83" key="68" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="84" key="84" toogleKey1="0"
+
+	<uikey category="3" command="84" key="87" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="151" key="151" toogleKey1="0"
+
+	<uikey category="3" command="151" key="83" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="141" key="141" toogleKey1="0"
+
+	<uikey category="3" command="141" key="69" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="142" key="142" toogleKey1="0"
+
+	<uikey category="3" command="142" key="81" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="96" key="96" toogleKey1="0"
+
+	<uikey category="3" command="96" key="65" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="3" command="97" key="97" toogleKey1="0"
+
+	<uikey category="3" command="97" key="68" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="3" command="98" key="98" toogleKey1="0"
+
+	<uikey category="3" command="98" key="87" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="3" command="147" key="147" toogleKey1="0"
+
+	<uikey category="3" command="147" key="69" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="3" command="148" key="148" toogleKey1="0"
+
+	<uikey category="3" command="148" key="81" toogleKey1="0"
 		toogleKey2="0" showType="3" />
-	<uikey category="3" command="93" key="93" toogleKey1="0"
+
+	<uikey category="3" command="93" key="33" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="94" key="94" toogleKey1="0"
+
+	<uikey category="3" command="94" key="34" toogleKey1="0"
 		toogleKey2="0" showType="1" />
-	<uikey category="3" command="95" key="95" toogleKey1="0"
+
+	<uikey category="3" command="95" key="36" toogleKey1="0"
 		toogleKey2="0" showType="1" />
+
 </list>
