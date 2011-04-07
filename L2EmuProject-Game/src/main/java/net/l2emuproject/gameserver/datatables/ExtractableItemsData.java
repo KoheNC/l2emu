@@ -48,7 +48,7 @@ public final class ExtractableItemsData
 
 		try
 		{
-			s = new Scanner(new File(Config.DATAPACK_ROOT, "data/extractable_items.csv"));
+			s = new Scanner(new File(Config.DATAPACK_ROOT, "data/item_data/extractable_items.csv"));
 		}
 		catch (Exception e)
 		{

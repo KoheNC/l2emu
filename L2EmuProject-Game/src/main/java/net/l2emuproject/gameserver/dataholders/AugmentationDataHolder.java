@@ -282,7 +282,7 @@ public final class AugmentationDataHolder
 			factory.setValidating(true);
 			factory.setIgnoringComments(true);
 
-			final File file = new File(Config.DATAPACK_ROOT + "/data/augmentation/augmentation_skillmap.xml");
+			final File file = new File(Config.DATAPACK_ROOT + "/data/item_data/augmentation/augmentation_skillmap.xml");
 			if (!file.exists())
 			{
 				_log.warn("The augmentation skillmap file is missing.");
@@ -366,7 +366,7 @@ public final class AugmentationDataHolder
 				factory.setValidating(false);
 				factory.setIgnoringComments(true);
 
-				final File file = new File(Config.DATAPACK_ROOT + "/data/augmentation/augmentation_stats" + i + ".xml");
+				final File file = new File(Config.DATAPACK_ROOT + "/data/item_data/augmentation/augmentation_stats" + i + ".xml");
 				if (!file.exists())
 				{
 					_log.warn("The augmentation stat data file " + i + " is missing.");
@@ -435,7 +435,7 @@ public final class AugmentationDataHolder
 				factory.setValidating(false);
 				factory.setIgnoringComments(true);
 
-				final File file = new File(Config.DATAPACK_ROOT + "/data/augmentation/augmentation_jewel_stats" + i + ".xml");
+				final File file = new File(Config.DATAPACK_ROOT + "/data/item_data/augmentation/augmentation_jewel_stats" + i + ".xml");
 
 				if (!file.exists())
 				{

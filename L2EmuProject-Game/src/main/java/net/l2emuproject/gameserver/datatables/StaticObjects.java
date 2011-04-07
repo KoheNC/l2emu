@@ -57,7 +57,7 @@ public class StaticObjects
 		LineNumberReader lnr = null;
 		try
 		{
-			File doorData = new File(Config.DATAPACK_ROOT, "data/staticobjects.csv");
+			File doorData = new File(Config.DATAPACK_ROOT, "data/world_data/objects/staticobjects.csv");
 			lnr = new LineNumberReader(new BufferedReader(new FileReader(doorData)));
 
 			String line = null;

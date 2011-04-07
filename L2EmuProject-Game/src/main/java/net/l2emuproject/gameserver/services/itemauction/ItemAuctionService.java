@@ -78,7 +78,7 @@ public final class ItemAuctionService
 			L2DatabaseFactory.close(con);
 		}
 
-		final File file = new File(Config.DATAPACK_ROOT + "/data/item_auction/ItemAuctions.xml");
+		final File file = new File(Config.DATAPACK_ROOT + "/data/npc_data/item_auction/ItemAuctions.xml");
 		if (!file.exists())
 		{
 			_log.warn(getClass().getSimpleName() + " : Missing ItemAuctions.xml!");

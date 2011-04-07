@@ -62,7 +62,7 @@ public final class DoorTable
 		BufferedReader br = null;
 		try
 		{
-			br = new BufferedReader(new FileReader(new File(Config.DATAPACK_ROOT, "data/door.csv")));
+			br = new BufferedReader(new FileReader(new File(Config.DATAPACK_ROOT, "data/world_data/doors/door.csv")));
 
 			for (String line; (line = br.readLine()) != null;)
 			{
