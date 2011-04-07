@@ -80,7 +80,7 @@ public class TerritoryWar implements IBypassHandler
 
 				String itemId = st.nextToken();
 				NpcHtmlMessage html = new NpcHtmlMessage(mercman.getObjectId());
-				html.setFile("data/html/mercmanager/" + st.nextToken());
+				html.setFile("data/npc_data/html/mercmanager/" + st.nextToken());
 				html.replace("%itemId%", itemId);
 				html.replace("%noblessBadge%", String.valueOf(Config.MINTWBADGEFORNOBLESS));
 				html.replace("%striderBadge%", String.valueOf(Config.MINTWBADGEFORSTRIDERS));
@@ -140,17 +140,17 @@ public class TerritoryWar implements IBypassHandler
 				int[] reward = TerritoryWarManager.getInstance().calcReward(activeChar);
 				NpcHtmlMessage html = new NpcHtmlMessage(mercman.getObjectId());
 				if (TerritoryWarManager.getInstance().isTWInProgress() || reward[0] == 0)
-					html.setFile("data/html/mercmanager/reward-0a.htm");
+					html.setFile("data/npc_data/html/mercmanager/reward-0a.htm");
 				else if (reward[0] != territoryId)
 				{
-					html.setFile("data/html/mercmanager/reward-0b.htm");
+					html.setFile("data/npc_data/html/mercmanager/reward-0b.htm");
 					html.replace("%castle%", CastleManager.getInstance().getCastleById(reward[0] - 80).getName());
 				}
 				else if (reward[1] == 0)
-					html.setFile("data/html/mercmanager/reward-0a.htm");
+					html.setFile("data/npc_data/html/mercmanager/reward-0a.htm");
 				else
 				{
-					html.setFile("data/html/mercmanager/reward-1.htm");
+					html.setFile("data/npc_data/html/mercmanager/reward-1.htm");
 					html.replace("%castle%", CastleManager.getInstance().getCastleById(reward[0] - 80).getName());
 					html.replace("%badge%", String.valueOf(reward[1]));
 					html.replace("%adena%", String.valueOf(reward[1] * 5000));
@@ -169,17 +169,17 @@ public class TerritoryWar implements IBypassHandler
 				int[] reward = TerritoryWarManager.getInstance().calcReward(activeChar);
 				NpcHtmlMessage html = new NpcHtmlMessage(mercman.getObjectId());
 				if (TerritoryWarManager.getInstance().isTWInProgress() || reward[0] == 0)
-					html.setFile("data/html/mercmanager/reward-0a.htm");
+					html.setFile("data/npc_data/html/mercmanager/reward-0a.htm");
 				else if (reward[0] != territoryId)
 				{
-					html.setFile("data/html/mercmanager/reward-0b.htm");
+					html.setFile("data/npc_data/html/mercmanager/reward-0b.htm");
 					html.replace("%castle%", CastleManager.getInstance().getCastleById(reward[0] - 80).getName());
 				}
 				else if (reward[1] == 0)
-					html.setFile("data/html/mercmanager/reward-0a.htm");
+					html.setFile("data/npc_data/html/mercmanager/reward-0a.htm");
 				else
 				{
-					html.setFile("data/html/mercmanager/reward-2.htm");
+					html.setFile("data/npc_data/html/mercmanager/reward-2.htm");
 					activeChar.addItem("QUEST", badgeId, reward[1], mercman, true);
 					activeChar.addAdena("QUEST", reward[1] * 5000, mercman, true);
 					TerritoryWarManager.getInstance().resetReward(activeChar);

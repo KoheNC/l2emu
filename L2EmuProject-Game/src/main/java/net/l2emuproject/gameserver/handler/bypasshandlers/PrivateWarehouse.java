@@ -45,7 +45,7 @@ public final class PrivateWarehouse implements IBypassHandler
 			{
 				if (Config.ENABLE_WAREHOUSESORTING_PRIVATE)
 				{
-					String htmFile = "data/html/custom/WhSortedP.htm";
+					String htmFile = "data/npc_data/html/custom/WhSortedP.htm";
 					String htmContent = HtmCache.getInstance().getHtm(htmFile);
 					if (htmContent != null)
 					{

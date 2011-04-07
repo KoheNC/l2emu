@@ -29,8 +29,8 @@ public abstract class CommunityBoard
 
 	private final CommunityService	_service;
 
-	protected static final String	TOP_PATH			= "data/html/CommunityBoard/top/";
-	protected static final String	STATICFILES_PATH	= "data/html/CommunityBoard/staticfiles/";
+	protected static final String	TOP_PATH			= "data/npc_data/html/CommunityBoard/top/";
+	protected static final String	STATICFILES_PATH	= "data/npc_data/html/CommunityBoard/staticfiles/";
 
 	public static final String[]	HEADER				=
 														{

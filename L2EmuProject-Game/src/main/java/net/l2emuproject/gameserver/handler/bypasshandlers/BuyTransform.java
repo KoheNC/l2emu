@@ -52,7 +52,7 @@ public final class BuyTransform implements IBypassHandler
 		if (st.getState() == State.COMPLETED)
 			L2Multisell.getInstance().separateAndSend(9006, activeChar, ((L2Npc) target).getNpcId(), false, ((L2Npc) target).getCastle().getTaxRate());
 		else
-			((L2TransformManagerInstance) target).showChatWindow(activeChar, "data/html/default/32323-6.htm");
+			((L2TransformManagerInstance) target).showChatWindow(activeChar, "data/npc_data/html/default/32323-6.htm");
 
 		return true;
 	}

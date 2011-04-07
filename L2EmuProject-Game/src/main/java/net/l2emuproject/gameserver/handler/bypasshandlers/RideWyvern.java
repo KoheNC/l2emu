@@ -115,7 +115,7 @@ public class RideWyvern implements IBypassHandler
 	private void sendNotPossibleMessage(L2Player player)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(1);
-		html.setFile("data/html/wyvernmanager/fortress-wyvernmanager-notpossible.htm");
+		html.setFile("data/npc_data/html/wyvernmanager/fortress-wyvernmanager-notpossible.htm");
 		html.replace("%count%", String.valueOf(Config.ALT_MANAGER_CRYSTAL_COUNT));
 		player.sendPacket(html);
 	}

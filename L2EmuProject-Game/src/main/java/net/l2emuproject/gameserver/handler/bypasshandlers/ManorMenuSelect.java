@@ -63,12 +63,12 @@ public final class ManorMenuSelect implements IBypassHandler
 				if (activeChar.getClan() == null || castle.getOwnerId() != activeChar.getClanId()
 						|| (activeChar.getClanPrivileges() & L2Clan.CP_CS_MANOR_ADMIN) != L2Clan.CP_CS_MANOR_ADMIN)
 				{
-					manager.showChatWindow(activeChar, "data/html/chamberlain/chamberlain-noprivs.htm");
+					manager.showChatWindow(activeChar, "data/npc_data/html/chamberlain/chamberlain-noprivs.htm");
 					return false;
 				}
 				if (castle.getSiege().getIsInProgress())
 				{
-					manager.showChatWindow(activeChar, "data/html/chamberlain/chamberlain-busy.htm");
+					manager.showChatWindow(activeChar, "data/npc_data/html/chamberlain/chamberlain-busy.htm");
 					return false;
 				}
 			}

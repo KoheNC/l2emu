@@ -62,7 +62,7 @@ public final class Olympiad
 	private static Map<Integer, Integer> _noblesRank;
 	
 	private static final String OLYMPIAD_DATA_FILE = "config/main/events/olympiad_save.properties";
-	public static final String OLYMPIAD_HTML_PATH = "data/html/olympiad/";
+	public static final String OLYMPIAD_HTML_PATH = "data/npc_data/html/olympiad/";
 	private static final String OLYMPIAD_LOAD_DATA = "SELECT current_cycle, period, olympiad_end, validation_end, "
 			+ "next_weekly_change FROM olympiad_data WHERE id = 0";
 	private static final String OLYMPIAD_SAVE_DATA = "INSERT INTO olympiad_data (id, current_cycle, "

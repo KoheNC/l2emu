@@ -32,7 +32,7 @@ public class Exchange implements IBypassHandler
 			return false;
 
 		NpcHtmlMessage html = new NpcHtmlMessage(((L2Npc) target).getObjectId());
-		html.setFile("data/html/merchant/exchange.htm");
+		html.setFile("data/npc_data/html/merchant/exchange.htm");
 		html.replace("%objectId%", String.valueOf(target.getObjectId()));
 		activeChar.sendPacket(html);
 

@@ -57,7 +57,7 @@ public class SevenSigns
 
 	// Basic Seven Signs Constants \\
 	public static final String						SEVEN_SIGNS_DATA_FILE		= "config/signs.properties";
-	public static final String						SEVEN_SIGNS_HTML_PATH		= "data/html/seven_signs/";
+	public static final String						SEVEN_SIGNS_HTML_PATH		= "data/npc_data/html/seven_signs/";
 
 	public static final int							CABAL_NULL					= 0;
 	public static final int							CABAL_DUSK					= 1;

@@ -276,13 +276,13 @@ public class DimensionalRiftManager
 		boolean canPass = true;
 		if (!player.isInParty())
 		{
-			showHtmlFile(player, "data/html/seven_signs/rift/NoParty.htm", npc);
+			showHtmlFile(player, "data/npc_data/html/seven_signs/rift/NoParty.htm", npc);
 			return;
 		}
 
 		if (player.getParty().getPartyLeaderOID() != player.getObjectId())
 		{
-			showHtmlFile(player, "data/html/seven_signs/rift/NotPartyLeader.htm", npc);
+			showHtmlFile(player, "data/npc_data/html/seven_signs/rift/NotPartyLeader.htm", npc);
 			return;
 		}
 
@@ -295,7 +295,7 @@ public class DimensionalRiftManager
 		if (player.getParty().getMemberCount() < Config.ALT_RIFT_MIN_PARTY_SIZE)
 		{
 			NpcHtmlMessage html = new NpcHtmlMessage(npc.getObjectId());
-			html.setFile("data/html/seven_signs/rift/SmallParty.htm");
+			html.setFile("data/npc_data/html/seven_signs/rift/SmallParty.htm");
 			html.replace("%npc_name%", npc.getName());
 			html.replace("%count%", Integer.valueOf(Config.ALT_RIFT_MIN_PARTY_SIZE).toString());
 			player.sendPacket(html);
@@ -308,7 +308,7 @@ public class DimensionalRiftManager
 
 		if (!canPass)
 		{
-			showHtmlFile(player, "data/html/seven_signs/rift/NotInWaitingRoom.htm", npc);
+			showHtmlFile(player, "data/npc_data/html/seven_signs/rift/NotInWaitingRoom.htm", npc);
 			return;
 		}
 
@@ -331,7 +331,7 @@ public class DimensionalRiftManager
 		if (!canPass)
 		{
 			NpcHtmlMessage html = new NpcHtmlMessage(npc.getObjectId());
-			html.setFile("data/html/seven_signs/rift/NoFragments.htm");
+			html.setFile("data/npc_data/html/seven_signs/rift/NoFragments.htm");
 			html.replace("%npc_name%", npc.getName());
 			html.replace("%count%", Integer.toString(getNeededItems(type)));
 			player.sendPacket(html);
@@ -500,7 +500,7 @@ public class DimensionalRiftManager
 
 	public void handleCheat(L2Player player, L2Npc npc)
 	{
-		showHtmlFile(player, "data/html/seven_signs/rift/Cheater.htm", npc);
+		showHtmlFile(player, "data/npc_data/html/seven_signs/rift/Cheater.htm", npc);
 		if (!player.isGM())
 		{
 			_log.warn("Player " + player.getName() + "(" + player.getObjectId() + ") was cheating in dimension rift area!");

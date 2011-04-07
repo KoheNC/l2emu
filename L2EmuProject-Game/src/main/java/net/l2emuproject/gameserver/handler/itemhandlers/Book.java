@@ -83,7 +83,7 @@ public class Book implements IItemHandler
 		L2Player activeChar = (L2Player) playable;
 		final int itemId = item.getItemId();
 
-		String filename = "data/html/help/" + item.getItemId() + ".htm";
+		String filename = "data/npc_data/html/help/" + item.getItemId() + ".htm";
 		String content = HtmCache.getInstance().getHtm(filename);
 
 		if (content == null)

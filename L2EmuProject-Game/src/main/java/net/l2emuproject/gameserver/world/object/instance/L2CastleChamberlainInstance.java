@@ -284,7 +284,7 @@ public class L2CastleChamberlainInstance extends L2MerchantInstance
 
 				String filename = "";
 				if (CastleManorService.getInstance().isDisabled())
-					filename = "data/html/npcdefault.htm";
+					filename = "data/npc_data/html/npcdefault.htm";
 				else
 				{
 					int cmd = Integer.parseInt(val);

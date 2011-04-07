@@ -205,7 +205,7 @@ public class RequestBypassToServer extends L2GameClientPacket
 		{
 			int itemId = 0;
 			itemId = Integer.parseInt(cmd[1]);
-			String filename = "data/html/help/" + cmd[0];
+			String filename = "data/npc_data/html/help/" + cmd[0];
 			NpcHtmlMessage html = new NpcHtmlMessage(1, itemId);
 			html.setFile(filename);
 			html.disableValidation();
@@ -213,7 +213,7 @@ public class RequestBypassToServer extends L2GameClientPacket
 		}
 		else
 		{
-			String filename = "data/html/help/" + path;
+			String filename = "data/npc_data/html/help/" + path;
 			NpcHtmlMessage html = new NpcHtmlMessage(1);
 			html.setFile(filename);
 			html.disableValidation();

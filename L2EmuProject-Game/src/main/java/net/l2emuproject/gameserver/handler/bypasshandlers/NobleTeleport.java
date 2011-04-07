@@ -35,7 +35,7 @@ public class NobleTeleport implements IBypassHandler
 		{
 			if (!activeChar.isNoble())
 			{
-				String filename = "data/html/teleporter/nobleteleporter-no.htm";
+				String filename = "data/npc_data/html/teleporter/nobleteleporter-no.htm";
 				NpcHtmlMessage html = new NpcHtmlMessage(((L2Npc) target).getObjectId());
 				html.setFile(filename);
 				html.replace("%objectId%", String.valueOf(((L2Npc) target).getObjectId()));

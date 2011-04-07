@@ -43,7 +43,7 @@ public class RemoveDeathPenalty implements IBypassHandler
 			switch (cmdChoice)
 			{
 				case 1:
-					String filename = "data/html/default/30981-1.htm";
+					String filename = "data/npc_data/html/default/30981-1.htm";
 					NpcHtmlMessage html = new NpcHtmlMessage(target.getObjectId());
 					html.setFile(filename);
 					html.replace("%objectId%", String.valueOf(target.getObjectId()));

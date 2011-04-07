@@ -218,7 +218,7 @@ public final class AutoAnnouncements
 
 	public void listAutoAnnouncements(L2Player activeChar)
 	{
-		String content = HtmCache.getInstance().getHtmForce("data/html/admin/autoannounce.htm");
+		String content = HtmCache.getInstance().getHtmForce("data/npc_data/html/admin/autoannounce.htm");
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
 		adminReply.setHtml(content);
 

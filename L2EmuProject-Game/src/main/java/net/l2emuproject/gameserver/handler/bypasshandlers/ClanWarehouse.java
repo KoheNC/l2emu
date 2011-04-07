@@ -47,7 +47,7 @@ public class ClanWarehouse implements IBypassHandler
 			{
 				if (Config.ENABLE_WAREHOUSESORTING_CLAN)
 				{
-					String htmFile = "data/html/custom/WhSortedC.htm";
+					String htmFile = "data/npc_data/html/custom/WhSortedC.htm";
 					String htmContent = HtmCache.getInstance().getHtm(htmFile);
 					if (htmContent != null)
 					{

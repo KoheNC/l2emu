@@ -362,7 +362,7 @@ public class EnterWorld extends L2GameClientPacket
 
 		if (Config.SHOW_HTML_NEWBIE && activeChar.getLevel() < Config.LEVEL_HTML_NEWBIE)
 		{
-			String Newbie_Path = "data/html/newbie.htm";
+			String Newbie_Path = "data/npc_data/html/newbie.htm";
 			if (HtmCache.getInstance().pathExists(Newbie_Path))
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(1);
@@ -373,7 +373,7 @@ public class EnterWorld extends L2GameClientPacket
 		}
 		else if (Config.SHOW_HTML_GM && activeChar.isGM())
 		{
-			String Gm_Path = "data/html/gm.htm";
+			String Gm_Path = "data/npc_data/html/gm.htm";
 			if (HtmCache.getInstance().pathExists(Gm_Path))
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(1);
@@ -384,7 +384,7 @@ public class EnterWorld extends L2GameClientPacket
 		}
 		else if (Config.SHOW_HTML_WELCOME)
 		{
-			String Welcome_Path = "data/html/welcome.htm";
+			String Welcome_Path = "data/npc_data/html/welcome.htm";
 			if (HtmCache.getInstance().pathExists(Welcome_Path))
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(1);
@@ -556,7 +556,7 @@ public class EnterWorld extends L2GameClientPacket
 				if (clan.isNoticeEnabled() && !clan.getNotice().isEmpty())
 				{
 					NpcHtmlMessage notice = new NpcHtmlMessage(clan.getClanId());
-					notice.setFile("data/html/clanNotice.htm");
+					notice.setFile("data/npc_data/html/clanNotice.htm");
 					notice.replace("%clan_name%", clan.getName());
 					// perhaps <br> is in retail?
 					notice.replace("%notice_text%", clan.getNotice().replaceAll("\r\n", "<br1>"));

@@ -59,7 +59,7 @@ public final class RequestLinkHtml extends L2GameClientPacket
 
 		try
 		{
-			String filename = "data/html/" + _link;
+			String filename = "data/npc_data/html/" + _link;
 			NpcHtmlMessage html = new NpcHtmlMessage(0);
 			html.setFile(filename);
 			html.replace("%objectId%", String.valueOf(player.getLastFolkNPC().getObjectId()));

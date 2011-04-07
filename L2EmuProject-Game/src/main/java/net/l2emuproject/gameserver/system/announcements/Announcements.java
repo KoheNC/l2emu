@@ -121,7 +121,7 @@ public final class Announcements
 
 	public final void listAnnouncements(final L2Player player)
 	{
-		final String content = HtmCache.getInstance().getHtmForce("data/html/admin/announce.htm");
+		final String content = HtmCache.getInstance().getHtmForce("data/npc_data/html/admin/announce.htm");
 		final NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
 		adminReply.setHtml(content);
 

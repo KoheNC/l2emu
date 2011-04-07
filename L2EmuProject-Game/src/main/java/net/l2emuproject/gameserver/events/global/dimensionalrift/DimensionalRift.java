@@ -199,13 +199,13 @@ public class DimensionalRift
 
 		if (player.getObjectId() != player.getParty().getPartyLeaderOID())
 		{
-			DimensionalRiftManager.getInstance().showHtmlFile(player, "data/html/seven_signs/rift/NotPartyLeader.htm", npc);
+			DimensionalRiftManager.getInstance().showHtmlFile(player, "data/npc_data/html/seven_signs/rift/NotPartyLeader.htm", npc);
 			return;
 		}
 
 		if (_hasJumped)
 		{
-			DimensionalRiftManager.getInstance().showHtmlFile(player, "data/html/seven_signs/rift/AlreadyTeleported.htm", npc);
+			DimensionalRiftManager.getInstance().showHtmlFile(player, "data/npc_data/html/seven_signs/rift/AlreadyTeleported.htm", npc);
 			return;
 		}
 
@@ -229,7 +229,7 @@ public class DimensionalRift
 
 		if (player.getObjectId() != player.getParty().getPartyLeaderOID())
 		{
-			DimensionalRiftManager.getInstance().showHtmlFile(player, "data/html/seven_signs/rift/NotPartyLeader.htm", npc);
+			DimensionalRiftManager.getInstance().showHtmlFile(player, "data/npc_data/html/seven_signs/rift/NotPartyLeader.htm", npc);
 			return;
 		}
 

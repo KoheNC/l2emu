@@ -50,7 +50,7 @@ public final class KrateiCube extends L2Event
 		return SingletonHolder.INSTANCE;
 	}
 
-	public static final String					HTML_PATH			= "data/html/kratei_cube/";
+	public static final String					HTML_PATH			= "data/npc_data/html/kratei_cube/";
 
 	// DOOR FIRST GROUP
 	private static final int					DOORS_GROUP1_1		= 17150014;
