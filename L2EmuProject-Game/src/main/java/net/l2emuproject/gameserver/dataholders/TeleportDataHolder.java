@@ -15,12 +15,13 @@
 package net.l2emuproject.gameserver.dataholders;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.mapregion.L2TeleportLocation;
-import net.l2emuproject.util.LookupTable;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -32,9 +33,9 @@ import org.w3c.dom.Node;
  */
 public final class TeleportDataHolder
 {
-	private final static Log						_log	= LogFactory.getLog(TeleportDataHolder.class);
+	private final static Log						_log		= LogFactory.getLog(TeleportDataHolder.class);
 
-	private final LookupTable<L2TeleportLocation>	_teleports;
+	private final Map<Integer, L2TeleportLocation>	_teleports	= new HashMap<Integer, L2TeleportLocation>();
 
 	private static final class SingletonHolder
 	{
@@ -48,11 +49,16 @@ public final class TeleportDataHolder
 
 	private TeleportDataHolder()
 	{
-		_teleports = new LookupTable<L2TeleportLocation>();
 		load();
 	}
 
-	public void load()
+	public void reload()
+	{
+		_teleports.clear();
+		load();
+	}
+
+	private void load()
 	{
 		Document doc = null;
 

@@ -16,12 +16,12 @@ package net.l2emuproject.gameserver.dataholders;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.events.global.siege.Castle;
 import net.l2emuproject.gameserver.events.global.siege.CastleManager;
@@ -35,10 +35,9 @@ import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 /**
- *
  * @author  KenM
  */
-public class MerchantPriceConfigDataHolder implements InstanceListManager
+public final class MerchantPriceConfigDataHolder implements InstanceListManager
 {
 	private static final Log	_log	= LogFactory.getLog(MerchantPriceConfigDataHolder.class);
 
@@ -47,9 +46,7 @@ public class MerchantPriceConfigDataHolder implements InstanceListManager
 		return SingletonHolder._instance;
 	}
 
-	private static final String						MPCS_FILE	= "MerchantPriceConfig.xml";
-
-	private final Map<Integer, MerchantPriceConfig>	_mpcs		= new FastMap<Integer, MerchantPriceConfig>();
+	private final Map<Integer, MerchantPriceConfig>	_mpcs	= new HashMap<Integer, MerchantPriceConfig>();
 	private MerchantPriceConfig						_defaultMpc;
 
 	private MerchantPriceConfigDataHolder()
@@ -83,7 +80,7 @@ public class MerchantPriceConfigDataHolder implements InstanceListManager
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setValidating(true);
 		factory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/npc_data/merchant/" + MPCS_FILE);
+		File file = new File(Config.DATAPACK_ROOT, "data/npc_data/merchant/MerchantPriceConfig.xml");
 		if (file.exists())
 		{
 			int defaultPriceConfigId;

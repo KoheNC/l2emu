@@ -316,7 +316,7 @@ public class AdminAdmin implements IAdminCommandHandler
 				}
 				else if (type.startsWith("teleport"))
 				{
-					TeleportDataHolder.getInstance().load();
+					TeleportDataHolder.getInstance().reload();
 					activeChar.sendMessage("Teleport location table reloaded");
 				}
 				else if (type.startsWith("skill"))

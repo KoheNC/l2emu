@@ -15,13 +15,13 @@
 package net.l2emuproject.gameserver.dataholders;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import javolution.util.FastList;
-import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.entity.player.keyboard.ActionKey;
 
@@ -37,8 +37,8 @@ public final class UIDataHolder
 {
 	private static final Log					_log				= LogFactory.getLog(UIDataHolder.class);
 
-	private final Map<Integer, List<ActionKey>>	_storedKeys			= new FastMap<Integer, List<ActionKey>>();
-	private final Map<Integer, List<Integer>>	_storedCategories	= new FastMap<Integer, List<Integer>>();
+	private final Map<Integer, List<ActionKey>>	_storedKeys			= new HashMap<Integer, List<ActionKey>>();
+	private final Map<Integer, List<Integer>>	_storedCategories	= new HashMap<Integer, List<Integer>>();
 
 	private static final class SingletonHolder
 	{

@@ -18,12 +18,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javolution.util.FastList;
-import javolution.util.FastMap;
 import net.l2emuproject.gameserver.network.SystemChatChannelId;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.L2GameServerPacket;
@@ -45,8 +45,8 @@ public final class Announcements
 	private static final String			SAVE_QUERRY		= "INSERT INTO announcements (announceId, announcement, dateStart, dateEnd) VALUES (?, ?, ?, ?)";
 	private static final String			DELETE_QUERRY	= "DELETE FROM announcements WHERE announceId = ?";
 
-	private final Map<Integer, String>	_announcements	= new FastMap<Integer, String>();
-	private final List<AnnounceDates>	_dates			= new FastList<AnnounceDates>();
+	private final Map<Integer, String>	_announcements	= new HashMap<Integer, String>();
+	private final List<AnnounceDates>	_dates			= new ArrayList<AnnounceDates>();
 	private int							_nextId			= 0;
 
 	private static final class SingletonHolder

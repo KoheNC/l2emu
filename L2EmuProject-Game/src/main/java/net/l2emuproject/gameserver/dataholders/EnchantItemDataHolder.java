@@ -17,6 +17,8 @@ package net.l2emuproject.gameserver.dataholders;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -28,7 +30,6 @@ import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2WeaponType;
 import net.l2emuproject.gameserver.world.object.L2Player;
-import net.l2emuproject.util.LookupTable;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -44,8 +45,8 @@ public final class EnchantItemDataHolder
 {
 	private final static Log					_log				= LogFactory.getLog(EnchantItemDataHolder.class);
 
-	private final LookupTable<EnchantScroll>	_scrolls			= new LookupTable<EnchantScroll>();
-	private final LookupTable<EnchantItem>		_supports			= new LookupTable<EnchantItem>();
+	private final Map<Integer, EnchantScroll>	_scrolls			= new HashMap<Integer, EnchantScroll>();
+	private final Map<Integer, EnchantItem>		_supports			= new HashMap<Integer, EnchantItem>();
 	private final Vector<Integer>				_enchantBlackList	= new Vector<Integer>();
 
 	public static final EnchantItemDataHolder getInstance()

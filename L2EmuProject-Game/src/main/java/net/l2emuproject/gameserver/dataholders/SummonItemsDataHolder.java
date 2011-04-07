@@ -16,10 +16,11 @@ package net.l2emuproject.gameserver.dataholders;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.items.L2SummonItem;
 
@@ -32,22 +33,26 @@ import org.w3c.dom.Node;
  * @author FBIagent
  * @reworked by Michiru
  */
-public class SummonItemsDataHolder
+public final class SummonItemsDataHolder
 {
-	private static final Log						_log	= LogFactory.getLog(SummonItemsDataHolder.class);
+	private static final Log					_log			= LogFactory.getLog(SummonItemsDataHolder.class);
 
-	private final FastMap<Integer, L2SummonItem>	_summonitems;
+	private final Map<Integer, L2SummonItem>	_summonItems	= new HashMap<Integer, L2SummonItem>();
 
-	private int[]									_summonItemIds;
+	private int[]								_summonItemIds;
+
+	private static final class SingletonHolder
+	{
+		private static final SummonItemsDataHolder	INSTANCE	= new SummonItemsDataHolder();
+	}
 
 	public static SummonItemsDataHolder getInstance()
 	{
-		return SingletonHolder._instance;
+		return SingletonHolder.INSTANCE;
 	}
 
 	private SummonItemsDataHolder()
 	{
-		_summonitems = new FastMap<Integer, L2SummonItem>();
 		Document doc = null;
 		File file = new File(Config.DATAPACK_ROOT, "data/item_data/summon_items/summon_items.xml");
 
@@ -91,15 +96,15 @@ public class SummonItemsDataHolder
 									summonType = Byte.parseByte(a.getNodeValue());
 								}
 							}
-							L2SummonItem summonitem = new L2SummonItem(itemID, npcID, summonType);
-							_summonitems.put(itemID, summonitem);
+							final L2SummonItem summonitem = new L2SummonItem(itemID, npcID, summonType);
+							_summonItems.put(itemID, summonitem);
 						}
 					}
 				}
 			}
-			_summonItemIds = new int[_summonitems.size()];
+			_summonItemIds = new int[_summonItems.size()];
 			int i = 0;
-			for (int itemId : _summonitems.keySet())
+			for (int itemId : _summonItems.keySet())
 				_summonItemIds[i++] = itemId;
 		}
 		catch (IOException e)
@@ -110,22 +115,16 @@ public class SummonItemsDataHolder
 		{
 			_log.warn("SummonItemsData: Error while parsing " + file.getAbsolutePath() + " !", e);
 		}
-		_log.info(getClass().getSimpleName() + " : Loaded " + _summonitems.size() + " Summon Items from " + file.getName());
+		_log.info(getClass().getSimpleName() + " : Loaded " + _summonItems.size() + " Summon Items from " + file.getName());
 	}
 
-	public L2SummonItem getSummonItem(int itemId)
+	public L2SummonItem getSummonItem(final int itemId)
 	{
-		return _summonitems.get(itemId);
+		return _summonItems.get(itemId);
 	}
 
 	public int[] itemIDs()
 	{
 		return _summonItemIds;
-	}
-
-	@SuppressWarnings("synthetic-access")
-	private static class SingletonHolder
-	{
-		protected static final SummonItemsDataHolder	_instance	= new SummonItemsDataHolder();
 	}
 }

@@ -15,6 +15,8 @@
 package net.l2emuproject.gameserver.dataholders;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -28,7 +30,6 @@ import net.l2emuproject.gameserver.templates.item.L2Armor;
 import net.l2emuproject.gameserver.templates.item.L2Equip;
 import net.l2emuproject.gameserver.templates.item.L2Item;
 import net.l2emuproject.gameserver.templates.item.L2Weapon;
-import net.l2emuproject.util.LookupTable;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -48,8 +49,8 @@ public final class EnchantHPBonusDataHolder
 		return SingletonHolder._instance;
 	}
 
-	private final LookupTable<Integer[]>	_singleArmorHPBonus	= new LookupTable<Integer[]>();
-	private final LookupTable<Integer[]>	_fullArmorHPBonus	= new LookupTable<Integer[]>();
+	private final Map<Integer, Integer[]>	_singleArmorHPBonus	= new HashMap<Integer, Integer[]>();
+	private final Map<Integer, Integer[]>	_fullArmorHPBonus	= new HashMap<Integer, Integer[]>();
 
 	private EnchantHPBonusDataHolder()
 	{
@@ -118,9 +119,9 @@ public final class EnchantHPBonusDataHolder
 							bonus[i] = value;
 						}
 						if (fullArmor)
-							_fullArmorHPBonus.set(grade, bonus);
+							_fullArmorHPBonus.put(grade, bonus);
 						else
-							_singleArmorHPBonus.set(grade, bonus);
+							_singleArmorHPBonus.put(grade, bonus);
 					}
 				}
 			}

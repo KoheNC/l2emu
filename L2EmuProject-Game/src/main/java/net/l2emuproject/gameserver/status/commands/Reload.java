@@ -55,7 +55,7 @@ public final class Reload extends GameStatusCommand
 			else if (type.equals("teleport"))
 			{
 				print("Reloading teleports... ");
-				TeleportDataHolder.getInstance().load();
+				TeleportDataHolder.getInstance().reload();
 				println("done");
 			}
 			else if (type.equals("skill"))

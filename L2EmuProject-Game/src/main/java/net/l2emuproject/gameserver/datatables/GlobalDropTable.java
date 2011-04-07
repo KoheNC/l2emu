@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public final class GlobalDropTable
 		return SingletonHolder.INSTANCE;
 	}
 
-	private final List<GlobalDrop>	_table	= new FastList<GlobalDrop>();
+	private final List<GlobalDrop>	_table	= new ArrayList<GlobalDrop>();
 
 	private GlobalDropTable()
 	{
