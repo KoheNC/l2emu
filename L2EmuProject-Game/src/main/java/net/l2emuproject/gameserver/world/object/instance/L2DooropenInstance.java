@@ -60,7 +60,7 @@ public class L2DooropenInstance extends L2NpcInstance
     public final void showChatWindow(L2Player player)
     {
         //player.sendPacket(new ActionFailed());
-        String filename = "data/html/dooropen/" + getTemplate().getNpcId() + ".htm";
+        String filename = "data/npc_data/html/dooropen/" + getTemplate().getNpcId() + ".htm";
 
         NpcHtmlMessage html = new NpcHtmlMessage(1);
         html.setFile(filename);

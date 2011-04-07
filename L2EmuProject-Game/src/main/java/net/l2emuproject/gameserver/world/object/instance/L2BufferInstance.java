@@ -31,7 +31,7 @@ import net.l2emuproject.gameserver.world.object.L2Player;
  */
 public class L2BufferInstance extends L2NpcInstance
 {
-	private static final String			BUFFER_HTML_FOLDER	= "data/html/mods/buffer/";
+	private static final String			BUFFER_HTML_FOLDER	= "data/npc_data/html/mods/buffer/";
 
 	private final Map<Integer, Integer>	_bypassIndex		= new FastMap<Integer, Integer>().shared();
 

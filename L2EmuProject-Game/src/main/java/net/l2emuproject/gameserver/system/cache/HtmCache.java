@@ -119,7 +119,8 @@ public final class HtmCache
 		}
 		else
 		{
-			parseDir(Config.DATAPACK_ROOT);
+			parseDir(getHtmlRootDir());
+			parseDir(getScriptRootDir());
 		}
 		
 		_log.info(this);
@@ -186,6 +187,16 @@ public final class HtmCache
 				IOUtils.closeQuietly(oos);
 			}
 		}
+	}
+	
+	private File getHtmlRootDir()
+	{
+		return new File(Config.DATAPACK_ROOT, "data/npc_data/html");
+	}
+	
+	private File getScriptRootDir()
+	{
+		return new File(Config.DATAPACK_ROOT, "data/scripts");
 	}
 	
 	private File getCacheFile()

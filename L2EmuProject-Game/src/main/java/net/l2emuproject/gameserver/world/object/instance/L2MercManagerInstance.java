@@ -66,13 +66,13 @@ public final class L2MercManagerInstance extends L2MerchantInstance
 	@Override
 	public void showChatWindow(L2Player player)
 	{
-		String filename = "data/html/mercmanager/mercmanager-no.htm";
+		String filename = "data/npc_data/npc_data/html/mercmanager/mercmanager-no.htm";
 
 		int condition = validateCondition(player);
 		if (condition == COND_BUSY_BECAUSE_OF_SIEGE)
-			filename = "data/html/mercmanager/mercmanager-busy.htm"; // Busy because of siege
+			filename = "data/npc_data/html/mercmanager/mercmanager-busy.htm"; // Busy because of siege
 		else if (condition == COND_OWNER) // Clan owns castle
-			filename = "data/html/mercmanager/mercmanager.htm"; // Owner message window
+			filename = "data/npc_data/html/mercmanager/mercmanager.htm"; // Owner message window
 
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);

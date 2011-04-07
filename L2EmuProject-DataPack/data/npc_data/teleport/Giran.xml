@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/teleport.xsd">
+	<teleport id="25" description="Town of Giran -> Dion Town"
+		locX="15670" locY="142983" locZ="-2705" price="6800" isNoble="false" />
+	<teleport id="26" description="Town of Giran -> Oren Town"
+		locX="82956" locY="53162" locZ="-1495" price="9400" isNoble="false" />
+	<teleport id="27" description="Town of Giran -> Hunter Village"
+		locX="116819" locY="76994" locZ="-2714" price="4100" isNoble="false" />
+	<teleport id="28" description="Town of Giran -> Hardin's Private Academy"
+		locX="105918" locY="109759" locZ="-3207" price="4400" isNoble="false" />
+	<teleport id="63" description="Giran Harbor -> Giran Town"
+		locX="83400" locY="147943" locZ="-3404" price="6300" isNoble="false" />
+	<teleport id="64" description="Giran Harbor -> Dion Town"
+		locX="15670" locY="142983" locZ="-2705" price="6500" isNoble="false" />
+	<teleport id="69" description="Giran -> Dragon Valley" locX="73024"
+		locY="118485" locZ="-3688" price="1800" isNoble="false" />
+	<teleport id="70" description="Giran -> Heine" locX="111409"
+		locY="219364" locZ="-3545" price="7600" isNoble="false" />
+	<teleport id="107" description="Giran Harbor -> Heine" locX="111409"
+		locY="219364" locZ="-3545" price="8500" isNoble="false" />
+	<teleport id="136" description="Giran Town -> Giran Harbor"
+		locX="47942" locY="186764" locZ="-3485" price="5200" isNoble="false" />
+	<teleport id="362" description="Giran(artifact -> out)" locX="113892"
+		locY="144175" locZ="-2714" price="0" isNoble="false" />
+	<teleport id="363" description="Giran(artifact -> hall)" locX="115984"
+		locY="145073" locZ="-2584" price="0" isNoble="false" />
+	<teleport id="364" description="Giran(artifact -> outofcastle)"
+		locX="112016" locY="144682" locZ="-2833" price="0" isNoble="false" />
+	<teleport id="365" description="Giran(in -> artifact)" locX="117619"
+		locY="144564" locZ="-2648" price="0" isNoble="false" />
+	<teleport id="366" description="Giran(in -> out)" locX="113892"
+		locY="144175" locZ="-2714" price="0" isNoble="false" />
+	<teleport id="367" description="Giran(in -> outofcastle)"
+		locX="112016" locY="144682" locZ="-2833" price="0" isNoble="false" />
+	<teleport id="368" description="Giran(out -> artifact)" locX="117619"
+		locY="144564" locZ="-2648" price="0" isNoble="false" />
+	<teleport id="369" description="Giran(out -> hall)" locX="115984"
+		locY="145073" locZ="-2584" price="0" isNoble="false" />
+	<teleport id="370" description="Giran(out -> outofcastle)"
+		locX="112016" locY="144682" locZ="-2833" price="0" isNoble="false" />
+	<teleport id="371" description="Giran(outofcastle -> artifact)"
+		locX="117619" locY="144564" locZ="-2648" price="0" isNoble="false" />
+	<teleport id="372" description="Giran(outofcastle -> out)"
+		locX="113892" locY="144175" locZ="-2714" price="0" isNoble="false" />
+	<teleport id="373" description="Giran(outofcastle -> hall)"
+		locX="115984" locY="145073" locZ="-2584" price="0" isNoble="false" />
+	<teleport id="1055" description="Giran -> Gludio" locX="-12672"
+		locY="122776" locZ="-3116" price="29000" isNoble="false" />
+	<teleport id="1056" description="Giran -> Goddard" locX="147928"
+		locY="-55273" locZ="-2734" price="63000" isNoble="false" />
+	<teleport id="1057" description="Giran -> Rune" locX="43799"
+		locY="-47727" locZ="-798" price="59000" isNoble="false" />
+	<teleport id="1058" description="Giran -> Schuttgart" locX="87386"
+		locY="-143246" locZ="-1293" price="87000" isNoble="false" />
+	<teleport id="1059" description="Giran -> Aden" locX="146331"
+		locY="25762" locZ="-2018" price="13000" isNoble="false" />
+	<teleport id="1060" description="Giran -> Antharas Lair" locX="132828"
+		locY="114421" locZ="-3725" price="7000" isNoble="false" />
+	<teleport id="1061" description="Giran -> Devil Isle" locX="43408"
+		locY="206881" locZ="-3752" price="5700" isNoble="false" />
+	<teleport id="1062" description="Giran -> Brekas Stronghold"
+		locX="79798" locY="130624" locZ="-3677" price="1000" isNoble="false" />
+	<teleport id="2009" description="Giran Outer -> Out" locX="112568"
+		locY="144869" locZ="-2835" price="0" isNoble="false" />
+	<teleport id="2010" description="Giran Outer -> In" locX="113123"
+		locY="144869" locZ="-2835" price="0" isNoble="false" />
+	<teleport id="2011" description="Giran Inner -> Out" locX="115209"
+		locY="145089" locZ="-2604" price="0" isNoble="false" />
+	<teleport id="2012" description="Giran Inner -> In" locX="115727"
+		locY="145096" locZ="-2579" price="0" isNoble="false" />
+	<teleport id="13016" description="Giran Castle -> Front Of Giran Castle"
+		locX="88415" locY="147363" locZ="-3431" price="0" isNoble="false" />
+	<teleport id="13017" description="Giran Castle -> Giran Town Square"
+		locX="81925" locY="149104" locZ="-3495" price="0" isNoble="false" />
+	<teleport id="13018" description="Giran Castle -> Front of the Valley Fortress"
+		locX="125041" locY="128644" locZ="-3118" price="0" isNoble="false" />
+	<teleport id="13019" description="Giran Castle -> Front of the Tanor Fortress"
+		locX="63269" locY="141424" locZ="-2415" price="0" isNoble="false" />
+	<teleport id="13020" description="Giran Castle -> Dragon Valley"
+		locX="73024" locY="118485" locZ="-3688" price="500" isNoble="false" />
+	<teleport id="13021" description="Giran Castle -> Antharas Lair"
+		locX="131557" locY="114509" locZ="-3712" price="500" isNoble="false" />
+	<teleport id="13022" description="Giran Castle -> Devils Isle"
+		locX="43408" locY="206881" locZ="-3752" price="500" isNoble="false" />
+	<teleport id="13023" description="Giran Castle -> Brekas Stronghold"
+		locX="85546" locY="131328" locZ="-3672" price="500" isNoble="false" />
+	<teleport id="60004" description="Giran Throne" locX="116507"
+		locY="145095" locZ="-2563" price="0" isNoble="false" />
+	<teleport id="60005" description="Giran Inside" locX="114174"
+		locY="145058" locZ="-2751" price="0" isNoble="false" />
+	<teleport id="60006" description="Giran Artefacts Room" locX="117557"
+		locY="145092" locZ="-2644" price="0" isNoble="false" />
+	<teleport id="60007" description="Giran Out of the Castle"
+		locX="112122" locY="144855" locZ="-2751" price="0" isNoble="false" />
+	<teleport id="200921" description="Giran Harbor -> Pirate's Palace"
+		locX="52241" locY="218775" locZ="-3224" price="0" isNoble="false" />
+</list>

@@ -162,8 +162,8 @@ public final class L2GuardInstance extends L2Guard
 	 * <BR>
 	 * <B><U> Format of the pathfile </U> :</B><BR>
 	 * <BR>
-	 * <li>if page number = 0 : <B>data/html/guard/12006.htm</B> (npcId-page number)</li>
-	 * <li>if page number > 0 : <B>data/html/guard/12006-1.htm</B> (npcId-page number)</li>
+	 * <li>if page number = 0 : <B>data/npc_data/html/guard/12006.htm</B> (npcId-page number)</li>
+	 * <li>if page number > 0 : <B>data/npc_data/html/guard/12006-1.htm</B> (npcId-page number)</li>
 	 * <BR>
 	 * <BR>
 	 * 
@@ -182,7 +182,7 @@ public final class L2GuardInstance extends L2Guard
 		{
 			pom = npcId + "-" + val;
 		}
-		return "data/html/guard/" + pom + ".htm";
+		return "data/npc_data/html/guard/" + pom + ".htm";
 	}
 	
 	/**

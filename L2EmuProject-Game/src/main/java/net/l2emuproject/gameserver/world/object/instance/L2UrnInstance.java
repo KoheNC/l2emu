@@ -63,7 +63,7 @@ public final class L2UrnInstance extends L2NpcInstance
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 			if (!val.isEmpty())
 			{
-				String filename = "data/html/urn/low" +val+ ".htm";
+				String filename = "data/npc_data/html/urn/low" +val+ ".htm";
 				NpcHtmlMessage html = new NpcHtmlMessage(1);
 				html.setFile(filename);
 				html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -72,7 +72,7 @@ public final class L2UrnInstance extends L2NpcInstance
 				return;
 			}
 
-			String filename = "data/html/urn/low.htm";
+			String filename = "data/npc_data/html/urn/low.htm";
 			NpcHtmlMessage html = new NpcHtmlMessage(1);
 			html.setFile(filename);
 			html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -84,7 +84,7 @@ public final class L2UrnInstance extends L2NpcInstance
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 			if (!val.isEmpty())
 			{
-				String filename = "data/html/urn/high" +val+ ".htm";
+				String filename = "data/npc_data/html/urn/high" +val+ ".htm";
 				NpcHtmlMessage html = new NpcHtmlMessage(1);
 				html.setFile(filename);
 				html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -93,7 +93,7 @@ public final class L2UrnInstance extends L2NpcInstance
 				return;
 			}
 
-			String filename = "data/html/urn/high.htm";
+			String filename = "data/npc_data/html/urn/high.htm";
 			NpcHtmlMessage html = new NpcHtmlMessage(1);
 			html.setFile(filename);
 			html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -106,7 +106,7 @@ public final class L2UrnInstance extends L2NpcInstance
 			if (getUrnItemsCount(player, 5904) >= 1)
 			{
 				// show urn mix menu with low - high options
-				String filename = "data/html/urn/insertstone.htm";
+				String filename = "data/npc_data/html/urn/insertstone.htm";
 				NpcHtmlMessage html = new NpcHtmlMessage(1);
 				html.setFile(filename);
 				html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -116,7 +116,7 @@ public final class L2UrnInstance extends L2NpcInstance
 				return;
 			}
 
-			String filename = "data/html/urn/nostone.htm";
+			String filename = "data/npc_data/html/urn/nostone.htm";
 			NpcHtmlMessage html = new NpcHtmlMessage(1);
 			html.setFile(filename);
 			html.replace("%objectId%", String.valueOf(getObjectId()));

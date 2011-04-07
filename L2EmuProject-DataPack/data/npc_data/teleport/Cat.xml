@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/teleport.xsd">
+	<teleport id="250" description="Cat Heretics Entrance" locX="-53174"
+		locY="-250275" locZ="-7911" price="0" isNoble="false" />
+	<teleport id="251" description="Cat Heretics Exit" locX="42514"
+		locY="143917" locZ="-5385" price="0" isNoble="false" />
+	<teleport id="252" description="Cat Branded Entrance" locX="46217"
+		locY="170290" locZ="-4983" price="0" isNoble="false" />
+	<teleport id="253" description="Cat Branded Exit" locX="45770"
+		locY="170299" locZ="-4985" price="0" isNoble="false" />
+	<teleport id="254" description="Cat Apostate Entrance" locX="-20230"
+		locY="-250780" locZ="-8168" price="0" isNoble="false" />
+	<teleport id="255" description="Cat Apostate Exit" locX="77225"
+		locY="78362" locZ="-5119" price="0" isNoble="false" />
+	<teleport id="256" description="Cat Witch Entrance" locX="140404"
+		locY="79678" locZ="-5431" price="0" isNoble="false" />
+	<teleport id="257" description="Cat Witch Exit" locX="139965"
+		locY="79678" locZ="-5433" price="0" isNoble="false" />
+	<teleport id="258" description="Cat DarkOmen Entrance" locX="-19500"
+		locY="13508" locZ="-4905" price="0" isNoble="false" />
+	<teleport id="259" description="Cat DarkOmen Exit" locX="-19931"
+		locY="13502" locZ="-4905" price="0" isNoble="false" />
+	<teleport id="260" description="Cat ForbiddenPath Entrance"
+		locX="12521" locY="-248481" locZ="-9585" price="0" isNoble="false" />
+	<teleport id="261" description="Cat ForbiddenPath Exit" locX="113429"
+		locY="84540" locZ="-6545" price="0" isNoble="false" />
+</list>

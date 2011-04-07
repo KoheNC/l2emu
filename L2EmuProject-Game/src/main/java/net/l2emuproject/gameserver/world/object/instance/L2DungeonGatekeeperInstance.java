@@ -165,6 +165,6 @@ public class L2DungeonGatekeeperInstance extends L2Npc
 		else
 			pom = npcId + "-" + val;
 
-		return "data/html/teleporter/" + pom + ".htm";
+		return "data/npc_data/html/teleporter/" + pom + ".htm";
 	}
 }

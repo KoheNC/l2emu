@@ -79,16 +79,16 @@ public class L2DoormenInstance extends L2NpcInstance
 		
 		if (!isOwnerClan(player))
 		{
-			html.setFile("data/html/doormen/" + getTemplate().getNpcId() + "-no.htm");
+			html.setFile("data/npc_data/html/doormen/" + getTemplate().getNpcId() + "-no.htm");
 		}
 		// TODO: maybe this should be removed
 		else if (isUnderSiege())
 		{
-			html.setFile("data/html/doormen/" + getTemplate().getNpcId() + "-busy.htm");
+			html.setFile("data/npc_data/html/doormen/" + getTemplate().getNpcId() + "-busy.htm");
 		}
 		else
 		{
-			html.setFile("data/html/doormen/" + getTemplate().getNpcId() + ".htm");
+			html.setFile("data/npc_data/html/doormen/" + getTemplate().getNpcId() + ".htm");
 		}
 		html.replace("%objectId%", String.valueOf(getObjectId()));
 		player.sendPacket(html);
@@ -121,7 +121,7 @@ public class L2DoormenInstance extends L2NpcInstance
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
-		html.setFile("data/html/doormen/" + getTemplate().getNpcId() + "-busy.htm");
+		html.setFile("data/npc_data/html/doormen/" + getTemplate().getNpcId() + "-busy.htm");
 		player.sendPacket(html);
 	}
 	

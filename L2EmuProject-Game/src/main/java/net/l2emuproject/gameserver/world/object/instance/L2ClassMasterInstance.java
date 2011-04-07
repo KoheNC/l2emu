@@ -54,7 +54,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 		else
 			pom = npcId + "-" + val;
 
-		return "data/html/classmaster/" + pom + ".htm";
+		return "data/npc_data/html/classmaster/" + pom + ".htm";
 	}
 
 	@Override
@@ -210,7 +210,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 				if (checkAndChangeClass(player, val))
 				{
 					NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
-					html.setFile("data/html/classmaster/ok.htm");
+					html.setFile("data/npc_data/html/classmaster/ok.htm");
 					html.replace("%name%", CharTemplateTable.getClassNameById(val));
 					player.sendPacket(html);
 				}
@@ -426,14 +426,14 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 
 		if (!Config.ALT_L2J_CLASS_MASTER)
 		{
-			html.setFile("data/html/classmaster/disabled.htm");
+			html.setFile("data/npc_data/html/classmaster/disabled.htm");
 		}
 		else
 		{
 			final ClassId currentClassId = player.getClassId();
 			if (currentClassId.level() >= level)
 			{
-				html.setFile("data/html/classmaster/nomore.htm");
+				html.setFile("data/npc_data/html/classmaster/nomore.htm");
 			}
 			else
 			{
@@ -455,13 +455,13 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 
 					if (menu.length() > 0)
 					{
-						html.setFile("data/html/classmaster/template.htm");
+						html.setFile("data/npc_data/html/classmaster/template.htm");
 						html.replace("%name%", CharTemplateTable.getClassNameById(currentClassId.getId()));
 						html.replace("%menu%", menu.moveToString());
 					}
 					else
 					{
-						html.setFile("data/html/classmaster/comebacklater.htm");
+						html.setFile("data/npc_data/html/classmaster/comebacklater.htm");
 						html.replace("%level%", String.valueOf(getMinLevel(level - 1)));
 					}
 				}
@@ -469,11 +469,11 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 				{
 					if (minLevel < Integer.MAX_VALUE)
 					{
-						html.setFile("data/html/classmaster/comebacklater.htm");
+						html.setFile("data/npc_data/html/classmaster/comebacklater.htm");
 						html.replace("%level%", String.valueOf(minLevel));
 					}
 					else
-						html.setFile("data/html/classmaster/nomore.htm");
+						html.setFile("data/npc_data/html/classmaster/nomore.htm");
 				}
 			}
 		}
@@ -490,7 +490,7 @@ public final class L2ClassMasterInstance extends L2NpcInstance
 				&& !Config.ALT_CLASS_MASTER_ENTIRE_TREE)
 			return;
 
-		String msg = HtmCache.getInstance().getHtm("data/html/classmaster/tutorialtemplate.htm");
+		String msg = HtmCache.getInstance().getHtm("data/npc_data/html/classmaster/tutorialtemplate.htm");
 
 		msg = msg.replaceAll("%name%", CharTemplateTable.getClassNameById(currentClassId.getId()));
 

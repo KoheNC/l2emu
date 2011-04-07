@@ -38,11 +38,11 @@ public class L2FortEnvoyInstance extends L2Npc
 		String filename;
 
 		if (!player.isClanLeader() || player.getClan() == null || getFort().getFortId() != player.getClan().getHasFort())
-			filename = "data/html/fortress/envoy-noclan.htm";
+			filename = "data/npc_data/html/fortress/envoy-noclan.htm";
 		else if (getFort().getFortState() == 0)
-			filename = "data/html/fortress/envoy.htm";
+			filename = "data/npc_data/html/fortress/envoy.htm";
 		else
-			filename = "data/html/fortress/envoy-no.htm";
+			filename = "data/npc_data/html/fortress/envoy-no.htm";
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);
 		html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -83,7 +83,7 @@ public class L2FortEnvoyInstance extends L2Npc
 				}
 			}
 			getFort().setFortState(val, castleId);
-			html.setFile("data/html/fortress/envoy-ok.htm");
+			html.setFile("data/npc_data/html/fortress/envoy-ok.htm");
 			html.replace("%castleName%", String.valueOf(CastleManager.getInstance().getCastleById(getFort().getCastleIdFromEnvoy(getNpcId())).getName()));
 
 			player.sendPacket(html);

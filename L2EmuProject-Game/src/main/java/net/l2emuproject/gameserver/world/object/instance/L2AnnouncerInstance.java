@@ -52,7 +52,7 @@ public class L2AnnouncerInstance extends L2NpcInstance
 		else
 			pom = npcId + "-" + val;
 
-		return "data/html/mods/announcer/" + pom + ".htm";
+		return "data/npc_data/html/mods/announcer/" + pom + ".htm";
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class L2AnnouncerInstance extends L2NpcInstance
 			if (playerlevel < Config.MIN_LVL_TO_ANNOUNCE)
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());//will add proper code soon was too lazy for atm :P
-				String filename = "data/html/mods/announcer/min_lvl.htm";
+				String filename = "data/npc_data/html/mods/announcer/min_lvl.htm";
 				html.setFile(filename);
 				if (filename != null)
 				{
@@ -86,7 +86,7 @@ public class L2AnnouncerInstance extends L2NpcInstance
 			if (playerlevel > Config.MAX_LVL_TO_ANNOUNCE)
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());//will add proper code soon was too lazy for atm :P
-				String filename = "data/html/mods/announcer/max_lvl.htm";
+				String filename = "data/npc_data/html/mods/announcer/max_lvl.htm";
 				html.setFile(filename);
 				if (filename != null)
 				{
@@ -104,7 +104,7 @@ public class L2AnnouncerInstance extends L2NpcInstance
 				if (!player.isDonator() && !player.isGM())
 				{
 					NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());//will add proper code soon was too lazy for atm :P
-					String filename = "data/html/mods/announcer/donator_only.htm";
+					String filename = "data/npc_data/html/mods/announcer/donator_only.htm";
 					html.setFile(filename);
 					if (filename != null)
 					{
@@ -121,7 +121,7 @@ public class L2AnnouncerInstance extends L2NpcInstance
 				if (player.getPlayerCustom().getLastAnnounceDate() == Calendar.DAY_OF_WEEK)//player is in the same day
 				{
 					NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());//will add proper code soon was too lazy for atm :P
-					String filename = "data/html/mods/announcer/max_announce.htm";
+					String filename = "data/npc_data/html/mods/announcer/max_announce.htm";
 					html.setFile(filename);
 					if (filename != null)
 					{
@@ -134,7 +134,7 @@ public class L2AnnouncerInstance extends L2NpcInstance
 				}
 			}
 			NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());//will add proper code soon was too lazy for atm :P
-			String filename = "data/html/mods/announcer/announce.htm";
+			String filename = "data/npc_data/html/mods/announcer/announce.htm";
 			html.setFile(filename);
 			if (filename != null)
 			{
@@ -147,7 +147,7 @@ public class L2AnnouncerInstance extends L2NpcInstance
 		}
 		else if (command.equalsIgnoreCase("main_window"))
 		{
-			player.showHTMLFile("data/html/mods/announcer/" + getNpcId() + ".htm");
+			player.showHTMLFile("data/npc_data/html/mods/announcer/" + getNpcId() + ".htm");
 		}
 		else if (command.startsWith("make_announce") && Config.ALLOW_ANNOUNCER)
 		{
@@ -159,7 +159,7 @@ public class L2AnnouncerInstance extends L2NpcInstance
 			if (!player.reduceAdena("NpcAnnouncer: announce", Config.PRICE_PER_ANNOUNCE, player, true) && !player.isGM())
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());//will add proper code soon was too lazy for atm :P
-				String filename = "data/html/mods/announcer/missing_adena.htm";
+				String filename = "data/npc_data/html/mods/announcer/missing_adena.htm";
 				html.setFile(filename);
 				if (filename != null)
 				{
@@ -175,7 +175,7 @@ public class L2AnnouncerInstance extends L2NpcInstance
 			player.getPlayerCustom().setLastAnnounceDate();
 			//TODO: player.setDelayForNextAnnounce();
 			NpcHtmlMessage html = new NpcHtmlMessage(getObjectId()); //will add proper code soon was too lazy for atm :P
-			String filename = "data/html/mods/announcer/announce_complete.htm";
+			String filename = "data/npc_data/html/mods/announcer/announce_complete.htm";
 			html.setFile(filename);
 			if (filename != null)
 			{

@@ -183,7 +183,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 			{
 				int itemObjId = new Integer(st.nextToken());
 				player.sendPacket(ActionFailed.STATIC_PACKET);
-				String filename = "data/html/mods/marketer/addItem.htm";
+				String filename = "data/npc_data/html/mods/marketer/addItem.htm";
 				NpcHtmlMessage html = new NpcHtmlMessage(1);
 				html.setFile(filename);
 				html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -226,7 +226,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 		else if ("SeeCash".equalsIgnoreCase(actualCommand))
 		{
 			player.sendPacket(ActionFailed.STATIC_PACKET);
-			String filename = "data/html/mods/marketer/cash.htm";
+			String filename = "data/npc_data/html/mods/marketer/cash.htm";
 			NpcHtmlMessage html = new NpcHtmlMessage(1);
 			html.setFile(filename);
 			html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -266,7 +266,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 							return;
 						}
 						player.sendPacket(ActionFailed.STATIC_PACKET);
-						String filename = "data/html/mods/marketer/confirm.htm";
+						String filename = "data/npc_data/html/mods/marketer/confirm.htm";
 						NpcHtmlMessage html = new NpcHtmlMessage(1);
 						html.setFile(filename);
 						html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -287,7 +287,7 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 	private void showMsgWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
-		String filename = "data/html/mods/marketer/main.htm";
+		String filename = "data/npc_data/html/mods/marketer/main.htm";
 		NpcHtmlMessage html = new NpcHtmlMessage(1);
 		html.setFile(filename);
 		html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -854,6 +854,6 @@ public class L2ItemMarketerInstance extends L2NpcInstance
 	@Override
 	public String getHtmlPath(int npcId, int val)
 	{
-		return "data/html/mods/marketer/main.htm";
+		return "data/npc_data/html/mods/marketer/main.htm";
 	}
 }

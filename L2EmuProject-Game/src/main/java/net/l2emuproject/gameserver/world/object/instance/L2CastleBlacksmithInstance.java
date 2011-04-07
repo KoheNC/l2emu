@@ -41,7 +41,7 @@ public class L2CastleBlacksmithInstance extends L2NpcInstance
 		if (CastleManorService.getInstance().isDisabled())
 		{
 			NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
-			html.setFile("data/html/npcdefault.htm");
+			html.setFile("data/npc_data/html/npcdefault.htm");
 			html.replace("%objectId%", String.valueOf(getObjectId()));
 			html.replace("%npcname%", getName());
 			player.sendPacket(html);
@@ -60,19 +60,19 @@ public class L2CastleBlacksmithInstance extends L2NpcInstance
 	public void showChatWindow(L2Player player, int val)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
-		String filename = "data/html/castleblacksmith/castleblacksmith-no.htm";
+		String filename = "data/npc_data/html/castleblacksmith/castleblacksmith-no.htm";
 
 		int condition = validateCondition(player);
 		if (condition > COND_ALL_FALSE)
 		{
 			if (condition == COND_BUSY_BECAUSE_OF_SIEGE)
-				filename = "data/html/castleblacksmith/castleblacksmith-busy.htm"; // Busy because of siege
+				filename = "data/npc_data/html/castleblacksmith/castleblacksmith-busy.htm"; // Busy because of siege
 			else if (condition == COND_OWNER)
 			{ // Clan owns castle
 				if (val == 0)
-					filename = "data/html/castleblacksmith/castleblacksmith.htm";
+					filename = "data/npc_data/html/castleblacksmith/castleblacksmith.htm";
 				else
-					filename = "data/html/castleblacksmith/castleblacksmith-" + val + ".htm";
+					filename = "data/npc_data/html/castleblacksmith/castleblacksmith-" + val + ".htm";
 			}
 		}
 

@@ -65,7 +65,7 @@ public class L2MerchantInstance extends L2NpcInstance implements L2Merchant
 		else
 			pom = npcId + "-" + val;
 
-		path = "data/html/merchant/";
+		path = "data/npc_data/html/merchant/";
 
 		return path + pom + ".htm";
 	}

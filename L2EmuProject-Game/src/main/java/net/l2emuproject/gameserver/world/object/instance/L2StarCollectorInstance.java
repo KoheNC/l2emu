@@ -46,7 +46,7 @@ public class L2StarCollectorInstance extends L2MerchantInstance
 		else
 			pom = npcId + "-" + val;
 
-		return "data/html/default/" + pom + ".htm";
+		return "data/npc_data/html/default/" + pom + ".htm";
 	}
 
 	@Override

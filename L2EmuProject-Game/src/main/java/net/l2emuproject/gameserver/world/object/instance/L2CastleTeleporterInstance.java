@@ -67,7 +67,7 @@ public final class L2CastleTeleporterInstance extends L2Npc
 				ThreadPoolManager.getInstance().scheduleGeneral(new oustAllPlayers(), delay);
 			}
 
-			String filename = "data/html/castleteleporter/MassGK-1.htm";
+			String filename = "data/npc_data/html/castleteleporter/MassGK-1.htm";
 			NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 			html.setFile(filename);
 			player.sendPacket(html);
@@ -83,12 +83,12 @@ public final class L2CastleTeleporterInstance extends L2Npc
 		if (!getTask())
 		{
 			if (getCastle().getSiege().getIsInProgress() && getCastle().getSiege().getControlTowerCount() == 0)
-				filename = "data/html/castleteleporter/MassGK-2.htm";
+				filename = "data/npc_data/html/castleteleporter/MassGK-2.htm";
 			else
-				filename = "data/html/castleteleporter/MassGK.htm";
+				filename = "data/npc_data/html/castleteleporter/MassGK.htm";
 		}
 		else
-			filename = "data/html/castleteleporter/MassGK-1.htm";
+			filename = "data/npc_data/html/castleteleporter/MassGK-1.htm";
 
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);

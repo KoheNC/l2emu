@@ -49,7 +49,7 @@ public class SummonItemsDataHolder
 	{
 		_summonitems = new FastMap<Integer, L2SummonItem>();
 		Document doc = null;
-		File file = new File(Config.DATAPACK_ROOT, "data/summon_data/summon_items.xml");
+		File file = new File(Config.DATAPACK_ROOT, "data/item_data/summon_items/summon_items.xml");
 
 		try
 		{

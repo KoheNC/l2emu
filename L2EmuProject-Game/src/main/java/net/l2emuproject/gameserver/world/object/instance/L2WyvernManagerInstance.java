@@ -33,17 +33,17 @@ public class L2WyvernManagerInstance extends L2Npc
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 		
-		String filename = "data/html/wyvernmanager/fortress-wyvernmanager-no.htm";
+		String filename = "data/npc_data/html/wyvernmanager/fortress-wyvernmanager-no.htm";
 		
 		if (isCastleManager())
-			filename = "data/html/wyvernmanager/castle-wyvernmanager-no.htm";
+			filename = "data/npc_data/html/wyvernmanager/castle-wyvernmanager-no.htm";
 
 		if (isOwnerClan(player))
 		{
 			if (isCastleManager())
-				filename = "data/html/wyvernmanager/castle-wyvernmanager.htm";    // Castle Owner message window
+				filename = "data/npc_data/html/wyvernmanager/castle-wyvernmanager.htm";    // Castle Owner message window
 			else
-				filename = "data/html/wyvernmanager/fortress-wyvernmanager.htm";  // Fort Owner message window
+				filename = "data/npc_data/html/wyvernmanager/fortress-wyvernmanager.htm";  // Fort Owner message window
 		}
 		NpcHtmlMessage html = new NpcHtmlMessage(1);
 		html.setFile(filename);

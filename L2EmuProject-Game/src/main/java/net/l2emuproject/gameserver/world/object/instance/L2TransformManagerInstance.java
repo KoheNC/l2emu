@@ -52,7 +52,7 @@ public class L2TransformManagerInstance extends L2MerchantInstance
 		else
 			pom = npcId + "-" + val;
 
-		return "data/html/default/" + pom + ".htm";
+		return "data/npc_data/html/default/" + pom + ".htm";
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class L2TransformManagerInstance extends L2MerchantInstance
 			}
 			else
 			{
-				showChatWindow(player,"data/html/default/32323-10.htm");
+				showChatWindow(player,"data/npc_data/html/default/32323-10.htm");
 				return;
 			}
 		}
@@ -122,7 +122,7 @@ public class L2TransformManagerInstance extends L2MerchantInstance
 			}
 			else
 			{
-				showChatWindow(player,"data/html/default/32323-13.htm");
+				showChatWindow(player,"data/npc_data/html/default/32323-13.htm");
 				return;
 			}
 		}
@@ -220,7 +220,7 @@ public class L2TransformManagerInstance extends L2MerchantInstance
 	public void showHtmlFile(L2Player player, String file)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
-		html.setFile("data/html/default/" + file);
+		html.setFile("data/npc_data/html/default/" + file);
 		player.sendPacket(html);
 	}
 

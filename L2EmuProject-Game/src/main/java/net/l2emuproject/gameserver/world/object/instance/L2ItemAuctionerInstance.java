@@ -19,7 +19,7 @@ import net.l2emuproject.gameserver.world.object.L2Npc;
 
 public final class L2ItemAuctionerInstance extends L2Npc
 {
-	private static final String	HTML_PATH	= "data/html/itemauctioner/";
+	private static final String	HTML_PATH	= "data/npc_data/html/itemauctioner/";
 
 	public L2ItemAuctionerInstance(int objectId, L2NpcTemplate template)
 	{

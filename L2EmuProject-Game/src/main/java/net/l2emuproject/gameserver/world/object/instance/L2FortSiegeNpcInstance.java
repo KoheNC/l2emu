@@ -43,9 +43,9 @@ public class L2FortSiegeNpcInstance extends L2NpcWalkerInstance
 		String filename;
 
 		if (val == 0)
-			filename = "data/html/fortress/merchant.htm";
+			filename = "data/npc_data/html/fortress/merchant.htm";
 		else
-			filename = "data/html/fortress/merchant-" + val + ".htm";
+			filename = "data/npc_data/html/fortress/merchant-" + val + ".htm";
 
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);

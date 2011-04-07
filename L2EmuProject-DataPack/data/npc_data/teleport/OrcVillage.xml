@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/teleport.xsd">
+	<teleport id="93" description="Orc Village -> Immortal Plateau,Northern Region"
+		locX="-8804" locY="-114748" locZ="-3088" price="960" isNoble="false" />
+	<teleport id="94" description="Orc Village -> Immortal Plateau,Southern Region"
+		locX="-17870" locY="-90980" locZ="-2528" price="2000" isNoble="false" />
+	<teleport id="95"
+		description="Orc Village -> Immortal Plateau,Southeast Region" locX="8209"
+		locY="-93524" locZ="-2312" price="750" isNoble="false" />
+	<teleport id="96" description="Orc Village -> Frozen Waterfall"
+		locX="7603" locY="-138871" locZ="-920" price="1600" isNoble="false" />
+	<teleport id="471" description="Orc Village -> Entrance to the Cave of Trials"
+		locX="9340" locY="-112509" locZ="-2536" price="1500" isNoble="false" />
+	<teleport id="1023" description="Orc Village -> Town of Gludio"
+		locX="-12672" locY="122776" locZ="-3116" price="23000" isNoble="false" />
+	<teleport id="1024" description="Orc Village -> Schuttgart"
+		locX="87386" locY="-143246" locZ="-1293" price="13000" isNoble="false" />
+	<teleport id="1025" description="Orc Village -> DE Village"
+		locX="9745" locY="15606" locZ="-4574" price="13000" isNoble="false" />
+	<teleport id="1026" description="Orc Village -> Dwarven Village"
+		locX="115113" locY="-178212" locZ="-901" price="17000" isNoble="false" />
+	<teleport id="1027" description="Orc Village -> TI Village"
+		locX="-84318" locY="244579" locZ="-3730" price="35000" isNoble="false" />
+	<teleport id="1028" description="Orc Village -> Elven Village"
+		locX="46934" locY="51467" locZ="-2977" price="18000" isNoble="false" />
+	<teleport id="12052" description="Orc Village -> Kamael Village"
+		locX="-117251" locY="46771" locZ="360" price="17000" isNoble="false" />
+</list>

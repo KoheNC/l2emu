@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/teleport.xsd">
+	<teleport id="12100" description="Dragonspine Fort -> Fort North Gate"
+		locX="12497" locY="93855" locZ="-3425" price="0" isNoble="false" />
+	<teleport id="12101" description="Dragonspine Fort -> Fort South Gate"
+		locX="10486" locY="96307" locZ="-3425" price="0" isNoble="false" />
+	<teleport id="12102" description="Dragonspine Fort -> Dion Town Square"
+		locX="18748" locY="145437" locZ="-3127" price="0" isNoble="false" />
+	<teleport id="12103" description="Dragonspine Fort -> Oren Town Square"
+		locX="82321" locY="55139" locZ="-1524" price="0" isNoble="false" />
+	<teleport id="12104" description="Dragonspine Fort -> The Ant Nest"
+		locX="-25832" locY="173118" locZ="-4154" price="500" isNoble="false" />
+	<teleport id="12105" description="Dragonspine Fort -> Windawood Manor"
+		locX="-25791" locY="162013" locZ="-2528" price="500" isNoble="false" />
+	<teleport id="12106" description="Dragonspine Fort -> Sea of Spores"
+		locX="62425" locY="30856" locZ="-3774" price="500" isNoble="false" />
+	<teleport id="12107" description="Dragonspine Fort -> Ancient Battleground"
+		locX="108264" locY="-2846" locZ="-3428" price="500" isNoble="false" />
+</list>

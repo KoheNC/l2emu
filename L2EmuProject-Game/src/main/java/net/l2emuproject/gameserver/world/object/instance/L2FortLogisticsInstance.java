@@ -69,7 +69,7 @@ public class L2FortLogisticsInstance extends L2MerchantInstance
 				&& player.getClan() == getFort().getOwnerClan() && player.isClanLeader())
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
-				html.setFile("data/html/fortress/logistics-rewards.htm");
+				html.setFile("data/npc_data/html/fortress/logistics-rewards.htm");
 				int blood = getFort().getBloodOathReward();
 				html.replace("%objectId%", String.valueOf(getObjectId()));
 				html.replace("%bloodoath%", String.valueOf(blood));
@@ -79,7 +79,7 @@ public class L2FortLogisticsInstance extends L2MerchantInstance
 			else
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
-				html.setFile("data/html/fortress/logistics-noprivs.htm");
+				html.setFile("data/npc_data/html/fortress/logistics-noprivs.htm");
 				html.replace("%objectId%", String.valueOf(getObjectId()));
 				player.sendPacket(html);
 				return;
@@ -94,12 +94,12 @@ public class L2FortLogisticsInstance extends L2MerchantInstance
 				int blood = getFort().getBloodOathReward();
 				if (blood > 0)
 				{
-					html.setFile("data/html/fortress/logistics-blood.htm");
+					html.setFile("data/npc_data/html/fortress/logistics-blood.htm");
 					player.addItem("Quest", BLOOD_OATH, blood, this, true);
 					getFort().setBloodOathReward(0);
 				}
 				else
-					html.setFile("data/html/fortress/logistics-noblood.htm");
+					html.setFile("data/npc_data/html/fortress/logistics-noblood.htm");
 				html.replace("%objectId%", String.valueOf(getObjectId()));
 				
 				player.sendPacket(html);
@@ -108,7 +108,7 @@ public class L2FortLogisticsInstance extends L2MerchantInstance
 			else
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
-				html.setFile("data/html/fortress/logistics-noprivs.htm");
+				html.setFile("data/npc_data/html/fortress/logistics-noprivs.htm");
 				html.replace("%objectId%", String.valueOf(getObjectId()));
 				player.sendPacket(html);
 				return;
@@ -128,9 +128,9 @@ public class L2FortLogisticsInstance extends L2MerchantInstance
 		String filename;
 		
 		if (val == 0)
-			filename = "data/html/fortress/logistics.htm";
+			filename = "data/npc_data/html/fortress/logistics.htm";
 		else
-			filename = "data/html/fortress/logistics-" + val + ".htm";
+			filename = "data/npc_data/html/fortress/logistics-" + val + ".htm";
 		
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);

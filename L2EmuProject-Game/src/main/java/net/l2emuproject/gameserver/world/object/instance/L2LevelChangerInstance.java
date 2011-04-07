@@ -38,7 +38,7 @@ public class L2LevelChangerInstance extends L2NpcInstance
 		else
 			pom = npcId + "-" + val;
 
-		return "data/html/mods/level_changer/" + pom + ".htm";
+		return "data/npc_data/html/mods/level_changer/" + pom + ".htm";
 	}
 
 	/**

@@ -43,7 +43,7 @@ public final class L2WeddingManagerInstance extends L2Npc
 	@Override
     public final void showChatWindow(L2Player player)
     {
-        String filename = "data/html/wedding/start.htm";
+        String filename = "data/npc_data/html/wedding/start.htm";
         String replace = "";
         
         NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
@@ -58,13 +58,13 @@ public final class L2WeddingManagerInstance extends L2Npc
     public final synchronized void onBypassFeedback(final L2Player player, String command)
     {
         // Standard msg
-        String filename = "data/html/wedding/start.htm";
+        String filename = "data/npc_data/html/wedding/start.htm";
         String replace = "";
         
         // If player has no partner
         if(player.getPartnerId() == 0)
         {
-            filename = "data/html/wedding/nopartner.htm";
+            filename = "data/npc_data/html/wedding/nopartner.htm";
             sendHtmlMessage(player, filename, replace);
             return;
         }
@@ -74,7 +74,7 @@ public final class L2WeddingManagerInstance extends L2Npc
         // Partner online ?
         if(ptarget == null || ptarget.isOnline() == 0)
         {
-            filename = "data/html/wedding/notfound.htm";
+            filename = "data/npc_data/html/wedding/notfound.htm";
             sendHtmlMessage(player, filename, replace);
             return;
         }
@@ -82,13 +82,13 @@ public final class L2WeddingManagerInstance extends L2Npc
         // Already married ?
         if(player.isMaried())
         {
-            filename = "data/html/wedding/already.htm";
+            filename = "data/npc_data/html/wedding/already.htm";
             sendHtmlMessage(player, filename, replace);
             return;
         }
         else if (player.isMaryAccepted())
         {
-            filename = "data/html/wedding/waitforpartner.htm";
+            filename = "data/npc_data/html/wedding/waitforpartner.htm";
             sendHtmlMessage(player, filename, replace);
             return;
         }
@@ -167,7 +167,7 @@ public final class L2WeddingManagerInstance extends L2Npc
             
             MSU = null;
             
-            filename = "data/html/wedding/accepted.htm";
+            filename = "data/npc_data/html/wedding/accepted.htm";
             replace = ptarget.getName();
             sendHtmlMessage(ptarget, filename, replace);
 			
@@ -195,7 +195,7 @@ public final class L2WeddingManagerInstance extends L2Npc
             player.sendMessage("You declined");
             ptarget.sendMessage("Your partner declined");
             replace = ptarget.getName();
-            filename = "data/html/wedding/declined.htm";
+            filename = "data/npc_data/html/wedding/declined.htm";
             sendHtmlMessage(ptarget, filename, replace);
             return;
         }
@@ -204,11 +204,11 @@ public final class L2WeddingManagerInstance extends L2Npc
             // Check for formalwear
             if(Config.WEDDING_FORMALWEAR && !player.isWearingFormalWear())
             {
-                filename = "data/html/wedding/noformal.htm";
+                filename = "data/npc_data/html/wedding/noformal.htm";
                 sendHtmlMessage(player, filename, replace);
                 return;
             }
-            filename = "data/html/wedding/ask.htm";
+            filename = "data/npc_data/html/wedding/ask.htm";
             player.setMaryRequest(false);
             ptarget.setMaryRequest(false);
             replace = ptarget.getName();
@@ -220,13 +220,13 @@ public final class L2WeddingManagerInstance extends L2Npc
             // Check for formalwear
             if(Config.WEDDING_FORMALWEAR && !player.isWearingFormalWear())
             {
-                filename = "data/html/wedding/noformal.htm";
+                filename = "data/npc_data/html/wedding/noformal.htm";
                 sendHtmlMessage(player, filename, replace);
                 return;
             }
             else if(player.getAdena()<Config.WEDDING_PRICE)
             {
-                filename = "data/html/wedding/adena.htm";
+                filename = "data/npc_data/html/wedding/adena.htm";
                 replace = String.valueOf(Config.WEDDING_PRICE);
                 sendHtmlMessage(player, filename, replace);
                 return;
@@ -236,7 +236,7 @@ public final class L2WeddingManagerInstance extends L2Npc
                 player.setMaryAccepted(true);
                 ptarget.setMaryRequest(true);
                 replace = ptarget.getName();
-                filename = "data/html/wedding/requested.htm";
+                filename = "data/npc_data/html/wedding/requested.htm";
                 player.getInventory().reduceAdena("Wedding", Config.WEDDING_PRICE, player, player.getLastFolkNPC());
                 sendHtmlMessage(player, filename, replace);
                 return;

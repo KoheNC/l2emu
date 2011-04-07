@@ -81,13 +81,13 @@ public final class L2SiegeTeleporterInstance extends L2Npc
 	@Override
 	public String getHtmlPath(int npcId, int val)
 	{
-		return "data/html/siege_teleporter/" + npcId + ".htm";
+		return "data/npc_data/html/siege_teleporter/" + npcId + ".htm";
 	}
 
 	@Override
 	public void showChatWindow(L2Player player, int val)
 	{
-		String filename = "data/html/teleporter/castleteleporter-no.htm";
+		String filename = "data/npc_data/html/teleporter/castleteleporter-no.htm";
 		if (getCastle() != null && getCastle().getSiege().getIsInProgress() && player.getClanId() == getCastle().getOwnerId())
 			filename = getHtmlPath(getNpcId(), val);
 

@@ -10264,7 +10264,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 
 			// Open a Html message to inform the player
 			NpcHtmlMessage htmlMsg = new NpcHtmlMessage(0);
-			String jailInfos = HtmCache.getInstance().getHtm("data/html/jail_in.htm");
+			String jailInfos = HtmCache.getInstance().getHtm("data/npc_data/html/jail_in.htm");
 			if (jailInfos != null)
 				htmlMsg.setHtml(jailInfos);
 			else
@@ -10282,7 +10282,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 		{
 			// Open a Html message to inform the player
 			NpcHtmlMessage htmlMsg = new NpcHtmlMessage(0);
-			String jailInfos = HtmCache.getInstance().getHtm("data/html/jail_out.htm");
+			String jailInfos = HtmCache.getInstance().getHtm("data/npc_data/html/jail_out.htm");
 			if (jailInfos != null)
 				htmlMsg.setHtml(jailInfos);
 			else

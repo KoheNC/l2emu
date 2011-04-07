@@ -55,6 +55,6 @@ public class L2BlacksmithInstance extends L2NpcInstance
 			pom = npcId + "-" + val;
 		}
 
-		return "data/html/blacksmith/" + pom + ".htm";
+		return "data/npc_data/html/blacksmith/" + pom + ".htm";
 	}
 }

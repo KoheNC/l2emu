@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/teleport.xsd">
+	<teleport id="1135" description="Strongolds -> Kamael Village free"
+		locX="-117251" locY="46771" locZ="360" price="0" isNoble="false" />
+</list>

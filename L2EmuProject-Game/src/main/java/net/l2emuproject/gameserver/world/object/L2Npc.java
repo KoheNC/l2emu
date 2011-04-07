@@ -983,7 +983,7 @@ public class L2Npc extends L2Character
 			if (isBusy() && getBusyMessage().length() > 0)
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
-				html.setFile("data/html/npcbusy.htm");
+				html.setFile("data/npc_data/npc_data/html/npcbusy.htm");
 				html.replace("%busymessage%", getBusyMessage());
 				html.replace("%npcname%", getName());
 				html.replace("%playername%", player.getName());
@@ -1168,12 +1168,12 @@ public class L2Npc extends L2Character
 	 * Return the pathfile of the selected HTML file in function of the npcId and of the page number.<BR><BR>
 	 *
 	 * <B><U> Format of the pathfile </U> :</B><BR><BR>
-	 * <li> if the file exists on the server (page number = 0) : <B>data/html/default/12006.htm</B> (npcId-page number)</li>
-	 * <li> if the file exists on the server (page number > 0) : <B>data/html/default/12006-1.htm</B> (npcId-page number)</li>
-	 * <li> if the file doesn't exist on the server : <B>data/html/npcdefault.htm</B> (message : "I have nothing to say to you")</li><BR><BR>
+	 * <li> if the file exists on the server (page number = 0) : <B>data/npc_data/html/default/12006.htm</B> (npcId-page number)</li>
+	 * <li> if the file exists on the server (page number > 0) : <B>data/npc_data/html/default/12006-1.htm</B> (npcId-page number)</li>
+	 * <li> if the file doesn't exist on the server : <B>data/npc_data/html/npcdefault.htm</B> (message : "I have nothing to say to you")</li><BR><BR>
 	 *
 	 * <B><U> Overridden in </U> :</B><BR><BR>
-	 * <li> L2GuardInstance : Set the pathfile to data/html/guard/12006-1.htm (npcId-page number)</li><BR><BR>
+	 * <li> L2GuardInstance : Set the pathfile to data/npc_data/html/guard/12006-1.htm (npcId-page number)</li><BR><BR>
 	 *
 	 * @param npcId The Identifier of the L2Npc whose text must be display
 	 * @param val The number of the page to display
@@ -1186,13 +1186,13 @@ public class L2Npc extends L2Character
 		if (val != 0)
 			pom += "-" + val;
 
-		String temp = "data/html/default/" + pom + ".htm";
+		String temp = "data/npc_data/npc_data/html/default/" + pom + ".htm";
 
 		if (HtmCache.getInstance().pathExists(temp))
 			return temp;
 
 		// If the file is not found, the standard message "I have nothing to say to you" is returned
-		return "data/html/npcdefault.htm";
+		return "data/npc_data/html/npcdefault.htm";
 	}
 
 	/**
@@ -1752,7 +1752,7 @@ public class L2Npc extends L2Character
 	 */
 	private boolean showPkDenyChatWindow(L2Player player, String type)
 	{
-		String html = HtmCache.getInstance().getHtm("data/html/" + type + "/" + getNpcId() + "-pk.htm");
+		String html = HtmCache.getInstance().getHtm("data/npc_data/html/" + type + "/" + getNpcId() + "-pk.htm");
 
 		if (html != null)
 		{
@@ -2023,7 +2023,7 @@ public class L2Npc extends L2Character
 			// Get the text of the selected HTML file in function of the npcId and of the page number
 			if (this instanceof L2TeleporterInstance && val == 1 && player.getLevel() < Config.ALT_GAME_FREE_TELEPORT_LEVEL) // Players below level 40 have free teleport
 			{
-				filename = "data/html/teleporter/free/" + npcId + ".htm";
+				filename = "data/npc_data/html/teleporter/free/" + npcId + ".htm";
 				if (!HtmCache.getInstance().pathExists(filename))
 					filename = getHtmlPath(npcId, val);
 			}
@@ -2379,9 +2379,9 @@ public class L2Npc extends L2Character
 		String path = null;
 		
 		if (this instanceof L2WarehouseInstance)
-			path = "data/html/warehouse/" + npcId + "-noteach.htm";
+			path = "data/npc_data/html/warehouse/" + npcId + "-noteach.htm";
 		else if (this instanceof L2TrainerInstance)
-			path = "data/html/trainer/" + npcId + "-noteach.htm";
+			path = "data/npc_data/html/trainer/" + npcId + "-noteach.htm";
 		
 		NpcHtmlMessage noTeachMsg = new NpcHtmlMessage(getObjectId());
 		noTeachMsg.setFile(path);

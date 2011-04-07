@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/teleport.xsd">
+	<teleport id="3" description="Town of Gludio -> Elven village"
+		locX="46934" locY="51467" locZ="-2977" price="9200" isNoble="false" />
+	<teleport id="4" description="Town of Gludio -> Dark Elven village"
+		locX="9745" locY="15606" locZ="-4574" price="10000" isNoble="false" />
+	<teleport id="5" description="Town of Gludio -> Village of Gludin"
+		locX="-80826" locY="149775" locZ="-3043" price="7300" isNoble="false" />
+	<teleport id="6" description="Town of Gludio -> Dion" locX="15670"
+		locY="142983" locZ="-2705" price="3400" isNoble="false" />
+	<teleport id="88" description="Gludio -> Windawood Manor"
+		locX="-23789" locY="169683" locZ="-3424" price="1400" isNoble="false" />
+	<teleport id="89" description="Gludio -> Southern Pathway to the Wasteland"
+		locX="-16730" locY="209417" locZ="-3664" price="2400" isNoble="false" />
+	<teleport id="386" description="Gludio(artifact -> out)" locX="-18941"
+		locY="112085" locZ="-2762" price="0" isNoble="false" />
+	<teleport id="387" description="Gludio(artifact -> hall)"
+		locX="-18129" locY="109898" locZ="-2517" price="0" isNoble="false" />
+	<teleport id="388" description="Gludio(artifact -> outofcastle)"
+		locX="-18484" locY="113897" locZ="-2772" price="0" isNoble="false" />
+	<teleport id="389" description="Gludio(in -> artifact)" locX="-18592"
+		locY="108271" locZ="-2581" price="0" isNoble="false" />
+	<teleport id="390" description="Gludio(in -> out)" locX="-18941"
+		locY="112085" locZ="-2762" price="0" isNoble="false" />
+	<teleport id="391" description="Gludio(in -> outofcastle)"
+		locX="-18484" locY="113897" locZ="-2772" price="0" isNoble="false" />
+	<teleport id="392" description="Gludio(out -> artifact)" locX="-18592"
+		locY="108271" locZ="-2581" price="0" isNoble="false" />
+	<teleport id="393" description="Gludio(out -> hall)" locX="-18129"
+		locY="109898" locZ="-2517" price="0" isNoble="false" />
+	<teleport id="394" description="Gludio(out -> outofcastle)"
+		locX="-18484" locY="113897" locZ="-2772" price="0" isNoble="false" />
+	<teleport id="395" description="Gludio(outofcastle -> artifact)"
+		locX="-18592" locY="108271" locZ="-2581" price="0" isNoble="false" />
+	<teleport id="396" description="Gludio(outofcastle -> out)"
+		locX="-18941" locY="112085" locZ="-2762" price="0" isNoble="false" />
+	<teleport id="397" description="Gludio(outofcastle -> hall)"
+		locX="-18129" locY="109898" locZ="-2517" price="0" isNoble="false" />
+	<teleport id="1031" description="Gludio -> Ant Cave" locX="-9993"
+		locY="176457" locZ="-4182" price="2100" isNoble="false" />
+	<teleport id="1033" description="Gludio -> Orc Village" locX="-44836"
+		locY="-112524" locZ="-235" price="23000" isNoble="false" />
+	<teleport id="1034" description="Gludio -> Dwarven Village"
+		locX="115113" locY="-178212" locZ="-901" price="32000" isNoble="false" />
+	<teleport id="1035" description="Gludio -> Schuttgart" locX="87386"
+		locY="-143246" locZ="-1293" price="85000" isNoble="false" />
+	<teleport id="1036" description="Gludio -> Heine" locX="111409"
+		locY="219364" locZ="-3545" price="47000" isNoble="false" />
+	<teleport id="1037" description="Gludio -> Aden Castle Town"
+		locX="146331" locY="25762" locZ="-2018" price="56000" isNoble="false" />
+	<teleport id="1038" description="Gludio -> Oren Castle Town"
+		locX="82956" locY="53162" locZ="-1495" price="35000" isNoble="false" />
+	<teleport id="1039" description="Gludio -> Goddard Castle Town"
+		locX="147928" locY="-55273" locZ="-2734" price="71000" isNoble="false" />
+	<teleport id="1040" description="Gludio -> Giran Castle Town"
+		locX="83400" locY="147943" locZ="-3404" price="29000" isNoble="false" />
+	<teleport id="1041" description="Gludio -> Rune Castle Town"
+		locX="43799" locY="-47727" locZ="-798" price="53000" isNoble="false" />
+	<teleport id="1042" description="Gludio -> Ruins of Agony"
+		locX="-42504" locY="120046" locZ="-3519" price="790" isNoble="false" />
+	<teleport id="1043" description="Gludio -> Ruins of Despair"
+		locX="-20057" locY="137618" locZ="-3897" price="610" isNoble="false" />
+	<teleport id="1045" description="Gludio -> Windmill Hill"
+		locX="-68628" locY="162336" locZ="-3592" price="2600" isNoble="false" />
+	<teleport id="2001" description="Gludio Outer -> Out" locX="-18372"
+		locY="113315" locZ="-2760" price="0" isNoble="false" />
+	<teleport id="2002" description="Gludio Outer -> In" locX="-18395"
+		locY="112831" locZ="-2768" price="0" isNoble="false" />
+	<teleport id="2003" description="Gludio Inner -> Out" locX="-18115"
+		locY="110679" locZ="-2528" price="0" isNoble="false" />
+	<teleport id="2004" description="Gludio Inner -> In" locX="-18123"
+		locY="110210" locZ="-2512" price="0" isNoble="false" />
+	<teleport id="12050" description="Gludio -> Kamael Village"
+		locX="-117251" locY="46771" locZ="360" price="12000" isNoble="false" />
+	<teleport id="12118" description="Gludio -> Airship dock"
+		locX="-149406" locY="255247" locZ="-80" price="0" isNoble="false" />
+	<teleport id="13000" description="Gludio Castle -> Front of the Gludio Castle"
+		locX="-15043" locY="116596" locZ="-3208" price="0" isNoble="false" />
+	<teleport id="13001" description="Gludio Castle -> Gludio Town Square"
+		locX="-14393" locY="123671" locZ="-3112" price="0" isNoble="false" />
+	<teleport id="13002" description="Gludio Castle -> Front of the Shanty Fortress"
+		locX="-58761" locY="154663" locZ="-2664" price="0" isNoble="false" />
+	<teleport id="13003" description="Gludio Castle -> Front of the Southern Fortress"
+		locX="-29856" locY="214275" locZ="-3680" price="0" isNoble="false" />
+	<teleport id="13004" description="Gludio Castle -> Ruins of Agony"
+		locX="-41248" locY="122848" locZ="-2904" price="500" isNoble="false" />
+	<teleport id="13005" description="Gludio Castle -> Ruins of Despair"
+		locX="-19120" locY="136816" locZ="-3752" price="500" isNoble="false" />
+	<teleport id="13006" description="Gludio Castle -> The Ant Nest"
+		locX="-9959" locY="176184" locZ="-4160" price="500" isNoble="false" />
+	<teleport id="13007" description="Gludio Castle -> Windawood Manor"
+		locX="-28327" locY="155125" locZ="-3496" price="500" isNoble="false" />
+	<teleport id="60000" description="Gludio Throne" locX="-18112"
+		locY="109413" locZ="-2496" price="0" isNoble="false" />
+	<teleport id="60001" description="Gludio Inside" locX="-18171"
+		locY="111572" locZ="-2649" price="0" isNoble="false" />
+	<teleport id="60002" description="Gludio Artefacts Room" locX="-18115"
+		locY="108365" locZ="-2590" price="0" isNoble="false" />
+	<teleport id="60003" description="Gludio Out of the Castle"
+		locX="-18361" locY="113887" locZ="-2767" price="0" isNoble="false" />
+</list>

@@ -53,7 +53,7 @@ public class L2ManorManagerInstance extends L2MerchantInstance
 	public String getHtmlPath(int npcId, int val)
 	{
 		// Used only in parent method to return from "Territory status"  to initial screen.
-		return "data/html/manormanager/manager.htm";
+		return "data/npc_data/html/manormanager/manager.htm";
 	}
 
 	@Override
@@ -61,14 +61,14 @@ public class L2ManorManagerInstance extends L2MerchantInstance
 	{
 		if (CastleManorService.getInstance().isDisabled())
 		{
-			showChatWindow(player, "data/html/npcdefault.htm");
+			showChatWindow(player, "data/npc_data/html/npcdefault.htm");
 			return;
 		}
 
 		if (!player.isGM() && getCastle() != null && getCastle().getCastleId() > 0 && player.getClan() != null
 				&& getCastle().getOwnerId() == player.getClanId() && player.isClanLeader())
-			showChatWindow(player, "data/html/manormanager/manager-lord.htm");
+			showChatWindow(player, "data/npc_data/html/manormanager/manager-lord.htm");
 		else
-			showChatWindow(player, "data/html/manormanager/manager.htm");
+			showChatWindow(player, "data/npc_data/html/manormanager/manager.htm");
 	}
 }

@@ -181,7 +181,7 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 			
 			if (player.getPlayerTransformation().getTransformation() != null)
 			{
-				html.setFile("data/html/villagemaster/SubClass_NoTransformed.htm");
+				html.setFile("data/npc_data/html/villagemaster/SubClass_NoTransformed.htm");
 				player.sendPacket(html);
 				return;
 			}
@@ -210,20 +210,20 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 			{
 			case 0: // Subclass change menu
 				if (Config.ALT_GAME_SUBCLASS_EVERYWHERE)
-					html.setFile("data/html/villagemaster/SubClass.htm");
+					html.setFile("data/npc_data/html/villagemaster/SubClass.htm");
 				else if (getVillageMasterRace() == Race.Kamael)
 				{
 					if (player.getRace() == Race.Kamael)
-						html.setFile("data/html/villagemaster/SubClass.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass.htm");
 					else
-						html.setFile("data/html/villagemaster/SubClass_NoKamael.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass_NoKamael.htm");
 				}
 				else
 				{
 					if (player.getRace() != Race.Kamael)
-						html.setFile("data/html/villagemaster/SubClass.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass.htm");
 					else
-						html.setFile("data/html/villagemaster/SubClass_NoOther.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass_NoOther.htm");
 				}
 				break;
 			case 1: // Add Subclass - Initial
@@ -231,13 +231,13 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 				if (player.getTotalSubClasses() >= Config.ALT_MAX_SUBCLASS)
 				{
 					if (player.getRace() != Race.Kamael)
-						html.setFile("data/html/villagemaster/SubClass_Fail.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass_Fail.htm");
 					else
-						html.setFile("data/html/villagemaster/SubClass_Fail_Kamael.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass_Fail_Kamael.htm");
 					break;
 				}
 
-				html.setFile("data/html/villagemaster/SubClass_Add.htm");
+				html.setFile("data/npc_data/html/villagemaster/SubClass_Add.htm");
 				final StringBuilder content1 = StringUtil.startAppend(200);
 				Set<ClassId> subsAvailable = getAvailableSubClasses(player);
 
@@ -266,7 +266,7 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 			case 2: // Change Class - Initial
 				if (player.getSubClasses().isEmpty())
 				{
-					html.setFile("data/html/villagemaster/SubClass_ChangeNo.htm");
+					html.setFile("data/npc_data/html/villagemaster/SubClass_ChangeNo.htm");
 				}
 				else
 				{
@@ -296,24 +296,24 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 
 					if (content2.length() > 0)
 					{
-						html.setFile("data/html/villagemaster/SubClass_Change.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass_Change.htm");
 						html.replace("%list%", content2.toString());
 					}
 					else
-						html.setFile("data/html/villagemaster/SubClass_ChangeNotFound.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass_ChangeNotFound.htm");
 				}
 				break;
 			case 3: // Change/Cancel Subclass - Initial
 				if (player.getSubClasses() == null || player.getSubClasses().isEmpty())
 				{
-					html.setFile("data/html/villagemaster/SubClass_ModifyEmpty.htm");
+					html.setFile("data/npc_data/html/villagemaster/SubClass_ModifyEmpty.htm");
 					break;
 				}
 				
 				// custom value
 				if (player.getTotalSubClasses() > 3)
 				{
-					html.setFile("data/html/villagemaster/SubClass_ModifyCustom.htm");
+					html.setFile("data/npc_data/html/villagemaster/SubClass_ModifyCustom.htm");
 					final StringBuilder content3 = StringUtil.startAppend(200);
 					int classIndex = 1;
 					
@@ -336,7 +336,7 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 				else
 				{
 					// retail html contain only 3 subclasses
-					html.setFile("data/html/villagemaster/SubClass_Modify.htm");
+					html.setFile("data/npc_data/html/villagemaster/SubClass_Modify.htm");
 					if (player.getSubClasses().containsKey(1))
 						html.replace("%sub1%", CharTemplateTable.getClassNameById(player.getSubClasses().get(1).getClassId()));
 					else
@@ -440,16 +440,16 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 
 					player.setActiveClass(player.getTotalSubClasses());
 
-					html.setFile("data/html/villagemaster/SubClass_AddOk.htm");
+					html.setFile("data/npc_data/html/villagemaster/SubClass_AddOk.htm");
 
 					player.sendPacket(SystemMessageId.CLASS_TRANSFER); // Transfer to new class.
 				}
 				else
 				{
 					if (player.getRace() != Race.Kamael)
-						html.setFile("data/html/villagemaster/SubClass_Fail.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass_Fail.htm");
 					else
-						html.setFile("data/html/villagemaster/SubClass_Fail_Kamael.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass_Fail_Kamael.htm");
 				}
 				break;
 			case 5: // Change Class - Action
@@ -468,7 +468,7 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 
 				if (player.getClassIndex() == paramOne)
 				{
-					html.setFile("data/html/villagemaster/SubClass_Current.htm");
+					html.setFile("data/npc_data/html/villagemaster/SubClass_Current.htm");
 					break;
 				}
 
@@ -525,16 +525,16 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 				switch (paramOne)
 				{
 					case 1:
-						html.setFile("data/html/villagemaster/SubClass_ModifyChoice1.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass_ModifyChoice1.htm");
 						break;
 					case 2:
-						html.setFile("data/html/villagemaster/SubClass_ModifyChoice2.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass_ModifyChoice2.htm");
 						break;
 					case 3:
-						html.setFile("data/html/villagemaster/SubClass_ModifyChoice3.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass_ModifyChoice3.htm");
 						break;
 					default:
-						html.setFile("data/html/villagemaster/SubClass_ModifyChoice.htm");
+						html.setFile("data/npc_data/html/villagemaster/SubClass_ModifyChoice.htm");
 				}
 				html.replace("%list%", content6.toString());
 				break;
@@ -558,7 +558,7 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 					player.stopAllEffectsExceptThoseThatLastThroughDeath(); // all effects from old subclass stopped!
 					player.setActiveClass(paramOne);
 
-					html.setFile("data/html/villagemaster/SubClass_ModifyOk.htm");
+					html.setFile("data/npc_data/html/villagemaster/SubClass_ModifyOk.htm");
 					html.replace("%name%", CharTemplateTable.getClassNameById(paramTwo));
 
 					player.sendPacket(SystemMessageId.ADD_NEW_SUBCLASS); // Subclass added.
@@ -724,7 +724,7 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 			}
 			else
 			{
-				showChatWindow(player, "data/html/villagemaster/SubClassCertificationFailed.htm");
+				showChatWindow(player, "data/npc_data/html/villagemaster/SubClassCertificationFailed.htm");
 				return;
 			}
 		}
@@ -746,7 +746,7 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 		else
 			pom = npcId + "-" + val;
 
-		return "data/html/villagemaster/" + pom + ".htm";
+		return "data/npc_data/html/villagemaster/" + pom + ".htm";
 	}
 
 	//Private stuff
@@ -1336,7 +1336,7 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 		if (player.getClan() == null || !player.isClanLeader())
 		{
 			NpcHtmlMessage html = new NpcHtmlMessage(1);
-			html.setFile("data/html/villagemaster/NotClanLeader.htm");
+			html.setFile("data/npc_data/html/villagemaster/NotClanLeader.htm");
 			player.sendPacket(html);
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 			return;
@@ -1366,7 +1366,7 @@ public final class L2VillageMasterInstance extends L2NpcInstance
 			else
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(1);
-				html.setFile("data/html/villagemaster/NoMoreSkills.htm");
+				html.setFile("data/npc_data/html/villagemaster/NoMoreSkills.htm");
 				player.sendPacket(html);
 			}
             if (closable)

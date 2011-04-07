@@ -217,7 +217,7 @@ public class L2MerchantSummonInstance extends L2SummonInstance implements L2Merc
 	public void showChatWindow(L2Player player)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
-		String filename = "data/html/merchant/"+getNpcId()+".htm";
+		String filename = "data/npc_data/html/merchant/"+getNpcId()+".htm";
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(filename);
 		html.replace("%objectId%", String.valueOf(getObjectId()));

@@ -136,7 +136,7 @@ public class L2CastleWarehouseInstance extends L2NpcInstance
 		{
 			if (Config.ENABLE_WAREHOUSESORTING_PRIVATE)
 			{
-				String htmFile = "data/html/custom/WhSortedP.htm";
+				String htmFile = "data/npc_data/html/custom/WhSortedP.htm";
 				String htmContent = HtmCache.getInstance().getHtm(htmFile);
 				if (htmContent != null)
 				{
@@ -169,7 +169,7 @@ public class L2CastleWarehouseInstance extends L2NpcInstance
 		{
 			if (Config.ENABLE_WAREHOUSESORTING_CLAN)
 			{
-				String htmFile = "data/html/custom/WhSortedC.htm";
+				String htmFile = "data/npc_data/html/custom/WhSortedC.htm";
 				String htmContent = HtmCache.getInstance().getHtm(htmFile);
 				if (htmContent != null)
 				{
@@ -220,19 +220,19 @@ public class L2CastleWarehouseInstance extends L2NpcInstance
 	public void showChatWindow(L2Player player, int val)
 	{
 		player.sendPacket(ActionFailed.STATIC_PACKET);
-		String filename = "data/html/castlewarehouse/castlewarehouse-no.htm";
+		String filename = "data/npc_data/html/castlewarehouse/castlewarehouse-no.htm";
 
 		int condition = validateCondition(player);
 		if (condition > COND_ALL_FALSE)
 		{
 			if (condition == COND_BUSY_BECAUSE_OF_SIEGE)
-				filename = "data/html/castlewarehouse/castlewarehouse-busy.htm"; // Busy because of siege
+				filename = "data/npc_data/html/castlewarehouse/castlewarehouse-busy.htm"; // Busy because of siege
 			else if (condition == COND_OWNER) 									 // Clan owns castle
 			{
 				if (val == 0)
-					filename = "data/html/castlewarehouse/castlewarehouse.htm";
+					filename = "data/npc_data/html/castlewarehouse/castlewarehouse.htm";
 				else
-					filename = "data/html/castlewarehouse/castlewarehouse-" + val + ".htm";
+					filename = "data/npc_data/html/castlewarehouse/castlewarehouse-" + val + ".htm";
 			}
 		}
 

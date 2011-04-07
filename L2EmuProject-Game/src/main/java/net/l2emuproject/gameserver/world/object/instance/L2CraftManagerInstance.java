@@ -693,6 +693,6 @@ public class L2CraftManagerInstance extends L2NpcInstance
 			pom = npcId + "-" + val;
 		}
 
-		return "data/html/mods/craftmanager/" + pom + ".htm";
+		return "data/npc_data/html/mods/craftmanager/" + pom + ".htm";
 	}
 }

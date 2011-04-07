@@ -224,7 +224,7 @@ public class L2StaticObjectInstance extends L2Character
 			{
 				if (_type == 2)
 				{
-					String filename = "data/html/signboard.htm";
+					String filename = "data/npc_data/html/signboard.htm";
 					String content = HtmCache.getInstance().getHtm(filename);
 					NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 					

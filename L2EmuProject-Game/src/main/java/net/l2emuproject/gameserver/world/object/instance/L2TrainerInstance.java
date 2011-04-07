@@ -42,7 +42,7 @@ public final class L2TrainerInstance extends L2NpcInstance
         else        
             pom = npcId + "-" + val;
                 
-        path = "data/html/trainer/";
+        path = "data/npc_data/html/trainer/";
 
         return path + pom + ".htm";
     }

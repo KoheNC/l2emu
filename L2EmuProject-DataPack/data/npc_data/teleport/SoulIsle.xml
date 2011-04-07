@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/teleport.xsd">
+	<teleport id="1136" description="Soul Isle Harbor -> The Town of Gludio"
+		locX="-12672" locY="122776" locZ="-3116" price="9300" isNoble="false" />
+	<teleport id="1137" description="Soul Isle Harbor -> Town of Aden"
+		locX="146331" locY="25762" locZ="-2018" price="22000" isNoble="false" />
+	<teleport id="1138" description="Soul Isle Harbor -> The Town of Gludio"
+		locX="-117251" locY="46771" locZ="360" price="4300" isNoble="false" />
+	<teleport id="12057" description="Soul Harbor -> Nornil's Garden"
+		locX="-119534" locY="87176" locZ="-12593" price="0" isNoble="false" />
+</list>

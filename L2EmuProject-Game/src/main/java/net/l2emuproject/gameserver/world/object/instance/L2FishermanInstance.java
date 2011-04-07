@@ -47,7 +47,7 @@ public class L2FishermanInstance extends L2MerchantInstance
         else
             pom = npcId + "-" + val;
         
-        return "data/html/fisherman/" + pom + ".htm";
+        return "data/npc_data/html/fisherman/" + pom + ".htm";
     }
 
     public static void showSkillList(L2Player player, boolean closable)

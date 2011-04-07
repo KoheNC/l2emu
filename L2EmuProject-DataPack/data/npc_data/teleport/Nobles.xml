@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/teleport.xsd">
+	<teleport id="9000" description="Gludin Arena - 1000 adena"
+		locX="-87328" locY="142266" locZ="-3640" price="1000" isNoble="true" />
+	<teleport id="9001" description="Coliseum - 1000 adena" locX="146440"
+		locY="46723" locZ="-3432" price="1000" isNoble="true" />
+	<teleport id="9002" description="Giran Arena - 1000 adena"
+		locX="73579" locY="142709" locZ="-3768" price="1000" isNoble="true" />
+	<teleport id="9010" description="Forgotten Temple - 1000 adena"
+		locX="-54026" locY="179504" locZ="-4640" price="1000" isNoble="true" />
+	<teleport id="9011" description="Wasteland  - 1000 adena"
+		locX="-47506" locY="179572" locZ="-3632" price="1000" isNoble="true" />
+	<teleport id="9020" description="The Giants Cave Upper Layer - 1000 adena"
+		locX="183985" locY="61424" locZ="-3992" price="1000" isNoble="true" />
+	<teleport id="9021" description="Plains of Glory - 1000 adena"
+		locX="135756" locY="19557" locZ="-3424" price="1000" isNoble="true" />
+	<teleport id="9022" description="War-Torn Plains - 1000 adena"
+		locX="156898" locY="11217" locZ="-4032" price="1000" isNoble="true" />
+	<teleport id="9023" description="Tower of Insolence,3rd Floor - 1000 adena"
+		locX="110848" locY="16154" locZ="-2120" price="1000" isNoble="true" />
+	<teleport id="9024" description="Tower of Insolence,5th Floor - 1000 adena"
+		locX="118404" locY="15988" locZ="832" price="1000" isNoble="true" />
+	<teleport id="9025" description="Tower of Insolence,7th Floor - 1000 adena"
+		locX="115064" locY="12181" locZ="2960" price="1000" isNoble="true" />
+	<teleport id="9026" description="Tower of Insolence,10th Floor - 1000 adena"
+		locX="118525" locY="16455" locZ="5984" price="1000" isNoble="true" />
+	<teleport id="9027" description="Tower of Insolence,13th Floor - 1000 adena"
+		locX="115384" locY="16820" locZ="9000" price="1000" isNoble="true" />
+	<teleport id="9028" description="Hunters Valley - 1000 adena"
+		locX="114306" locY="86573" locZ="-3112" price="1000" isNoble="true" />
+	<teleport id="9029" description="Angel Waterfall - 1000 adena"
+		locX="166182" locY="91560" locZ="-3168" price="1000" isNoble="true" />
+	<teleport id="9030" description="Forest of Mirrors - 1000 adena"
+		locX="166080" locY="75574" locZ="-2992" price="1000" isNoble="true" />
+	<teleport id="9031" description="Enchanted Valley - 1000 adena"
+		locX="114674" locY="44150" locZ="-3376" price="1000" isNoble="true" />
+	<teleport id="9032" description="Hunters Valley - 1000 adena"
+		locX="114306" locY="86573" locZ="-3112" price="1000" isNoble="true" />
+	<teleport id="9033" description="The Giants Cave Lower Layer - 1000 adena"
+		locX="191754" locY="56760" locZ="-7624" price="1000" isNoble="true" />
+	<teleport id="9040" description="Gorgon Flower Garden - 1000 adena"
+		locX="113553" locY="134813" locZ="-3640" price="1000" isNoble="true" />
+	<teleport id="9041" description="Antharas Lair 1 - 1000 adena"
+		locX="147071" locY="120156" locZ="-4520" price="1000" isNoble="true" />
+	<teleport id="9042" description="Antharas Lair 2 - 1000 adena"
+		locX="151689" locY="112615" locZ="-5520" price="1000" isNoble="true" />
+	<teleport id="9043"
+		description="Antharas Lair,Magic Force Field Bridge - 1000 adena"
+		locX="146494" locY="109285" locZ="-3448" price="1000" isNoble="true" />
+	<teleport id="9044" description="Antharas Lair,Heart of Warding - 1000 adena"
+		locX="154396" locY="121235" locZ="-3808" price="1000" isNoble="true" />
+	<teleport id="9045" description="Dragon Valley,Traders Post - 1000 adena"
+		locX="122824" locY="110836" locZ="-3720" price="1000" isNoble="true" />
+	<teleport id="9046" description="Private Hardin's Academy - 1000 adena"
+		locX="105918" locY="109759" locZ="-3192" price="1000" isNoble="true" />
+	<teleport id="9050" description="Forest of the Dead - 1000 adena"
+		locX="54425" locY="-41692" locZ="-3072" price="1000" isNoble="true" />
+	<teleport id="9051" description="Valley of Saints - 1000 adena"
+		locX="84092" locY="-80084" locZ="-3504" price="1000" isNoble="true" />
+	<teleport id="9052" description="Cursed Village - 1000 adena"
+		locX="57670" locY="-41672" locZ="-3144" price="1000" isNoble="true" />
+	<teleport id="9053" description="Stakato Nest - 1000 adena"
+		locX="88969" locY="-45307" locZ="-2104" price="1000" isNoble="true" />
+	<teleport id="9054" description="Monastery of Silence - 1000 adena"
+		locX="106414" locY="-87799" locZ="-2920" price="1000" isNoble="true" />
+	<teleport id="9060" description="Varka Silenos Village - 1000 adena"
+		locX="107929" locY="-52248" locZ="-2408" price="1000" isNoble="true" />
+	<teleport id="9061" description="Ketra Orc Village - 1000 adena"
+		locX="149817" locY="-80053" locZ="-5576" price="1000" isNoble="true" />
+	<teleport id="9062" description="Devil's Pass - 1000 adena"
+		locX="106349" locY="-61870" locZ="-2904" price="1000" isNoble="true" />
+	<teleport id="9063" description="Garden of Beasts - 1000 adena"
+		locX="132997" locY="-60608" locZ="-2960" price="1000" isNoble="true" />
+	<teleport id="9064" description="Hot Springs - 1000 adena"
+		locX="144625" locY="-101291" locZ="-3384" price="1000" isNoble="true" />
+	<teleport id="9065" description="Wall of Argos - 1000 adena"
+		locX="183140" locY="-53307" locZ="-1896" price="1000" isNoble="true" />
+	<teleport id="9066" description="Wall of Argos - 1000 adena"
+		locX="183140" locY="-53307" locZ="-1896" price="1000" isNoble="true" />
+	<teleport id="9067" description="Four Sepulchers - 1000 adena"
+		locX="178127" locY="-84435" locZ="-7216" price="1000" isNoble="true" />
+	<teleport id="9068" description="Imperial Tomb - 1000 adena"
+		locX="186699" locY="-75915" locZ="-2824" price="1000" isNoble="true" />
+	<teleport id="9069" description="Forge of the Gods,entrance - 1000 adena"
+		locX="169018" locY="-116303" locZ="-2432" price="1000" isNoble="true" />
+	<teleport id="9070" description="Forge of the Gods,entrance - 1000 adena"
+		locX="169018" locY="-116303" locZ="-2432" price="1000" isNoble="true" />
+	<teleport id="9071" description="Forge of the Gods,lower level - 1000 adena"
+		locX="179887" locY="-111241" locZ="-5824" price="1000" isNoble="true" />
+	<teleport id="9080" description="Execution Grounds - 1000 adena"
+		locX="50568" locY="152408" locZ="-2656" price="1000" isNoble="true" />
+	<teleport id="9081" description="Floran Agricultural Area - 1000 adena"
+		locX="26810" locY="172787" locZ="-3376" price="1000" isNoble="true" />
+	<teleport id="9082" description="Cruma Marshlands - 1000 adena"
+		locX="5941" locY="125455" locZ="-3640" price="1000" isNoble="true" />
+	<teleport id="9083" description="Cruma Tower,1st Floor - 1000 adena"
+		locX="17718" locY="117315" locZ="-12064" price="1000" isNoble="true" />
+	<teleport id="9084" description="Cruma Tower,2nd Floor - 1000 adena"
+		locX="17728" locY="110325" locZ="-9312" price="1000" isNoble="true" />
+	<teleport id="9090" description="Frost Lake - 1000 adena"
+		locX="107577" locY="-122392" locZ="-3632" price="1000" isNoble="true" />
+	<teleport id="9091" description="Crypts of Disgrace - 1000 adena"
+		locX="44221" locY="-114232" locZ="-2784" price="1000" isNoble="true" />
+	<teleport id="9092" description="Sky Wagon Relic - 1000 adena"
+		locX="121618" locY="-141554" locZ="-1496" price="1000" isNoble="true" />
+	<teleport id="9100" description="Evil Hunting Grounds - 1000 adena"
+		locX="-6989" locY="109503" locZ="-3040" price="1000" isNoble="true" />
+	<teleport id="9101" description="Neutral Zone - 1000 adena"
+		locX="-18415" locY="85624" locZ="-3680" price="1000" isNoble="true" />
+	<teleport id="9102" description="Dark Forest - 1000 adena"
+		locX="-14129" locY="27094" locZ="-3680" price="1000" isNoble="true" />
+	<teleport id="9103" description="School of Dark Arts - 1000 adena"
+		locX="-49185" locY="49441" locZ="-5912" price="1000" isNoble="true" />
+	<teleport id="9104" description="Elven Ruins - 1000 adena"
+		locX="49315" locY="248452" locZ="-5960" price="1000" isNoble="true" />
+	<teleport id="9105" description="Immortal Plateau - 1000 adena"
+		locX="-25309" locY="-131569" locZ="-680" price="1000" isNoble="true" />
+	<teleport id="9106" description="Mithril Mines - 1000 adena"
+		locX="175499" locY="-181586" locZ="-904" price="1000" isNoble="true" />
+	<teleport id="9107" description="Abandoned Coal Mines - 1000 adena"
+		locX="144706" locY="-173223" locZ="-1520" price="1000" isNoble="true" />
+	<teleport id="9110" description="Forest of Evil - 1000 adena"
+		locX="93218" locY="16969" locZ="-3904" price="1000" isNoble="true" />
+	<teleport id="9111" description="Timak Outpost - 1000 adena"
+		locX="67097" locY="68815" locZ="-3648" price="1000" isNoble="true" />
+	<teleport id="9112" description="Altar of Rites - 1000 adena"
+		locX="-44566" locY="77508" locZ="-3736" price="1000" isNoble="true" />
+	<teleport id="9120" description="Fields of Silence - 1000 adena"
+		locX="69748" locY="186111" locZ="-2872" price="1000" isNoble="true" />
+	<teleport id="9121" description="Field of Whispers - 1000 adena"
+		locX="97786" locY="209303" locZ="-3040" price="1000" isNoble="true" />
+	<teleport id="9122" description="Alligator Island - 1000 adena"
+		locX="113708" locY="178387" locZ="-3232" price="1000" isNoble="true" />
+	<teleport id="9123" description="Garden of Eva,entrance - 1000 adena"
+		locX="82693" locY="242220" locZ="-6712" price="1000" isNoble="true" />
+	<teleport id="9124" description="Garden of Eva,2nd level - 1000 adena"
+		locX="79248" locY="247390" locZ="-8816" price="1000" isNoble="true" />
+	<teleport id="9125" description="Garden of Eva,3rd level - 1000 adena"
+		locX="77868" locY="250400" locZ="-9328" price="1000" isNoble="true" />
+	<teleport id="9126" description="Garden of Eva,4th level - 1000 adena"
+		locX="78721" locY="253309" locZ="-9840" price="1000" isNoble="true" />
+	<teleport id="9127" description="Garden of Eva,5th level - 1000 adena"
+		locX="82951" locY="252354" locZ="-10592" price="1000" isNoble="true" />
+	<teleport id="9900" description="Gludin Arena - 1 Noble Gate Pass"
+		locX="-87328" locY="142266" locZ="-3640" price="1" isNoble="true" />
+	<teleport id="9901" description="Coliseum - 1 Noble Gate Pass"
+		locX="146440" locY="46723" locZ="-3432" price="1" isNoble="true" />
+	<teleport id="9902" description="Giran Arena - 1 Noble Gate Pass"
+		locX="73579" locY="142709" locZ="-3768" price="1" isNoble="true" />
+	<teleport id="9910" description="Forgotten Temple - 1 Noble Gate Pass"
+		locX="-54026" locY="179504" locZ="-4640" price="1" isNoble="true" />
+	<teleport id="9911" description="Wasteland  - 1 Noble Gate Pass"
+		locX="-47506" locY="179572" locZ="-3632" price="1" isNoble="true" />
+	<teleport id="9920" description="The Giants Cave Upper Layer - 1 Noble Gate Pass"
+		locX="183985" locY="61424" locZ="-3992" price="1" isNoble="true" />
+	<teleport id="9921" description="Plains of Glory - 1 Noble Gate Pass"
+		locX="135756" locY="19557" locZ="-3424" price="1" isNoble="true" />
+	<teleport id="9922" description="War-Torn Plains - 1 Noble Gate Pass"
+		locX="156898" locY="11217" locZ="-4032" price="1" isNoble="true" />
+	<teleport id="9923"
+		description="Tower of Insolence,3rd Floor - 1 Noble Gate Pass" locX="110848"
+		locY="16154" locZ="-2120" price="1" isNoble="true" />
+	<teleport id="9924"
+		description="Tower of Insolence,5th Floor - 1 Noble Gate Pass" locX="118404"
+		locY="15988" locZ="832" price="1" isNoble="true" />
+	<teleport id="9925"
+		description="Tower of Insolence,7th Floor - 1 Noble Gate Pass" locX="115064"
+		locY="12181" locZ="2960" price="1" isNoble="true" />
+	<teleport id="9926"
+		description="Tower of Insolence,10th Floor - 1 Noble Gate Pass" locX="118525"
+		locY="16455" locZ="5984" price="1" isNoble="true" />
+	<teleport id="9927"
+		description="Tower of Insolence,13th Floor - 1 Noble Gate Pass" locX="115384"
+		locY="16820" locZ="9000" price="1" isNoble="true" />
+	<teleport id="9928" description="Hunters Valley - 1 Noble Gate Pass"
+		locX="114306" locY="86573" locZ="-3112" price="1" isNoble="true" />
+	<teleport id="9929" description="Angel Waterfall - 1 Noble Gate Pass"
+		locX="166182" locY="91560" locZ="-3168" price="1" isNoble="true" />
+	<teleport id="9930" description="Forest of Mirrors - 1 Noble Gate Pass"
+		locX="166080" locY="75574" locZ="-2992" price="1" isNoble="true" />
+	<teleport id="9931" description="Enchanted Valley - 1 Noble Gate Pass"
+		locX="114674" locY="44150" locZ="-3376" price="1" isNoble="true" />
+	<teleport id="9932" description="Hunters Valley - 1 Noble Gate Pass"
+		locX="114306" locY="86573" locZ="-3112" price="1" isNoble="true" />
+	<teleport id="9933" description="The Giants Cave Lower Layer - 1 Noble Gate Pass"
+		locX="191754" locY="56760" locZ="-7624" price="1" isNoble="true" />
+	<teleport id="9940" description="Gorgon Flower Garden - 1 Noble Gate Pass"
+		locX="113553" locY="134813" locZ="-3640" price="1" isNoble="true" />
+	<teleport id="9941" description="Antharas Lair 1 - 1 Noble Gate Pass"
+		locX="147071" locY="120156" locZ="-4520" price="1" isNoble="true" />
+	<teleport id="9942" description="Antharas Lair 2 - 1 Noble Gate Pass"
+		locX="151689" locY="112615" locZ="-5520" price="1" isNoble="true" />
+	<teleport id="9943"
+		description="Antharas Lair, Magic Force Field Bridge - 1 Noble Gate Pass"
+		locX="146494" locY="109285" locZ="-3448" price="1" isNoble="true" />
+	<teleport id="9944"
+		description="Antharas Lair,Heart of Warding - 1 Noble Gate Pass" locX="154396"
+		locY="121235" locZ="-3808" price="1" isNoble="true" />
+	<teleport id="9945" description="Dragon Valley,Traders Post - 1 Noble Gate Pass"
+		locX="122824" locY="110836" locZ="-3720" price="1" isNoble="true" />
+	<teleport id="9946" description="Private Hardin's Academy - 1 Noble Gate Pass"
+		locX="105918" locY="109759" locZ="-3192" price="1" isNoble="true" />
+	<teleport id="9950" description="Forest of the Dead - 1 Noble Gate Pass"
+		locX="54425" locY="-41692" locZ="-3072" price="1" isNoble="true" />
+	<teleport id="9951" description="Valley of Saints - 1 Noble Gate Pass"
+		locX="84092" locY="-80084" locZ="-3504" price="1" isNoble="true" />
+	<teleport id="9952" description="Cursed Village - 1 Noble Gate Pass"
+		locX="57670" locY="-41672" locZ="-3144" price="1" isNoble="true" />
+	<teleport id="9953" description="Stakato Nest - 1 Noble Gate Pass"
+		locX="88969" locY="-45307" locZ="-2104" price="1" isNoble="true" />
+	<teleport id="9954" description="Monastery of Silence - 1 Noble Gate Pass"
+		locX="106414" locY="-87799" locZ="-2920" price="1" isNoble="true" />
+	<teleport id="9960" description="Varka Silenos Village - 1 Noble Gate Pass"
+		locX="107929" locY="-52248" locZ="-2408" price="1" isNoble="true" />
+	<teleport id="9961" description="Ketra Orc Village - 1 Noble Gate Pass"
+		locX="149817" locY="-80053" locZ="-5576" price="1" isNoble="true" />
+	<teleport id="9962" description="Devil's Pass - 1 Noble Gate Pass"
+		locX="106349" locY="-61870" locZ="-2904" price="1" isNoble="true" />
+	<teleport id="9963" description="Garden of Beasts - 1 Noble Gate Pass"
+		locX="132997" locY="-60608" locZ="-2960" price="1" isNoble="true" />
+	<teleport id="9964" description="Hot Springs - 1 Noble Gate Pass"
+		locX="144625" locY="-101291" locZ="-3384" price="1" isNoble="true" />
+	<teleport id="9965" description="Wall of Argos - 1 Noble Gate Pass"
+		locX="183140" locY="-53307" locZ="-1896" price="1" isNoble="true" />
+	<teleport id="9967" description="Four Sepulchers - 1 Noble Gate Pass"
+		locX="178127" locY="-84435" locZ="-7216" price="1" isNoble="true" />
+	<teleport id="9968" description="Imperial Tomb - 1 Noble Gate Pass"
+		locX="186699" locY="-75915" locZ="-2824" price="1" isNoble="true" />
+	<teleport id="9970" description="Forge of the Gods,entrance - 1 Noble Gate Pass"
+		locX="169018" locY="-116303" locZ="-2432" price="1" isNoble="true" />
+	<teleport id="9971"
+		description="Forge of the Gods,lower level - 1 Noble Gate Pass" locX="179887"
+		locY="-111241" locZ="-5824" price="1" isNoble="true" />
+	<teleport id="9980" description="Execution Grounds - 1 Noble Gate Pass"
+		locX="50568" locY="152408" locZ="-2656" price="1" isNoble="true" />
+	<teleport id="9981" description="Floran Agricultural Area - 1 Noble Gate Pass"
+		locX="26810" locY="172787" locZ="-3376" price="1" isNoble="true" />
+	<teleport id="9982" description="Cruma Marshlands - 1 Noble Gate Pass"
+		locX="5941" locY="125455" locZ="-3640" price="1" isNoble="true" />
+	<teleport id="9983" description="Cruma Tower,1st Floor - 1 Noble Gate Pass"
+		locX="17718" locY="117315" locZ="-12064" price="1" isNoble="true" />
+	<teleport id="9984" description="Cruma Tower,2nd Floor - 1 Noble Gate Pass"
+		locX="17728" locY="110325" locZ="-9312" price="1" isNoble="true" />
+	<teleport id="9990" description="Frost Lake - 1 Noble Gate Pass"
+		locX="107577" locY="-122392" locZ="-3632" price="1" isNoble="true" />
+	<teleport id="9991" description="Crypts of Disgrace - 1 Noble Gate Pass"
+		locX="44221" locY="-114232" locZ="-2784" price="1" isNoble="true" />
+	<teleport id="9992" description="Sky Wagon Relic - 1 Noble Gate Pass"
+		locX="121618" locY="-141554" locZ="-1496" price="1" isNoble="true" />
+	<teleport id="10000" description="Evil Hunting Grounds - 1 Noble Gate Pass"
+		locX="-6989" locY="109503" locZ="-3040" price="1" isNoble="true" />
+	<teleport id="10001" description="Neutral Zone - 1 Noble Gate Pass"
+		locX="-18415" locY="85624" locZ="-3680" price="1" isNoble="true" />
+	<teleport id="10002" description="Dark Forest - 1 Noble Gate Pass"
+		locX="-14129" locY="27094" locZ="-3680" price="1" isNoble="true" />
+	<teleport id="10003" description="School of Dark Arts - 1 Noble Gate Pass"
+		locX="-49185" locY="49441" locZ="-5912" price="1" isNoble="true" />
+	<teleport id="10004" description="Elven Ruins - 1 Noble Gate Pass"
+		locX="49315" locY="248452" locZ="-5960" price="1" isNoble="true" />
+	<teleport id="10005" description="Immortal Plateau - 1 Noble Gate Pass"
+		locX="-25309" locY="-131569" locZ="-680" price="1" isNoble="true" />
+	<teleport id="10006" description="Mithril Mines - 1 Noble Gate Pass"
+		locX="175499" locY="-181586" locZ="-904" price="1" isNoble="true" />
+	<teleport id="10007" description="Abandoned Coal Mines - 1 Noble Gate Pass"
+		locX="144706" locY="-173223" locZ="-1520" price="1" isNoble="true" />
+	<teleport id="10010" description="Forest of Evil - 1 Noble Gate Pass"
+		locX="93218" locY="16969" locZ="-3904" price="1" isNoble="true" />
+	<teleport id="10011" description="Timak Outpost - 1 Noble Gate Pass"
+		locX="67097" locY="68815" locZ="-3648" price="1" isNoble="true" />
+	<teleport id="10012" description="Altar of Rites - 1 Noble Gate Pass"
+		locX="-44566" locY="77508" locZ="-3736" price="1" isNoble="true" />
+	<teleport id="10020" description="Field of Silence - 1 Noble Gate Pass"
+		locX="69748" locY="186111" locZ="-2872" price="1" isNoble="true" />
+	<teleport id="10021" description="Field of Whispers - 1 Noble Gate Pass"
+		locX="97786" locY="209303" locZ="-3040" price="1" isNoble="true" />
+	<teleport id="10022" description="Alligator Island - 1 Noble Gate Pass"
+		locX="113708" locY="178387" locZ="-3232" price="1" isNoble="true" />
+	<teleport id="10023" description="Garden of Eva,entrance - 1 Noble Gate Pass"
+		locX="82693" locY="242220" locZ="-6712" price="1" isNoble="true" />
+	<teleport id="10024" description="Garden of Eva,2nd ring - 1 Noble Gate Pass"
+		locX="79248" locY="247390" locZ="-8816" price="1" isNoble="true" />
+	<teleport id="10025" description="Garden of Eva,3rd ring - 1 Noble Gate Pass"
+		locX="77868" locY="250400" locZ="-9328" price="1" isNoble="true" />
+	<teleport id="10026" description="Garden of Eva,4th ring - 1 Noble Gate Pass"
+		locX="78721" locY="253309" locZ="-9840" price="1" isNoble="true" />
+	<teleport id="10027" description="Garden of Eva,5th level - 1 Noble Gate Pass"
+		locX="82951" locY="252354" locZ="-10592" price="1" isNoble="true" />
+</list>

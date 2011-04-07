@@ -52,9 +52,9 @@ public class L2MercenaryManagerInstance extends L2Npc
 		String pom = "";
 
 		if (val == 0)
-			pom = "data/html/mercmanager/" + npcId + ".htm";
+			pom = "data/npc_data/html/mercmanager/" + npcId + ".htm";
 		else
-			pom = "data/html/mercmanager/" + npcId + "-" + val + ".htm";
+			pom = "data/npc_data/html/mercmanager/" + npcId + "-" + val + ".htm";
 
 		// If the file is not found, the standard message "I have nothing to say to you" is returned
 		return pom;

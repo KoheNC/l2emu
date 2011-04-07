@@ -171,7 +171,7 @@ public class L2TeleporterInstance extends L2Npc
 			else
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
-				html.setFile("data/html/teleporter/notbirthday.htm");
+				html.setFile("data/npc_data/html/teleporter/notbirthday.htm");
 				player.sendPacket(html);
 			}
 		}
@@ -188,7 +188,7 @@ public class L2TeleporterInstance extends L2Npc
 		else
 			pom = npcId + "-" + val;
 
-		return "data/html/teleporter/" + pom + ".htm";
+		return "data/npc_data/html/teleporter/" + pom + ".htm";
 	}
 
 	private void showNewbieHtml(L2Player player)
@@ -198,9 +198,9 @@ public class L2TeleporterInstance extends L2Npc
 		
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		
-		String filename = "data/html/teleporter/free/" + getTemplate().getNpcId() + ".htm";
+		String filename = "data/npc_data/html/teleporter/free/" + getTemplate().getNpcId() + ".htm";
 		if (!HtmCache.getInstance().pathExists(filename))
-			filename = "data/html/teleporter/" + getTemplate().getNpcId() + "-1.htm";
+			filename = "data/npc_data/html/teleporter/" + getTemplate().getNpcId() + "-1.htm";
 		
 		html.setFile(filename);
 		html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -215,9 +215,9 @@ public class L2TeleporterInstance extends L2Npc
 		
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		
-		String filename = "data/html/teleporter/half/" + getNpcId() + ".htm";
+		String filename = "data/npc_data/html/teleporter/half/" + getNpcId() + ".htm";
 		if (!HtmCache.getInstance().pathExists(filename))
-			filename = "data/html/teleporter/" + getNpcId() + "-1.htm";
+			filename = "data/npc_data/html/teleporter/" + getNpcId() + "-1.htm";
 		
 		html.setFile(filename);
 		html.replace("%objectId%", String.valueOf(getObjectId()));
@@ -228,7 +228,7 @@ public class L2TeleporterInstance extends L2Npc
 	@Override
 	public void showChatWindow(L2Player player)
 	{
-		String filename = "data/html/teleporter/castleteleporter-no.htm";
+		String filename = "data/npc_data/html/teleporter/castleteleporter-no.htm";
 
 		int condition = validateCondition(player);
 		if (condition == COND_REGULAR)
@@ -239,7 +239,7 @@ public class L2TeleporterInstance extends L2Npc
 		else if (condition > COND_ALL_FALSE)
 		{
 			if (condition == COND_BUSY_BECAUSE_OF_SIEGE)
-				filename = "data/html/teleporter/castleteleporter-busy.htm"; // Busy because of siege
+				filename = "data/npc_data/html/teleporter/castleteleporter-busy.htm"; // Busy because of siege
 			else if (condition == COND_OWNER) // Clan owns castle
 				filename = getHtmlPath(getNpcId(), 0); // Owner message window
 		}
@@ -277,7 +277,7 @@ public class L2TeleporterInstance extends L2Npc
 			}
 			if (list.isForNoble() && !player.isNoble())
 			{
-				String filename = "data/html/teleporter/nobleteleporter-no.htm";
+				String filename = "data/npc_data/html/teleporter/nobleteleporter-no.htm";
 				NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 				html.setFile(filename);
 				html.replace("%objectId%", String.valueOf(getObjectId()));

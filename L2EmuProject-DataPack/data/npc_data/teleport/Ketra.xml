@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/teleport.xsd">
+	<teleport id="10028" description="Ketra teleport - Goddard Castle Town"
+		locX="147978" locY="-55408" locZ="-2728" price="4900" isNoble="false" />
+	<teleport id="10029" description="Ketra teleport - Rune Castle Town"
+		locX="43849" locY="-47877" locZ="-792" price="22000" isNoble="false" />
+	<teleport id="10030" description="Ketra teleport - Aden Castle Town"
+		locX="146705" locY="25840" locZ="-2000" price="21000" isNoble="false" />
+	<teleport id="10031" description="Ketra teleport - Wall of Argos"
+		locX="164564" locY="-48145" locZ="-3536" price="7000" isNoble="false" />
+	<teleport id="10032" description="Ketra teleport - Hot Springs"
+		locX="144880" locY="-113468" locZ="-2560" price="6700" isNoble="false" />
+</list>

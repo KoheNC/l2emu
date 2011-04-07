@@ -64,7 +64,7 @@ public class L2FortSupportUnitInstance extends L2MerchantInstance
 		}
         else if (command.startsWith("skills"))
         {
-        	String filename = "data/html/fortress/na.htm";
+        	String filename = "data/npc_data/html/fortress/na.htm";
             NpcHtmlMessage html = new NpcHtmlMessage(1);
             html.setFile(filename);
             player.sendPacket(html);
@@ -82,12 +82,12 @@ public class L2FortSupportUnitInstance extends L2MerchantInstance
 
 				player.addItem("FortSupportUnit", item, 1, player, true);
 
-				String filename = "data/html/fortress/support_unit_captain-talisman-done.htm";
+				String filename = "data/npc_data/html/fortress/support_unit_captain-talisman-done.htm";
 				showChatWindow(player, filename);
 			}
 			else
 			{
-				String filename = "data/html/fortress/support_unit_captain-noepau.htm";
+				String filename = "data/npc_data/html/fortress/support_unit_captain-noepau.htm";
 				showChatWindow(player, filename);
 			}
 		}
@@ -122,19 +122,19 @@ public class L2FortSupportUnitInstance extends L2MerchantInstance
 	public void showChatWindow(L2Player player, int val)
 	{
 		player.sendPacket( ActionFailed.STATIC_PACKET );
-		String filename = "data/html/fortress/support_unit_captain-no.htm";
+		String filename = "data/npc_data/html/fortress/support_unit_captain-no.htm";
 
 		int condition = validateCondition(player);
 		if (condition > COND_ALL_FALSE)
 		{
 			if (condition == COND_BUSY_BECAUSE_OF_SIEGE)
-				filename = "data/html/fortress/support_unit_captain-no.htm"; // Busy because of siege
+				filename = "data/npc_data/html/fortress/support_unit_captain-no.htm"; // Busy because of siege
 			else if (condition == COND_OWNER)                                // Clan owns fortress
 			{
 				if (val == 0)
-					filename = "data/html/fortress/support_unit_captain.htm";
+					filename = "data/npc_data/html/fortress/support_unit_captain.htm";
 				else
-					filename = "data/html/fortress/support_unit_captain-" + val + ".htm";
+					filename = "data/npc_data/html/fortress/support_unit_captain-" + val + ".htm";
 			}
 		}
 

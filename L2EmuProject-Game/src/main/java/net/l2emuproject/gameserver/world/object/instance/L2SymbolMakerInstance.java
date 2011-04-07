@@ -19,7 +19,7 @@ import net.l2emuproject.gameserver.world.object.L2Npc;
 
 public class L2SymbolMakerInstance extends L2Npc
 {
-	private static final String HTML_PATH = "data/html/symbolmaker/SymbolMaker.htm";
+	private static final String HTML_PATH = "data/npc_data/html/symbolmaker/SymbolMaker.htm";
 
 	public L2SymbolMakerInstance(int objectID, L2NpcTemplate template)
 	{

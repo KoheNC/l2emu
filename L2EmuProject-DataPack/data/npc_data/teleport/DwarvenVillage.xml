@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/teleport.xsd">
+	<teleport id="16" description="Dwarven Town  -> Town of Gludio"
+		locX="-12787" locY="122779" locZ="-3112" price="32000" isNoble="false" />
+	<teleport id="17"
+		description="Dwarven Town -> Eastern Mining Zone (Northeastern Shore)"
+		locX="169008" locY="-208272" locZ="-3504" price="2400" isNoble="false" />
+	<teleport id="137" description="Dwarven Town -> Mithril Mines Eastern Entrance"
+		locX="178591" locY="-184615" locZ="-360" price="12000" isNoble="false" />
+	<teleport id="418" description="Dwarven Town -> Abandoned Coal Mines"
+		locX="139714" locY="-177456" locZ="-1536" price="690" isNoble="false" />
+	<teleport id="419" description="Dwarven Town -> Mithril Mines Western Entrance"
+		locX="171946" locY="-173352" locZ="3440" price="11000" isNoble="false" />
+	<teleport id="1017" description="Dwarven Village -> DE Village"
+		locX="9709" locY="15566" locZ="-4568" price="22000" isNoble="false" />
+	<teleport id="1018" description="Dwarven Village -> Elven Village"
+		locX="46951" locY="51550" locZ="-2976" price="23000" isNoble="false" />
+	<teleport id="1019" description="Dwarven Village -> TI Village"
+		locX="-84141" locY="244623" locZ="-3728" price="46000" isNoble="false" />
+	<teleport id="1020" description="Dwarven Village -> Schuttgart"
+		locX="87126" locY="-143520" locZ="-1288" price="4400" isNoble="false" />
+	<teleport id="1021" description="Dwarven Village -> Orc Village"
+		locX="-45158" locY="-112583" locZ="-240" price="17000" isNoble="false" />
+	<teleport id="1022"
+		description="Dwarven Village -> Western Mining Zone (Central Shore)"
+		locX="136910" locY="-205082" locZ="-3664" price="970" isNoble="false" />
+	<teleport id="12056" description="Dwarven Village -> Kamael Village"
+		locX="-117251" locY="46771" locZ="360" price="32000" isNoble="false" />
+</list>
