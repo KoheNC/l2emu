@@ -56,7 +56,7 @@ public final class TeleportDataHolder
 	{
 		Document doc = null;
 
-		for (File f : Util.getDatapackFiles("teleport", ".xml"))
+		for (File f : Util.getDatapackFiles("npc_data/teleport", ".xml"))
 		{
 			try
 			{
