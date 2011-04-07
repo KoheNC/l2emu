@@ -115,13 +115,13 @@ public final class L2ScriptEngineManager
 		{
 			_cache = null;
 		}
-		_log.info("Initializing Script Engine Manager");
+		_log.info(getClass().getName() + " : Initialized.");
 
 		for (ScriptEngineFactory factory : factories)
 		{
 			try
 			{
-				_log.info("Script Engine: " + factory.getEngineName() + " " + factory.getEngineVersion()
+				_log.info("Script Engine : " + factory.getEngineName() + " " + factory.getEngineVersion()
 					+ " - Language: " + factory.getLanguageName() + " " + factory.getLanguageVersion());
 				
 				ScriptEngine engine = factory.getScriptEngine();

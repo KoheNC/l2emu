@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Avant-Grade multisell -->
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../../templates/exchange.xsd">
+	<!-- Transform Sealbook - Onyx Beast -->
+	<item id="1">
+		<ingredient id="57" count="9000" /> <!-- Need verify on off -->
+		<production id="9648" count="1" />
+	</item>
+</list>
+
