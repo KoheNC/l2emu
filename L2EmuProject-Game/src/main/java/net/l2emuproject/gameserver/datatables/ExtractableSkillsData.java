@@ -51,7 +51,7 @@ public class ExtractableSkillsData
 
 		try
 		{
-			s = new Scanner(new File(Config.DATAPACK_ROOT, "data/item_data/extractable_skills.csv"));
+			s = new Scanner(new File(Config.DATAPACK_ROOT, "data/item_data/extractable/extractable_skills.csv"));
 		}
 		catch (Exception e)
 		{
