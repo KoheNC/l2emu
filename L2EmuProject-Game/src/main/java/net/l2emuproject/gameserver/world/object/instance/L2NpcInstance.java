@@ -208,4 +208,16 @@ public class L2NpcInstance extends L2Npc
 			super.onBypassFeedback(player, command);
 		}
 	}
+	
+	@Override
+	public void showChatWindow(final L2Player player)
+	{
+		String filename = "data/npc_data/html/default/" + getNpcId() + ".htm";
+
+		final NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
+		html.setFile(filename);
+		html.replace("%objectId%", String.valueOf(getObjectId()));
+		html.replace("%npcname%", getName());
+		player.sendPacket(html);
+	}
 }
