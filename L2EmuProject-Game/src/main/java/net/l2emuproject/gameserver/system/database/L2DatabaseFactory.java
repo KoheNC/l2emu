@@ -27,6 +27,7 @@ import javax.persistence.Persistence;
 
 import javolution.util.FastMap;
 import net.l2emuproject.Config;
+import net.l2emuproject.gameserver.services.VersionService;
 import net.l2emuproject.sql.ConnectionWrapper;
 
 import org.apache.commons.logging.Log;
@@ -75,7 +76,10 @@ public final class L2DatabaseFactory
 
 	private L2DatabaseFactory()
 	{
-		_log.info(getClass().getSimpleName() + " : Initialized.");
+		_log.info("Initializing BoneCP [ version: " + VersionService.getDataBaseVersion() + ", databaseDriver -> " + Config.DATABASE_DRIVER + ", jdbcUrl -> "
+				+ Config.DATABASE_URL + ", maxConnectionsPerPartition -> " + Config.DATABASE_MAX_CONNECTIONS + ", username -> " + Config.DATABASE_LOGIN
+				+ ", password -> " + Config.DATABASE_PASSWORD + " ]");
+
 		try
 		{
 			if (Config.DATABASE_MAX_CONNECTIONS < 10)

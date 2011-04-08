@@ -16,6 +16,8 @@ package net.l2emuproject.gameserver.services;
 
 import java.util.Date;
 
+import com.jolbox.bonecp.BoneCP;
+
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Config;
 import net.l2emuproject.gameserver.L2GameServer;
@@ -27,6 +29,7 @@ import net.l2emuproject.versionning.Version;
 public final class VersionService
 {
 	private static final CoreVersion	_commons	= new CoreVersion(L2Config.class);
+	private static final CoreVersion	_bonecp		= new CoreVersion(BoneCP.class);
 	private static final CoreVersion	_game		= new CoreVersion(L2GameServer.class);
 
 	private VersionService()
@@ -85,6 +88,13 @@ public final class VersionService
 	public static String getGameArchiverVersion()
 	{
 		return _game._archiverVersion;
+	}
+	
+	// =====================================================================================
+	// Version Info - DataBase
+	public static String getDataBaseVersion()
+	{
+		return _bonecp.getVersionNumber();
 	}
 
 	// =====================================================================================
