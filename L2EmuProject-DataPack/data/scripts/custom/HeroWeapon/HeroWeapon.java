@@ -16,13 +16,15 @@ package custom.HeroWeapon;
 
 import org.apache.commons.lang.ArrayUtils;
 
-import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
-public class HeroWeapon extends Quest
+public final class HeroWeapon extends QuestJython
 {
+	public static final String QN = "HeroWeapon";
+	
 	private final static int[] npcIds =
 	{
 		31690,31769,31770,31771,31772
@@ -33,9 +35,9 @@ public class HeroWeapon extends Quest
 		6611,6612,6613,6614,6615,6616,6617,6618,6619,6620,6621,9388,9389,9390
 	};
 
-	public HeroWeapon(int questId, String name, String descr)
+	public HeroWeapon(int questId, String name, String descr, String folder)
 	{
-		super(questId, name, descr);
+		super(questId, name, descr, folder);
 		for (int i : npcIds)
 		{
 			addStartNpc(i);
@@ -44,7 +46,7 @@ public class HeroWeapon extends Quest
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2Player player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		QuestState st = player.getQuestState(getName());
 
@@ -57,7 +59,7 @@ public class HeroWeapon extends Quest
 	}
 
 	@Override
-	public String onTalk(L2Npc npc, L2Player player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = "";
 		QuestState st = player.getQuestState(getName());
@@ -83,7 +85,7 @@ public class HeroWeapon extends Quest
 		return htmltext;
 	}
 
-	private boolean hasHeroWeapon(L2Player player)
+	private final boolean hasHeroWeapon(L2Player player)
 	{
 		for (int i : weaponIds)
 		{
@@ -96,6 +98,6 @@ public class HeroWeapon extends Quest
 
 	public static void main(String[] args)
 	{
-		new HeroWeapon(-1, "HeroWeapon", "custom");
+		new HeroWeapon(-1, QN, "Hero Weapon", "custom");
 	}
 }

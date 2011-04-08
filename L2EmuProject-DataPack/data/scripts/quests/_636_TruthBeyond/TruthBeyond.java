@@ -123,6 +123,6 @@ public final class TruthBeyond extends QuestJython
 
 	public static void main(String[] args)
 	{
-		new TruthBeyond(636, QN, "The Truth Beyond the Gate", "quest");
+		new TruthBeyond(636, QN, "The Truth Beyond the Gate", "quests");
 	}
 }

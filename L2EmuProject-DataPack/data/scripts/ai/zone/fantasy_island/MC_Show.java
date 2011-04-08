@@ -24,6 +24,7 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcSay;
 import net.l2emuproject.gameserver.network.serverpackets.PlaySound;
 import net.l2emuproject.gameserver.network.serverpackets.SocialAction;
 import net.l2emuproject.gameserver.services.quest.Quest;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.world.object.L2Npc;
@@ -34,15 +35,17 @@ import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
  * MC show script
  * @author Kerberos
  */
-public class MC_Show extends Quest
+public final class MC_Show extends QuestJython
 {
-	private static int mc            = 32433;
-	private static int[] singers     = { 32431, 32432 };
-	private static int[] circus      = { 32442, 32443, 32444, 32445,32446 };
-	private static int[] individuals = { 32439, 32440, 32441 };
-	private static int[] showstuff   = { 32424, 32425, 32426, 32427, 32428};
+	public static final String				QN			= "MC_Show";
+	
+	private static final int mc            = 32433;
+	private static final int[] singers     = { 32431, 32432 };
+	private static final int[] circus      = { 32442, 32443, 32444, 32445,32446 };
+	private static final int[] individuals = { 32439, 32440, 32441 };
+	private static final int[] showstuff   = { 32424, 32425, 32426, 32427, 32428};
 	private static boolean isStarted = false;
-	private static String[] text     = {
+	private static final String[] text     = {
 		"How come people are not here... We are about to start the show.. Hmm",
 		"Ugh, I have butterflies in my stomach.. The show starts soon...",
 		"Thank you all for coming here tonight.","It is an honor to have the special show today.",
@@ -60,8 +63,8 @@ public class MC_Show extends Quest
 		"Well, I wish I could continue all night long, but this is it for today. Thank you."
 	};
 	
-	private static Map<String, Object[]> talks = new FastMap<String, Object[]>();
-	private static Map<String, Object[]> walks = new FastMap<String, Object[]>();
+	private static final Map<String, Object[]> talks = new FastMap<String, Object[]>();
+	private static final Map<String, Object[]> walks = new FastMap<String, Object[]>();
 	
 	private void load()
 	{
@@ -173,9 +176,9 @@ public class MC_Show extends Quest
      	walks.put("27"     , new Object[] {-56702,-56340,-2008,"29",1800});
 	}
 	
-	public MC_Show(int id,String name,String descr)
+	public MC_Show(int id,String name,String descr, String folder)
 	{
-        super(id,name,descr);
+		super(id, name, descr, folder);
         addEventId(32433, Quest.QuestEventType.ON_SPAWN);
         addEventId(32431, Quest.QuestEventType.ON_SPAWN);
         addEventId(32432, Quest.QuestEventType.ON_SPAWN);
@@ -193,7 +196,7 @@ public class MC_Show extends Quest
         scheduleTimer();
 	}
 	
-	private int getGameTime()
+	private final int getGameTime()
 	{
 		return GameTimeController.getInstance().getGameTime();
 	}
@@ -229,7 +232,7 @@ public class MC_Show extends Quest
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc)
+	public final String onSpawn(L2Npc npc)
 	{
 		if (isStarted)
 		{
@@ -270,7 +273,7 @@ public class MC_Show extends Quest
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2Player player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		if (event.equalsIgnoreCase("Start"))
 		{
@@ -408,7 +411,6 @@ public class MC_Show extends Quest
 
     public static void main(String[] args)
     {
-    	// now call the constructor (starts up the ai)
-    	new MC_Show(-1, "MC_Show", "fantasy_isle");
+    	new MC_Show(-1, QN, "Fantasy Isle - MC Show", "fantasy_isle");
     }
 }

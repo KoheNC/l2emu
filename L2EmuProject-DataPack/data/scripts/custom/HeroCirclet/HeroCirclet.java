@@ -14,21 +14,23 @@
  */
 package custom.HeroCirclet;
 
-import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
-public class HeroCirclet extends Quest
+public final class HeroCirclet extends QuestJython
 {
-	private final static int[] npcIds =
+	public static final String QN = "HeroCirclet";
+	
+	private static final int[] npcIds =
 	{
 		31690,31769,31770,31771,31772
 	};
 
-	public HeroCirclet(int questId, String name, String descr)
+	public HeroCirclet(int questId, String name, String descr, String folder)
 	{
-		super(questId, name, descr);
+		super(questId, name, descr, folder);
 		for (int i : npcIds)
 		{
 			addStartNpc(i);
@@ -37,7 +39,7 @@ public class HeroCirclet extends Quest
 	}
 
 	@Override
-	public String onTalk(L2Npc npc, L2Player player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		String htmltext = "";
 		QuestState st = player.getQuestState(getName());
@@ -60,6 +62,6 @@ public class HeroCirclet extends Quest
 
 	public static void main(String[] args)
 	{
-		new HeroCirclet(-1, "HeroCirclet", "custom");
+		new HeroCirclet(-1, QN, "Hero Circlet", "custom");
 	}
 }

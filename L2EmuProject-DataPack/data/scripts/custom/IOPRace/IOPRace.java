@@ -15,30 +15,32 @@
 package custom.IOPRace;
 
 import net.l2emuproject.gameserver.datatables.SkillTable;
-import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.services.quest.QuestState;
+import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
-public class IOPRace extends Quest
+public final class IOPRace extends QuestJython
 {
-	final private static int RIGNOS = 32349;
-	final private static int STAMP = 10013;
-	final private static int KEY = 9694;
+	public static final String QN = "IOPRace";
+	
+	private static final int RIGNOS = 32349;
+	private static final int STAMP = 10013;
+	private static final int KEY = 9694;
 
 	private int _player = -1;
 
-	public IOPRace(int id, String name, String descr)
+	public IOPRace(int id, String name, String descr, String folder)
 	{
-		super(id, name, descr);
+		super(id, name, descr, folder);
 		addStartNpc(RIGNOS);
 		addTalkId(RIGNOS);
 		addFirstTalkId(RIGNOS);
 	}
 
 	@Override
-	public String onFirstTalk(L2Npc npc, L2Player player)
+	public final String onFirstTalk(L2Npc npc, L2Player player)
 	{
 		QuestState st = player.getQuestState(getName());
 		if (st == null)
@@ -56,7 +58,7 @@ public class IOPRace extends Quest
 	}
 
 	@Override
-	public String onTalk(L2Npc npc, L2Player player)
+	public final String onTalk(L2Npc npc, L2Player player)
 	{
 		QuestState st = player.getQuestState(getName());
 		if (st == null)
@@ -95,7 +97,7 @@ public class IOPRace extends Quest
 	}
 
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2Player player)
+	public final String onAdvEvent(String event, L2Npc npc, L2Player player)
 	{
 		String htmltext = "";
 
@@ -127,6 +129,6 @@ public class IOPRace extends Quest
 
 	public static void main(String[] args)
 	{
-		new IOPRace(-1, "IOPRace", "custom");
+		new IOPRace(-1, QN, "IOPRace", "custom");
 	}
 }
