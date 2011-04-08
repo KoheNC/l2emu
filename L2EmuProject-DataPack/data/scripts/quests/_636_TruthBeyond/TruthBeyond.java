@@ -39,7 +39,7 @@ public final class TruthBeyond extends QuestJython
 
 	public TruthBeyond(int questId, String name, String descr, String folder)
 	{
-		super(questId, name, descr);
+		super(questId, name, descr, folder);
 
 		addStartNpc(ELIAH);
 		addTalkId(ELIAH);
