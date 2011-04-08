@@ -2,157 +2,129 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
 		"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
-  <!-- Add ability to read system properties -->
-  <bean id="propertyConfigurer"
-    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" />
-  <bean id="dataSource"
-    class="com.mchange.v2.c3p0.ComboPooledDataSource"
-    destroy-method="close">
-    <!-- Connexion information -->
-    <property name="driverClass">
-      <value>${net.l2emuproject.db.driverclass}</value>
-    </property>
-    <property name="jdbcUrl">
-      <value>${net.l2emuproject.db.urldb}</value>
-    </property>
-    <property name="user">
-      <value>${net.l2emuproject.db.user}</value>
-    </property>
-    <property name="password">
-      <value>${net.l2emuproject.db.password}</value>
-    </property>
-    <!-- parameter for tuning -->
-    <property name="acquireIncrement">
-      <value>5</value>
-    </property>
-    <property name="acquireRetryAttempts">
-      <value>0</value>
-    </property>
-    <property name="acquireRetryDelay">
-      <value>500</value>
-    </property>
-    <property name="idleConnectionTestPeriod">
-      <value>600</value>
-    </property>
-    <property name="maxIdleTime">
-      <value>1800</value>
-    </property>
-    <property name="breakAfterAcquireFailure">
-      <value>false</value>
-    </property>
-    <property name="checkoutTimeout">
-      <value>0</value>
-    </property>
-    <property name="initialPoolSize">
-      <value>3</value>
-    </property>
-    <property name="minPoolSize">
-      <value>1</value>
-    </property>
-    <property name="maxPoolSize">
-      <value>20</value>
-    </property>
-    <property name="maxStatementsPerConnection">
-      <value>100</value>
-    </property>
-    <property name="autoCommitOnClose">
-      <value>true</value>
-    </property>
-    <property name="automaticTestTable">
-      <value>connection_test_table</value>
-    </property>
-    <property name="testConnectionOnCheckin">
-      <value>true</value>
-    </property>
-    <property name="numHelperThreads">
-      <value>3</value> <!-- default -->
-    </property>
-  </bean>
-  <bean id="sessionFactory"
-    class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-    <property name="hibernateProperties">
-      <props>
-        <prop key="hibernate.dialect">
-          org.hibernate.dialect.MySQLDialect
+	<!-- Add ability to read system properties -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" />
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+		destroy-method="close">
+		<!-- Connexion information -->
+		<property name="driverClass">
+			<value>${net.l2emuproject.db.driverclass}</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>${net.l2emuproject.db.urldb}</value>
+		</property>
+		<property name="username">
+			<value>${net.l2emuproject.db.user}</value>
+		</property>
+		<property name="password">
+			<value>${net.l2emuproject.db.password}</value>
+		</property>
+		<property name="idleConnectionTestPeriodInMinutes">
+			<value>1</value>
+		</property>
+		<property name="idleMaxAgeInMinutes">
+			<value>4</value>
+		</property>
+		<property name="maxConnectionsPerPartition">
+			<value>30</value>
+		</property>
+		<property name="minConnectionsPerPartition">
+			<value>10</value>
+		</property>
+		<property name="partitionCount">
+			<value>3</value>
+		</property>
+		<property name="acquireIncrement">
+			<value>5</value>
+		</property>
+		<property name="statementsCacheSize">
+			<value>100</value>
+		</property>
+		<property name="releaseHelperThreads">
+			<value>3</value>
+		</property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
         </prop>
-        <prop key="hibernate.show_sql">false</prop>
-        <prop key="hibernate.cache.provider_class">
-          org.hibernate.cache.EhCacheProvider
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.cache.provider_class">
+					org.hibernate.cache.EhCacheProvider
         </prop>
-        <prop key="hibernate.connection.release_mode">
-          auto
+				<prop key="hibernate.connection.release_mode">
+					auto
         </prop>
-      </props>
-    </property>
-    <property name="dataSource">
-      <ref bean="dataSource" />
-    </property>
-    <property name="mappingLocations">
-      <list>
-        <value>classpath:/mappings/Accounts.hbm.xml</value>
-        <value>classpath:/mappings/Gameservers.hbm.xml</value>
-      </list>
-    </property>
-  </bean>
-  <bean id="AccountsDAO"
-    class="net.l2emuproject.loginserver.dao.impl.AccountsDAOHib">
-    <property name="sessionFactory">
-      <ref bean="sessionFactory" />
-    </property>
-  </bean>
-  <bean id="GameserversDAO"
-    class="net.l2emuproject.loginserver.dao.impl.GameserversDAOHib">
-    <property name="sessionFactory">
-      <ref bean="sessionFactory" />
-    </property>
-  </bean>
-  <bean id="AccountsServices"
-    class="net.l2emuproject.loginserver.services.AccountsServices">
-    <property name="accountsDAO">
-      <ref bean="AccountsDAO" />
-    </property>
-  </bean>
-  <bean id="GameserversDAOXml"
-    class="net.l2emuproject.loginserver.dao.impl.GameserversDAOXml">
-  </bean>
-  <bean id="GameserversServices"
-    class="net.l2emuproject.loginserver.services.GameserversServices">
-    <property name="gameserversDAO">
-      <ref bean="GameserversDAO" />
-    </property>
-  </bean>
-  <bean id="GameserversServicesXml"
-    class="net.l2emuproject.loginserver.services.GameserversServices">
-    <property name="gameserversDAO">
-      <ref bean="GameserversDAOXml" />
-    </property>
-  </bean>
-  <bean id="transactionManager"
-    class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-    <property name="sessionFactory" ref="sessionFactory" />
-  </bean>
-  <bean id="transactionInterceptor"
-    class="org.springframework.transaction.interceptor.TransactionInterceptor">
-    <property name="transactionManager"
-      ref="transactionManager" />
-    <property name="transactionAttributes">
-      <props>
-        <prop key="*">PROPAGATION_REQUIRED</prop>
-      </props>
-    </property>
-  </bean>
-  <bean id="autoProxyCreator"
-    class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
-    <property name="interceptorNames">
-      <list>
-        <idref local="transactionInterceptor" />
-      </list>
-    </property>
-    <property name="beanNames">
-      <list>
-        <idref local="GameserversServices" />
-        <idref local="AccountsServices" />
-      </list>
-    </property>
-  </bean>
+			</props>
+		</property>
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:/mappings/Accounts.hbm.xml</value>
+				<value>classpath:/mappings/Gameservers.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="AccountsDAO" class="net.l2emuproject.loginserver.dao.impl.AccountsDAOHib">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="GameserversDAO" class="net.l2emuproject.loginserver.dao.impl.GameserversDAOHib">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="AccountsServices" class="net.l2emuproject.loginserver.services.AccountsServices">
+		<property name="accountsDAO">
+			<ref bean="AccountsDAO" />
+		</property>
+	</bean>
+	<bean id="GameserversDAOXml" class="net.l2emuproject.loginserver.dao.impl.GameserversDAOXml">
+	</bean>
+	<bean id="GameserversServices"
+		class="net.l2emuproject.loginserver.services.GameserversServices">
+		<property name="gameserversDAO">
+			<ref bean="GameserversDAO" />
+		</property>
+	</bean>
+	<bean id="GameserversServicesXml"
+		class="net.l2emuproject.loginserver.services.GameserversServices">
+		<property name="gameserversDAO">
+			<ref bean="GameserversDAOXml" />
+		</property>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="transactionInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="autoProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="interceptorNames">
+			<list>
+				<idref local="transactionInterceptor" />
+			</list>
+		</property>
+		<property name="beanNames">
+			<list>
+				<idref local="GameserversServices" />
+				<idref local="AccountsServices" />
+			</list>
+		</property>
+	</bean>
 </beans>

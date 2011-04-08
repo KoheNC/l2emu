@@ -26,6 +26,7 @@ import java.util.TreeMap;
 
 import net.l2emuproject.loginserver.beans.Gameservers;
 import net.l2emuproject.loginserver.dao.GameserversDAO;
+import net.l2emuproject.loginserver.system.util.Util;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -54,6 +55,7 @@ public class GameserversDAOXml implements GameserversDAO
 	 */
 	public GameserversDAOXml()
 	{
+		Util.printSection("ServerName(s)");
 		InputStream in = null;
 		try
 		{

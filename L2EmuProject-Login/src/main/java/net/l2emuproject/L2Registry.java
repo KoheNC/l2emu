@@ -17,8 +17,6 @@ package net.l2emuproject;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import javax.sql.DataSource;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeansException;
@@ -26,7 +24,7 @@ import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mchange.v2.c3p0.PooledDataSource;
+import com.jolbox.bonecp.BoneCPDataSource;
 
 /**
  * Object registry for L2 LS.
@@ -49,6 +47,7 @@ public class L2Registry
 	 */
 	public static void loadRegistry(String[] paths)
 	{
+		_log.info(L2Registry.class.getSimpleName() + " : Initialized.");
 		try
 		{
 			// Load the context if it is not already loaded
@@ -163,7 +162,7 @@ public class L2Registry
 		{
 			try
 			{
-				con = ((DataSource) __ctx.getBean("dataSource")).getConnection();
+				con = ((BoneCPDataSource) __ctx.getBean("dataSource")).getConnection();
 			}
 			catch (BeansException e)
 			{
@@ -193,12 +192,6 @@ public class L2Registry
 
 	public int getBusyConnectionCount() throws SQLException
 	{
-		return ((PooledDataSource) __ctx.getBean("dataSource")).getNumBusyConnectionsDefaultUser();
+		return ((BoneCPDataSource) __ctx.getBean("dataSource")).getTotalLeased();
 	}
-
-	public int getIdleConnectionCount() throws SQLException
-	{
-		return ((PooledDataSource) __ctx.getBean("dataSource")).getNumIdleConnectionsDefaultUser();
-	}
-
 }
