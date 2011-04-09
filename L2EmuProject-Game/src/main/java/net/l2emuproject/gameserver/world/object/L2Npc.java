@@ -72,6 +72,7 @@ import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.system.restriction.global.GlobalRestrictions;
 import net.l2emuproject.gameserver.system.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.system.taskmanager.DecayTaskManager;
+import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
 import net.l2emuproject.gameserver.system.util.StringUtil;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate.AIType;
@@ -2495,6 +2496,22 @@ public class L2Npc extends L2Character
 	public boolean isAutoAttackable(L2Character attacker)
 	{
 		return _isAutoAttackable;
+	}
+	
+	public L2Npc scheduleDespawn(long delay)
+	{
+		ThreadPoolManager.getInstance().scheduleGeneral(new DespawnTask(), delay);
+		return this;
+	}
+	
+	private final class DespawnTask implements Runnable
+	{
+		@Override
+		public void run()
+		{
+			if (!L2Npc.this.isDecayed())
+				L2Npc.this.deleteMe();
+		}
 	}
 	
 	/**

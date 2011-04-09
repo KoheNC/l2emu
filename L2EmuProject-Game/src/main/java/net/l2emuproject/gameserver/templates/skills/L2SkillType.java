@@ -34,6 +34,7 @@ import net.l2emuproject.gameserver.skills.l2skills.L2SkillRecover;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillSiegeFlag;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillSignet;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillSignetCasttime;
+import net.l2emuproject.gameserver.skills.l2skills.L2SkillSpawn;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillSummon;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillSweep;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillTeleport;
@@ -166,6 +167,7 @@ public enum L2SkillType
 	CHANGE_APPEARANCE(L2SkillAppearance.class),
 	OPEN_DOOR,
 	ZAKEN_TELEPORT,
+	SPAWN(L2SkillSpawn.class)
 	;
 
 	private final Class<? extends L2Skill> _clazz;
