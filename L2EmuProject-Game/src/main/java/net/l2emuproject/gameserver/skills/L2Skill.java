@@ -1516,7 +1516,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 			case DUMMY:
 			case COREDONE:
 			case NOTDONE:
-			
+			case SPAWN:
 				return OffensiveState.NEUTRAL;
 			default:
 				_log.info(getSkillType() + " should be covered in L2Skill.getDefaultOffensiveState()!");
