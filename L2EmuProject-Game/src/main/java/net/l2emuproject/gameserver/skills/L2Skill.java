@@ -1728,17 +1728,18 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					return new L2Character[] { target };
 				}
 				case TARGET_SELF:
-					int x1 = activeChar.getX();
-					int y1 = activeChar.getY();
-					int z1 = activeChar.getZ();
-					int heading1 = activeChar.getHeading();
-					if(activeChar instanceof L2Player && isToggle()){
+				{
+					final int x1 = activeChar.getX();
+					final int y1 = activeChar.getY();
+					final int z1 = activeChar.getZ();
+					final int heading1 = activeChar.getHeading();
+					if(activeChar instanceof L2Player && isToggle())
+					{
 						L2CharPosition _position = new L2CharPosition(x1,y1,z1,heading1);
 						activeChar.stopMove(_position);
 					}
-					
+				}
 				case TARGET_GROUND:
-					
 				{
 					return new L2Character[] { activeChar };
 				}

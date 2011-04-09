@@ -420,10 +420,10 @@ public abstract class L2Effect implements FuncOwner, Runnable
 			}
 		}
 		
-			int x1 = _effected.getX();
-			int y1 = _effected.getY();
-			int z1 = _effected.getZ();
-			int heading1 = _effected.getHeading();
+			final int x1 = _effected.getX();
+			final int y1 = _effected.getY();
+			final int z1 = _effected.getZ();
+			final int heading1 = _effected.getHeading();
 			if(_effected instanceof L2Player && _skill.isToggle())
 			{
 				L2CharPosition _position = new L2CharPosition(x1,y1,z1,heading1);
