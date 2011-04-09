@@ -16,7 +16,6 @@ package net.l2emuproject.gameserver.skills;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.SkillTreeTable;
@@ -62,6 +61,7 @@ import net.l2emuproject.gameserver.world.object.instance.L2MonsterInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2PetInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2SiegeFlagInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2SummonInstance;
+import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 import net.l2emuproject.lang.L2Integer;
 import net.l2emuproject.lang.L2System;
@@ -69,6 +69,7 @@ import net.l2emuproject.lang.L2TextBuilder;
 import net.l2emuproject.util.ArrayBunch;
 import net.l2emuproject.util.L2Arrays;
 import net.l2emuproject.util.concurrent.ForEachExecutable;
+
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -88,6 +89,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 	public static final int			SKILL_DIVINE_INSPIRATION	= 1405;
 	public static final int			SKILL_SOUL_MASTERY			= 467;
 	public static final int			SKILL_CLAN_LUCK				= 390;
+	
 
 	public static enum SkillOpType
 	{
@@ -307,6 +309,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 
 	private final boolean			_sendToClient;
 	private final float				_pvpPowerMulti;
+
 
 	// Talisman Id this skill belongs to
 	private final short				_talismanManaConsumeOnSkill;
@@ -1725,7 +1728,17 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 					return new L2Character[] { target };
 				}
 				case TARGET_SELF:
+					int x1 = activeChar.getX();
+					int y1 = activeChar.getY();
+					int z1 = activeChar.getZ();
+					int heading1 = activeChar.getHeading();
+					if(activeChar instanceof L2Player && isToggle()){
+						L2CharPosition _position = new L2CharPosition(x1,y1,z1,heading1);
+						activeChar.stopMove(_position);
+					}
+					
 				case TARGET_GROUND:
+					
 				{
 					return new L2Character[] { activeChar };
 				}
@@ -3235,6 +3248,8 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 			targetList.clear();
 		}
 	}
+
+
 /*
 	// [L2J_JP ADD SANDMAN START]
 	public final L2Character[] getAreaTargetList(L2Character activeChar)
@@ -4058,6 +4073,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 		}
 		return false;
 	}
+	
 	
 	
 	@Override

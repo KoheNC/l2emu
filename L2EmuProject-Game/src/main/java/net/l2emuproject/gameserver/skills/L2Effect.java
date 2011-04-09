@@ -36,6 +36,7 @@ import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Playable;
 import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2SummonInstance;
+import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 import net.l2emuproject.tools.random.Rnd;
 import net.l2emuproject.util.L2Arrays;
 
@@ -418,6 +419,16 @@ public abstract class L2Effect implements FuncOwner, Runnable
 				}
 			}
 		}
+		
+			int x1 = _effected.getX();
+			int y1 = _effected.getY();
+			int z1 = _effected.getZ();
+			int heading1 = _effected.getHeading();
+			if(_effected instanceof L2Player && _skill.isToggle())
+			{
+				L2CharPosition _position = new L2CharPosition(x1,y1,z1,heading1);
+				_effected.stopMove(_position);
+			}
 	}
 
 	private boolean shouldSendExitMessage()
