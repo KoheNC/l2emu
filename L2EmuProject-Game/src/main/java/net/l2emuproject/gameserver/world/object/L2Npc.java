@@ -984,7 +984,7 @@ public class L2Npc extends L2Character
 			if (isBusy() && getBusyMessage().length() > 0)
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
-				html.setFile("data/npc_data/npc_data/html/npcbusy.htm");
+				html.setFile("data/npc_data/html/npcbusy.htm");
 				html.replace("%busymessage%", getBusyMessage());
 				html.replace("%npcname%", getName());
 				html.replace("%playername%", player.getName());
@@ -1187,7 +1187,7 @@ public class L2Npc extends L2Character
 		if (val != 0)
 			pom += "-" + val;
 
-		String temp = "data/npc_data/npc_data/html/default/" + pom + ".htm";
+		String temp = "data/npc_data/html/default/" + pom + ".htm";
 
 		if (HtmCache.getInstance().pathExists(temp))
 			return temp;

@@ -66,7 +66,7 @@ public final class L2MercManagerInstance extends L2MerchantInstance
 	@Override
 	public void showChatWindow(L2Player player)
 	{
-		String filename = "data/npc_data/npc_data/html/mercmanager/mercmanager-no.htm";
+		String filename = "data/npc_data/html/mercmanager/mercmanager-no.htm";
 
 		int condition = validateCondition(player);
 		if (condition == COND_BUSY_BECAUSE_OF_SIEGE)
