@@ -992,7 +992,7 @@
 		<set name="operateType" val="OP_ACTIVE" />
 		<set name="power" val="80" /> <!-- Base Land Rate -->
 		<set name="reuseDelay" val="30000" />
-		<set name="saveVs" val="MEN" />
+		<!-- set name="saveVs" val="MEN" -->
 		<set name="skillType" val="DEBUFF" />
 		<set name="target" val="TARGET_ONE" />
 		<set name="abnormalLvl" val="1" />
