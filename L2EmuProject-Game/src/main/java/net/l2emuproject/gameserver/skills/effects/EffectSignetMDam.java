@@ -21,7 +21,7 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.MagicSkillLaunched;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
-import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillSignetCasttime;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
@@ -76,7 +76,7 @@ public final class EffectSignetMDam extends L2Effect
 		int z = getEffector().getZ();
 		
 		if (getEffector() instanceof L2Player
-				&& getSkill().getTargetType() == L2Skill.SkillTargetType.TARGET_GROUND)
+				&& getSkill().getTargetType() == SkillTargetTypes.TARGET_GROUND)
 		{
 			Point3D wordPosition = ((L2Player)getEffector()).getCurrentSkillWorldPosition();
 			

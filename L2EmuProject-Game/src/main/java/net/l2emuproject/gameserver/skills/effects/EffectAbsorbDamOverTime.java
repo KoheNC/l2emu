@@ -16,7 +16,7 @@ package net.l2emuproject.gameserver.skills.effects;
 
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
-import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
+import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.templates.effects.EffectTemplate;
 import net.l2emuproject.gameserver.templates.skills.L2EffectType;
 import net.l2emuproject.gameserver.world.object.L2Attackable;
@@ -49,7 +49,7 @@ public final class EffectAbsorbDamOverTime extends L2Effect
 		}
 		
 		boolean awake = !(getEffected() instanceof L2Attackable)
-				&& !(getSkill().getTargetType() == SkillTargetType.TARGET_SELF && getSkill().isToggle());
+				&& !(getSkill().getTargetType() == SkillTargetTypes.TARGET_SELF && getSkill().isToggle());
 		
 		getEffected().reduceCurrentHp(damage, getEffector(), awake, true, false, getSkill());
 		

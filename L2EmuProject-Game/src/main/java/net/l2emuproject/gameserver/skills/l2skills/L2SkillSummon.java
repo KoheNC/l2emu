@@ -18,6 +18,7 @@ import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.entity.base.Experience;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
@@ -106,7 +107,7 @@ public class L2SkillSummon extends L2Skill
 			if (isCubic())
 			{
 				// Player is always able to cast mass cubic skill
-				if (getTargetType() == L2Skill.SkillTargetType.TARGET_SELF)
+				if (getTargetType() == SkillTargetTypes.TARGET_SELF)
 				{
 					int mastery = player.getSkillLevel(L2Skill.SKILL_CUBIC_MASTERY);
 					if (mastery < 0)

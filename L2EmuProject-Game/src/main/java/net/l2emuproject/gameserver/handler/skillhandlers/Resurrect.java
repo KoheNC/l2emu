@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.handler.skillhandlers;
 import javolution.util.FastList;
 import net.l2emuproject.gameserver.handler.ISkillHandler;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
+import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.system.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.templates.skills.L2SkillType;
@@ -60,7 +60,7 @@ public class Resurrect implements ISkillHandler
 				targetPlayer = (L2Player) target;
 
 				// Check for same party or for same clan, if target is for clan.
-				if (skill.getTargetType() == SkillTargetType.TARGET_CORPSE_CLAN)
+				if (skill.getTargetType() == SkillTargetTypes.TARGET_CORPSE_CLAN)
 				{
 					if (player != null && player.getClanId() != targetPlayer.getClanId())
 						continue;

@@ -217,7 +217,7 @@ import net.l2emuproject.gameserver.services.transactions.TradeList;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
+import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.skills.SkillUsageRequest;
 import net.l2emuproject.gameserver.skills.Stats;
 import net.l2emuproject.gameserver.skills.conditions.ConditionGameTime;
@@ -7309,10 +7309,10 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 
 		// Create and set a L2Object containing the target of the skill
 
-		SkillTargetType sklTargetType = skill.getTargetType();
+		SkillTargetTypes sklTargetType = skill.getTargetType();
 		Point3D worldPosition = getCurrentSkillWorldPosition();
 
-		if (sklTargetType == SkillTargetType.TARGET_GROUND && worldPosition == null)
+		if (sklTargetType == SkillTargetTypes.TARGET_GROUND && worldPosition == null)
 		{
 			_log.info("WorldPosition is null for skill: " + skill.getName() + ", player: " + getName() + ".");
 			sendPacket(ActionFailed.STATIC_PACKET);
@@ -7546,8 +7546,8 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 			}
 		}
 
-		if ((sklTargetType == SkillTargetType.TARGET_HOLY && (!TakeCastle.checkIfOkToCastSealOfRule(this)))
-				|| (sklTargetType == SkillTargetType.TARGET_FLAGPOLE && !TakeFort.checkIfOkToCastFlagDisplay(this, false, skill, getTarget())))
+		if ((sklTargetType == SkillTargetTypes.TARGET_HOLY && (!TakeCastle.checkIfOkToCastSealOfRule(this)))
+				|| (sklTargetType == SkillTargetTypes.TARGET_FLAGPOLE && !TakeFort.checkIfOkToCastFlagDisplay(this, false, skill, getTarget())))
 		{
 			sendPacket(ActionFailed.STATIC_PACKET);
 			abortCast();
@@ -7557,7 +7557,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 		// GeoData Los Check here
 		if (skill.getCastRange() > 0)
 		{
-			if (sklTargetType == SkillTargetType.TARGET_GROUND)
+			if (sklTargetType == SkillTargetTypes.TARGET_GROUND)
 			{
 				if (!GeoData.getInstance().canSeeTarget(this, worldPosition))
 				{

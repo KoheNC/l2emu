@@ -43,7 +43,7 @@ import net.l2emuproject.gameserver.services.quest.QuestState;
 import net.l2emuproject.gameserver.services.quest.State;
 import net.l2emuproject.gameserver.services.quest.jython.QuestJython;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
+import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.L2World;
 import net.l2emuproject.gameserver.world.Location;
@@ -1188,9 +1188,9 @@ public final class CrystalCaverns extends QuestJython
 				{
 					boolean notAOE = true;
 					if (skill != null
-							&& (skill.getTargetType() == SkillTargetType.TARGET_AREA || skill.getTargetType() == SkillTargetType.TARGET_FRONT_AREA
-									|| skill.getTargetType() == SkillTargetType.TARGET_BEHIND_AREA || skill.getTargetType() == SkillTargetType.TARGET_AURA
-									|| skill.getTargetType() == SkillTargetType.TARGET_FRONT_AURA || skill.getTargetType() == SkillTargetType.TARGET_BEHIND_AURA))
+							&& (skill.getTargetType() == SkillTargetTypes.TARGET_AREA || skill.getTargetType() == SkillTargetTypes.TARGET_FRONT_AREA
+									|| skill.getTargetType() == SkillTargetTypes.TARGET_BEHIND_AREA || skill.getTargetType() == SkillTargetTypes.TARGET_AURA
+									|| skill.getTargetType() == SkillTargetTypes.TARGET_FRONT_AURA || skill.getTargetType() == SkillTargetTypes.TARGET_BEHIND_AURA))
 						notAOE = false;
 					if (notAOE)
 					{

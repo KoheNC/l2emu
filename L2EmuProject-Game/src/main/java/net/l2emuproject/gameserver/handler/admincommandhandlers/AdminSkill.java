@@ -26,6 +26,7 @@ import net.l2emuproject.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.l2emuproject.gameserver.network.serverpackets.PledgeSkillList;
 import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
@@ -498,7 +499,7 @@ public class AdminSkill implements IAdminCommandHandler
 		L2Skill skill = SkillTable.getInstance().getInfo(skillid, 1);
 		if (skill != null)
 		{
-			if (skill.getTargetType() == L2Skill.SkillTargetType.TARGET_SELF)
+			if (skill.getTargetType() == SkillTargetTypes.TARGET_SELF)
 			{
 				activeChar.setTarget(activeChar);
 				MagicSkillUse msk = new MagicSkillUse(activeChar, skillid, 1, skill.getHitTime(), 0);
@@ -506,7 +507,7 @@ public class AdminSkill implements IAdminCommandHandler
 				if (_log.isDebugEnabled())
 					_log.debug("showing self skill, id: " + skill.getId() + " named: " + skill.getName());
 			}
-			else if (skill.getTargetType() == L2Skill.SkillTargetType.TARGET_ONE)
+			else if (skill.getTargetType() == SkillTargetTypes.TARGET_ONE)
 			{
 				if (_log.isDebugEnabled())
 					_log.debug("showing ATTACK skill, id: " + skill.getId() + " named: " + skill.getName());

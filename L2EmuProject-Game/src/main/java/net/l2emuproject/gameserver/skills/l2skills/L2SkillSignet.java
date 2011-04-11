@@ -16,6 +16,7 @@ package net.l2emuproject.gameserver.skills.l2skills;
 
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
@@ -62,7 +63,7 @@ public final class L2SkillSignet extends L2Skill
 		int y = caster.getY();
 		int z = caster.getZ();
 
-		if (caster instanceof L2Player && getTargetType() == L2Skill.SkillTargetType.TARGET_GROUND)
+		if (caster instanceof L2Player && getTargetType() == SkillTargetTypes.TARGET_GROUND)
 		{
 			Point3D wordPosition = ((L2Player) caster).getCurrentSkillWorldPosition();
 

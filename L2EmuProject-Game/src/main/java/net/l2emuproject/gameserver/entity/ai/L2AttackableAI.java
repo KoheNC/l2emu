@@ -21,6 +21,7 @@ import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_I
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.skills.L2Skill;
+import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.system.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.system.util.Util;
@@ -379,7 +380,7 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 					if (_actor.isSkillDisabled(sk.getId()))
 						continue;
 					// no clan buffs here?
-					if (sk.getTargetType() == L2Skill.SkillTargetType.TARGET_CLAN)
+					if (sk.getTargetType() == SkillTargetTypes.TARGET_CLAN)
 						continue;
 					L2Object OldTarget = _actor.getTarget();
 					_actor.setTarget(_actor);
@@ -540,7 +541,7 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 				if (_actor.getFirstEffect(sk.getId()) == null)
 				{
 					// if clan buffs, don't buff every time
-					if (sk.getTargetType() != L2Skill.SkillTargetType.TARGET_SELF && Rnd.nextInt(2) != 0)
+					if (sk.getTargetType() != SkillTargetTypes.TARGET_SELF && Rnd.nextInt(2) != 0)
 						continue;
 					if (_actor.getStatus().getCurrentMp() < sk.getMpConsume())
 						continue;

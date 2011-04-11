@@ -84,6 +84,7 @@ import net.l2emuproject.gameserver.handler.BypassHandler;
 import net.l2emuproject.gameserver.handler.ChatHandler;
 import net.l2emuproject.gameserver.handler.ItemHandler;
 import net.l2emuproject.gameserver.handler.SkillHandler;
+import net.l2emuproject.gameserver.handler.SkillTargetHandler;
 import net.l2emuproject.gameserver.handler.UserCommandHandler;
 import net.l2emuproject.gameserver.handler.VoicedCommandHandler;
 import net.l2emuproject.gameserver.items.ItemsAutoDestroy;
@@ -407,6 +408,7 @@ public class L2GameServer extends Config
 		
 		Util.printSection("Handlers");
 		ItemHandler.getInstance();
+		SkillTargetHandler.getInstance();
 		SkillHandler.getInstance();
 		AdminCommandHandler.getInstance();
 		BypassHandler.getInstance();

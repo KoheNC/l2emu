@@ -18,7 +18,7 @@ import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_C
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_IDLE;
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_REST;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
+import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Character.AIAccessor;
 import net.l2emuproject.gameserver.world.object.L2Object;
@@ -97,7 +97,7 @@ public class L2PlayerAI extends L2CharacterAI
 		final L2Skill skill = getCastSkill();
 		final L2Character target = getCastTarget();
 		
-		if (skill.getTargetType() == SkillTargetType.TARGET_GROUND)
+		if (skill.getTargetType() == SkillTargetTypes.TARGET_GROUND)
 		{
 			if (maybeMoveToPosition(getActor().getCurrentSkillWorldPosition(), _actor.getMagicalAttackRange(skill)))
 			{

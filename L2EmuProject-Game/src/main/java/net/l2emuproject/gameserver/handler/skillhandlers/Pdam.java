@@ -19,7 +19,7 @@ import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.skills.Env;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
+import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.skills.formulas.Formulas;
 import net.l2emuproject.gameserver.skills.funcs.Func;
 import net.l2emuproject.gameserver.skills.l2skills.L2SkillPdam;
@@ -56,7 +56,7 @@ public final class Pdam implements ISkillHandler
 			
 			modifier = 0.8 + 0.201 * player.getCharges(); // thanks Diego Vargas of L2Guru: 70*((0.8+0.201*No.Charges) * (PATK+POWER)) / PDEF
 			
-			if (skill.getTargetType() != SkillTargetType.TARGET_AREA && skill.getTargetType() != SkillTargetType.TARGET_MULTIFACE)
+			if (skill.getTargetType() != SkillTargetTypes.TARGET_AREA && skill.getTargetType() != SkillTargetTypes.TARGET_MULTIFACE)
 				player.decreaseCharges(skill.getNeededCharges());
 		}
 		else

@@ -78,7 +78,7 @@ import net.l2emuproject.gameserver.skills.FusionSkill;
 import net.l2emuproject.gameserver.skills.IChanceSkillTrigger;
 import net.l2emuproject.gameserver.skills.L2Effect;
 import net.l2emuproject.gameserver.skills.L2Skill;
-import net.l2emuproject.gameserver.skills.L2Skill.SkillTargetType;
+import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.skills.SkillUsageRequest;
 import net.l2emuproject.gameserver.skills.SpecialEffect;
 import net.l2emuproject.gameserver.skills.Stats;
@@ -1917,7 +1917,7 @@ public abstract class L2Character extends L2Object
 			if (region == null)
 				return false;
 			boolean canCast = true;
-			if (skill.getTargetType() == SkillTargetType.TARGET_GROUND && this instanceof L2Player)
+			if (skill.getTargetType() == SkillTargetTypes.TARGET_GROUND && this instanceof L2Player)
 			{
 				Point3D wp = ((L2Player) this).getCurrentSkillWorldPosition();
 				if (!region.checkEffectRangeInsidePeaceZone(skill, wp.getX(), wp.getY(), wp.getZ()))
@@ -5739,7 +5739,7 @@ public abstract class L2Character extends L2Object
 			if (Config.ALT_KEEP_ITEM_BUFFS && e.getSkill().isItemSkill() && e.getSkill().isActive())
 				continue; // skip item/augmentation active/self buffs
 				
-			if (e.getSkill().getTargetType() == SkillTargetType.TARGET_SELF)
+			if (e.getSkill().getTargetType() == SkillTargetTypes.TARGET_SELF)
 				e.exit(); // remove self skills only - there is no reason to remove normal buffs
 		}
 		
