@@ -15,10 +15,11 @@
 package net.l2emuproject.gameserver.datatables;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import javolution.util.FastList;
-import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.items.extractable.L2ExtractableItem;
 import net.l2emuproject.gameserver.items.extractable.L2ExtractableProductItem;
@@ -33,7 +34,7 @@ public final class ExtractableItemsData
 {
 	private final static Log					_log		= LogFactory.getLog(ExtractableItemsData.class);
 
-	private final FastMap<Integer, L2ExtractableItem>	_items  = new FastMap<Integer, L2ExtractableItem>();
+	private final Map<Integer, L2ExtractableItem>	_items  = new HashMap<Integer, L2ExtractableItem>();
 
 	public static ExtractableItemsData getInstance()
 	{

@@ -18,8 +18,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javolution.util.FastMap;
+import java.util.HashMap;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.npc.L2PetData;
 import net.l2emuproject.gameserver.world.object.instance.L2PetInstance;
@@ -81,8 +80,8 @@ public class PetDataTable
 	public final static int											OWL_MONK_ID					= 16050;
 	public final static int											TOURTLE_ASCETIC_ID			= 16053;
 
-	private static FastMap<Integer, FastMap<Integer, L2PetData>>	petTable;
-
+	private static HashMap<Integer, HashMap<Integer, L2PetData>>	petTable;
+	
 	public final static int[]										EMPTY_INT					= { 0 };
 
 	public static PetDataTable getInstance()
@@ -92,7 +91,7 @@ public class PetDataTable
 
 	private PetDataTable()
 	{
-		petTable = new FastMap<Integer, FastMap<Integer, L2PetData>>();
+		petTable = new HashMap<Integer, HashMap<Integer, L2PetData>>();
 	}
 
 	public void loadPetsData()
@@ -140,7 +139,7 @@ public class PetDataTable
 
 				// if its the first data for this petid, we initialize its level FastMap
 				if (!petTable.containsKey(petId))
-					petTable.put(petId, new FastMap<Integer, L2PetData>());
+					petTable.put(petId, new HashMap<Integer, L2PetData>());
 
 				petTable.get(petId).put(petLevel, petData);
 			}
@@ -162,11 +161,11 @@ public class PetDataTable
 
 	public void addPetData(L2PetData petData)
 	{
-		FastMap<Integer, L2PetData> h = petTable.get(petData.getPetID());
+		HashMap<Integer, L2PetData> h = petTable.get(petData.getPetID());
 
 		if (h == null)
 		{
-			FastMap<Integer, L2PetData> statTable = new FastMap<Integer, L2PetData>();
+			HashMap<Integer, L2PetData> statTable = new HashMap<Integer, L2PetData>();
 			statTable.put(petData.getPetLevel(), petData);
 			petTable.put(petData.getPetID(), statTable);
 			return;

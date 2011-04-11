@@ -19,10 +19,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.LineNumberReader;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
@@ -47,7 +47,7 @@ public class StaticObjects
 
 	private StaticObjects()
 	{
-		_staticObjects = new FastMap<Integer, L2StaticObjectInstance>();
+		_staticObjects = new HashMap<Integer, L2StaticObjectInstance>();
 		parseData();
 		_log.info(getClass().getSimpleName() + " : Loaded " + _staticObjects.size() + " StaticObject Templates.");
 	}

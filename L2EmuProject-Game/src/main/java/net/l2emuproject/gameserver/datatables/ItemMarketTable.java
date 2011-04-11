@@ -17,11 +17,11 @@ package net.l2emuproject.gameserver.datatables;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javolution.util.FastList;
-import javolution.util.FastMap;
 import net.l2emuproject.gameserver.items.L2ItemMarketModel;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.system.threadmanager.ThreadPoolManager;
@@ -54,7 +54,7 @@ public class ItemMarketTable
 
 	private void load()
 	{
-		_marketItems = new FastMap<Integer, List<L2ItemMarketModel>>();
+		_marketItems = new HashMap<Integer, List<L2ItemMarketModel>>();
 		Connection con = null;
 		int mrktCount = 0;
 		try
@@ -119,7 +119,7 @@ public class ItemMarketTable
 
 	private void loadSellers()
 	{
-		_sellers = new FastMap<Integer, Integer>();
+		_sellers = new HashMap<Integer, Integer>();
 		Connection con = null;
 		try
 		{
@@ -147,7 +147,7 @@ public class ItemMarketTable
 
 	private void loadIcons()
 	{
-		_itemIcons = new FastMap<Integer, String>();
+		_itemIcons = new HashMap<Integer, String>();
 		Connection con = null;
 		try
 		{

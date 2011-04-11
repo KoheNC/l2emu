@@ -17,10 +17,11 @@ package net.l2emuproject.gameserver.datatables;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import javolution.util.FastList;
-import javolution.util.FastMap;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.item.L2Henna;
 import net.l2emuproject.gameserver.world.object.L2Player;
@@ -33,7 +34,7 @@ public class HennaTreeTable
 {
 	private static final Log _log = LogFactory.getLog(HennaTreeTable.class);
 
-	private final Map<Integer, L2Henna[]> _hennaTrees = new FastMap<Integer, L2Henna[]>();
+	private final Map<Integer, L2Henna[]> _hennaTrees = new HashMap<Integer, L2Henna[]>();
 	
 	public static HennaTreeTable getInstance()
 	{
@@ -54,7 +55,7 @@ public class HennaTreeTable
 			while (classlist.next())
 			{
 				classId = classlist.getInt("id");
-				FastList<L2Henna> list = new FastList<L2Henna>();
+				List<L2Henna> list = new ArrayList<L2Henna>();
 				
 				PreparedStatement statement2 = con.prepareStatement("SELECT symbol_id FROM henna_trees where class_id=?");
 				statement2.setInt(1, classId);

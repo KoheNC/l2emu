@@ -17,8 +17,9 @@ package net.l2emuproject.gameserver.datatables;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
 
-import javolution.util.FastMap;
 import net.l2emuproject.gameserver.entity.base.ClassId;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 
@@ -49,7 +50,7 @@ public class LevelUpData
 
 	private final static Log				_log		= LogFactory.getLog(LevelUpData.class);
 
-	private final FastMap<Integer, L2LvlupData>	_lvlTable;
+	private final Map<Integer, L2LvlupData>	_lvlTable;
 
 	public static LevelUpData getInstance()
 	{
@@ -58,7 +59,7 @@ public class LevelUpData
 
 	private LevelUpData()
 	{
-		_lvlTable = new FastMap<Integer, L2LvlupData>();
+		_lvlTable = new HashMap<Integer, L2LvlupData>();
 
 		Connection con = null;
 		try

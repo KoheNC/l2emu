@@ -18,9 +18,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import javolution.util.FastMap;
 import net.l2emuproject.gameserver.entity.base.Experience;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
@@ -38,14 +39,14 @@ public final class BuffTemplateTable
 	private final static Log _log = LogFactory.getLog(BuffTemplateTable.class);
 	
 	/** The table containing all buff templates */
-	private final FastMap<Integer, TemplateList> _templates;
+	private final Map<Integer, TemplateList> _templates;
 	
 	/**
 	 * Create and Load the buff templates from SQL Table buff_templates
 	 */
 	private BuffTemplateTable()
 	{
-		_templates = new FastMap<Integer, TemplateList>().shared();
+		_templates = new HashMap<Integer, TemplateList>();
 		reloadBuffTemplates();
 	}
 	
@@ -156,11 +157,11 @@ public final class BuffTemplateTable
 	/**
 	 * @return Returns the buff templates
 	 */
-	public final FastMap<Integer, TemplateList> getBuffTemplateTable()
+	public final Map<Integer, TemplateList> getBuffTemplateTable()
 	{
 		return _templates;
 	}
-	
+
 	public static final class TemplateList
 	{
 		private static final TemplateList EMPTY_LIST = new TemplateList(0, "<<<Empty>>>");

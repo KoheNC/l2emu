@@ -17,8 +17,9 @@ package net.l2emuproject.gameserver.datatables;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
 
-import javolution.util.FastMap;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 
 import org.apache.commons.logging.Log;
@@ -30,7 +31,7 @@ import org.apache.commons.logging.LogFactory;
 public final class ClassBalanceTable
 {
 	private static Log						_log		= LogFactory.getLog(ClassBalanceTable.class);
-	private FastMap<Integer, ClassBalance>	_balance;
+	private Map<Integer, ClassBalance>	_balance;
 
 	private static String					QRY_SELECT	= "SELECT c.class_id, c.FxH, c.FxL, c.FxR, c.MxH, c.MxL, c.MxR FROM class_balance AS c ORDER BY c.class_id ASC";
 
@@ -52,7 +53,7 @@ public final class ClassBalanceTable
 
 	public void loadClassBalance()
 	{
-		_balance = new FastMap<Integer, ClassBalance>();
+		_balance = new HashMap<Integer, ClassBalance>();
 
 		Connection con = null;
 		try

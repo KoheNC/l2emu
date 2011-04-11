@@ -17,8 +17,9 @@ package net.l2emuproject.gameserver.datatables;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
 
-import javolution.util.FastMap;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.templates.StatsSet;
 import net.l2emuproject.gameserver.templates.item.L2Henna;
@@ -32,7 +33,7 @@ public class HennaTable
 	private static final Log	_log = LogFactory.getLog(HennaTable.class);
 	private static final String LOAD_HENNA = "SELECT symbol_id,symbol_name,dye_id,dye_amount,price,mod_INT,mod_STR,mod_CON,mod_MEN,mod_DEX,mod_WIT FROM henna";
 
-	private final FastMap<Integer, L2Henna> _henna = new FastMap<Integer, L2Henna>().shared();
+	private final Map<Integer, L2Henna> _henna = new HashMap<Integer, L2Henna>();
 
 	public static HennaTable getInstance()
 	{
