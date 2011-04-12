@@ -27,7 +27,6 @@ import net.l2emuproject.util.ArrayBunch;
 
 /**
  * @author Intrepid
- *
  */
 public final class TargetObjectHandler implements ISkillTargetHandler
 {
@@ -43,54 +42,61 @@ public final class TargetObjectHandler implements ISkillTargetHandler
 	{
 		final ArrayBunch<L2Character> targetList = new ArrayBunch<L2Character>();
 
-		// Get the target type of the skill
-		// (ex : ONE, SELF, HOLY, PET, AURA, AURA_CLOSE, AREA, MULTIFACE, PARTY, CLAN, CORPSE_PLAYER, CORPSE_MOB, CORPSE_CLAN, UNLOCKABLE, ITEM, UNDEAD)
-		final SkillTargetTypes targetType = skill.getTargetType();
-
-		switch (targetType)
+		try
 		{
-			case TARGET_HOLY:
-			{
-				if (caster instanceof L2Player)
-					if (target instanceof L2ArtefactInstance)
-						return new L2Character[]
-						{ target };
+			// Get the target type of the skill
+			// (ex : ONE, SELF, HOLY, PET, AURA, AURA_CLOSE, AREA, MULTIFACE, PARTY, CLAN, CORPSE_PLAYER, CORPSE_MOB, CORPSE_CLAN, UNLOCKABLE, ITEM, UNDEAD)
+			final SkillTargetTypes targetType = skill.getTargetType();
 
-				return null;
-			}
-			case TARGET_FLAGPOLE:
+			switch (targetType)
 			{
-				return new L2Character[]
-				{ caster };
-			}
-			case TARGET_UNLOCKABLE:
-			{
-				if (!(target instanceof L2DoorInstance) && !(target instanceof L2ChestInstance))
-					// caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
-					return null;
-
-				if (!onlyFirst)
+				case TARGET_HOLY:
 				{
-					targetList.add(target);
-					return targetList.moveToArray(new L2Character[targetList.size()]);
-				}
+					if (caster instanceof L2Player)
+						if (target instanceof L2ArtefactInstance)
+							return new L2Character[]
+							{ target };
 
-				return new L2Character[]
-				{ target };
-
-			}
-			case TARGET_GATE:
-			{
-				// Check for null target or any other invalid target
-				if (target == null || target.isDead() || !(target instanceof L2DoorInstance))
-				{
-					caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
 					return null;
 				}
-				// If a target is found, return it in a table else send a system message TARGET_IS_INCORRECT
-				return new L2Character[]
-				{ target };
+				case TARGET_FLAGPOLE:
+				{
+					return new L2Character[]
+					{ caster };
+				}
+				case TARGET_UNLOCKABLE:
+				{
+					if (!(target instanceof L2DoorInstance) && !(target instanceof L2ChestInstance))
+						// caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
+						return null;
+
+					if (!onlyFirst)
+					{
+						targetList.add(target);
+						return targetList.moveToArray(new L2Character[targetList.size()]);
+					}
+
+					return new L2Character[]
+					{ target };
+
+				}
+				case TARGET_GATE:
+				{
+					// Check for null target or any other invalid target
+					if (target == null || target.isDead() || !(target instanceof L2DoorInstance))
+					{
+						caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
+						return null;
+					}
+					// If a target is found, return it in a table else send a system message TARGET_IS_INCORRECT
+					return new L2Character[]
+					{ target };
+				}
 			}
+		}
+		finally
+		{
+			targetList.clear();
 		}
 
 		return null;

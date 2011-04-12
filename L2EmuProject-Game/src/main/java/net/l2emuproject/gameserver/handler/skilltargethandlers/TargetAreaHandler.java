@@ -33,7 +33,6 @@ import net.l2emuproject.util.ArrayBunch;
 
 /**
  * @author Intrepid
- *
  */
 public final class TargetAreaHandler implements ISkillTargetHandler
 {
@@ -49,416 +48,424 @@ public final class TargetAreaHandler implements ISkillTargetHandler
 	{
 		final ArrayBunch<L2Character> targetList = new ArrayBunch<L2Character>();
 
-		// Get the target type of the skill
-		// (ex : ONE, SELF, HOLY, PET, AURA, AURA_CLOSE, AREA, MULTIFACE, PARTY, CLAN, CORPSE_PLAYER, CORPSE_MOB, CORPSE_CLAN, UNLOCKABLE, ITEM, UNDEAD)
-		final SkillTargetTypes targetType = skill.getTargetType();
-
-		switch (targetType)
+		try
 		{
-			case TARGET_AREA:
+			// Get the target type of the skill
+			// (ex : ONE, SELF, HOLY, PET, AURA, AURA_CLOSE, AREA, MULTIFACE, PARTY, CLAN, CORPSE_PLAYER, CORPSE_MOB, CORPSE_CLAN, UNLOCKABLE, ITEM, UNDEAD)
+			final SkillTargetTypes targetType = skill.getTargetType();
+
+			switch (targetType)
 			{
-				if (!(target instanceof L2Attackable || target instanceof L2Playable) || // Target is not L2Attackable or L2Playable
-						skill.getCastRange() >= 0 && (target == caster || target.isAlikeDead())) // target is null or self or dead/faking
+				case TARGET_AREA:
 				{
-					caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
-					return null;
-				}
-
-				L2Character cha;
-
-				if (skill.getCastRange() >= 0)
-				{
-					cha = target;
-
-					if (!onlyFirst)
-						targetList.add(cha); // Add target to target list
-					else
-						return new L2Character[]
-						{ cha };
-				}
-				else
-					cha = caster;
-
-				final boolean effectOriginIsL2Playable = cha instanceof L2Playable;
-				final boolean srcIsSummon = caster instanceof L2Summon;
-
-				final L2Player src = caster.getActingPlayer();
-
-				final int radius = skill.getSkillRadius();
-
-				final boolean srcInPvP = caster.isInsideZone(L2Zone.FLAG_PVP) && !caster.isInsideZone(L2Zone.FLAG_SIEGE);
-
-				for (final L2Object obj : caster.getKnownList().getKnownObjects().values())
-				{
-					if (!(obj instanceof L2Attackable || obj instanceof L2Playable))
-						continue;
-					if (obj == cha)
-						continue;
-					target = (L2Character) obj;
-					final boolean targetInPvP = target.isInsideZone(L2Zone.FLAG_PVP) && !target.isInsideZone(L2Zone.FLAG_SIEGE);
-
-					if (!target.isDead() && target != caster)
+					if (!(target instanceof L2Attackable || target instanceof L2Playable) || // Target is not L2Attackable or L2Playable
+							skill.getCastRange() >= 0 && (target == caster || target.isAlikeDead())) // target is null or self or dead/faking
 					{
-						if (!Util.checkIfInRange(radius, obj, cha, true))
-							continue;
-						if (src != null) // caster is L2Playable and exists
-						{
-							if (obj instanceof L2Player)
-							{
-								final L2Player trg = (L2Player) obj;
-								if (trg == src)
-									continue;
-								if (src.getParty() != null && trg.getParty() != null
-										&& src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
-									continue;
-
-								if (trg.isInsideZone(L2Zone.FLAG_PEACE))
-									continue;
-
-								if (!srcInPvP && !targetInPvP)
-								{
-									if (src.getAllyId() == trg.getAllyId() && src.getAllyId() != 0)
-										continue;
-
-									if (src.getClan() != null && trg.getClan() != null)
-										if (src.getClan().getClanId() == trg.getClan().getClanId())
-											continue;
-
-									if (!src.checkPvpSkill(obj, skill, srcIsSummon))
-										continue;
-								}
-							}
-							if (obj instanceof L2Summon)
-							{
-								final L2Player trg = ((L2Summon) obj).getOwner();
-								if (trg == src)
-									continue;
-
-								if (src.getParty() != null && trg.getParty() != null
-										&& src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
-									continue;
-
-								if (!srcInPvP && !targetInPvP)
-								{
-									if (src.getAllyId() == trg.getAllyId() && src.getAllyId() != 0)
-										continue;
-
-									if (src.getClan() != null && trg.getClan() != null)
-										if (src.getClan().getClanId() == trg.getClan().getClanId())
-											continue;
-
-									if (!src.checkPvpSkill(trg, skill, srcIsSummon))
-										continue;
-								}
-
-								if (trg.isInsideZone(L2Zone.FLAG_PEACE))
-									continue;
-							}
-						}
-						else if (effectOriginIsL2Playable && // If effect starts at L2Playable and
-								!(obj instanceof L2Playable)) // Object is not L2Playable
-							continue;
-
-						if (!GeoData.getInstance().canSeeTarget(caster, target))
-							continue;
-
-						targetList.add(target);
+						caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
+						return null;
 					}
-				}
 
-				if (targetList.size() == 0)
-					return null;
+					L2Character cha;
 
-				return targetList.moveToArray(new L2Character[targetList.size()]);
-			}
-			case TARGET_FRONT_AREA:
-			{
-				if (!(target instanceof L2Attackable || target instanceof L2Playable) || //   Target is not L2Attackable or L2Playable
-						skill.getCastRange() >= 0 && (target == caster || target.isAlikeDead())) //target is null or self or dead/faking
-				{
-					caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
-					return null;
-				}
-
-				L2Character cha;
-
-				if (skill.getCastRange() >= 0)
-				{
-					cha = target;
-
-					if (!onlyFirst)
-						targetList.add(cha); // Add target to target list
-					else
-						return new L2Character[]
-						{ cha };
-				}
-				else
-					cha = caster;
-
-				final boolean effectOriginIsL2Playable = cha instanceof L2Playable;
-
-				final L2Player src = caster.getActingPlayer();
-
-				final int radius = skill.getSkillRadius();
-
-				final boolean srcInArena = caster.isInsideZone(L2Zone.FLAG_PVP) && !caster.isInsideZone(L2Zone.FLAG_SIEGE);
-
-				for (final L2Object obj : caster.getKnownList().getKnownObjects().values())
-				{
-					if (obj == cha)
-						continue;
-
-					if (!(obj instanceof L2Attackable || obj instanceof L2Playable))
-						continue;
-
-					target = (L2Character) obj;
-
-					if (!target.isDead() && target != caster)
+					if (skill.getCastRange() >= 0)
 					{
-						if (!Util.checkIfInRange(radius, target, caster, true))
-							continue;
+						cha = target;
 
-						if (!target.isInFrontOf(caster))
-							continue;
-
-						if (src != null) // caster is L2Playable and exists
-						{
-							final boolean targetInPvP = target.isInsideZone(L2Zone.FLAG_PVP) && !target.isInsideZone(L2Zone.FLAG_SIEGE);
-							if (obj instanceof L2Player)
-							{
-								final L2Player trg = (L2Player) obj;
-								if (trg == src)
-									continue;
-								if (src.getParty() != null && trg.getParty() != null
-										&& src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
-									continue;
-
-								if (trg.isInsideZone(L2Zone.FLAG_PEACE))
-									continue;
-
-								if (!srcInArena && !targetInPvP)
-								{
-									if (src.getAllyId() == trg.getAllyId() && src.getAllyId() != 0)
-										continue;
-
-									if (src.getClan() != null && trg.getClan() != null)
-										if (src.getClan().getClanId() == trg.getClan().getClanId())
-											continue;
-
-									if (!src.checkPvpSkill(obj, skill))
-										continue;
-								}
-							}
-							if (obj instanceof L2Summon)
-							{
-								final L2Player trg = ((L2Summon) obj).getOwner();
-								if (trg == src)
-									continue;
-
-								if (src.getParty() != null && trg.getParty() != null
-										&& src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
-									continue;
-
-								if (!srcInArena && !targetInPvP)
-								{
-									if (src.getAllyId() == trg.getAllyId() && src.getAllyId() != 0)
-										continue;
-
-									if (src.getClan() != null && trg.getClan() != null)
-										if (src.getClan().getClanId() == trg.getClan().getClanId())
-											continue;
-
-									if (!src.checkPvpSkill(trg, skill))
-										continue;
-								}
-
-								if (trg.isInsideZone(L2Zone.FLAG_PEACE))
-									continue;
-							}
-						}
-						else if (effectOriginIsL2Playable && // If effect starts at L2Playable and
-								!(obj instanceof L2Playable)) // Object is not L2Playable
-							continue;
-
-						if (!GeoData.getInstance().canSeeTarget(caster, target))
-							continue;
-
-						targetList.add(target);
+						if (!onlyFirst)
+							targetList.add(cha); // Add target to target list
+						else
+							return new L2Character[]
+							{ cha };
 					}
-				}
-
-				if (targetList.size() == 0)
-					return null;
-
-				return targetList.moveToArray(new L2Character[targetList.size()]);
-			}
-			case TARGET_BEHIND_AREA:
-			{
-				if (!(target instanceof L2Attackable || target instanceof L2Playable) || //   Target is not L2Attackable or L2Playable
-						skill.getCastRange() >= 0 && (target == caster || target.isAlikeDead())) //target is null or self or dead/faking
-				{
-					caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
-					return null;
-				}
-
-				L2Character cha;
-
-				if (skill.getCastRange() >= 0)
-				{
-					cha = target;
-
-					if (!onlyFirst)
-						targetList.add(cha); // Add target to target list
 					else
-						return new L2Character[]
-						{ cha };
-				}
-				else
-					cha = caster;
+						cha = caster;
 
-				final boolean effectOriginIsL2Playable = cha instanceof L2Playable;
+					final boolean effectOriginIsL2Playable = cha instanceof L2Playable;
+					final boolean srcIsSummon = caster instanceof L2Summon;
 
-				final L2Player src = caster.getActingPlayer();
+					final L2Player src = caster.getActingPlayer();
 
-				final int radius = skill.getSkillRadius();
+					final int radius = skill.getSkillRadius();
 
-				final boolean srcInArena = caster.isInsideZone(L2Zone.FLAG_PVP) && !caster.isInsideZone(L2Zone.FLAG_SIEGE);
+					final boolean srcInPvP = caster.isInsideZone(L2Zone.FLAG_PVP) && !caster.isInsideZone(L2Zone.FLAG_SIEGE);
 
-				for (final L2Object obj : caster.getKnownList().getKnownObjects().values())
-				{
-					if (obj == cha)
-						continue;
-					if (!(obj instanceof L2Attackable || obj instanceof L2Playable))
-						continue;
-					target = (L2Character) obj;
-
-					if (!target.isDead() && target != caster)
+					for (final L2Object obj : caster.getKnownList().getKnownObjects().values())
 					{
-						if (!Util.checkIfInRange(radius, obj, caster, true))
+						if (!(obj instanceof L2Attackable || obj instanceof L2Playable))
 							continue;
-
-						if (!target.isBehind(caster))
+						if (obj == cha)
 							continue;
+						target = (L2Character) obj;
+						final boolean targetInPvP = target.isInsideZone(L2Zone.FLAG_PVP) && !target.isInsideZone(L2Zone.FLAG_SIEGE);
 
-						if (src != null) // caster is L2Playable and exists
+						if (!target.isDead() && target != caster)
 						{
-							final boolean targetInPvP = target.isInsideZone(L2Zone.FLAG_PVP) && !target.isInsideZone(L2Zone.FLAG_SIEGE);
-							if (obj instanceof L2Player)
+							if (!Util.checkIfInRange(radius, obj, cha, true))
+								continue;
+							if (src != null) // caster is L2Playable and exists
 							{
-								final L2Player trg = (L2Player) obj;
-								if (trg == src)
-									continue;
-								if (src.getParty() != null && trg.getParty() != null
-										&& src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
-									continue;
-
-								if (trg.isInsideZone(L2Zone.FLAG_PEACE))
-									continue;
-
-								if (!srcInArena && !targetInPvP)
+								if (obj instanceof L2Player)
 								{
-									if (src.getAllyId() == trg.getAllyId() && src.getAllyId() != 0)
+									final L2Player trg = (L2Player) obj;
+									if (trg == src)
 										continue;
-
-									if (src.getClan() != null && trg.getClan() != null)
-										if (src.getClan().getClanId() == trg.getClan().getClanId())
-											continue;
-
-									if (!src.checkPvpSkill(obj, skill))
-										continue;
-								}
-							}
-							if (obj instanceof L2Summon)
-							{
-								final L2Player trg = ((L2Summon) obj).getOwner();
-								if (trg == src)
-									continue;
-
-								if (src.getParty() != null && trg.getParty() != null
-										&& src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
-									continue;
-
-								if (!srcInArena && !targetInPvP)
-								{
-									if (src.getAllyId() == trg.getAllyId() && src.getAllyId() != 0)
+									if (src.getParty() != null && trg.getParty() != null
+											&& src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
 										continue;
 
 									if (trg.isInsideZone(L2Zone.FLAG_PEACE))
 										continue;
 
-									if (src.getClan() != null && trg.getClan() != null)
-										if (src.getClan().getClanId() == trg.getClan().getClanId())
+									if (!srcInPvP && !targetInPvP)
+									{
+										if (src.getAllyId() == trg.getAllyId() && src.getAllyId() != 0)
 											continue;
 
-									if (!src.checkPvpSkill(trg, skill))
+										if (src.getClan() != null && trg.getClan() != null)
+											if (src.getClan().getClanId() == trg.getClan().getClanId())
+												continue;
+
+										if (!src.checkPvpSkill(obj, skill, srcIsSummon))
+											continue;
+									}
+								}
+								if (obj instanceof L2Summon)
+								{
+									final L2Player trg = ((L2Summon) obj).getOwner();
+									if (trg == src)
 										continue;
 
+									if (src.getParty() != null && trg.getParty() != null
+											&& src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
+										continue;
+
+									if (!srcInPvP && !targetInPvP)
+									{
+										if (src.getAllyId() == trg.getAllyId() && src.getAllyId() != 0)
+											continue;
+
+										if (src.getClan() != null && trg.getClan() != null)
+											if (src.getClan().getClanId() == trg.getClan().getClanId())
+												continue;
+
+										if (!src.checkPvpSkill(trg, skill, srcIsSummon))
+											continue;
+									}
+
+									if (trg.isInsideZone(L2Zone.FLAG_PEACE))
+										continue;
 								}
 							}
+							else if (effectOriginIsL2Playable && // If effect starts at L2Playable and
+									!(obj instanceof L2Playable)) // Object is not L2Playable
+								continue;
+
+							if (!GeoData.getInstance().canSeeTarget(caster, target))
+								continue;
+
+							targetList.add(target);
 						}
-						else // If effect starts at L2Playable and object is not L2Playable
-						if (effectOriginIsL2Playable && !(obj instanceof L2Playable))
-							continue;
-
-						if (!GeoData.getInstance().canSeeTarget(caster, target))
-							continue;
-
-						targetList.add(target);
 					}
+
+					if (targetList.size() == 0)
+						return null;
+
+					return targetList.moveToArray(new L2Character[targetList.size()]);
 				}
-
-				if (targetList.size() == 0)
-					return null;
-
-				return targetList.moveToArray(new L2Character[targetList.size()]);
-			}
-			case TARGET_AREA_UNDEAD:
-			{
-				L2Character cha;
-				final int radius = skill.getSkillRadius();
-				if (skill.getCastRange() >= 0 && (target instanceof L2Npc || target instanceof L2SummonInstance) && target.isUndead() && !target.isAlikeDead())
+				case TARGET_FRONT_AREA:
 				{
-					cha = target;
-
-					if (!onlyFirst)
-						targetList.add(cha); // Add target to target list
-					else
-						return new L2Character[]
-						{ cha };
-				}
-				else
-					cha = caster;
-
-				for (final L2Object obj : cha.getKnownList().getKnownObjects().values())
-				{
-					if (obj instanceof L2Npc)
-						target = (L2Npc) obj;
-					else if (obj instanceof L2SummonInstance)
-						target = (L2SummonInstance) obj;
-					else
-						continue;
-
-					if (!target.isAlikeDead()) // If target is not dead/fake death and not self
+					if (!(target instanceof L2Attackable || target instanceof L2Playable) || //   Target is not L2Attackable or L2Playable
+							skill.getCastRange() >= 0 && (target == caster || target.isAlikeDead())) //target is null or self or dead/faking
 					{
-						if (!target.isUndead())
-							continue;
-						if (!Util.checkIfInRange(radius, cha, obj, true)) // Go to next obj if obj isn't in range
-							continue;
-						if (!GeoData.getInstance().canSeeTarget(caster, target))
-							continue;
+						caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
+						return null;
+					}
+
+					L2Character cha;
+
+					if (skill.getCastRange() >= 0)
+					{
+						cha = target;
 
 						if (!onlyFirst)
-							targetList.add((L2Character) obj); // Add obj to target lists
+							targetList.add(cha); // Add target to target list
 						else
 							return new L2Character[]
-							{ (L2Character) obj };
+							{ cha };
 					}
-				}
+					else
+						cha = caster;
 
-				if (targetList.size() == 0)
-					return null;
-				return targetList.moveToArray(new L2Character[targetList.size()]);
+					final boolean effectOriginIsL2Playable = cha instanceof L2Playable;
+
+					final L2Player src = caster.getActingPlayer();
+
+					final int radius = skill.getSkillRadius();
+
+					final boolean srcInArena = caster.isInsideZone(L2Zone.FLAG_PVP) && !caster.isInsideZone(L2Zone.FLAG_SIEGE);
+
+					for (final L2Object obj : caster.getKnownList().getKnownObjects().values())
+					{
+						if (obj == cha)
+							continue;
+
+						if (!(obj instanceof L2Attackable || obj instanceof L2Playable))
+							continue;
+
+						target = (L2Character) obj;
+
+						if (!target.isDead() && target != caster)
+						{
+							if (!Util.checkIfInRange(radius, target, caster, true))
+								continue;
+
+							if (!target.isInFrontOf(caster))
+								continue;
+
+							if (src != null) // caster is L2Playable and exists
+							{
+								final boolean targetInPvP = target.isInsideZone(L2Zone.FLAG_PVP) && !target.isInsideZone(L2Zone.FLAG_SIEGE);
+								if (obj instanceof L2Player)
+								{
+									final L2Player trg = (L2Player) obj;
+									if (trg == src)
+										continue;
+									if (src.getParty() != null && trg.getParty() != null
+											&& src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
+										continue;
+
+									if (trg.isInsideZone(L2Zone.FLAG_PEACE))
+										continue;
+
+									if (!srcInArena && !targetInPvP)
+									{
+										if (src.getAllyId() == trg.getAllyId() && src.getAllyId() != 0)
+											continue;
+
+										if (src.getClan() != null && trg.getClan() != null)
+											if (src.getClan().getClanId() == trg.getClan().getClanId())
+												continue;
+
+										if (!src.checkPvpSkill(obj, skill))
+											continue;
+									}
+								}
+								if (obj instanceof L2Summon)
+								{
+									final L2Player trg = ((L2Summon) obj).getOwner();
+									if (trg == src)
+										continue;
+
+									if (src.getParty() != null && trg.getParty() != null
+											&& src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
+										continue;
+
+									if (!srcInArena && !targetInPvP)
+									{
+										if (src.getAllyId() == trg.getAllyId() && src.getAllyId() != 0)
+											continue;
+
+										if (src.getClan() != null && trg.getClan() != null)
+											if (src.getClan().getClanId() == trg.getClan().getClanId())
+												continue;
+
+										if (!src.checkPvpSkill(trg, skill))
+											continue;
+									}
+
+									if (trg.isInsideZone(L2Zone.FLAG_PEACE))
+										continue;
+								}
+							}
+							else if (effectOriginIsL2Playable && // If effect starts at L2Playable and
+									!(obj instanceof L2Playable)) // Object is not L2Playable
+								continue;
+
+							if (!GeoData.getInstance().canSeeTarget(caster, target))
+								continue;
+
+							targetList.add(target);
+						}
+					}
+
+					if (targetList.size() == 0)
+						return null;
+
+					return targetList.moveToArray(new L2Character[targetList.size()]);
+				}
+				case TARGET_BEHIND_AREA:
+				{
+					if (!(target instanceof L2Attackable || target instanceof L2Playable) || //   Target is not L2Attackable or L2Playable
+							skill.getCastRange() >= 0 && (target == caster || target.isAlikeDead())) //target is null or self or dead/faking
+					{
+						caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
+						return null;
+					}
+
+					L2Character cha;
+
+					if (skill.getCastRange() >= 0)
+					{
+						cha = target;
+
+						if (!onlyFirst)
+							targetList.add(cha); // Add target to target list
+						else
+							return new L2Character[]
+							{ cha };
+					}
+					else
+						cha = caster;
+
+					final boolean effectOriginIsL2Playable = cha instanceof L2Playable;
+
+					final L2Player src = caster.getActingPlayer();
+
+					final int radius = skill.getSkillRadius();
+
+					final boolean srcInArena = caster.isInsideZone(L2Zone.FLAG_PVP) && !caster.isInsideZone(L2Zone.FLAG_SIEGE);
+
+					for (final L2Object obj : caster.getKnownList().getKnownObjects().values())
+					{
+						if (obj == cha)
+							continue;
+						if (!(obj instanceof L2Attackable || obj instanceof L2Playable))
+							continue;
+						target = (L2Character) obj;
+
+						if (!target.isDead() && target != caster)
+						{
+							if (!Util.checkIfInRange(radius, obj, caster, true))
+								continue;
+
+							if (!target.isBehind(caster))
+								continue;
+
+							if (src != null) // caster is L2Playable and exists
+							{
+								final boolean targetInPvP = target.isInsideZone(L2Zone.FLAG_PVP) && !target.isInsideZone(L2Zone.FLAG_SIEGE);
+								if (obj instanceof L2Player)
+								{
+									final L2Player trg = (L2Player) obj;
+									if (trg == src)
+										continue;
+									if (src.getParty() != null && trg.getParty() != null
+											&& src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
+										continue;
+
+									if (trg.isInsideZone(L2Zone.FLAG_PEACE))
+										continue;
+
+									if (!srcInArena && !targetInPvP)
+									{
+										if (src.getAllyId() == trg.getAllyId() && src.getAllyId() != 0)
+											continue;
+
+										if (src.getClan() != null && trg.getClan() != null)
+											if (src.getClan().getClanId() == trg.getClan().getClanId())
+												continue;
+
+										if (!src.checkPvpSkill(obj, skill))
+											continue;
+									}
+								}
+								if (obj instanceof L2Summon)
+								{
+									final L2Player trg = ((L2Summon) obj).getOwner();
+									if (trg == src)
+										continue;
+
+									if (src.getParty() != null && trg.getParty() != null
+											&& src.getParty().getPartyLeaderOID() == trg.getParty().getPartyLeaderOID())
+										continue;
+
+									if (!srcInArena && !targetInPvP)
+									{
+										if (src.getAllyId() == trg.getAllyId() && src.getAllyId() != 0)
+											continue;
+
+										if (trg.isInsideZone(L2Zone.FLAG_PEACE))
+											continue;
+
+										if (src.getClan() != null && trg.getClan() != null)
+											if (src.getClan().getClanId() == trg.getClan().getClanId())
+												continue;
+
+										if (!src.checkPvpSkill(trg, skill))
+											continue;
+
+									}
+								}
+							}
+							else // If effect starts at L2Playable and object is not L2Playable
+							if (effectOriginIsL2Playable && !(obj instanceof L2Playable))
+								continue;
+
+							if (!GeoData.getInstance().canSeeTarget(caster, target))
+								continue;
+
+							targetList.add(target);
+						}
+					}
+
+					if (targetList.size() == 0)
+						return null;
+
+					return targetList.moveToArray(new L2Character[targetList.size()]);
+				}
+				case TARGET_AREA_UNDEAD:
+				{
+					L2Character cha;
+					final int radius = skill.getSkillRadius();
+					if (skill.getCastRange() >= 0 && (target instanceof L2Npc || target instanceof L2SummonInstance) && target.isUndead()
+							&& !target.isAlikeDead())
+					{
+						cha = target;
+
+						if (!onlyFirst)
+							targetList.add(cha); // Add target to target list
+						else
+							return new L2Character[]
+							{ cha };
+					}
+					else
+						cha = caster;
+
+					for (final L2Object obj : cha.getKnownList().getKnownObjects().values())
+					{
+						if (obj instanceof L2Npc)
+							target = (L2Npc) obj;
+						else if (obj instanceof L2SummonInstance)
+							target = (L2SummonInstance) obj;
+						else
+							continue;
+
+						if (!target.isAlikeDead()) // If target is not dead/fake death and not self
+						{
+							if (!target.isUndead())
+								continue;
+							if (!Util.checkIfInRange(radius, cha, obj, true)) // Go to next obj if obj isn't in range
+								continue;
+							if (!GeoData.getInstance().canSeeTarget(caster, target))
+								continue;
+
+							if (!onlyFirst)
+								targetList.add((L2Character) obj); // Add obj to target lists
+							else
+								return new L2Character[]
+								{ (L2Character) obj };
+						}
+					}
+
+					if (targetList.size() == 0)
+						return null;
+					return targetList.moveToArray(new L2Character[targetList.size()]);
+				}
 			}
+		}
+		finally
+		{
+			targetList.clear();
 		}
 
 		return null;

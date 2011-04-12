@@ -25,7 +25,6 @@ import net.l2emuproject.gameserver.world.zone.L2Zone;
 
 /**
  * @author Intrepid
- *
  */
 public final class TargetPetHandler implements ISkillTargetHandler
 {

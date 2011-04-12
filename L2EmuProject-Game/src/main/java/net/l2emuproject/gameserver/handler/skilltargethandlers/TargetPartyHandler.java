@@ -28,7 +28,6 @@ import net.l2emuproject.util.ArrayBunch;
 
 /**
  * @author Intrepid
- *
  */
 public final class TargetPartyHandler implements ISkillTargetHandler
 {
@@ -45,225 +44,232 @@ public final class TargetPartyHandler implements ISkillTargetHandler
 	{
 		final ArrayBunch<L2Character> targetList = new ArrayBunch<L2Character>();
 
-		// Get the target type of the skill
-		// (ex : ONE, SELF, HOLY, PET, AURA, AURA_CLOSE, AREA, MULTIFACE, PARTY, CLAN, CORPSE_PLAYER, CORPSE_MOB, CORPSE_CLAN, UNLOCKABLE, ITEM, UNDEAD)
-		final SkillTargetTypes targetType = skill.getTargetType();
-
-		switch (targetType)
+		try
 		{
-			case TARGET_PARTY:
+			// Get the target type of the skill
+			// (ex : ONE, SELF, HOLY, PET, AURA, AURA_CLOSE, AREA, MULTIFACE, PARTY, CLAN, CORPSE_PLAYER, CORPSE_MOB, CORPSE_CLAN, UNLOCKABLE, ITEM, UNDEAD)
+			final SkillTargetTypes targetType = skill.getTargetType();
+
+			switch (targetType)
 			{
-				if (onlyFirst)
-					return new L2Character[]
-					{ caster };
-
-				targetList.add(caster);
-
-				L2Player player = null;
-
-				if (caster instanceof L2Summon)
+				case TARGET_PARTY:
 				{
-					player = ((L2Summon) caster).getOwner();
-					targetList.add(player);
-				}
-				else if (caster instanceof L2Player)
-				{
-					player = (L2Player) caster;
-					if (caster.getPet() != null)
-						targetList.add(caster.getPet());
-				}
-
-				if (caster.getParty() != null)
-				{
-					// Get all visible objects in a spheric area near the L2Character
-					// Get a list of Party Members
-					final List<L2Player> partyList = caster.getParty().getPartyMembers();
-
-					for (final L2Player partyMember : partyList)
-					{
-						if (player == null || partyMember == null || partyMember == player)
-							continue;
-
-						if (player.getPlayerDuel().isInDuel() && player.getPlayerDuel().getDuelId() != partyMember.getPlayerDuel().getDuelId())
-							continue;
-
-						if (!skill.eventCheck(player, partyMember))
-							continue;
-
-						if (!partyMember.isDead() && Util.checkIfInRange(skill.getSkillRadius(), caster, partyMember, true))
-						{
-							targetList.add(partyMember);
-
-							if (partyMember.getPet() != null && !partyMember.getPet().isDead())
-								targetList.add(partyMember.getPet());
-						}
-					}
-				}
-				return targetList.moveToArray(new L2Character[targetList.size()]);
-			}
-			case TARGET_PARTY_MEMBER:
-			{
-				if (target != null && target == caster || target != null && caster.getParty() != null && target.getParty() != null
-						&& caster.getParty().getPartyLeaderOID() == target.getParty().getPartyLeaderOID() || target != null && caster instanceof L2Player
-						&& target instanceof L2Summon && caster.getPet() == target || target != null && caster instanceof L2Summon
-						&& target instanceof L2Player && caster == target.getPet())
-				{
-					if (!target.isDead())
-						// If a target is found, return it in a table else send a system message TARGET_IS_INCORRECT
-						return new L2Character[]
-						{ target };
-
-					return null;
-				}
-
-				caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
-				return null;
-			}
-			case TARGET_PARTY_OTHER:
-			{
-				if (target != null && target != caster && caster.getParty() != null && target.getParty() != null
-						&& caster.getParty().getPartyLeaderOID() == target.getParty().getPartyLeaderOID())
-				{
-					if (!target.isDead())
-					{
-						if (target instanceof L2Player)
-						{
-							final L2Player player = (L2Player) target;
-							switch (skill.getId())
-							{
-								// FORCE BUFFS may cancel here but there should be a proper condition
-								case 426:
-									if (!player.isMageClass())
-										return new L2Character[]
-										{ target };
-
-									return null;
-								case 427:
-									if (player.isMageClass())
-										return new L2Character[]
-										{ target };
-
-									return null;
-							}
-						}
-						return new L2Character[]
-						{ target };
-					}
-
-					return null;
-				}
-
-				caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
-				return null;
-			}
-			case TARGET_PARTY_CLAN:
-			{
-				if (onlyFirst)
-					return new L2Character[]
-					{ caster };
-
-				final L2Player player = caster.getActingPlayer();
-
-				if (player == null)
-					return null;
-
-				targetList.add(player);
-
-				final int radius = skill.getSkillRadius();
-				final boolean hasClan = player.getClan() != null;
-				final boolean hasParty = player.isInParty();
-
-				if (L2Skill.addSummon(caster, player, radius, false))
-					targetList.add(player.getPet());
-
-				// if player in olympiad mode or not in clan and not in party
-				if (player.getPlayerOlympiad().isInOlympiadMode() || !(hasClan || hasParty))
-					return new L2Character[]
-					{ player };
-
-				for (final L2Player obj : caster.getKnownList().getKnownPlayersInRadius(radius))
-				{
-					if (obj == null)
-						continue;
-
-					if (player.getPlayerDuel().isInDuel())
-					{
-						if (player.getPlayerDuel().getDuelId() != obj.getPlayerDuel().getDuelId())
-							continue;
-
-						if (hasParty && obj.isInParty() && player.getParty().getPartyLeaderOID() != obj.getParty().getPartyLeaderOID())
-							continue;
-					}
-
-					if (!(hasClan && obj.getClanId() == player.getClanId() || hasParty && obj.isInParty()
-							&& player.getParty().getPartyLeaderOID() == obj.getParty().getPartyLeaderOID()))
-						continue;
-
-					// Don't add this target if this is a Pc->Pc pvp
-					// casting and pvp condition not met
-					if (!player.checkPvpSkill(obj, skill))
-						continue;
-
-					if (!skill.eventCheck(player, obj))
-						continue;
-
-					if (!onlyFirst && L2Skill.addSummon(caster, obj, radius, false))
-						targetList.add(obj.getPet());
-
-					if (!L2Skill.addCharacter(caster, obj, radius, false))
-						continue;
-
 					if (onlyFirst)
 						return new L2Character[]
-						{ obj };
+						{ caster };
 
-					targetList.add(obj);
-				}
+					targetList.add(caster);
 
-				return targetList.moveToArray(new L2Character[targetList.size()]);
-			}
-			case TARGET_PARTY_NOTME:
-			{
-				//target all party members except yourself
-				if (onlyFirst)
-					return new L2Character[]
-					{ caster };
+					L2Player player = null;
 
-				L2Player player = null;
-
-				if (caster instanceof L2Summon)
-				{
-					player = ((L2Summon) caster).getOwner();
-					targetList.add(player);
-				}
-				else if (caster instanceof L2Player)
-				{
-					player = (L2Player) caster;
-					if (caster.getPet() != null)
-						targetList.add(caster.getPet());
-				}
-
-				if (caster.getParty() != null)
-				{
-					final List<L2Player> partyList = caster.getParty().getPartyMembers();
-
-					for (final L2Player partyMember : partyList)
+					if (caster instanceof L2Summon)
 					{
-						if (partyMember == null)
-							continue;
-						if (partyMember == player)
-							continue;
-						if (!partyMember.isDead() && Util.checkIfInRange(skill.getSkillRadius(), caster, partyMember, true))
-						{
-							targetList.add(partyMember);
+						player = ((L2Summon) caster).getOwner();
+						targetList.add(player);
+					}
+					else if (caster instanceof L2Player)
+					{
+						player = (L2Player) caster;
+						if (caster.getPet() != null)
+							targetList.add(caster.getPet());
+					}
 
-							if (partyMember.getPet() != null && !partyMember.getPet().isDead())
-								targetList.add(partyMember.getPet());
+					if (caster.getParty() != null)
+					{
+						// Get all visible objects in a spheric area near the L2Character
+						// Get a list of Party Members
+						final List<L2Player> partyList = caster.getParty().getPartyMembers();
+
+						for (final L2Player partyMember : partyList)
+						{
+							if (player == null || partyMember == null || partyMember == player)
+								continue;
+
+							if (player.getPlayerDuel().isInDuel() && player.getPlayerDuel().getDuelId() != partyMember.getPlayerDuel().getDuelId())
+								continue;
+
+							if (!skill.eventCheck(player, partyMember))
+								continue;
+
+							if (!partyMember.isDead() && Util.checkIfInRange(skill.getSkillRadius(), caster, partyMember, true))
+							{
+								targetList.add(partyMember);
+
+								if (partyMember.getPet() != null && !partyMember.getPet().isDead())
+									targetList.add(partyMember.getPet());
+							}
 						}
 					}
+					return targetList.moveToArray(new L2Character[targetList.size()]);
 				}
-				return targetList.moveToArray(new L2Character[targetList.size()]);
+				case TARGET_PARTY_MEMBER:
+				{
+					if (target != null && target == caster || target != null && caster.getParty() != null && target.getParty() != null
+							&& caster.getParty().getPartyLeaderOID() == target.getParty().getPartyLeaderOID() || target != null && caster instanceof L2Player
+							&& target instanceof L2Summon && caster.getPet() == target || target != null && caster instanceof L2Summon
+							&& target instanceof L2Player && caster == target.getPet())
+					{
+						if (!target.isDead())
+							// If a target is found, return it in a table else send a system message TARGET_IS_INCORRECT
+							return new L2Character[]
+							{ target };
+
+						return null;
+					}
+
+					caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
+					return null;
+				}
+				case TARGET_PARTY_OTHER:
+				{
+					if (target != null && target != caster && caster.getParty() != null && target.getParty() != null
+							&& caster.getParty().getPartyLeaderOID() == target.getParty().getPartyLeaderOID())
+					{
+						if (!target.isDead())
+						{
+							if (target instanceof L2Player)
+							{
+								final L2Player player = (L2Player) target;
+								switch (skill.getId())
+								{
+									// FORCE BUFFS may cancel here but there should be a proper condition
+									case 426:
+										if (!player.isMageClass())
+											return new L2Character[]
+											{ target };
+
+										return null;
+									case 427:
+										if (player.isMageClass())
+											return new L2Character[]
+											{ target };
+
+										return null;
+								}
+							}
+							return new L2Character[]
+							{ target };
+						}
+
+						return null;
+					}
+
+					caster.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
+					return null;
+				}
+				case TARGET_PARTY_CLAN:
+				{
+					if (onlyFirst)
+						return new L2Character[]
+						{ caster };
+
+					final L2Player player = caster.getActingPlayer();
+
+					if (player == null)
+						return null;
+
+					targetList.add(player);
+
+					final int radius = skill.getSkillRadius();
+					final boolean hasClan = player.getClan() != null;
+					final boolean hasParty = player.isInParty();
+
+					if (L2Skill.addSummon(caster, player, radius, false))
+						targetList.add(player.getPet());
+
+					// if player in olympiad mode or not in clan and not in party
+					if (player.getPlayerOlympiad().isInOlympiadMode() || !(hasClan || hasParty))
+						return new L2Character[]
+						{ player };
+
+					for (final L2Player obj : caster.getKnownList().getKnownPlayersInRadius(radius))
+					{
+						if (obj == null)
+							continue;
+
+						if (player.getPlayerDuel().isInDuel())
+						{
+							if (player.getPlayerDuel().getDuelId() != obj.getPlayerDuel().getDuelId())
+								continue;
+
+							if (hasParty && obj.isInParty() && player.getParty().getPartyLeaderOID() != obj.getParty().getPartyLeaderOID())
+								continue;
+						}
+
+						if (!(hasClan && obj.getClanId() == player.getClanId() || hasParty && obj.isInParty()
+								&& player.getParty().getPartyLeaderOID() == obj.getParty().getPartyLeaderOID()))
+							continue;
+
+						// Don't add this target if this is a Pc->Pc pvp
+						// casting and pvp condition not met
+						if (!player.checkPvpSkill(obj, skill))
+							continue;
+
+						if (!skill.eventCheck(player, obj))
+							continue;
+
+						if (!onlyFirst && L2Skill.addSummon(caster, obj, radius, false))
+							targetList.add(obj.getPet());
+
+						if (!L2Skill.addCharacter(caster, obj, radius, false))
+							continue;
+
+						if (onlyFirst)
+							return new L2Character[]
+							{ obj };
+
+						targetList.add(obj);
+					}
+
+					return targetList.moveToArray(new L2Character[targetList.size()]);
+				}
+				case TARGET_PARTY_NOTME:
+				{
+					//target all party members except yourself
+					if (onlyFirst)
+						return new L2Character[]
+						{ caster };
+
+					L2Player player = null;
+
+					if (caster instanceof L2Summon)
+					{
+						player = ((L2Summon) caster).getOwner();
+						targetList.add(player);
+					}
+					else if (caster instanceof L2Player)
+					{
+						player = (L2Player) caster;
+						if (caster.getPet() != null)
+							targetList.add(caster.getPet());
+					}
+
+					if (caster.getParty() != null)
+					{
+						final List<L2Player> partyList = caster.getParty().getPartyMembers();
+
+						for (final L2Player partyMember : partyList)
+						{
+							if (partyMember == null)
+								continue;
+							if (partyMember == player)
+								continue;
+							if (!partyMember.isDead() && Util.checkIfInRange(skill.getSkillRadius(), caster, partyMember, true))
+							{
+								targetList.add(partyMember);
+
+								if (partyMember.getPet() != null && !partyMember.getPet().isDead())
+									targetList.add(partyMember.getPet());
+							}
+						}
+					}
+					return targetList.moveToArray(new L2Character[targetList.size()]);
+				}
 			}
+		}
+		finally
+		{
+			targetList.clear();
 		}
 
 		return null;

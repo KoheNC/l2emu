@@ -20,19 +20,23 @@ import net.l2emuproject.util.EnumHandlerRegistry;
 
 /**
  * @author Intrepid
- *
  */
 public final class SkillTargetHandler extends EnumHandlerRegistry<SkillTargetTypes, ISkillTargetHandler>
 {
+	private static final class SingletonHolder
+	{
+		private static final SkillTargetHandler	INSTANCE	= new SkillTargetHandler();
+	}
+
 	public static SkillTargetHandler getInstance()
 	{
 		return SingletonHolder.INSTANCE;
 	}
-	
+
 	private SkillTargetHandler()
 	{
 		super(SkillTargetTypes.class);
-		
+
 		registerSkillTargetHandler(new TargetAreaHandler());
 		registerSkillTargetHandler(new TargetAuraHandler());
 		registerSkillTargetHandler(new TargetClanHandler());
@@ -42,23 +46,17 @@ public final class SkillTargetHandler extends EnumHandlerRegistry<SkillTargetTyp
 		registerSkillTargetHandler(new TargetPetHandler());
 		registerSkillTargetHandler(new TargetPlayerHandler());
 		registerSkillTargetHandler(new TargetSpecialHandler());
-		
+
 		_log.info(getClass().getSimpleName() + " : Loaded " + size() + " handler(s).");
 	}
-	
+
 	public void registerSkillTargetHandler(ISkillTargetHandler handler)
 	{
 		registerAll(handler, handler.getSkillTargetTypes());
 	}
-	
+
 	public ISkillTargetHandler getSkillTargetHandler(SkillTargetTypes targetType)
 	{
 		return get(targetType);
-	}
-	
-	@SuppressWarnings("synthetic-access")
-	private static final class SingletonHolder
-	{
-		private static final SkillTargetHandler INSTANCE = new SkillTargetHandler();
 	}
 }

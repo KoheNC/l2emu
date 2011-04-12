@@ -20,11 +20,10 @@ import net.l2emuproject.gameserver.world.object.L2Character;
 
 /**
  * @author Intrepid
- *
  */
 public interface ISkillTargetHandler
 {
 	public L2Character[] useSkillTargetHandler(final L2Character caster, L2Character target, L2Skill skill, boolean onlyFirst);
-	
+
 	public SkillTargetTypes[] getSkillTargetTypes();
 }

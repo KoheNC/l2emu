@@ -29,7 +29,6 @@ import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 
 /**
  * @author Intrepid
- *
  */
 public final class TargetPlayerHandler implements ISkillTargetHandler
 {

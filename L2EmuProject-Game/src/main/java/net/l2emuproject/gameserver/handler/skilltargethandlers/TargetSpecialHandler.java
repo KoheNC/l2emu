@@ -28,7 +28,6 @@ import net.l2emuproject.util.ArrayBunch;
 
 /**
  * @author Intrepid
- *
  */
 public final class TargetSpecialHandler implements ISkillTargetHandler
 {
@@ -44,49 +43,56 @@ public final class TargetSpecialHandler implements ISkillTargetHandler
 	{
 		final ArrayBunch<L2Character> targetList = new ArrayBunch<L2Character>();
 
-		// Get the target type of the skill
-		// (ex : ONE, SELF, HOLY, PET, AURA, AURA_CLOSE, AREA, MULTIFACE, PARTY, CLAN, CORPSE_PLAYER, CORPSE_MOB, CORPSE_CLAN, UNLOCKABLE, ITEM, UNDEAD)
-		final SkillTargetTypes targetType = skill.getTargetType();
-
-		switch (targetType)
+		try
 		{
-			case TARGET_GROUND:
+			// Get the target type of the skill
+			// (ex : ONE, SELF, HOLY, PET, AURA, AURA_CLOSE, AREA, MULTIFACE, PARTY, CLAN, CORPSE_PLAYER, CORPSE_MOB, CORPSE_CLAN, UNLOCKABLE, ITEM, UNDEAD)
+			final SkillTargetTypes targetType = skill.getTargetType();
+
+			switch (targetType)
 			{
-				return new L2Character[]
-				{ caster };
-			}
-			case TARGET_COUPLE:
-			{
-				if (target != null && target instanceof L2Player)
+				case TARGET_GROUND:
 				{
-					final int _chaid = caster.getObjectId();
-					final int targetId = target.getObjectId();
-					for (final Couple cl : CoupleService.getInstance().getCouples())
-						if (cl.getPlayer1Id() == _chaid && cl.getPlayer2Id() == targetId || cl.getPlayer2Id() == _chaid && cl.getPlayer1Id() == targetId)
-							return new L2Character[]
-							{ target };
-				}
-
-				return null;
-			}
-			case TARGET_KNOWNLIST:
-			{
-				if (target != null && target.getKnownList() != null)
-					for (final L2Object obj : target.getKnownList().getKnownObjects().values())
-						if (obj instanceof L2Attackable || obj instanceof L2Playable)
-							return new L2Character[]
-							{ (L2Character) obj };
-
-				if (targetList.size() == 0)
-					return null;
-				return targetList.moveToArray(new L2Character[targetList.size()]);
-			}
-			case TARGET_INITIATOR:
-				if (target != null)
 					return new L2Character[]
-					{ target };
-				else
+					{ caster };
+				}
+				case TARGET_COUPLE:
+				{
+					if (target != null && target instanceof L2Player)
+					{
+						final int _chaid = caster.getObjectId();
+						final int targetId = target.getObjectId();
+						for (final Couple cl : CoupleService.getInstance().getCouples())
+							if (cl.getPlayer1Id() == _chaid && cl.getPlayer2Id() == targetId || cl.getPlayer2Id() == _chaid && cl.getPlayer1Id() == targetId)
+								return new L2Character[]
+								{ target };
+					}
+
 					return null;
+				}
+				case TARGET_KNOWNLIST:
+				{
+					if (target != null && target.getKnownList() != null)
+						for (final L2Object obj : target.getKnownList().getKnownObjects().values())
+							if (obj instanceof L2Attackable || obj instanceof L2Playable)
+								return new L2Character[]
+								{ (L2Character) obj };
+
+					if (targetList.size() == 0)
+						return null;
+					return targetList.moveToArray(new L2Character[targetList.size()]);
+				}
+				case TARGET_INITIATOR:
+					if (target != null)
+						return new L2Character[]
+						{ target };
+					else
+						return null;
+			}
+		}
+		finally
+		{
+			targetList.clear();
 		}
 
 		return null;

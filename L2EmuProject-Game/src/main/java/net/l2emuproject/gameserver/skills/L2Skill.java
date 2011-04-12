@@ -1587,7 +1587,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 	 */
 	public final L2Character[] getTargetList(final L2Character activeChar, final boolean onlyFirst, L2Character target)
 	{
-		ISkillTargetHandler handler = SkillTargetHandler.getInstance().getSkillTargetHandler(getTargetType());
+		final ISkillTargetHandler handler = SkillTargetHandler.getInstance().getSkillTargetHandler(getTargetType());
 		
 		if (handler != null)
 			return handler.useSkillTargetHandler(activeChar, target, this, onlyFirst);
