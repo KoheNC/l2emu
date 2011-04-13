@@ -317,8 +317,9 @@ public final class RaidBossManager
 				{
 					boss.getStatus().setCurrentHp(boss.getMaxHp());
 					boss.getStatus().setCurrentMp(boss.getMaxMp());
+					info.setRespawnTime(null);
+					_storedInfo.put(bossId, info);
 				}
-
 				_bosses.put(bossId, boss);
 			}
 		}
