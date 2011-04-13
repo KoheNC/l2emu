@@ -313,6 +313,12 @@ public final class RaidBossManager
 				boss.getStatus().setCurrentHp(info.getCurrentHp());
 				boss.getStatus().setCurrentMp(info.getCurrentMp());
 
+				if (info.getRespawnTime().getTime() < System.currentTimeMillis())
+				{
+					boss.getStatus().setCurrentHp(boss.getMaxHp());
+					boss.getStatus().setCurrentMp(boss.getMaxMp());
+				}
+
 				_bosses.put(bossId, boss);
 			}
 		}
