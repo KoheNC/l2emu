@@ -1,0 +1,19 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="enchantHP" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="enchantHP">
+		<xs:complexType>
+			<xs:attribute name="fullArmor" use="required" type="xs:boolean" />
+			<xs:attribute name="grade" use="required" type="xs:integer" />
+			<xs:attribute name="values" use="required" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
