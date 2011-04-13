@@ -22,17 +22,8 @@ import javolution.util.FastMap;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.services.clan.L2Clan;
-import net.l2emuproject.gameserver.services.community.boards.BlockBoard;
-import net.l2emuproject.gameserver.services.community.boards.ClanBoard;
-import net.l2emuproject.gameserver.services.community.boards.ClanPostBoard;
-import net.l2emuproject.gameserver.services.community.boards.ErrorBoard;
-import net.l2emuproject.gameserver.services.community.boards.FavoriteBoard;
-import net.l2emuproject.gameserver.services.community.boards.FriendBoard;
-import net.l2emuproject.gameserver.services.community.boards.HomePageBoard;
-import net.l2emuproject.gameserver.services.community.boards.MailBoard;
-import net.l2emuproject.gameserver.services.community.boards.MemoBoard;
-import net.l2emuproject.gameserver.services.community.boards.RegionBoard;
-import net.l2emuproject.gameserver.services.community.boards.TopBoard;
+import net.l2emuproject.gameserver.services.community.boards.*;
+import net.l2emuproject.gameserver.services.community.boards.admin.*;
 import net.l2emuproject.gameserver.services.community.models.Forum;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
@@ -65,7 +56,8 @@ public final class CommunityService
 		{
 			_forumRoot = new FastMap<Integer, Forum>();
 			_boards = new FastMap<String, CommunityBoard>();
-
+			
+			// retail boards
 			_boards.put("_bbsloc", new RegionBoard(this));
 			_boards.put("_bbsfriend", new FriendBoard(this));
 			_boards.put("_bbsblock", new BlockBoard(this));
@@ -77,6 +69,9 @@ public final class CommunityService
 			_boards.put("_bbslink", new HomePageBoard(this));
 			_boards.put("_bbsgetfav", new FavoriteBoard(this));
 			_boards.put("_bbserror", new ErrorBoard(this));
+			
+			// custom boards
+			_boards.put("_bbsadmin_main", new AdminMainBoard(this));
 
 			loadDB();
 			_log.info(getClass().getSimpleName() + " : Loaded " + _boards.size() + " board(s).");

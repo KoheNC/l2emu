@@ -31,6 +31,7 @@ public abstract class CommunityBoard
 
 	protected static final String	TOP_PATH			= "data/npc_data/html/CommunityBoard/top/";
 	protected static final String	STATICFILES_PATH	= "data/npc_data/html/CommunityBoard/staticfiles/";
+	protected static final String	ADMINFILES_PATH		= "data/npc_data/html/CommunityBoard/admin/";
 
 	public static final String[]	HEADER				=
 														{
