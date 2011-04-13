@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE merchantPriceConfig SYSTEM "../../templates/merchant_areas.dtd">
-<merchantPriceConfig defaultPriceConfig="18">
+<merchantPriceConfig defaultPriceConfig="18" xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/merchantPriceConfig.xsd">
 	<priceConfig id="0" name="Giran Town" baseTax="10"
 		castleId="3" zoneId="11020" />
 	<priceConfig id="1" name="DE Village" baseTax="15"

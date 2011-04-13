@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapregion SYSTEM "../../templates/mapregion.dtd">
-<mapregion>
+<mapregion xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/mapRegion.xsd">
 	<!-- TODO: find proper 'bbs' for newer restarts, as '101' is just a placeholder -->
 	<!-- TODO: add more restart points to newer restarts (for example: 36, 37, 
 		132) -->

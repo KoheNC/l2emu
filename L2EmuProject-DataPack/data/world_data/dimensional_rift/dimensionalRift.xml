@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE rift SYSTEM "../../templates/dimensional_gap.dtd">
-<rift>
+<rift xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/dimensionalRift.xsd">
 	<area type="0">
 		<room id="0" name="Dimensional Rift">
 			<!-- Not parsed. Why is it here? <type>Start</type> -->

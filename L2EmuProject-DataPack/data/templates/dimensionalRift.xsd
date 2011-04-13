@@ -1,0 +1,56 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="rift">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="area" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="area">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="room" />
+			</xs:sequence>
+			<xs:attribute name="type" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="room">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="teleport" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="spawn" />
+				<xs:element ref="zone" />
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:integer" />
+			<xs:attribute name="isBossRoom" type="xs:boolean" />
+			<xs:attribute name="name" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="teleport">
+		<xs:complexType>
+			<xs:attribute name="x" use="required" type="xs:integer" />
+			<xs:attribute name="y" use="required" type="xs:integer" />
+			<xs:attribute name="z" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="spawn">
+		<xs:complexType>
+			<xs:attribute name="count" use="required" type="xs:integer" />
+			<xs:attribute name="delay" use="required" type="xs:integer" />
+			<xs:attribute name="mobId" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="zone">
+		<xs:complexType>
+			<xs:attribute name="xMax" use="required" type="xs:integer" />
+			<xs:attribute name="xMin" use="required" type="xs:integer" />
+			<xs:attribute name="yMax" use="required" type="xs:integer" />
+			<xs:attribute name="yMin" use="required" type="xs:integer" />
+			<xs:attribute name="zMax" use="required" type="xs:integer" />
+			<xs:attribute name="zMin" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,100 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="mapregion">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="restartpoints" />
+				<xs:element ref="regions" />
+				<xs:element ref="restartareas" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="restartpoints">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="restartpoint" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="restartpoint">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:sequence minOccurs="0">
+					<xs:element maxOccurs="unbounded" ref="normal" />
+					<xs:element maxOccurs="unbounded" ref="chaotic" />
+				</xs:sequence>
+				<xs:element minOccurs="0" ref="bannedrace" />
+			</xs:sequence>
+			<xs:attribute name="bbs" use="required" type="xs:integer" />
+			<xs:attribute name="locname" use="required" type="xs:integer" />
+			<xs:attribute name="name" use="required" />
+			<xs:attribute name="restartId" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="normal">
+		<xs:complexType>
+			<xs:attribute name="X" use="required" type="xs:integer" />
+			<xs:attribute name="Y" use="required" type="xs:integer" />
+			<xs:attribute name="Z" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="chaotic">
+		<xs:complexType>
+			<xs:attribute name="X" use="required" type="xs:integer" />
+			<xs:attribute name="Y" use="required" type="xs:integer" />
+			<xs:attribute name="Z" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="bannedrace">
+		<xs:complexType>
+			<xs:attribute name="race" use="required" type="xs:NCName" />
+			<xs:attribute name="restartId" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="regions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="region" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="region">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="point" />
+			</xs:sequence>
+			<xs:attribute name="restartId" use="required" type="xs:integer" />
+			<xs:attribute name="zMax" use="required" type="xs:integer" />
+			<xs:attribute name="zMin" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="point">
+		<xs:complexType>
+			<xs:attribute name="X" use="required" type="xs:integer" />
+			<xs:attribute name="Y" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="restartareas">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="restartarea" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="restartarea">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="map" />
+			</xs:sequence>
+			<xs:attribute name="restartId" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="map">
+		<xs:complexType>
+			<xs:attribute name="X" use="required" type="xs:integer" />
+			<xs:attribute name="Y" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

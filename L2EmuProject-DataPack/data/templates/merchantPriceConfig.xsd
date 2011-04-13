@@ -1,0 +1,23 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="merchantPriceConfig">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="priceConfig" />
+			</xs:sequence>
+			<xs:attribute name="defaultPriceConfig" use="required"
+				type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="priceConfig">
+		<xs:complexType>
+			<xs:attribute name="baseTax" use="required" type="xs:integer" />
+			<xs:attribute name="castleId" type="xs:integer" />
+			<xs:attribute name="id" use="required" type="xs:integer" />
+			<xs:attribute name="name" use="required" />
+			<xs:attribute name="zoneId" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
