@@ -17,8 +17,6 @@ package net.l2emuproject.gameserver.world.npc;
 import java.util.Map;
 import java.util.Set;
 
-import javolution.util.FastMap;
-import javolution.util.FastSet;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.system.idfactory.IdFactory;
@@ -26,6 +24,7 @@ import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.instance.L2MinionInstance;
 import net.l2emuproject.gameserver.world.object.instance.L2MonsterInstance;
 import net.l2emuproject.tools.random.Rnd;
+import net.l2emuproject.util.SingletonMap;
 import net.l2emuproject.util.SingletonSet;
 
 import org.apache.commons.logging.Log;
@@ -40,7 +39,7 @@ public final class MinionList
 
 	/** List containing the current spawned minions for this L2MonsterInstance */
 	private final Set<L2MinionInstance>			_minionReferences	= new SingletonSet<L2MinionInstance>().shared();
-	private final Map<L2MinionInstance, Long>	_respawnTasks		= new FastMap<L2MinionInstance, Long>().shared();
+	private final Map<L2MinionInstance, Long>	_respawnTasks		= new SingletonMap<L2MinionInstance, Long>().shared();
 	private final L2MonsterInstance				_master;
 
 	public MinionList(L2MonsterInstance pMaster)
@@ -53,16 +52,12 @@ public final class MinionList
 		return _minionReferences.size();
 	}
 
-	private int countSpawnedMinionsById(int minionId)
+	private int countSpawnedMinionsById(final int minionId)
 	{
 		int count = 0;
 		for (L2MinionInstance minion : getSpawnedMinions())
-		{
 			if (minion != null && minion.getNpcId() == minionId)
-			{
 				count++;
-			}
-		}
 
 		return count;
 	}
@@ -77,24 +72,22 @@ public final class MinionList
 		return _minionReferences;
 	}
 
-	public void addSpawnedMinion(L2MinionInstance minion)
+	public void addSpawnedMinion(final L2MinionInstance minion)
 	{
 		_minionReferences.add(minion);
 	}
 
 	public int lazyCountSpawnedMinionsGroups()
 	{
-		Set<Integer> seenGroups = new FastSet<Integer>();
+		final Set<Integer> seenGroups = new SingletonSet<Integer>();
 		for (L2MinionInstance minion : getSpawnedMinions())
-		{
 			if (minion != null)
 				seenGroups.add(minion.getNpcId());
-		}
 
 		return seenGroups.size();
 	}
 
-	public void moveMinionToRespawnList(L2MinionInstance minion)
+	public void moveMinionToRespawnList(final L2MinionInstance minion)
 	{
 		_minionReferences.remove(minion);
 
@@ -114,7 +107,7 @@ public final class MinionList
 		if (_master.isAlikeDead())
 			return;
 
-		long current = System.currentTimeMillis();
+		final long current = System.currentTimeMillis();
 
 		for (Map.Entry<L2MinionInstance, Long> entry : _respawnTasks.entrySet())
 		{
@@ -142,7 +135,7 @@ public final class MinionList
 		if (_master.isAlikeDead())
 			return;
 
-		L2MinionData[] minions = _master.getTemplate().getMinionData();
+		final L2MinionData[] minions = _master.getTemplate().getMinionData();
 		if (minions == null)
 			return;
 
@@ -155,9 +148,7 @@ public final class MinionList
 			minionsToSpawn = minionCount - countSpawnedMinionsById(minionId);
 
 			for (int i = 0; i < minionsToSpawn; i++)
-			{
 				spawnSingleMinion(minionId, _master.getInstanceId());
-			}
 		}
 	}
 
@@ -174,10 +165,10 @@ public final class MinionList
 	 * @param minionid The I2NpcTemplate Identifier of the Minion to spawn
 	 * 
 	 */
-	private void spawnSingleMinion(int minionid, int instanceId)
+	private void spawnSingleMinion(final int minionid, final int instanceId)
 	{
 		// Get the template of the Minion to spawn
-		L2NpcTemplate minionTemplate = NpcTable.getInstance().getTemplate(minionid);
+		final L2NpcTemplate minionTemplate = NpcTable.getInstance().getTemplate(minionid);
 
 		// Create and Init the Minion and generate its Identifier
 		L2MinionInstance monster = null;
@@ -216,13 +207,13 @@ public final class MinionList
 		randPlusMin = Rnd.nextInt(2);
 		if (randPlusMin == 1)
 			spawnConstant *= -1;
-		int newX = _master.getX() + Math.round(spawnConstant);
+		final int newX = _master.getX() + Math.round(spawnConstant);
 		spawnConstant = Rnd.nextInt(randSpawnLim);
 		//randomize +/-
 		randPlusMin = Rnd.nextInt(2);
 		if (randPlusMin == 1)
 			spawnConstant *= -1;
-		int newY = _master.getY() + Math.round(spawnConstant);
+		final int newY = _master.getY() + Math.round(spawnConstant);
 
 		monster.spawnMe(newX, newY, _master.getZ());
 

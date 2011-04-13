@@ -32,6 +32,7 @@ import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.DisableType;
 import net.l2emuproject.gameserver.datatables.ItemTable;
+import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.entity.ai.CtrlEvent;
 import net.l2emuproject.gameserver.entity.ai.CtrlIntention;
 import net.l2emuproject.gameserver.entity.ai.L2CharacterAI;
@@ -5211,7 +5212,7 @@ public abstract class L2Character extends L2Object
 			// Check Raidboss attack
 			// Character will be petrified if attacking a raid that's more
 			// than 8 levels lower
-			/*if (target.isRaid() && !Config.ALT_DISABLE_RAIDBOSS_PETRIFICATION
+			if (target.isRaid() && !Config.ALT_DISABLE_RAIDBOSS_PETRIFICATION
 					&& getSkillLevel(L2Boss.BOSS_PENALTY_RESISTANCE) == -1)
 			{
 				int level = 0;
@@ -5231,7 +5232,7 @@ public abstract class L2Character extends L2Object
 
 					damage = 0; // prevents messing up drop calculation
 				}
-			}*/
+			}
 
 			// If L2Character target is a L2Player, send a system message
 			if (target instanceof L2Player)
@@ -6377,15 +6378,15 @@ public abstract class L2Character extends L2Object
 
 				// Check Raidboss attack and
 				// check buffing chars who attack raidboss. Results in mute.
-				/*L2Character targetsAttackTarget = null;
+				L2Character targetsAttackTarget = null;
 				L2Character targetsCastTarget = null;
 				if (target.hasAI())
 				{
 					targetsAttackTarget = target.getAI().getAttackTarget();
 					targetsCastTarget = target.getAI().getCastTarget();
-				}*/
+				}
 
-				/*if (!Config.ALT_DISABLE_RAIDBOSS_PETRIFICATION
+				if (!Config.ALT_DISABLE_RAIDBOSS_PETRIFICATION
 				&& getSkillLevel(L2Boss.BOSS_PENALTY_RESISTANCE) == -1
 				&& ((target.isRaid() && getLevel() > target.getLevel() + 8) || (!skill.isOffensive() && targetsAttackTarget != null && targetsAttackTarget.isRaid()
 				&& targetsAttackTarget.getAttackByList().contains(target) // has attacked raid
@@ -6410,7 +6411,7 @@ public abstract class L2Character extends L2Object
 							_log.warn("Skill " + L2Boss.BOSS_PENALTY_PETRIFICATION + " at level 1 is missing in DP.");
 					}
 					return;
-				}*/
+				}
 
 				// Check if over-hit is possible
 				if (skill.isOverhit())
