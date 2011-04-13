@@ -24,6 +24,7 @@ import net.l2emuproject.gameserver.events.global.sevensigns.SevenSigns;
 import net.l2emuproject.gameserver.events.global.sevensigns.SevenSignsFestival;
 import net.l2emuproject.gameserver.items.ItemsOnGroundManager;
 import net.l2emuproject.gameserver.manager.MercTicketManager;
+import net.l2emuproject.gameserver.manager.boss.RaidBossManager;
 import net.l2emuproject.gameserver.manager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.network.Disconnection;
 import net.l2emuproject.gameserver.network.L2GameSelectorThread;
@@ -183,6 +184,8 @@ public final class Shutdown extends Thread
 		// Save Seven Signs data before closing. :)
 		SevenSigns.getInstance().saveSevenSignsData(null, true);
 		System.out.println("SevenSigns: Data saved.");
+		RaidBossManager.getInstance().cleanUP();
+		System.out.println("RaidBossManager: Data saved.");
 		System.out.println("Saving TradeController data, please wait...");
 		TradeListTable.getInstance().dataCountStore();
 		System.out.println("TradeController: All count Item Saved");

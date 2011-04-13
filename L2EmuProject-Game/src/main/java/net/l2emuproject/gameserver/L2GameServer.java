@@ -96,6 +96,7 @@ import net.l2emuproject.gameserver.manager.BoatManager;
 import net.l2emuproject.gameserver.manager.CrownManager;
 import net.l2emuproject.gameserver.manager.DayNightSpawnManager;
 import net.l2emuproject.gameserver.manager.MercTicketManager;
+import net.l2emuproject.gameserver.manager.boss.RaidBossManager;
 import net.l2emuproject.gameserver.manager.gracia.SeedOfDestructionManager;
 import net.l2emuproject.gameserver.manager.hellbound.HellboundManager;
 import net.l2emuproject.gameserver.manager.instances.InstanceManager;
@@ -339,6 +340,9 @@ public class L2GameServer extends Config
 		DayNightSpawnManager.getInstance().notifyChangeMode();
 		AutoChatManager.getInstance();
 		AutoSpawnManager.getInstance();
+		
+		Util.printSection("Bosses");
+		RaidBossManager.getInstance();
 		
 		Util.printSection("Hellbound");
 		HellboundManager.getInstance();

@@ -16,6 +16,7 @@ package net.l2emuproject.gameserver.handler.admincommandhandlers;
 
 import net.l2emuproject.gameserver.datatables.SpawnTable;
 import net.l2emuproject.gameserver.handler.IAdminCommandHandler;
+import net.l2emuproject.gameserver.manager.boss.RaidBossManager;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.world.object.L2Npc;
 import net.l2emuproject.gameserver.world.object.L2Object;
@@ -54,6 +55,13 @@ public class AdminDelete implements IAdminCommandHandler
 		if ((obj != null) && (obj instanceof L2Npc))
 		{
 			L2Npc target = (L2Npc) obj;
+			
+			if (RaidBossManager.getInstance().isRaidBoss(target.getNpcId()))
+			{
+				activeChar.sendMessage("You can't delete raidboss from raid spawnlist!");
+				return;
+			}
+			
 			target.deleteMe();
 
 			L2Spawn spawn = target.getSpawn();

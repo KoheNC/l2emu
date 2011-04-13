@@ -15,8 +15,10 @@
 package net.l2emuproject.gameserver.world.object.instance;
 
 import net.l2emuproject.gameserver.entity.stat.RaidBossStat;
+import net.l2emuproject.gameserver.manager.boss.RaidBossManager;
 import net.l2emuproject.gameserver.templates.chars.L2NpcTemplate;
 import net.l2emuproject.gameserver.world.object.L2Boss;
+import net.l2emuproject.gameserver.world.object.L2Character;
 
 public class L2RaidBossInstance extends L2Boss
 {
@@ -35,5 +37,16 @@ public class L2RaidBossInstance extends L2Boss
 	public final RaidBossStat getStat()
 	{
 		return (RaidBossStat) super.getStat();
+	}
+
+	@Override
+	public final boolean doDie(final L2Character killer)
+	{
+		if (!super.doDie(killer))
+			return false;
+
+		RaidBossManager.getInstance().updateDeathStatus(this);
+
+		return true;
 	}
 }
