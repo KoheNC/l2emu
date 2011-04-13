@@ -1,0 +1,20 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="minionList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="minion" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="minion">
+		<xs:complexType>
+			<xs:attribute name="bossId" use="required" type="xs:integer" />
+			<xs:attribute name="maximum" use="required" type="xs:integer" />
+			<xs:attribute name="minimum" use="required" type="xs:integer" />
+			<xs:attribute name="minionId" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

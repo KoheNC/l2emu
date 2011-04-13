@@ -16,6 +16,8 @@ package net.l2emuproject.gameserver.entity.status;
 
 import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.instance.L2MinionInstance;
+import net.l2emuproject.gameserver.world.object.instance.L2MonsterInstance;
 
 /**
  * @author NB4L1
@@ -51,6 +53,23 @@ public class AttackableStatus extends NpcStatus
 		// Add damage and hate to the attacker AggroInfo of the L2Attackable _aggroList
 		if (attacker != null)
 			getActiveChar().addDamage(attacker, (int) value);
+		
+		// If this L2Attackable is a L2MonsterInstance and it has spawned minions, call its minions to battle
+		if (getActiveChar() instanceof L2MonsterInstance)
+		{
+			L2MonsterInstance master = (L2MonsterInstance) getActiveChar();
+			if (getActiveChar() instanceof L2MinionInstance)
+			{
+				master = ((L2MinionInstance) getActiveChar()).getLeader();
+				if (master != null && !master.isInCombat() && !master.isDead())
+				{
+					master.addDamage(attacker, 1, null);
+					master.callMinionsToAssist(attacker);
+				}
+			}
+			else if (master.hasMinions())
+				master.callMinionsToAssist(attacker);
+		}
 		
 		if (value > 0)
 		{

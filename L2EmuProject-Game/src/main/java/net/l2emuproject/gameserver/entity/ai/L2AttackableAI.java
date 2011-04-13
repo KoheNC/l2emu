@@ -18,11 +18,15 @@ import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_A
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_ATTACK;
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_IDLE;
 import static net.l2emuproject.gameserver.entity.ai.CtrlIntention.AI_INTENTION_INTERACT;
+
+import java.util.Set;
+
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.services.quest.Quest;
 import net.l2emuproject.gameserver.skills.L2Skill;
 import net.l2emuproject.gameserver.skills.SkillTargetTypes;
 import net.l2emuproject.gameserver.system.taskmanager.AbstractIterativePeriodicTaskManager;
+import net.l2emuproject.gameserver.system.taskmanager.DecayTaskManager;
 import net.l2emuproject.gameserver.system.time.GameTimeController;
 import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.geodata.GeoData;
@@ -509,6 +513,43 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 
 					// Set the AI Intention to AI_INTENTION_ATTACK
 					setIntention(CtrlIntention.AI_INTENTION_ATTACK, hated);
+					// [L2J_JP ADD]
+					// following boss
+					L2MinionInstance minion;
+					L2MonsterInstance boss;
+					Set<L2MinionInstance> minions;
+					if (_actor instanceof L2MonsterInstance)
+					{
+						boss = (L2MonsterInstance) _actor;
+						if (boss.hasMinions())
+						{
+							minions = boss.getSpawnedMinions();
+							for (L2MinionInstance m : minions)
+							{
+								if (!m.isRunning())
+									m.setRunning();
+								m.getAI().startFollow(_actor);
+							}
+						}
+					}
+					else if (_actor instanceof L2MinionInstance)
+					{
+						minion = (L2MinionInstance) _actor;
+						boss = minion.getLeader();
+						if (!boss.isRunning())
+							boss.setRunning();
+						boss.getAI().startFollow(_actor);
+						minions = boss.getSpawnedMinions();
+						for (L2MinionInstance m : minions)
+						{
+							if (!(m.getObjectId() == _actor.getObjectId()))
+							{
+								if (!m.isRunning())
+									m.setRunning();
+								m.getAI().startFollow(_actor);
+							}
+						}
+					}
 				}
 
 				return;
@@ -531,8 +572,56 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 		if (!npc.canReturnToSpawnPoint())
 			return;
 
+		// Minions following leader
+		if (_actor instanceof L2MinionInstance && ((L2MinionInstance) _actor).getLeader() != null)
+		{
+			int offset;
+
+			if (_actor.isRaid())
+				offset = 500; // for Raid minions - need correction
+			else
+				offset = 200; // for normal minions - need correction :)
+
+			if (((L2MinionInstance) _actor).getLeader().isRunning())
+				_actor.setRunning();
+			else
+				_actor.setWalking();
+
+			if (_actor.getPlanDistanceSq(((L2MinionInstance) _actor).getLeader()) > offset * offset)
+			{
+				int x1, y1, z1;
+				x1 = ((L2MinionInstance) _actor).getLeader().getX() + Rnd.nextInt((offset - 30) * 2) - (offset - 30);
+				y1 = ((L2MinionInstance) _actor).getLeader().getY() + Rnd.nextInt((offset - 30) * 2) - (offset - 30);
+				z1 = ((L2MinionInstance) _actor).getLeader().getZ();
+				// Move the actor to Location (x,y,z) server side AND client side by sending Server->Client packet MoveToLocation (broadcast)
+				moveTo(x1, y1, z1);
+			}
+			else if (Rnd.nextInt(RANDOM_WALK_RATE) == 0)
+			{
+				// self and clan buffs
+				for (L2Skill sk : _selfAnalysis.buffSkills)
+				{
+					if (_actor.getFirstEffect(sk.getId()) == null)
+					{
+						// if clan buffs, don't buff every time
+						if (sk.getTargetType() != SkillTargetTypes.TARGET_SELF && Rnd.nextInt(2) != 0)
+							continue;
+						if (_actor.getStatus().getCurrentMp() < sk.getMpConsume())
+							continue;
+						if (_actor.isSkillDisabled(sk.getId()))
+							continue;
+						L2Object OldTarget = _actor.getTarget();
+						_actor.setTarget(_actor);
+						clientStopMoving(null);
+						_accessor.doCast(sk);
+						_actor.setTarget(OldTarget);
+						return;
+					}
+				}
+			}
+		}
 		// Order to the L2MonsterInstance to random walk (1/100)
-		if (npc.getSpawn() != null && Rnd.nextInt(RANDOM_WALK_RATE) == 0
+		else if (npc.getSpawn() != null && Rnd.nextInt(RANDOM_WALK_RATE) == 0
 				&& !_actor.isNoRndWalk())
 		{
 			// self and clan buffs
@@ -595,6 +684,13 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 			//_log.config("Curent pos ("+getX()+", "+getY()+"), moving to ("+x1+", "+y1+").");
 			// Move the actor to Location (x,y,z) server side AND client side by sending Server->Client packet MoveToLocation (broadcast)
 			moveTo(x1, y1, z1);
+			// [L2J_JP ADD]
+			// following boss
+			if (_actor instanceof L2MonsterInstance)
+			{
+				L2MonsterInstance boss = (L2MonsterInstance) _actor;
+				boss.callMinions();
+			}
 		}
 	}
 	
@@ -695,7 +791,38 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 
 						)
 						{
-							if (npc.isInCombat())
+							if (npc.isDead() && _actor instanceof L2MinionInstance)
+							{
+								if (((L2MinionInstance) _actor).getLeader() == npc)
+								{
+									for (L2Skill sk : _selfAnalysis.resurrectSkills)
+									{
+										if (_actor.getStatus().getCurrentMp() < sk.getMpConsume())
+											continue;
+										if (_actor.isSkillDisabled(sk.getId()))
+											continue;
+										if (!Util.checkIfInRange(sk.getCastRange(), _actor, npc, true))
+											continue;
+
+										if (10 >= Rnd.get(100)) // chance
+											continue;
+										if (!GeoData.getInstance().canSeeTarget(_actor, npc))
+											break;
+
+										L2Object OldTarget = _actor.getTarget();
+										_actor.setTarget(npc);
+										// would this ever be fast enough for the decay not to run?
+										// giving some extra seconds
+										DecayTaskManager.getInstance().cancelDecayTask(npc);
+										DecayTaskManager.getInstance().addDecayTask(npc);
+										clientStopMoving(null);
+										_accessor.doCast(sk);
+										_actor.setTarget(OldTarget);
+										return;
+									}
+								}
+							}
+							else if (npc.isInCombat())
 							{
 								for (L2Skill sk : _selfAnalysis.healSkills)
 								{
@@ -709,7 +836,11 @@ public class L2AttackableAI extends L2CharacterAI implements Runnable
 									int chance = 4;
 									if (_actor instanceof L2MinionInstance)
 									{
-										chance = 3;
+										// minions support boss
+										if (((L2MinionInstance) _actor).getLeader() == npc)
+											chance = 6;
+										else
+											chance = 3;
 									}
 									if (npc instanceof L2Boss)
 										chance = 6;

@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<minionList xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ./../../../templates/minions.xsd">
+
+	<minion bossId="20117" minionId="20118" minimum="1" maximum="3" />
+
+	<minion bossId="20376" minionId="20377" minimum="1" maximum="2" />
+
+	<minion bossId="20398" minionId="20399" minimum="1" maximum="2" />
+
+	<minion bossId="20520" minionId="20445" minimum="3" maximum="5" />
+
+	<minion bossId="20522" minionId="20524" minimum="2" maximum="4" />
+
+	<minion bossId="20738" minionId="20739" minimum="3" maximum="5" />
+
+	<minion bossId="20745" minionId="20746" minimum="1" maximum="2" />
+
+	<minion bossId="20747" minionId="20748" minimum="1" maximum="2" />
+
+	<minion bossId="20749" minionId="20750" minimum="1" maximum="2" />
+
+	<minion bossId="20751" minionId="20752" minimum="3" maximum="3" />
+
+	<minion bossId="20753" minionId="21040" minimum="4" maximum="4" />
+
+	<minion bossId="20758" minionId="20759" minimum="1" maximum="1" />
+
+	<minion bossId="20758" minionId="20760" minimum="1" maximum="1" />
+
+	<minion bossId="20761" minionId="20762" minimum="2" maximum="3" />
+
+	<minion bossId="20763" minionId="20764" minimum="1" maximum="1" />
+
+	<minion bossId="20763" minionId="20765" minimum="1" maximum="1" />
+
+	<minion bossId="20763" minionId="20766" minimum="1" maximum="1" />
+
+	<minion bossId="20771" minionId="20772" minimum="1" maximum="3" />
+
+	<minion bossId="20773" minionId="20774" minimum="2" maximum="4" />
+
+	<minion bossId="20779" minionId="20750" minimum="1" maximum="3" />
+
+	<minion bossId="20936" minionId="20937" minimum="1" maximum="1" />
+
+	<minion bossId="20936" minionId="20938" minimum="1" maximum="1" />
+
+	<minion bossId="20936" minionId="20939" minimum="1" maximum="1" />
+
+	<minion bossId="20941" minionId="20940" minimum="3" maximum="3" />
+
+	<minion bossId="20944" minionId="20942" minimum="1" maximum="1" />
+
+	<minion bossId="20944" minionId="20943" minimum="2" maximum="2" />
+
+	<minion bossId="20947" minionId="20945" minimum="1" maximum="2" />
+
+	<minion bossId="20947" minionId="20946" minimum="1" maximum="2" />
+
+	<minion bossId="20950" minionId="20948" minimum="1" maximum="2" />
+
+	<minion bossId="20950" minionId="20949" minimum="1" maximum="2" />
+
+	<minion bossId="20953" minionId="20951" minimum="1" maximum="2" />
+
+	<minion bossId="20953" minionId="20952" minimum="1" maximum="2" />
+
+	<minion bossId="20956" minionId="20954" minimum="1" maximum="2" />
+
+	<minion bossId="20956" minionId="20955" minimum="1" maximum="2" />
+
+	<minion bossId="20959" minionId="20957" minimum="1" maximum="2" />
+
+	<minion bossId="20959" minionId="20958" minimum="1" maximum="2" />
+
+	<minion bossId="20963" minionId="20960" minimum="1" maximum="1" />
+
+	<minion bossId="20963" minionId="20961" minimum="1" maximum="1" />
+
+	<minion bossId="20963" minionId="20962" minimum="1" maximum="1" />
+
+	<minion bossId="20966" minionId="20964" minimum="1" maximum="2" />
+
+	<minion bossId="20974" minionId="20975" minimum="1" maximum="2" />
+
+	<minion bossId="20974" minionId="20976" minimum="1" maximum="2" />
+
+	<minion bossId="20977" minionId="20978" minimum="1" maximum="1" />
+
+	<minion bossId="20977" minionId="20979" minimum="1" maximum="1" />
+
+	<minion bossId="20980" minionId="20981" minimum="1" maximum="1" />
+
+	<minion bossId="20980" minionId="20982" minimum="1" maximum="1" />
+
+	<minion bossId="20986" minionId="20987" minimum="1" maximum="2" />
+
+	<minion bossId="20986" minionId="20988" minimum="1" maximum="2" />
+
+	<minion bossId="20989" minionId="20990" minimum="1" maximum="1" />
+
+	<minion bossId="20991" minionId="20992" minimum="1" maximum="2" />
+
+	<minion bossId="20991" minionId="20993" minimum="1" maximum="2" />
+
+	<minion bossId="20994" minionId="20995" minimum="3" maximum="4" />
+
+	<minion bossId="21058" minionId="21059" minimum="1" maximum="2" />
+
+	<minion bossId="21058" minionId="21060" minimum="1" maximum="2" />
+
+	<minion bossId="21075" minionId="21076" minimum="1" maximum="1" />
+
+	<minion bossId="21075" minionId="21077" minimum="1" maximum="2" />
+
+	<minion bossId="21078" minionId="21079" minimum="1" maximum="1" />
+
+	<minion bossId="21078" minionId="21080" minimum="1" maximum="2" />
+
+	<minion bossId="21081" minionId="21082" minimum="1" maximum="1" />
+
+	<minion bossId="21081" minionId="21083" minimum="1" maximum="3" />
+
+	<minion bossId="21090" minionId="21091" minimum="1" maximum="1" />
+
+	<minion bossId="21090" minionId="21092" minimum="1" maximum="1" />
+
+	<minion bossId="21312" minionId="21313" minimum="2" maximum="2" />
+
+	<minion bossId="21343" minionId="21344" minimum="2" maximum="2" />
+
+	<minion bossId="21345" minionId="21346" minimum="2" maximum="2" />
+
+	<minion bossId="21347" minionId="21348" minimum="1" maximum="1" />
+
+	<minion bossId="21347" minionId="21349" minimum="1" maximum="1" />
+
+	<minion bossId="21369" minionId="21370" minimum="2" maximum="2" />
+
+	<minion bossId="21371" minionId="21372" minimum="2" maximum="2" />
+
+	<minion bossId="21373" minionId="21374" minimum="1" maximum="1" />
+
+	<minion bossId="21373" minionId="21375" minimum="1" maximum="1" />
+
+	<minion bossId="21596" minionId="21597" minimum="1" maximum="1" />
+
+	<minion bossId="21596" minionId="21598" minimum="1" maximum="1" />
+
+	<minion bossId="21599" minionId="21600" minimum="1" maximum="1" />
+
+	<minion bossId="21599" minionId="21601" minimum="1" maximum="1" />
+
+	<minion bossId="22028" minionId="22027" minimum="3" maximum="4" />
+
+	<minion bossId="22080" minionId="22079" minimum="3" maximum="3" />
+
+	<minion bossId="22084" minionId="22083" minimum="3" maximum="3" />
+
+	<minion bossId="22088" minionId="22087" minimum="3" maximum="3" />
+
+	<minion bossId="22092" minionId="22091" minimum="3" maximum="3" />
+
+	<minion bossId="22094" minionId="22093" minimum="6" maximum="6" />
+
+	<minion bossId="22096" minionId="22095" minimum="3" maximum="3" />
+
+	<minion bossId="22100" minionId="22099" minimum="8" maximum="8" />
+
+	<minion bossId="22102" minionId="22101" minimum="8" maximum="8" />
+
+	<minion bossId="22104" minionId="22103" minimum="8" maximum="8" />
+
+	<minion bossId="22123" minionId="22122" minimum="2" maximum="3" />
+
+	<minion bossId="22135" minionId="22130" minimum="1" maximum="1" />
+
+	<minion bossId="22135" minionId="22131" minimum="1" maximum="1" />
+
+	<minion bossId="27021" minionId="20492" minimum="6" maximum="8" />
+
+	<minion bossId="27022" minionId="20367" minimum="1" maximum="3" />
+
+	<minion bossId="27036" minionId="27037" minimum="2" maximum="3" />
+
+	<minion bossId="27110" minionId="27111" minimum="3" maximum="5" />
+
+	<minion bossId="27113" minionId="27111" minimum="3" maximum="6" />
+
+	<minion bossId="25001" minionId="25002" minimum="3" maximum="3" />
+
+	<minion bossId="25001" minionId="25003" minimum="1" maximum="1" />
+
+	<minion bossId="25004" minionId="25005" minimum="3" maximum="3" />
+
+	<minion bossId="25004" minionId="25006" minimum="2" maximum="2" />
+
+	<minion bossId="25007" minionId="25008" minimum="2" maximum="2" />
+
+	<minion bossId="25007" minionId="25009" minimum="2" maximum="2" />
+
+	<minion bossId="25010" minionId="25011" minimum="3" maximum="3" />
+
+	<minion bossId="25010" minionId="25012" minimum="2" maximum="2" />
+
+	<minion bossId="25013" minionId="25014" minimum="1" maximum="1" />
+
+	<minion bossId="25013" minionId="25015" minimum="4" maximum="4" />
+
+	<minion bossId="25016" minionId="25017" minimum="2" maximum="2" />
+
+	<minion bossId="25016" minionId="25018" minimum="2" maximum="2" />
+
+	<minion bossId="25020" minionId="25021" minimum="2" maximum="2" />
+
+	<minion bossId="25020" minionId="25022" minimum="2" maximum="2" />
+
+	<minion bossId="25023" minionId="25024" minimum="1" maximum="1" />
+
+	<minion bossId="25023" minionId="25025" minimum="4" maximum="4" />
+
+	<minion bossId="25026" minionId="25027" minimum="3" maximum="3" />
+
+	<minion bossId="25026" minionId="25028" minimum="2" maximum="2" />
+
+	<minion bossId="25029" minionId="25030" minimum="2" maximum="2" />
+
+	<minion bossId="25029" minionId="25031" minimum="2" maximum="2" />
+
+	<minion bossId="25032" minionId="25033" minimum="3" maximum="3" />
+
+	<minion bossId="25032" minionId="25034" minimum="1" maximum="1" />
+
+	<minion bossId="25035" minionId="25036" minimum="3" maximum="3" />
+
+	<minion bossId="25035" minionId="25037" minimum="2" maximum="2" />
+
+	<minion bossId="25038" minionId="25039" minimum="1" maximum="1" />
+
+	<minion bossId="25038" minionId="25040" minimum="4" maximum="4" />
+
+	<minion bossId="25041" minionId="25042" minimum="3" maximum="3" />
+
+	<minion bossId="25041" minionId="25043" minimum="2" maximum="2" />
+
+	<minion bossId="25044" minionId="25045" minimum="2" maximum="2" />
+
+	<minion bossId="25044" minionId="25046" minimum="2" maximum="2" />
+
+	<minion bossId="25047" minionId="25048" minimum="1" maximum="1" />
+
+	<minion bossId="25047" minionId="25049" minimum="4" maximum="4" />
+
+	<minion bossId="25051" minionId="25052" minimum="2" maximum="2" />
+
+	<minion bossId="25051" minionId="25053" minimum="2" maximum="2" />
+
+	<minion bossId="25054" minionId="25055" minimum="1" maximum="1" />
+
+	<minion bossId="25054" minionId="25056" minimum="4" maximum="4" />
+
+	<minion bossId="25057" minionId="25058" minimum="3" maximum="3" />
+
+	<minion bossId="25057" minionId="25059" minimum="2" maximum="2" />
+
+	<minion bossId="25060" minionId="25061" minimum="3" maximum="3" />
+
+	<minion bossId="25060" minionId="25062" minimum="1" maximum="1" />
+
+	<minion bossId="25064" minionId="25065" minimum="1" maximum="1" />
+
+	<minion bossId="25064" minionId="25066" minimum="4" maximum="4" />
+
+	<minion bossId="25067" minionId="25068" minimum="3" maximum="3" />
+
+	<minion bossId="25067" minionId="25069" minimum="2" maximum="2" />
+
+	<minion bossId="25070" minionId="25071" minimum="3" maximum="3" />
+
+	<minion bossId="25070" minionId="25072" minimum="1" maximum="1" />
+
+	<minion bossId="25073" minionId="25074" minimum="2" maximum="2" />
+
+	<minion bossId="25073" minionId="25075" minimum="2" maximum="2" />
+
+	<minion bossId="25076" minionId="25077" minimum="1" maximum="1" />
+
+	<minion bossId="25076" minionId="25078" minimum="4" maximum="4" />
+
+	<minion bossId="25079" minionId="25080" minimum="2" maximum="2" />
+
+	<minion bossId="25079" minionId="25081" minimum="2" maximum="2" />
+
+	<minion bossId="25082" minionId="25083" minimum="3" maximum="3" />
+
+	<minion bossId="25082" minionId="25084" minimum="1" maximum="1" />
+
+	<minion bossId="25085" minionId="25086" minimum="3" maximum="3" />
+
+	<minion bossId="25085" minionId="25087" minimum="2" maximum="2" />
+
+	<minion bossId="25089" minionId="25091" minimum="3" maximum="3" />
+
+	<minion bossId="25089" minionId="25090" minimum="1" maximum="1" />
+
+	<minion bossId="25092" minionId="25093" minimum="1" maximum="1" />
+
+	<minion bossId="25092" minionId="25094" minimum="4" maximum="4" />
+
+	<minion bossId="25095" minionId="25096" minimum="3" maximum="3" />
+
+	<minion bossId="25095" minionId="25097" minimum="1" maximum="1" />
+
+	<minion bossId="25099" minionId="25100" minimum="2" maximum="2" />
+
+	<minion bossId="25099" minionId="25101" minimum="2" maximum="2" />
+
+	<minion bossId="25103" minionId="25104" minimum="1" maximum="1" />
+
+	<minion bossId="25103" minionId="25105" minimum="4" maximum="4" />
+
+	<minion bossId="25106" minionId="25107" minimum="3" maximum="3" />
+
+	<minion bossId="25106" minionId="25108" minimum="2" maximum="2" />
+
+	<minion bossId="25109" minionId="25110" minimum="3" maximum="3" />
+
+	<minion bossId="25109" minionId="25111" minimum="1" maximum="1" />
+
+	<minion bossId="25112" minionId="25113" minimum="3" maximum="3" />
+
+	<minion bossId="25112" minionId="25114" minimum="1" maximum="1" />
+
+	<minion bossId="25115" minionId="25116" minimum="3" maximum="3" />
+
+	<minion bossId="25115" minionId="25117" minimum="2" maximum="2" />
+
+	<minion bossId="25119" minionId="25120" minimum="3" maximum="3" />
+
+	<minion bossId="25119" minionId="25121" minimum="1" maximum="1" />
+
+	<minion bossId="25122" minionId="25123" minimum="1" maximum="1" />
+
+	<minion bossId="25122" minionId="25124" minimum="4" maximum="4" />
+
+	<minion bossId="25128" minionId="25129" minimum="3" maximum="3" />
+
+	<minion bossId="25128" minionId="25130" minimum="1" maximum="1" />
+
+	<minion bossId="25131" minionId="25132" minimum="3" maximum="3" />
+
+	<minion bossId="25131" minionId="25133" minimum="2" maximum="2" />
+
+	<minion bossId="25134" minionId="25135" minimum="2" maximum="2" />
+
+	<minion bossId="25134" minionId="25136" minimum="2" maximum="2" />
+
+	<minion bossId="25137" minionId="25138" minimum="3" maximum="3" />
+
+	<minion bossId="25137" minionId="25139" minimum="1" maximum="1" />
+
+	<minion bossId="25140" minionId="25141" minimum="1" maximum="1" />
+
+	<minion bossId="25140" minionId="25142" minimum="4" maximum="4" />
+
+	<minion bossId="25143" minionId="25144" minimum="2" maximum="2" />
+
+	<minion bossId="25143" minionId="25145" minimum="2" maximum="2" />
+
+	<minion bossId="25146" minionId="25147" minimum="3" maximum="3" />
+
+	<minion bossId="25146" minionId="25148" minimum="2" maximum="2" />
+
+	<minion bossId="25149" minionId="25150" minimum="3" maximum="3" />
+
+	<minion bossId="25149" minionId="25151" minimum="2" maximum="2" />
+
+	<minion bossId="25152" minionId="25153" minimum="1" maximum="1" />
+
+	<minion bossId="25152" minionId="25154" minimum="4" maximum="4" />
+
+	<minion bossId="25155" minionId="25156" minimum="3" maximum="3" />
+
+	<minion bossId="25155" minionId="25157" minimum="1" maximum="1" />
+
+	<minion bossId="25159" minionId="25160" minimum="2" maximum="2" />
+
+	<minion bossId="25159" minionId="25161" minimum="2" maximum="2" />
+
+	<minion bossId="25166" minionId="25167" minimum="2" maximum="2" />
+
+	<minion bossId="25166" minionId="25168" minimum="2" maximum="2" />
+
+	<minion bossId="25170" minionId="25171" minimum="3" maximum="3" />
+
+	<minion bossId="25170" minionId="25172" minimum="2" maximum="2" />
+
+	<minion bossId="25173" minionId="25174" minimum="2" maximum="2" />
+
+	<minion bossId="25173" minionId="25175" minimum="2" maximum="2" />
+
+	<minion bossId="25176" minionId="25177" minimum="1" maximum="1" />
+
+	<minion bossId="25176" minionId="25178" minimum="4" maximum="4" />
+
+	<minion bossId="25179" minionId="25180" minimum="3" maximum="3" />
+
+	<minion bossId="25179" minionId="25181" minimum="1" maximum="1" />
+
+	<minion bossId="25182" minionId="25183" minimum="2" maximum="2" />
+
+	<minion bossId="25182" minionId="25184" minimum="2" maximum="2" />
+
+	<minion bossId="25185" minionId="25186" minimum="3" maximum="3" />
+
+	<minion bossId="25185" minionId="25187" minimum="2" maximum="2" />
+
+	<minion bossId="25189" minionId="25190" minimum="3" maximum="3" />
+
+	<minion bossId="25189" minionId="25191" minimum="1" maximum="1" />
+
+	<minion bossId="25192" minionId="25193" minimum="1" maximum="1" />
+
+	<minion bossId="25192" minionId="25194" minimum="4" maximum="4" />
+
+	<minion bossId="25199" minionId="25200" minimum="3" maximum="3" />
+
+	<minion bossId="25199" minionId="25201" minimum="1" maximum="1" />
+
+	<minion bossId="25202" minionId="25203" minimum="2" maximum="2" />
+
+	<minion bossId="25202" minionId="25204" minimum="2" maximum="2" />
+
+	<minion bossId="25205" minionId="25206" minimum="1" maximum="1" />
+
+	<minion bossId="25205" minionId="25207" minimum="4" maximum="4" />
+
+	<minion bossId="25208" minionId="25209" minimum="3" maximum="3" />
+
+	<minion bossId="25208" minionId="25210" minimum="1" maximum="1" />
+
+	<minion bossId="25211" minionId="25212" minimum="3" maximum="3" />
+
+	<minion bossId="25211" minionId="25213" minimum="2" maximum="2" />
+
+	<minion bossId="25214" minionId="25215" minimum="3" maximum="3" />
+
+	<minion bossId="25214" minionId="25216" minimum="1" maximum="1" />
+
+	<minion bossId="25217" minionId="25218" minimum="3" maximum="3" />
+
+	<minion bossId="25217" minionId="25219" minimum="2" maximum="2" />
+
+	<minion bossId="25220" minionId="25221" minimum="3" maximum="3" />
+
+	<minion bossId="25220" minionId="25222" minimum="1" maximum="1" />
+
+	<minion bossId="25223" minionId="25224" minimum="3" maximum="3" />
+
+	<minion bossId="25223" minionId="25225" minimum="1" maximum="1" />
+
+	<minion bossId="25226" minionId="25227" minimum="2" maximum="2" />
+
+	<minion bossId="25226" minionId="25228" minimum="2" maximum="2" />
+
+	<minion bossId="25230" minionId="25231" minimum="1" maximum="1" />
+
+	<minion bossId="25230" minionId="25232" minimum="4" maximum="4" />
+
+	<minion bossId="25235" minionId="25236" minimum="2" maximum="2" />
+
+	<minion bossId="25235" minionId="25237" minimum="2" maximum="2" />
+
+	<minion bossId="25238" minionId="25239" minimum="2" maximum="2" />
+
+	<minion bossId="25238" minionId="25240" minimum="2" maximum="2" />
+
+	<minion bossId="25241" minionId="25242" minimum="3" maximum="3" />
+
+	<minion bossId="25241" minionId="25243" minimum="2" maximum="2" />
+
+	<minion bossId="25245" minionId="25246" minimum="1" maximum="1" />
+
+	<minion bossId="25245" minionId="25247" minimum="4" maximum="4" />
+
+	<minion bossId="25249" minionId="25250" minimum="3" maximum="3" />
+
+	<minion bossId="25249" minionId="25251" minimum="1" maximum="1" />
+
+	<minion bossId="25252" minionId="25253" minimum="3" maximum="3" />
+
+	<minion bossId="25252" minionId="25254" minimum="1" maximum="1" />
+
+	<minion bossId="25256" minionId="25257" minimum="3" maximum="3" />
+
+	<minion bossId="25256" minionId="25258" minimum="2" maximum="2" />
+
+	<minion bossId="25260" minionId="25261" minimum="3" maximum="3" />
+
+	<minion bossId="25260" minionId="25262" minimum="2" maximum="2" />
+
+	<minion bossId="25263" minionId="25264" minimum="3" maximum="3" />
+
+	<minion bossId="25263" minionId="25265" minimum="1" maximum="1" />
+
+	<minion bossId="25266" minionId="25267" minimum="4" maximum="4" />
+
+	<minion bossId="25266" minionId="25268" minimum="1" maximum="1" />
+
+	<minion bossId="25269" minionId="25270" minimum="3" maximum="3" />
+
+	<minion bossId="25269" minionId="25271" minimum="2" maximum="2" />
+
+	<minion bossId="25273" minionId="25274" minimum="3" maximum="3" />
+
+	<minion bossId="25273" minionId="25275" minimum="1" maximum="1" />
+
+	<minion bossId="25277" minionId="25278" minimum="2" maximum="2" />
+
+	<minion bossId="25277" minionId="25279" minimum="2" maximum="2" />
+
+	<minion bossId="25283" minionId="25284" minimum="4" maximum="4" />
+
+	<minion bossId="25283" minionId="25285" minimum="2" maximum="2" />
+
+	<minion bossId="25286" minionId="25287" minimum="3" maximum="3" />
+
+	<minion bossId="25286" minionId="25288" minimum="2" maximum="2" />
+
+	<minion bossId="25286" minionId="25289" minimum="2" maximum="2" />
+
+	<minion bossId="25290" minionId="25291" minimum="3" maximum="3" />
+
+	<minion bossId="25290" minionId="25292" minimum="1" maximum="1" />
+
+	<minion bossId="25293" minionId="25294" minimum="1" maximum="1" />
+
+	<minion bossId="25293" minionId="25295" minimum="4" maximum="4" />
+
+	<minion bossId="25296" minionId="25297" minimum="3" maximum="3" />
+
+	<minion bossId="25296" minionId="25298" minimum="1" maximum="1" />
+
+	<minion bossId="25299" minionId="25300" minimum="3" maximum="3" />
+
+	<minion bossId="25299" minionId="25301" minimum="2" maximum="2" />
+
+	<minion bossId="25302" minionId="25303" minimum="3" maximum="3" />
+
+	<minion bossId="25302" minionId="25304" minimum="1" maximum="1" />
+
+	<minion bossId="25306" minionId="25307" minimum="1" maximum="1" />
+
+	<minion bossId="25306" minionId="25308" minimum="4" maximum="4" />
+
+	<minion bossId="25309" minionId="25310" minimum="1" maximum="1" />
+
+	<minion bossId="25309" minionId="25311" minimum="4" maximum="4" />
+
+	<minion bossId="25312" minionId="25313" minimum="2" maximum="2" />
+
+	<minion bossId="25312" minionId="25314" minimum="2" maximum="2" />
+
+	<minion bossId="25316" minionId="25317" minimum="1" maximum="1" />
+
+	<minion bossId="25316" minionId="25318" minimum="4" maximum="4" />
+
+	<minion bossId="25319" minionId="25320" minimum="3" maximum="3" />
+
+	<minion bossId="25319" minionId="25321" minimum="1" maximum="1" />
+
+	<minion bossId="25322" minionId="25323" minimum="3" maximum="3" />
+
+	<minion bossId="25322" minionId="25324" minimum="1" maximum="1" />
+
+	<minion bossId="25325" minionId="25326" minimum="1" maximum="1" />
+
+	<minion bossId="25325" minionId="25327" minimum="4" maximum="4" />
+
+	<minion bossId="25328" minionId="25329" minimum="1" maximum="1" />
+
+	<minion bossId="25328" minionId="25330" minimum="1" maximum="1" />
+
+	<minion bossId="25328" minionId="25331" minimum="1" maximum="1" />
+
+	<minion bossId="25328" minionId="25332" minimum="1" maximum="1" />
+
+	<minion bossId="25339" minionId="25340" minimum="2" maximum="2" />
+
+	<minion bossId="25339" minionId="25341" minimum="2" maximum="2" />
+
+	<minion bossId="25342" minionId="25343" minimum="1" maximum="1" />
+
+	<minion bossId="25342" minionId="25344" minimum="1" maximum="1" />
+
+	<minion bossId="25342" minionId="25345" minimum="2" maximum="2" />
+
+	<minion bossId="25346" minionId="25347" minimum="3" maximum="3" />
+
+	<minion bossId="25346" minionId="25348" minimum="1" maximum="1" />
+
+	<minion bossId="25349" minionId="25350" minimum="3" maximum="3" />
+
+	<minion bossId="25349" minionId="25351" minimum="1" maximum="1" />
+
+	<minion bossId="25352" minionId="25353" minimum="3" maximum="3" />
+
+	<minion bossId="25354" minionId="25355" minimum="4" maximum="4" />
+
+	<minion bossId="25354" minionId="25356" minimum="1" maximum="1" />
+
+	<minion bossId="25357" minionId="25358" minimum="2" maximum="2" />
+
+	<minion bossId="25357" minionId="25359" minimum="1" maximum="1" />
+
+	<minion bossId="25360" minionId="25361" minimum="3" maximum="3" />
+
+	<minion bossId="25362" minionId="25363" minimum="2" maximum="2" />
+
+	<minion bossId="25362" minionId="25364" minimum="3" maximum="3" />
+
+	<minion bossId="25366" minionId="25367" minimum="2" maximum="2" />
+
+	<minion bossId="25366" minionId="25368" minimum="1" maximum="1" />
+
+	<minion bossId="25369" minionId="25370" minimum="1" maximum="1" />
+
+	<minion bossId="25369" minionId="25371" minimum="4" maximum="4" />
+
+	<minion bossId="25373" minionId="25374" minimum="3" maximum="3" />
+
+	<minion bossId="25375" minionId="25376" minimum="2" maximum="2" />
+
+	<minion bossId="25375" minionId="25377" minimum="1" maximum="1" />
+
+	<minion bossId="25378" minionId="25379" minimum="3" maximum="3" />
+
+	<minion bossId="25380" minionId="25381" minimum="1" maximum="1" />
+
+	<minion bossId="25380" minionId="25382" minimum="4" maximum="4" />
+
+	<minion bossId="25383" minionId="25384" minimum="3" maximum="3" />
+
+	<minion bossId="25385" minionId="25386" minimum="1" maximum="1" />
+
+	<minion bossId="25385" minionId="25387" minimum="4" maximum="4" />
+
+	<minion bossId="25388" minionId="25389" minimum="3" maximum="3" />
+
+	<minion bossId="25388" minionId="25390" minimum="2" maximum="2" />
+
+	<minion bossId="25392" minionId="25393" minimum="3" maximum="3" />
+
+	<minion bossId="25395" minionId="25396" minimum="1" maximum="1" />
+
+	<minion bossId="25395" minionId="25397" minimum="2" maximum="2" />
+
+	<minion bossId="25398" minionId="25399" minimum="3" maximum="3" />
+
+	<minion bossId="25398" minionId="25400" minimum="1" maximum="1" />
+
+	<minion bossId="25401" minionId="25402" minimum="1" maximum="1" />
+
+	<minion bossId="25401" minionId="25403" minimum="3" maximum="3" />
+
+	<minion bossId="25404" minionId="25405" minimum="2" maximum="2" />
+
+	<minion bossId="25404" minionId="25406" minimum="1" maximum="1" />
+
+	<minion bossId="25407" minionId="25408" minimum="1" maximum="1" />
+
+	<minion bossId="25407" minionId="25409" minimum="2" maximum="2" />
+
+	<minion bossId="25410" minionId="25411" minimum="3" maximum="3" />
+
+	<minion bossId="25412" minionId="25413" minimum="3" maximum="3" />
+
+	<minion bossId="25412" minionId="25414" minimum="2" maximum="2" />
+
+	<minion bossId="25415" minionId="25416" minimum="3" maximum="3" />
+
+	<minion bossId="25415" minionId="25417" minimum="1" maximum="1" />
+
+	<minion bossId="25418" minionId="25419" minimum="3" maximum="3" />
+
+	<minion bossId="25420" minionId="25421" minimum="3" maximum="3" />
+
+	<minion bossId="25420" minionId="25422" minimum="1" maximum="1" />
+
+	<minion bossId="25423" minionId="25424" minimum="4" maximum="4" />
+
+	<minion bossId="25423" minionId="25425" minimum="1" maximum="1" />
+
+	<minion bossId="25426" minionId="25427" minimum="2" maximum="2" />
+
+	<minion bossId="25426" minionId="25428" minimum="1" maximum="1" />
+
+	<minion bossId="25429" minionId="25430" minimum="3" maximum="3" />
+
+	<minion bossId="25431" minionId="25432" minimum="2" maximum="2" />
+
+	<minion bossId="25431" minionId="25433" minimum="2" maximum="2" />
+
+	<minion bossId="25434" minionId="25435" minimum="1" maximum="1" />
+
+	<minion bossId="25434" minionId="25436" minimum="3" maximum="3" />
+
+	<minion bossId="25438" minionId="25439" minimum="1" maximum="1" />
+
+	<minion bossId="25438" minionId="25440" minimum="3" maximum="3" />
+
+	<minion bossId="25441" minionId="25442" minimum="4" maximum="4" />
+
+	<minion bossId="25441" minionId="25443" minimum="1" maximum="1" />
+
+	<minion bossId="25444" minionId="25445" minimum="3" maximum="3" />
+
+	<minion bossId="25444" minionId="25446" minimum="2" maximum="2" />
+
+	<minion bossId="25447" minionId="25448" minimum="2" maximum="2" />
+
+	<minion bossId="25447" minionId="25449" minimum="2" maximum="2" />
+
+	<minion bossId="25450" minionId="25451" minimum="3" maximum="3" />
+
+	<minion bossId="25450" minionId="25452" minimum="1" maximum="1" />
+
+	<minion bossId="25453" minionId="25454" minimum="3" maximum="3" />
+
+	<minion bossId="25453" minionId="25455" minimum="1" maximum="1" />
+
+	<minion bossId="25456" minionId="25457" minimum="1" maximum="1" />
+
+	<minion bossId="25456" minionId="25458" minimum="2" maximum="2" />
+
+	<minion bossId="25456" minionId="25459" minimum="1" maximum="1" />
+
+	<minion bossId="25460" minionId="25461" minimum="2" maximum="2" />
+
+	<minion bossId="25460" minionId="25462" minimum="1" maximum="1" />
+
+	<minion bossId="25463" minionId="25464" minimum="1" maximum="1" />
+
+	<minion bossId="25463" minionId="25465" minimum="1" maximum="1" />
+
+	<minion bossId="25463" minionId="25466" minimum="1" maximum="1" />
+
+	<minion bossId="25467" minionId="25468" minimum="4" maximum="4" />
+
+	<minion bossId="25467" minionId="25469" minimum="1" maximum="1" />
+
+	<minion bossId="25470" minionId="25471" minimum="3" maximum="3" />
+
+	<minion bossId="25470" minionId="25472" minimum="1" maximum="1" />
+
+	<minion bossId="25473" minionId="25474" minimum="3" maximum="3" />
+
+	<minion bossId="25475" minionId="25476" minimum="3" maximum="3" />
+
+	<minion bossId="25475" minionId="25477" minimum="2" maximum="2" />
+
+	<minion bossId="25478" minionId="25479" minimum="3" maximum="3" />
+
+	<minion bossId="25478" minionId="25480" minimum="1" maximum="1" />
+
+	<minion bossId="25481" minionId="25482" minimum="2" maximum="2" />
+
+	<minion bossId="25481" minionId="25483" minimum="1" maximum="1" />
+
+	<minion bossId="25484" minionId="25485" minimum="1" maximum="1" />
+
+	<minion bossId="25484" minionId="25486" minimum="2" maximum="2" />
+
+	<minion bossId="25487" minionId="25488" minimum="3" maximum="3" />
+
+	<minion bossId="25487" minionId="25489" minimum="1" maximum="1" />
+
+	<minion bossId="25490" minionId="25491" minimum="3" maximum="3" />
+
+	<minion bossId="25490" minionId="25492" minimum="2" maximum="2" />
+
+	<minion bossId="25493" minionId="25494" minimum="1" maximum="1" />
+
+	<minion bossId="25493" minionId="25495" minimum="4" maximum="4" />
+
+	<minion bossId="25496" minionId="25497" minimum="3" maximum="3" />
+
+	<minion bossId="25498" minionId="25499" minimum="1" maximum="1" />
+
+	<minion bossId="25498" minionId="25500" minimum="4" maximum="4" />
+
+	<minion bossId="25501" minionId="25502" minimum="3" maximum="3" />
+
+	<minion bossId="25501" minionId="25503" minimum="2" maximum="2" />
+
+	<minion bossId="25504" minionId="25505" minimum="3" maximum="3" />
+
+	<minion bossId="25506" minionId="25507" minimum="1" maximum="1" />
+
+	<minion bossId="25506" minionId="25508" minimum="3" maximum="3" />
+
+	<minion bossId="25509" minionId="25510" minimum="1" maximum="1" />
+
+	<minion bossId="25509" minionId="25511" minimum="3" maximum="3" />
+
+	<minion bossId="25514" minionId="25515" minimum="1" maximum="1" />
+
+	<minion bossId="25514" minionId="25516" minimum="3" maximum="3" />
+
+	<minion bossId="25624" minionId="25628" minimum="3" maximum="3" />
+
+	<minion bossId="25624" minionId="25627" minimum="3" maximum="3" />
+
+	<minion bossId="25623" minionId="25633" minimum="5" maximum="5" />
+
+	<minion bossId="27108" minionId="27109" minimum="1" maximum="1" />
+
+	<minion bossId="29096" minionId="29097" minimum="2" maximum="2" />
+
+	<minion bossId="29096" minionId="29098" minimum="3" maximum="4" />
+
+	<minion bossId="25524" minionId="25525" minimum="2" maximum="2" />
+
+	<minion bossId="25524" minionId="25526" minimum="2" maximum="2" />
+
+	<minion bossId="29056" minionId="29057" minimum="2" maximum="2" />
+
+	<minion bossId="29056" minionId="29058" minimum="2" maximum="2" />
+
+	<minion bossId="22742" minionId="22744" minimum="3" maximum="3" />
+
+	<minion bossId="22743" minionId="22745" minimum="3" maximum="4" />
+
+	<minion bossId="22202" minionId="22201" minimum="2" maximum="3" />
+
+	<minion bossId="22205" minionId="22204" minimum="4" maximum="4" />
+
+	<minion bossId="22213" minionId="22209" minimum="1" maximum="1" />
+
+	<minion bossId="22213" minionId="22210" minimum="1" maximum="1" />
+
+	<minion bossId="22213" minionId="22212" minimum="2" maximum="2" />
+
+	<minion bossId="22198" minionId="22197" minimum="4" maximum="4" />
+
+	<minion bossId="22223" minionId="22197" minimum="1" maximum="1" />
+
+	<minion bossId="20983" minionId="20984" minimum="1" maximum="1" />
+
+	<minion bossId="20983" minionId="20985" minimum="1" maximum="1" />
+
+	<minion bossId="20983" minionId="21074" minimum="1" maximum="1" />
+
+	<minion bossId="21544" minionId="21545" minimum="1" maximum="1" />
+
+	<minion bossId="21544" minionId="21546" minimum="1" maximum="1" />
+
+	<minion bossId="22305" minionId="22308" minimum="1" maximum="1" />
+
+	<minion bossId="22306" minionId="22308" minimum="2" maximum="2" />
+
+	<minion bossId="22306" minionId="22309" minimum="2" maximum="2" />
+
+	<minion bossId="22307" minionId="22308" minimum="1" maximum="1" />
+
+	<minion bossId="22307" minionId="22309" minimum="2" maximum="2" />
+
+	<minion bossId="22307" minionId="22310" minimum="1" maximum="1" />
+
+	<minion bossId="22416" minionId="22308" minimum="1" maximum="1" />
+
+	<minion bossId="22416" minionId="22309" minimum="1" maximum="1" />
+
+	<minion bossId="22416" minionId="22310" minimum="1" maximum="1" />
+
+	<minion bossId="22416" minionId="22417" minimum="1" maximum="1" />
+
+	<minion bossId="22299" minionId="22300" minimum="2" maximum="2" />
+
+	<minion bossId="22301" minionId="22290" minimum="2" maximum="2" />
+
+	<minion bossId="22423" minionId="22424" minimum="1" maximum="1" />
+
+	<minion bossId="22423" minionId="22425" minimum="1" maximum="1" />
+
+	<minion bossId="22423" minionId="22426" minimum="1" maximum="1" />
+
+	<minion bossId="22423" minionId="22427" minimum="1" maximum="1" />
+
+	<minion bossId="22423" minionId="22428" minimum="1" maximum="1" />
+
+	<minion bossId="22423" minionId="22429" minimum="1" maximum="1" />
+
+	<minion bossId="22423" minionId="22430" minimum="1" maximum="1" />
+
+	<minion bossId="22431" minionId="22432" minimum="1" maximum="1" />
+
+	<minion bossId="22431" minionId="22433" minimum="1" maximum="1" />
+
+	<minion bossId="22431" minionId="22434" minimum="1" maximum="1" />
+
+	<minion bossId="22431" minionId="22435" minimum="1" maximum="1" />
+
+	<minion bossId="22431" minionId="22436" minimum="1" maximum="1" />
+
+	<minion bossId="22431" minionId="22437" minimum="1" maximum="1" />
+
+	<minion bossId="22431" minionId="22438" minimum="1" maximum="1" />
+
+	<minion bossId="18555" minionId="18556" minimum="2" maximum="2" />
+
+	<minion bossId="18559" minionId="18560" minimum="2" maximum="2" />
+
+	<minion bossId="18562" minionId="18563" minimum="2" maximum="2" />
+
+	<minion bossId="18566" minionId="18567" minimum="2" maximum="2" />
+
+	<minion bossId="18568" minionId="18569" minimum="1" maximum="1" />
+
+	<minion bossId="18571" minionId="18572" minimum="2" maximum="2" />
+
+	<minion bossId="18573" minionId="18574" minimum="2" maximum="2" />
+
+	<minion bossId="18577" minionId="18578" minimum="2" maximum="2" />
+
+	<minion bossId="29129" minionId="29130" minimum="2" maximum="2" />
+
+	<minion bossId="29129" minionId="29131" minimum="2" maximum="2" />
+
+	<minion bossId="29132" minionId="29133" minimum="2" maximum="2" />
+
+	<minion bossId="29132" minionId="29134" minimum="2" maximum="2" />
+
+	<minion bossId="29135" minionId="29136" minimum="2" maximum="2" />
+
+	<minion bossId="29135" minionId="29137" minimum="2" maximum="2" />
+
+	<minion bossId="29138" minionId="29139" minimum="2" maximum="2" />
+
+	<minion bossId="29138" minionId="29140" minimum="2" maximum="2" />
+
+	<minion bossId="29141" minionId="29142" minimum="2" maximum="2" />
+
+	<minion bossId="29141" minionId="29143" minimum="2" maximum="2" />
+
+	<minion bossId="29144" minionId="29145" minimum="2" maximum="2" />
+
+	<minion bossId="29144" minionId="29146" minimum="2" maximum="2" />
+
+	<minion bossId="29147" minionId="29148" minimum="2" maximum="2" />
+
+	<minion bossId="29147" minionId="29149" minimum="2" maximum="2" />
+
+	<minion bossId="29062" minionId="29063" minimum="1" maximum="1" />
+
+	<minion bossId="29062" minionId="29064" minimum="3" maximum="3" />
+
+	<minion bossId="22188" minionId="22189" minimum="4" maximum="4" />
+
+	<minion bossId="22188" minionId="22190" minimum="1" maximum="1" />
+
+	<minion bossId="22191" minionId="22192" minimum="1" maximum="1" />
+
+	<minion bossId="22191" minionId="22193" minimum="1" maximum="1" />
+
+	<minion bossId="22113" minionId="22112" minimum="1" maximum="1" />
+
+	<minion bossId="22118" minionId="22120" minimum="1" maximum="1" />
+
+	<minion bossId="18633" minionId="18634" minimum="6" maximum="6" />
+
+	<minion bossId="25625" minionId="25629" minimum="3" maximum="3" />
+
+	<minion bossId="25625" minionId="25630" minimum="3" maximum="3" />
+
+	<minion bossId="25626" minionId="25631" minimum="3" maximum="3" />
+
+	<minion bossId="25626" minionId="25632" minimum="3" maximum="3" />
+
+	<minion bossId="29001" minionId="29005" minimum="4" maximum="6" />
+
+	<minion bossId="18484" minionId="22422" minimum="4" maximum="9" />
+
+	<minion bossId="22326" minionId="22422" minimum="5" maximum="7" />
+
+	<minion bossId="22363" minionId="22364" minimum="1" maximum="4" />
+
+	<minion bossId="22370" minionId="22371" minimum="4" maximum="4" />
+
+	<minion bossId="22377" minionId="22378" minimum="2" maximum="2" />
+
+	<minion bossId="22377" minionId="22379" minimum="2" maximum="2" />
+
+	<minion bossId="22380" minionId="22381" minimum="4" maximum="4" />
+
+	<minion bossId="22390" minionId="22391" minimum="2" maximum="2" />
+
+	<minion bossId="22448" minionId="22451" minimum="5" maximum="5" />
+
+	<minion bossId="25540" minionId="25541" minimum="1" maximum="1" />
+
+	<minion bossId="25542" minionId="32305" minimum="1" maximum="2" />
+
+	<minion bossId="25600" minionId="25596" minimum="3" maximum="3" />
+
+	<minion bossId="25601" minionId="25596" minimum="3" maximum="3" />
+
+	<minion bossId="25602" minionId="25596" minimum="3" maximum="3" />
+
+	<minion bossId="29150" minionId="29151" minimum="1" maximum="1" />
+
+	<minion bossId="29150" minionId="29152" minimum="1" maximum="1" />
+
+	<minion bossId="22678" minionId="22684" minimum="1" maximum="1" />
+
+	<minion bossId="22679" minionId="22686" minimum="1" maximum="1" />
+
+	<minion bossId="22666" minionId="22667" minimum="1" maximum="4" />
+
+	<minion bossId="22670" minionId="22671" minimum="1" maximum="2" />
+
+	<minion bossId="22670" minionId="22672" minimum="1" maximum="3" />
+
+	<minion bossId="22625" minionId="22624" minimum="1" maximum="1" />
+
+	<minion bossId="22630" minionId="22632" minimum="1" maximum="1" />
+
+	<minion bossId="22621" minionId="22620" minimum="1" maximum="1" />
+
+	<minion bossId="25671" minionId="25672" minimum="1" maximum="1" />
+
+	<minion bossId="25671" minionId="25673" minimum="3" maximum="3" />
+
+	<minion bossId="25546" minionId="25547" minimum="2" maximum="2" />
+
+	<minion bossId="25546" minionId="25548" minimum="2" maximum="2" />
+
+	<minion bossId="25549" minionId="25550" minimum="3" maximum="3" />
+
+	<minion bossId="25549" minionId="25551" minimum="1" maximum="1" />
+
+	<minion bossId="25554" minionId="25555" minimum="1" maximum="1" />
+
+	<minion bossId="25554" minionId="25556" minimum="4" maximum="4" />
+
+	<minion bossId="25557" minionId="25558" minimum="3" maximum="3" />
+
+	<minion bossId="25557" minionId="25559" minimum="1" maximum="1" />
+
+	<minion bossId="25560" minionId="25561" minimum="2" maximum="2" />
+
+	<minion bossId="25560" minionId="25562" minimum="2" maximum="2" />
+
+	<minion bossId="25563" minionId="25564" minimum="1" maximum="1" />
+
+	<minion bossId="25563" minionId="25565" minimum="4" maximum="4" />
+
+	<minion bossId="25566" minionId="25567" minimum="3" maximum="3" />
+
+	<minion bossId="25566" minionId="25568" minimum="1" maximum="1" />
+
+	<minion bossId="25569" minionId="25570" minimum="3" maximum="3" />
+
+	<minion bossId="25569" minionId="25571" minimum="2" maximum="2" />
+
+	<minion bossId="25572" minionId="25573" minimum="2" maximum="2" />
+
+	<minion bossId="25572" minionId="25574" minimum="2" maximum="2" />
+
+	<minion bossId="25575" minionId="25576" minimum="4" maximum="4" />
+
+	<minion bossId="25575" minionId="25577" minimum="1" maximum="1" />
+
+	<minion bossId="25579" minionId="25580" minimum="4" maximum="4" />
+
+	<minion bossId="25579" minionId="25581" minimum="1" maximum="1" />
+
+	<minion bossId="25582" minionId="25583" minimum="2" maximum="2" />
+
+	<minion bossId="25582" minionId="25584" minimum="2" maximum="2" />
+
+	<minion bossId="25585" minionId="25586" minimum="3" maximum="3" />
+
+	<minion bossId="25585" minionId="25587" minimum="1" maximum="1" />
+
+	<minion bossId="25589" minionId="25590" minimum="1" maximum="1" />
+
+	<minion bossId="25589" minionId="25591" minimum="4" maximum="4" />
+
+	<minion bossId="25593" minionId="25594" minimum="3" maximum="3" />
+
+	<minion bossId="25593" minionId="25595" minimum="2" maximum="2" />
+
+	<minion bossId="25528" minionId="25529" minimum="2" maximum="2" />
+
+	<minion bossId="25528" minionId="25530" minimum="2" maximum="4" />
+
+	<minion bossId="29014" minionId="29016" minimum="4" maximum="4" />
+
+	<minion bossId="25681" minionId="25682" minimum="1" maximum="2" />
+
+	<minion bossId="25681" minionId="25683" minimum="1" maximum="2" />
+
+	<minion bossId="25674" minionId="25675" minimum="1" maximum="2" />
+
+	<minion bossId="25674" minionId="25676" minimum="1" maximum="2" />
+
+	<minion bossId="25684" minionId="25685" minimum="1" maximum="2" />
+
+	<minion bossId="25684" minionId="25686" minimum="1" maximum="2" />
+
+	<minion bossId="25687" minionId="25688" minimum="1" maximum="2" />
+
+	<minion bossId="25687" minionId="25689" minimum="1" maximum="2" />
+
+	<minion bossId="25677" minionId="25678" minimum="1" maximum="2" />
+
+	<minion bossId="25677" minionId="25679" minimum="1" maximum="2" />
+
+	<minion bossId="25710" minionId="25711" minimum="2" maximum="2" />
+
+	<minion bossId="25710" minionId="25712" minimum="2" maximum="2" />
+
+</minionList>

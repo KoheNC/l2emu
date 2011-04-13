@@ -344,38 +344,6 @@ public final class NpcTable
 			
 			try
 			{
-				PreparedStatement statement4 = con.prepareStatement("SELECT * FROM minions");
-				ResultSet minionData = statement4.executeQuery();
-				int cnt = 0;
-				
-				while (minionData.next())
-				{
-					final int raidId = minionData.getInt("boss_id");
-					L2NpcTemplate npcDat = _npcs.get(raidId);
-					if (npcDat == null)
-					{
-						_log.warn("Minion references undefined boss NPC. Boss NpcId: " + raidId);
-						continue;
-					}
-					L2MinionData minionDat = new L2MinionData();
-					minionDat.setMinionId(minionData.getInt("minion_id"));
-					minionDat.setAmountMin(minionData.getInt("amount_min"));
-					minionDat.setAmountMax(minionData.getInt("amount_max"));
-					npcDat.addRaidData(minionDat);
-					cnt++;
-				}
-				
-				minionData.close();
-				statement4.close();
-				_log.info("NpcTable: Loaded " + cnt + " Minions.");
-			}
-			catch (Exception e)
-			{
-				_log.fatal("Error loading minion data: ", e);
-			}
-			
-			try
-			{
 				PreparedStatement statement10 = con.prepareStatement("SELECT "
 						+ L2DatabaseFactory.getInstance().safetyString(
 								new String[]

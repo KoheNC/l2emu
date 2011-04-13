@@ -2429,8 +2429,23 @@ public final class Formulas
 			return 1 + delta / 75;
 		}
 	}
-
+	
 	public static boolean calcMagicSuccess(L2Character attacker, L2Character target, L2Skill skill)
+	{
+		double lvlDifference = -1 * getMagicLevelDifference(attacker, target, skill);
+		double rate = Math.round(Math.pow(1.3, lvlDifference) * 100);
+		rate = attacker.getStat().calcStat(Stats.MAGIC_FAIL_RATE, rate, target, skill);
+
+		if (target instanceof L2Attackable && !target.isRaid() && !target.isRaidMinion())
+			if (target.getLevel() >= 78)
+				if (attacker.getActingPlayer() != null)
+					if (target.getLevel() - attacker.getActingPlayer().getLevel() >= 3)
+						rate *= 3;
+		
+		return (Rnd.get(10000) > (int) rate);
+	}
+
+	/*public static boolean calcMagicSuccess(L2Character attacker, L2Character target, L2Skill skill)
 	{
 		double lvlDifference = -1 * getMagicLevelDifference(attacker, target, skill);
 		double rate = Math.round(Math.pow(1.3, lvlDifference) * 100);
@@ -2440,7 +2455,7 @@ public final class Formulas
 		rate *= target.calcStat(Stats.MAGIC_SUCCESS_RES, 1, null, skill);
 		
 		return (Rnd.get(10000) > (int) rate);
-	}
+	}*/
 
 	public static boolean calculateUnlockChance(L2Skill skill)
 	{

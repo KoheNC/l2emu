@@ -6622,6 +6622,7 @@ public abstract class L2Character extends L2Object
 		}, delay);
 	}
 	
+	private boolean		_isMinion = false;
 	private boolean		_AIdisabled	= false;
 
 	/**
@@ -6948,6 +6949,20 @@ public abstract class L2Character extends L2Object
 		{
 			doSimultaneousCast(_skill);
 		}
+	}
+	
+	public final boolean isRaidMinion()
+	{
+		return _isMinion;
+	}
+	
+	/**
+	 * Set this Npc as a Minion instance.<BR><BR>
+	 * @param val
+	 */
+	public final void setIsRaidMinion(final boolean val)
+	{
+		_isMinion = val;
 	}
 
 	private volatile byte _packetBroadcastMask;

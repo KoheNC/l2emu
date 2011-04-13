@@ -25,6 +25,7 @@ import net.l2emuproject.gameserver.dataholders.AugmentationDataHolder;
 import net.l2emuproject.gameserver.dataholders.EnchantHPBonusDataHolder;
 import net.l2emuproject.gameserver.dataholders.EnchantItemDataHolder;
 import net.l2emuproject.gameserver.dataholders.MerchantPriceConfigDataHolder;
+import net.l2emuproject.gameserver.dataholders.MinionDataHolder;
 import net.l2emuproject.gameserver.dataholders.SummonItemsDataHolder;
 import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.dataholders.UIDataHolder;
@@ -297,6 +298,7 @@ public class L2GameServer extends Config
 		
 		Util.printSection("NPCs");
 		NpcTable.getInstance();
+		MinionDataHolder.getInstance();
 		// L2EMU_ADD
 		GlobalDropTable.getInstance();
 		// L2EMU_ADD
