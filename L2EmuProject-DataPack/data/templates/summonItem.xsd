@@ -1,0 +1,31 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="item" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="item">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="npcId" />
+				<xs:element ref="summonType" />
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="npcId">
+		<xs:complexType>
+			<xs:attribute name="val" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="summonType">
+		<xs:complexType>
+			<xs:attribute name="val" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

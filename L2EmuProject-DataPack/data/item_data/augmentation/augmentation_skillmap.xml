@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE list SYSTEM "../../templates/aug_skillmap.dtd">
-<list>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/augSkillMap.xsd">
 	<augmentation id="14561"> <!-- Active: Temporarily increases the size of your head. -->
 		<skillId val="3203" /> <!-- Item Skill: Mystery Skill: Active: Increases your head size. -->
 		<skillLevel val="1" />
