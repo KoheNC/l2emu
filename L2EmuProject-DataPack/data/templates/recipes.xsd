@@ -1,0 +1,53 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="item" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="item">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="statUse" />
+				<xs:element ref="production" />
+				<xs:element minOccurs="0" ref="productionRare" />
+				<xs:element maxOccurs="unbounded" ref="ingredient" />
+			</xs:sequence>
+			<xs:attribute name="craftLevel" use="required" type="xs:integer" />
+			<xs:attribute name="id" use="required" type="xs:integer" />
+			<xs:attribute name="name" use="required" />
+			<xs:attribute name="recipeId" use="required" type="xs:integer" />
+			<xs:attribute name="successRate" use="required" type="xs:integer" />
+			<xs:attribute name="type" use="required" type="xs:NCName" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="statUse">
+		<xs:complexType>
+			<xs:attribute name="name" use="required" type="xs:NCName" />
+			<xs:attribute name="value" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="production">
+		<xs:complexType>
+			<xs:attribute name="count" use="required" type="xs:integer" />
+			<xs:attribute name="id" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="productionRare">
+		<xs:complexType>
+			<xs:attribute name="count" use="required" type="xs:integer" />
+			<xs:attribute name="id" use="required" type="xs:integer" />
+			<xs:attribute name="rarity" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ingredient">
+		<xs:complexType>
+			<xs:attribute name="count" use="required" type="xs:integer" />
+			<xs:attribute name="id" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,75 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="castle" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="castle">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="crop" />
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="crop">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="seed_id" />
+				<xs:element ref="mature_id" />
+				<xs:element ref="reward1" />
+				<xs:element ref="reward2" />
+				<xs:element ref="alternative" />
+				<xs:element ref="level" />
+				<xs:element ref="limit_seed" />
+				<xs:element ref="limit_crops" />
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="seed_id">
+		<xs:complexType>
+			<xs:attribute name="val" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mature_id">
+		<xs:complexType>
+			<xs:attribute name="val" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="reward1">
+		<xs:complexType>
+			<xs:attribute name="val" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="reward2">
+		<xs:complexType>
+			<xs:attribute name="val" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="alternative">
+		<xs:complexType>
+			<xs:attribute name="val" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="level">
+		<xs:complexType>
+			<xs:attribute name="val" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="limit_seed">
+		<xs:complexType>
+			<xs:attribute name="val" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="limit_crops">
+		<xs:complexType>
+			<xs:attribute name="val" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
