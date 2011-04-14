@@ -55,20 +55,11 @@ public class L2BuffTemplate
 	/** Max player level */
 	private final int		_maxLevel;
 
-	/** Player's faction */
-	private final int		_faction;
-
 	/** Players's race */
 	private final int		_race;
 
 	/** Magus/Fighter class of the player */
 	private final int		_class;
-
-	/** Adena price */
-	private final int		_adena;
-
-	/** Faction points price */
-	private final int		_points;
 
 	/**
 	 * Constructor of L2BuffTemplat.<BR>
@@ -92,9 +83,6 @@ public class L2BuffTemplate
 		_maxLevel = set.getInteger("maxLevel");
 		_race = set.getInteger("race");
 		_class = set.getInteger("class");
-		_faction = set.getInteger("faction");
-		_adena = set.getInteger("adena");
-		_points = set.getInteger("points");
 	}
 
 	/**
@@ -162,30 +150,6 @@ public class L2BuffTemplate
 	}
 
 	/**
-	 * @return Returns the requirement faction to receive buff
-	 */
-	public int getFaction()
-	{
-		return _faction;
-	}
-
-	/**
-	 * @return Returns the price for buff in Adena
-	 */
-	public int getAdenaPrice()
-	{
-		return _adena;
-	}
-
-	/**
-	 * @return Returns the price for buff in Faction Points
-	 */
-	public int getPointsPrice()
-	{
-		return _points;
-	}
-
-	/**
 	 * @return Is cast animation will be shown
 	 */
 	public boolean forceCast()
@@ -231,31 +195,11 @@ public class L2BuffTemplate
 	}
 
 	/**
-	 * @param player
-	 * @return Returns the result of faction check
-	 */
-	public boolean checkFaction(L2Player player)
-	{
-		return true;
-		// return ((_faction == 0 ||player.getFaction = _faction)
-	}
-
-	/**
-	 * @return Returns the result of price check
-	 */
-	public boolean checkPrice(L2Player player)
-	{
-		return ((_adena == 0 || player.getInventory().getAdena() >= _adena));
-		// return ((_adena == 0 || player.getInventory().getAdena()>=_adena) &&
-		// (_points == 0 || (player.getFactionPoints>=_points)));
-	}
-
-	/**
 	 * @return Returns the result of all player related conditions check
 	 */
 	public boolean checkPlayer(L2Player player)
 	{
-		return (checkLevel(player) && checkRace(player) && checkClass(player) && checkFaction(player));
+		return (checkLevel(player) && checkRace(player) && checkClass(player));
 	}
 
 }

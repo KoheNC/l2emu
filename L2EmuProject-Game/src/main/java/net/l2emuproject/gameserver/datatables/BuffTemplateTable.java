@@ -79,9 +79,6 @@ public final class BuffTemplateTable
 				buff.set("maxLevel", rset.getInt("char_max_level"));
 				buff.set("race", rset.getInt("char_race"));
 				buff.set("class", rset.getInt("char_class"));
-				buff.set("faction", rset.getInt("char_faction"));
-				buff.set("adena", rset.getInt("price_adena"));
-				buff.set("points", rset.getInt("price_points"));
 				
 				// Add this buff template to the buff template list
 				final L2BuffTemplate template = new L2BuffTemplate(buff);

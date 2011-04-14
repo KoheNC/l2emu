@@ -1046,45 +1046,34 @@ public class L2Npc extends L2Character
 		L2Playable receiver = (servitor ? player.getPet() : player);
 		setTarget(receiver);
 
-		int _priceTotal = 0;
-		for (L2BuffTemplate _buff : _templateBuffs)
+		for (L2BuffTemplate buff : _templateBuffs)
 		{
-			if (_buff.checkPlayer(player) && _buff.checkPrice(player))
+			if (buff.checkPlayer(player))
 			{
-				if (player.getInventory().getAdena() >= (_priceTotal + _buff.getAdenaPrice()))
+				if (buff.forceCast() || receiver.getFirstEffect(buff.getSkill()) == null)
 				{
-					_priceTotal += _buff.getAdenaPrice();
+					// regeneration ^^
+					getStatus().setCurrentHpMp(getMaxHp(), getMaxMp());
 
-					if (_buff.forceCast() || receiver.getFirstEffect(_buff.getSkill()) == null)
+					if (_templateId != 1 && !servitor)
 					{
-						// regeneration ^^
-						getStatus().setCurrentHpMp(getMaxHp(), getMaxMp());
+						SystemMessage sm = new SystemMessage(SystemMessageId.YOU_FEEL_S1_EFFECT);
+						sm.addSkillName(buff.getSkill().getId());
+						player.sendPacket(sm);
+					}
 
-						// yes, its not for all skills right, but atleast player will know
-						// for what he paid =)
-						if (_templateId != 1 && !servitor)
-						{
-							SystemMessage sm = new SystemMessage(SystemMessageId.YOU_FEEL_S1_EFFECT);
-							sm.addSkillName(_buff.getSkill().getId());
-							player.sendPacket(sm);
-						}
-
-						// hack for newbie summons
-						if (_buff.getSkill().getSkillType() == L2SkillType.SUMMON)
-						{
-							player.doSimultaneousCast(_buff.getSkill());
-						}
-						else
-						{ // Ignore skill cast time, using 100ms for NPC buffer's animation
-							MagicSkillUse msu = new MagicSkillUse(this, receiver, _buff.getSkill().getId(), _buff.getSkill().getLevel(), 100, 0);
-							broadcastPacket(msu);
-							_buff.getSkill().getEffects(this, receiver);
-						}
+					// hack for newbie summons
+					if (buff.getSkill().getSkillType() == L2SkillType.SUMMON)
+						player.doSimultaneousCast(buff.getSkill());
+					else // Ignore skill cast time, using 100ms for NPC buffer's animation
+					{
+						MagicSkillUse msu = new MagicSkillUse(this, receiver, buff.getSkill().getId(), buff.getSkill().getLevel(), 100, 0);
+						broadcastPacket(msu);
+						buff.getSkill().getEffects(this, receiver);
 					}
 				}
 			}
 		}
-		player.reduceAdena("NpcBuffer", _priceTotal, player.getLastFolkNPC(), true);
 	}
 
 	/**
