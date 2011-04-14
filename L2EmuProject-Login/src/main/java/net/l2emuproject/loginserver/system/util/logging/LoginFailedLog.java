@@ -20,7 +20,6 @@ import java.util.logging.FileHandler;
 
 import net.l2emuproject.util.logging.L2LogFilter;
 
-
 /**
  * @author NB4L1
  */
@@ -29,20 +28,20 @@ public final class LoginFailedLog
 	private LoginFailedLog()
 	{
 	}
-	
+
 	public static final class Handler extends FileHandler
 	{
 		static
 		{
 			new File("log/login").mkdirs();
 		}
-		
+
 		public Handler() throws IOException, SecurityException
 		{
 			super();
 		}
 	}
-	
+
 	public static final class Filter extends L2LogFilter
 	{
 		@Override
@@ -51,7 +50,7 @@ public final class LoginFailedLog
 			return "login.failed";
 		}
 	}
-	
+
 	public static final class Formatter extends L2LoginLogFormatter
 	{
 	}

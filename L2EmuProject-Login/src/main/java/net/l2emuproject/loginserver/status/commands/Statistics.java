@@ -28,15 +28,14 @@ public final class Statistics extends LoginStatusCommand
 	{
 		super("displays basic server statistics", "status", "stats");
 	}
-	
+
 	@Override
 	protected void useCommand(String command, String params)
 	{
 		println("Registered server(s):");
 		println("\t...count: " + GameServerManager.getInstance().getRegisteredGameServers().size());
-		println("\t...ids: "
-			+ StringUtils.join(GameServerManager.getInstance().getRegisteredGameServers().keySet().iterator(), ", "));
-		
+		println("\t...ids: " + StringUtils.join(GameServerManager.getInstance().getRegisteredGameServers().keySet().iterator(), ", "));
+
 		// TODO add more details
 	}
 }

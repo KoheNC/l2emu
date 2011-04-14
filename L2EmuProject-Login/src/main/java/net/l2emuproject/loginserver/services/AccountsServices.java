@@ -29,7 +29,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.ObjectRetrievalFailureException;
 
-
 /**
  * Account service to handle account management
  * 
@@ -73,11 +72,11 @@ public class AccountsServices
 			newpass = password.getBytes("UTF-8");
 			newpass = md.digest(newpass);
 		}
-		catch (NoSuchAlgorithmException e1)
+		catch (final NoSuchAlgorithmException e1)
 		{
 			throw new AccountModificationException("No algorithm to encode password.", e1);
 		}
-		catch (UnsupportedEncodingException e1)
+		catch (final UnsupportedEncodingException e1)
 		{
 			throw new AccountModificationException("Unsupported encoding.", e1);
 		}
@@ -87,7 +86,7 @@ public class AccountsServices
 		try
 		{
 			acc = new Accounts();
-			Integer iLevel = new Integer(level);
+			final Integer iLevel = new Integer(level);
 			acc.setLogin(account);
 			acc.setAccessLevel(iLevel);
 			acc.setPassword(Base64.encodeBytes(newpass));
@@ -99,7 +98,7 @@ public class AccountsServices
 			if (_log.isDebugEnabled())
 				_log.info("Account " + account + " has been updated.");
 		}
-		catch (NumberFormatException e)
+		catch (final NumberFormatException e)
 		{
 			throw new AccountModificationException("Access level (" + level + ") should be an integer.", e);
 		}
@@ -127,7 +126,7 @@ public class AccountsServices
 			if (_log.isDebugEnabled())
 				_log.info("Account " + acc.getLogin() + " has been updated.");
 		}
-		catch (DataAccessException e)
+		catch (final DataAccessException e)
 		{
 			throw new AccountModificationException("Unable to create account.", e);
 		}
@@ -144,7 +143,7 @@ public class AccountsServices
 	{
 		// Search account
 		// ---------------
-		Accounts acc = __accDAO.getAccountById(account);
+		final Accounts acc = __accDAO.getAccountById(account);
 
 		if (acc == null)
 			throw new AccountModificationException("Account " + account + " doesn't exist.");
@@ -153,13 +152,13 @@ public class AccountsServices
 		// --------------
 		try
 		{
-			Integer iLevel = new Integer(level);
+			final Integer iLevel = new Integer(level);
 			acc.setAccessLevel(iLevel);
 			__accDAO.createOrUpdate(acc);
 			if (_log.isDebugEnabled())
 				_log.debug("Account " + account + " has been updated.");
 		}
-		catch (NumberFormatException e)
+		catch (final NumberFormatException e)
 		{
 			throw new AccountModificationException("Error : level (" + level + ") should be an integer.", e);
 		}
@@ -175,14 +174,14 @@ public class AccountsServices
 	{
 		// Search account
 		// ---------------
-		Accounts acc = __accDAO.getAccountById(account);
+		final Accounts acc = __accDAO.getAccountById(account);
 
 		if (acc == null)
 			throw new AccountModificationException("Account " + account + " doesn't exist.");
 
 		// Update account
 		// --------------
-		Integer iLevel = new Integer(level);
+		final Integer iLevel = new Integer(level);
 		acc.setAccessLevel(iLevel);
 		__accDAO.update(acc);
 		if (_log.isDebugEnabled())
@@ -203,7 +202,7 @@ public class AccountsServices
 		{
 			acc = __accDAO.getAccountById(account);
 		}
-		catch (ObjectRetrievalFailureException e)
+		catch (final ObjectRetrievalFailureException e)
 		{
 			throw new AccountModificationException("Unable to delete account : " + account + ". This account does not exist.");
 		}
@@ -216,7 +215,7 @@ public class AccountsServices
 	 */
 	public List<Accounts> getAccountsInfo()
 	{
-		List<Accounts> list = __accDAO.getAllAccounts();
+		final List<Accounts> list = __accDAO.getAllAccounts();
 		return list;
 	}
 
@@ -228,28 +227,31 @@ public class AccountsServices
 	{
 		try
 		{
-			Accounts acc = __accDAO.getAccountById(id);
+			final Accounts acc = __accDAO.getAccountById(id);
 			return acc;
 		}
-		catch (ObjectRetrievalFailureException e)
+		catch (final ObjectRetrievalFailureException e)
 		{
 			if (_log.isDebugEnabled())
 				_log.debug("Account not found in database: " + id, e);
 			return null;
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			_log.warn("", e);
 			return null;
 		}
 	}
 
-	public boolean exists(String accountName) {
-		try {
+	public boolean exists(String accountName)
+	{
+		try
+		{
 			__accDAO.getAccountById(accountName);
 			return true;
 		}
-		catch (ObjectRetrievalFailureException e) {
+		catch (final ObjectRetrievalFailureException e)
+		{
 			return false;
 		}
 	}

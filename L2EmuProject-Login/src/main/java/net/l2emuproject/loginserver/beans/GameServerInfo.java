@@ -17,7 +17,6 @@ package net.l2emuproject.loginserver.beans;
 import net.l2emuproject.loginserver.thread.GameServerThread;
 import net.l2emuproject.network.status.ServerStatus;
 
-
 /**
  * 
  */
@@ -25,12 +24,12 @@ public class GameServerInfo
 {
 	// auth
 	private int					_id;
-	private final byte[]				_hexId;
+	private final byte[]		_hexId;
 	private boolean				_isAuthed;
 
 	// status
 	private GameServerThread	_gst;
-	private ServerStatus			_status;
+	private ServerStatus		_status;
 
 	// network
 	private String				_ip;
@@ -38,11 +37,11 @@ public class GameServerInfo
 
 	// config
 	private boolean				_isPvp;
-    private boolean				_clock;
-    private boolean				_hideName;
-    private boolean				_unk1;
-    private boolean				_testServer;
-    private boolean				_brackets;
+	private boolean				_clock;
+	private boolean				_hideName;
+	private boolean				_unk1;
+	private boolean				_testServer;
+	private boolean				_brackets;
 	private int					_maxPlayers;
 	private int					_age;
 
@@ -103,7 +102,7 @@ public class GameServerInfo
 	{
 		setStatus(ServerStatus.valueOf(status));
 	}
-	
+
 	public void setStatus(ServerStatus status)
 	{
 		_status = status;
@@ -151,44 +150,45 @@ public class GameServerInfo
 		return _maxPlayers;
 	}
 
-    public void setPvp(boolean val)
-    {
-        _isPvp = val;
-    }
+	public void setPvp(boolean val)
+	{
+		_isPvp = val;
+	}
 
-    public boolean isPvp()
-    {
-        return _isPvp;
-    }
+	public boolean isPvp()
+	{
+		return _isPvp;
+	}
 
-    public boolean isOnline() {
-    	return getStatus() != ServerStatus.STATUS_DOWN;
-    }
+	public boolean isOnline()
+	{
+		return getStatus() != ServerStatus.STATUS_DOWN;
+	}
 
-    public void setAgeLimitation(int age)
-    {
-        _age = age;
-    }
+	public void setAgeLimitation(int age)
+	{
+		_age = age;
+	}
 
-    public int getAgeLimitation()
-    {
-    	if (isOnline())
-    		return 0;
-    	return _age;
-    }
+	public int getAgeLimitation()
+	{
+		if (isOnline())
+			return 0;
+		return _age;
+	}
 
-    public void setShowingClock(boolean clock)
-    {
-        _clock = clock;
-    }
+	public void setShowingClock(boolean clock)
+	{
+		_clock = clock;
+	}
 
-    public boolean showClock()
-    {
-        return _clock;
-    }
+	public boolean showClock()
+	{
+		return _clock;
+	}
 
-    public void setHideName(boolean hide)
-    {
+	public void setHideName(boolean hide)
+	{
 		_hideName = hide;
 	}
 
@@ -208,24 +208,24 @@ public class GameServerInfo
 	}
 
 	public void setTestServer(boolean val)
-    {
-        _testServer = val;
-    }
+	{
+		_testServer = val;
+	}
 
-    public boolean testServer()
-    {
-        return _testServer;
-    }
+	public boolean testServer()
+	{
+		return _testServer;
+	}
 
-    public void setShowingBrackets(boolean val)
-    {
-        _brackets = val;
-    }
+	public void setShowingBrackets(boolean val)
+	{
+		_brackets = val;
+	}
 
-    public boolean showBrackets()
-    {
-        return _brackets;
-    }
+	public boolean showBrackets()
+	{
+		return _brackets;
+	}
 
 	public void setDown()
 	{

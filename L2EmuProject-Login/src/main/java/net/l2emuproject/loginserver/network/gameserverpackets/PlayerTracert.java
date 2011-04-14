@@ -19,12 +19,12 @@ package net.l2emuproject.loginserver.network.gameserverpackets;
  */
 public class PlayerTracert extends GameToLoginPacket
 {
-	private String	_account;
-	private String	_pcIp;
-	private String	_hop1;
-	private String	_hop2;
-	private String	_hop3;
-	private String	_hop4;
+	private final String	_account;
+	private final String	_pcIp;
+	private final String	_hop1;
+	private final String	_hop2;
+	private final String	_hop3;
+	private final String	_hop4;
 
 	/**
 	 * @param decrypt

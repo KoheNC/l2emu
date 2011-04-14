@@ -23,7 +23,6 @@ import net.l2emuproject.tools.codec.Base64;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * A class for convenient table entry management.<BR>
  * Use instead of Accounts.class only if you want L2J table compatibility.<BR>
@@ -43,7 +42,9 @@ public class AccountBean implements Serializable
 	private String				lastIp;
 
 	/** Default constructor? */
-	public AccountBean() {}
+	public AccountBean()
+	{
+	}
 
 	/**
 	 * Simple constructor - self explanatory
@@ -62,8 +63,7 @@ public class AccountBean implements Serializable
 	 * @param accessLevel
 	 * @param lastServerId
 	 */
-	public AccountBean(String login, String password, BigDecimal lastactive,
-			Integer accessLevel, Integer lastServerId, String lastIp)
+	public AccountBean(String login, String password, BigDecimal lastactive, Integer accessLevel, Integer lastServerId, String lastIp)
 	{
 		this(login);
 		this.password = password;
@@ -97,11 +97,11 @@ public class AccountBean implements Serializable
 	{
 		try
 		{
-			MessageDigest md = MessageDigest.getInstance("SHA");
+			final MessageDigest md = MessageDigest.getInstance("SHA");
 			md.update(password.getBytes("UTF-8"));
 			this.password = Base64.encodeBytes(md.digest());
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			_log.error("Cannot encrypt password!", e);
 		}

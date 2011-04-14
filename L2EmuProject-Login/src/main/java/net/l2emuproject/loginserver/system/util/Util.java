@@ -16,7 +16,7 @@ package net.l2emuproject.loginserver.system.util;
 
 import net.l2emuproject.L2Config;
 
-public class Util 
+public class Util
 {
 	/**
 	 * @param s
@@ -24,10 +24,10 @@ public class Util
 	public static void printSection(String s)
 	{
 		s = "=[ " + s + " ]";
-		
+
 		while (s.length() < 159)
 			s = "-" + s;
-		
+
 		L2Config.out.println(s);
 	}
 }

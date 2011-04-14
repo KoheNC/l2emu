@@ -16,10 +16,8 @@ package net.l2emuproject.loginserver.system.util.logging;
 
 import java.util.logging.LogRecord;
 
-import net.l2emuproject.util.logging.L2LogFormatter;
-
 import javolution.text.TextBuilder;
-
+import net.l2emuproject.util.logging.L2LogFormatter;
 
 /**
  * @author NB4L1

@@ -52,12 +52,10 @@ public class L2Registry
 		{
 			// Load the context if it is not already loaded
 			if (__ctx == null)
-			{
 				// init properties for spring
 				__ctx = new ClassPathXmlApplicationContext(paths);
-			}
 		}
-		catch (RuntimeException e)
+		catch (final RuntimeException e)
 		{
 			throw new Error("Unable to load registry, check that you update xml file in config folder !", e);
 		}
@@ -83,15 +81,15 @@ public class L2Registry
 		}
 		try
 		{
-			Object o = __ctx.getBean(bean);
+			final Object o = __ctx.getBean(bean);
 			return o;
 		}
-		catch (NoSuchBeanDefinitionException e)
+		catch (final NoSuchBeanDefinitionException e)
 		{
 			_log.fatal("No such bean (" + bean + ") in context." + e.getMessage(), e);
 			return null;
 		}
-		catch (BeansException e)
+		catch (final BeansException e)
 		{
 			_log.fatal("Unable to load bean : " + bean + " = " + e.getMessage(), e);
 			return null;
@@ -113,24 +111,22 @@ public class L2Registry
 	// Method - Public
 	public final String prepQuerySelect(String[] fields, String tableName, String whereClause, boolean returnOnlyTopRecord)
 	{
-		String msSqlTop1 = "";
+		final String msSqlTop1 = "";
 		String mySqlTop1 = "";
 		if (returnOnlyTopRecord)
-		{
 			mySqlTop1 = " Limit 1 ";
-		}
-		String query = "SELECT " + msSqlTop1 + safetyString(fields) + " FROM " + tableName + " WHERE " + whereClause + mySqlTop1;
+		final String query = "SELECT " + msSqlTop1 + safetyString(fields) + " FROM " + tableName + " WHERE " + whereClause + mySqlTop1;
 		return query;
 	}
 
 	public final String safetyString(String[] whatToCheck)
 	{
 		// NOTE: Use brace as a safty percaution just incase name is a reserved word
-		String braceLeft = "`";
-		String braceRight = "`";
+		final String braceLeft = "`";
+		final String braceRight = "`";
 
 		String result = "";
-		for (String word : whatToCheck)
+		for (final String word : whatToCheck)
 		{
 			if (result != "")
 				result += ", ";
@@ -144,9 +140,7 @@ public class L2Registry
 	public static L2Registry getInstance()
 	{
 		if (_instance == null)
-		{
 			_instance = new L2Registry();
-		}
 		return _instance;
 	}
 
@@ -159,20 +153,18 @@ public class L2Registry
 	public static Connection getConnection(Connection con)
 	{
 		if (con == null)
-		{
 			try
 			{
 				con = ((BoneCPDataSource) __ctx.getBean("dataSource")).getConnection();
 			}
-			catch (BeansException e)
+			catch (final BeansException e)
 			{
 				_log.fatal("Unable to retrieve connection : " + e.getMessage(), e);
 			}
-			catch (SQLException e)
+			catch (final SQLException e)
 			{
 				_log.fatal("Unable to retrieve connection : " + e.getMessage(), e);
 			}
-		}
 		return con;
 	}
 

@@ -21,7 +21,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import net.l2emuproject.Config;
 
-
 /**
  * @author KenM
  */
@@ -29,62 +28,60 @@ public final class GameServerListener extends FloodProtectedListener
 {
 	private static final class SingletonHolder
 	{
-		private static final GameServerListener INSTANCE = new GameServerListener();
+		private static final GameServerListener	INSTANCE	= new GameServerListener();
 	}
-	
+
 	public static GameServerListener getInstance()
 	{
 		return SingletonHolder.INSTANCE;
 	}
-	
-	private final List<GameServerThread> _gameServers = new CopyOnWriteArrayList<GameServerThread>();
-	
+
+	private final List<GameServerThread>	_gameServers	= new CopyOnWriteArrayList<GameServerThread>();
+
 	private GameServerListener()
 	{
 		super(Config.LOGIN_HOSTNAME, Config.LOGIN_PORT);
 		start();
 		_log.info("GameServerListener: Initialized.");
 	}
-	
+
 	@Override
 	public void addClient(Socket s)
 	{
 		if (_log.isDebugEnabled())
 			_log.info("Received gameserver connection from: " + s.getInetAddress().getHostAddress());
-		
+
 		try
 		{
 			_gameServers.add(new GameServerThread(s));
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			_log.warn("", e);
-			
+
 			try
 			{
 				s.close();
 			}
-			catch (IOException e1)
+			catch (final IOException e1)
 			{
 				_log.warn("", e1);
 			}
 		}
 	}
-	
+
 	public void removeGameServer(GameServerThread gst)
 	{
 		_gameServers.remove(gst);
 	}
-	
+
 	public void playerSelectedServer(int id, String ip)
 	{
-		for (GameServerThread gst : _gameServers)
-		{
+		for (final GameServerThread gst : _gameServers)
 			if (gst.getServerId() == id)
 			{
 				gst.playerSelectedServer(ip);
 				break;
 			}
-		}
 	}
 }

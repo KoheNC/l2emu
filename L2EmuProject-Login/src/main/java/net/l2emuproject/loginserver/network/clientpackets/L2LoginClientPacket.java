@@ -23,25 +23,23 @@ import net.l2emuproject.network.mmocore.ReceivablePacket;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * @author KenM
  */
-public abstract class L2LoginClientPacket extends
-	ReceivablePacket<L2LoginClient, L2LoginClientPacket, L2LoginServerPacket>
+public abstract class L2LoginClientPacket extends ReceivablePacket<L2LoginClient, L2LoginClientPacket, L2LoginServerPacket>
 {
-	protected static final Log _log = LogFactory.getLog(L2LoginClientPacket.class);
-	
+	protected static final Log	_log	= LogFactory.getLog(L2LoginClientPacket.class);
+
 	protected L2LoginClientPacket()
 	{
 	}
-	
+
 	@Override
 	protected final boolean read() throws BufferUnderflowException, RuntimeException
 	{
 		readImpl();
 		return true;
 	}
-	
+
 	protected abstract void readImpl() throws BufferUnderflowException, RuntimeException;
 }

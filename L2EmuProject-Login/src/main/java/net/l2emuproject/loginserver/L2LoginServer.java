@@ -30,48 +30,49 @@ public final class L2LoginServer extends Config
 {
 	public static void main(String[] args) throws Throwable
 	{
-		long serverLoadStart = System.currentTimeMillis();
-		
+		final long serverLoadStart = System.currentTimeMillis();
+
 		// Initialize config
 		// ------------------
 		Config.load();
-		
+
 		System.setProperty("net.l2emuproject.db.driverclass", Config.DATABASE_DRIVER);
 		System.setProperty("net.l2emuproject.db.urldb", Config.DATABASE_URL);
 		System.setProperty("net.l2emuproject.db.user", Config.DATABASE_LOGIN);
 		System.setProperty("net.l2emuproject.db.password", Config.DATABASE_PASSWORD);
-		
+
 		// Initialize Application context (registry of beans)
 		// ---------------------------------------------------
 		Util.printSection("Registry");
-		L2Registry.loadRegistry(new String[] { "spring.xml" });
-		
+		L2Registry.loadRegistry(new String[]
+		{ "spring.xml" });
+
 		// o Initialize LoginManager
 		// -------------------------
 		Util.printSection("LoginManager");
 		LoginManager.getInstance();
-		
+
 		// o Initialize GameServer Manager
 		// ------------------------------
 		Util.printSection("GameServerManager");
 		GameServerManager.getInstance();
-		
+
 		// o Initialize ban list
 		// ----------------------
 		Util.printSection("BanManager");
 		BanManager.getInstance();
-		
+
 		// o Initialize SelectorThread
 		// ----------------------------
 		Util.printSection("ServerThreads");
 		L2LoginSelectorThread.getInstance();
-		
+
 		// o Initialize GS listener
 		// ----------------------------
 		GameServerListener.getInstance();
-		
+
 		_log.info("Listening for GameServers on " + Config.LOGIN_HOSTNAME + ":" + Config.LOGIN_PORT);
-		
+
 		// o Start status telnet server
 		// --------------------------
 		Util.printSection("Telnet");
@@ -79,18 +80,18 @@ public final class L2LoginServer extends Config
 			LoginStatusServer.initInstance();
 		else
 			_log.info("Telnet server is currently disabled.");
-		
+
 		System.gc();
 		System.runFinalization();
-		
+
 		// o Start the server
 		// ------------------
-		
+
 		L2LoginSelectorThread.getInstance().openServerSocket(InetAddress.getByName(Config.LOGIN_SERVER_HOSTNAME), Config.LOGIN_SERVER_PORT);
 		L2LoginSelectorThread.getInstance().start();
-		
+
 		Util.printSection("LoginServerLog");
-		_log.info("Total Boot Time: " + ((System.currentTimeMillis() - serverLoadStart) / 1000) + " seconds.");
+		_log.info("Total Boot Time: " + (System.currentTimeMillis() - serverLoadStart) / 1000 + " seconds.");
 		_log.info("Login Server ready on " + Config.LOGIN_SERVER_HOSTNAME + ":" + Config.LOGIN_SERVER_PORT);
 	}
 }

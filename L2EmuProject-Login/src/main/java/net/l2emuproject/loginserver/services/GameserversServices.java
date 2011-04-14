@@ -25,7 +25,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.ObjectRetrievalFailureException;
 
-
 /**
  * Account service to handle gameservers management
  * 
@@ -49,10 +48,10 @@ public class GameserversServices
 	{
 		try
 		{
-			List<Gameservers> servers = __dao.getAllGameservers();
+			final List<Gameservers> servers = __dao.getAllGameservers();
 			return servers;
 		}
-		catch (ObjectRetrievalFailureException e)
+		catch (final ObjectRetrievalFailureException e)
 		{
 			_log.warn("Unable to retrieve gameservers.", e);
 			return new ArrayList<Gameservers>();
@@ -70,7 +69,7 @@ public class GameserversServices
 		{
 			return __dao.getGameserverByServerId(id).getServerName();
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			_log.warn("Unable to retrieve gameserver : " + id, e);
 			return null;
@@ -88,7 +87,7 @@ public class GameserversServices
 		{
 			return __dao.createGameserver(gs);
 		}
-		catch (DataAccessException e)
+		catch (final DataAccessException e)
 		{
 			_log.warn("Unable to create gameserver.", e);
 			return -1;
@@ -105,7 +104,7 @@ public class GameserversServices
 		{
 			__dao.removeGameserverByServerId(id);
 		}
-		catch (DataAccessException e)
+		catch (final DataAccessException e)
 		{
 			_log.warn("Error while deleting gameserver :" + e, e);
 		}

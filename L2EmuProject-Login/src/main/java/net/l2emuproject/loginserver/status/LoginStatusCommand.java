@@ -22,10 +22,10 @@ public abstract class LoginStatusCommand extends StatusCommand
 	{
 		super(description, commands);
 	}
-	
+
 	@Override
 	protected LoginStatusThread getStatusThread()
 	{
-		return (LoginStatusThread)Thread.currentThread();
+		return (LoginStatusThread) Thread.currentThread();
 	}
 }

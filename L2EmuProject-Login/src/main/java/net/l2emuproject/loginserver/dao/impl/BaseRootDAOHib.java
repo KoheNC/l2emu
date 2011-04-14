@@ -20,6 +20,7 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -37,11 +38,9 @@ public abstract class BaseRootDAOHib extends HibernateDaoSupport
 	 */
 	public Object load(Class<?> refClass, Serializable key)
 	{
-		Object obj = getCurrentSession().load(refClass, key);
+		final Object obj = getCurrentSession().load(refClass, key);
 		if (obj == null)
-		{
 			throw new ObjectRetrievalFailureException(refClass, key);
-		}
 		return obj;
 	}
 
@@ -60,7 +59,7 @@ public abstract class BaseRootDAOHib extends HibernateDaoSupport
 	 */
 	public Serializable save(Object obj)
 	{
-		Serializable ser = getCurrentSession().save(obj);
+		final Serializable ser = getCurrentSession().save(obj);
 		return ser;
 	}
 
@@ -79,10 +78,8 @@ public abstract class BaseRootDAOHib extends HibernateDaoSupport
 	 */
 	public void saveOrUpdateAll(Collection<?> entities)
 	{
-		for (Object name : entities)
-		{
+		for (final Object name : entities)
 			getCurrentSession().saveOrUpdate(name);
-		}
 	}
 
 	/**
@@ -108,10 +105,8 @@ public abstract class BaseRootDAOHib extends HibernateDaoSupport
 	 */
 	public void removeAll(Collection<?> entities)
 	{
-		for (Object name : entities)
-		{
+		for (final Object name : entities)
 			getCurrentSession().delete(name);
-		}
 	}
 
 	/**
@@ -128,11 +123,9 @@ public abstract class BaseRootDAOHib extends HibernateDaoSupport
 	 */
 	public Object get(Class<?> clazz, Serializable id)
 	{
-		Object o = getCurrentSession().get(clazz, id);
+		final Object o = getCurrentSession().get(clazz, id);
 		if (o == null)
-		{
 			throw new ObjectRetrievalFailureException(clazz, id);
-		}
 
 		return o;
 	}
@@ -153,17 +146,10 @@ public abstract class BaseRootDAOHib extends HibernateDaoSupport
 				throw new HibernateException("Session Factory is null !");
 			return getSessionFactory().getCurrentSession();
 		}
+		else if (__session.isOpen())
+			return __session;
 		else
-		{
-			if (__session.isOpen())
-			{
-				return __session;
-			}
-			else
-			{
-				throw new HibernateException("Session is closed " + __session);
-			}
-		}
+			throw new HibernateException("Session is closed " + __session);
 	}
 
 	/**

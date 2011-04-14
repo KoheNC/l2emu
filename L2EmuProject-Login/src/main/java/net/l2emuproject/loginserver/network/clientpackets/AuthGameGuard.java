@@ -62,16 +62,14 @@ public class AuthGameGuard extends L2LoginClientPacket
 	@Override
 	public void runImpl()
 	{
-		L2LoginClient client = getClient();
+		final L2LoginClient client = getClient();
 		if (_sessionId == client.getSessionId())
 		{
 			client.setState(LoginClientState.AUTHED_GG);
 			client.sendPacket(new GGAuth(client.getSessionId()));
 		}
 		else
-		{
 			//this.getClient().closeLogin(LoginFail.REASON_ACCESS_FAILED_TRY_AGAIN);
 			client.closeLogin(LoginFail.REASON_IGNORE);
-		}
 	}
 }

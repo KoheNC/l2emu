@@ -31,7 +31,7 @@ public class BanInfo
 	/**
 	 * expiration of the ban : represent the difference, measured in milliseconds, between the expiration time of the ban and midnight, January 1, 1970 UTC.
 	 */
-	private final long	_expiration;
+	private final long		_expiration;
 
 	/**
 	 * Constructor
@@ -67,7 +67,8 @@ public class BanInfo
 		return System.currentTimeMillis() > _expiration;
 	}
 
-	public long getExpiry() {
+	public long getExpiry()
+	{
 		return _expiration;
 	}
 }

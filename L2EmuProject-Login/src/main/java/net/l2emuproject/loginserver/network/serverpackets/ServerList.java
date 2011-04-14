@@ -19,12 +19,10 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Map;
 
+import javolution.util.FastMap;
 import net.l2emuproject.loginserver.beans.GameServerInfo;
 import net.l2emuproject.loginserver.manager.GameServerManager;
 import net.l2emuproject.loginserver.network.L2LoginClient;
-
-import javolution.util.FastMap;
-
 
 /**
  * ServerList<BR>
@@ -60,37 +58,36 @@ public final class ServerList extends L2LoginServerPacket
 
 	private static final class ServerData
 	{
-		protected final int			_serverId;
-	    protected final String		_ip;
-	    protected final int			_port;
-	    protected final int			_ageLim;
-	    protected final boolean		_pvp;
-	    protected final int			_currentPlayers;
-	    protected final int			_maxPlayers;
-	    protected final boolean		_online;
-	    protected final boolean		_unk1;
-	    protected final boolean		_clock;
-	    protected final boolean		_hideName;
-	    protected final boolean		_testServer;
-	    protected final boolean		_brackets;
+		protected final int		_serverId;
+		protected final String	_ip;
+		protected final int		_port;
+		protected final int		_ageLim;
+		protected final boolean	_pvp;
+		protected final int		_currentPlayers;
+		protected final int		_maxPlayers;
+		protected final boolean	_online;
+		protected final boolean	_unk1;
+		protected final boolean	_clock;
+		protected final boolean	_hideName;
+		protected final boolean	_testServer;
+		protected final boolean	_brackets;
 
-	    private ServerData(int pServer_id, String pIp, int pPort, int pAge, boolean pPvp,
-        		int pCurrentPlayers, int pMaxPlayers, boolean pOn, boolean pUnk1,
-        		boolean pClock, boolean pHideName, boolean pTestServer, boolean pBrackets)
+		private ServerData(int pServer_id, String pIp, int pPort, int pAge, boolean pPvp, int pCurrentPlayers, int pMaxPlayers, boolean pOn, boolean pUnk1,
+				boolean pClock, boolean pHideName, boolean pTestServer, boolean pBrackets)
 		{
 			_serverId = pServer_id;
-            _ip = pIp;
-            _port = pPort;
-            _ageLim = pAge;
-            _pvp = pPvp;
-            _currentPlayers = pCurrentPlayers;
-            _maxPlayers = pMaxPlayers;
-            _online = pOn;
-            _unk1 = pUnk1;
-            _clock = pClock;
-            _hideName = pHideName;
-            _testServer = pTestServer;
-            _brackets = pBrackets;
+			_ip = pIp;
+			_port = pPort;
+			_ageLim = pAge;
+			_pvp = pPvp;
+			_currentPlayers = pCurrentPlayers;
+			_maxPlayers = pMaxPlayers;
+			_online = pOn;
+			_unk1 = pUnk1;
+			_clock = pClock;
+			_hideName = pHideName;
+			_testServer = pTestServer;
+			_brackets = pBrackets;
 		}
 	}
 
@@ -98,16 +95,13 @@ public final class ServerList extends L2LoginServerPacket
 	{
 		_servers = new FastMap<Integer, ServerData>();
 
-		for (GameServerInfo gsi : GameServerManager.getInstance().getRegisteredGameServers().values())
+		for (final GameServerInfo gsi : GameServerManager.getInstance().getRegisteredGameServers().values())
 		{
-			String _ip = (gsi.getGameServerThread() != null) ? gsi.getGameServerThread().getIp(client.getIp()) : "127.0.0.1";
-			_servers.put(gsi.getId(), new ServerData(
-        					gsi.getId(), _ip, gsi.getPort(), gsi.getAgeLimitation(),
-        					gsi.isPvp(), gsi.getCurrentPlayerCount(), gsi.getMaxPlayers(),
-        					gsi.isOnline(), gsi.isUnk1(),
-        					gsi.showClock(), gsi.hideName(), gsi.testServer(),
-        					gsi.showBrackets())
-        	);
+			final String _ip = gsi.getGameServerThread() != null ? gsi.getGameServerThread().getIp(client.getIp()) : "127.0.0.1";
+			_servers.put(
+					gsi.getId(),
+					new ServerData(gsi.getId(), _ip, gsi.getPort(), gsi.getAgeLimitation(), gsi.isPvp(), gsi.getCurrentPlayerCount(), gsi.getMaxPlayers(), gsi
+							.isOnline(), gsi.isUnk1(), gsi.showClock(), gsi.hideName(), gsi.testServer(), gsi.showBrackets()));
 		}
 
 		_serverIds = _servers.keySet().toArray(new Integer[_servers.size()]);
@@ -128,7 +122,7 @@ public final class ServerList extends L2LoginServerPacket
 		else
 			writeC(0);
 
-		for (Integer serverId : _serverIds)
+		for (final Integer serverId : _serverIds)
 		{
 			server = _servers.get(serverId);
 
@@ -136,14 +130,14 @@ public final class ServerList extends L2LoginServerPacket
 
 			try
 			{
-				InetAddress i4 = InetAddress.getByName(server._ip);
-				byte[] raw = i4.getAddress();
+				final InetAddress i4 = InetAddress.getByName(server._ip);
+				final byte[] raw = i4.getAddress();
 				writeC(raw[0] & 0xff);
 				writeC(raw[1] & 0xff);
 				writeC(raw[2] & 0xff);
 				writeC(raw[3] & 0xff);
 			}
-			catch (UnknownHostException e)
+			catch (final UnknownHostException e)
 			{
 				e.printStackTrace();
 				writeC(127);
@@ -153,24 +147,24 @@ public final class ServerList extends L2LoginServerPacket
 			}
 
 			writeD(server._port);
-            writeC(server._ageLim); // age limit
+			writeC(server._ageLim); // age limit
 			writeC(server._pvp ? 0x01 : 0x00);
 			writeH(server._currentPlayers);
 			writeH(server._maxPlayers);
 			writeC(server._online ? 0x01 : 0x00);
 
 			int bits = 0;
-            if (server._unk1)
-                bits |= 0x01;
-            if (server._clock)
-                bits |= 0x02;
-            if (server._hideName)
-            	bits |= 0x03;
-            if (server._testServer)
-                bits |= 0x04;
-            writeD(bits);
+			if (server._unk1)
+				bits |= 0x01;
+			if (server._clock)
+				bits |= 0x02;
+			if (server._hideName)
+				bits |= 0x03;
+			if (server._testServer)
+				bits |= 0x04;
+			writeD(bits);
 
-            writeC(server._brackets ? 0x01 : 0x00);
+			writeC(server._brackets ? 0x01 : 0x00);
 		}
 	}
 }

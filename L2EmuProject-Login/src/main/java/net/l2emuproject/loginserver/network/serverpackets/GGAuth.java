@@ -22,17 +22,15 @@ import net.l2emuproject.loginserver.network.L2LoginClient;
  */
 public final class GGAuth extends L2LoginServerPacket
 {
-	public static final int		SKIP_GG_AUTH_REQUEST	= 0x0b;
+	public static final int	SKIP_GG_AUTH_REQUEST	= 0x0b;
 
-	private final int					_response;
+	private final int		_response;
 
 	public GGAuth(int response)
 	{
 		_response = response;
 		if (_log.isDebugEnabled())
-		{
-			_log.warn("Reason Hex: " + (Integer.toHexString(response)));
-		}
+			_log.warn("Reason Hex: " + Integer.toHexString(response));
 	}
 
 	/**

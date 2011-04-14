@@ -26,24 +26,22 @@ public final class UnblockIP extends LoginStatusCommand
 	{
 		super("removes ip from ban list till restart", "unblock");
 	}
-	
+
 	@Override
 	protected void useCommand(String command, String params)
 	{
 		if (BanManager.getInstance().removeBanForAddress(params))
 		{
 			final String message = "The IP " + params + " has been removed from ban list till restart";
-			
+
 			println(message + "!");
-			
+
 			_log.warn(message + " via telnet by host: " + getHostAddress());
 		}
 		else
-		{
 			println("IP not found in ban list...");
-		}
 	}
-	
+
 	@Override
 	protected String getParameterUsage()
 	{

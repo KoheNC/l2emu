@@ -37,7 +37,6 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.springframework.orm.ObjectRetrievalFailureException;
 
-
 /**
  * DAO object for domain model class Gameservers.
  * Xml implementation.
@@ -46,7 +45,7 @@ import org.springframework.orm.ObjectRetrievalFailureException;
  */
 public class GameserversDAOXml implements GameserversDAO
 {
-	private static final Log			_log		= LogFactory.getLog(GameserversDAOXml.class);
+	private static final Log				_log		= LogFactory.getLog(GameserversDAOXml.class);
 
 	private final Map<Integer, Gameservers>	serverNames	= new TreeMap<Integer, Gameservers>();
 
@@ -63,39 +62,35 @@ public class GameserversDAOXml implements GameserversDAO
 			{
 				in = new FileInputStream("servername.xml");
 			}
-			catch (FileNotFoundException e)
+			catch (final FileNotFoundException e)
 			{
 				// just for eclipse development, we have to search in dist folder
 				in = new FileInputStream("dist/servername.xml");
 			}
 
-			SAXReader reader = new SAXReader();
-			Document document = reader.read(in);
+			final SAXReader reader = new SAXReader();
+			final Document document = reader.read(in);
 
-			Element root = document.getRootElement();
+			final Element root = document.getRootElement();
 
 			// Find all servers_list (should have only one)
-			for (Iterator<?> i = root.elementIterator("server"); i.hasNext();)
+			for (final Iterator<?> i = root.elementIterator("server"); i.hasNext();)
 			{
-				Element server = (Element) i.next();
+				final Element server = (Element) i.next();
 				Integer id = null;
 				String name = null;
 				// For each server, read the attributes
-				for (Iterator<?> iAttr = server.attributeIterator(); iAttr.hasNext();)
+				for (final Iterator<?> iAttr = server.attributeIterator(); iAttr.hasNext();)
 				{
-					Attribute attribute = (Attribute) iAttr.next();
+					final Attribute attribute = (Attribute) iAttr.next();
 					if (attribute.getName().equals("id"))
-					{
 						id = new Integer(attribute.getValue());
-					}
 					else if (attribute.getName().equals("name"))
-					{
 						name = attribute.getValue();
-					}
 				}
 				if (id != null && name != null)
 				{
-					Gameservers gs = new Gameservers();
+					final Gameservers gs = new Gameservers();
 					gs.setServerId(id);
 					gs.setServerName(name);
 					serverNames.put(id, gs);
@@ -103,11 +98,11 @@ public class GameserversDAOXml implements GameserversDAO
 			}
 			_log.info("Loaded " + serverNames.size() + " server names");
 		}
-		catch (FileNotFoundException e)
+		catch (final FileNotFoundException e)
 		{
 			_log.warn("servername.xml could not be loaded : " + e.getMessage(), e);
 		}
-		catch (DocumentException e)
+		catch (final DocumentException e)
 		{
 			_log.warn("servername.xml could not be loaded : " + e.getMessage(), e);
 		}
@@ -118,7 +113,7 @@ public class GameserversDAOXml implements GameserversDAO
 				if (in != null)
 					in.close();
 			}
-			catch (Exception e)
+			catch (final Exception e)
 			{
 			}
 		}
@@ -161,11 +156,9 @@ public class GameserversDAOXml implements GameserversDAO
 	@Override
 	public void createOrUpdateAll(Collection<?> entities)
 	{
-		Iterator<?> it = entities.iterator();
+		final Iterator<?> it = entities.iterator();
 		while (it.hasNext())
-		{
 			createGameserver((Gameservers) it.next());
-		}
 	}
 
 	/**
@@ -204,11 +197,9 @@ public class GameserversDAOXml implements GameserversDAO
 	@Override
 	public void removeAll(Collection<?> entities)
 	{
-		Iterator<?> it = entities.iterator();
+		final Iterator<?> it = entities.iterator();
 		while (it.hasNext())
-		{
 			removeGameserver((Gameservers) it.next());
-		}
 	}
 
 	/**
@@ -217,7 +208,7 @@ public class GameserversDAOXml implements GameserversDAO
 	@Override
 	public void update(Object obj)
 	{
-		Gameservers gs = (Gameservers) obj;
+		final Gameservers gs = (Gameservers) obj;
 		removeGameserverByServerId(gs.getServerId());
 		createGameserver(gs);
 	}

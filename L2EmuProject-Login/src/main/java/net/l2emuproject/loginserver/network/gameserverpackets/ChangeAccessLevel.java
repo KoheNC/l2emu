@@ -19,16 +19,16 @@ package net.l2emuproject.loginserver.network.gameserverpackets;
  */
 public final class ChangeAccessLevel extends GameToLoginPacket
 {
-	private final int _level;
-	private final String _account;
-	
+	private final int		_level;
+	private final String	_account;
+
 	public ChangeAccessLevel(byte[] decrypt)
 	{
 		super(decrypt);
 		_level = readD();
 		_account = readS();
 	}
-	
+
 	/**
 	 * @return Returns the account.
 	 */
@@ -36,7 +36,7 @@ public final class ChangeAccessLevel extends GameToLoginPacket
 	{
 		return _account;
 	}
-	
+
 	/**
 	 * @return Returns the level.
 	 */

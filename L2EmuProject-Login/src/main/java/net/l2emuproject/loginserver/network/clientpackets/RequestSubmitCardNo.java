@@ -21,7 +21,6 @@ import net.l2emuproject.loginserver.network.L2LoginClient;
 import net.l2emuproject.loginserver.network.serverpackets.LoginOk;
 import net.l2emuproject.loginserver.network.serverpackets.ServerList;
 
-
 /**
  * Analysis left for better times, since anyway it's too easy to counter as
  * a anti-emulator measure.
@@ -30,21 +29,21 @@ import net.l2emuproject.loginserver.network.serverpackets.ServerList;
 public class RequestSubmitCardNo extends L2LoginClientPacket
 {
 	//private final byte[] _raw = new byte[128];
-	private static final byte[] _raw = new byte[151];
+	private static final byte[]	_raw	= new byte[151];
 
 	@Override
 	protected int getMinimumLength()
 	{
 		return 151;
 	}
-	
+
 	@Override
 	public void readImpl()
 	{
 		// always 151 bytes, despite what the input is
 		if (getAvaliableBytes() != 151)
 			throw new BufferOverflowException();
-		
+
 		readB(_raw); // to consume the buffers content
 	}
 
@@ -66,7 +65,7 @@ public class RequestSubmitCardNo extends L2LoginClientPacket
 		}
 		System.err.println(HexUtil.printData(decrypted));
 		*/
-		L2LoginClient client = getClient();
+		final L2LoginClient client = getClient();
 		client.setCardAuthed(true);
 		if (Config.SHOW_LICENCE)
 			client.sendPacket(new LoginOk(client.getSessionKey()));

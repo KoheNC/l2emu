@@ -65,7 +65,7 @@ public class RequestServerLogin extends L2LoginClientPacket
 	{
 		return 9;
 	}
-	
+
 	@Override
 	public void readImpl()
 	{
@@ -88,8 +88,8 @@ public class RequestServerLogin extends L2LoginClientPacket
 	@Override
 	public void runImpl()
 	{
-		L2LoginClient client = getClient();
-		SessionKey sk = client.getSessionKey();
+		final L2LoginClient client = getClient();
+		final SessionKey sk = client.getSessionKey();
 
 		if (Config.SECURITY_CARD_LOGIN && !client.isCardAuthed())
 		{
@@ -111,22 +111,18 @@ public class RequestServerLogin extends L2LoginClientPacket
 					LoginManager.getInstance().setAccountLastServerId(client.getAccount(), _serverId);
 				}
 				else
-				{
 					client.closeLoginGame(LoginFail.REASON_TOO_HIGH_TRAFFIC);
-				}
 			}
-			catch (MaintenanceException e)
+			catch (final MaintenanceException e)
 			{
 				client.closeLoginGame(LoginFail.REASON_MAINTENANCE_UNDERGOING);
 			}
-			catch (MaturityException e)
+			catch (final MaturityException e)
 			{
 				client.closeLoginGame(LoginFail.REASON_AGE_LIMITATION);
 			}
 		}
 		else
-		{
 			client.closeLoginGame(LoginFail.REASON_ACCESS_FAILED_TRY_AGAIN);
-		}
 	}
 }

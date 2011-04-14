@@ -25,12 +25,12 @@ public final class Shutdown extends LoginStatusCommand
 	{
 		super("shuts down the server", "shutdown");
 	}
-	
+
 	@Override
 	protected void useCommand(String command, String params)
 	{
 		Runtime.getRuntime().exit(0);
-		
+
 		getStatusThread().close();
 	}
 }

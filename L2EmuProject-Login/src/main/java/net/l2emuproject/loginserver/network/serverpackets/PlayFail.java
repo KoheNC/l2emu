@@ -22,7 +22,7 @@ import net.l2emuproject.loginserver.network.L2LoginClient;
  */
 public final class PlayFail extends L2LoginServerPacket
 {
-	private final int _reason;
+	private final int	_reason;
 
 	/**
 	 * @param reason Taken from LoginFail (the messages are always the same)

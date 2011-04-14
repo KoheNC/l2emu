@@ -19,7 +19,6 @@ import java.util.List;
 
 import net.l2emuproject.loginserver.beans.Gameservers;
 
-
 /**
  * Data access object interface for gameservers
  * The interface define access functions to gameservers

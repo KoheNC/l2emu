@@ -19,12 +19,14 @@ package net.l2emuproject.loginserver.services.exception;
  * is enabled.
  * @author Savormix
  */
-public final class MaintenanceException extends Exception {
+public final class MaintenanceException extends Exception
+{
 
-	public static final MaintenanceException MAINTENANCE = new MaintenanceException();
-	private static final long serialVersionUID = -2061909568064316803L;
+	public static final MaintenanceException	MAINTENANCE			= new MaintenanceException();
+	private static final long					serialVersionUID	= -2061909568064316803L;
 
-	private MaintenanceException() {
+	private MaintenanceException()
+	{
 		super("Undergoing server maintenance.");
 	}
 }

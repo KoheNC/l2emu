@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.Map;
 
 import javolution.util.FastMap;
-
 import net.l2emuproject.L2Registry;
 import net.l2emuproject.loginserver.beans.GameServerInfo;
 import net.l2emuproject.loginserver.beans.Gameservers;
@@ -34,7 +33,6 @@ import net.l2emuproject.tools.util.HexUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * Manager servers
  * Servers come from server.xml file and database.
@@ -42,18 +40,18 @@ import org.apache.commons.logging.LogFactory;
  */
 public class GameServerManager
 {
-	private static final Log				_log			= LogFactory.getLog(GameServerManager.class);
-	private static GameServerManager		__instance		= null;
+	private static final Log					_log			= LogFactory.getLog(GameServerManager.class);
+	private static GameServerManager			__instance		= null;
 
 	// Game Server from database
 	private final Map<Integer, GameServerInfo>	_gameServers	= new FastMap<Integer, GameServerInfo>().shared();
 
 	// RSA Config
-	private static final int				KEYS_SIZE		= 10;
-	private KeyPair[]						_keyPairs;
+	private static final int					KEYS_SIZE		= 10;
+	private KeyPair[]							_keyPairs;
 
-	private GameserversServices				_gsServices		= null;
-	private GameserversServices				_gsServicesXml	= null;
+	private GameserversServices					_gsServices		= null;
+	private GameserversServices					_gsServicesXml	= null;
 
 	/**
 	 * Return singleton
@@ -63,22 +61,20 @@ public class GameServerManager
 	public static GameServerManager getInstance()
 	{
 		if (__instance == null)
-		{
 			try
 			{
 				__instance = new GameServerManager();
 			}
-			catch (NoSuchAlgorithmException e)
+			catch (final NoSuchAlgorithmException e)
 			{
 				_log.fatal("FATAL: Failed loading GameServerManager. Reason: " + e.getMessage(), e);
 				System.exit(1);
 			}
-			catch (InvalidAlgorithmParameterException e)
+			catch (final InvalidAlgorithmParameterException e)
 			{
 				_log.fatal("FATAL: Failed loading GameServerManager. Reason: " + e.getMessage(), e);
 				System.exit(1);
 			}
-		}
 		return __instance;
 	}
 
@@ -111,15 +107,13 @@ public class GameServerManager
 	 */
 	private void loadRSAKeys() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException
 	{
-		KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-		RSAKeyGenParameterSpec spec = new RSAKeyGenParameterSpec(512, RSAKeyGenParameterSpec.F4);
+		final KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
+		final RSAKeyGenParameterSpec spec = new RSAKeyGenParameterSpec(512, RSAKeyGenParameterSpec.F4);
 		keyGen.initialize(spec);
 
 		_keyPairs = new KeyPair[KEYS_SIZE];
 		for (int i = 0; i < KEYS_SIZE; i++)
-		{
 			_keyPairs[i] = keyGen.genKeyPair();
-		}
 		_log.info("GameServerManager: Cached " + _keyPairs.length + " RSA keys for Game Server communication.");
 	}
 
@@ -143,16 +137,14 @@ public class GameServerManager
 		// avoid two servers registering with the same "free" id
 		synchronized (_gameServers)
 		{
-			List<Gameservers> serverNames = _gsServicesXml.getAllGameservers();
-			for (Gameservers entry : serverNames)
-			{
+			final List<Gameservers> serverNames = _gsServicesXml.getAllGameservers();
+			for (final Gameservers entry : serverNames)
 				if (!_gameServers.containsKey(entry.getServerId()))
 				{
 					_gameServers.put(entry.getServerId(), gsi);
 					gsi.setId(entry.getServerId());
 					return true;
 				}
-			}
 		}
 		return false;
 	}
@@ -179,7 +171,7 @@ public class GameServerManager
 
 	public void registerServerOnDB(byte[] hexId, int id, String externalHost)
 	{
-		Gameservers gs = new Gameservers(id, HexUtil.hexToString(hexId), externalHost);
+		final Gameservers gs = new Gameservers(id, HexUtil.hexToString(hexId), externalHost);
 		_gsServices.createGameserver(gs);
 	}
 
@@ -194,9 +186,9 @@ public class GameServerManager
 	 */
 	private void load()
 	{
-		List<Gameservers> listGs = _gsServices.getAllGameservers();
+		final List<Gameservers> listGs = _gsServices.getAllGameservers();
 		GameServerInfo gsi;
-		for (Gameservers gsFromDAO : listGs)
+		for (final Gameservers gsFromDAO : listGs)
 		{
 			gsi = new GameServerInfo(gsFromDAO.getServerId(), HexUtil.stringToHex(gsFromDAO.getHexid()));
 			_gameServers.put(gsFromDAO.getServerId(), gsi);

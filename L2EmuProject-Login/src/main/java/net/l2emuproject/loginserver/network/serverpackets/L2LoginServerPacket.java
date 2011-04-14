@@ -21,15 +21,13 @@ import net.l2emuproject.network.mmocore.SendablePacket;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * @author KenM
  */
-public abstract class L2LoginServerPacket extends
-	SendablePacket<L2LoginClient, L2LoginClientPacket, L2LoginServerPacket>
+public abstract class L2LoginServerPacket extends SendablePacket<L2LoginClient, L2LoginClientPacket, L2LoginServerPacket>
 {
-	protected static final Log _log = LogFactory.getLog(L2LoginServerPacket.class);
-	
+	protected static final Log	_log	= LogFactory.getLog(L2LoginServerPacket.class);
+
 	protected L2LoginServerPacket()
 	{
 	}

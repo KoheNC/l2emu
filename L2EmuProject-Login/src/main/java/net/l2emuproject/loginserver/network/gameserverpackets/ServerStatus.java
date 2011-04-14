@@ -18,7 +18,6 @@ import net.l2emuproject.loginserver.beans.GameServerInfo;
 import net.l2emuproject.loginserver.manager.GameServerManager;
 import net.l2emuproject.network.status.ServerStatusAttributes;
 
-
 /**
  * @author -Wooden-, savormix
  */
@@ -27,18 +26,18 @@ public final class ServerStatus extends GameToLoginPacket
 	public ServerStatus(byte[] decrypt, int serverID)
 	{
 		super(decrypt);
-		
+
 		final GameServerInfo gsi = GameServerManager.getInstance().getRegisteredGameServerById(serverID);
-		
-		int size = readD();
+
+		final int size = readD();
 		for (int i = 0; i < size; i++)
 		{
-			ServerStatusAttributes type = ServerStatusAttributes.valueOf(readD());
-			int value = readD();
-			
+			final ServerStatusAttributes type = ServerStatusAttributes.valueOf(readD());
+			final int value = readD();
+
 			if (gsi == null)
 				continue;
-			
+
 			switch (type)
 			{
 				case SERVER_LIST_STATUS:

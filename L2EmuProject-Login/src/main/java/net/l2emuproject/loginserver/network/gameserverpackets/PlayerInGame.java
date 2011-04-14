@@ -16,8 +16,8 @@ package net.l2emuproject.loginserver.network.gameserverpackets;
 
 public final class PlayerInGame extends GameToLoginPacket
 {
-	private final String[] _accounts;
-	
+	private final String[]	_accounts;
+
 	public PlayerInGame(byte[] decrypt)
 	{
 		super(decrypt);
@@ -25,7 +25,7 @@ public final class PlayerInGame extends GameToLoginPacket
 		for (int i = 0; i < _accounts.length; i++)
 			_accounts[i] = readS();
 	}
-	
+
 	/**
 	 * @return Returns the accounts.
 	 */

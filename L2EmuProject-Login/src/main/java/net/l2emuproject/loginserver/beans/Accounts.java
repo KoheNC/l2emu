@@ -55,9 +55,8 @@ public final class Accounts extends AccountBean
 	 * @param birthDay
 	 * @param lastIp
 	 */
-	public Accounts(String login, String password, BigDecimal lastactive,
-			Integer accessLevel, Integer lastServerId, Integer birthYear,
-			Integer birthMonth, Integer birthDay, String lastIp)
+	public Accounts(String login, String password, BigDecimal lastactive, Integer accessLevel, Integer lastServerId, Integer birthYear, Integer birthMonth,
+			Integer birthDay, String lastIp)
 	{
 		super(login, password, lastactive, accessLevel, lastServerId, lastIp);
 		this.birthYear = birthYear;

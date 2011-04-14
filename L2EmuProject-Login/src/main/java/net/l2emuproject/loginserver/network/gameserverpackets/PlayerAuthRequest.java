@@ -21,20 +21,20 @@ import net.l2emuproject.loginserver.beans.SessionKey;
  */
 public final class PlayerAuthRequest extends GameToLoginPacket
 {
-	private final String _account;
-	private final SessionKey _sessionKey;
-	
+	private final String		_account;
+	private final SessionKey	_sessionKey;
+
 	public PlayerAuthRequest(byte[] decrypt)
 	{
 		super(decrypt);
 		_account = readS();
-		int playKey1 = readD();
-		int playKey2 = readD();
-		int loginKey1 = readD();
-		int loginKey2 = readD();
+		final int playKey1 = readD();
+		final int playKey2 = readD();
+		final int loginKey1 = readD();
+		final int loginKey2 = readD();
 		_sessionKey = new SessionKey(loginKey1, loginKey2, playKey1, playKey2);
 	}
-	
+
 	/**
 	 * @return Returns the account.
 	 */
@@ -42,7 +42,7 @@ public final class PlayerAuthRequest extends GameToLoginPacket
 	{
 		return _account;
 	}
-	
+
 	/**
 	 * @return Returns the key.
 	 */

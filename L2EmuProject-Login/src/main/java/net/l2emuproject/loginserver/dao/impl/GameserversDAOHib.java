@@ -22,7 +22,6 @@ import net.l2emuproject.loginserver.dao.GameserversDAO;
 
 import org.springframework.orm.ObjectRetrievalFailureException;
 
-
 /**
  * DAO object for domain model class Gameservers.
  * @see net.l2emuproject.loginserver.beans.Gameservers
@@ -37,7 +36,7 @@ public class GameserversDAOHib extends BaseRootDAOHib implements GameserversDAO
 	@Override
 	public Gameservers getGameserverByServerId(int id)
 	{
-		Gameservers gameserver = (Gameservers) get(Gameservers.class, id);
+		final Gameservers gameserver = (Gameservers) get(Gameservers.class, id);
 		if (gameserver == null)
 			throw new ObjectRetrievalFailureException("Gameserver", id);
 		return gameserver;

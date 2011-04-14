@@ -19,14 +19,14 @@ package net.l2emuproject.loginserver.network.gameserverpackets;
  */
 public final class PlayerLogout extends GameToLoginPacket
 {
-	private final String _account;
-	
+	private final String	_account;
+
 	public PlayerLogout(byte[] decrypt)
 	{
 		super(decrypt);
 		_account = readS();
 	}
-	
+
 	/**
 	 * @return Returns the account.
 	 */

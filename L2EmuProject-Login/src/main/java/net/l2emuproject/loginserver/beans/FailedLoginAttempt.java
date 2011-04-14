@@ -39,23 +39,15 @@ public class FailedLoginAttempt
 		{
 			// check if theres a long time since last wrong try
 			if (System.currentTimeMillis() - _lastAttempTime < 300 * 1000)
-			{
 				_count++;
-			}
 			else
-			{
 				// restart the status
 				_count = 1;
-
-			}
 			_lastPassword = password;
 			_lastAttempTime = System.currentTimeMillis();
 		}
 		else
-		// trying the same password is not brute force
-		{
 			_lastAttempTime = System.currentTimeMillis();
-		}
 	}
 
 	public int getCount()

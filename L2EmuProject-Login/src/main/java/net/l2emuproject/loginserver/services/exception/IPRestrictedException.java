@@ -19,35 +19,40 @@ package net.l2emuproject.loginserver.services.exception;
  * and the ban duration is not set.
  * @author Savormix
  */
-public final class IPRestrictedException extends Exception {
+public final class IPRestrictedException extends Exception
+{
 
-	private static final long serialVersionUID = -4182476422930886408L;
-	private final long duration;
+	private static final long	serialVersionUID	= -4182476422930886408L;
+	private final long			duration;
 
-	public IPRestrictedException() {
+	public IPRestrictedException()
+	{
 		super();
 		duration = -1;
 	}
 
-	public IPRestrictedException(String ipAddr) {
+	public IPRestrictedException(String ipAddr)
+	{
 		super("IP: " + ipAddr + " is defined as permanently banned.");
 		duration = -1;
 	}
 
-	public IPRestrictedException(long endTime) {
+	public IPRestrictedException(long endTime)
+	{
 		super();
 		duration = endTime - System.currentTimeMillis();
 	}
 
-	public IPRestrictedException(String ipAddr, long endTime) {
+	public IPRestrictedException(String ipAddr, long endTime)
+	{
 		super("IP: " + ipAddr + " is defined as temporarily banned.");
 		duration = endTime - System.currentTimeMillis();
 	}
 
-	public final int getMinutesLeft() {
-		if (duration != -1) {
-			return (int)(duration/1000/60);
-		}
+	public final int getMinutesLeft()
+	{
+		if (duration != -1)
+			return (int) (duration / 1000 / 60);
 		else
 			return -1;
 	}

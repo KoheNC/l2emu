@@ -31,7 +31,6 @@ import net.l2emuproject.loginserver.services.exception.AccountBannedException;
 import net.l2emuproject.loginserver.services.exception.AccountWrongPasswordException;
 import net.l2emuproject.loginserver.services.exception.IPRestrictedException;
 
-
 /**
  * Format: x 0 (a leading null) x: the rsa encrypted block with the login an
  * password
@@ -40,9 +39,9 @@ public class RequestAuthLogin extends L2LoginClientPacket
 {
 	private final byte[]	_raw	= new byte[128];
 
-	private String	_user;
-	private String	_password;
-	private int		_ncotp;
+	private String			_user;
+	private String			_password;
+	private int				_ncotp;
 
 	public String getPassword()
 	{
@@ -64,7 +63,7 @@ public class RequestAuthLogin extends L2LoginClientPacket
 	{
 		return 128;
 	}
-	
+
 	@Override
 	public void readImpl()
 	{
@@ -87,11 +86,11 @@ public class RequestAuthLogin extends L2LoginClientPacket
 		byte[] decrypted = null;
 		try
 		{
-			Cipher rsaCipher = Cipher.getInstance("RSA/ECB/nopadding");
+			final Cipher rsaCipher = Cipher.getInstance("RSA/ECB/nopadding");
 			rsaCipher.init(Cipher.DECRYPT_MODE, getClient().getRSAPrivateKey());
 			decrypted = rsaCipher.doFinal(_raw, 0x00, 0x80);
 		}
-		catch (GeneralSecurityException e)
+		catch (final GeneralSecurityException e)
 		{
 			e.printStackTrace();
 			return;
@@ -105,11 +104,11 @@ public class RequestAuthLogin extends L2LoginClientPacket
 		_ncotp |= decrypted[0x7e] << 16;
 		_ncotp |= decrypted[0x7f] << 24;
 
-		LoginManager lc = LoginManager.getInstance();
-		L2LoginClient client = getClient();
+		final LoginManager lc = LoginManager.getInstance();
+		final L2LoginClient client = getClient();
 		try
 		{
-			AuthLoginResult result = lc.tryAuthLogin(_user, _password, client);
+			final AuthLoginResult result = lc.tryAuthLogin(_user, _password, client);
 			switch (result)
 			{
 				case AUTH_SUCCESS:
@@ -157,18 +156,18 @@ public class RequestAuthLogin extends L2LoginClientPacket
 		// 	BanManager.getInstance().addBanForAddress(address, Config.LOGIN_BLOCK_AFTER_BAN * 1000);
 		// 	_log.info("Banned (" + address + ") for " + Config.LOGIN_BLOCK_AFTER_BAN + " seconds, due to " + e.getConnects() + " incorrect login attempts.");
 		// }
-		catch (AccountBannedException e)
+		catch (final AccountBannedException e)
 		{
 			client.closeBanned();
 		}
-		catch (AccountWrongPasswordException e)
+		catch (final AccountWrongPasswordException e)
 		{
 			client.closeLogin(LoginFail.REASON_PASSWORD_INCORRECT);
 		}
-        catch (IPRestrictedException e)
-        {
-        	//client.closeBanned(e.getMinutesLeft());
-        	client.closeBanned(-1);
+		catch (final IPRestrictedException e)
+		{
+			//client.closeBanned(e.getMinutesLeft());
+			client.closeBanned(-1);
 		}
 	}
 }

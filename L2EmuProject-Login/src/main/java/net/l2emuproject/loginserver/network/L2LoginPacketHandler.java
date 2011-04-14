@@ -27,67 +27,50 @@ import net.l2emuproject.loginserver.network.clientpackets.RequestSubmitCardNo;
 import net.l2emuproject.loginserver.network.serverpackets.L2LoginServerPacket;
 import net.l2emuproject.network.mmocore.IPacketHandler;
 
-
-
 /**
  * Handler for packets received by Login Server
  * 
  * @author KenM
  */
-public final class L2LoginPacketHandler implements
-	IPacketHandler<L2LoginClient, L2LoginClientPacket, L2LoginServerPacket>
+public final class L2LoginPacketHandler implements IPacketHandler<L2LoginClient, L2LoginClientPacket, L2LoginServerPacket>
 {
 	@Override
 	public L2LoginClientPacket handlePacket(ByteBuffer buf, L2LoginClient client, final int opcode)
 	{
 		final LoginClientState state = client.getState();
-		
+
 		switch (state)
 		{
 			case CONNECTED:
 				if (opcode == 0x07)
-				{
 					return new AuthGameGuard();
-				}
 				else
-				{
 					debugOpcode(buf, client, opcode);
-				}
 				break;
 			case AUTHED_GG:
 				if (opcode == 0x00)
-				{
 					return new RequestAuthLogin();
-				}
 				else
-				{
 					debugOpcode(buf, client, opcode);
-				}
 				break;
 			case AUTHED_LOGIN:
 				if (opcode == 0x05)
-				{
 					return new RequestServerList();
-				}
 				else if (opcode == 0x02)
-				{
 					return new RequestServerLogin();
-				}
 				else if (opcode == 0x06)
 				{
 					if (Config.SECURITY_CARD_LOGIN)
 						return new RequestSubmitCardNo();
 				}
 				else
-				{
 					debugOpcode(buf, client, opcode);
-				}
 				break;
 		}
-		
+
 		return null;
 	}
-	
+
 	private void debugOpcode(ByteBuffer buf, L2LoginClient client, int opcode)
 	{
 		L2LoginSelectorThread.getInstance().printDebug(buf, client, opcode);

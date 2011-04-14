@@ -70,7 +70,7 @@ public class RequestServerList extends L2LoginClientPacket
 	@Override
 	public void runImpl()
 	{
-		L2LoginClient client = getClient();
+		final L2LoginClient client = getClient();
 		if (Config.SECURITY_CARD_LOGIN && !client.isCardAuthed())
 		{
 			client.closeLogin(LoginFail.REASON_IGNORE);

@@ -22,7 +22,6 @@ import net.l2emuproject.loginserver.dao.AccountsDAO;
 
 import org.springframework.orm.ObjectRetrievalFailureException;
 
-
 /**
  * DAO object for domain model class Accounts.
  * @see net.l2emuproject.loginserver.beans.Accounts
@@ -37,7 +36,7 @@ public class AccountsDAOHib extends BaseRootDAOHib implements AccountsDAO
 	@Override
 	public Accounts getAccountById(String id)
 	{
-		Accounts account = (Accounts) get(Accounts.class, id);
+		final Accounts account = (Accounts) get(Accounts.class, id);
 		if (account == null)
 			throw new ObjectRetrievalFailureException("Accounts", id);
 		return account;
@@ -79,7 +78,7 @@ public class AccountsDAOHib extends BaseRootDAOHib implements AccountsDAO
 	@SuppressWarnings("unchecked")
 	public List<Accounts> getAllAccounts()
 	{
-		return (List<Accounts>)findAll(Accounts.class);
+		return (List<Accounts>) findAll(Accounts.class);
 	}
 
 	/**

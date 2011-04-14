@@ -33,7 +33,6 @@ import javax.crypto.Cipher;
 
 import javolution.util.FastList;
 import javolution.util.FastMap;
-
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Registry;
 import net.l2emuproject.loginserver.beans.Accounts;
@@ -45,6 +44,7 @@ import net.l2emuproject.loginserver.services.AccountsServices;
 import net.l2emuproject.loginserver.services.exception.AccountBannedException;
 import net.l2emuproject.loginserver.services.exception.AccountModificationException;
 import net.l2emuproject.loginserver.services.exception.AccountWrongPasswordException;
+import net.l2emuproject.loginserver.services.exception.HackingException;
 import net.l2emuproject.loginserver.services.exception.IPRestrictedException;
 import net.l2emuproject.loginserver.services.exception.MaintenanceException;
 import net.l2emuproject.loginserver.services.exception.MaturityException;
@@ -58,7 +58,6 @@ import net.l2emuproject.tools.random.Rnd;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
 /**
  * This class handles login on loginserver.
  * It store connection for each account.
@@ -70,14 +69,14 @@ import org.apache.commons.logging.LogFactory;
  */
 public class LoginManager
 {
-	private static final Log						_log				= LogFactory.getLog(LoginManager.class);
-	private static final Log						_logLogin			= LogFactory.getLog("login");
-	private static final Log						_logLoginTries		= LogFactory.getLog("login.try");
-	private static final Log						_logLoginFailed		= LogFactory.getLog("login.failed");
+	private static final Log	_log			= LogFactory.getLog(LoginManager.class);
+	private static final Log	_logLogin		= LogFactory.getLog("login");
+	private static final Log	_logLoginTries	= LogFactory.getLog("login.try");
+	private static final Log	_logLoginFailed	= LogFactory.getLog("login.failed");
 
 	private static final class SingletonHolder
 	{
-		private static final LoginManager INSTANCE = new LoginManager();
+		private static final LoginManager	INSTANCE	= new LoginManager();
 	}
 
 	public static LoginManager getInstance()
@@ -104,7 +103,7 @@ public class LoginManager
 		INVALID_PASSWORD, ACCOUNT_BANNED, ALREADY_ON_LS, ALREADY_ON_GS, AUTH_SUCCESS, SYSTEM_ERROR
 	}
 
-	private FastList<L2LoginClient>					_connections;
+	private FastList<L2LoginClient>	_connections;
 
 	/**
 	 * Private constructor to avoid direct instantiation.
@@ -129,10 +128,10 @@ public class LoginManager
 			try
 			{
 				keygen = KeyPairGenerator.getInstance("RSA");
-				RSAKeyGenParameterSpec spec = new RSAKeyGenParameterSpec(1024, RSAKeyGenParameterSpec.F4);
+				final RSAKeyGenParameterSpec spec = new RSAKeyGenParameterSpec(1024, RSAKeyGenParameterSpec.F4);
 				keygen.initialize(spec);
 			}
-			catch (GeneralSecurityException e)
+			catch (final GeneralSecurityException e)
 			{
 				_log.fatal("Error in RSA setup:", e);
 				_log.info("Server shutting down now");
@@ -142,9 +141,7 @@ public class LoginManager
 
 			//generate the initial set of keys
 			for (int i = 0; i < 10; i++)
-			{
 				_keyPairs[i] = new ScrambledKeyPair(keygen.generateKeyPair());
-			}
 			_log.info("LoginManager: Cached 10 KeyPairs for RSA communication");
 
 			testCipher((RSAPrivateKey) _keyPairs[0].getPair().getPrivate());
@@ -152,7 +149,7 @@ public class LoginManager
 			// Store keys for blowfish communication
 			generateBlowFishKeys();
 		}
-		catch (GeneralSecurityException e)
+		catch (final GeneralSecurityException e)
 		{
 			_log.fatal("FATAL: Failed initializing LoginManager. Reason: " + e.getMessage(), e);
 			System.exit(1);
@@ -169,7 +166,7 @@ public class LoginManager
 	private void testCipher(RSAPrivateKey key) throws GeneralSecurityException
 	{
 		// avoid worst-case execution, KenM
-		Cipher rsaCipher = Cipher.getInstance("RSA/ECB/nopadding");
+		final Cipher rsaCipher = Cipher.getInstance("RSA/ECB/nopadding");
 		rsaCipher.init(Cipher.DECRYPT_MODE, key);
 	}
 
@@ -178,12 +175,8 @@ public class LoginManager
 		_blowfishKeys = new byte[BLOWFISH_KEYS][16];
 
 		for (int i = 0; i < BLOWFISH_KEYS; i++)
-		{
 			for (int j = 0; j < _blowfishKeys[i].length; j++)
-			{
 				_blowfishKeys[i][j] = (byte) (Rnd.nextInt(255) + 1);
-			}
-		}
 		_log.info("Stored " + _blowfishKeys.length + " keys for Blowfish communication");
 	}
 
@@ -231,28 +224,24 @@ public class LoginManager
 
 	public GameServerInfo getAccountOnGameServer(String account)
 	{
-		Collection<GameServerInfo> serverList = GameServerManager.getInstance().getRegisteredGameServers().values();
-		for (GameServerInfo gsi : serverList)
+		final Collection<GameServerInfo> serverList = GameServerManager.getInstance().getRegisteredGameServers().values();
+		for (final GameServerInfo gsi : serverList)
 		{
-			GameServerThread gst = gsi.getGameServerThread();
+			final GameServerThread gst = gsi.getGameServerThread();
 			if (gst != null && gst.hasAccountOnGameServer(account))
-			{
 				return gsi;
-			}
 		}
 		return null;
 	}
 
 	public boolean isAccountInAnyGameServer(String account)
 	{
-		Collection<GameServerInfo> serverList = GameServerManager.getInstance().getRegisteredGameServers().values();
-		for (GameServerInfo gsi : serverList)
+		final Collection<GameServerInfo> serverList = GameServerManager.getInstance().getRegisteredGameServers().values();
+		for (final GameServerInfo gsi : serverList)
 		{
-			GameServerThread gst = gsi.getGameServerThread();
+			final GameServerThread gst = gsi.getGameServerThread();
 			if (gst != null && gst.hasAccountOnGameServer(account))
-			{
 				return true;
-			}
 		}
 		return false;
 	}
@@ -267,8 +256,8 @@ public class LoginManager
 	 * @throws AccountBannedException if the use was banned
 	 * @throws AccountWrongPasswordException if the password was wrong
 	 */
-	public AuthLoginResult tryAuthLogin(String account, String password, L2LoginClient client) throws AccountBannedException,
-	AccountWrongPasswordException, IPRestrictedException
+	public AuthLoginResult tryAuthLogin(String account, String password, L2LoginClient client) throws AccountBannedException, AccountWrongPasswordException,
+			IPRestrictedException
 	{
 		AuthLoginResult ret = AuthLoginResult.INVALID_PASSWORD;
 
@@ -292,7 +281,7 @@ public class LoginManager
 							ret = AuthLoginResult.AUTH_SUCCESS;
 						}
 					}
-					Accounts acc = _service.getAccountById(account);
+					final Accounts acc = _service.getAccountById(account);
 					// keep access level in the L2LoginClient
 					client.setAccessLevel(acc.getAccessLevel());
 					// keep last server choice
@@ -301,17 +290,17 @@ public class LoginManager
 				}
 			}
 		}
-		catch (NoSuchAlgorithmException e)
+		catch (final NoSuchAlgorithmException e)
 		{
 			_log.error("could not check password:", e);
 			ret = AuthLoginResult.SYSTEM_ERROR;
 		}
-		catch (UnsupportedEncodingException e)
+		catch (final UnsupportedEncodingException e)
 		{
 			_log.error("could not check password:", e);
 			ret = AuthLoginResult.SYSTEM_ERROR;
 		}
-		catch (AccountModificationException e)
+		catch (final AccountModificationException e)
 		{
 			_log.warn("could not check password:", e);
 			ret = AuthLoginResult.SYSTEM_ERROR;
@@ -326,17 +315,15 @@ public class LoginManager
 
 	public SessionKey getKeyForAccount(String account)
 	{
-		L2LoginClient client = _loginServerClients.get(account);
+		final L2LoginClient client = _loginServerClients.get(account);
 		if (client != null)
-		{
 			return client.getSessionKey();
-		}
 		return null;
 	}
 
 	public String getHostForAccount(String account)
 	{
-		L2LoginClient client = getAuthedClient(account);
+		final L2LoginClient client = getAuthedClient(account);
 
 		return client != null ? client.getIp() : "-1";
 	}
@@ -349,7 +336,7 @@ public class LoginManager
 	 */
 	public boolean isLoginPossible(int age, int access, int serverId) throws MaintenanceException, MaturityException
 	{
-		GameServerInfo gsi = GameServerManager.getInstance().getRegisteredGameServerById(serverId);
+		final GameServerInfo gsi = GameServerManager.getInstance().getRegisteredGameServerById(serverId);
 		if (gsi != null && gsi.isAuthed())
 		{
 			if (gsi.getStatus() == ServerStatus.STATUS_GM_ONLY && access < Config.GM_MIN)
@@ -357,7 +344,7 @@ public class LoginManager
 			//Some accounts, like GM ones, can always connect
 			if (age < gsi.getAgeLimitation())
 				throw new MaturityException(age, gsi.getAgeLimitation());
-			return (gsi.getCurrentPlayerCount() < gsi.getMaxPlayers() || access >= Config.GM_MIN);
+			return gsi.getCurrentPlayerCount() < gsi.getMaxPlayers() || access >= Config.GM_MIN;
 		}
 		else
 			throw MaintenanceException.MAINTENANCE;
@@ -370,11 +357,9 @@ public class LoginManager
 	 */
 	public int getOnlinePlayerCount(int serverId)
 	{
-		GameServerInfo gsi = GameServerManager.getInstance().getRegisteredGameServerById(serverId);
+		final GameServerInfo gsi = GameServerManager.getInstance().getRegisteredGameServerById(serverId);
 		if (gsi != null && gsi.isAuthed())
-		{
 			return gsi.getCurrentPlayerCount();
-		}
 		return 0;
 	}
 
@@ -385,11 +370,9 @@ public class LoginManager
 	 */
 	public int getMaxAllowedOnlinePlayers(int id)
 	{
-		GameServerInfo gsi = GameServerManager.getInstance().getRegisteredGameServerById(id);
+		final GameServerInfo gsi = GameServerManager.getInstance().getRegisteredGameServerById(id);
 		if (gsi != null)
-		{
 			return gsi.getMaxPlayers();
-		}
 		return 0;
 	}
 
@@ -404,7 +387,7 @@ public class LoginManager
 		{
 			_service.changeAccountLevel(account, banLevel);
 		}
-		catch (AccountModificationException e)
+		catch (final AccountModificationException e)
 		{
 			_log.error("Could not set accessLevel for user: " + account, e);
 		}
@@ -419,11 +402,11 @@ public class LoginManager
 	{
 		try
 		{
-			Accounts acc = _service.getAccountById(account);
+			final Accounts acc = _service.getAccountById(account);
 			acc.setLastServerId(lastServerId);
 			_service.addOrUpdateAccount(acc);
 		}
-		catch (AccountModificationException e)
+		catch (final AccountModificationException e)
 		{
 			_log.error("Could not set last server for user: " + account, e);
 		}
@@ -438,8 +421,8 @@ public class LoginManager
 	{
 		if (acc != null)
 			return acc.getAccessLevel() >= Config.GM_MIN;
-			else
-				return false;
+		else
+			return false;
 	}
 
 	/**
@@ -475,10 +458,10 @@ public class LoginManager
 	 * @throws AccountWrongPasswordException if the password is wrong
 	 */
 	public boolean loginValid(String user, String password, L2LoginClient client) throws NoSuchAlgorithmException, UnsupportedEncodingException,
-	AccountModificationException, AccountBannedException, AccountWrongPasswordException, IPRestrictedException
+			AccountModificationException, AccountBannedException, AccountWrongPasswordException, IPRestrictedException
 	{
-		InetAddress address = client.getInetAddress();
-		if(BanManager.getInstance().isRestrictedAddress(address))
+		final InetAddress address = client.getInetAddress();
+		if (BanManager.getInstance().isRestrictedAddress(address))
 			throw new IPRestrictedException();
 		else if (BanManager.getInstance().isBannedAddress(address))
 			throw new IPRestrictedException(BanManager.getInstance().getBanExpiry(address));
@@ -501,19 +484,19 @@ public class LoginManager
 	 * @throws AccountWrongPasswordException if the password is wrong
 	 */
 	public boolean loginValid(String user, String password, InetAddress address) throws NoSuchAlgorithmException, UnsupportedEncodingException,
-	AccountModificationException, AccountBannedException, AccountWrongPasswordException
+			AccountModificationException, AccountBannedException, AccountWrongPasswordException
 	{
 		_logLoginTries.info("User trying to connect  '" + user + "' " + (address == null ? "null" : address.getHostAddress()));
 
 		// o Convert password in utf8 byte array
 		// ----------------------------------
-		MessageDigest md = MessageDigest.getInstance("SHA");
-		byte[] raw = password.getBytes("UTF-8");
-		byte[] hash = md.digest(raw);
+		final MessageDigest md = MessageDigest.getInstance("SHA");
+		final byte[] raw = password.getBytes("UTF-8");
+		final byte[] hash = md.digest(raw);
 
 		// o find Account
 		// -------------
-		Accounts acc = _service.getAccountById(user);
+		final Accounts acc = _service.getAccountById(user);
 
 		// If account is not found
 		// try to create it if AUTO_CREATE_ACCOUNTS is activated
@@ -549,20 +532,18 @@ public class LoginManager
 				checkPassword(hash, acc);
 				acc.setLastactive(new BigDecimal(System.currentTimeMillis()));
 				if (address != null)
-				{
 					acc.setLastIp(address.getHostAddress());
-				}
 				_service.addOrUpdateAccount(acc);
 			}
 			// If password are different
 			// -------------------------
-			catch (AccountWrongPasswordException e)
+			catch (final AccountWrongPasswordException e)
 			{
 				handleBadLogin(user, password, address);
 				throw e;
 			}
 		}
-		
+
 		handleGoodLogin(user, address);
 		return true;
 	}
@@ -576,9 +557,7 @@ public class LoginManager
 		// for long running servers, this should prevent blocking
 		// of users that mistype their passwords once every day :)
 		if (address != null)
-		{
 			_hackProtection.remove(address);
-		}
 		if (_logLogin.isDebugEnabled())
 			_logLogin.debug("login successfull for '" + user + "' " + (address == null ? "null" : address.getHostAddress()));
 	}
@@ -598,7 +577,7 @@ public class LoginManager
 		// In special case, adress is null, so this protection is useless
 		if (address != null)
 		{
-			FailedLoginAttempt failedAttempt = _hackProtection.get(address);
+			final FailedLoginAttempt failedAttempt = _hackProtection.get(address);
 			int failedCount;
 			if (failedAttempt == null)
 			{
@@ -613,7 +592,8 @@ public class LoginManager
 
 			if (failedCount >= Config.LOGIN_TRY_BEFORE_BAN)
 			{
-				_log.info("Temporary auto-ban for "+address.getHostAddress()+" ("+Config.LOGIN_BLOCK_AFTER_BAN+" seconds, "+failedCount+" login tries)");
+				_log.info("Temporary auto-ban for " + address.getHostAddress() + " (" + Config.LOGIN_BLOCK_AFTER_BAN + " seconds, " + failedCount
+						+ " login tries)");
 				BanManager.getInstance().addBanForAddress(address, Config.LOGIN_BLOCK_AFTER_BAN * 1000);
 			}
 		}
@@ -629,15 +609,11 @@ public class LoginManager
 		if (_log.isDebugEnabled())
 			_log.debug("account exists");
 
-		byte[] expected = Base64.decode(acc.getPassword());
+		final byte[] expected = Base64.decode(acc.getPassword());
 
 		for (int i = 0; i < expected.length; i++)
-		{
 			if (hash[i] != expected[i])
-			{
 				throw new AccountWrongPasswordException(acc.getLogin());
-			}
-		}
 	}
 
 	/**
@@ -652,10 +628,10 @@ public class LoginManager
 		Accounts acc;
 		if (Config.AUTO_CREATE_ACCOUNTS)
 		{
-			if ((user.length() >= 2) && (user.length() <= 14))
+			if (user.length() >= 2 && user.length() <= 14)
 			{
-				acc = new Accounts(user, Base64.encodeBytes(hash), new BigDecimal(System.currentTimeMillis()), 0, 0, 1900, 1, 1, (address == null ? "null" : address
-						.getHostAddress()));
+				acc = new Accounts(user, Base64.encodeBytes(hash), new BigDecimal(System.currentTimeMillis()), 0, 0, 1900, 1, 1,
+						(address == null ? "null" : address.getHostAddress()));
 				_service.addOrUpdateAccount(acc);
 
 				_logLogin.info("Account created: " + user);
@@ -682,16 +658,15 @@ public class LoginManager
 		_connections.remove(lc);
 	}
 
-	public void setAccountLastTracert(String account, String pcIp, 
-			String hop1, String hop2, String hop3, String hop4)
+	public void setAccountLastTracert(String account, String pcIp, String hop1, String hop2, String hop3, String hop4)
 	{
 		Connection con = null;
 		PreparedStatement statement = null;
 		try
 		{
 			con = L2Registry.getConnection(con);
-			
-			String stmt = "UPDATE accounts SET pcIp=?, hop1=?, hop2=?, hop3=?, hop4=? WHERE login=?";
+
+			final String stmt = "UPDATE accounts SET pcIp=?, hop1=?, hop2=?, hop3=?, hop4=? WHERE login=?";
 			statement = con.prepareStatement(stmt);
 			statement.setString(1, pcIp);
 			statement.setString(2, hop1);
@@ -702,7 +677,7 @@ public class LoginManager
 			statement.executeUpdate();
 			statement.close();
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			_log.warn("Could not set last tracert: " + e.getMessage(), e);
 		}
@@ -712,7 +687,7 @@ public class LoginManager
 			{
 				con.close();
 			}
-			catch (SQLException e)
+			catch (final SQLException e)
 			{
 				_log.warn("", e);
 			}

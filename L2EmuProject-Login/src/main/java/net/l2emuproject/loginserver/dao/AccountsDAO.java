@@ -19,7 +19,6 @@ import java.util.List;
 
 import net.l2emuproject.loginserver.beans.Accounts;
 
-
 /**
  * Data access object interface for account
  * The interface define access functions to accounts

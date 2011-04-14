@@ -25,7 +25,6 @@ import net.l2emuproject.loginserver.beans.Gameservers;
 import net.l2emuproject.loginserver.manager.GameServerManager;
 import net.l2emuproject.tools.util.HexUtil;
 
-
 public class GameServerRegister extends Config
 {
 	private String						_choice;
@@ -37,7 +36,7 @@ public class GameServerRegister extends Config
 		// o Load config
 		// -------------
 		Config.load();
-		
+
 		System.setProperty("net.l2emuproject.db.driverclass", Config.DATABASE_DRIVER);
 		System.setProperty("net.l2emuproject.db.urldb", Config.DATABASE_URL);
 		System.setProperty("net.l2emuproject.db.user", Config.DATABASE_LOGIN);
@@ -52,7 +51,7 @@ public class GameServerRegister extends Config
 		// -------------------------
 		gsServerManager = GameServerManager.getInstance();
 
-		GameServerRegister gsRegister = new GameServerRegister();
+		final GameServerRegister gsRegister = new GameServerRegister();
 
 		gsRegister.displayMenu();
 	}
@@ -70,7 +69,7 @@ public class GameServerRegister extends Config
 		System.out.println("Enter The id of the server you want to register");
 		System.out.println("Type 'help' to get a list of ids.");
 		System.out.println("Type 'clean' to unregister all currently registered gameservers on this LoginServer.");
-		LineNumberReader _in = new LineNumberReader(new InputStreamReader(System.in));
+		final LineNumberReader _in = new LineNumberReader(new InputStreamReader(System.in));
 
 		// o ask id of server until id is a valid one
 		// ------------------------------------------
@@ -82,11 +81,7 @@ public class GameServerRegister extends Config
 			// o ask the list of server
 			// -----------------------
 			if (_choice.equalsIgnoreCase("help"))
-			{
 				displayServer();
-			}
-			// o clean all servers
-			// -------------------
 			else if (_choice.equalsIgnoreCase("clean"))
 			{
 				System.out.print("This is going to UNREGISTER ALL servers from this LoginServer. Are you sure? (y/n) ");
@@ -97,16 +92,12 @@ public class GameServerRegister extends Config
 					gsServerManager.getRegisteredGameServers().clear();
 				}
 				else
-				{
 					System.out.println("ABORTED");
-				}
 			}
 			else
-			{
 				// o register server
 				// ----------------
 				registerServer();
-			}
 		}
 	}
 
@@ -119,41 +110,34 @@ public class GameServerRegister extends Config
 	{
 		try
 		{
-			int id = new Integer(_choice).intValue();
+			final int id = new Integer(_choice).intValue();
 			if (id >= gsServerManager.getServers().size())
 			{
 				System.out.println("ID is too high (max is " + (gsServerManager.getServers().size() - 1) + ")");
 				return;
 			}
-			String name = gsServerManager.getServerName(id);
+			final String name = gsServerManager.getServerName(id);
 			if (name == null)
 			{
 				System.out.println("No name for id: " + id);
 				return;
 			}
 			if (id < 0)
-			{
 				System.out.println("ID must be positive number");
+			else if (!gsServerManager.hasRegisteredGameServerOnId(id))
+			{
+				final byte[] hex = HexUtil.generateHex(16);
+
+				gsServerManager.registerServerOnDB(hex, id, "");
+				HexUtil.saveHexid(id, new BigInteger(hex).toString(16), "hexid(server " + id + ").txt");
+				System.out.println("Server Registered hexid saved to 'hexid(server " + id + ").txt'");
+				System.out.println("Put this file in the /config folder of your gameserver and rename it to 'hexid.txt'");
+				_choiceOk = true;
 			}
 			else
-			{
-				if (!gsServerManager.hasRegisteredGameServerOnId(id))
-				{
-					byte[] hex = HexUtil.generateHex(16);
-
-					gsServerManager.registerServerOnDB(hex, id, "");
-					HexUtil.saveHexid(id, new BigInteger(hex).toString(16), "hexid(server " + id + ").txt");
-					System.out.println("Server Registered hexid saved to 'hexid(server " + id + ").txt'");
-					System.out.println("Put this file in the /config folder of your gameserver and rename it to 'hexid.txt'");
-					_choiceOk = true;
-				}
-				else
-				{
-					System.out.println("This id is not free");
-				}
-			}
+				System.out.println("This id is not free");
 		}
-		catch (NumberFormatException nfe)
+		catch (final NumberFormatException nfe)
 		{
 			System.out.println("Please, type a number or 'help'");
 		}
@@ -164,11 +148,9 @@ public class GameServerRegister extends Config
 	 */
 	private void displayServer()
 	{
-		for (Gameservers gs : gsServerManager.getServers())
-		{
+		for (final Gameservers gs : gsServerManager.getServers())
 			System.out.println("Server: id:" + gs.getServerId() + " - " + gs.getServerName() + " - In Use: "
 					+ (gsServerManager.hasRegisteredGameServerOnId(gs.getServerId()) ? "YES" : "NO"));
-		}
 		System.out.println("You can also see servername.xml");
 	}
 

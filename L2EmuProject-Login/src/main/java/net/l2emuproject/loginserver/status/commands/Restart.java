@@ -25,12 +25,12 @@ public final class Restart extends LoginStatusCommand
 	{
 		super("restarts the server", "restart");
 	}
-	
+
 	@Override
 	protected void useCommand(String command, String params)
 	{
 		Runtime.getRuntime().exit(2);
-		
+
 		getStatusThread().close();
 	}
 }

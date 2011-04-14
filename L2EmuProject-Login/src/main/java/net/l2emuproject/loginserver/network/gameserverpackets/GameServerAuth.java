@@ -19,49 +19,49 @@ package net.l2emuproject.loginserver.network.gameserverpackets;
  */
 public final class GameServerAuth extends GameToLoginPacket
 {
-	private final byte[] _hexId;
-	private final int _desiredId;
-	private final boolean _hostReserved;
-	private final boolean _acceptAlternativeId;
-	private final int _maxPlayers;
-	private final int _port;
-	private final String _gsNetConfig1;
-	private final String _gsNetConfig2;
-	
+	private final byte[]	_hexId;
+	private final int		_desiredId;
+	private final boolean	_hostReserved;
+	private final boolean	_acceptAlternativeId;
+	private final int		_maxPlayers;
+	private final int		_port;
+	private final String	_gsNetConfig1;
+	private final String	_gsNetConfig2;
+
 	public GameServerAuth(byte[] decrypt)
 	{
 		super(decrypt);
 		_desiredId = readC();
-		_acceptAlternativeId = (readC() != 0);
-		_hostReserved = (readC() != 0);
+		_acceptAlternativeId = readC() != 0;
+		_hostReserved = readC() != 0;
 		_gsNetConfig1 = readS();
 		_gsNetConfig2 = readS();
 		_port = readH();
 		_maxPlayers = readD();
-		int size = readD();
+		final int size = readD();
 		_hexId = readB(size);
 	}
-	
+
 	public byte[] getHexID()
 	{
 		return _hexId;
 	}
-	
+
 	public boolean getHostReserved()
 	{
 		return _hostReserved;
 	}
-	
+
 	public int getDesiredID()
 	{
 		return _desiredId;
 	}
-	
+
 	public boolean acceptAlternateID()
 	{
 		return _acceptAlternativeId;
 	}
-	
+
 	/**
 	 * @return Returns the max players.
 	 */
@@ -69,19 +69,17 @@ public final class GameServerAuth extends GameToLoginPacket
 	{
 		return _maxPlayers;
 	}
-	
+
 	/**
 	 * @return Returns the gameserver netconfig string.
 	 */
 	public String getNetConfig()
 	{
 		String _netConfig = "";
-		
+
 		//	network configuration string formed on server
 		if (_gsNetConfig1.contains(";") || _gsNetConfig1.contains(","))
-		{
 			_netConfig = _gsNetConfig1;
-		}
 		else
 		// make network config string
 		{
@@ -90,10 +88,10 @@ public final class GameServerAuth extends GameToLoginPacket
 			if (_gsNetConfig1.length() > 0) // external hostname and all avaible addresses by default
 				_netConfig += _gsNetConfig1 + "," + "0.0.0.0/0" + ";";
 		}
-		
+
 		return _netConfig;
 	}
-	
+
 	/**
 	 * @return Returns the port.
 	 */

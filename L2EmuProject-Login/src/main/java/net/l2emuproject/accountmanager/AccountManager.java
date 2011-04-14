@@ -28,29 +28,27 @@ import net.l2emuproject.loginserver.services.AccountsServices;
 import net.l2emuproject.loginserver.services.GameserversServices;
 import net.l2emuproject.loginserver.services.exception.AccountModificationException;
 
-
 /**
  * Enhanced L2JFree account manager.
  * @author savormix
  */
 public final class AccountManager extends Config
 {
-	private static final String[] CMD = {
-		"register", "change", "setlevel", "cancel", "list", "quit"
-	};
-	private static final String SPACE = " ";
-	private final AccountsServices accountService;
-	private final GameserversServices gameService;
+	private static final String[]		CMD		=
+												{ "register", "change", "setlevel", "cancel", "list", "quit" };
+	private static final String			SPACE	= " ";
+	private final AccountsServices		accountService;
+	private final GameserversServices	gameService;
 
 	private AccountManager() throws Exception
 	{
 		Config.load();
-		
+
 		System.setProperty("net.l2emuproject.db.driverclass", Config.DATABASE_DRIVER);
 		System.setProperty("net.l2emuproject.db.urldb", Config.DATABASE_URL);
 		System.setProperty("net.l2emuproject.db.user", Config.DATABASE_LOGIN);
 		System.setProperty("net.l2emuproject.db.password", Config.DATABASE_PASSWORD);
-		
+
 		L2Registry.loadRegistry("spring.xml");
 		accountService = (AccountsServices) L2Registry.getBean("AccountsServices");
 		gameService = (GameserversServices) L2Registry.getBean("GameserversServicesXml");
@@ -58,15 +56,16 @@ public final class AccountManager extends Config
 
 	private final int[] parseBirth(String s)
 	{
-		int[] result = { 1900, 1, 1 };
+		final int[] result =
+		{ 1900, 1, 1 };
 		try
 		{
-			StringTokenizer st = new StringTokenizer(s, "/");
+			final StringTokenizer st = new StringTokenizer(s, "/");
 			result[0] = Integer.parseInt(st.nextToken());
 			result[1] = Integer.parseInt(st.nextToken());
 			result[2] = Integer.parseInt(st.nextToken());
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			_log.warn("Failed parsing -b!");
 		}
@@ -79,7 +78,7 @@ public final class AccountManager extends Config
 		{
 			return Integer.parseInt(s);
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			_log.warn("Failed parsing " + param + "!");
 		}
@@ -90,21 +89,22 @@ public final class AccountManager extends Config
 	{
 		if (cmd.startsWith(CMD[0]))
 		{
-			StringTokenizer st = new StringTokenizer(cmd, SPACE);
+			final StringTokenizer st = new StringTokenizer(cmd, SPACE);
 			st.nextToken();
 			if (st.countTokens() < 4 || st.countTokens() > 8)
 			{
 				_log.warn("You must give a valid command.");
 				return;
 			}
-			String acc = st.nextToken();
-			String pass = st.nextToken();
-			String level = st.nextToken();
-			int[] birth = new int[] { 1900, 1, 1 };
+			final String acc = st.nextToken();
+			final String pass = st.nextToken();
+			final String level = st.nextToken();
+			int[] birth = new int[]
+			{ 1900, 1, 1 };
 			int gs = 0;
 			while (st.hasMoreTokens())
 			{
-				String id = st.nextToken();
+				final String id = st.nextToken();
 				if (id.equals("-b"))
 					birth = parseBirth(st.nextToken());
 				else if (id.equals("-gs"))
@@ -115,31 +115,31 @@ public final class AccountManager extends Config
 				accountService.addOrUpdateAccount(acc, pass, level, birth[0], birth[1], birth[2], gs);
 				_log.info("Account " + acc + " has been registered.");
 			}
-			catch (AccountModificationException e)
+			catch (final AccountModificationException e)
 			{
 				_log.error(e.getMessage(), e);
 			}
 		}
 		else if (cmd.startsWith(CMD[1]))
 		{
-			StringTokenizer st = new StringTokenizer(cmd, SPACE);
+			final StringTokenizer st = new StringTokenizer(cmd, SPACE);
 			st.nextToken();
 			if (st.countTokens() < 3 || st.countTokens() > 10)
 			{
 				_log.warn("You must give a valid command.");
 				return;
 			}
-			Accounts acc = accountService.getAccountById(st.nextToken());
+			final Accounts acc = accountService.getAccountById(st.nextToken());
 			if (acc == null)
 				return;
 			while (st.hasMoreTokens())
 			{
-				String id = st.nextToken();
+				final String id = st.nextToken();
 				if (id.equals("-p"))
 					acc.setPlainPassword(st.nextToken());
 				else if (id.equals("-b"))
 				{
-					int[] birth = parseBirth(st.nextToken());
+					final int[] birth = parseBirth(st.nextToken());
 					acc.setBirthYear(birth[0]);
 					acc.setBirthMonth(birth[1]);
 					acc.setBirthDay(birth[2]);
@@ -152,51 +152,50 @@ public final class AccountManager extends Config
 				accountService.addOrUpdateAccount(acc);
 				_log.info("Account " + acc.getLogin() + " has been updated.");
 			}
-			catch (AccountModificationException e)
+			catch (final AccountModificationException e)
 			{
 				_log.error(e.getMessage(), e);
 			}
 		}
 		else if (cmd.startsWith(CMD[2]))
 			try
-		{
-				String acc = cmd.split(SPACE)[1];
-				String level = cmd.split(SPACE)[2];
+			{
+				final String acc = cmd.split(SPACE)[1];
+				final String level = cmd.split(SPACE)[2];
 				accountService.changeAccountLevel(acc, level);
 				_log.info("Account " + acc + " has been leveled to " + level + ".");
-		}
-		catch (ArrayIndexOutOfBoundsException e)
-		{
-			_log.warn("You must specify an account name and the new access level.");
-		}
-		catch (AccountModificationException e)
-		{
-			_log.error(e.getMessage(), e);
-		}
+			}
+			catch (final ArrayIndexOutOfBoundsException e)
+			{
+				_log.warn("You must specify an account name and the new access level.");
+			}
+			catch (final AccountModificationException e)
+			{
+				_log.error(e.getMessage(), e);
+			}
 		else if (cmd.startsWith(CMD[3]))
 			try
-		{
-				String acc = cmd.split(SPACE)[1];
+			{
+				final String acc = cmd.split(SPACE)[1];
 				accountService.deleteAccount(acc);
 				_log.info("Account " + acc + " has been cancelled.");
-		}
-		catch (ArrayIndexOutOfBoundsException e)
-		{
-			_log.warn("You must specify an account name to cancel registration.");
-		}
-		catch (AccountModificationException e)
-		{
-			_log.error(e.getMessage(), e);
-		}
+			}
+			catch (final ArrayIndexOutOfBoundsException e)
+			{
+				_log.warn("You must specify an account name to cancel registration.");
+			}
+			catch (final AccountModificationException e)
+			{
+				_log.error(e.getMessage(), e);
+			}
 		else if (cmd.equals(CMD[4]))
 		{
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
-			List<Accounts> list = accountService.getAccountsInfo();
-			for (Accounts a : list)
+			final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+			final List<Accounts> list = accountService.getAccountsInfo();
+			for (final Accounts a : list)
 				if (a.getLastactive() != null)
-					_log.info(a.getLogin() + " (lvl " + a.getAccessLevel() + ") last active " +
-							sdf.format(new Date(a.getLastactive().longValue())) + " from IP " +
-							a.getLastIp() + " in server " +	getGameserverName(a.getLastServerId()));
+					_log.info(a.getLogin() + " (lvl " + a.getAccessLevel() + ") last active " + sdf.format(new Date(a.getLastactive().longValue()))
+							+ " from IP " + a.getLastIp() + " in server " + getGameserverName(a.getLastServerId()));
 				else
 					_log.info(a.getLogin() + " (lvl " + a.getAccessLevel() + ")");
 			_log.info("Total accounts: " + list.size() + ".");
@@ -207,7 +206,8 @@ public final class AccountManager extends Config
 			_log.warn("Invalid command. Try again.");
 	}
 
-	private final String getGameserverName(int id) {
+	private final String getGameserverName(int id)
+	{
 		if (id > 0)
 			return gameService.getGameserverName(id);
 		else
@@ -220,7 +220,7 @@ public final class AccountManager extends Config
 	 */
 	public static void main(String[] args) throws Exception
 	{
-		AccountManager am = new AccountManager();
+		final AccountManager am = new AccountManager();
 		_log.info("/===============================\\");
 		_log.info("|| L2EmuProject Account Manager ||");
 		_log.info("\\==============================//");
@@ -232,7 +232,7 @@ public final class AccountManager extends Config
 		_log.info(CMD[3] + " [account name]");
 		_log.info(CMD[4] + " - list all registered accounts");
 		_log.info(CMD[5] + " - exit the application");
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String line;
 		while ((line = br.readLine()) != null)
 			am.handleRequest(line.trim().toLowerCase());
