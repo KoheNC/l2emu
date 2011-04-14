@@ -2,7 +2,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for raidboss_status
 -- ----------------------------
-CREATE IF NOT EXISTS TABLE `raidboss_status` (
+CREATE TABLE IF NOT EXISTS `raidboss_status` (
   `bossId` int(11) NOT NULL DEFAULT '0',
   `currentHp` decimal(8,0) DEFAULT NULL,
   `currentMp` decimal(8,0) DEFAULT NULL,
