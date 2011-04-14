@@ -12,41 +12,40 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package net.l2emuproject.gameserver.datatables;
+package net.l2emuproject.gameserver.dataholders;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
+import javax.xml.parsers.DocumentBuilderFactory;
 
+import net.l2emuproject.Config;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 /**
  * @author L0ngh0rn
  */
-public final class ClassBalanceTable
+public final class ClassBalanceDataHolder
 {
-	private static Log						_log		= LogFactory.getLog(ClassBalanceTable.class);
+	private static Log						_log		= LogFactory.getLog(ClassBalanceDataHolder.class);
 	private Map<Integer, ClassBalance>	_balance;
-
-	private static String					QRY_SELECT	= "SELECT c.class_id, c.FxH, c.FxL, c.FxR, c.MxH, c.MxL, c.MxR FROM class_balance AS c ORDER BY c.class_id ASC";
 
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final ClassBalanceTable	_instance	= new ClassBalanceTable();
+		protected static final ClassBalanceDataHolder	_instance	= new ClassBalanceDataHolder();
 	}
 
-	public static ClassBalanceTable getInstance()
+	public static ClassBalanceDataHolder getInstance()
 	{
 		return SingletonHolder._instance;
 	}
 
-	public ClassBalanceTable()
+	public ClassBalanceDataHolder()
 	{
 		loadClassBalance();
 	}
@@ -55,35 +54,43 @@ public final class ClassBalanceTable
 	{
 		_balance = new HashMap<Integer, ClassBalance>();
 
-		Connection con = null;
+		Document doc = null;
+		File file = new File(Config.DATAPACK_ROOT, "data/char_data/class_balance.xml");
+
 		try
 		{
-			con = L2DatabaseFactory.getInstance().getConnection();
-			final PreparedStatement ps = con.prepareStatement(QRY_SELECT);
-			final ResultSet rs = ps.executeQuery();
-			while (rs.next())
+			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			factory.setValidating(false);
+			factory.setIgnoringComments(true);
+			doc = factory.newDocumentBuilder().parse(file);
+			
+			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
 			{
-				final int class_id = rs.getInt("class_id");
-				final double fxh = rs.getDouble("FxH");
-				final double fxl = rs.getDouble("FxL");
-				final double fxr = rs.getDouble("FxR");
-				final double mxh = rs.getDouble("MxH");
-				final double mxl = rs.getDouble("MxL");
-				final double mxr = rs.getDouble("MxR");
-				_balance.put(class_id, new ClassBalance(class_id, new ArmorBalance(fxh, fxl, fxr), new ArmorBalance(mxh, mxl, mxr)));
+				if ("list".equalsIgnoreCase(n.getNodeName()))
+				{
+					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
+					{
+						int classId = 0;
+						double fvh = 0, fvl = 0, fvr = 0, mvh = 0, mvl = 0, mvr = 0;
+						if ("class".equalsIgnoreCase(d.getNodeName()))
+						{
+							classId = Integer.parseInt(d.getAttributes().getNamedItem("classId").getNodeValue());
+							fvh = Integer.parseInt(d.getAttributes().getNamedItem("PhysicalvHeavy").getNodeValue());
+							fvl = Integer.parseInt(d.getAttributes().getNamedItem("PhysicalvLight").getNodeValue());
+							fvr = Integer.parseInt(d.getAttributes().getNamedItem("PhysicalvRobe").getNodeValue());
+							mvh = Integer.parseInt(d.getAttributes().getNamedItem("MagicalvHeavy").getNodeValue());
+							mvl = Integer.parseInt(d.getAttributes().getNamedItem("MagicalvLight").getNodeValue());
+							mvr = Integer.parseInt(d.getAttributes().getNamedItem("MagicalvRobe").getNodeValue());
+							
+							_balance.put(classId, new ClassBalance(classId, new ArmorBalance(fvh, fvl, fvr), new ArmorBalance(mvh, mvl, mvr)));
+						}
+					}
+				}
 			}
-			ps.close();
-			rs.close();
-
-			_log.info(getClass().getSimpleName() + " : (Re)Loaded " + _balance.size() + " class(es).");
 		}
 		catch (Exception e)
 		{
 			_log.warn("ClassBalanceTable: Could not load class_balance: ", e);
-		}
-		finally
-		{
-			L2DatabaseFactory.close(con);
 		}
 	}
 
@@ -98,17 +105,17 @@ public final class ClassBalanceTable
 	{
 		switch (type)
 		{
-			case FxH:
+			case FvH:
 				return getBalance(class_id).getFight().getHeavy();
-			case FxL:
+			case FvL:
 				return getBalance(class_id).getFight().getLight();
-			case FxR:
+			case FvR:
 				return getBalance(class_id).getFight().getRobe();
-			case MxH:
+			case MvH:
 				return getBalance(class_id).getMage().getHeavy();
-			case MxL:
+			case MvL:
 				return getBalance(class_id).getMage().getLight();
-			case MxR:
+			case MvR:
 				return getBalance(class_id).getMage().getRobe();
 			default:
 				return 1D;
@@ -117,7 +124,7 @@ public final class ClassBalanceTable
 
 	public enum TypeBalance
 	{
-		FxH, FxL, FxR, MxH, MxL, MxR;
+		FvH, FvL, FvR, MvH, MvL, MvR;
 	}
 
 	public final class ClassBalance

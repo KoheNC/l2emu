@@ -3,36 +3,36 @@
 	elementFormDefault="qualified">
 	<xs:include schemaLocation="base.xsd" />
 	<xs:element name="list">
-  <xs:element name="list">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="augmentation"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="augmentation">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="skillId"/>
-        <xs:element ref="skillLevel"/>
-        <xs:element ref="type"/>
-      </xs:sequence>
-      <xs:attribute name="id" use="required" type="xs:integer"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="skillId">
-    <xs:complexType>
-      <xs:attribute name="val" use="required" type="xs:integer"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="skillLevel">
-    <xs:complexType>
-      <xs:attribute name="val" use="required" type="xs:integer"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="type">
-    <xs:complexType>
-      <xs:attribute name="val" use="required" type="xs:NCName"/>
-    </xs:complexType>
-  </xs:element>
+		<xs:element name="list">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" ref="augmentation" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		<xs:element name="augmentation">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element ref="skillId" />
+					<xs:element ref="skillLevel" />
+					<xs:element ref="type" />
+				</xs:sequence>
+				<xs:attribute name="id" use="required" type="xs:integer" />
+			</xs:complexType>
+		</xs:element>
+		<xs:element name="skillId">
+			<xs:complexType>
+				<xs:attribute name="val" use="required" type="xs:integer" />
+			</xs:complexType>
+		</xs:element>
+		<xs:element name="skillLevel">
+			<xs:complexType>
+				<xs:attribute name="val" use="required" type="xs:integer" />
+			</xs:complexType>
+		</xs:element>
+		<xs:element name="type">
+			<xs:complexType>
+				<xs:attribute name="val" use="required" type="xs:NCName" />
+			</xs:complexType>
+		</xs:element>
 </xs:schema>

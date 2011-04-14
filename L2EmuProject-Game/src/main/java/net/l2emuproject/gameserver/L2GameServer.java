@@ -22,6 +22,7 @@ import java.util.Set;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.config.PersistentProperties;
 import net.l2emuproject.gameserver.dataholders.AugmentationDataHolder;
+import net.l2emuproject.gameserver.dataholders.ClassBalanceDataHolder;
 import net.l2emuproject.gameserver.dataholders.EnchantHPBonusDataHolder;
 import net.l2emuproject.gameserver.dataholders.EnchantItemDataHolder;
 import net.l2emuproject.gameserver.dataholders.MerchantPriceConfigDataHolder;
@@ -34,7 +35,6 @@ import net.l2emuproject.gameserver.datatables.BuffTemplateTable;
 import net.l2emuproject.gameserver.datatables.CharNameTable;
 import net.l2emuproject.gameserver.datatables.CharTemplateTable;
 import net.l2emuproject.gameserver.datatables.ClanTable;
-import net.l2emuproject.gameserver.datatables.ClassBalanceTable;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.ExtractableItemsData;
 import net.l2emuproject.gameserver.datatables.ExtractableSkillsData;
@@ -431,7 +431,7 @@ public class L2GameServer extends Config
 			OnlineStatusTask.getInstance();
 		
 		MailService.getInstance();
-		ClassBalanceTable.getInstance();
+		ClassBalanceDataHolder.getInstance();
 		
 		Util.printSection("Events");
 		TvT.getInstance().init();

@@ -1,0 +1,22 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="uikey" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="uikey">
+		<xs:complexType>
+			<xs:attribute name="category" use="required" type="xs:integer" />
+			<xs:attribute name="command" use="required" type="xs:integer" />
+			<xs:attribute name="key" use="required" type="xs:integer" />
+			<xs:attribute name="showType" use="required" type="xs:integer" />
+			<xs:attribute name="toogleKey1" use="required" type="xs:integer" />
+			<xs:attribute name="toogleKey2" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

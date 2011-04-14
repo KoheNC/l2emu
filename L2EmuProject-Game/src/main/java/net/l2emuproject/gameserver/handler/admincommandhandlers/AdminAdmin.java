@@ -18,8 +18,8 @@ import java.util.StringTokenizer;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Config;
+import net.l2emuproject.gameserver.dataholders.ClassBalanceDataHolder;
 import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
-import net.l2emuproject.gameserver.datatables.ClassBalanceTable;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.datatables.ItemTable;
@@ -298,7 +298,7 @@ public class AdminAdmin implements IAdminCommandHandler
 		
 		else if (command.equals("admin_reload_class_balance"))
 		{
-			ClassBalanceTable.getInstance().loadClassBalance();
+			ClassBalanceDataHolder.getInstance().loadClassBalance();
 			activeChar.sendMessage("Class Balance Table reloaded.");
 		}
 		

@@ -15,8 +15,8 @@
 package net.l2emuproject.gameserver.skills.formulas;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.datatables.ClassBalanceTable;
-import net.l2emuproject.gameserver.datatables.ClassBalanceTable.TypeBalance;
+import net.l2emuproject.gameserver.dataholders.ClassBalanceDataHolder;
+import net.l2emuproject.gameserver.dataholders.ClassBalanceDataHolder.TypeBalance;
 import net.l2emuproject.gameserver.entity.base.PlayerState;
 import net.l2emuproject.gameserver.entity.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.events.global.clanhallsiege.ClanHall;
@@ -2754,7 +2754,7 @@ public final class Formulas
 			{
 				int class_id = ((L2Player) attacker).getClassId().getId();
 				L2Armor armor = ((L2Player) target).getActiveChestArmorItem();
-				ClassBalanceTable cbt = ClassBalanceTable.getInstance();
+				ClassBalanceDataHolder cbt = ClassBalanceDataHolder.getInstance();
 				int wearingArmor = -1;
 
 				if (armor != null)
@@ -2773,21 +2773,21 @@ public final class Formulas
 						switch (wearingArmor)
 						{
 							case 0:
-								return damage * cbt.getBalanceValue(TypeBalance.FxH, class_id);
+								return damage * cbt.getBalanceValue(TypeBalance.FvH, class_id);
 							case 1:
-								return damage * cbt.getBalanceValue(TypeBalance.FxL, class_id);
+								return damage * cbt.getBalanceValue(TypeBalance.FvL, class_id);
 							case 2:
-								return damage * cbt.getBalanceValue(TypeBalance.FxR, class_id);
+								return damage * cbt.getBalanceValue(TypeBalance.FvR, class_id);
 						}
 					case MAGIC:
 						switch (wearingArmor)
 						{
 							case 0:
-								return damage * cbt.getBalanceValue(TypeBalance.MxH, class_id);
+								return damage * cbt.getBalanceValue(TypeBalance.MvH, class_id);
 							case 1:
-								return damage * cbt.getBalanceValue(TypeBalance.MxL, class_id);
+								return damage * cbt.getBalanceValue(TypeBalance.MvL, class_id);
 							case 2:
-								return damage * cbt.getBalanceValue(TypeBalance.MxR, class_id);
+								return damage * cbt.getBalanceValue(TypeBalance.MvR, class_id);
 						}
 				}
 			}

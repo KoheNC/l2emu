@@ -1,0 +1,23 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="class" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="class">
+		<xs:complexType>
+			<xs:attribute name="MagicalvHeavy" use="required" />
+			<xs:attribute name="MagicalvLight" use="required" />
+			<xs:attribute name="MagicalvRobe" use="required" />
+			<xs:attribute name="PhysicalvHeavy" use="required" />
+			<xs:attribute name="PhysicalvLight" use="required" />
+			<xs:attribute name="PhysicalvRobe" use="required" />
+			<xs:attribute name="classId" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
