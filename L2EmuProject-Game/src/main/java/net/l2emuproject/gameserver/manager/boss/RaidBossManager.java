@@ -303,6 +303,7 @@ public final class RaidBossManager
 	{
 		final int bossId = spawnData.getNpcId();
 		final StoredInfo info = _storedInfo.get(bossId);
+		final Timestamp respawn = info.getRespawnTime();
 
 		if (dateIsOk(bossId))
 		{
@@ -315,17 +316,19 @@ public final class RaidBossManager
 
 				if (info.getRespawnTime().getTime() < System.currentTimeMillis())
 				{
-					boss.getStatus().setCurrentHp(boss.getMaxHp());
-					boss.getStatus().setCurrentMp(boss.getMaxMp());
-					info.setRespawnTime(null);
-					_storedInfo.put(bossId, info);
+					if (respawn != null)
+					{
+						boss.getStatus().setCurrentHp(boss.getMaxHp());
+						boss.getStatus().setCurrentMp(boss.getMaxMp());
+						info.setRespawnTime(null);
+						_storedInfo.put(bossId, info);
+					}
 				}
 				_bosses.put(bossId, boss);
 			}
 		}
 		else
 		{
-			final Timestamp respawn = info.getRespawnTime();
 			if (respawn != null)
 			{
 				final long respawnDelay = respawn.getTime() - System.currentTimeMillis();
