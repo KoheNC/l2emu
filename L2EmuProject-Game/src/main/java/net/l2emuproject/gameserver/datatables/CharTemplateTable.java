@@ -258,7 +258,7 @@ public final class CharTemplateTable
 		}
 		
 		Document doc = null;
-		File file = new File(Config.DATAPACK_ROOT, "data/char_data/class_creation_items.xml");
+		File file = new File(Config.DATAPACK_ROOT, "data/char_data/char_creation_items.xml");
 
 		try
 		{

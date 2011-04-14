@@ -48,6 +48,10 @@ public class FishDataHolder
 
 	private FishDataHolder()
 	{
+		_fishsNormal = new ArrayList<FishData>();
+		_fishsEasy = new ArrayList<FishData>();
+		_fishsHard = new ArrayList<FishData>();
+		
 		Document doc = null;
 		File file = new File(Config.DATAPACK_ROOT, "data/npc_data/fish/fish.xml");
 
