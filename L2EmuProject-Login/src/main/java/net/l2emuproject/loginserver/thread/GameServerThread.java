@@ -468,7 +468,7 @@ public class GameServerThread extends NetworkThread
 	{
 		String _host = null;
 
-		if (Config.IP_UPDATE_TIME > 0 && System.currentTimeMillis() > _lastIpUpdate + Config.IP_UPDATE_TIME)
+		if (Config.IP_UPDATE_TIME > 0 && System.currentTimeMillis() > (_lastIpUpdate + Config.IP_UPDATE_TIME))
 			updateIPs();
 
 		for (final SubNetHost _netConfig : _gameserverSubnets)
