@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE list SYSTEM "../../templates/etcitems.dtd">
-<list>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/etcitems.xsd">
 	<item id="10307" name="Great Snow Wolf Necklace">
 		<cond>
 			<player clanHall="36, 37, 38, 39, 40, 41, 51, 52, 53, 54, 55, 56, 57" />
