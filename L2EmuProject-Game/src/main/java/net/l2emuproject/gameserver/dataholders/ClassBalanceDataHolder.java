@@ -75,12 +75,12 @@ public final class ClassBalanceDataHolder
 						if ("class".equalsIgnoreCase(d.getNodeName()))
 						{
 							classId = Integer.parseInt(d.getAttributes().getNamedItem("classId").getNodeValue());
-							fvh = Integer.parseInt(d.getAttributes().getNamedItem("PhysicalvHeavy").getNodeValue());
-							fvl = Integer.parseInt(d.getAttributes().getNamedItem("PhysicalvLight").getNodeValue());
-							fvr = Integer.parseInt(d.getAttributes().getNamedItem("PhysicalvRobe").getNodeValue());
-							mvh = Integer.parseInt(d.getAttributes().getNamedItem("MagicalvHeavy").getNodeValue());
-							mvl = Integer.parseInt(d.getAttributes().getNamedItem("MagicalvLight").getNodeValue());
-							mvr = Integer.parseInt(d.getAttributes().getNamedItem("MagicalvRobe").getNodeValue());
+							fvh = Double.parseDouble(d.getAttributes().getNamedItem("PhysicalvHeavy").getNodeValue());
+							fvl = Double.parseDouble(d.getAttributes().getNamedItem("PhysicalvLight").getNodeValue());
+							fvr = Double.parseDouble(d.getAttributes().getNamedItem("PhysicalvRobe").getNodeValue());
+							mvh = Double.parseDouble(d.getAttributes().getNamedItem("MagicalvHeavy").getNodeValue());
+							mvl = Double.parseDouble(d.getAttributes().getNamedItem("MagicalvLight").getNodeValue());
+							mvr = Double.parseDouble(d.getAttributes().getNamedItem("MagicalvRobe").getNodeValue());
 							
 							_balance.put(classId, new ClassBalance(classId, new ArmorBalance(fvh, fvl, fvr), new ArmorBalance(mvh, mvl, mvr)));
 						}
