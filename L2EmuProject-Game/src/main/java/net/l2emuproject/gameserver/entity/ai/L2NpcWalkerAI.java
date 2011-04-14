@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.entity.ai;
 import java.util.ArrayList;
 
 import net.l2emuproject.Config;
-import net.l2emuproject.gameserver.datatables.NpcWalkerRoutesTable;
+import net.l2emuproject.gameserver.dataholders.NpcWalkerRoutesDataHolder;
 import net.l2emuproject.gameserver.system.taskmanager.AbstractIterativePeriodicTaskManager;
 import net.l2emuproject.gameserver.world.npc.L2NpcWalkerNode;
 import net.l2emuproject.gameserver.world.object.L2Character;
@@ -91,7 +91,7 @@ public class L2NpcWalkerAI extends L2CharacterAI implements Runnable
 			return;
 		}
 		
-		ArrayList<L2NpcWalkerNode> route = NpcWalkerRoutesTable.getInstance().getRouteForNpc(getActor().getNpcId());
+		ArrayList<L2NpcWalkerNode> route = NpcWalkerRoutesDataHolder.getInstance().getRouteForNpc(getActor().getNpcId());
 		
 		_route = route.toArray(new L2NpcWalkerNode[route.size()]);
 		

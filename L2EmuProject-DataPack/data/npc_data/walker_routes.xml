@@ -1,0 +1,1293 @@
+<?xml version="1.0" standalone="yes"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../templates/walkerRoutes.xsd">
+	<npc route_id="1" npc_id="31361" move_point="1" chatText="" move_x="22418"
+		move_y="10249" move_z="-3648" delay="61" running="true" />
+	<npc route_id="1" npc_id="31361" move_point="2" chatText="" move_x="23423"
+		move_y="11165" move_z="-3720" delay="0" running="true" />
+	<npc route_id="1" npc_id="31361" move_point="3" chatText="" move_x="20182"
+		move_y="11101" move_z="-3720" delay="0" running="true" />
+	<npc route_id="1" npc_id="31361" move_point="4" chatText="" move_x="17327"
+		move_y="13603" move_z="-3728" delay="1" running="true" />
+	<npc route_id="1" npc_id="31361" move_point="5"
+		chatText="The mass of darkness will start in a couple of days. Pay more attention to the guard!"
+		move_x="17410" move_y="13038" move_z="-3736" delay="10" running="true" />
+	<npc route_id="1" npc_id="31361" move_point="6" chatText="" move_x="20176"
+		move_y="12902" move_z="-3712" delay="0" running="true" />
+	<npc route_id="1" npc_id="31361" move_point="7" chatText="" move_x="21669"
+		move_y="13378" move_z="-3616" delay="0" running="true" />
+	<npc route_id="1" npc_id="31361" move_point="8" chatText="" move_x="20675"
+		move_y="10401" move_z="-3712" delay="0" running="true" />
+	<npc route_id="2" npc_id="31360" move_point="1" chatText="" move_x="10820"
+		move_y="14770" move_z="-4240" delay="62" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="2" chatText="" move_x="10947"
+		move_y="14642" move_z="-4240" delay="0" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="3" chatText="" move_x="11301"
+		move_y="15844" move_z="-4584" delay="0" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="4" chatText="" move_x="12107"
+		move_y="16431" move_z="-4584" delay="0" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="5"
+		chatText="You&apos;re a hard worker,Rayla!" move_x="15097" move_y="15662"
+		move_z="-4376" delay="6" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="6" chatText="" move_x="15269"
+		move_y="16281" move_z="-4376" delay="7" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="7" chatText="" move_x="12336"
+		move_y="16921" move_z="-4584" delay="0" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="8" chatText="" move_x="11786"
+		move_y="17663" move_z="-4564" delay="0" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="9" chatText="" move_x="11246"
+		move_y="17650" move_z="-4568" delay="0" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="10" chatText=""
+		move_x="10649" move_y="17284" move_z="-4584" delay="0" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="11"
+		chatText="You&apos;re a hard worker!" move_x="7692" move_y="18041"
+		move_z="-4376" delay="6" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="12" chatText=""
+		move_x="10549" move_y="16780" move_z="-4584" delay="0" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="13" chatText=""
+		move_x="10722" move_y="16538" move_z="-4584" delay="0" running="false" />
+	<npc route_id="2" npc_id="31360" move_point="14" chatText=""
+		move_x="11008" move_y="15927" move_z="-4584" delay="0" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="1"
+		chatText="Mr. Lid, Murdoc, and Airy! How are you doing?" move_x="114847"
+		move_y="-180066" move_z="-877" delay="30" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="2" chatText="" move_x="114834"
+		move_y="-179685" move_z="-877" delay="2" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="3" chatText="" move_x="116122"
+		move_y="-179457" move_z="-1068" delay="1" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="4" chatText="" move_x="116798"
+		move_y="-180391" move_z="-1200" delay="2" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="5" chatText="" move_x="116324"
+		move_y="-181564" move_z="-1384" delay="2" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="6" chatText="" move_x="115797"
+		move_y="-181563" move_z="-1336" delay="0" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="7" chatText="Care to go a round?"
+		move_x="116054" move_y="-181575" move_z="-1352" delay="0" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="8" chatText="" move_x="116506"
+		move_y="-181478" move_z="-1384" delay="2" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="9" chatText="" move_x="116634"
+		move_y="-180029" move_z="-1160" delay="1" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="10" chatText=""
+		move_x="115347" move_y="-178623" move_z="-928" delay="1" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="11" chatText=""
+		move_x="115763" move_y="-177591" move_z="-888" delay="2" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="12"
+		chatText="Have a nice day, Mr. Garita and Mion!" move_x="115801"
+		move_y="-177342" move_z="-880" delay="1" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="13" chatText=""
+		move_x="115869" move_y="-177340" move_z="-880" delay="15" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="14" chatText=""
+		move_x="115788" move_y="-177482" move_z="-880" delay="3" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="15" chatText=""
+		move_x="115124" move_y="-179821" move_z="-885" delay="1" running="false" />
+	<npc route_id="3" npc_id="31362" move_point="16" chatText=""
+		move_x="115103" move_y="-180065" move_z="-877" delay="1" running="false" />
+	<npc route_id="4" npc_id="31363" move_point="1"
+		chatText="Where is that fool hiding?" move_x="116731" move_y="-182477"
+		move_z="-1512" delay="10" running="true" />
+	<npc route_id="4" npc_id="31363" move_point="2" chatText="" move_x="115870"
+		move_y="-183280" move_z="-1472" delay="0" running="true" />
+	<npc route_id="4" npc_id="31363" move_point="3" chatText="" move_x="115746"
+		move_y="-183428" move_z="-1472" delay="1" running="true" />
+	<npc route_id="4" npc_id="31363" move_point="4" chatText="" move_x="115870"
+		move_y="-183280" move_z="-1472" delay="1" running="true" />
+	<npc route_id="4" npc_id="31363" move_point="5" chatText="" move_x="115999"
+		move_y="-183246" move_z="-1480" delay="0" running="true" />
+	<npc route_id="4" npc_id="31363" move_point="6" chatText="" move_x="116094"
+		move_y="-183113" move_z="-1480" delay="1" running="true" />
+	<npc route_id="4" npc_id="31363" move_point="7"
+		chatText="Have you seen Torocco today?" move_x="116584" move_y="-184294"
+		move_z="-1568" delay="11" running="true" />
+	<npc route_id="4" npc_id="31363" move_point="8" chatText="" move_x="116392"
+		move_y="-184100" move_z="-1560" delay="1" running="true" />
+	<npc route_id="4" npc_id="31363" move_point="9" chatText="" move_x="117093"
+		move_y="-182524" move_z="-1528" delay="1" running="true" />
+	<npc route_id="4" npc_id="31363" move_point="10"
+		chatText="Have you seen Torocco?" move_x="117789" move_y="-182540"
+		move_z="-1528" delay="11" running="true" />
+	<npc route_id="5" npc_id="31359" move_point="1" chatText="" move_x="45744"
+		move_y="50561" move_z="-3065" delay="61" running="false" />
+	<npc route_id="5" npc_id="31359" move_point="2" chatText="" move_x="46444"
+		move_y="49742" move_z="-3065" delay="2" running="false" />
+	<npc route_id="5" npc_id="31359" move_point="3"
+		chatText="How can we save the Mother Tree?" move_x="46103" move_y="48798"
+		move_z="-3065" delay="5" running="false" />
+	<npc route_id="5" npc_id="31359" move_point="4"
+		chatText="The Mother Tree is slowly dying" move_x="45403" move_y="48436"
+		move_z="-3065" delay="5" running="false" />
+	<npc route_id="5" npc_id="31359" move_point="5" chatText="" move_x="44444"
+		move_y="49078" move_z="-3065" delay="0" running="false" />
+	<npc route_id="5" npc_id="31359" move_point="6" chatText="" move_x="44414"
+		move_y="50025" move_z="-3065" delay="0" running="false" />
+	<npc route_id="5" npc_id="31359" move_point="7" chatText="" move_x="44957"
+		move_y="50568" move_z="-3065" delay="0" running="false" />
+	<npc route_id="5" npc_id="31359" move_point="8" chatText="" move_x="44414"
+		move_y="50025" move_z="-3065" delay="0" running="false" />
+	<npc route_id="5" npc_id="31359" move_point="9" chatText="" move_x="44444"
+		move_y="49078" move_z="-3065" delay="0" running="false" />
+	<npc route_id="5" npc_id="31359" move_point="10"
+		chatText="The Mother Tree is slowly dying" move_x="45403" move_y="48436"
+		move_z="-3065" delay="5" running="false" />
+	<npc route_id="5" npc_id="31359" move_point="11"
+		chatText="How can we save the Mother Tree?" move_x="46103" move_y="48798"
+		move_z="-3065" delay="5" running="false" />
+	<npc route_id="5" npc_id="31359" move_point="12" chatText=""
+		move_x="46444" move_y="49742" move_z="-3065" delay="2" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="1"
+		chatText="Lady Mirabel, may the peace of the lake be with you!"
+		move_x="47015" move_y="51278" move_z="-2992" delay="65" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="2" chatText="" move_x="47437"
+		move_y="50441" move_z="-2992" delay="0" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="3" chatText="" move_x="47509"
+		move_y="49038" move_z="-2992" delay="0" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="4" chatText="" move_x="46725"
+		move_y="47755" move_z="-2992" delay="0" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="5"
+		chatText="The Mother Tree is always so gorgeous!" move_x="45319"
+		move_y="47339" move_z="-2992" delay="5" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="6" chatText="" move_x="43998"
+		move_y="47672" move_z="-2992" delay="0" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="7" chatText="" move_x="43037"
+		move_y="49310" move_z="-2992" delay="0" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="8" chatText="" move_x="43310"
+		move_y="50382" move_z="-2992" delay="0" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="9" chatText="" move_x="43896"
+		move_y="51060" move_z="-2992" delay="0" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="10" chatText=""
+		move_x="43312" move_y="50362" move_z="-2992" delay="0" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="11" chatText=""
+		move_x="43040" move_y="49311" move_z="-2992" delay="0" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="12" chatText=""
+		move_x="44018" move_y="47645" move_z="-2992" delay="0" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="13"
+		chatText="The Mother Tree is always so gorgeous!" move_x="45301"
+		move_y="47340" move_z="-2992" delay="5" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="14" chatText=""
+		move_x="46693" move_y="47752" move_z="-2992" delay="0" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="15" chatText=""
+		move_x="47489" move_y="48976" move_z="-2992" delay="0" running="false" />
+	<npc route_id="6" npc_id="31358" move_point="16" chatText=""
+		move_x="47441" move_y="50455" move_z="-2992" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="1" chatText="Where did he go?"
+		move_x="-86328" move_y="241120" move_z="-3734" delay="60" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="2" chatText="" move_x="-86505"
+		move_y="240727" move_z="-3704" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="3" chatText="" move_x="-86081"
+		move_y="240402" move_z="-3712" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="4"
+		chatText="Have you seen Windawood?" move_x="-86078" move_y="240853"
+		move_z="-3720" delay="15" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="5" chatText="" move_x="-85957"
+		move_y="241389" move_z="-3728" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="6" chatText="Where has he gone?"
+		move_x="-83993" move_y="242766" move_z="-3728" delay="10" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="7" chatText="" move_x="-82952"
+		move_y="244461" move_z="-3728" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="8" chatText="" move_x="-82370"
+		move_y="244919" move_z="-3720" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="9" chatText="" move_x="-82129"
+		move_y="245020" move_z="-3720" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="10" chatText=""
+		move_x="-82198" move_y="245350" move_z="-3712" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="11" chatText=""
+		move_x="-82554" move_y="245137" move_z="-3716" delay="1" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="12" chatText=""
+		move_x="-82198" move_y="245350" move_z="-3712" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="13" chatText=""
+		move_x="-82129" move_y="245020" move_z="-3720" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="14" chatText=""
+		move_x="-82370" move_y="244919" move_z="-3720" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="15" chatText=""
+		move_x="-82952" move_y="244461" move_z="-3728" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="16" chatText="Where has he gone?"
+		move_x="-83993" move_y="242766" move_z="-3728" delay="10" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="17" chatText=""
+		move_x="-85957" move_y="241389" move_z="-3728" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="18"
+		chatText="Have you seen Windawood?" move_x="-86078" move_y="240853"
+		move_z="-3720" delay="15" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="19" chatText=""
+		move_x="-86081" move_y="240402" move_z="-3712" delay="0" running="false" />
+	<npc route_id="7" npc_id="31357" move_point="20" chatText=""
+		move_x="-86505" move_y="240727" move_z="-3704" delay="0" running="false" />
+	<npc route_id="8" npc_id="31356" move_point="1"
+		chatText="A delivery for Mr. Lector? Very good!" move_x="-81681"
+		move_y="243384" move_z="-3712" delay="61" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="2" chatText="" move_x="-81915"
+		move_y="243870" move_z="-3712" delay="1" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="3" chatText="" move_x="-82084"
+		move_y="243659" move_z="-3712" delay="0" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="4" chatText="" move_x="-83148"
+		move_y="243731" move_z="-3728" delay="0" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="5" chatText="I need a break!"
+		move_x="-84497" move_y="243241" move_z="-3728" delay="6" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="6" chatText="" move_x="-85212"
+		move_y="243184" move_z="-3728" delay="0" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="7" chatText="" move_x="-86161"
+		move_y="242898" move_z="-3728" delay="0" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="8" chatText="" move_x="-86281"
+		move_y="242963" move_z="-3720" delay="0" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="9"
+		chatText="Hello, Mr. Lector! Long time no see, Mr. Jackson!" move_x="-86356"
+		move_y="243201" move_z="-3720" delay="7" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="10" chatText=""
+		move_x="-86491" move_y="242781" move_z="-3720" delay="0" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="11" chatText=""
+		move_x="-86497" move_y="242585" move_z="-3728" delay="0" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="12" chatText=""
+		move_x="-86114" move_y="241587" move_z="-3728" delay="0" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="13" chatText=""
+		move_x="-85184" move_y="240679" move_z="-3728" delay="0" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="14" chatText="Lulu!"
+		move_x="-84075" move_y="241282" move_z="-3728" delay="3" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="15" chatText="Lulu!"
+		move_x="-84075" move_y="241282" move_z="-3728" delay="3" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="16" chatText="Lulu!"
+		move_x="-83709" move_y="241238" move_z="-3728" delay="0" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="17" chatText=""
+		move_x="-83182" move_y="241141" move_z="-3728" delay="1" running="true" />
+	<npc route_id="8" npc_id="31356" move_point="18" chatText=""
+		move_x="-82383" move_y="242926" move_z="-3720" delay="1" running="true" />
+	<npc route_id="9" npc_id="31364" move_point="1" chatText="" move_x="-46506"
+		move_y="-109402" move_z="-238" delay="10" running="false" />
+	<npc route_id="9" npc_id="31364" move_point="2" chatText="" move_x="-45752"
+		move_y="-111652" move_z="-240" delay="0" running="false" />
+	<npc route_id="9" npc_id="31364" move_point="3" chatText="" move_x="-44028"
+		move_y="-112688" move_z="-240" delay="0" running="false" />
+	<npc route_id="9" npc_id="31364" move_point="4" chatText="" move_x="-44049"
+		move_y="-114536" move_z="-240" delay="0" running="false" />
+	<npc route_id="9" npc_id="31364" move_point="5" chatText="" move_x="-45540"
+		move_y="-115415" move_z="-240" delay="0" running="false" />
+	<npc route_id="9" npc_id="31364" move_point="6" chatText="" move_x="-46526"
+		move_y="-117731" move_z="-240" delay="0" running="false" />
+	<npc route_id="9" npc_id="31364" move_point="7" chatText="" move_x="-45540"
+		move_y="-115415" move_z="-240" delay="0" running="false" />
+	<npc route_id="9" npc_id="31364" move_point="8" chatText="" move_x="-44049"
+		move_y="-114536" move_z="-240" delay="0" running="false" />
+	<npc route_id="9" npc_id="31364" move_point="9" chatText="" move_x="-44028"
+		move_y="-112688" move_z="-240" delay="0" running="false" />
+	<npc route_id="9" npc_id="31364" move_point="10" chatText=""
+		move_x="-45752" move_y="-111652" move_z="-240" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="1" chatText=""
+		move_x="-48807" move_y="-113489" move_z="-241" delay="61" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="2" chatText=""
+		move_x="-48821" move_y="-113746" move_z="-232" delay="1" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="3" chatText=""
+		move_x="-48823" move_y="-113505" move_z="-232" delay="61" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="4" chatText=""
+		move_x="-47339" move_y="-113581" move_z="-232" delay="1" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="5" chatText=""
+		move_x="-45740" move_y="-113562" move_z="-240" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="6" chatText=""
+		move_x="-44851" move_y="-112965" move_z="-240" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="7" chatText=""
+		move_x="-44308" move_y="-113207" move_z="-240" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="8" chatText=""
+		move_x="-44204" move_y="-113743" move_z="-240" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="9" chatText=""
+		move_x="-44659" move_y="-114171" move_z="-240" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="10" chatText=""
+		move_x="-45167" move_y="-114034" move_z="-224" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="11" chatText=""
+		move_x="-45658" move_y="-113633" move_z="-240" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="12" chatText=""
+		move_x="-47363" move_y="-113621" move_z="-224" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="13" chatText=""
+		move_x="-48829" move_y="-113746" move_z="-232" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="14" chatText=""
+		move_x="-47363" move_y="-113621" move_z="-224" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="15" chatText=""
+		move_x="-45658" move_y="-113633" move_z="-240" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="16" chatText=""
+		move_x="-45167" move_y="-114034" move_z="-224" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="17" chatText=""
+		move_x="-44659" move_y="-114171" move_z="-240" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="18" chatText=""
+		move_x="-44204" move_y="-113743" move_z="-240" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="19" chatText=""
+		move_x="-44308" move_y="-113207" move_z="-240" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="20" chatText=""
+		move_x="-44851" move_y="-112965" move_z="-240" delay="0" running="false" />
+	<npc route_id="10" npc_id="31365" move_point="21" chatText=""
+		move_x="-45740" move_y="-113562" move_z="-240" delay="1" running="false" />
+	<npc route_id="11" npc_id="32072" move_point="1" chatText=""
+		move_x="84429" move_y="-144065" move_z="-1542" delay="10" running="false" />
+	<npc route_id="11" npc_id="32072" move_point="2" chatText=""
+		move_x="84465" move_y="-142493" move_z="-1536" delay="0" running="false" />
+	<npc route_id="11" npc_id="32072" move_point="3" chatText=""
+		move_x="85234" move_y="-140963" move_z="-1536" delay="0" running="false" />
+	<npc route_id="11" npc_id="32072" move_point="4" chatText=""
+		move_x="87351" move_y="-140059" move_z="-1536" delay="5" running="false" />
+	<npc route_id="11" npc_id="32072" move_point="5" chatText=""
+		move_x="89343" move_y="-140746" move_z="-1536" delay="0" running="false" />
+	<npc route_id="11" npc_id="32072" move_point="6" chatText=""
+		move_x="90605" move_y="-143167" move_z="-1536" delay="0" running="false" />
+	<npc route_id="11" npc_id="32072" move_point="7" chatText=""
+		move_x="90271" move_y="-143869" move_z="-1536" delay="10" running="false" />
+	<npc route_id="11" npc_id="32072" move_point="8" chatText=""
+		move_x="90605" move_y="-143167" move_z="-1536" delay="0" running="false" />
+	<npc route_id="11" npc_id="32072" move_point="9" chatText=""
+		move_x="89343" move_y="-140746" move_z="-1536" delay="0" running="false" />
+	<npc route_id="11" npc_id="32072" move_point="10" chatText=""
+		move_x="87351" move_y="-140059" move_z="-1536" delay="5" running="false" />
+	<npc route_id="11" npc_id="32072" move_point="11" chatText=""
+		move_x="85234" move_y="-140963" move_z="-1536" delay="0" running="false" />
+	<npc route_id="11" npc_id="32072" move_point="12" chatText=""
+		move_x="84465" move_y="-142493" move_z="-1536" delay="0" running="false" />
+	<npc route_id="12" npc_id="32070" move_point="1" chatText=""
+		move_x="90271" move_y="-143869" move_z="-1547" delay="10" running="true" />
+	<npc route_id="12" npc_id="32070" move_point="2" chatText=""
+		move_x="90605" move_y="-143167" move_z="-1536" delay="1" running="true" />
+	<npc route_id="12" npc_id="32070" move_point="3" chatText=""
+		move_x="89343" move_y="-140746" move_z="-1536" delay="1" running="true" />
+	<npc route_id="12" npc_id="32070" move_point="4" chatText=""
+		move_x="87351" move_y="-140059" move_z="-1536" delay="5" running="true" />
+	<npc route_id="12" npc_id="32070" move_point="5" chatText=""
+		move_x="85234" move_y="-140963" move_z="-1536" delay="1" running="true" />
+	<npc route_id="12" npc_id="32070" move_point="6" chatText=""
+		move_x="84465" move_y="-142493" move_z="-1536" delay="1" running="true" />
+	<npc route_id="12" npc_id="32070" move_point="7" chatText=""
+		move_x="84434" move_y="-144061" move_z="-1528" delay="10" running="true" />
+	<npc route_id="12" npc_id="32070" move_point="8" chatText=""
+		move_x="84465" move_y="-142493" move_z="-1536" delay="1" running="true" />
+	<npc route_id="12" npc_id="32070" move_point="9" chatText=""
+		move_x="85234" move_y="-140963" move_z="-1536" delay="1" running="true" />
+	<npc route_id="12" npc_id="32070" move_point="10" chatText=""
+		move_x="87351" move_y="-140059" move_z="-1536" delay="5" running="true" />
+	<npc route_id="12" npc_id="32070" move_point="11" chatText=""
+		move_x="89343" move_y="-140746" move_z="-1536" delay="1" running="true" />
+	<npc route_id="12" npc_id="32070" move_point="12" chatText=""
+		move_x="90605" move_y="-143167" move_z="-1536" delay="1" running="true" />
+	<npc route_id="13" npc_id="29095" move_point="1" chatText=""
+		move_x="141569" move_y="-45908" move_z="-2387" delay="10" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="2" chatText=""
+		move_x="142494" move_y="-45456" move_z="-2397" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="3" chatText=""
+		move_x="142922" move_y="-44561" move_z="-2395" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="4" chatText=""
+		move_x="143672" move_y="-44130" move_z="-2398" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="5" chatText=""
+		move_x="144557" move_y="-43378" move_z="-2325" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="6" chatText=""
+		move_x="145839" move_y="-43267" move_z="-2301" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="7" chatText=""
+		move_x="147044" move_y="-43601" move_z="-2307" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="8" chatText=""
+		move_x="148140" move_y="-43206" move_z="-2303" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="9" chatText=""
+		move_x="148815" move_y="-43434" move_z="-2328" delay="5" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="10" chatText=""
+		move_x="149862" move_y="-44151" move_z="-2558" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="11" chatText=""
+		move_x="151037" move_y="-44197" move_z="-2708" delay="5" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="12" chatText=""
+		move_x="152555" move_y="-42756" move_z="-2836" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="13" chatText=""
+		move_x="154808" move_y="-39546" move_z="-3236" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="14" chatText=""
+		move_x="155333" move_y="-39962" move_z="-3272" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="15" chatText=""
+		move_x="156531" move_y="-41240" move_z="-3470" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="16" chatText=""
+		move_x="156863" move_y="-43232" move_z="-3707" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="17" chatText=""
+		move_x="156783" move_y="-44198" move_z="-3764" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="18" chatText=""
+		move_x="158169" move_y="-45163" move_z="-3541" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="19" chatText=""
+		move_x="158952" move_y="-45479" move_z="-3473" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="20" chatText=""
+		move_x="160039" move_y="-46514" move_z="-3634" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="21" chatText=""
+		move_x="160244" move_y="-47429" move_z="-3656" delay="3" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="22" chatText=""
+		move_x="159155" move_y="-48109" move_z="-3665" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="23" chatText=""
+		move_x="159558" move_y="-51027" move_z="-3523" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="24" chatText=""
+		move_x="159396" move_y="-53362" move_z="-3244" delay="3" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="25" chatText=""
+		move_x="160872" move_y="-56556" move_z="-2789" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="26" chatText=""
+		move_x="160857" move_y="-59072" move_z="-2613" delay="5" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="27" chatText=""
+		move_x="160410" move_y="-59888" move_z="-2647" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="28" chatText=""
+		move_x="158770" move_y="-60173" move_z="-2673" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="29" chatText=""
+		move_x="156368" move_y="-59557" move_z="-2638" delay="3" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="30" chatText=""
+		move_x="155188" move_y="-59868" move_z="-2642" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="31" chatText=""
+		move_x="154118" move_y="-60591" move_z="-2731" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="32" chatText=""
+		move_x="153571" move_y="-61567" move_z="-2821" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="33" chatText=""
+		move_x="153457" move_y="-62819" move_z="-2886" delay="3" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="34" chatText=""
+		move_x="152939" move_y="-63778" move_z="-3003" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="35" chatText=""
+		move_x="151816" move_y="-64209" move_z="-3120" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="36" chatText=""
+		move_x="147655" move_y="-64826" move_z="-3433" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="37" chatText=""
+		move_x="145422" move_y="-64576" move_z="-3369" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="38" chatText=""
+		move_x="144097" move_y="-64320" move_z="-3404" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="39" chatText=""
+		move_x="140780" move_y="-61618" move_z="-3096" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="40" chatText=""
+		move_x="139688" move_y="-61450" move_z="-3062" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="41" chatText=""
+		move_x="138267" move_y="-61743" move_z="-3056" delay="3" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="42" chatText=""
+		move_x="138613" move_y="-58491" move_z="-3465" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="43" chatText=""
+		move_x="138139" move_y="-57252" move_z="-3517" delay="5" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="44" chatText=""
+		move_x="139555" move_y="-56044" move_z="-3310" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="45" chatText=""
+		move_x="139107" move_y="-54537" move_z="-3240" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="46" chatText=""
+		move_x="139279" move_y="-53781" move_z="-3091" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="47" chatText=""
+		move_x="139810" move_y="-52687" move_z="-2866" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="48" chatText=""
+		move_x="139657" move_y="-52041" move_z="-2793" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="49" chatText=""
+		move_x="139215" move_y="-51355" move_z="-2698" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="50" chatText=""
+		move_x="139334" move_y="-50514" move_z="-2594" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="51" chatText=""
+		move_x="139817" move_y="-49715" move_z="-2449" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="52" chatText=""
+		move_x="139824" move_y="-48976" move_z="-2263" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="53" chatText=""
+		move_x="140130" move_y="-47578" move_z="-2213" delay="0" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="54" chatText=""
+		move_x="140483" move_y="-46339" move_z="-2382" delay="5" running="false" />
+	<npc route_id="13" npc_id="29095" move_point="55" chatText=""
+		move_x="141569" move_y="-45908" move_z="-2387" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="1" chatText=""
+		move_x="-58672" move_y="154703" move_z="-2688" delay="30" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="2" chatText=""
+		move_x="-57522" move_y="156523" move_z="-2576" delay="15" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="3" chatText=""
+		move_x="-55226" move_y="157117" move_z="-2064" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="4" chatText=""
+		move_x="-57528" move_y="156515" move_z="-2576" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="5" chatText=""
+		move_x="-58660" move_y="154706" move_z="-2688" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="6" chatText=""
+		move_x="-60174" move_y="156182" move_z="-2832" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="7" chatText=""
+		move_x="-61834" move_y="157703" move_z="-3264" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="8" chatText=""
+		move_x="-62761" move_y="159101" move_z="-3584" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="9" chatText=""
+		move_x="-63472" move_y="159672" move_z="-3680" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="10" chatText=""
+		move_x="-64072" move_y="160631" move_z="-3760" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="11" chatText=""
+		move_x="-64387" move_y="161877" move_z="-3792" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="12" chatText=""
+		move_x="-63842" move_y="163092" move_z="-3840" delay="15" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="13" chatText=""
+		move_x="-64397" move_y="161831" move_z="-3792" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="14" chatText=""
+		move_x="-64055" move_y="160587" move_z="-3760" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="15" chatText=""
+		move_x="-63461" move_y="159656" move_z="-3680" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="16" chatText=""
+		move_x="-62744" move_y="159095" move_z="-3584" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="17" chatText=""
+		move_x="-61831" move_y="157693" move_z="-3256" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="18" chatText=""
+		move_x="-60152" move_y="156167" move_z="-2824" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="19" chatText=""
+		move_x="-58652" move_y="154707" move_z="-2688" delay="0" running="false" />
+	<npc route_id="101" npc_id="35659" move_point="20" chatText=""
+		move_x="-58672" move_y="154703" move_z="-2688" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="1" chatText=""
+		move_x="-28169" move_y="216864" move_z="-3544" delay="30" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="2" chatText=""
+		move_x="-29028" move_y="215089" move_z="-3672" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="3" chatText=""
+		move_x="-30888" move_y="213455" move_z="-3656" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="4" chatText=""
+		move_x="-31937" move_y="211656" move_z="-3656" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="5" chatText=""
+		move_x="-30880" move_y="211006" move_z="-3552" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="6" chatText=""
+		move_x="-27690" move_y="210004" move_z="-3272" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="7" chatText=""
+		move_x="-25784" move_y="210108" move_z="-3272" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="8" chatText=""
+		move_x="-21682" move_y="211459" move_z="-3272" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="9" chatText=""
+		move_x="-18430" move_y="212927" move_z="-3704" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="10" chatText=""
+		move_x="-16247" move_y="212795" move_z="-3664" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="11" chatText=""
+		move_x="-16868" move_y="214267" move_z="-3648" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="12" chatText=""
+		move_x="-17263" move_y="215887" move_z="-3552" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="13" chatText=""
+		move_x="-18352" move_y="216841" move_z="-3504" delay="60" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="14" chatText=""
+		move_x="-17263" move_y="215887" move_z="-3552" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="15" chatText=""
+		move_x="-16868" move_y="214267" move_z="-3648" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="16" chatText=""
+		move_x="-16247" move_y="212795" move_z="-3664" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="17" chatText=""
+		move_x="-18430" move_y="212927" move_z="-3704" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="18" chatText=""
+		move_x="-21682" move_y="211459" move_z="-3272" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="19" chatText=""
+		move_x="-25784" move_y="210108" move_z="-3272" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="20" chatText=""
+		move_x="-27690" move_y="210004" move_z="-3272" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="21" chatText=""
+		move_x="-30880" move_y="211006" move_z="-3552" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="22" chatText=""
+		move_x="-31937" move_y="211656" move_z="-3656" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="23" chatText=""
+		move_x="-30888" move_y="213455" move_z="-3656" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="24" chatText=""
+		move_x="-29028" move_y="215089" move_z="-3672" delay="0" running="false" />
+	<npc route_id="102" npc_id="35690" move_point="25" chatText=""
+		move_x="-28169" move_y="216864" move_z="-3544" delay="30" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="1" chatText=""
+		move_x="19408" move_y="189422" move_z="-3136" delay="30" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="2" chatText=""
+		move_x="20039" move_y="187700" move_z="-3416" delay="0" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="3" chatText=""
+		move_x="19016" move_y="185813" move_z="-3552" delay="30" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="4" chatText=""
+		move_x="17959" move_y="181955" move_z="-3680" delay="0" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="5" chatText=""
+		move_x="16440" move_y="181635" move_z="-3616" delay="30" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="6" chatText=""
+		move_x="15679" move_y="182540" move_z="-3608" delay="0" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="7" chatText=""
+		move_x="15310" move_y="182791" move_z="-3568" delay="0" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="8" chatText=""
+		move_x="15242" move_y="184507" move_z="-3112" delay="30" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="9" chatText=""
+		move_x="15310" move_y="182791" move_z="-3568" delay="0" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="10" chatText=""
+		move_x="15679" move_y="182540" move_z="-3608" delay="0" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="11" chatText=""
+		move_x="16440" move_y="181635" move_z="-3616" delay="30" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="12" chatText=""
+		move_x="17959" move_y="181955" move_z="-3680" delay="0" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="13" chatText=""
+		move_x="19016" move_y="185813" move_z="-3552" delay="30" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="14" chatText=""
+		move_x="20039" move_y="187700" move_z="-3416" delay="0" running="false" />
+	<npc route_id="103" npc_id="35728" move_point="15" chatText=""
+		move_x="19408" move_y="189422" move_z="-3136" delay="30" running="false" />
+	<npc route_id="104" npc_id="35759" move_point="1" chatText=""
+		move_x="123383" move_y="121093" move_z="-2864" delay="30" running="false" />
+	<npc route_id="104" npc_id="35759" move_point="2" chatText=""
+		move_x="122670" move_y="120890" move_z="-3088" delay="0" running="false" />
+	<npc route_id="104" npc_id="35759" move_point="3" chatText=""
+		move_x="124617" move_y="119069" move_z="-3088" delay="0" running="false" />
+	<npc route_id="104" npc_id="35759" move_point="4" chatText=""
+		move_x="126177" move_y="118273" move_z="-3080" delay="0" running="false" />
+	<npc route_id="104" npc_id="35759" move_point="5" chatText=""
+		move_x="125979" move_y="119528" move_z="-2728" delay="60" running="false" />
+	<npc route_id="104" npc_id="35759" move_point="6" chatText=""
+		move_x="126177" move_y="118273" move_z="-3080" delay="0" running="false" />
+	<npc route_id="104" npc_id="35759" move_point="7" chatText=""
+		move_x="124617" move_y="119069" move_z="-3088" delay="0" running="false" />
+	<npc route_id="104" npc_id="35759" move_point="8" chatText=""
+		move_x="122670" move_y="120890" move_z="-3088" delay="0" running="false" />
+	<npc route_id="104" npc_id="35759" move_point="9" chatText=""
+		move_x="123383" move_y="121093" move_z="-2864" delay="30" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="1" chatText=""
+		move_x="74725" move_y="1671" move_z="-3128" delay="30" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="2" chatText=""
+		move_x="76651" move_y="1505" move_z="-3552" delay="0" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="3" chatText=""
+		move_x="79421" move_y="4977" move_z="-3080" delay="0" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="4" chatText=""
+		move_x="77357" move_y="7197" move_z="-3208" delay="30" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="5" chatText=""
+		move_x="76287" move_y="9164" move_z="-3568" delay="0" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="6" chatText=""
+		move_x="72447" move_y="8196" move_z="-3264" delay="0" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="7" chatText=""
+		move_x="71780" move_y="7467" move_z="-3160" delay="0" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="8" chatText=""
+		move_x="72447" move_y="8196" move_z="-3264" delay="0" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="9" chatText=""
+		move_x="76287" move_y="9164" move_z="-3568" delay="0" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="10" chatText=""
+		move_x="77357" move_y="7197" move_z="-3208" delay="0" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="11" chatText=""
+		move_x="79421" move_y="4977" move_z="-3080" delay="60" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="12" chatText=""
+		move_x="76651" move_y="1505" move_z="-3552" delay="0" running="false" />
+	<npc route_id="105" npc_id="35797" move_point="13" chatText=""
+		move_x="74725" move_y="1671" move_z="-3128" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="1" chatText=""
+		move_x="159377" move_y="52403" move_z="-3312" delay="30" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="2" chatText=""
+		move_x="161177" move_y="54083" move_z="-3560" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="3" chatText=""
+		move_x="162152" move_y="54365" move_z="-3632" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="4" chatText=""
+		move_x="162703" move_y="55840" move_z="-3696" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="5" chatText=""
+		move_x="162370" move_y="58534" move_z="-3504" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="6" chatText=""
+		move_x="160099" move_y="60034" move_z="-3224" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="7" chatText=""
+		move_x="158048" move_y="62696" move_z="-3464" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="8" chatText=""
+		move_x="157220" move_y="63450" move_z="-3520" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="9" chatText=""
+		move_x="155076" move_y="63731" move_z="-3544" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="10" chatText=""
+		move_x="153893" move_y="64441" move_z="-3656" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="11" chatText=""
+		move_x="153085" move_y="62948" move_z="-3680" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="12" chatText=""
+		move_x="150866" move_y="58737" move_z="-3432" delay="60" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="13" chatText=""
+		move_x="153085" move_y="62948" move_z="-3680" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="14" chatText=""
+		move_x="153893" move_y="64441" move_z="-3656" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="15" chatText=""
+		move_x="155076" move_y="63731" move_z="-3544" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="16" chatText=""
+		move_x="157220" move_y="63450" move_z="-3520" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="17" chatText=""
+		move_x="158048" move_y="62696" move_z="-3464" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="18" chatText=""
+		move_x="160099" move_y="60034" move_z="-3224" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="19" chatText=""
+		move_x="162370" move_y="58534" move_z="-3504" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="20" chatText=""
+		move_x="162703" move_y="55840" move_z="-3696" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="21" chatText=""
+		move_x="162152" move_y="54365" move_z="-3632" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="22" chatText=""
+		move_x="161177" move_y="54083" move_z="-3560" delay="0" running="false" />
+	<npc route_id="106" npc_id="35828" move_point="23" chatText=""
+		move_x="159377" move_y="52403" move_z="-3312" delay="30" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="1" chatText=""
+		move_x="190423" move_y="43540" move_z="-3656" delay="30" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="2" chatText=""
+		move_x="189579" move_y="45949" move_z="-4240" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="3" chatText=""
+		move_x="187058" move_y="43551" move_z="-4808" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="4" chatText=""
+		move_x="185916" move_y="41869" move_z="-4512" delay="30" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="5" chatText=""
+		move_x="185292" move_y="39403" move_z="-4200" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="6" chatText=""
+		move_x="185167" move_y="38401" move_z="-4200" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="7" chatText=""
+		move_x="184984" move_y="36863" move_z="-4152" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="8" chatText=""
+		move_x="184377" move_y="36425" move_z="-4080" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="9" chatText=""
+		move_x="185314" move_y="35866" move_z="-3936" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="10" chatText=""
+		move_x="185781" move_y="35955" move_z="-3832" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="11" chatText=""
+		move_x="186686" move_y="35667" move_z="-3752" delay="60" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="12" chatText=""
+		move_x="185781" move_y="35955" move_z="-3832" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="13" chatText=""
+		move_x="185314" move_y="35866" move_z="-3936" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="14" chatText=""
+		move_x="184377" move_y="36425" move_z="-4080" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="15" chatText=""
+		move_x="184984" move_y="36863" move_z="-4152" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="16" chatText=""
+		move_x="185167" move_y="38401" move_z="-4200" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="17" chatText=""
+		move_x="185292" move_y="39403" move_z="-4200" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="18" chatText=""
+		move_x="185916" move_y="41869" move_z="-4512" delay="30" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="19" chatText=""
+		move_x="187058" move_y="43551" move_z="-4808" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="20" chatText=""
+		move_x="189579" move_y="45949" move_z="-4240" delay="0" running="false" />
+	<npc route_id="107" npc_id="35859" move_point="21" chatText=""
+		move_x="190423" move_y="43540" move_z="-3656" delay="30" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="1" chatText=""
+		move_x="114436" move_y="202528" move_z="-3408" delay="30" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="2" chatText=""
+		move_x="113809" move_y="200514" move_z="-3720" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="3" chatText=""
+		move_x="116035" move_y="199822" move_z="-3664" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="4" chatText=""
+		move_x="117017" move_y="199876" move_z="-3632" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="5" chatText=""
+		move_x="119959" move_y="201032" move_z="-3608" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="6" chatText=""
+		move_x="121849" move_y="200614" move_z="-3384" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="7" chatText=""
+		move_x="122868" move_y="200874" move_z="-3168" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="8" chatText=""
+		move_x="123130" move_y="202427" move_z="-3128" delay="30" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="9" chatText=""
+		move_x="122427" move_y="204162" move_z="-3488" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="10" chatText=""
+		move_x="122661" move_y="204842" move_z="-3576" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="11" chatText=""
+		move_x="124051" move_y="205402" move_z="-3576" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="12" chatText=""
+		move_x="124211" move_y="206023" move_z="-3504" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="13" chatText=""
+		move_x="124948" move_y="206778" move_z="-3400" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="14" chatText=""
+		move_x="124483" move_y="207777" move_z="-3200" delay="60" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="15" chatText=""
+		move_x="124948" move_y="206778" move_z="-3400" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="16" chatText=""
+		move_x="124211" move_y="206023" move_z="-3504" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="17" chatText=""
+		move_x="124051" move_y="205402" move_z="-3576" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="18" chatText=""
+		move_x="122661" move_y="204842" move_z="-3576" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="19" chatText=""
+		move_x="122427" move_y="204162" move_z="-3488" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="20" chatText=""
+		move_x="123130" move_y="202427" move_z="-3128" delay="30" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="21" chatText=""
+		move_x="122868" move_y="200874" move_z="-3168" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="22" chatText=""
+		move_x="121849" move_y="200614" move_z="-3384" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="23" chatText=""
+		move_x="119959" move_y="201032" move_z="-3608" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="24" chatText=""
+		move_x="117017" move_y="199876" move_z="-3632" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="25" chatText=""
+		move_x="116035" move_y="199822" move_z="-3664" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="26" chatText=""
+		move_x="113809" move_y="200514" move_z="-3720" delay="0" running="false" />
+	<npc route_id="108" npc_id="35897" move_point="27" chatText=""
+		move_x="114436" move_y="202528" move_z="-3408" delay="30" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="1" chatText=""
+		move_x="161876" move_y="-73407" move_z="-2984" delay="30" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="2" chatText=""
+		move_x="161795" move_y="-75288" move_z="-3088" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="3" chatText=""
+		move_x="159678" move_y="-77671" move_z="-3584" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="4" chatText=""
+		move_x="158917" move_y="-78117" move_z="-3760" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="5" chatText=""
+		move_x="158989" move_y="-77130" move_z="-3720" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="6" chatText=""
+		move_x="158757" move_y="-75951" move_z="-3720" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="7" chatText=""
+		move_x="158157" move_y="-74161" move_z="-3592" delay="30" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="8" chatText=""
+		move_x="157547" move_y="-73326" move_z="-3400" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="9" chatText=""
+		move_x="153815" move_y="-71497" move_z="-3392" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="10" chatText=""
+		move_x="153086" move_y="-70701" move_z="-3488" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="11" chatText=""
+		move_x="152262" move_y="-70352" move_z="-3568" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="12" chatText=""
+		move_x="155193" move_y="-69617" move_z="-3008" delay="60" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="13" chatText=""
+		move_x="152262" move_y="-70352" move_z="-3568" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="14" chatText=""
+		move_x="153086" move_y="-70701" move_z="-3488" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="15" chatText=""
+		move_x="153815" move_y="-71497" move_z="-3392" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="16" chatText=""
+		move_x="157547" move_y="-73326" move_z="-3400" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="17" chatText=""
+		move_x="158157" move_y="-74161" move_z="-3592" delay="30" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="18" chatText=""
+		move_x="158757" move_y="-75951" move_z="-3720" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="19" chatText=""
+		move_x="158989" move_y="-77130" move_z="-3720" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="20" chatText=""
+		move_x="158917" move_y="-78117" move_z="-3760" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="21" chatText=""
+		move_x="159678" move_y="-77671" move_z="-3584" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="22" chatText=""
+		move_x="161795" move_y="-75288" move_z="-3088" delay="0" running="false" />
+	<npc route_id="109" npc_id="35928" move_point="23" chatText=""
+		move_x="161876" move_y="-73407" move_z="-2984" delay="30" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="1" chatText=""
+		move_x="71436" move_y="-58182" move_z="-2904" delay="30" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="2" chatText=""
+		move_x="71731" move_y="-56949" move_z="-3080" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="3" chatText=""
+		move_x="72715" move_y="-56729" move_z="-3104" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="4" chatText=""
+		move_x="73277" move_y="-56055" move_z="-3104" delay="30" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="5" chatText=""
+		move_x="73369" move_y="-55636" move_z="-3104" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="6" chatText=""
+		move_x="74136" move_y="-54646" move_z="-3104" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="7" chatText=""
+		move_x="73408" move_y="-54422" move_z="-3104" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="8" chatText=""
+		move_x="72998" move_y="-53404" move_z="-3136" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="9" chatText=""
+		move_x="71661" move_y="-52937" move_z="-3104" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="10" chatText=""
+		move_x="71127" move_y="-52304" move_z="-3104" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="11" chatText=""
+		move_x="70225" move_y="-52304" move_z="-3064" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="12" chatText=""
+		move_x="69668" move_y="-52780" move_z="-3064" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="13" chatText=""
+		move_x="68422" move_y="-52407" move_z="-3240" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="14" chatText=""
+		move_x="67702" move_y="-52940" move_z="-3208" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="15" chatText=""
+		move_x="67798" move_y="-52940" move_z="-3232" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="16" chatText=""
+		move_x="66667" move_y="-55841" move_z="-2840" delay="60" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="17" chatText=""
+		move_x="67798" move_y="-52940" move_z="-3232" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="18" chatText=""
+		move_x="67702" move_y="-52940" move_z="-3208" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="19" chatText=""
+		move_x="68422" move_y="-52407" move_z="-3240" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="20" chatText=""
+		move_x="69668" move_y="-52780" move_z="-3064" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="21" chatText=""
+		move_x="70225" move_y="-52304" move_z="-3064" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="22" chatText=""
+		move_x="71127" move_y="-52304" move_z="-3104" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="23" chatText=""
+		move_x="71661" move_y="-52937" move_z="-3104" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="24" chatText=""
+		move_x="72998" move_y="-53404" move_z="-3136" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="25" chatText=""
+		move_x="73408" move_y="-54422" move_z="-3104" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="26" chatText=""
+		move_x="74136" move_y="-54646" move_z="-3104" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="27" chatText=""
+		move_x="73369" move_y="-55636" move_z="-3104" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="28" chatText=""
+		move_x="73277" move_y="-56055" move_z="-3104" delay="30" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="29" chatText=""
+		move_x="72715" move_y="-56729" move_z="-3104" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="30" chatText=""
+		move_x="71731" move_y="-56949" move_z="-3080" delay="0" running="false" />
+	<npc route_id="110" npc_id="35966" move_point="31" chatText=""
+		move_x="71436" move_y="-58182" move_z="-2904" delay="30" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="1" chatText=""
+		move_x="105447" move_y="-139845" move_z="-3120" delay="30" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="2" chatText=""
+		move_x="104918" move_y="-140382" move_z="-3256" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="3" chatText=""
+		move_x="105507" move_y="-142515" move_z="-3648" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="4" chatText=""
+		move_x="106533" move_y="-143107" move_z="-3656" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="5" chatText=""
+		move_x="106714" move_y="-143825" move_z="-3656" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="6" chatText=""
+		move_x="107510" move_y="-144024" move_z="-3656" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="7" chatText=""
+		move_x="108092" move_y="-144888" move_z="-3656" delay="30" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="8" chatText=""
+		move_x="109499" move_y="-145168" move_z="-3664" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="9" chatText=""
+		move_x="110064" move_y="-146169" move_z="-3456" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="10" chatText=""
+		move_x="110186" move_y="-147427" move_z="-3096" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="11" chatText=""
+		move_x="112389" move_y="-147779" move_z="-3256" delay="60" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="12" chatText=""
+		move_x="110186" move_y="-147427" move_z="-3096" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="13" chatText=""
+		move_x="110064" move_y="-146169" move_z="-3456" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="14" chatText=""
+		move_x="109499" move_y="-145168" move_z="-3664" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="15" chatText=""
+		move_x="108092" move_y="-144888" move_z="-3656" delay="30" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="16" chatText=""
+		move_x="107510" move_y="-144024" move_z="-3656" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="17" chatText=""
+		move_x="106714" move_y="-143825" move_z="-3656" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="18" chatText=""
+		move_x="106533" move_y="-143107" move_z="-3656" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="19" chatText=""
+		move_x="105507" move_y="-142515" move_z="-3648" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="20" chatText=""
+		move_x="104918" move_y="-140382" move_z="-3256" delay="0" running="false" />
+	<npc route_id="111" npc_id="36004" move_point="21" chatText=""
+		move_x="105447" move_y="-139845" move_z="-3120" delay="30" running="false" />
+	<npc route_id="112" npc_id="36035" move_point="1" chatText=""
+		move_x="14186" move_y="149947" move_z="-3352" delay="20" running="false" />
+	<npc route_id="112" npc_id="36035" move_point="2" chatText=""
+		move_x="16180" move_y="150387" move_z="-3216" delay="0" running="false" />
+	<npc route_id="112" npc_id="36035" move_point="3" chatText=""
+		move_x="18387" move_y="151874" move_z="-3317" delay="0" running="false" />
+	<npc route_id="112" npc_id="36035" move_point="4" chatText=""
+		move_x="18405" move_y="154770" move_z="-3616" delay="30" running="false" />
+	<npc route_id="112" npc_id="36035" move_point="5" chatText=""
+		move_x="17655" move_y="156863" move_z="-3664" delay="0" running="false" />
+	<npc route_id="112" npc_id="36035" move_point="6" chatText=""
+		move_x="12303" move_y="153937" move_z="-2680" delay="0" running="false" />
+	<npc route_id="112" npc_id="36035" move_point="7" chatText=""
+		move_x="17655" move_y="156863" move_z="-3664" delay="0" running="false" />
+	<npc route_id="112" npc_id="36035" move_point="8" chatText=""
+		move_x="18405" move_y="154770" move_z="-3616" delay="30" running="false" />
+	<npc route_id="112" npc_id="36035" move_point="9" chatText=""
+		move_x="18387" move_y="151874" move_z="-3317" delay="0" running="false" />
+	<npc route_id="112" npc_id="36035" move_point="10" chatText=""
+		move_x="16180" move_y="150387" move_z="-3216" delay="0" running="false" />
+	<npc route_id="112" npc_id="36035" move_point="11" chatText=""
+		move_x="14186" move_y="149947" move_z="-3352" delay="20" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="1" chatText=""
+		move_x="-56032" move_y="86017" move_z="-3259" delay="30" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="2" chatText=""
+		move_x="-57329" move_y="86006" move_z="-3640" delay="0" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="3" chatText=""
+		move_x="-57470" move_y="85306" move_z="-3664" delay="0" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="4" chatText=""
+		move_x="-58892" move_y="85159" move_z="-3768" delay="30" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="5" chatText=""
+		move_x="-59030" move_y="80150" move_z="-3632" delay="0" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="6" chatText=""
+		move_x="-57642" move_y="77591" move_z="-3512" delay="20" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="7" chatText=""
+		move_x="-53971" move_y="77664" move_z="-3224" delay="40" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="8" chatText=""
+		move_x="-53271" move_y="85126" move_z="-3552" delay="60" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="9" chatText=""
+		move_x="-53971" move_y="77664" move_z="-3224" delay="40" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="10" chatText=""
+		move_x="-57642" move_y="77591" move_z="-3512" delay="20" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="11" chatText=""
+		move_x="-59030" move_y="80150" move_z="-3632" delay="0" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="12" chatText=""
+		move_x="-58892" move_y="85159" move_z="-3768" delay="30" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="13" chatText=""
+		move_x="-57470" move_y="85306" move_z="-3664" delay="0" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="14" chatText=""
+		move_x="-57329" move_y="86006" move_z="-3640" delay="0" running="false" />
+	<npc route_id="113" npc_id="36073" move_point="15" chatText=""
+		move_x="-56032" move_y="86017" move_z="-3259" delay="30" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="1" chatText=""
+		move_x="58314" move_y="136319" move_z="-2000" delay="30" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="2" chatText=""
+		move_x="57078" move_y="137124" move_z="-2216" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="3" chatText=""
+		move_x="54644" move_y="137366" move_z="-2600" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="4" chatText=""
+		move_x="58696" move_y="134202" move_z="-3096" delay="30" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="5" chatText=""
+		move_x="60967" move_y="134154" move_z="-3416" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="6" chatText=""
+		move_x="62813" move_y="134744" move_z="-3592" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="7" chatText=""
+		move_x="65158" move_y="135007" move_z="-3728" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="8" chatText=""
+		move_x="64278" move_y="139384" move_z="-3176" delay="30" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="9" chatText=""
+		move_x="63711" move_y="140599" move_z="-2720" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="10" chatText=""
+		move_x="63187" move_y="141192" move_z="-2440" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="11" chatText=""
+		move_x="62811" move_y="142466" move_z="-2064" delay="60" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="12" chatText=""
+		move_x="63187" move_y="141192" move_z="-2440" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="13" chatText=""
+		move_x="63711" move_y="140599" move_z="-2720" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="14" chatText=""
+		move_x="64278" move_y="139384" move_z="-3176" delay="30" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="15" chatText=""
+		move_x="65158" move_y="135007" move_z="-3728" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="16" chatText=""
+		move_x="62813" move_y="134744" move_z="-3592" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="17" chatText=""
+		move_x="60967" move_y="134154" move_z="-3416" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="18" chatText=""
+		move_x="58696" move_y="134202" move_z="-3096" delay="30" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="19" chatText=""
+		move_x="54644" move_y="137366" move_z="-2600" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="20" chatText=""
+		move_x="57078" move_y="137124" move_z="-2216" delay="0" running="false" />
+	<npc route_id="114" npc_id="36111" move_point="21" chatText=""
+		move_x="58314" move_y="136319" move_z="-2000" delay="30" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="1" chatText=""
+		move_x="9318" move_y="92253" move_z="-3536" delay="30" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="2" chatText=""
+		move_x="9117" move_y="91645" move_z="-3656" delay="0" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="3" chatText=""
+		move_x="9240" move_y="90149" move_z="-3592" delay="0" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="4" chatText=""
+		move_x="11509" move_y="90093" move_z="-3720" delay="20" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="5" chatText=""
+		move_x="13269" move_y="90004" move_z="-3840" delay="20" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="6" chatText=""
+		move_x="14812" move_y="89578" move_z="-3832" delay="20" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="7" chatText=""
+		move_x="14450" move_y="90636" move_z="-3680" delay="0" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="8" chatText=""
+		move_x="14236" move_y="91690" move_z="-3656" delay="0" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="9" chatText=""
+		move_x="13636" move_y="92359" move_z="-3480" delay="60" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="10" chatText=""
+		move_x="14236" move_y="91690" move_z="-3656" delay="0" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="11" chatText=""
+		move_x="14450" move_y="90636" move_z="-3680" delay="0" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="12" chatText=""
+		move_x="14812" move_y="89578" move_z="-3832" delay="20" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="13" chatText=""
+		move_x="13269" move_y="90004" move_z="-3840" delay="20" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="14" chatText=""
+		move_x="11509" move_y="90093" move_z="-3720" delay="20" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="15" chatText=""
+		move_x="9240" move_y="90149" move_z="-3592" delay="0" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="16" chatText=""
+		move_x="9117" move_y="91645" move_z="-3656" delay="0" running="false" />
+	<npc route_id="115" npc_id="36142" move_point="17" chatText=""
+		move_x="9318" move_y="92253" move_z="-3536" delay="30" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="1" chatText=""
+		move_x="74810" move_y="90814" move_z="-3344" delay="30" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="2" chatText=""
+		move_x="75094" move_y="92951" move_z="-3104" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="3" chatText=""
+		move_x="75486" move_y="92906" move_z="-3072" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="4" chatText=""
+		move_x="75765" move_y="91794" move_z="-2912" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="5" chatText=""
+		move_x="77116" move_y="90455" move_z="-2896" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="6" chatText=""
+		move_x="77743" move_y="89119" move_z="-2896" delay="15" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="7" chatText=""
+		move_x="77118" move_y="90457" move_z="-2896" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="8" chatText=""
+		move_x="75750" move_y="91811" move_z="-2912" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="9" chatText=""
+		move_x="75479" move_y="92904" move_z="-3072" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="10" chatText=""
+		move_x="75094" move_y="92943" move_z="-3104" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="11" chatText=""
+		move_x="74809" move_y="90794" move_z="-3344" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="12" chatText=""
+		move_x="76932" move_y="88297" move_z="-3296" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="13" chatText=""
+		move_x="77882" move_y="87441" move_z="-3408" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="14" chatText=""
+		move_x="78257" move_y="85859" move_z="-3632" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="15" chatText=""
+		move_x="80994" move_y="85866" move_z="-3472" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="16" chatText=""
+		move_x="82676" move_y="87519" move_z="-3360" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="17" chatText=""
+		move_x="83778" move_y="88414" move_z="-3376" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="18" chatText=""
+		move_x="83504" move_y="90378" move_z="-3120" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="19" chatText=""
+		move_x="84431" move_y="90379" move_z="-3264" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="20" chatText=""
+		move_x="85453" move_y="90117" move_z="-3312" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="21" chatText=""
+		move_x="85605" move_y="89708" move_z="-3296" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="22" chatText=""
+		move_x="84894" move_y="88975" move_z="-3344" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="23" chatText=""
+		move_x="83735" move_y="88382" move_z="-3376" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="24" chatText=""
+		move_x="82616" move_y="87485" move_z="-3360" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="25" chatText=""
+		move_x="80971" move_y="85855" move_z="-3472" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="26" chatText=""
+		move_x="78247" move_y="85853" move_z="-3632" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="27" chatText=""
+		move_x="77868" move_y="87463" move_z="-3408" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="28" chatText=""
+		move_x="76916" move_y="88304" move_z="-3280" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="29" chatText=""
+		move_x="75494" move_y="89865" move_z="-3200" delay="0" running="false" />
+	<npc route_id="116" npc_id="36173" move_point="30" chatText=""
+		move_x="74810" move_y="90814" move_z="-3344" delay="30" running="false" />
+	<npc route_id="117" npc_id="36211" move_point="1" chatText=""
+		move_x="114221" move_y="-18762" move_z="-1768" delay="30" running="false" />
+	<npc route_id="117" npc_id="36211" move_point="2" chatText=""
+		move_x="115920" move_y="-19177" move_z="-2120" delay="0" running="false" />
+	<npc route_id="117" npc_id="36211" move_point="3" chatText=""
+		move_x="117105" move_y="-19759" move_z="-2400" delay="0" running="false" />
+	<npc route_id="117" npc_id="36211" move_point="4" chatText=""
+		move_x="118417" move_y="-20135" move_z="-2632" delay="30" running="false" />
+	<npc route_id="117" npc_id="36211" move_point="5" chatText=""
+		move_x="118881" move_y="-20011" move_z="-2712" delay="0" running="false" />
+	<npc route_id="117" npc_id="36211" move_point="6" chatText=""
+		move_x="117210" move_y="-18329" move_z="-1816" delay="60" running="false" />
+	<npc route_id="117" npc_id="36211" move_point="7" chatText=""
+		move_x="118881" move_y="-20011" move_z="-2712" delay="0" running="false" />
+	<npc route_id="117" npc_id="36211" move_point="8" chatText=""
+		move_x="118417" move_y="-20135" move_z="-2632" delay="30" running="false" />
+	<npc route_id="117" npc_id="36211" move_point="9" chatText=""
+		move_x="117105" move_y="-19759" move_z="-2400" delay="0" running="false" />
+	<npc route_id="117" npc_id="36211" move_point="10" chatText=""
+		move_x="115920" move_y="-19177" move_z="-2120" delay="0" running="false" />
+	<npc route_id="117" npc_id="36211" move_point="11" chatText=""
+		move_x="114221" move_y="-18762" move_z="-1768" delay="30" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="1" chatText=""
+		move_x="121072" move_y="93215" move_z="-2736" delay="30" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="2" chatText=""
+		move_x="122718" move_y="92355" move_z="-2320" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="3" chatText=""
+		move_x="126171" move_y="91910" move_z="-2216" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="4" chatText=""
+		move_x="126353" move_y="90422" move_z="-2296" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="5" chatText=""
+		move_x="125796" move_y="87720" move_z="-2432" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="6" chatText=""
+		move_x="124803" move_y="85970" move_z="-2464" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="7" chatText=""
+		move_x="125036" move_y="83836" move_z="-2376" delay="30" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="8" chatText=""
+		move_x="128886" move_y="83331" move_z="-1416" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="9" chatText=""
+		move_x="129697" move_y="84969" move_z="-1256" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="10" chatText=""
+		move_x="126291" move_y="86712" move_z="-2240" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="11" chatText=""
+		move_x="126599" move_y="88950" move_z="-2325" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="12" chatText=""
+		move_x="126847" move_y="90713" move_z="-2264" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="13" chatText=""
+		move_x="126599" move_y="88950" move_z="-2325" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="14" chatText=""
+		move_x="126291" move_y="86712" move_z="-2240" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="15" chatText=""
+		move_x="129697" move_y="84969" move_z="-1256" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="16" chatText=""
+		move_x="128886" move_y="83331" move_z="-1416" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="17" chatText=""
+		move_x="125036" move_y="83836" move_z="-2376" delay="30" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="18" chatText=""
+		move_x="124803" move_y="85970" move_z="-2464" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="19" chatText=""
+		move_x="125796" move_y="87720" move_z="-2432" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="20" chatText=""
+		move_x="126353" move_y="90422" move_z="-2296" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="21" chatText=""
+		move_x="126171" move_y="91910" move_z="-2216" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="22" chatText=""
+		move_x="122718" move_y="92355" move_z="-2320" delay="0" running="false" />
+	<npc route_id="118" npc_id="36249" move_point="23" chatText=""
+		move_x="121072" move_y="93215" move_z="-2736" delay="30" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="1" chatText=""
+		move_x="71692" move_y="188004" move_z="-2616" delay="30" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="2" chatText=""
+		move_x="69326" move_y="187042" move_z="-3008" delay="0" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="3" chatText=""
+		move_x="68627" move_y="185540" move_z="-2984" delay="0" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="4" chatText=""
+		move_x="69077" move_y="184566" move_z="-2976" delay="30" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="5" chatText=""
+		move_x="70642" move_y="182573" move_z="-2992" delay="0" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="6" chatText=""
+		move_x="73647" move_y="181706" move_z="-3160" delay="0" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="7" chatText=""
+		move_x="74283" move_y="181756" move_z="-3152" delay="0" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="8" chatText=""
+		move_x="73655" move_y="182960" move_z="-2736" delay="60" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="9" chatText=""
+		move_x="74283" move_y="181756" move_z="-3152" delay="0" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="10" chatText=""
+		move_x="73647" move_y="181706" move_z="-3160" delay="0" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="11" chatText=""
+		move_x="70642" move_y="182573" move_z="-2992" delay="0" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="12" chatText=""
+		move_x="69077" move_y="184566" move_z="-2976" delay="30" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="13" chatText=""
+		move_x="68627" move_y="185540" move_z="-2984" delay="0" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="14" chatText=""
+		move_x="69326" move_y="187042" move_z="-3008" delay="0" running="false" />
+	<npc route_id="119" npc_id="36287" move_point="15" chatText=""
+		move_x="71692" move_y="188004" move_z="-2616" delay="30" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="1" chatText=""
+		move_x="104150" move_y="-57163" move_z="-848" delay="30" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="2" chatText=""
+		move_x="106218" move_y="-59401" move_z="-1344" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="3" chatText=""
+		move_x="106898" move_y="-59553" move_z="-1664" delay="30" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="4" chatText=""
+		move_x="107352" move_y="-60168" move_z="-2000" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="5" chatText=""
+		move_x="107651" move_y="-61177" move_z="-2400" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="6" chatText=""
+		move_x="109094" move_y="-62678" move_z="-3248" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="7" chatText=""
+		move_x="108266" move_y="-62657" move_z="-3104" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="8" chatText=""
+		move_x="105169" move_y="-61226" move_z="-2616" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="9" chatText=""
+		move_x="102968" move_y="-59982" move_z="-2384" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="10" chatText=""
+		move_x="100070" move_y="-60173" move_z="-2792" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="11" chatText=""
+		move_x="98764" move_y="-61095" move_z="-2768" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="12" chatText=""
+		move_x="94946" move_y="-60039" move_z="-2432" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="13" chatText=""
+		move_x="96103" move_y="-59078" move_z="-1992" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="14" chatText=""
+		move_x="96884" move_y="-59043" move_z="-1656" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="15" chatText=""
+		move_x="97064" move_y="-57884" move_z="-1256" delay="30" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="16" chatText=""
+		move_x="96884" move_y="-59043" move_z="-1656" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="17" chatText=""
+		move_x="96103" move_y="-59078" move_z="-1992" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="18" chatText=""
+		move_x="94946" move_y="-60039" move_z="-2432" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="19" chatText=""
+		move_x="98764" move_y="-61095" move_z="-2768" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="20" chatText=""
+		move_x="100070" move_y="-60173" move_z="-2792" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="21" chatText=""
+		move_x="102968" move_y="-59982" move_z="-2384" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="22" chatText=""
+		move_x="105169" move_y="-61226" move_z="-2616" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="23" chatText=""
+		move_x="108266" move_y="-62657" move_z="-3104" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="24" chatText=""
+		move_x="109094" move_y="-62678" move_z="-3248" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="25" chatText=""
+		move_x="107651" move_y="-61177" move_z="-2400" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="26" chatText=""
+		move_x="107352" move_y="-60168" move_z="-2000" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="27" chatText=""
+		move_x="106898" move_y="-59553" move_z="-1664" delay="30" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="28" chatText=""
+		move_x="106218" move_y="-59401" move_z="-1344" delay="0" running="false" />
+	<npc route_id="120" npc_id="36318" move_point="29" chatText=""
+		move_x="104150" move_y="-57163" move_z="-848" delay="30" running="false" />
+	<npc route_id="121" npc_id="36356" move_point="1" chatText=""
+		move_x="69553" move_y="-91746" move_z="-1488" delay="30" running="false" />
+	<npc route_id="121" npc_id="36356" move_point="2" chatText=""
+		move_x="70941" move_y="-89751" move_z="-2256" delay="0" running="false" />
+	<npc route_id="121" npc_id="36356" move_point="3" chatText=""
+		move_x="71104" move_y="-89094" move_z="-2368" delay="0" running="false" />
+	<npc route_id="121" npc_id="36356" move_point="4" chatText=""
+		move_x="73471" move_y="-91462" move_z="-2024" delay="30" running="false" />
+	<npc route_id="121" npc_id="36356" move_point="5" chatText=""
+		move_x="74532" move_y="-92202" move_z="-1776" delay="0" running="false" />
+	<npc route_id="121" npc_id="36356" move_point="6" chatText=""
+		move_x="74908" move_y="-93152" move_z="-1536" delay="60" running="false" />
+	<npc route_id="121" npc_id="36356" move_point="7" chatText=""
+		move_x="74532" move_y="-92202" move_z="-1776" delay="0" running="false" />
+	<npc route_id="121" npc_id="36356" move_point="8" chatText=""
+		move_x="73471" move_y="-91462" move_z="-2024" delay="30" running="false" />
+	<npc route_id="121" npc_id="36356" move_point="9" chatText=""
+		move_x="71104" move_y="-89094" move_z="-2368" delay="0" running="false" />
+	<npc route_id="121" npc_id="36356" move_point="10" chatText=""
+		move_x="70941" move_y="-89751" move_z="-2256" delay="0" running="false" />
+	<npc route_id="121" npc_id="36356" move_point="11" chatText=""
+		move_x="69553" move_y="-91746" move_z="-1488" delay="30" running="false" />
+</list>

@@ -27,6 +27,7 @@ import net.l2emuproject.gameserver.dataholders.EnchantHPBonusDataHolder;
 import net.l2emuproject.gameserver.dataholders.EnchantItemDataHolder;
 import net.l2emuproject.gameserver.dataholders.MerchantPriceConfigDataHolder;
 import net.l2emuproject.gameserver.dataholders.MinionDataHolder;
+import net.l2emuproject.gameserver.dataholders.NpcWalkerRoutesDataHolder;
 import net.l2emuproject.gameserver.dataholders.SummonItemsDataHolder;
 import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.dataholders.UIDataHolder;
@@ -50,7 +51,6 @@ import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.LevelUpData;
 import net.l2emuproject.gameserver.datatables.NobleSkillTable;
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.datatables.NpcWalkerRoutesTable;
 import net.l2emuproject.gameserver.datatables.PetDataTable;
 import net.l2emuproject.gameserver.datatables.PetSkillsTable;
 import net.l2emuproject.gameserver.datatables.ResidentialSkillTable;
@@ -305,7 +305,7 @@ public class L2GameServer extends Config
 		HtmCache.getInstance();
 		BuffTemplateTable.getInstance();
 		if (Config.ALLOW_NPC_WALKERS)
-			NpcWalkerRoutesTable.getInstance().load();
+			NpcWalkerRoutesDataHolder.getInstance();
 		PetDataTable.getInstance().loadPetsData();
 		
 		Util.printSection("SevenSigns");

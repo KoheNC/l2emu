@@ -1,0 +1,24 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="npc" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="npc">
+		<xs:complexType>
+			<xs:attribute name="chatText" use="required" />
+			<xs:attribute name="delay" use="required" type="xs:integer" />
+			<xs:attribute name="move_point" use="required" type="xs:integer" />
+			<xs:attribute name="move_x" use="required" type="xs:integer" />
+			<xs:attribute name="move_y" use="required" type="xs:integer" />
+			<xs:attribute name="move_z" use="required" type="xs:integer" />
+			<xs:attribute name="npc_id" use="required" type="xs:integer" />
+			<xs:attribute name="route_id" use="required" type="xs:integer" />
+			<xs:attribute name="running" use="required" type="xs:boolean" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

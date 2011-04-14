@@ -19,12 +19,12 @@ import java.util.StringTokenizer;
 import net.l2emuproject.Config;
 import net.l2emuproject.L2Config;
 import net.l2emuproject.gameserver.dataholders.ClassBalanceDataHolder;
+import net.l2emuproject.gameserver.dataholders.NpcWalkerRoutesDataHolder;
 import net.l2emuproject.gameserver.dataholders.TeleportDataHolder;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.GmListTable;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.NpcTable;
-import net.l2emuproject.gameserver.datatables.NpcWalkerRoutesTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
 import net.l2emuproject.gameserver.datatables.TradeListTable;
 import net.l2emuproject.gameserver.entity.base.Experience;
@@ -326,7 +326,7 @@ public class AdminAdmin implements IAdminCommandHandler
 				}
 				else if (type.startsWith("npcwalker"))
 				{
-					NpcWalkerRoutesTable.getInstance().load();
+					NpcWalkerRoutesDataHolder.getInstance().load();
 					activeChar.sendMessage("All NPC walker routes have been reloaded");
 				}
 				else if (type.startsWith("npc"))
