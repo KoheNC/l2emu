@@ -72,7 +72,7 @@ public final class UIDataHolder
 		try
 		{
 			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(false);
+			factory.setValidating(true);
 			factory.setIgnoringComments(true);
 			final File file = new File(Config.DATAPACK_ROOT, "data/char_data/ui/uicats_en.xml");
 			doc = factory.newDocumentBuilder().parse(file);
@@ -107,7 +107,7 @@ public final class UIDataHolder
 		try
 		{
 			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(false);
+			factory.setValidating(true);
 			factory.setIgnoringComments(true);
 			final File file = new File(Config.DATAPACK_ROOT, "data/char_data/ui/uikeys_en.xml");
 			doc = factory.newDocumentBuilder().parse(file);

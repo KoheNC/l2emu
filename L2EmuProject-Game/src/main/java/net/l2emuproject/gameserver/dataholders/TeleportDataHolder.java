@@ -67,7 +67,7 @@ public final class TeleportDataHolder
 			try
 			{
 				final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-				factory.setValidating(false);
+				factory.setValidating(true);
 				factory.setIgnoringComments(true);
 				doc = factory.newDocumentBuilder().parse(f);
 

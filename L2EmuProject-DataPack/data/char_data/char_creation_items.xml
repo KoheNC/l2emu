@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../templates/charCreationItems.xsd">
+	<item classId="-1" itemId="5588" amount="1" equipped="false" />
+	<item classId="-1" itemId="10650" amount="5" equipped="false" />
+	<item classId="-1" itemId="12753" amount="10" equipped="false" />
+	<item classId="0" itemId="10" amount="1" equipped="false" />
+	<item classId="0" itemId="1146" amount="1" equipped="true" />
+	<item classId="0" itemId="1147" amount="1" equipped="true" />
+	<item classId="0" itemId="2369" amount="1" equipped="true" />
+	<item classId="10" itemId="6" amount="1" equipped="true" />
+	<item classId="10" itemId="425" amount="1" equipped="true" />
+	<item classId="10" itemId="461" amount="1" equipped="true" />
+	<item classId="18" itemId="10" amount="1" equipped="false" />
+	<item classId="18" itemId="1146" amount="1" equipped="true" />
+	<item classId="18" itemId="1147" amount="1" equipped="true" />
+	<item classId="18" itemId="2369" amount="1" equipped="true" />
+	<item classId="25" itemId="6" amount="1" equipped="true" />
+	<item classId="25" itemId="425" amount="1" equipped="true" />
+	<item classId="25" itemId="461" amount="1" equipped="true" />
+	<item classId="31" itemId="10" amount="1" equipped="false" />
+	<item classId="31" itemId="1146" amount="1" equipped="true" />
+	<item classId="31" itemId="1147" amount="1" equipped="true" />
+	<item classId="31" itemId="2369" amount="1" equipped="true" />
+	<item classId="38" itemId="6" amount="1" equipped="true" />
+	<item classId="38" itemId="425" amount="1" equipped="true" />
+	<item classId="38" itemId="461" amount="1" equipped="true" />
+	<item classId="44" itemId="1146" amount="1" equipped="true" />
+	<item classId="44" itemId="1147" amount="1" equipped="true" />
+	<item classId="44" itemId="2368" amount="1" equipped="true" />
+	<item classId="44" itemId="2369" amount="1" equipped="false" />
+	<item classId="49" itemId="425" amount="1" equipped="true" />
+	<item classId="49" itemId="461" amount="1" equipped="true" />
+	<item classId="49" itemId="2368" amount="1" equipped="true" />
+	<item classId="53" itemId="10" amount="1" equipped="false" />
+	<item classId="53" itemId="1146" amount="1" equipped="true" />
+	<item classId="53" itemId="1147" amount="1" equipped="true" />
+	<item classId="53" itemId="2370" amount="1" equipped="true" />
+	<item classId="123" itemId="10" amount="1" equipped="false" />
+	<item classId="123" itemId="1146" amount="1" equipped="true" />
+	<item classId="123" itemId="1147" amount="1" equipped="true" />
+	<item classId="123" itemId="2369" amount="1" equipped="true" />
+	<item classId="124" itemId="10" amount="1" equipped="false" />
+	<item classId="124" itemId="1146" amount="1" equipped="true" />
+	<item classId="124" itemId="1147" amount="1" equipped="true" />
+	<item classId="124" itemId="2369" amount="1" equipped="true" />
+</list>

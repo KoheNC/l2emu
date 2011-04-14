@@ -60,7 +60,7 @@ public final class ClassBalanceDataHolder
 		try
 		{
 			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(false);
+			factory.setValidating(true);
 			factory.setIgnoringComments(true);
 			doc = factory.newDocumentBuilder().parse(file);
 			

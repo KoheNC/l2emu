@@ -14,10 +14,13 @@
  */
 package net.l2emuproject.gameserver.datatables;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.entity.base.ClassId;
@@ -27,6 +30,8 @@ import net.l2emuproject.gameserver.templates.chars.L2PcTemplate;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public final class CharTemplateTable
 {
@@ -251,62 +256,63 @@ public final class CharTemplateTable
 		{
 			_log.fatal("Failed loading char templates", e);
 		}
+		
+		Document doc = null;
+		File file = new File(Config.DATAPACK_ROOT, "data/char_data/class_creation_items.xml");
 
 		try
 		{
-			con = L2DatabaseFactory.getInstance().getConnection(con);
-			final PreparedStatement statement = con.prepareStatement("SELECT classId, itemId, amount, equipped FROM char_creation_items");
-			final ResultSet rset = statement.executeQuery();
+			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			factory.setValidating(true);
+			factory.setIgnoringComments(true);
+			doc = factory.newDocumentBuilder().parse(file);
 			
-			int classId, itemId, amount;
-			boolean equipped;
-			while (rset.next())
+			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
 			{
-				classId = rset.getInt("classId");
-				itemId = rset.getInt("itemId");
-				amount = rset.getInt("amount");
-				equipped = rset.getString("equipped").equals("true");
-				
-				if (ItemTable.getInstance().getTemplate(itemId) != null)
+				if ("list".equalsIgnoreCase(n.getNodeName()))
 				{
-					if (classId == -1)
+					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
 					{
-						for (L2PcTemplate pct : _templates)
+						int classId, itemId, amount;
+						boolean equipped;
+						if ("class".equalsIgnoreCase(d.getNodeName()))
 						{
-							if (pct == null)
-								continue;
+							classId = Integer.parseInt(d.getAttributes().getNamedItem("classId").getNodeValue());
+							itemId = Integer.parseInt(d.getAttributes().getNamedItem("itemId").getNodeValue());
+							amount = Integer.parseInt(d.getAttributes().getNamedItem("amount").getNodeValue());
+							equipped = Boolean.parseBoolean(d.getAttributes().getNamedItem("equipped").getNodeValue());
 							
-							pct.addItem(itemId, amount, equipped);
+							if (ItemTable.getInstance().getTemplate(itemId) != null)
+							{
+								if (classId == -1)
+								{
+									for (L2PcTemplate pct : _templates)
+									{
+										if (pct == null)
+											continue;
+										
+										pct.addItem(itemId, amount, equipped);
+									}
+								}
+								else
+								{
+									final L2PcTemplate pct = _templates[classId];
+									if (pct != null)
+										pct.addItem(itemId, amount, equipped);
+									else
+										_log.warn("char_creation_items: Entry for undefined class, classId: "+classId);
+								}
+							}
+							else
+								_log.warn("char_creation_items: No data for itemId: "+itemId+" defined for classId "+classId);
 						}
 					}
-					else
-					{
-						final L2PcTemplate pct = _templates[classId];
-						if (pct != null)
-						{
-							pct.addItem(itemId, amount, equipped);
-						}
-						else
-						{
-							_log.warn("char_creation_items: Entry for undefined class, classId: "+classId);
-						}
-					}
-				}
-				else
-				{
-					_log.warn("char_creation_items: No data for itemId: "+itemId+" defined for classId "+classId);
 				}
 			}
-			rset.close();
-			statement.close();
 		}
-		catch (SQLException e)
+		catch (Exception e)
 		{
 			_log.fatal("Failed loading char creation items.", e);
-		}
-		finally
-		{
-			L2DatabaseFactory.close(con);
 		}
 	}
 
