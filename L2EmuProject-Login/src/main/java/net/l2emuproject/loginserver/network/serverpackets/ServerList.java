@@ -19,10 +19,11 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Map;
 
-import javolution.util.FastMap;
 import net.l2emuproject.loginserver.beans.GameServerInfo;
 import net.l2emuproject.loginserver.manager.GameServerManager;
 import net.l2emuproject.loginserver.network.L2LoginClient;
+
+import javolution.util.FastMap;
 
 /**
  * ServerList<BR>
@@ -95,9 +96,9 @@ public final class ServerList extends L2LoginServerPacket
 	{
 		_servers = new FastMap<Integer, ServerData>();
 
-		for (final GameServerInfo gsi : GameServerManager.getInstance().getRegisteredGameServers().values())
+		for (GameServerInfo gsi : GameServerManager.getInstance().getRegisteredGameServers().values())
 		{
-			final String _ip = gsi.getGameServerThread() != null ? gsi.getGameServerThread().getIp(client.getIp()) : "127.0.0.1";
+			String _ip = (gsi.getGameServerThread() != null) ? gsi.getGameServerThread().getIp(client.getIp()) : "127.0.0.1";
 			_servers.put(
 					gsi.getId(),
 					new ServerData(gsi.getId(), _ip, gsi.getPort(), gsi.getAgeLimitation(), gsi.isPvp(), gsi.getCurrentPlayerCount(), gsi.getMaxPlayers(), gsi
@@ -130,14 +131,14 @@ public final class ServerList extends L2LoginServerPacket
 
 			try
 			{
-				final InetAddress i4 = InetAddress.getByName(server._ip);
-				final byte[] raw = i4.getAddress();
+				InetAddress i4 = InetAddress.getByName(server._ip);
+				byte[] raw = i4.getAddress();
 				writeC(raw[0] & 0xff);
 				writeC(raw[1] & 0xff);
 				writeC(raw[2] & 0xff);
 				writeC(raw[3] & 0xff);
 			}
-			catch (final UnknownHostException e)
+			catch (UnknownHostException e)
 			{
 				e.printStackTrace();
 				writeC(127);
