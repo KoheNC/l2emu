@@ -17,7 +17,7 @@ package net.l2emuproject.gameserver.entity.player;
 import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 
-import net.l2emuproject.gameserver.datatables.FishTable;
+import net.l2emuproject.gameserver.dataholders.FishDataHolder;
 import net.l2emuproject.gameserver.items.L2ItemInstance;
 import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.ExFishingEnd;
@@ -98,7 +98,7 @@ public final class PlayerFish extends PlayerExtension
 		int lvl = getRandomFishLvl();
 		int group = getRandomGroup();
 		int type = getRandomFishType(group);
-		List<FishData> fishs = FishTable.getInstance().getFish(lvl, type, group);
+		List<FishData> fishs = FishDataHolder.getInstance().getFish(lvl, type, group);
 		if (fishs == null || fishs.size() == 0)
 		{
 			endFishing(false);

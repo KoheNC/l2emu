@@ -1,0 +1,28 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="fish" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fish">
+		<xs:complexType>
+			<xs:attribute name="combat_time" use="required" type="xs:integer" />
+			<xs:attribute name="fish_group" use="required" type="xs:integer" />
+			<xs:attribute name="fish_guts" use="required" type="xs:integer" />
+			<xs:attribute name="fish_type" use="required" type="xs:integer" />
+			<xs:attribute name="guts_check_time" use="required"
+				type="xs:integer" />
+			<xs:attribute name="hp" use="required" type="xs:integer" />
+			<xs:attribute name="hpregen" use="required" type="xs:integer" />
+			<xs:attribute name="id" use="required" type="xs:integer" />
+			<xs:attribute name="level" use="required" type="xs:integer" />
+			<xs:attribute name="name" use="required" />
+			<xs:attribute name="wait_time" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

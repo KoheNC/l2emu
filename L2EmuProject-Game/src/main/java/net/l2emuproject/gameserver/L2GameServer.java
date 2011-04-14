@@ -25,6 +25,7 @@ import net.l2emuproject.gameserver.dataholders.AugmentationDataHolder;
 import net.l2emuproject.gameserver.dataholders.ClassBalanceDataHolder;
 import net.l2emuproject.gameserver.dataholders.EnchantHPBonusDataHolder;
 import net.l2emuproject.gameserver.dataholders.EnchantItemDataHolder;
+import net.l2emuproject.gameserver.dataholders.FishDataHolder;
 import net.l2emuproject.gameserver.dataholders.MerchantPriceConfigDataHolder;
 import net.l2emuproject.gameserver.dataholders.MinionDataHolder;
 import net.l2emuproject.gameserver.dataholders.NpcWalkerRoutesDataHolder;
@@ -39,7 +40,6 @@ import net.l2emuproject.gameserver.datatables.ClanTable;
 import net.l2emuproject.gameserver.datatables.DoorTable;
 import net.l2emuproject.gameserver.datatables.ExtractableItemsData;
 import net.l2emuproject.gameserver.datatables.ExtractableSkillsData;
-import net.l2emuproject.gameserver.datatables.FishTable;
 import net.l2emuproject.gameserver.datatables.GMSkillTable;
 import net.l2emuproject.gameserver.datatables.GlobalDropTable;
 import net.l2emuproject.gameserver.datatables.GmListTable;
@@ -269,7 +269,7 @@ public class L2GameServer extends Config
 		EnchantItemDataHolder.getInstance();
 		L2Multisell.getInstance();
 		if (Config.ALLOW_FISHING)
-			FishTable.getInstance();
+			FishDataHolder.getInstance();
 		ItemsOnGroundManager.getInstance();
 		if (Config.AUTODESTROY_ITEM_AFTER > 0 || Config.HERB_AUTO_DESTROY_TIME > 0)
 			ItemsAutoDestroy.getInstance();
