@@ -78,7 +78,7 @@ public final class MerchantPriceConfigDataHolder implements InstanceListManager
 	public void loadXML() throws SAXException, IOException, ParserConfigurationException
 	{
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(true);
+		factory.setValidating(false);
 		factory.setIgnoringComments(true);
 		File file = new File(Config.DATAPACK_ROOT, "data/npc_data/merchant/MerchantPriceConfig.xml");
 		if (file.exists())

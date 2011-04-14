@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.l2jfree.com ../../templates/etcitems.xsd">
+<!DOCTYPE list SYSTEM "../../templates/etcitems.dtd">
+<list>
 	<item id="8594" name="Scroll: Recovery (No Grade)">
 		<cond>
 			<player chaotic="false" />

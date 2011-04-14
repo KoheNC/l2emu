@@ -98,7 +98,7 @@ public class DimensionalRiftManager
 		try
 		{
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(true);
+			factory.setValidating(false);
 			factory.setIgnoringComments(true);
 
 			File file = new File(Config.DATAPACK_ROOT, "data/world_data/dimensional_rift/dimensionalRift.xml");

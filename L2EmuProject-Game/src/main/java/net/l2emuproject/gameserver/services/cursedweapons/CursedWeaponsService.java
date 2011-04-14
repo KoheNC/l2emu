@@ -82,7 +82,7 @@ public class CursedWeaponsService
 		try
 		{
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(true);
+			factory.setValidating(false);
 			factory.setIgnoringComments(true);
 
 			File file = new File(Config.DATAPACK_ROOT, "data/item_data/cursed_weapon/cursedWeapons.xml");

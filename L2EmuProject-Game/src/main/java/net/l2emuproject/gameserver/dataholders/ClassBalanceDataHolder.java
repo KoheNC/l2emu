@@ -31,18 +31,18 @@ import org.w3c.dom.Node;
  */
 public final class ClassBalanceDataHolder
 {
-	private static Log						_log		= LogFactory.getLog(ClassBalanceDataHolder.class);
-	private Map<Integer, ClassBalance>	_balance;
+	private static Log							_log		= LogFactory.getLog(ClassBalanceDataHolder.class);
 
-	@SuppressWarnings("synthetic-access")
-	private static class SingletonHolder
+	private final Map<Integer, ClassBalance>	_balance	= new HashMap<Integer, ClassBalance>();
+
+	private static final class SingletonHolder
 	{
-		protected static final ClassBalanceDataHolder	_instance	= new ClassBalanceDataHolder();
+		private static final ClassBalanceDataHolder	INSTANCE	= new ClassBalanceDataHolder();
 	}
 
 	public static ClassBalanceDataHolder getInstance()
 	{
-		return SingletonHolder._instance;
+		return SingletonHolder.INSTANCE;
 	}
 
 	public ClassBalanceDataHolder()
@@ -52,18 +52,16 @@ public final class ClassBalanceDataHolder
 
 	public void loadClassBalance()
 	{
-		_balance = new HashMap<Integer, ClassBalance>();
-
 		Document doc = null;
 		File file = new File(Config.DATAPACK_ROOT, "data/char_data/class_balance.xml");
 
 		try
 		{
 			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(true);
+			factory.setValidating(false);
 			factory.setIgnoringComments(true);
 			doc = factory.newDocumentBuilder().parse(file);
-			
+
 			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
 			{
 				if ("list".equalsIgnoreCase(n.getNodeName()))
@@ -81,7 +79,7 @@ public final class ClassBalanceDataHolder
 							mvh = Double.parseDouble(d.getAttributes().getNamedItem("MagicalvHeavy").getNodeValue());
 							mvl = Double.parseDouble(d.getAttributes().getNamedItem("MagicalvLight").getNodeValue());
 							mvr = Double.parseDouble(d.getAttributes().getNamedItem("MagicalvRobe").getNodeValue());
-							
+
 							_balance.put(classId, new ClassBalance(classId, new ArmorBalance(fvh, fvl, fvr), new ArmorBalance(mvh, mvl, mvr)));
 						}
 					}
@@ -94,14 +92,14 @@ public final class ClassBalanceDataHolder
 		}
 	}
 
-	public ClassBalance getBalance(int class_id)
+	public ClassBalance getBalance(final int class_id)
 	{
 		if (_balance.containsKey(class_id))
 			return _balance.get(class_id);
 		return new ClassBalance();
 	}
 
-	public double getBalanceValue(TypeBalance type, int class_id)
+	public double getBalanceValue(final TypeBalance type, final int class_id)
 	{
 		switch (type)
 		{

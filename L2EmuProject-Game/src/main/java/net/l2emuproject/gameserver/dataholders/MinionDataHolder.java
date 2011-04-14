@@ -56,7 +56,7 @@ public final class MinionDataHolder
 		try
 		{
 			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(true);
+			factory.setValidating(false);
 			factory.setIgnoringComments(true);
 			doc = factory.newDocumentBuilder().parse(new File(Config.DATAPACK_ROOT, "data/npc_data/spawns/minion/minions.xml"));
 

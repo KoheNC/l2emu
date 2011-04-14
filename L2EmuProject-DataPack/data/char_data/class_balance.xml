@@ -1,192 +1,286 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.l2jfree.com ../templates/classBalance.xsd">
-	<class classId="0" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="1" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="2" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="3" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="4" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="5" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="6" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="7" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="8" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="9" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="10" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="11" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="12" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="13" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="14" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="15" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="16" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="17" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="18" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="19" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="20" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="21" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="22" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="23" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="24" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="25" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="26" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="27" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="28" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="29" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="30" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="31" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="32" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="33" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="34" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="35" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="36" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="37" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="38" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="39" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="40" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="41" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="42" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="43" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="44" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="45" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="46" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="47" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="48" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="49" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="50" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="51" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="52" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="53" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="54" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="55" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="56" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="57" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="88" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="89" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="90" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="91" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="92" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="93" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="94" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="95" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="96" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="97" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="98" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="99" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="100" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="101" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="102" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="103" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="104" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="105" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="106" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="107" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="108" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="109" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="110" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="111" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="112" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="113" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="114" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="115" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="116" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="117" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="118" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="123" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="124" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="125" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="126" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
-	<class classId="127" PhysicalvHeavy="1,00" PhysicalvLight="1,00" PhysicalvRobe="1,00" MagicalvHeavy="1,00"
-		MagicalvLight="1,00" MagicalvRobe="1,00" />
+	<class classId="0" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="1" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="2" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="3" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="4" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="5" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="6" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="7" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="8" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="9" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="10" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="11" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="12" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="13" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="14" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="15" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="16" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="17" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="18" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="19" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="20" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="21" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="22" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="23" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="24" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="25" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="26" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="27" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="28" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="29" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="30" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="31" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="32" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="33" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="34" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="35" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="36" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="37" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="38" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="39" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="40" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="41" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="42" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="43" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="44" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="45" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="46" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="47" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="48" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="49" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="50" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="51" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="52" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="53" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="54" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="55" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="56" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="57" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="88" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="89" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="90" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="91" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="92" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="93" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="94" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="95" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="96" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="97" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="98" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="99" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="100" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="101" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="102" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="103" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="104" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="105" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="106" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="107" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="108" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="109" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="110" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="111" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="112" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="113" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="114" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="115" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="116" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="117" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="118" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="123" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="124" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="125" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="126" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
+	<class classId="127" PhysicalvHeavy="1.00" PhysicalvLight="1.00"
+		PhysicalvRobe="1.00" MagicalvHeavy="1.00" MagicalvLight="1.00"
+		MagicalvRobe="1.00" />
 </list>

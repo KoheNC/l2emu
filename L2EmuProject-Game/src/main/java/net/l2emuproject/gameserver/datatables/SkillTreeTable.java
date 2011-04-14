@@ -14,17 +14,19 @@
  */
 package net.l2emuproject.gameserver.datatables;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javolution.util.FastList;
-import javolution.util.FastMap;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.entity.base.ClassId;
 import net.l2emuproject.gameserver.skills.L2Effect;
@@ -42,31 +44,33 @@ import net.l2emuproject.util.L2Collections;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 @SuppressWarnings("unchecked")
 public class SkillTreeTable
 {
-	public static final byte								NORMAL_ENCHANT_COST_MULTIPLIER	= 1;
-	public static final byte								SAFE_ENCHANT_COST_MULTIPLIER	= 3;
+	public static final byte						NORMAL_ENCHANT_COST_MULTIPLIER	= 1;
+	public static final byte						SAFE_ENCHANT_COST_MULTIPLIER	= 3;
 
-	public static final int									NORMAL_ENCHANT_BOOK				= 6622;
-	public static final int									SAFE_ENCHANT_BOOK				= 9627;
-	public static final int									CHANGE_ENCHANT_BOOK				= 9626;
-	public static final int									UNTRAIN_ENCHANT_BOOK			= 9625;
+	public static final int							NORMAL_ENCHANT_BOOK				= 6622;
+	public static final int							SAFE_ENCHANT_BOOK				= 9627;
+	public static final int							CHANGE_ENCHANT_BOOK				= 9626;
+	public static final int							UNTRAIN_ENCHANT_BOOK			= 9625;
 
-	private final static Log								_log							= LogFactory.getLog(SkillTreeTable.class);
+	private final static Log						_log							= LogFactory.getLog(SkillTreeTable.class);
 
-	private final Map<Integer, L2SkillLearn>[] 				_skillTrees = new Map[ClassId.values().length];
-	private FastList<L2SkillLearn>							_fishingSkillTrees;				// all common skills (teached by Fisherman)
-	private FastList<L2SkillLearn>							_expandDwarfCraftSkillTrees;	// list of special skill for dwarf (expand dwarf craft) learned by class teacher
-	private FastList<L2PledgeSkillLearn>					_pledgeSkillTrees;				// pledge skill list
-	private FastMap<Integer, L2EnchantSkillLearn>			_enchantSkillTrees;				// enchant skill list
-	private FastList<L2TransformSkillLearn>					_transformSkillTrees;			// Transform Skills (Test)
-	private FastList<L2SkillLearn> 							_specialSkillTrees;
-	private FastList<L2CertificationSkillsLearn>			_certificationSkillsTrees; 		// Special Ability Skills (Hellbound)
-	
-	private Map<Integer, Integer> 							_minSkillLevel = new FastMap<Integer, Integer>();
-	
+	private final Map<Integer, L2SkillLearn>[]		_skillTrees						= new Map[ClassId.values().length];
+	private ArrayList<L2SkillLearn>					_fishingSkillTrees;														// all common skills (teached by Fisherman)
+	private ArrayList<L2SkillLearn>					_expandDwarfCraftSkillTrees;												// list of special skill for dwarf (expand dwarf craft) learned by class teacher
+	private ArrayList<L2PledgeSkillLearn>			_pledgeSkillTrees;															// pledge skill list
+	private HashMap<Integer, L2EnchantSkillLearn>	_enchantSkillTrees;														// enchant skill list
+	private ArrayList<L2TransformSkillLearn>		_transformSkillTrees;														// Transform Skills (Test)
+	private ArrayList<L2SkillLearn>					_specialSkillTrees;
+	private ArrayList<L2CertificationSkillsLearn>	_certificationSkillsTrees;													// Special Ability Skills (Hellbound)
+
+	private Map<Integer, Integer>					_minSkillLevel					= new HashMap<Integer, Integer>();
+
 	public static SkillTreeTable getInstance()
 	{
 		return SingletonHolder._instance;
@@ -95,7 +99,7 @@ public class SkillTreeTable
 		_log.fatal("Expertise not found for grade " + grade);
 		return 0;
 	}
-	
+
 	public int getMinSkillLevel(int skillId, int skillLvl)
 	{
 		final int skillHashCode = SkillTable.getSkillUID(skillId, skillLvl);
@@ -122,10 +126,11 @@ public class SkillTreeTable
 
 			while (classlist.next())
 			{
-				map = new FastMap<Integer, L2SkillLearn>();
+				map = new HashMap<Integer, L2SkillLearn>();
 				parentClassId = classlist.getInt("parent_id");
 				classId = classlist.getInt("id");
-				PreparedStatement statement2 = con.prepareStatement("SELECT class_id, skill_id, level, name, sp, min_level FROM skill_trees where class_id=? ORDER BY skill_id, level");
+				PreparedStatement statement2 = con
+						.prepareStatement("SELECT class_id, skill_id, level, name, sp, min_level FROM skill_trees where class_id=? ORDER BY skill_id, level");
 				statement2.setInt(1, classId);
 				ResultSet skilltree = statement2.executeQuery();
 
@@ -155,7 +160,7 @@ public class SkillTreeTable
 						_minSkillLevel.put(hash, skillLearn.getMinLevel());
 				}
 
-				getSkillTrees()[classId]= map;
+				getSkillTrees()[classId] = map;
 				skilltree.close();
 				statement2.close();
 
@@ -174,69 +179,67 @@ public class SkillTreeTable
 
 		_log.info(getClass().getSimpleName() + " : Loaded " + count + " skill(s).");
 
-		//Skill tree for fishing skill (from Fisherman)
-		int count2 = 0;
-		int count3 = 0;
-
+		Document doc = null;
 		try
 		{
-			_fishingSkillTrees = new FastList<L2SkillLearn>();
-			_expandDwarfCraftSkillTrees = new FastList<L2SkillLearn>();
+			_fishingSkillTrees = new ArrayList<L2SkillLearn>();
+			_expandDwarfCraftSkillTrees = new ArrayList<L2SkillLearn>();
 
-			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con.prepareStatement("SELECT skill_id, level, name, sp, min_level, costid, cost, isfordwarf FROM fishing_skill_trees ORDER BY skill_id, level");
-			ResultSet skilltree2 = statement.executeQuery();
+			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			factory.setValidating(false);
+			factory.setIgnoringComments(true);
+			doc = factory.newDocumentBuilder().parse(new File(Config.DATAPACK_ROOT, "data/char_data/skill_tree/fishing_skill_tree.xml"));
 
-			int prevSkillId = -1;
-
-			while (skilltree2.next())
+			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
 			{
-				final int id = skilltree2.getInt("skill_id");
-				final int lvl = skilltree2.getInt("level");
-				final String name = skilltree2.getString("name");
-				final int minLvl = skilltree2.getInt("min_level");
-				final int cost = skilltree2.getInt("sp");
-				final int costId = skilltree2.getInt("costid");
-				final int costCount = skilltree2.getInt("cost");
-				final int isDwarven = skilltree2.getInt("isfordwarf");
+				if ("list".equalsIgnoreCase(n.getNodeName()))
+				{
+					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
+					{
+						int skillId = 0, skillLevel = 0;
+						String name = "";
+						int minimumLevel = 0, cost = 0, costId = 0, costCount = 0, isDwarven = 0;
 
-				if (prevSkillId != id)
-					prevSkillId = id;
+						if ("fish".equalsIgnoreCase(d.getNodeName()))
+						{
+							skillId = Integer.parseInt(d.getAttributes().getNamedItem("skill_id").getNodeValue());
+							skillLevel = Integer.parseInt(d.getAttributes().getNamedItem("level").getNodeValue());
+							name = d.getAttributes().getNamedItem("name").getNodeValue();
+							minimumLevel = Integer.parseInt(d.getAttributes().getNamedItem("min_level").getNodeValue());
+							cost = Integer.parseInt(d.getAttributes().getNamedItem("sp").getNodeValue());
+							costId = Integer.parseInt(d.getAttributes().getNamedItem("costid").getNodeValue());
+							costCount = Integer.parseInt(d.getAttributes().getNamedItem("cost").getNodeValue());
+							isDwarven = Integer.parseInt(d.getAttributes().getNamedItem("isfordwarf").getNodeValue());
 
-				L2SkillLearn skill = new L2SkillLearn(id, lvl, minLvl, name, cost, costId, costCount);
+							final L2SkillLearn skill = new L2SkillLearn(skillId, skillLevel, minimumLevel, name, cost, costId, costCount);
 
-				if (isDwarven == 0)
-					_fishingSkillTrees.add(skill);
-				else
-					_expandDwarfCraftSkillTrees.add(skill);
+							if (isDwarven == 0)
+								_fishingSkillTrees.add(skill);
+							else
+								_expandDwarfCraftSkillTrees.add(skill);
+						}
+					}
+				}
 			}
-
-			skilltree2.close();
-			statement.close();
-
-			count2 = _fishingSkillTrees.size();
-			count3 = _expandDwarfCraftSkillTrees.size();
 		}
 		catch (Exception e)
 		{
 			_log.fatal("Error while creating fishing skill table: ", e);
 		}
 
-		int count4 = 0;
 		try
 		{
-			_enchantSkillTrees = new FastMap<Integer, L2EnchantSkillLearn>();
-			
+			_enchantSkillTrees = new HashMap<Integer, L2EnchantSkillLearn>();
+
 			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con
-					.prepareStatement("SELECT * FROM enchant_skill_trees ORDER BY skill_id, level");
+			PreparedStatement statement = con.prepareStatement("SELECT * FROM enchant_skill_trees ORDER BY skill_id, level");
 			ResultSet skilltree3 = statement.executeQuery();
-			
+
 			while (skilltree3.next())
 			{
 				final int id = skilltree3.getInt("skill_id");
 				final int baseLvl = skilltree3.getInt("base_lvl");
-				
+
 				L2EnchantSkillLearn skill = _enchantSkillTrees.get(id);
 				if (skill == null)
 				{
@@ -246,24 +249,22 @@ public class SkillTreeTable
 				EnchantSkillDetail esd = new EnchantSkillDetail(skilltree3);
 				skill.addEnchantDetail(esd);
 			}
-			
+
 			skilltree3.close();
 			statement.close();
-			
-			count4 = _enchantSkillTrees.size();
 		}
 		catch (Exception e)
 		{
 			_log.fatal("Error while creating enchant skill table: ", e);
 		}
 
-		int count5 = 0;
 		try
 		{
-			_pledgeSkillTrees = new FastList<L2PledgeSkillLearn>();
+			_pledgeSkillTrees = new ArrayList<L2PledgeSkillLearn>();
 
 			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con.prepareStatement("SELECT skill_id, level, name, clan_lvl, repCost, itemId, itemCount FROM pledge_skill_trees ORDER BY skill_id, level");
+			PreparedStatement statement = con
+					.prepareStatement("SELECT skill_id, level, name, clan_lvl, repCost, itemId, itemCount FROM pledge_skill_trees ORDER BY skill_id, level");
 			ResultSet skilltree4 = statement.executeQuery();
 
 			int prevSkillId = -1;
@@ -288,21 +289,19 @@ public class SkillTreeTable
 
 			skilltree4.close();
 			statement.close();
-
-			count5 = _pledgeSkillTrees.size();
 		}
 		catch (Exception e)
 		{
 			_log.fatal("Error while creating pledge skill table: ", e);
 		}
 
-		int count6 = 0;
 		try
 		{
-			_transformSkillTrees = new FastList<L2TransformSkillLearn>();
+			_transformSkillTrees = new ArrayList<L2TransformSkillLearn>();
 
 			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con.prepareStatement("SELECT race_id, skill_id, item_id, level, name, sp, min_level FROM transform_skill_trees ORDER BY race_id, skill_id, level");
+			PreparedStatement statement = con
+					.prepareStatement("SELECT race_id, skill_id, item_id, level, name, sp, min_level FROM transform_skill_trees ORDER BY race_id, skill_id, level");
 			ResultSet skilltree5 = statement.executeQuery();
 
 			int prevSkillId = -1;
@@ -327,18 +326,15 @@ public class SkillTreeTable
 
 			skilltree5.close();
 			statement.close();
-
-			count6 = _transformSkillTrees.size();
 		}
 		catch (Exception e)
 		{
 			_log.fatal("Error while creating Transformation skill table ", e);
 		}
-		
-		int count7 = 0;
+
 		try
 		{
-			_specialSkillTrees = new FastList<L2SkillLearn>();
+			_specialSkillTrees = new ArrayList<L2SkillLearn>();
 
 			con = L2DatabaseFactory.getInstance().getConnection(con);
 			PreparedStatement statement = con.prepareStatement("SELECT skill_id, level, name, costid, cost FROM special_skill_trees ORDER BY skill_id, level");
@@ -364,21 +360,17 @@ public class SkillTreeTable
 
 			skilltree6.close();
 			statement.close();
-
-			count7 = _specialSkillTrees.size();
 		}
 		catch (Exception e)
 		{
 			_log.fatal("Error while creating SpecialSkillTree skill table ", e);
 		}
-		int count8 = 0;
 		try
 		{
-			_certificationSkillsTrees = new FastList<L2CertificationSkillsLearn>();
+			_certificationSkillsTrees = new ArrayList<L2CertificationSkillsLearn>();
 
 			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con
-					.prepareStatement("SELECT skill_id, item_id, level, name FROM certification_skill_trees ORDER BY skill_id, level");
+			PreparedStatement statement = con.prepareStatement("SELECT skill_id, item_id, level, name FROM certification_skill_trees ORDER BY skill_id, level");
 			ResultSet skilltree6 = statement.executeQuery();
 
 			int prevSkillId = -1;
@@ -400,8 +392,6 @@ public class SkillTreeTable
 
 			skilltree6.close();
 			statement.close();
-
-			count8 = _certificationSkillsTrees.size();
 		}
 		catch (Exception e)
 		{
@@ -412,13 +402,13 @@ public class SkillTreeTable
 			L2DatabaseFactory.close(con);
 		}
 
-		_log.info("FishingSkillTreeTable : Loaded " + count2 + " general skill(s).");
-		_log.info("DwarvenSkillTreeTable : Loaded " + count3 + " dwarven skill(s).");
-		_log.info("EnchantSkillTreeTable : Loaded " + count4 + " enchant skill(s).");
-		_log.info("PledgeSkillTreeTable : Loaded " + count5 + " pledge skill(s).");
-		_log.info("TransformSkillTreeTable : Loaded " + count6 + " transform skill(s).");
-		_log.info("SpecialSkillTreeTable : Loaded " + count7 + " special skill(s).");
-		_log.info("CertificationSkillsTreeTable : Loaded " + count8 + " certification skill(s).");
+		_log.info("FishingSkillTreeTable : Loaded " + _fishingSkillTrees.size() + " general skill(s).");
+		_log.info("DwarvenSkillTreeTable : Loaded " + _expandDwarfCraftSkillTrees.size() + " dwarven skill(s).");
+		_log.info("EnchantSkillTreeTable : Loaded " + _enchantSkillTrees.size() + " enchant skill(s).");
+		_log.info("PledgeSkillTreeTable : Loaded " + _pledgeSkillTrees.size() + " pledge skill(s).");
+		_log.info("TransformSkillTreeTable : Loaded " + _transformSkillTrees.size() + " transform skill(s).");
+		_log.info("SpecialSkillTreeTable : Loaded " + _specialSkillTrees.size() + " special skill(s).");
+		_log.info("CertificationSkillsTreeTable : Loaded " + _certificationSkillsTrees.size() + " certification skill(s).");
 	}
 
 	private Map<Integer, L2SkillLearn>[] getSkillTrees()
@@ -538,19 +528,19 @@ public class SkillTreeTable
 	public L2SkillLearn[] getAvailableSpecialSkills(L2Player cha)
 	{
 		ArrayBunch<L2SkillLearn> result = new ArrayBunch<L2SkillLearn>();
-		
+
 		L2Skill[] oldSkills = cha.getAllSkills();
-		
+
 		for (L2SkillLearn temp : _specialSkillTrees)
 		{
 			boolean knownSkill = false;
-			
+
 			for (int j = 0; j < oldSkills.length && !knownSkill; j++)
 			{
 				if (oldSkills[j].getId() == temp.getId())
 				{
 					knownSkill = true;
-					
+
 					if (oldSkills[j].getLevel() == temp.getLevel() - 1)
 					{
 						// this is the next level of a skill that we know
@@ -558,17 +548,17 @@ public class SkillTreeTable
 					}
 				}
 			}
-			
+
 			if (!knownSkill && temp.getLevel() == 1)
 			{
 				// this is a new skill
 				result.add(temp);
 			}
 		}
-		
+
 		return result.moveToArray(new L2SkillLearn[result.size()]);
 	}
-	
+
 	public L2SkillLearn[] getAvailableFishingSkills(L2Player cha)
 	{
 		ArrayBunch<L2SkillLearn> result = new ArrayBunch<L2SkillLearn>();
@@ -630,12 +620,12 @@ public class SkillTreeTable
 	{
 		return _enchantSkillTrees.get(skillId);
 	}
-	
+
 	public Collection<L2EnchantSkillLearn> getSkillEnchantments()
 	{
 		return _enchantSkillTrees.values();
 	}
-	
+
 	public L2PledgeSkillLearn[] getAvailablePledgeSkills(L2Player cha)
 	{
 		ArrayBunch<L2PledgeSkillLearn> result = new ArrayBunch<L2PledgeSkillLearn>();
@@ -737,12 +727,12 @@ public class SkillTreeTable
 			_log.warn("No certification skills defined!");
 			return new L2CertificationSkillsLearn[0];
 		}
-		
+
 		if (cha.isSubClassActive())
 			return new L2CertificationSkillsLearn[0];
-		
+
 		L2Skill[] oldSkills = cha.getAllSkills();
-		
+
 		for (L2CertificationSkillsLearn temp : skills)
 		{
 			boolean knownSkill = false;
@@ -812,7 +802,7 @@ public class SkillTreeTable
 	public int getMinLevelForNewFishingSkill(L2Player cha)
 	{
 		int minLevel = 0;
-		List<L2SkillLearn> skills = new FastList<L2SkillLearn>();
+		List<L2SkillLearn> skills = new ArrayList<L2SkillLearn>();
 
 		skills.addAll(_fishingSkillTrees);
 
@@ -841,7 +831,7 @@ public class SkillTreeTable
 	public int getMinLevelForNewTransformSkill(L2Player cha)
 	{
 		int minLevel = 0;
-		List<L2TransformSkillLearn> skills = new FastList<L2TransformSkillLearn>();
+		List<L2TransformSkillLearn> skills = new ArrayList<L2TransformSkillLearn>();
 
 		skills.addAll(_transformSkillTrees);
 
@@ -896,7 +886,7 @@ public class SkillTreeTable
 
 		return Integer.MAX_VALUE;
 	}
-	
+
 	public int getEnchantSkillAdenaCost(L2Skill skill)
 	{
 		L2EnchantSkillLearn enchantSkillLearn = _enchantSkillTrees.get(skill.getId());
@@ -930,6 +920,6 @@ public class SkillTreeTable
 	@SuppressWarnings("synthetic-access")
 	private static class SingletonHolder
 	{
-		protected static final SkillTreeTable _instance = new SkillTreeTable();
+		protected static final SkillTreeTable	_instance	= new SkillTreeTable();
 	}
 }

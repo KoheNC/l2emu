@@ -279,7 +279,7 @@ public final class AugmentationDataHolder
 		{
 			int badAugmantData = 0;
 			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(true);
+			factory.setValidating(false);
 			factory.setIgnoringComments(true);
 
 			final File file = new File(Config.DATAPACK_ROOT + "/data/item_data/augmentation/augmentation_skillmap.xml");

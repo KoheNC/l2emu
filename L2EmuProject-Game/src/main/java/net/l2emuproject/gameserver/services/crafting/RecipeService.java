@@ -231,7 +231,7 @@ public class RecipeService
 	private void loadFromXML() throws SAXException, IOException, ParserConfigurationException
 	{
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(true);
+		factory.setValidating(false);
 		factory.setIgnoringComments(true);
 		File file = new File(Config.DATAPACK_ROOT, "data/item_data/recipe/" + RECIPES_FILE);
 		if (file.exists())

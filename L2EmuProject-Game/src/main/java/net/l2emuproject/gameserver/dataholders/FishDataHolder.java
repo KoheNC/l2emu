@@ -28,40 +28,39 @@ import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-
 /**
  * @author -Nemesiss-
- *
  */
-public class FishDataHolder
+public final class FishDataHolder
 {
-	private final static Log		_log		= LogFactory.getLog(SkillTreeTable.class);
+	private final static Log		_log			= LogFactory.getLog(SkillTreeTable.class);
 
-	private static List<FishData>	_fishsNormal;
-	private static List<FishData>	_fishsEasy;
-	private static List<FishData>	_fishsHard;
+	private final List<FishData>	_fishsNormal	= new ArrayList<FishData>();
+	private final List<FishData>	_fishsEasy		= new ArrayList<FishData>();
+	private final List<FishData>	_fishsHard		= new ArrayList<FishData>();
+
+	private static final class SingletonHolder
+	{
+		private static final FishDataHolder	INSTANCE	= new FishDataHolder();
+	}
 
 	public static FishDataHolder getInstance()
 	{
-		return SingletonHolder._instance;
+		return SingletonHolder.INSTANCE;
 	}
 
 	private FishDataHolder()
 	{
-		_fishsNormal = new ArrayList<FishData>();
-		_fishsEasy = new ArrayList<FishData>();
-		_fishsHard = new ArrayList<FishData>();
-		
 		Document doc = null;
 		File file = new File(Config.DATAPACK_ROOT, "data/npc_data/fish/fish.xml");
 
 		try
 		{
 			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(true);
+			factory.setValidating(false);
 			factory.setIgnoringComments(true);
 			doc = factory.newDocumentBuilder().parse(file);
-			
+
 			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
 			{
 				if ("list".equalsIgnoreCase(n.getNodeName()))
@@ -84,18 +83,18 @@ public class FishDataHolder
 							guts_check_time = Integer.parseInt(d.getAttributes().getNamedItem("guts_check_time").getNodeValue());
 							wait_time = Integer.parseInt(d.getAttributes().getNamedItem("wait_time").getNodeValue());
 							combat_time = Integer.parseInt(d.getAttributes().getNamedItem("combat_time").getNodeValue());
-							
+
 							fish = new FishData(id, lvl, name, hp, hpreg, type, group, fish_guts, guts_check_time, wait_time, combat_time);
 							switch (fish.getGroup())
 							{
-							case 0:
-								_fishsEasy.add(fish);
-								break;
-							case 1:
-								_fishsNormal.add(fish);
-								break;
-							case 2:
-								_fishsHard.add(fish);
+								case 0:
+									_fishsEasy.add(fish);
+									break;
+								case 1:
+									_fishsNormal.add(fish);
+									break;
+								case 2:
+									_fishsHard.add(fish);
 							}
 						}
 					}
@@ -118,28 +117,28 @@ public class FishDataHolder
 	 * @param Fish - group
 	 * @return List of Fish that can be fished
 	 */
-	public List<FishData> getFish(int lvl, int type, int group)
+	public List<FishData> getFish(final int lvl, final int type, final int group)
 	{
 		final List<FishData> result = new ArrayList<FishData>();
-		List<FishData> _fishs = null;
+		List<FishData> fishs = null;
 		switch (group)
 		{
-		case 0:
-			_fishs = _fishsEasy;
-			break;
-		case 1:
-			_fishs = _fishsNormal;
-			break;
-		case 2:
-			_fishs = _fishsHard;
+			case 0:
+				fishs = _fishsEasy;
+				break;
+			case 1:
+				fishs = _fishsNormal;
+				break;
+			case 2:
+				fishs = _fishsHard;
 		}
-		if (_fishs == null)
+		if (fishs == null)
 		{
 			// the fish list is empty
 			_log.warn("Fish are not defined !");
 			return null;
 		}
-		for (FishData f : _fishs)
+		for (FishData f : fishs)
 		{
 			if (f.getLevel() != lvl)
 				continue;
@@ -151,11 +150,5 @@ public class FishDataHolder
 		if (result.size() == 0)
 			_log.warn("FishTable: Fishes are not definied for Lvl " + lvl + " type " + type + " group " + group);
 		return result;
-	}
-
-	@SuppressWarnings("synthetic-access")
-	private static class SingletonHolder
-	{
-		protected static final FishDataHolder _instance = new FishDataHolder();
 	}
 }
