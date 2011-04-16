@@ -12,6 +12,7 @@
  - Stake
  - Intrepid
  - MoonFang
+ - CAMMARO
  
  ============================
  = L2Emu Project GameServer =
@@ -31,6 +32,7 @@
  - Q.I
  - Intrepid
  - MoonFang
+ - CAMMARO
  
  ========================
  = Project Contributors =
