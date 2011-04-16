@@ -25,7 +25,6 @@ import net.l2emuproject.gameserver.world.object.L2Attackable;
 import net.l2emuproject.gameserver.world.object.L2Character;
 import net.l2emuproject.gameserver.world.object.L2Object;
 import net.l2emuproject.gameserver.world.object.L2Player;
-import net.l2emuproject.gameserver.world.object.position.L2CharPosition;
 
 /**
  * @author Intrepid
@@ -120,17 +119,8 @@ public final class TargetPlayerHandler implements ISkillTargetHandler
 			}
 			case TARGET_SELF:
 			{
-				final int x1 = caster.getX();
-				final int y1 = caster.getY();
-				final int z1 = caster.getZ();
-				final int heading1 = caster.getHeading();
-				if (caster instanceof L2Player && skill.isToggle())
-				{
-					final L2CharPosition _position = new L2CharPosition(x1, y1, z1, heading1);
-					caster.stopMove(_position);
-				}
 				return new L2Character[]
-				{ target };
+				   					{ caster };
 			}
 			case TARGET_MULTIFACE:
 			{
