@@ -721,7 +721,10 @@ INSERT INTO `merchant_shopids` VALUES
 -- L2EmuProject //gmshop - items
 INSERT INTO `merchant_shopids` VALUES
 (1015,'gm'),
-(1020,'gm');
+(1020,'gm'),
+(8001,'gm'), -- Freya S84 Weapons
+(8002,'gm'), -- Freya S84 {PVP} Weapons
+(8003,'gm'); -- Vesper MasterWork Armors
 
 -- Rainbow Springs Fisherman
 INSERT INTO `merchant_shopids` VALUES
