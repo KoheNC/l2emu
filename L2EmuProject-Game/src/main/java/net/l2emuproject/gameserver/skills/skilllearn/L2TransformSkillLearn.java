@@ -27,19 +27,15 @@ public final class L2TransformSkillLearn
 	private final int _item_id;
 	private final int _level;
 	
-	// not needed, just for easier debug
-	private final String _name;
-	
 	private final int _sp;
 	private final int _min_level;
 	
-	public L2TransformSkillLearn(int race_id, int skill_id, int item_id, int level, String name, int sp, int min_level)
+	public L2TransformSkillLearn(int race_id, int skill_id, int item_id, int level, int sp, int min_level)
 	{
 		_race_id = race_id;
 		_skill_id = skill_id;
 		_item_id = item_id;
 		_level = level;
-		_name = name.intern();
 		_sp = sp;
 		_min_level = min_level;
 	}
@@ -66,14 +62,6 @@ public final class L2TransformSkillLearn
 	public int getMinLevel()
 	{
 		return _min_level;
-	}
-	
-	/**
-	 * @return Returns the name.
-	 */
-	public String getName()
-	{
-		return _name;
 	}
 	
 	/**

@@ -294,38 +294,40 @@ public class SkillTreeTable
 		{
 			_log.fatal("Error while creating pledge skill table: ", e);
 		}
-
+		
 		try
 		{
 			_transformSkillTrees = new ArrayList<L2TransformSkillLearn>();
+			
+			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			factory.setValidating(false);
+			factory.setIgnoringComments(true);
+			doc = factory.newDocumentBuilder().parse(new File(Config.DATAPACK_ROOT, "data/char_data/skill_tree/transform_skill_tree.xml"));
 
-			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con
-					.prepareStatement("SELECT race_id, skill_id, item_id, level, name, sp, min_level FROM transform_skill_trees ORDER BY race_id, skill_id, level");
-			ResultSet skilltree5 = statement.executeQuery();
-
-			int prevSkillId = -1;
-
-			while (skilltree5.next())
+			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
 			{
-				final int race_id = skilltree5.getInt("race_id");
-				final int skill_id = skilltree5.getInt("skill_id");
-				final int item_id = skilltree5.getInt("item_id");
-				final int level = skilltree5.getInt("level");
-				final String name = skilltree5.getString("name");
-				final int sp = skilltree5.getInt("sp");
-				final int min_level = skilltree5.getInt("min_level");
+				if ("list".equalsIgnoreCase(n.getNodeName()))
+				{
+					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
+					{
+						int raceId = 0, skillId = 0, itemId = 0, level = 0, sp = 0, minLevel = 0;
 
-				if (prevSkillId != skill_id)
-					prevSkillId = skill_id;
+						if ("transform".equalsIgnoreCase(d.getNodeName()))
+						{
+							raceId = Integer.parseInt(d.getAttributes().getNamedItem("race_id").getNodeValue());
+							skillId = Integer.parseInt(d.getAttributes().getNamedItem("skill_id").getNodeValue());
+							itemId = Integer.parseInt(d.getAttributes().getNamedItem("item_id").getNodeValue());
+							level = Integer.parseInt(d.getAttributes().getNamedItem("level").getNodeValue());
+							sp = Integer.parseInt(d.getAttributes().getNamedItem("sp").getNodeValue());
+							minLevel = Integer.parseInt(d.getAttributes().getNamedItem("min_level").getNodeValue());
 
-				L2TransformSkillLearn skill = new L2TransformSkillLearn(race_id, skill_id, item_id, level, name, sp, min_level);
+							final L2TransformSkillLearn skill = new L2TransformSkillLearn(raceId, skillId, itemId, level, sp, minLevel);
 
-				_transformSkillTrees.add(skill);
+							_transformSkillTrees.add(skill);
+						}
+					}
+				}
 			}
-
-			skilltree5.close();
-			statement.close();
 		}
 		catch (Exception e)
 		{
