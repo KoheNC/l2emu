@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/certificationSkillTree.xsd">
+	<certification skill_id="631" item_id="10280" level="1"
+		name="Emergent Ability - Attack" />
+	<certification skill_id="631" item_id="10280" level="2"
+		name="Emergent Ability - Attack" />
+	<certification skill_id="631" item_id="10280" level="3"
+		name="Emergent Ability - Attack" />
+	<certification skill_id="631" item_id="10280" level="4"
+		name="Emergent Ability - Attack" />
+	<certification skill_id="631" item_id="10280" level="5"
+		name="Emergent Ability - Attack" />
+	<certification skill_id="631" item_id="10280" level="6"
+		name="Emergent Ability - Attack" />
+	<certification skill_id="632" item_id="10280" level="1"
+		name="Emergent Ability - Defense" />
+	<certification skill_id="632" item_id="10280" level="2"
+		name="Emergent Ability - Defense" />
+	<certification skill_id="632" item_id="10280" level="3"
+		name="Emergent Ability - Defense" />
+	<certification skill_id="632" item_id="10280" level="4"
+		name="Emergent Ability - Defense" />
+	<certification skill_id="632" item_id="10280" level="5"
+		name="Emergent Ability - Defense" />
+	<certification skill_id="632" item_id="10280" level="6"
+		name="Emergent Ability - Defense" />
+	<certification skill_id="633" item_id="10280" level="1"
+		name="Emergent Ability - Empower" />
+	<certification skill_id="633" item_id="10280" level="2"
+		name="Emergent Ability - Empower" />
+	<certification skill_id="633" item_id="10280" level="3"
+		name="Emergent Ability - Empower" />
+	<certification skill_id="633" item_id="10280" level="4"
+		name="Emergent Ability - Empower" />
+	<certification skill_id="633" item_id="10280" level="5"
+		name="Emergent Ability - Empower" />
+	<certification skill_id="633" item_id="10280" level="6"
+		name="Emergent Ability - Empower" />
+	<certification skill_id="634" item_id="10280" level="1"
+		name="Emergent Ability - Magic Defense" />
+	<certification skill_id="634" item_id="10280" level="2"
+		name="Emergent Ability - Magic Defense" />
+	<certification skill_id="634" item_id="10280" level="3"
+		name="Emergent Ability - Magic Defense" />
+	<certification skill_id="634" item_id="10280" level="4"
+		name="Emergent Ability - Magic Defense" />
+	<certification skill_id="634" item_id="10280" level="5"
+		name="Emergent Ability - Magic Defense" />
+	<certification skill_id="634" item_id="10280" level="6"
+		name="Emergent Ability - Magic Defense" />
+	<certification skill_id="637" item_id="10612" level="1"
+		name="Master Ability - Attack" />
+	<certification skill_id="638" item_id="10612" level="1"
+		name="Master Ability - Empower" />
+	<certification skill_id="639" item_id="10612" level="1"
+		name="Master Ability - Casting" />
+	<certification skill_id="640" item_id="10612" level="1"
+		name="Master Ability - Focus" />
+	<certification skill_id="641" item_id="10282" level="1"
+		name="Knight Ability - Boost HP" />
+	<certification skill_id="642" item_id="10287" level="1"
+		name="Enchanter Ability - Boost Mana" />
+	<certification skill_id="643" item_id="10286" level="1"
+		name="Summoner Ability - Boost HP/MP" />
+	<certification skill_id="644" item_id="10283" level="1"
+		name="Rogue Ability - Evasion" />
+	<certification skill_id="645" item_id="10283" level="1"
+		name="Rogue Ability - Long Shot" />
+	<certification skill_id="646" item_id="10284" level="1"
+		name="Wizard Ability - Mana Gain" />
+	<certification skill_id="647" item_id="10287" level="1"
+		name="Enchanter Ability - Mana Recovery" />
+	<certification skill_id="648" item_id="10285" level="1"
+		name="Healer Ability - Prayer" />
+	<certification skill_id="650" item_id="10281" level="1"
+		name="Warrior Ability - Resist Trait" />
+	<certification skill_id="651" item_id="10281" level="1"
+		name="Warrior Ability - Haste" />
+	<certification skill_id="652" item_id="10282" level="1"
+		name="Knight Ability - Defense" />
+	<certification skill_id="653" item_id="10283" level="1"
+		name="Rogue Ability - Critical Chance" />
+	<certification skill_id="654" item_id="10284" level="1"
+		name="Wizard Ability - Mana Steal" />
+	<certification skill_id="655" item_id="10287" level="1"
+		name="Enchanter Ability - Barrier" />
+	<certification skill_id="656" item_id="10289" level="1"
+		name="Transform Divine Warrior" />
+	<certification skill_id="657" item_id="10288" level="1"
+		name="Transform Divine Knight" />
+	<certification skill_id="658" item_id="10290" level="1"
+		name="Transform Divine Rogue" />
+	<certification skill_id="659" item_id="10292" level="1"
+		name="Transform Divine Wizard" />
+	<certification skill_id="660" item_id="10294" level="1"
+		name="Transform Divine Summoner" />
+	<certification skill_id="661" item_id="10291" level="1"
+		name="Transform Divine Healer" />
+	<certification skill_id="662" item_id="10293" level="1"
+		name="Transform Divine Enchanter" />
+	<certification skill_id="799" item_id="10612" level="1"
+		name="Master Ability - Defense" />
+	<certification skill_id="799" item_id="10612" level="2"
+		name="Master Ability - Defense" />
+	<certification skill_id="799" item_id="10612" level="3"
+		name="Master Ability - Defense" />
+	<certification skill_id="800" item_id="10612" level="1"
+		name="Master Ability - Magic Defense" />
+	<certification skill_id="800" item_id="10612" level="2"
+		name="Master Ability - Magic Defense" />
+	<certification skill_id="800" item_id="10612" level="3"
+		name="Master Ability - Magic Defense" />
+	<certification skill_id="801" item_id="10281" level="1"
+		name="Warrior Ability - Boost CP" />
+	<certification skill_id="802" item_id="10284" level="1"
+		name="Wizard Ability - Anti-magic" />
+	<certification skill_id="803" item_id="10285" level="1"
+		name="Healer Ability - Divine Protection" />
+	<certification skill_id="804" item_id="10282" level="1"
+		name="Knight Ability - Resist Critical" />
+	<certification skill_id="1489" item_id="10286" level="1"
+		name="Summoner Ability - Resist Attribute" />
+	<certification skill_id="1490" item_id="10285" level="1"
+		name="Healer Ability - Heal" />
+	<certification skill_id="1491" item_id="10286" level="1"
+		name="Summoner Ability - Spirit" />
+</list>

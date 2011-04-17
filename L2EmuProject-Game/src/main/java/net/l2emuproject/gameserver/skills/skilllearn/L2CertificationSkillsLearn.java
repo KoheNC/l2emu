@@ -23,14 +23,12 @@ public final class L2CertificationSkillsLearn
 	private final int _skill_id;
 	private final int _item_id;
 	private final int _level;
-	private final String _name;
 	
-	public L2CertificationSkillsLearn(int skill_id, int item_id, int level, String name)
+	public L2CertificationSkillsLearn(int skill_id, int item_id, int level)
 	{
 		_skill_id = skill_id;
 		_item_id = item_id;
 		_level = level;
-		_name = name.intern();
 	}
 	
 	/**
@@ -47,14 +45,6 @@ public final class L2CertificationSkillsLearn
 	public int getLevel()
 	{
 		return _level;
-	}
-	
-	/**
-	 * @return Returns the name.
-	 */
-	public String getName()
-	{
-		return _name;
 	}
 	
 	public int getItemId()

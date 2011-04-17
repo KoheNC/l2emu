@@ -367,33 +367,37 @@ public class SkillTreeTable
 		{
 			_log.fatal("Error while creating SpecialSkillTree skill table ", e);
 		}
+		
 		try
 		{
 			_certificationSkillsTrees = new ArrayList<L2CertificationSkillsLearn>();
+			
+			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			factory.setValidating(false);
+			factory.setIgnoringComments(true);
+			doc = factory.newDocumentBuilder().parse(new File(Config.DATAPACK_ROOT, "data/char_data/skill_tree/certification_skill_tree.xml"));
 
-			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con.prepareStatement("SELECT skill_id, item_id, level, name FROM certification_skill_trees ORDER BY skill_id, level");
-			ResultSet skilltree6 = statement.executeQuery();
-
-			int prevSkillId = -1;
-
-			while (skilltree6.next())
+			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
 			{
-				final int skill_id = skilltree6.getInt("skill_id");
-				final int item_id = skilltree6.getInt("item_id");
-				final int level = skilltree6.getInt("level");
-				final String name = skilltree6.getString("name");
+				if ("list".equalsIgnoreCase(n.getNodeName()))
+				{
+					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
+					{
+						int skillId = 0, itemId = 0, level = 0;
 
-				if (prevSkillId != skill_id)
-					prevSkillId = skill_id;
+						if ("certification".equalsIgnoreCase(d.getNodeName()))
+						{
+							skillId = Integer.parseInt(d.getAttributes().getNamedItem("skill_id").getNodeValue());
+							itemId = Integer.parseInt(d.getAttributes().getNamedItem("item_id").getNodeValue());
+							level = Integer.parseInt(d.getAttributes().getNamedItem("level").getNodeValue());
 
-				L2CertificationSkillsLearn skill = new L2CertificationSkillsLearn(skill_id, item_id, level, name);
+							final L2CertificationSkillsLearn skill = new L2CertificationSkillsLearn(skillId, itemId, level);
 
-				_certificationSkillsTrees.add(skill);
+							_certificationSkillsTrees.add(skill);
+						}
+					}
+				}
 			}
-
-			skilltree6.close();
-			statement.close();
 		}
 		catch (Exception e)
 		{
