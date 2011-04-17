@@ -146,14 +146,13 @@ public class SkillTreeTable
 				{
 					final int id = skilltree.getInt("skill_id");
 					final int lvl = skilltree.getInt("level");
-					final String name = skilltree.getString("name");
 					final int minLvl = skilltree.getInt("min_level");
 					final int cost = skilltree.getInt("sp");
 
 					if (prevSkillId != id)
 						prevSkillId = id;
 
-					skillLearn = new L2SkillLearn(id, lvl, minLvl, name, cost, 0, 0);
+					skillLearn = new L2SkillLearn(id, lvl, minLvl, cost, 0, 0);
 					int hash = SkillTable.getSkillUID(id, lvl);
 					map.put(hash, skillLearn);
 					if (_minSkillLevel.get(hash) == null)
@@ -197,21 +196,19 @@ public class SkillTreeTable
 					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
 					{
 						int skillId = 0, skillLevel = 0;
-						String name = "";
 						int minimumLevel = 0, cost = 0, costId = 0, costCount = 0, isDwarven = 0;
 
 						if ("fish".equalsIgnoreCase(d.getNodeName()))
 						{
 							skillId = Integer.parseInt(d.getAttributes().getNamedItem("skill_id").getNodeValue());
 							skillLevel = Integer.parseInt(d.getAttributes().getNamedItem("level").getNodeValue());
-							name = d.getAttributes().getNamedItem("name").getNodeValue();
 							minimumLevel = Integer.parseInt(d.getAttributes().getNamedItem("min_level").getNodeValue());
 							cost = Integer.parseInt(d.getAttributes().getNamedItem("sp").getNodeValue());
 							costId = Integer.parseInt(d.getAttributes().getNamedItem("costid").getNodeValue());
 							costCount = Integer.parseInt(d.getAttributes().getNamedItem("cost").getNodeValue());
 							isDwarven = Integer.parseInt(d.getAttributes().getNamedItem("isfordwarf").getNodeValue());
 
-							final L2SkillLearn skill = new L2SkillLearn(skillId, skillLevel, minimumLevel, name, cost, costId, costCount);
+							final L2SkillLearn skill = new L2SkillLearn(skillId, skillLevel, minimumLevel, cost, costId, costCount);
 
 							if (isDwarven == 0)
 								_fishingSkillTrees.add(skill);
@@ -333,35 +330,38 @@ public class SkillTreeTable
 		{
 			_log.fatal("Error while creating Transformation skill table ", e);
 		}
-
+		
 		try
 		{
 			_specialSkillTrees = new ArrayList<L2SkillLearn>();
+			
+			final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			factory.setValidating(false);
+			factory.setIgnoringComments(true);
+			doc = factory.newDocumentBuilder().parse(new File(Config.DATAPACK_ROOT, "data/char_data/skill_tree/special_skill_tree.xml"));
 
-			con = L2DatabaseFactory.getInstance().getConnection(con);
-			PreparedStatement statement = con.prepareStatement("SELECT skill_id, level, name, costid, cost FROM special_skill_trees ORDER BY skill_id, level");
-			ResultSet skilltree6 = statement.executeQuery();
-
-			int prevSkillId = -1;
-
-			while (skilltree6.next())
+			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
 			{
-				final int id = skilltree6.getInt("skill_id");
-				final int lvl = skilltree6.getInt("level");
-				final String name = skilltree6.getString("name");
-				final int costId = skilltree6.getInt("costid");
-				final int costCount = skilltree6.getInt("cost");
+				if ("list".equalsIgnoreCase(n.getNodeName()))
+				{
+					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
+					{
+						int skillId = 0, level = 0, itemId, itemCount = 0;
 
-				if (prevSkillId != id)
-					prevSkillId = id;
+						if ("special".equalsIgnoreCase(d.getNodeName()))
+						{
+							skillId = Integer.parseInt(d.getAttributes().getNamedItem("skill_id").getNodeValue());
+							level = Integer.parseInt(d.getAttributes().getNamedItem("level").getNodeValue());
+							itemId = Integer.parseInt(d.getAttributes().getNamedItem("costid").getNodeValue());
+							itemCount = Integer.parseInt(d.getAttributes().getNamedItem("cost").getNodeValue());
 
-				L2SkillLearn skill = new L2SkillLearn(id, lvl, 0, name, 0, costId, costCount);
+							final L2SkillLearn skill = new L2SkillLearn(skillId, level, 0, 0, itemId, itemCount);
 
-				_specialSkillTrees.add(skill);
+							_specialSkillTrees.add(skill);
+						}
+					}
+				}
 			}
-
-			skilltree6.close();
-			statement.close();
 		}
 		catch (Exception e)
 		{

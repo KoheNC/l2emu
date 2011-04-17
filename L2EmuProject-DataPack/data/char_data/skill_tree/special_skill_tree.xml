@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="http://www.l2jfree.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.l2jfree.com ../../templates/specialSkillTree.xsd">
+	<special skill_id="932" level="1" name="Star Stone" costid="13728"
+		cost="1" />
+	<special skill_id="932" level="2" name="Star Stone" costid="57"
+		cost="400000" />
+	<special skill_id="932" level="3" name="Star Stone" costid="57"
+		cost="1200000" />
+</list>

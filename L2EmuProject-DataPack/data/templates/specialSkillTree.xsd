@@ -1,0 +1,21 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.l2jfree.com" xmlns="http://www.l2jfree.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="base.xsd" />
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="special" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="special">
+		<xs:complexType>
+			<xs:attribute name="cost" use="required" type="xs:integer" />
+			<xs:attribute name="costid" use="required" type="xs:integer" />
+			<xs:attribute name="level" use="required" type="xs:integer" />
+			<xs:attribute name="name" use="required" />
+			<xs:attribute name="skill_id" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
