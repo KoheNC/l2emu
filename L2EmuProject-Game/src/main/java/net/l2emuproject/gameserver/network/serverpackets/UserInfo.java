@@ -17,6 +17,7 @@ package net.l2emuproject.gameserver.network.serverpackets;
 import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.NpcTable;
 import net.l2emuproject.gameserver.entity.appearance.PcAppearance;
+import net.l2emuproject.gameserver.entity.base.Experience;
 import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.entity.stat.PcStat;
 import net.l2emuproject.gameserver.entity.status.PcStatus;
@@ -142,6 +143,7 @@ public final class UserInfo extends L2GameServerPacket
 		
 		writeD(_activeChar.getLevel());
 		writeQ(_activeChar.getExp());
+		writeF((float)(_activeChar.getExp() - Experience.LEVEL[_activeChar.getLevel()]) / (Experience.LEVEL[_activeChar.getLevel() + 1] - Experience.LEVEL[_activeChar.getLevel()])); // High Five exp %
 		writeD(stat.getSTR());
 		writeD(stat.getDEX());
 		writeD(stat.getCON());

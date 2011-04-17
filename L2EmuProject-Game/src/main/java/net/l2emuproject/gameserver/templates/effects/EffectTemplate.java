@@ -69,7 +69,7 @@ public final class EffectTemplate
 		lambda = set.getDouble("val", 0);
 		count = Math.max(1, set.getInteger("count", 1));
 		
-		int time = set.getInteger("time", 1) * skill.getTimeMulti();
+		int time = (int) (set.getInteger("time", 1) * skill.getTimeMulti());
 		
 		if (time < 0)
 		{

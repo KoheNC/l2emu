@@ -17,6 +17,7 @@ package net.l2emuproject.gameserver.handler;
 import net.l2emuproject.gameserver.handler.skillhandlers.BalanceLife;
 import net.l2emuproject.gameserver.handler.skillhandlers.BallistaBomb;
 import net.l2emuproject.gameserver.handler.skillhandlers.BeastFeed;
+import net.l2emuproject.gameserver.handler.skillhandlers.ChainHeal;
 import net.l2emuproject.gameserver.handler.skillhandlers.ChangeFace;
 import net.l2emuproject.gameserver.handler.skillhandlers.CombatPointHeal;
 import net.l2emuproject.gameserver.handler.skillhandlers.Continuous;
@@ -131,6 +132,7 @@ public final class SkillHandler extends EnumHandlerRegistry<L2SkillType, ISkillH
 		registerSkillHandler(new Trap());
 		registerSkillHandler(new Unlock());
 		registerSkillHandler(new ZakenTeleport());
+		registerSkillHandler(new ChainHeal());
 		
 		HandlerRegistry._log.info(getClass().getSimpleName() + " : Loaded " + size() + " handlers.");
 	}

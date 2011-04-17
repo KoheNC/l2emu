@@ -978,7 +978,8 @@
 		<set name="talismanId" val="12815" />
 		<set name="talismanManaConsume" val="30" />
 		<for>
-			<effect name="Buff" time="120" val="0" stackOrder="1" stackType="talisman">
+			<effect name="Buff" time="120" val="0" stackOrder="1"
+				stackType="talisman">
 				<add order="0x40" stat="maxCp" val="500" />
 			</effect>
 		</for>
@@ -996,7 +997,8 @@
 		<set name="talismanId" val="12816" />
 		<set name="talismanManaConsume" val="30" />
 		<for>
-			<effect name="Buff" time="120" val="0" stackOrder="1" stackType="talisman">
+			<effect name="Buff" time="120" val="0" stackOrder="1"
+				stackType="talisman">
 				<mul order="0x30" stat="regCp" val="1.2" />
 			</effect>
 		</for>

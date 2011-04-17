@@ -400,7 +400,7 @@ public class Config extends L2Config
 
 			EXTENDED_LOG_LEVEL = Level.parse(gsSettings.getProperty("ExtendedLogLevel", "OFF"));
 
-			String[] protocols = gsSettings.getProperty("AllowedProtocolRevisions", "216").split(";");
+			final String[] protocols = gsSettings.getProperty("AllowedProtocolRevisions", "267;268").split(";");
 			PROTOCOL_LIST = new TIntArrayList(protocols.length);
 			for (String protocol : protocols)
 			{
@@ -2423,16 +2423,18 @@ public class Config extends L2Config
 	public static boolean		ALT_LIFE_CRYSTAL_NEEDED;							// Clan Item needed to learn clan skills
 	public static boolean		ALT_ES_SP_BOOK_NEEDED;								// Spell Book needet to enchant skill
 	public static boolean		DIVINE_SP_BOOK_NEEDED;
-	public static int			ALT_PROPHET_BUFF_TIME;
-	public static int			ALT_DANCE_TIME;
-	public static int			ALT_SONG_TIME;
-	public static int			ALT_CUBIC_TIME;
-	public static int			ALT_HERO_BUFF_TIME;
-	public static int			ALT_NOBLE_BUFF_TIME;
-	public static int			ALT_SUMMON_BUFF_TIME;
-	public static int			ALT_ORC_BUFF_TIME;
-	public static int			ALT_OTHER_BUFF_TIME;
-	public static int			ALT_VITALITY_BUFF_TIME;
+
+	public static float			ALT_PROPHET_BUFF_TIME;
+	public static float			ALT_DANCE_TIME;
+	public static float			ALT_SONG_TIME;
+	public static float			ALT_CUBIC_TIME;
+	public static float			ALT_HERO_BUFF_TIME;
+	public static float			ALT_NOBLE_BUFF_TIME;
+	public static float			ALT_SUMMON_BUFF_TIME;
+	public static float			ALT_ORC_BUFF_TIME;
+	public static float			ALT_OTHER_BUFF_TIME;
+	public static float			ALT_VITALITY_BUFF_TIME;
+
 	public static boolean		ALT_DANCE_MP_CONSUME;
 	public static int			ALT_MAX_PATK_SPEED;								// Config for limit physical attack speed
 	public static int			ALT_MAX_MATK_SPEED;								// Config for limit magical attack speed
@@ -2511,16 +2513,18 @@ public class Config extends L2Config
 		@Override
 		protected void loadImpl(L2Properties skillsSettings)
 		{
-			ALT_PROPHET_BUFF_TIME = Integer.parseInt(skillsSettings.getProperty("AltProphetBuffTime", "1"));
-			ALT_DANCE_TIME = Integer.parseInt(skillsSettings.getProperty("AltDanceTime", "1"));
-			ALT_SONG_TIME = Integer.parseInt(skillsSettings.getProperty("AltSongTime", "1"));
-			ALT_CUBIC_TIME = Integer.parseInt(skillsSettings.getProperty("AltCubicTime", "1"));
-			ALT_HERO_BUFF_TIME = Integer.parseInt(skillsSettings.getProperty("AltHeroBuffTime", "1"));
-			ALT_NOBLE_BUFF_TIME = Integer.parseInt(skillsSettings.getProperty("AltNobleBuffTime", "1"));
-			ALT_SUMMON_BUFF_TIME = Integer.parseInt(skillsSettings.getProperty("AltSummonBuffTime", "1"));
-			ALT_ORC_BUFF_TIME = Integer.parseInt(skillsSettings.getProperty("AltOrcBuffTime", "1"));
-			ALT_OTHER_BUFF_TIME = Integer.parseInt(skillsSettings.getProperty("AltOtherBuffTime", "1"));
-			ALT_VITALITY_BUFF_TIME = Integer.parseInt(skillsSettings.getProperty("AltVitalityBuffTime", "1"));
+			ALT_PROPHET_BUFF_TIME = Float.parseFloat(skillsSettings.getProperty("AltProphetBuffTime", "1."));
+
+			ALT_DANCE_TIME = Float.parseFloat(skillsSettings.getProperty("AltDanceTime", "1."));
+			ALT_SONG_TIME = Float.parseFloat(skillsSettings.getProperty("AltSongTime", "1."));
+			ALT_CUBIC_TIME = Float.parseFloat(skillsSettings.getProperty("AltCubicTime", "1."));
+			ALT_HERO_BUFF_TIME = Float.parseFloat(skillsSettings.getProperty("AltHeroBuffTime", "1."));
+			ALT_NOBLE_BUFF_TIME = Float.parseFloat(skillsSettings.getProperty("AltNobleBuffTime", "1."));
+			ALT_SUMMON_BUFF_TIME = Float.parseFloat(skillsSettings.getProperty("AltSummonBuffTime", "1."));
+			ALT_ORC_BUFF_TIME = Float.parseFloat(skillsSettings.getProperty("AltOrcBuffTime", "1."));
+			ALT_OTHER_BUFF_TIME = Float.parseFloat(skillsSettings.getProperty("AltOtherBuffTime", "1."));
+			ALT_VITALITY_BUFF_TIME = Float.parseFloat(skillsSettings.getProperty("AltVitalityBuffTime", "1."));
+
 			ALT_DANCE_MP_CONSUME = Boolean.parseBoolean(skillsSettings.getProperty("AltDanceMpConsume", "false"));
 			ALT_AUTO_LEARN_SKILLS = Boolean.parseBoolean(skillsSettings.getProperty("AutoLearnSkills", "false"));
 			ALT_AUTO_LEARN_DIVINE_INSPIRATION = Boolean.parseBoolean(skillsSettings.getProperty("AutoLearnDivineInspiration", "false"));

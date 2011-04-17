@@ -1140,7 +1140,8 @@
 		<set name="effectRange" val="900" />
 		<set name="aggroPoints" val="#aggro" />
 		<for>
-			<effect name="Buff" time="120" val="0" stackOrder="#pAtkSpd" stackType="attack_time_down">
+			<effect name="Buff" time="120" val="0" stackOrder="#pAtkSpd"
+				stackType="attack_time_down">
 				<mul order="0x30" stat="pAtkSpd" val="#pAtkSpd" />
 			</effect>
 		</for>
@@ -1164,7 +1165,8 @@
 		<set name="effectRange" val="900" />
 		<set name="aggroPoints" val="#aggro" />
 		<for>
-			<effect name="Buff" time="120" val="0" stackOrder="#absorbDam" stackType="vampRage">
+			<effect name="Buff" time="120" val="0" stackOrder="#absorbDam"
+				stackType="vampRage">
 				<add order="0x40" stat="absorbDam" val="#absorbDam" />
 			</effect>
 		</for>
@@ -1188,7 +1190,8 @@
 		<set name="effectRange" val="900" />
 		<set name="aggroPoints" val="#aggro" />
 		<for>
-			<effect name="Buff" time="120" val="0" stackOrder="#rate" stackType="hp_regen_up">
+			<effect name="Buff" time="120" val="0" stackOrder="#rate"
+				stackType="hp_regen_up">
 				<mul order="0x30" stat="regHp" val="#rate" />
 			</effect>
 		</for>
@@ -1212,7 +1215,8 @@
 		<set name="effectRange" val="900" />
 		<set name="aggroPoints" val="#aggro" />
 		<for>
-			<effect name="Buff" time="1200" val="0" stackOrder="#maxHp" stackType="max_hp_up">
+			<effect name="Buff" time="1200" val="0" stackOrder="#maxHp"
+				stackType="max_hp_up">
 				<mul order="0x30" stat="maxHp" val="#maxHp" />
 			</effect>
 		</for>
@@ -1236,7 +1240,8 @@
 		<set name="effectRange" val="900" />
 		<set name="aggroPoints" val="#aggro" />
 		<for>
-			<effect name="Buff" time="1200" val="0" stackOrder="#maxMp" stackType="max_mp_up">
+			<effect name="Buff" time="1200" val="0" stackOrder="#maxMp"
+				stackType="max_mp_up">
 				<mul order="0x30" stat="maxMp" val="#maxMp" />
 			</effect>
 		</for>
@@ -1258,7 +1263,8 @@
 		<set name="castRange" val="400" />
 		<set name="effectRange" val="900" />
 		<for>
-			<effect name="Buff" time="120" val="0" stackOrder="#accCombat" stackType="hit_up">
+			<effect name="Buff" time="120" val="0" stackOrder="#accCombat"
+				stackType="hit_up">
 				<add order="0x40" stat="accCombat" val="#accCombat" />
 			</effect>
 		</for>
@@ -1282,7 +1288,8 @@
 		<set name="effectRange" val="900" />
 		<set name="aggroPoints" val="#aggro" />
 		<for>
-			<effect name="Buff" time="120" val="0" stackOrder="#runSpd" stackType="speed_up">
+			<effect name="Buff" time="120" val="0" stackOrder="#runSpd"
+				stackType="speed_up">
 				<add order="0x40" stat="runSpd" val="#runSpd" />
 			</effect>
 		</for>
@@ -1307,7 +1314,8 @@
 		<set name="effectRange" val="900" />
 		<set name="aggroPoints" val="#aggro" />
 		<for>
-			<effect name="Buff" time="120" val="0" stackOrder="#abnormal_lvl" stackType="acumen">
+			<effect name="Buff" time="120" val="0" stackOrder="#abnormal_lvl"
+				stackType="acumen">
 				<mul order="0x30" stat="mAtkSpd" val="#mAtkSpd" />
 			</effect>
 		</for>
@@ -1332,7 +1340,8 @@
 		<set name="effectRange" val="900" />
 		<set name="aggroPoints" val="#aggro" />
 		<for>
-			<effect name="Buff" time="120" val="0" stackOrder="#abnormal_lvl" stackType="empower">
+			<effect name="Buff" time="120" val="0" stackOrder="#abnormal_lvl"
+				stackType="empower">
 				<mul order="0x30" stat="mAtk" val="#mAtk" />
 			</effect>
 		</for>
@@ -1374,7 +1383,8 @@
 		<set name="castRange" val="600" />
 		<set name="effectRange" val="1100" />
 		<for>
-			<effect name="Debuff" time="15" val="0" stackOrder="0.77" stackType="attack_time_up">
+			<effect name="Debuff" time="15" val="0" stackOrder="0.77"
+				stackType="attack_time_up">
 				<mul order="0x30" stat="pAtkSpd" val="0.77" />
 			</effect>
 		</for>
@@ -1398,7 +1408,8 @@
 		<set name="castRange" val="600" />
 		<set name="effectRange" val="1100" />
 		<for>
-			<effect name="Debuff" time="15" val="0" stackOrder="0.77" stackType="pDefDown">
+			<effect name="Debuff" time="15" val="0" stackOrder="0.77"
+				stackType="pDefDown">
 				<mul order="0x30" stat="pDef" val="0.77" />
 			</effect>
 		</for>
@@ -1422,7 +1433,8 @@
 		<set name="castRange" val="600" />
 		<set name="effectRange" val="1100" />
 		<for>
-			<effect name="Debuff" time="30" val="0" stackOrder="0.7" stackType="RunSpeedDown">
+			<effect name="Debuff" time="30" val="0" stackOrder="0.7"
+				stackType="RunSpeedDown">
 				<mul order="0x30" stat="runSpd" val="0.7" />
 			</effect>
 		</for>
@@ -1446,7 +1458,8 @@
 		<set name="castRange" val="900" />
 		<set name="effectRange" val="1400" />
 		<for>
-			<effect name="Debuff" time="15" val="0" stackOrder="1" stackType="matkdebuff">
+			<effect name="Debuff" time="15" val="0" stackOrder="1"
+				stackType="matkdebuff">
 				<mul order="0x30" stat="mDef" val="0.77" />
 			</effect>
 		</for>

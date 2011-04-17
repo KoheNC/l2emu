@@ -36,6 +36,9 @@ import org.eclipse.persistence.config.PersistenceUnitProperties;
 
 import com.jolbox.bonecp.BoneCPDataSource;
 
+/**
+ * @author lord_rex & UnAfraid
+ */
 public final class L2DatabaseFactory
 {
 	private static final Log	_log	= LogFactory.getLog(L2DatabaseFactory.class);

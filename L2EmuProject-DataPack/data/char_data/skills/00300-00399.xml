@@ -360,13 +360,20 @@
 			</effect>
 		</enchant1for>
 	</skill>
-	<skill id="312" levels="20" name="Vicious Stance" enchantLevels1="30" enchantLevels2="30">
-		<table name="#ench1crit"> 615 620 626 631 637 642 648 653 659 664 670 675 681 686 692 697 702 708 713 719 724 730 735 741 746 752 757 763 768 774 </table>
-		<table name="#ench2mpInitialConsume"> 13 13 13 12 12 12 11 11 11 10 10 10 9 9 9 8 8 8 7 7 7 6 6 6 5 5 5 4 4 4 </table>
-		<table name="#ench2val"> 0.79 0.78 0.78 0.77 0.76 0.76 0.75 0.74 0.74 0.73 0.72 0.72 0.71 0.7 0.7 0.69 0.68 0.68 0.67 0.66 0.66 0.65 0.64 0.64 0.63 0.62 0.62 0.61 0.6 0.6 </table>
-		<table name="#magicLvl"> 20 24 28 32 36 40 43 46 49 52 55 58 60 62 64 66 68 70 72 74 </table>
+	<skill id="312" levels="20" name="Vicious Stance" enchantLevels1="30"
+		enchantLevels2="30">
+		<table name="#ench1crit"> 615 620 626 631 637 642 648 653 659 664 670 675 681
+			686 692 697 702 708 713 719 724 730 735 741 746 752 757 763 768 774 </table>
+		<table name="#ench2mpInitialConsume"> 13 13 13 12 12 12 11 11 11 10 10 10 9 9 9 8 8 8 7 7
+			7 6 6 6 5 5 5 4 4 4 </table>
+		<table name="#ench2val"> 0.79 0.78 0.78 0.77 0.76 0.76 0.75 0.74 0.74 0.73
+			0.72 0.72 0.71 0.7 0.7 0.69 0.68 0.68 0.67 0.66 0.66 0.65 0.64 0.64
+			0.63 0.62 0.62 0.61 0.6 0.6 </table>
+		<table name="#magicLvl"> 20 24 28 32 36 40 43 46 49 52 55 58 60 62 64 66 68
+			70 72 74 </table>
 		<table name="#mpInitialConsume"> 4 5 5 6 7 7 8 9 9 10 10 11 11 12 12 13 13 13 14 14 </table>
-		<table name="#crit"> 35 48 64 84 109 139 166 196 229 266 306 349 379 410 443 475 509 542 576 609 </table>
+		<table name="#crit"> 35 48 64 84 109 139 166 196 229 266 306 349 379 410
+			443 475 509 542 576 609 </table>
 		<set name="magicLvl" val="#magicLvl" />
 		<set name="mpInitialConsume" val="#mpInitialConsume" />
 		<set name="operateType" val="OP_TOGGLE" />
@@ -374,17 +381,20 @@
 		<set name="target" val="TARGET_SELF" />
 		<enchant2 name="mpInitialConsume" val="#ench2mpInitialConsume" />
 		<for>
-			<effect count="0x7fffffff" name="MpConsumePerLevel" time="5" val="0.8">
+			<effect count="0x7fffffff" name="MpConsumePerLevel" time="5"
+				val="0.8">
 				<add order="0x40" stat="cAtkAdd" val="#crit" />
 			</effect>
 		</for>
 		<enchant1for>
-			<effect count="0x7fffffff" name="MpConsumePerLevel" time="5" val="0.8">
+			<effect count="0x7fffffff" name="MpConsumePerLevel" time="5"
+				val="0.8">
 				<add order="0x40" stat="cAtkAdd" val="#ench1crit" />
 			</effect>
 		</enchant1for>
 		<enchant2for>
-			<effect count="0x7fffffff" name="MpConsumePerLevel" time="5" val="#ench2val">
+			<effect count="0x7fffffff" name="MpConsumePerLevel" time="5"
+				val="#ench2val">
 				<add order="0x40" stat="cAtkAdd" val="609" />
 			</effect>
 		</enchant2for>

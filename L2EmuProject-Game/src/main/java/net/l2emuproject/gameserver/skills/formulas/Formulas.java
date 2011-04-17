@@ -1385,55 +1385,6 @@ public final class Formulas
 		return 1.5; // If all is true, then modifer will be 50% more
 	}
 	
-	public static double calcBlowDamage(L2Character attacker, L2Character target, L2Skill skill, byte shld, boolean ss)
-	{
-		final boolean isPvP = (attacker instanceof L2Playable) && (target instanceof L2Playable);
-		double power = skill.getPower(isPvP);
-		double damage = attacker.getPAtk(target);
-		damage+=calcValakasAttribute(attacker, target, skill);
-		double defence = target.getPDef(attacker);
-		
-		// Def bonusses in PvP fight
-		if(isPvP)
-			defence *= target.calcStat(Stats.PVP_PHYS_SKILL_DEF, 1, null, null);
-		
-		if(ss)
-			damage *= 2.;
-		switch(shld)
-		{
-			case SHIELD_DEFENSE_SUCCEED:
-				defence += target.getShldDef();
-				break;
-			case SHIELD_DEFENSE_PERFECT_BLOCK: // perfect block
-				return 1;
-		}
-		
-		if(ss && skill.getSSBoost()>0)
-			power *= skill.getSSBoost();
-		
-		damage = attacker.calcStat(Stats.CRITICAL_DAMAGE, (damage+power), target, skill);
-		damage *= calcElemental(attacker, target, skill);
-		damage += attacker.calcStat(Stats.CRITICAL_DAMAGE_ADD, 0, target, skill) * 6.5;
-		damage *= target.calcStat(Stats.CRIT_VULN, target.getTemplate().getBaseCritVuln(), target, skill);
-		
-		// get the vulnerability for the instance due to skills (buffs, passives, toggles, etc)
-		damage = target.calcStat(Stats.DAGGER_WPN_VULN, damage, target, null);
-		damage *= 80 / defence;
-		
-		// Physical skill dmg boost
-		damage *= attacker.calcStat(Stats.PHYSICAL_SKILL_POWER, 1, null, null);
-		
-		// Dmg bonusses in PvP fight
-		if(isPvP)
-			damage *= attacker.calcStat(Stats.PVP_PHYS_SKILL_DMG, 1, null, null);
-		else if (target instanceof L2Attackable)
-		{
-			damage *= attacker.calcStat(Stats.PVE_PHYS_SKILL_DMG, 1, null, null);
-		}
-		
-		return damage < 1 ? 1. : damage;
-	}
-	
 	/**
 	 * Calculated damage caused by ATTACK of attacker on target, called
 	 * separatly for each weapon, if dual-weapon is used.
@@ -1449,6 +1400,8 @@ public final class Formulas
 	 */
 	public static final double calcPhysDam(L2Character attacker, L2Character target, L2Skill skill, byte shld, boolean crit, boolean ss)
 	{
+		final boolean isPvP = (attacker instanceof L2Playable) && (target instanceof L2Playable);
+		final boolean isPvE = (attacker instanceof L2Playable) && (target instanceof L2Attackable);
 		boolean transformed = false;
 		if (attacker instanceof L2Player)
 		{
@@ -1460,17 +1413,17 @@ public final class Formulas
 		
 		double damage = attacker.getPAtk(target);
 		damage += calcValakasAttribute(attacker, target, skill);
-		// apply ss boost to pAtk
+		// apply SS boost to pAtk
 		if (ss)
 			damage *= 2;
 		
 		if (skill != null)
 		{
-			double skillPower = skill.getPower(attacker);
+			double skillPower = skill.getPower(attacker, target, isPvP, isPvE);
 			if (attacker instanceof L2Playable && target instanceof L2Playable)
 				skillPower *= skill.getPvpPowerMultiplier();
 			float ssBoost = skill.getSSBoost();
-			// apply ss boost to skill
+			// apply SS boost to skill
 			if (ss && ssBoost > 0)
 				skillPower *= ssBoost;
 			
@@ -1478,6 +1431,15 @@ public final class Formulas
 		}
 		
 		double defence = target.getPDef(attacker);
+		
+		// Defense bonuses in PvP fight
+		if(isPvP)
+		{
+			if(skill == null)
+				defence *= target.calcStat(Stats.PVP_PHYSICAL_DEF, 1, null, null);
+			else
+				defence *= target.calcStat(Stats.PVP_PHYS_SKILL_DEF, 1, null, null);
+		}
 		
 		switch (shld)
 		{
@@ -1577,7 +1539,9 @@ public final class Formulas
 
 	public static final double calcMagicDam(L2CubicInstance attacker, L2Character target, L2Skill skill, boolean mcrit, byte shld)
 	{
-		double mAtk = attacker.getMAtk();
+		final boolean isPvP = (target instanceof L2Playable);
+		final boolean isPvE = (target instanceof L2Attackable);
+		// double mAtk = attacker.getMAtk();
 		double mDef = target.getMDef(attacker.getOwner(), skill);
 
 		switch (shld)
@@ -1589,7 +1553,7 @@ public final class Formulas
 				return 1;
 		}
 
-		double damage = 91 * Math.sqrt(mAtk) / mDef * skill.getPower();
+		double damage = 91 /* * Math.sqrt(mAtk)*/ / mDef * skill.getPower(isPvP, isPvE);
 		L2Player owner = attacker.getOwner();
 		// Failure calculation
 		if (Config.ALT_GAME_MAGICFAILURES && !calcMagicSuccess(owner, target, skill))
@@ -1632,8 +1596,19 @@ public final class Formulas
 
 	public static final double calcMagicDam(L2Character attacker, L2Character target, L2Skill skill, byte shld, boolean ss, boolean bss, boolean mcrit)
 	{
+		final boolean isPvP = (attacker instanceof L2Playable) && (target instanceof L2Playable);
+		final boolean isPvE = (attacker instanceof L2Playable) && (target instanceof L2Attackable);
 		double mAtk = attacker.getMAtk(target, skill);
 		double mDef = target.getMDef(attacker, skill);
+		
+		// PvP bonuses for defense
+		if (isPvP)
+		{
+			if(skill.isMagic())
+				mDef *= target.calcStat(Stats.PVP_MAGICAL_DEF, 1, null, null);
+			else
+				mDef *= target.calcStat(Stats.PVP_PHYS_SKILL_DEF, 1, null, null);
+		}
 
 		switch (shld)
 		{
@@ -1649,7 +1624,7 @@ public final class Formulas
 		else if (ss)
 			mAtk *= 2;
 
-		double damage = 91 * Math.sqrt(mAtk) / mDef * skill.getPower(attacker);
+		double damage = 91 * Math.sqrt(mAtk) / mDef * skill.getPower(attacker, target, isPvP, isPvE);
 
 		// In C5 summons make 10 % less dmg in PvP.
 		if (attacker instanceof L2Summon && target instanceof L2Player)
@@ -2503,8 +2478,9 @@ public final class Formulas
 			mAtk *= 4;
 		else if (ss)
 			mAtk *= 2;
-
-		double damage = (Math.sqrt(mAtk) * skill.getPower(attacker) * (mp / 97)) / mDef;
+		final boolean isPvP = (attacker instanceof L2Playable) && (target instanceof L2Playable);
+		final boolean isPvE = (attacker instanceof L2Playable) && (target instanceof L2Attackable);
+		double damage = (Math.sqrt(mAtk) * skill.getPower(attacker, target, isPvP, isPvE) * (mp/97)) / mDef;
 		damage *= calcSkillVulnerability(attacker, target, skill, skill.getSkillType());
 		return calcDamage(attacker, target, damage, skill);
 	}

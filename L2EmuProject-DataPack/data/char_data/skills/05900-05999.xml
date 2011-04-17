@@ -192,7 +192,8 @@
 		<set name="stayAfterDeath" val="true" />
 		<set name="target" val="TARGET_ONE" />
 		<for>
-			<effect name="BlockResurrection" time="300" val="0" stackOrder="1" stackType="block_resurrection" />
+			<effect name="BlockResurrection" time="300" val="0"
+				stackOrder="1" stackType="block_resurrection" />
 		</for>
 	</skill>
 	<skill id="5920" levels="1" name="Tentacle of Agony">

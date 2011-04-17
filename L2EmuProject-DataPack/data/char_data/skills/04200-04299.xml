@@ -325,7 +325,8 @@
 		<set name="effectRange" val="2000" />
 		<set name="canBeDispeled" val="false" />
 		<for>
-			<effect name="SilenceMagicPhysical" time="3600" val="0" stackOrder="3600" stackType="silence_all" />
+			<effect name="SilenceMagicPhysical" time="3600" val="0"
+				stackOrder="3600" stackType="silence_all" />
 		</for>
 	</skill>
 	<skill id="4216" levels="1" name="Scatter Enemy">
@@ -981,7 +982,8 @@
 		<set name="castRange" val="1000" />
 		<set name="effectRange" val="1500" />
 		<for>
-			<effect name="Debuff" time="1200" val="0" stackOrder="99" stackType="RunSpeedDown">
+			<effect name="Debuff" time="1200" val="0" stackOrder="99"
+				stackType="RunSpeedDown">
 				<mul order="0x30" stat="runSpd" val="0.7" />
 			</effect>
 		</for>

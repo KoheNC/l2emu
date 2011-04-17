@@ -15,6 +15,7 @@
 package net.l2emuproject.gameserver.network.serverpackets;
 
 import net.l2emuproject.gameserver.entity.appearance.PcAppearance;
+import net.l2emuproject.gameserver.entity.base.Experience;
 import net.l2emuproject.gameserver.entity.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.entity.itemcontainer.PcInventory;
 import net.l2emuproject.gameserver.entity.stat.PcStat;
@@ -30,17 +31,17 @@ import net.l2emuproject.gameserver.world.object.L2Player;
  */
 public final class GMViewCharacterInfo extends L2GameServerPacket
 {
-	private static final String _S__8F_GMVIEWCHARINFO = "[S] 8F GMViewCharacterInfo";
-	
-	private final L2Player _activeChar;
-	
-	public GMViewCharacterInfo(L2Player character)
+	private static final String	_S__8F_GMVIEWCHARINFO	= "[S] 8F GMViewCharacterInfo";
+
+	private final L2Player		_activeChar;
+
+	public GMViewCharacterInfo(final L2Player cha)
 	{
-		character.getView().refresh();
-		
-		_activeChar = character;
+		cha.getView().refresh();
+
+		_activeChar = cha;
 	}
-	
+
 	@Override
 	protected final void writeImpl()
 	{
@@ -49,9 +50,9 @@ public final class GMViewCharacterInfo extends L2GameServerPacket
 		final PcInventory _inv = _activeChar.getInventory();
 		final PcStat stat = _activeChar.getStat();
 		final PcStatus status = _activeChar.getStatus();
-		
+
 		writeC(0x95);
-		
+
 		writeD(view.getX());
 		writeD(view.getY());
 		writeD(view.getZ());
@@ -63,6 +64,8 @@ public final class GMViewCharacterInfo extends L2GameServerPacket
 		writeD(_activeChar.getClassId().getId());
 		writeD(_activeChar.getLevel());
 		writeQ(_activeChar.getExp());
+		writeF((float) (_activeChar.getExp() - Experience.LEVEL[_activeChar.getLevel()])
+				/ (Experience.LEVEL[_activeChar.getLevel() + 1] - Experience.LEVEL[_activeChar.getLevel()])); // High Five exp %
 		writeD(stat.getSTR());
 		writeD(stat.getDEX());
 		writeD(stat.getCON());
@@ -70,20 +73,20 @@ public final class GMViewCharacterInfo extends L2GameServerPacket
 		writeD(stat.getWIT());
 		writeD(stat.getMEN());
 		writeD(stat.getMaxHp());
-		writeD((int)status.getCurrentHp());
+		writeD((int) status.getCurrentHp());
 		writeD(stat.getMaxMp());
-		writeD((int)status.getCurrentMp());
+		writeD((int) status.getCurrentMp());
 		writeD(_activeChar.getSp());
 		writeD(_activeChar.getCurrentLoad());
 		writeD(_activeChar.getMaxLoad());
 		writeD(_activeChar.getPkKills());
-		
+
 		writePaperdollObjectIds(_inv, true);
 		writePaperdollItemDisplayIds(_inv, true);
-		
+
 		writeD(0); // T3 Unknown
 		writeD(0); // T3 Unknown
-		
+
 		// c6 new h's
 		writeH(0x00);
 		writeH(0x00);
@@ -101,7 +104,7 @@ public final class GMViewCharacterInfo extends L2GameServerPacket
 		writeH(0x00);
 		writeD(_inv.getPaperdollAugmentationId(Inventory.PAPERDOLL_RHAND));
 		writeH(0x00);
-		
+
 		writeH(0x00);
 		writeH(0x00);
 		writeH(0x00);
@@ -119,7 +122,7 @@ public final class GMViewCharacterInfo extends L2GameServerPacket
 		writeH(0x00);
 		writeH(0x00);
 		// end of c6 new h's
-		
+
 		// start of T1 new h's
 		writeH(0x00);
 		writeH(0x00);
@@ -139,7 +142,7 @@ public final class GMViewCharacterInfo extends L2GameServerPacket
 		writeH(0x00);
 		// end of T1 new h's
 		writeD(0x00); // T3 Unknown
-		
+
 		writeD(view.getPAtk());
 		writeD(view.getPAtkSpd());
 		writeD(view.getPDef());
@@ -147,15 +150,15 @@ public final class GMViewCharacterInfo extends L2GameServerPacket
 		writeD(view.getAccuracy());
 		writeD(view.getCriticalHit());
 		writeD(view.getMAtk());
-		
+
 		writeD(view.getMAtkSpd());
 		writeD(view.getPAtkSpd());
-		
+
 		writeD(view.getMDef());
-		
+
 		writeD(_activeChar.getPvpFlag()); // 0-non-pvp  1-pvp = violett name
 		writeD(_activeChar.getKarma());
-		
+
 		writeD(view.getRunSpd());
 		writeD(view.getWalkSpd());
 		writeD(view.getSwimRunSpd()); // swimspeed
@@ -172,7 +175,7 @@ public final class GMViewCharacterInfo extends L2GameServerPacket
 		writeD(appearance.getHairColor());
 		writeD(appearance.getFace());
 		writeD(_activeChar.isGM() ? 0x01 : 0x00); // builder level
-		
+
 		writeS(_activeChar.getTitle());
 		writeD(_activeChar.getClanId()); // pledge id
 		writeD(_activeChar.getClanCrestId()); // pledge crest id
@@ -182,32 +185,32 @@ public final class GMViewCharacterInfo extends L2GameServerPacket
 		writeC(_activeChar.hasDwarvenCraft() ? 1 : 0);
 		writeD(_activeChar.getPkKills());
 		writeD(_activeChar.getPvpKills());
-		
+
 		writeH(_activeChar.getEvaluations());
 		writeH(_activeChar.getEvalPoints()); //Blue value for name (0 = white, 255 = pure blue)
 		writeD(_activeChar.getClassId().getId());
 		writeD(0x00); // special effects? circles around player...
 		writeD(stat.getMaxCp());
-		writeD((int)status.getCurrentCp());
-		
+		writeD((int) status.getCurrentCp());
+
 		writeC(_activeChar.isRunning() ? 0x01 : 0x00); //changes the Speed display on Status Window
-		
+
 		writeC(321);
-		
+
 		writeD(_activeChar.getPledgeClass()); //changes the text above CP on Status Window
-		
+
 		writeC(_activeChar.isNoble() ? 0x01 : 0x00);
 		writeC(_activeChar.isHero() ? 0x01 : 0x00);
-		
+
 		writeD(view.getNameColor());
 		writeD(view.getTitleColor());
-		
+
 		writePlayerElementAttribute(_activeChar);
-		
+
 		writeD(_activeChar.getFame());
 		writeD(_activeChar.getPlayerVitality().getVitalityPoints());
 	}
-	
+
 	@Override
 	public String getType()
 	{

@@ -66,9 +66,9 @@ import net.l2emuproject.util.ArrayBunch;
  * @author nuocnam
  * @version $Revision: 1.6.2.2.2.6 $ $Date: 2005/04/11 19:12:16 $
  */
-public class L2Party
+public final class L2Party
 {
-	private static final double[] BONUS_EXP_SP = {1, 1.30, 1.39, 1.50, 1.54, 1.58, 1.63, 1.67, 1.71};
+	private static final double[] BONUS_EXP_SP = { 1, 1.10, 1.20, 1.30, 1.40, 1.50, 2.0, 2.10, 2.20 };
 	
 	private static final int[]				LOOT_SYSSTRINGS				=
 	{ 487, 488, 798, 799, 800 };

@@ -22,11 +22,11 @@ import net.l2emuproject.gameserver.world.object.L2Player;
 /**
  * @author -Wooden-
  */
-public class RequestExOustFromMPCC extends L2GameClientPacket
+public final class RequestExOustFromMPCC extends L2GameClientPacket
 {
-	private static final String _C__D0_0F_REQUESTEXOUSTFROMMPCC = "[C] D0:0F RequestExOustFromMPCC";
+	private static final String	_C__D0_0F_REQUESTEXOUSTFROMMPCC	= "[C] D0:0F RequestExOustFromMPCC";
 
-	private String _name;
+	private String				_name;
 
 	@Override
 	protected void readImpl()
@@ -37,36 +37,31 @@ public class RequestExOustFromMPCC extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2Player activeChar = getClient().getActiveChar();
-		if (activeChar == null)
-			return;
+		final L2Player target = L2World.getInstance().getPlayer(_name);
+		final L2Player activeChar = getClient().getActiveChar();
 
-		if (!activeChar.isInParty() || !activeChar.getParty().isInCommandChannel())
+		if (target != null && target.isInParty() && activeChar.isInParty() && activeChar.getParty().isInCommandChannel()
+				&& target.getParty().isInCommandChannel() && activeChar.getParty().getCommandChannel().getChannelLeader().equals(activeChar)
+				&& activeChar.getParty().getCommandChannel().equals(target.getParty().getCommandChannel()))
 		{
-			requestFailed(SystemMessageId.NO_USER_INVITED_TO_COMMAND_CHANNEL);
-			return;
+			if (activeChar.equals(target))
+				return;
+
+			target.getParty().getCommandChannel().removeParty(target.getParty());
+
+			SystemMessage sm = new SystemMessage(SystemMessageId.DISMISSED_FROM_COMMAND_CHANNEL);
+			target.getParty().broadcastToPartyMembers(sm);
+
+			// check if CC has not been canceled
+			if (activeChar.getParty().isInCommandChannel())
+			{
+				sm = new SystemMessage(SystemMessageId.C1_PARTY_DISMISSED_FROM_COMMAND_CHANNEL);
+				sm.addString(target.getParty().getLeader().getName());
+				activeChar.getParty().getCommandChannel().broadcastToChannelMembers(sm);
+			}
 		}
-		else if (!activeChar.getParty().getCommandChannel().getChannelLeader().equals(activeChar))
-		{
-			requestFailed(SystemMessageId.CANT_USE_COMMAND_CHANNEL);
-			return;
-		}
-
-		L2Player target = L2World.getInstance().getPlayer(_name);
-		if (target == null || !target.isInParty() || !target.getParty().isInCommandChannel())
-		{
-			requestFailed(SystemMessageId.INCORRECT_TARGET);
-			return;
-		}
-
-		target.getParty().getCommandChannel().removeParty(target.getParty());
-
-		SystemMessage sm = SystemMessageId.DISMISSED_FROM_COMMAND_CHANNEL.getSystemMessage();
-		target.getParty().broadcastToPartyMembers(sm);
-
-		sm = new SystemMessage(SystemMessageId.C1_PARTY_DISMISSED_FROM_COMMAND_CHANNEL);
-		sm.addString(target.getParty().getPartyMembers().get(0).getName());
-		sendPacket(sm);
+		else
+			requestFailed(SystemMessageId.TARGET_CANT_FOUND);
 
 		sendAF();
 	}

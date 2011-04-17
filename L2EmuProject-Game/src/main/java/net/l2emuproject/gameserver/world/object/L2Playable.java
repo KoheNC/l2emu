@@ -680,6 +680,18 @@ public abstract class L2Playable extends L2Character
 		return _skillQueueProtectionTime;
 	}
 	
+	private L2Player _transferDamageTo;
+	
+	public final void setTransferDamageTo(final L2Player player)
+	{
+		_transferDamageTo = player;
+	}
+	
+	public final L2Player getTransferingDamageTo()
+	{
+		return _transferDamageTo;
+	}
+	
 	// L2EmuProject: Addons
 	
 	// Donator System

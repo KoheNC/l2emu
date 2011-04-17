@@ -115,7 +115,8 @@
 		<set name="effectRange" val="2000" />
 		<set name="canBeDispeled" val="false" />
 		<for>
-			<effect name="Petrify" time="120" val="0" stackOrder="120" stackType="turn_stone" />
+			<effect name="Petrify" time="120" val="0" stackOrder="120"
+				stackType="turn_stone" />
 		</for>
 	</skill>
 	<skill id="4516" levels="1" name="Orfen Heal">

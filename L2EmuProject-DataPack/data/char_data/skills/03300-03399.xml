@@ -81,7 +81,8 @@
 			<mul order="0x30" stat="cancelVuln" val="0.9" />
 		</for>
 	</skill>
-	<skill id="3310" levels="1" name="Yellow Talisman of Physical Regeneration">
+	<skill id="3310" levels="1"
+		name="Yellow Talisman of Physical Regeneration">
 		<set name="target" val="TARGET_SELF" />
 		<set name="skillType" val="BUFF" />
 		<set name="operateType" val="OP_PASSIVE" />
@@ -184,7 +185,8 @@
 		<set name="talismanId" val="9930" />
 		<set name="talismanManaConsume" val="6" />
 		<for>
-			<effect name="Buff" time="120" val="0" stackOrder="1" stackType="talisman">
+			<effect name="Buff" time="120" val="0" stackOrder="1"
+				stackType="talisman">
 				<add order="0x40" stat="rEvas" val="2" />
 				<mul order="0x30" stat="critDamEvas" val="1.05" />
 			</effect>
@@ -284,7 +286,8 @@
 		<set name="talismanId" val="9952" />
 		<set name="talismanManaConsume" val="1" />
 	</skill>
-	<skill id="3333" levels="1" name="Orange Talisman - A Grade Elixir of Life">
+	<skill id="3333" levels="1"
+		name="Orange Talisman - A Grade Elixir of Life">
 		<set name="mpConsume" val="50" />
 		<set name="hitTime" val="20000" />
 		<set name="equipDelay" val="30000" />
@@ -299,7 +302,8 @@
 		<set name="talismanId" val="9953" />
 		<set name="talismanManaConsume" val="1" />
 	</skill>
-	<skill id="3334" levels="1" name="Orange Talisman - A Grade Elixir of Mental Strength">
+	<skill id="3334" levels="1"
+		name="Orange Talisman - A Grade Elixir of Mental Strength">
 		<set name="mpConsume" val="50" />
 		<set name="hitTime" val="20000" />
 		<set name="equipDelay" val="30000" />

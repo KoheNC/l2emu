@@ -19,7 +19,7 @@ import net.l2emuproject.gameserver.world.object.L2Player;
 
 /**
  **	@author Gnacik
- **
+ ** TODO: Rework it...
  */
 public final class ExVoteSystemInfo extends L2GameServerPacket
 {
@@ -29,7 +29,7 @@ public final class ExVoteSystemInfo extends L2GameServerPacket
 	private final int	_bonusVal;
 	private final int	_bonusType;
 
-	public ExVoteSystemInfo(L2Player player)
+	public ExVoteSystemInfo(final L2Player player)
 	{
 		_recomLeft = player.getEvaluations();
 		_recomHave = player.getEvalPoints();
@@ -42,7 +42,7 @@ public final class ExVoteSystemInfo extends L2GameServerPacket
 	protected final void writeImpl()
 	{
 		writeC(0xFE);
-		writeH(0xC8);
+		writeH(0xC9);
 		writeD(_recomLeft);
 		writeD(_recomHave);
 		writeD(_bonusTime);
@@ -53,6 +53,6 @@ public final class ExVoteSystemInfo extends L2GameServerPacket
 	@Override
 	public final String getType()
 	{
-		return "[S] FE:C8 ExVoteSystemInfo";
+		return "[S] FE:C9 ExVoteSystemInfo";
 	}
 }

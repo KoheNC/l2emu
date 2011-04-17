@@ -529,7 +529,8 @@
 		<set name="castRange" val="1000" />
 		<set name="effectRange" val="2000" />
 		<for>
-			<effect name="Debuff" time="1200" val="0" stackOrder="99" stackType="RunSpeedDown">
+			<effect name="Debuff" time="1200" val="0" stackOrder="99"
+				stackType="RunSpeedDown">
 				<sub order="0x40" stat="runSpd" val="20" />
 			</effect>
 		</for>

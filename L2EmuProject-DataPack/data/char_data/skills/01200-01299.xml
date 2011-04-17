@@ -549,12 +549,18 @@
 			</effect>
 		</enchant3for>
 	</skill>
-	<skill id="1225" levels="18" name="Summon Mew the Cat" enchantLevels1="30">
-		<table name="#enchantNpcId"> 14177 14178 14179 14180 14181 14182 14183 14184 14185 14186 14187 14188 14189 14190 14191 14192 14193 14194 14195 14196 14197 14198 14199 14200 14201 14202 14203 14204 14205 14206 </table>
+	<skill id="1225" levels="18" name="Summon Mew the Cat"
+		enchantLevels1="30">
+		<table name="#enchantNpcId"> 14177 14178 14179 14180 14181 14182 14183 14184
+			14185 14186 14187 14188 14189 14190 14191 14192 14193 14194 14195
+			14196 14197 14198 14199 14200 14201 14202 14203 14204 14205 14206 </table>
 		<table name="#mpInitialConsume"> 7 8 10 12 14 15 17 18 20 21 22 23 23 24 25 26 26 27 </table>
-		<table name="#mpConsume"> 31 35 42 48 56 62 69 75 82 85 88 92 95 98 101 104 106 109 </table>
-		<table name="#reuseDelay"> 5400000 5400000 5400000 5400000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 </table>
-		<table name="#npcIds"> 14159 14160 14161 14162 14163 14164 14165 14166 14167 14168 14169 14170 14171 14172 14173 14174 14175 14176 </table>
+		<table name="#mpConsume"> 31 35 42 48 56 62 69 75 82 85 88 92 95 98 101 104
+			106 109 </table>
+		<table name="#reuseDelay"> 5400000 5400000 5400000 5400000 5000 5000 5000 5000
+			5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 </table>
+		<table name="#npcIds"> 14159 14160 14161 14162 14163 14164 14165 14166
+			14167 14168 14169 14170 14171 14172 14173 14174 14175 14176 </table>
 		<set name="mpInitialConsume" val="#mpInitialConsume" />
 		<set name="mpConsume" val="#mpConsume" />
 		<set name="itemConsumeId" val="3031" />
@@ -574,15 +580,21 @@
 		<set name="expPenalty" val="0.9" /> <!-- Consumes 90 percent of acquired Exp -->
 		<enchant1 name="npcId" val="#enchantNpcId" />
 	</skill>
-	<skill id="1226" levels="18" name="Summon Boxer the Unicorn" enchantLevels1="30">
-		<table name="#enchantNpcId"> 14313 14314 14315 14316 14317 14318 14319 14320 14321 14322 14323 14324 14325 14326 14327 14328 14329 14330 14331 14332 14333 14334 14335 14336 14337 14338 14339 14340 14341 14342 </table>
+	<skill id="1226" levels="18" name="Summon Boxer the Unicorn"
+		enchantLevels1="30">
+		<table name="#enchantNpcId"> 14313 14314 14315 14316 14317 14318 14319 14320
+			14321 14322 14323 14324 14325 14326 14327 14328 14329 14330 14331
+			14332 14333 14334 14335 14336 14337 14338 14339 14340 14341 14342 </table>
 		<table name="#itemConsumeCount"> 1 1 2 2 7 1 1 4 5 6 11 12 2 3 4 4 9 10 </table>
 		<table name="#itemConsumeCountOT"> 0 0 0 0 0 1 1 1 1 1 1 1 2 2 2 2 2 2 </table>
 		<table name="#itemConsumeSteps"> 0 0 0 0 0 14 14 14 14 14 14 14 14 14 14 14 14 14 </table>
 		<table name="#mpInitialConsume"> 7 8 10 12 14 15 17 18 20 21 22 23 23 24 25 26 26 27 </table>
-		<table name="#mpConsume"> 31 35 42 48 56 62 69 75 82 85 88 92 95 98 101 104 106 109 </table>
-		<table name="#reuseDelay"> 5400000 5400000 5400000 5400000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 </table>
-		<table name="#npcIds"> 14295 14296 14297 14298 14299 14300 14301 14302 14303 14304 14305 14306 14307 14308 14309 14310 14311 14312 </table>
+		<table name="#mpConsume"> 31 35 42 48 56 62 69 75 82 85 88 92 95 98 101 104
+			106 109 </table>
+		<table name="#reuseDelay"> 5400000 5400000 5400000 5400000 5000 5000 5000 5000
+			5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 </table>
+		<table name="#npcIds"> 14295 14296 14297 14298 14299 14300 14301 14302
+			14303 14304 14305 14306 14307 14308 14309 14310 14311 14312 </table>
 		<set name="itemConsumeId" val="3031" />
 		<set name="itemConsumeCount" val="#itemConsumeCount" />
 		<set name="itemConsumeIdOT" val="3031" />
@@ -603,12 +615,18 @@
 		<set name="npcId" val="#npcIds" />
 		<enchant1 name="npcId" val="#enchantNpcId" />
 	</skill>
-	<skill id="1227" levels="18" name="Summon Mirage the Unicorn" enchantLevels1="30">
-		<table name="#enchantNpcId"> 14361 14362 14363 14364 14365 14366 14367 14368 14369 14370 14371 14372 14373 14374 14375 14376 14377 14378 14379 14380 14381 14382 14383 14384 14385 14386 14387 14388 14389 14390 </table>
+	<skill id="1227" levels="18" name="Summon Mirage the Unicorn"
+		enchantLevels1="30">
+		<table name="#enchantNpcId"> 14361 14362 14363 14364 14365 14366 14367 14368
+			14369 14370 14371 14372 14373 14374 14375 14376 14377 14378 14379
+			14380 14381 14382 14383 14384 14385 14386 14387 14388 14389 14390 </table>
 		<table name="#mpInitialConsume"> 7 8 10 12 14 15 17 18 20 21 22 23 23 24 25 26 26 27 </table>
-		<table name="#mpConsume"> 31 35 42 48 56 62 69 75 82 85 88 92 95 98 101 104 106 109 </table>
-		<table name="#reuseDelay"> 5400000 5400000 5400000 5400000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 </table>
-		<table name="#npcIds"> 14343 14344 14345 14346 14347 14348 14349 14350 14351 14352 14353 14354 14355 14356 14357 14358 14359 14360 </table>
+		<table name="#mpConsume"> 31 35 42 48 56 62 69 75 82 85 88 92 95 98 101 104
+			106 109 </table>
+		<table name="#reuseDelay"> 5400000 5400000 5400000 5400000 5000 5000 5000 5000
+			5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 </table>
+		<table name="#npcIds"> 14343 14344 14345 14346 14347 14348 14349 14350
+			14351 14352 14353 14354 14355 14356 14357 14358 14359 14360 </table>
 		<set name="mpInitialConsume" val="#mpInitialConsume" />
 		<set name="mpConsume" val="#mpConsume" />
 		<set name="itemConsumeId" val="3031" />
@@ -628,12 +646,18 @@
 		<set name="expPenalty" val="0.9" /> <!-- 90 percent of acquired Exp is consumed. -->
 		<enchant1 name="npcId" val="#enchantNpcId" />
 	</skill>
-	<skill id="1228" levels="18" name="Summon Silhouette" enchantLevels1="30">
-		<table name="#enchantNpcId"> 14545 14546 14547 14548 14549 14550 14551 14552 14553 14554 14555 14556 14557 14558 14559 14560 14561 14562 14563 14564 14565 14566 14567 14568 14569 14570 14571 14572 14573 14574 </table>
+	<skill id="1228" levels="18" name="Summon Silhouette"
+		enchantLevels1="30">
+		<table name="#enchantNpcId"> 14545 14546 14547 14548 14549 14550 14551 14552
+			14553 14554 14555 14556 14557 14558 14559 14560 14561 14562 14563
+			14564 14565 14566 14567 14568 14569 14570 14571 14572 14573 14574 </table>
 		<table name="#mpInitialConsume"> 7 8 10 12 14 15 17 18 20 21 22 23 23 24 25 26 26 27 </table>
-		<table name="#mpConsume"> 31 35 42 48 56 62 69 75 82 85 88 92 95 98 101 104 106 109 </table>
-		<table name="#reuseDelay"> 5400000 5400000 5400000 5400000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 </table>
-		<table name="#npcIds"> 14527 14528 14529 14530 14531 14532 14533 14534 14535 14536 14537 14538 14539 14540 14541 14542 14543 14544 </table>
+		<table name="#mpConsume"> 31 35 42 48 56 62 69 75 82 85 88 92 95 98 101 104
+			106 109 </table>
+		<table name="#reuseDelay"> 5400000 5400000 5400000 5400000 5000 5000 5000 5000
+			5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 </table>
+		<table name="#npcIds"> 14527 14528 14529 14530 14531 14532 14533 14534
+			14535 14536 14537 14538 14539 14540 14541 14542 14543 14544 </table>
 		<set name="mpInitialConsume" val="#mpInitialConsume" />
 		<set name="mpConsume" val="#mpConsume" />
 		<set name="itemConsumeId" val="3031" />

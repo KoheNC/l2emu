@@ -167,7 +167,8 @@ public enum L2SkillType
 	CHANGE_APPEARANCE(L2SkillAppearance.class),
 	OPEN_DOOR,
 	ZAKEN_TELEPORT,
-	SPAWN(L2SkillSpawn.class)
+	SPAWN(L2SkillSpawn.class),
+	CHAIN_HEAL,
 	;
 
 	private final Class<? extends L2Skill> _clazz;

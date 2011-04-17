@@ -47,7 +47,7 @@ import net.l2emuproject.gameserver.world.object.instance.L2VillageMasterInstance
 * 
 * @version $Revision: 1.7.2.1.2.4 $ $Date: 2005/03/27 15:29:30 $
 */
-public class RequestAcquireSkill extends L2GameClientPacket
+public final class RequestAcquireSkill extends L2GameClientPacket
 {
 	private static final String _C__6C_REQUESTAQUIRESKILL = "[C] 6C RequestAquireSkill";
 
@@ -65,6 +65,8 @@ public class RequestAcquireSkill extends L2GameClientPacket
 		_id = readD();
 		_level = readD();
 		_skillType = readD();
+		//if (_skillType == 3)
+			//subType = readD();
 	}
 
 	@Override

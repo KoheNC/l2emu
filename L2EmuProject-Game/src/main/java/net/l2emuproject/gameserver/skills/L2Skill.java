@@ -150,6 +150,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 	// base success chance
 	private final double			_power;
 	private final double			_pvpPower;
+	private final double 			_pvePower;
 	private final byte				_levelDepend;
 	private final boolean			_ignoreResists;
 
@@ -212,7 +213,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 	private final short				_nextDanceCost;
 	private final float				_sSBoost;					// If true skill will have SoulShot boost (power*2)
 
-	private final int				_timeMulti;
+	private final float				_timeMulti;
 
 	private final String			_attribute;
 
@@ -375,6 +376,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 
 		_power = set.getFloat("power", 0.f);
 		_pvpPower = set.getFloat("pvpPower", (float)getPower());
+		_pvePower = set.getFloat("pvePower", (float)getPower());
 
 		_levelDepend = set.getByte("lvlDepend", (byte) 1);
 		_ignoreResists = set.getBool("ignoreResists", false);
@@ -731,38 +733,43 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 	}
 
 	/**
-	 * Return the power of the skill.<BR>
-	 * <BR>
+	 * Return the power of the skill.<BR><BR>
 	 */
-	public final double getPower(final L2Character activeChar)
+	public final double getPower(L2Character activeChar, L2Character target, boolean isPvP, boolean isPvE)
 	{
 		if (activeChar == null)
-			return _power;
-
+			return getPower(isPvP, isPvE);
+		
 		switch (_skillType)
 		{
-			case DEATHLINK:
-			{
-				return _power * Math.pow(1.7165 - activeChar.getCurrentHp() / activeChar.getMaxHp(), 2) * 0.577;
-			}
-			case FATALCOUNTER:
-			{
-				return _power * 3.5 * (1 - activeChar.getCurrentHp() / activeChar.getMaxHp());
-			}
+			case DEATHLINK:			
+				return getPower(isPvP, isPvE) * Math.pow(1.7165 - activeChar.getCurrentHp() / activeChar.getMaxHp(), 2) * 0.577;
+				/*
+				 * DrHouse:
+				 * Rolling back to old formula (look below) for DEATHLINK due to this one based on logarithm is not
+				 * accurate enough. Commented here because probably is a matter of just adjusting a constant
+    			if(activeChar.getCurrentHp() / activeChar.getMaxHp() > 0.005)
+            		return _power*(-0.45*Math.log(activeChar.getCurrentHp()/activeChar.getMaxHp())+1.);
+            	else
+            		return _power*(-0.45*Math.log(0.005)+1.);
+				 */		
+			case FATALCOUNTER:			
+				return getPower(isPvP, isPvE)*3.5*(1-target.getCurrentHp()/target.getMaxHp());			
 			default:
-				return _power;
+				return getPower(isPvP, isPvE);
 		}
 	}
-
+	
 	public final double getPower()
 	{
 		return _power;
 	}
 	
-	public final double getPower(final boolean isPvP)
+	public final double getPower(boolean isPvP, boolean isPvE)
 	{
-		return isPvP ? _pvpPower : _power;
+		return isPvE ? _pvePower : isPvP ? _pvpPower : _power;
 	}
+
 
 	public final L2SkillType[] getNegateStats()
 	{
@@ -900,7 +907,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 	/**
 	 * @return Returns the timeMulti.
 	 */
-	public final int getTimeMulti()
+	public final float getTimeMulti()
 	{
 		return _timeMulti;
 	}
@@ -1405,6 +1412,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 			case FUSION:
 			case CHARGE_NEGATE:
 			case CHARGESOUL:
+			case CHAIN_HEAL:
 				return OffensiveState.POSITIVE;
 			case DRAIN_SOUL:
 			case HEAL_MOB:
@@ -1462,7 +1470,7 @@ public class L2Skill implements FuncOwner, IChanceSkillTrigger
 			case SPAWN:
 				return OffensiveState.NEUTRAL;
 			default:
-				_log.info(getSkillType() + " should be covered in L2Skill.getDefaultOffensiveState()!");
+				_log.warn(getSkillType() + " should be covered in L2Skill.getDefaultOffensiveState()!");
 				return OffensiveState.NEUTRAL;
 		}
 	}

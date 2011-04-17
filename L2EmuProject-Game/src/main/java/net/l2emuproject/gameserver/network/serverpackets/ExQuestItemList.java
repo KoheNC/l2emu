@@ -31,12 +31,12 @@ import net.l2emuproject.gameserver.items.L2ItemInstance;
  */
 public final class ExQuestItemList extends L2GameServerPacket
 {
-	private static final String				_S__FE_C5_EXQUESTITEMLIST	= "[S] FE:C5 ExQuestItemList";
+	private static final String				_S__FE_C6_EXQUESTITEMLIST	= "[S] FE:C6 ExQuestItemList";
 
 	private final FastList<L2ItemInstance>	_items;
 	private final PcInventory				_inventory;
 
-	public ExQuestItemList(FastList<L2ItemInstance> items, PcInventory inv)
+	public ExQuestItemList(final FastList<L2ItemInstance> items, final PcInventory inv)
 	{
 		_items = items;
 		_inventory = inv;
@@ -46,7 +46,7 @@ public final class ExQuestItemList extends L2GameServerPacket
 	protected void writeImpl()
 	{
 		writeC(0xFE);
-		writeH(0xC5);
+		writeH(0xC6);
 		writeH(_items.size());
 		for (L2ItemInstance item : _items)
 		{
@@ -86,6 +86,6 @@ public final class ExQuestItemList extends L2GameServerPacket
 	@Override
 	public String getType()
 	{
-		return _S__FE_C5_EXQUESTITEMLIST;
+		return _S__FE_C6_EXQUESTITEMLIST;
 	}
 }

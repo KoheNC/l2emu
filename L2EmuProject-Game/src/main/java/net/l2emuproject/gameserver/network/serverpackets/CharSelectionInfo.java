@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.l2emuproject.gameserver.datatables.ClanTable;
+import net.l2emuproject.gameserver.entity.base.Experience;
 import net.l2emuproject.gameserver.entity.itemcontainer.Inventory;
 import net.l2emuproject.gameserver.network.CharSelectInfoPackage;
 import net.l2emuproject.gameserver.network.L2GameClient;
@@ -30,8 +31,7 @@ import net.l2emuproject.gameserver.services.cursedweapons.CursedWeaponsService;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 import net.l2emuproject.gameserver.world.object.L2Player;
 
-
-public class CharSelectionInfo extends L2GameServerPacket
+public final class CharSelectionInfo extends L2GameServerPacket
 {
 	private static final String _S__09_CHARSELECTINFO = "[S] 09 CharSelectInfo [ddc (sdsddd dddd ddd ff d q ddddd dddddddddddddddddddddddddddddddddd ff ddd hh d)]";
 	
@@ -100,6 +100,7 @@ public class CharSelectionInfo extends L2GameServerPacket
 			
 			writeD(charInfoPackage.getSp());
 			writeQ(charInfoPackage.getExp());
+			writeF((float)(charInfoPackage.getExp() - Experience.LEVEL[charInfoPackage.getLevel()]) / (Experience.LEVEL[charInfoPackage.getLevel() + 1] - Experience.LEVEL[charInfoPackage.getLevel()])); // High Five exp %
 			writeD(charInfoPackage.getLevel());
 			
 			writeD(charInfoPackage.getKarma()); // karma
@@ -138,6 +139,8 @@ public class CharSelectionInfo extends L2GameServerPacket
 			writeD(0); // food? - 1200
 			writeF(0); // max Hp
 			writeF(0); // cur Hp
+			
+			writeD(charInfoPackage.getVitalityPoints());    // H5 Vitality
 		}
 	}
 	
@@ -154,7 +157,7 @@ public class CharSelectionInfo extends L2GameServerPacket
 		{
 			con = L2DatabaseFactory.getInstance().getConnection(con);
 			PreparedStatement statement = con
-					.prepareStatement("SELECT account_name, charId, char_name, level, maxHp, curHp, maxMp, curMp, face, hairStyle, hairColor, sex, heading, x, y, z, exp, sp, karma, pvpkills, pkkills, clanid, race, classid, deletetime, cancraft, title, accesslevel, online, char_slot, lastAccess, base_class, transform_id FROM characters WHERE account_name=?");
+					.prepareStatement("SELECT account_name, charId, char_name, level, maxHp, curHp, maxMp, curMp, face, hairStyle, hairColor, sex, heading, x, y, z, exp, sp, karma, pvpkills, pkkills, clanid, race, classid, deletetime, cancraft, title, accesslevel, online, char_slot, lastAccess, base_class, transform_id, vitality_points FROM characters WHERE account_name=?");
 			statement.setString(1, _loginName);
 			ResultSet charList = statement.executeQuery();
 			
@@ -255,6 +258,7 @@ public class CharSelectionInfo extends L2GameServerPacket
 		
 		charInfopackage.setExp(chardata.getLong("exp"));
 		charInfopackage.setSp(chardata.getInt("sp"));
+		charInfopackage.setVitalityPoints(chardata.getInt("vitality_points"));
 		charInfopackage.setClanId(chardata.getInt("clanid"));
 		
 		charInfopackage.setRace(chardata.getInt("race"));

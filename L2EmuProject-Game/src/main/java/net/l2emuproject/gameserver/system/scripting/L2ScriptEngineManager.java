@@ -115,7 +115,7 @@ public final class L2ScriptEngineManager
 		{
 			_cache = null;
 		}
-		_log.info(getClass().getName() + " : Initialized.");
+		_log.info("L2ScriptEngineManager : Initialized.");
 
 		for (ScriptEngineFactory factory : factories)
 		{

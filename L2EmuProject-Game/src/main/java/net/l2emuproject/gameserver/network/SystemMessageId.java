@@ -16484,20 +16484,32 @@ public enum SystemMessageId
 	 * Console Message: Eva's Blessing Stage $s1 has begun.<BR>
 	 * Screen Message: It is Eva's blessing period.
 	 */
-	EVA_BLESSING_S1_BEGUN(6017),
+	//EVA_BLESSING_S1_BEGUN(6017),
 	
 	/**
 	 * ID: 6018<BR>
 	 * Console Message: Eva's Blessing Stage $s1 has ended.<BR>
 	 * Screen Message: It is not Eva's Blessing period.
 	 */
-	EVA_BLESSING_S1_ENDED(6018),
+	//EVA_BLESSING_S1_ENDED(6018),
 	
 	/**
 	 * ID: 6501<br>
 	 * Message: You cannot bookmark this location because you do not have a My Teleport Flag.
 	 */
 	YOU_CANNOT_BOOKMARK_THIS_LOCATION_BECAUSE_YOU_DO_NOT_HAVE_A_MY_TELEPORT_FLAG(6501),
+	
+	/**
+	 * ID: 3255<br>
+	 * Message: TODO
+	 */
+	ARCANE_SHIELD_DECREASED_YOUR_MP_BY_S1_INSTEAD_OF_HP(3255),
+	
+	/**
+	 * ID: 3256<br>
+	 * Message: TODO
+	 */
+	MP_BECAME_0_ARCANE_SHIELD_DISAPPEARING(3256),
 	
 	/**
 	 * ID: 6502<BR>

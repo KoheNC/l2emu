@@ -34,20 +34,21 @@ public final class NpcSay extends L2GameServerPacket
 	private int					_npcString;
 	private List<String>		_parameters;
 
-	public NpcSay(int objectId, int messageType, int npcId, String text)
+	public NpcSay(final int objectId, final int messageType, final int npcId, final String text)
 	{
 		_objectId = objectId;
 		_textType = messageType;
 		_npcId = 1000000 + npcId;
+		_npcString = -1;
 		_text = text;
 	}
 
-	public NpcSay(L2Npc npc, String text)
+	public NpcSay(final L2Npc npc, final String text)
 	{
 		this(npc.getObjectId(), 0, npc.getNpcId(), text);
 	}
 
-	public NpcSay(int objectId, int messageType, int npcId, int npcString)
+	public NpcSay(final int objectId, final int messageType, final int npcId, final int npcString)
 	{
 		_objectId = objectId;
 		_textType = messageType;
@@ -59,7 +60,7 @@ public final class NpcSay extends L2GameServerPacket
 	 * String parameter for argument S1,S2,.. in npcstring-e.dat
 	 * @param text
 	 */
-	public final void addStringParameter(String text)
+	public final void addStringParameter(final String text)
 	{
 		if (_parameters == null)
 			_parameters = new ArrayList<String>();
@@ -74,15 +75,13 @@ public final class NpcSay extends L2GameServerPacket
 		writeD(_textType);
 		writeD(_npcId);
 		writeD(_npcString);
-		if (_npcString == 0)
+		if (_npcString == -1)
 			writeS(_text);
 		else
 		{
 			if (_parameters != null)
-			{
 				for (String s : _parameters)
 					writeS(s);
-			}
 		}
 	}
 

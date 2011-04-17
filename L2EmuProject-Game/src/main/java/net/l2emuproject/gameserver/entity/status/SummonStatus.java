@@ -14,9 +14,11 @@
  */
 package net.l2emuproject.gameserver.entity.status;
 
-import net.l2emuproject.gameserver.network.SystemMessageId;
-import net.l2emuproject.gameserver.network.serverpackets.SystemMessage;
+import net.l2emuproject.gameserver.skills.Stats;
+import net.l2emuproject.gameserver.system.util.Util;
 import net.l2emuproject.gameserver.world.object.L2Character;
+import net.l2emuproject.gameserver.world.object.L2Playable;
+import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2SummonInstance;
 
 public final class SummonStatus extends CharStatus
@@ -29,16 +31,48 @@ public final class SummonStatus extends CharStatus
 	@Override
 	void reduceHp0(double value, L2Character attacker, boolean awake, boolean isDOT, boolean isConsume)
 	{
-		super.reduceHp0(value, attacker, awake, isDOT, isConsume);
+		if (attacker == null || getActiveChar().isDead())
+			return;
 
-		if (getActiveChar().getOwner() != null)
+		//final L2Player attackerPlayer = attacker.getActingPlayer();
+		//if (attackerPlayer != null && (getActiveChar().getOwner() == null || getActiveChar().getOwner().getDuelId() != attackerPlayer.getDuelId()))
+		//attackerPlayer.setDuelState(Duel.DUELSTATE_INTERRUPTED);
+
+		if (getActiveChar().getOwner().getParty() != null)
 		{
-			SystemMessage smsg = new SystemMessage(SystemMessageId.C1_RECEIVED_DAMAGE_OF_S3_FROM_C2);
-			smsg.addCharName(getActiveChar());
-			smsg.addCharName(attacker);
-			smsg.addNumber((int) value);
-			getActiveChar().getOwner().sendPacket(smsg);
+			final L2Player caster = getActiveChar().getTransferingDamageTo();
+			if (caster != null && getActiveChar().getParty() != null && Util.checkIfInRange(1000, getActiveChar(), caster, true) && !caster.isDead()
+					&& getActiveChar().getOwner() != caster && getActiveChar().getParty().getPartyMembers().contains(caster))
+			{
+				int transferDmg = 0;
+
+				transferDmg = (int) value * (int) getActiveChar().getStat().calcStat(Stats.TRANSFER_DAMAGE_TO_PLAYER, 0, null, null) / 100;
+				transferDmg = Math.min((int) caster.getCurrentHp() - 1, transferDmg);
+				if (transferDmg > 0 && attacker instanceof L2Playable)
+				{
+					int membersInRange = 0;
+					for (L2Player member : caster.getParty().getPartyMembers())
+					{
+						if (Util.checkIfInRange(1000, member, caster, false) && member != caster)
+							membersInRange++;
+					}
+					if (caster.getCurrentCp() > 0)
+					{
+						if (caster.getCurrentCp() > transferDmg)
+							reduceCp(transferDmg);
+						else
+						{
+							transferDmg = (int) (transferDmg - caster.getCurrentCp());
+							reduceCp((int) caster.getCurrentCp());
+						}
+					}
+
+					caster.reduceCurrentHp(transferDmg / membersInRange, attacker, null);
+					value -= transferDmg;
+				}
+			}
 		}
+		super.reduceHp(value, attacker, awake, isDOT, isConsume);
 	}
 
 	@Override
