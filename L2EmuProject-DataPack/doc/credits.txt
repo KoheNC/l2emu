@@ -13,6 +13,7 @@
  - Intrepid
  - MoonFang
  - CAMMARO
+ - Savvas
  
  ============================
  = L2Emu Project GameServer =
@@ -33,6 +34,7 @@
  - Intrepid
  - MoonFang
  - CAMMARO
+ - Savvas
  
  ========================
  = Project Contributors =
