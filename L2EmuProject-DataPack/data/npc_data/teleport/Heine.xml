@@ -16,7 +16,7 @@
 	<teleport id="1063" description="Heine -> Oren" locX="82956"
 		locY="53162" locZ="-1495" price="50000" isNoble="false" />
 	<teleport id="1064" description="Heine -> Aden" locX="146331"
-		locY="25762" locZ="-2018" price="59000" isNoble="false" />
+		locX="146819" locY="25806" locZ="-2013" isNoble="false" />
 	<teleport id="1065" description="Heine -> Goddard" locX="147928"
 		locY="-55273" locZ="-2734" price="83000" isNoble="false" />
 	<teleport id="1066" description="Heine -> Rune" locX="43799"

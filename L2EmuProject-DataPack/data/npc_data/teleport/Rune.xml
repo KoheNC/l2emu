@@ -6,7 +6,7 @@
 	<teleport id="120" description="Rune -> The Town of Giran"
 		locX="83400" locY="147943" locZ="-3404" price="59000" isNoble="false" />
 	<teleport id="121" description="Rune -> Aden Castle Town"
-		locX="146331" locY="25762" locZ="-2018" price="37000" isNoble="false" />
+		locX="146819" locY="25806" locZ="-2013" price="37000" isNoble="false" />
 	<teleport id="122" description="Rune -> Rune Castle Town Guild"
 		locX="38320" locY="-48092" locZ="-1153" price="150" isNoble="false" />
 	<teleport id="123" description="Rune -> Rune Castle Town Temple"

@@ -48,7 +48,7 @@
 	<teleport id="1036" description="Gludio -> Heine" locX="111409"
 		locY="219364" locZ="-3545" price="47000" isNoble="false" />
 	<teleport id="1037" description="Gludio -> Aden Castle Town"
-		locX="146331" locY="25762" locZ="-2018" price="56000" isNoble="false" />
+		locX="146819" locY="25806" locZ="-2013" price="56000" isNoble="false" />
 	<teleport id="1038" description="Gludio -> Oren Castle Town"
 		locX="82956" locY="53162" locZ="-1495" price="35000" isNoble="false" />
 	<teleport id="1039" description="Gludio -> Goddard Castle Town"

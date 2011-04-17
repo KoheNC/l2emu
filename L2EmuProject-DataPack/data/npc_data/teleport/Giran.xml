@@ -53,8 +53,8 @@
 		locY="-47727" locZ="-798" price="59000" isNoble="false" />
 	<teleport id="1058" description="Giran -> Schuttgart" locX="87386"
 		locY="-143246" locZ="-1293" price="87000" isNoble="false" />
-	<teleport id="1059" description="Giran -> Aden" locX="146331"
-		locY="25762" locZ="-2018" price="13000" isNoble="false" />
+	<teleport id="1059" description="Giran -> Aden" locX="146819" 
+		locY="25806" locZ="-2013" price="13000" isNoble="false" />
 	<teleport id="1060" description="Giran -> Antharas Lair" locX="132828"
 		locY="114421" locZ="-3725" price="7000" isNoble="false" />
 	<teleport id="1061" description="Giran -> Devil Isle" locX="43408"

@@ -16,5 +16,5 @@
 	<teleport id="37" description="Ivory Tower Ground Floor -> Hunter's Village"
 		locX="116819" locY="76994" locZ="-2714" price="6800" isNoble="false" />
 	<teleport id="38" description="Ivory Tower Ground Floor -> Aden Castle Town"
-		locX="146331" locY="25762" locZ="-2018" price="6200" isNoble="false" />
+		locX="146819" locY="25806" locZ="-2013" price="6200" isNoble="false" />
 </list>

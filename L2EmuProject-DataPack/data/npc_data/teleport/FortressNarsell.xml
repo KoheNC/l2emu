@@ -6,7 +6,7 @@
 	<teleport id="12149" description="Narsell Fortress -> Fortress East Gate"
 		locX="156730" locY="53921" locZ="-3256" price="0" isNoble="false" />
 	<teleport id="12150" description="Narsell Fortress -> Aden Town Square"
-		locX="147450" locY="28081" locZ="-2264" price="0" isNoble="false" />
+		locX="146819" locY="25806" locZ="-2013" price="0" isNoble="false" />
 	<teleport id="12151"
 		description="Narsell Fortress -> Front of the Aden Castle Gate" locX="147428"
 		locY="20161" locZ="-2008" price="0" isNoble="false" />

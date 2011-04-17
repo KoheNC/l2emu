@@ -10,7 +10,7 @@
 	<teleport id="111" description="Goddard -> Entrance to the Forge of the Gods"
 		locX="169178" locY="-116244" locZ="-2421" price="2300" isNoble="false" />
 	<teleport id="132" description="Goddard -> Aden Castle Town"
-		locX="146331" locY="25762" locZ="-2018" price="8100" isNoble="false" />
+		locX="146819" locY="25806" locZ="-2013" price="8100" isNoble="false" />
 	<teleport id="1089" description="Goddard -> Gludio" locX="-12672"
 		locY="122776" locZ="-3116" price="71000" isNoble="false" />
 	<teleport id="1090" description="Goddard -> Giran" locX="83400"

@@ -73,7 +73,7 @@
 	<teleport id="606" description="Clan Hall -> Anghel Waterfall"
 		locX="165584" locY="85997" locZ="-2338" price="500" isNoble="false" />
 	<teleport id="607" description="Clan Hall -> Aden Castle Town"
-		locX="146331" locY="25762" locZ="-2018" price="500" isNoble="false" />
+		locX="146819" locY="25806" locZ="-2013" price="500" isNoble="false" />
 	<teleport id="608" description="Clan Hall -> Hunters Village"
 		locX="117110" locY="76883" locZ="-2695" price="500" isNoble="false" />
 	<teleport id="609" description="Clan Hall -> Border Outpost(Aden Side)"

@@ -5,8 +5,8 @@
 		locY="-47749" locZ="-792" price="10000" isNoble="false" />
 	<teleport id="1107" description="Schuttgart -> Goddard" locX="148024"
 		locY="-55281" locZ="-2728" price="10000" isNoble="false" />
-	<teleport id="1108" description="Schuttgart -> Aden" locX="146783"
-		locY="25808" locZ="-2008" price="53000" isNoble="false" />
+	<teleport id="1108" description="Schuttgart -> Aden" locX="146819" 
+		locY="25806" locZ="-2013" price="53000" isNoble="false" />
 	<teleport id="1109" description="Schuttgart -> Oren" locX="82971"
 		locY="53207" locZ="-1488" price="59000" isNoble="false" />
 	<teleport id="1110" description="Schuttgart -> Heine" locX="111455"

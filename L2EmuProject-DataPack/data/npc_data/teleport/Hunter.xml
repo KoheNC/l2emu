@@ -10,7 +10,7 @@
 	<teleport id="45" description="Hunter's Village -> Hardin's Private Academy"
 		locX="105918" locY="109759" locZ="-3207" price="3400" isNoble="false" />
 	<teleport id="46" description="Hunter's Village -> Aden Town"
-		locX="146331" locY="25762" locZ="-2018" price="5900" isNoble="false" />
+		locX="146819" locY="25806" locZ="-2013" price="5900" isNoble="false" />
 	<teleport id="99" description="Hunters -> Northern Pathway of Enchanted Valley"
 		locX="104426" locY="33746" locZ="-3800" price="3600" isNoble="false" />
 	<teleport id="100" description="Hunters -> Southern Pathway of Enchanted Valley"

@@ -43,8 +43,8 @@
 		locX="43799" locY="-47727" locZ="-798" price="57000" isNoble="false" />
 	<teleport id="1048" description="Dion -> Schuttgart" locX="87386"
 		locY="-143246" locZ="-1293" price="88000" isNoble="false" />
-	<teleport id="1049" description="Dion -> Aden" locX="146331"
-		locY="25762" locZ="-2018" price="52000" isNoble="false" />
+	<teleport id="1049" description="Dion -> Aden" locX="146819" 
+		locY="25806" locZ="-2013" price="52000" isNoble="false" />
 	<teleport id="1050" description="Dion -> Oren" locX="82956"
 		locY="53162" locZ="-1495" price="33000" isNoble="false" />
 	<teleport id="1051" description="Dion -> Cruma Marshlands"

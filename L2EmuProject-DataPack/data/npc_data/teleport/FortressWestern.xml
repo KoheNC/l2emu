@@ -10,7 +10,7 @@
 	<teleport id="12199" description="Western Fortress -> Goddard Town Gate"
 		locX="147876" locY="-42345" locZ="-2208" price="0" isNoble="false" />
 	<teleport id="12200" description="Western Fortress -> Aden Town Square"
-		locX="146331" locY="25762" locZ="-2018" price="500" isNoble="false" />
+		locX="146819" locY="25806" locZ="-2013" price="500" isNoble="false" />
 	<teleport id="12201" description="Western Fortress -> Blazing Swamp"
 		locX="155305" locY="-16326" locZ="-3315" price="500" isNoble="false" />
 	<teleport id="12202" description="Western Fortress -> Varka Silenos Outpost"
