@@ -227,14 +227,6 @@ public class PossessorOfAPreciousSoul1 extends Quest
 					st.playSound("ItemSound.quest_accept");
 				}
 			}
-			else if (event.equalsIgnoreCase("31742-5.htm"))
-			{
-				if (cond == 17)
-				{
-					st.set(CONDITION, "18");
-					st.playSound("ItemSound.quest_accept");
-				}
-			}
 			else if (event.equalsIgnoreCase("31740-2.htm"))
 			{
 				if (cond == 18)
@@ -416,10 +408,6 @@ public class PossessorOfAPreciousSoul1 extends Quest
 				if (st.getPlayer().isSubClassActive())
 				{
 					if (cond == 18)
-						htmltext = "31740-1.htm";
-					else if (cond == 19)
-						htmltext = "31740-3.htm";
-					else if (cond == 21)
 						htmltext = "31740-4.htm";
 				}
 				else
