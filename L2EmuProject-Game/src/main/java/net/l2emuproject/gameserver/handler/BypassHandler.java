@@ -14,42 +14,7 @@
  */
 package net.l2emuproject.gameserver.handler;
 
-import net.l2emuproject.gameserver.handler.bypasshandlers.ArenaInfo;
-import net.l2emuproject.gameserver.handler.bypasshandlers.Augment;
-import net.l2emuproject.gameserver.handler.bypasshandlers.Buy;
-import net.l2emuproject.gameserver.handler.bypasshandlers.BuyTransform;
-import net.l2emuproject.gameserver.handler.bypasshandlers.CPRecovery;
-import net.l2emuproject.gameserver.handler.bypasshandlers.ChatLink;
-import net.l2emuproject.gameserver.handler.bypasshandlers.ClanWarehouse;
-import net.l2emuproject.gameserver.handler.bypasshandlers.ClassMaster;
-import net.l2emuproject.gameserver.handler.bypasshandlers.DrawHenna;
-import net.l2emuproject.gameserver.handler.bypasshandlers.Exchange;
-import net.l2emuproject.gameserver.handler.bypasshandlers.FishSkillList;
-import net.l2emuproject.gameserver.handler.bypasshandlers.FishermanInfo;
-import net.l2emuproject.gameserver.handler.bypasshandlers.FortSiege;
-import net.l2emuproject.gameserver.handler.bypasshandlers.GiveBlessing;
-import net.l2emuproject.gameserver.handler.bypasshandlers.ItemAuctionLink;
-import net.l2emuproject.gameserver.handler.bypasshandlers.Loto;
-import net.l2emuproject.gameserver.handler.bypasshandlers.MakeBuffs;
-import net.l2emuproject.gameserver.handler.bypasshandlers.ManorMenuSelect;
-import net.l2emuproject.gameserver.handler.bypasshandlers.Multisell;
-import net.l2emuproject.gameserver.handler.bypasshandlers.NobleTeleport;
-import net.l2emuproject.gameserver.handler.bypasshandlers.NpcFindById;
-import net.l2emuproject.gameserver.handler.bypasshandlers.OpenGate;
-import net.l2emuproject.gameserver.handler.bypasshandlers.PrivateWarehouse;
-import net.l2emuproject.gameserver.handler.bypasshandlers.QuestLink;
-import net.l2emuproject.gameserver.handler.bypasshandlers.QuestList;
-import net.l2emuproject.gameserver.handler.bypasshandlers.ReleaseAttribute;
-import net.l2emuproject.gameserver.handler.bypasshandlers.RemoveDeathPenalty;
-import net.l2emuproject.gameserver.handler.bypasshandlers.RemoveHennaList;
-import net.l2emuproject.gameserver.handler.bypasshandlers.RentPet;
-import net.l2emuproject.gameserver.handler.bypasshandlers.RideWyvern;
-import net.l2emuproject.gameserver.handler.bypasshandlers.Rift;
-import net.l2emuproject.gameserver.handler.bypasshandlers.SupportMagic;
-import net.l2emuproject.gameserver.handler.bypasshandlers.TerritoryStatus;
-import net.l2emuproject.gameserver.handler.bypasshandlers.TerritoryWar;
-import net.l2emuproject.gameserver.handler.bypasshandlers.WakeBaium;
-import net.l2emuproject.gameserver.handler.bypasshandlers.Wear;
+import net.l2emuproject.gameserver.handler.bypasshandlers.*;
 import net.l2emuproject.util.HandlerRegistry;
 
 import org.apache.commons.logging.Log;
@@ -78,6 +43,7 @@ public class BypassHandler extends HandlerRegistry<String, IBypassHandler>
 		registerBypassHandler(new ArenaInfo());
 		registerBypassHandler(new Augment());
 		registerBypassHandler(new Buy());
+		registerBypassHandler(new BuyShadowItem());
 		registerBypassHandler(new BuyTransform());
 		registerBypassHandler(new ChatLink());
 		registerBypassHandler(new ClanWarehouse());
