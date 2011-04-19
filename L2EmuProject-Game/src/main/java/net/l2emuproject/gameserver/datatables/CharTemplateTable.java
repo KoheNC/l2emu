@@ -275,7 +275,7 @@ public final class CharTemplateTable
 					{
 						int classId, itemId, amount;
 						boolean equipped;
-						if ("class".equalsIgnoreCase(d.getNodeName()))
+						if ("item".equalsIgnoreCase(d.getNodeName()))
 						{
 							classId = Integer.parseInt(d.getAttributes().getNamedItem("classId").getNodeValue());
 							itemId = Integer.parseInt(d.getAttributes().getNamedItem("itemId").getNodeValue());
