@@ -380,9 +380,6 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 	 */
 	public int getLocationSlot()
 	{
-		if (Config.ASSERT)
-			assert _loc == ItemLocation.PAPERDOLL || _loc == ItemLocation.PET_EQUIP || _loc == ItemLocation.INVENTORY;
-		
 		return _locData;
 	}
 	
@@ -1483,9 +1480,6 @@ public final class L2ItemInstance extends L2Object implements FuncOwner, Element
 	 */
 	public final void dropMe(L2Character dropper, int x, int y, int z)
 	{
-		if (Config.ASSERT)
-			assert getPosition().getWorldRegion() == null;
-
 		if (Config.GEODATA > 0 && dropper != null)
 		{
 			Location dropDest = GeoData.getInstance().moveCheck(dropper.getX(), dropper.getY(), dropper.getZ(), x, y, z, dropper.getInstanceId());

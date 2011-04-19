@@ -188,19 +188,6 @@ public class L2GameServer extends Config
 		// --------------------------
 		Util.printSection("System Info");
 		SystemService.printGeneralSystemInfo();
-		
-		// Just General Information 
-		// ---------------------------
-		if (Config.ALT_DEV_NO_SPAWNS || Config.ALT_DEV_NO_HTMLS)
-		{
-			_log.info("..................................................");
-			_log.info(".................. ! WARNING ! ...................");
-			_log.info("");
-			_log.info("       GAMESERVER FAST LOAD MODE ENABLED!         ");
-			_log.info("");
-			_log.info(".................. ! WARNING ! ...................");
-			_log.info("..................................................");
-		}
 
 		Util.printSection("World");
 		L2World.getInstance();
@@ -219,8 +206,7 @@ public class L2GameServer extends Config
 			DatabaseBackupManager.makeBackup();
 		Class.forName(RunnableStatsManager.class.getName());
 		ThreadPoolManager.getInstance();
-		if (Config.DEADLOCKCHECK_INTERVAL > 0)
-			DeadlockDetector.getInstance();
+		DeadlockDetector.getInstance();
 		SQLQueue.getInstance();
 		
 		Util.printSection("GeoData");
@@ -490,12 +476,6 @@ public class L2GameServer extends Config
 		Util.printSection("GameServerLog");
 		_log.info("Maximum online users: " + Config.MAXIMUM_ONLINE_USERS);
 		_log.info("Total Boot Time: " + ((System.currentTimeMillis() - serverLoadStart) / 1000) + " seconds.");
-		
-		if (Config.ENABLE_JYTHON_SHELL)
-		{
-			Util.printSection("JythonShell");
-			Util.JythonShell();
-		}
 	}
 	
 	private static Set<StartupHook> _startupHooks = new L2FastSet<StartupHook>();

@@ -109,11 +109,7 @@ public final class NpcTable
 					L2NpcTemplate npcDat = _npcs.get(mobId);
 					
 					if (npcDat == null)
-					{
-						if (Config.ALT_DEV_VERIFY_NPC_SKILLS)
-							_log.warn("NpcTable: Missing template for npcskills for npc id: " + mobId);
 						continue;
-					}
 					
 					int skillId = npcskills.getInt("skillid");
 					int level = npcskills.getInt("level");
@@ -127,11 +123,7 @@ public final class NpcTable
 					L2Skill npcSkill = SkillTable.getInstance().getInfo(skillId, level);
 					
 					if (npcSkill == null)
-					{
-						if (Config.ALT_DEV_VERIFY_NPC_SKILLS)
-							_log.warn("NpcTable: Missing skill for npcskills for skill id-lvl: " + skillId + " " + level);
 						continue;
-					}
 					
 					npcDat.addSkill(npcSkill);
 				}
@@ -435,9 +427,6 @@ public final class NpcTable
 		{
 			StatsSet npcDat = new StatsSet();
 			final int id = NpcData.getInt("id");
-			
-			if (Config.ASSERT)
-				assert id < 1000000;
 			
 			npcDat.set("npcId", id);
 			npcDat.set("idTemplate", NpcData.getInt("idTemplate"));

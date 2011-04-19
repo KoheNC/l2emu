@@ -19,7 +19,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javolution.util.FastList;
-import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.datatables.ArmorSetsTable;
 import net.l2emuproject.gameserver.datatables.ItemTable;
 import net.l2emuproject.gameserver.datatables.SkillTable;
@@ -180,9 +179,7 @@ public abstract class Inventory extends ItemContainer
 		{
 			if (slot != PAPERDOLL_RHAND)
 				return;
-			if (Config.ASSERT)
-				assert null == getPaperdollItem(PAPERDOLL_RHAND);
-
+			
 			if (!(item.getItemType() instanceof L2WeaponType))
 				return;
 
@@ -212,9 +209,7 @@ public abstract class Inventory extends ItemContainer
 		{
 			if (slot != PAPERDOLL_RHAND)
 				return;
-			if (Config.ASSERT)
-				assert item == getPaperdollItem(PAPERDOLL_RHAND);
-
+			
 			if (!(item.getItemType() instanceof L2WeaponType))
 				return;
 
@@ -948,8 +943,6 @@ public abstract class Inventory extends ItemContainer
 	 */
 	public synchronized void addPaperdollListener(PaperdollListener listener)
 	{
-		if (Config.ASSERT)
-			assert !_paperdollListeners.contains(listener);
 		_paperdollListeners.add(listener);
 	}
 

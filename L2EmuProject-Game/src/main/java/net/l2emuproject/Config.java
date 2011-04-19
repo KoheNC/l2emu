@@ -57,7 +57,6 @@ public class Config extends L2Config
 		// Administration
 		registerConfig(new GMAccessConfig());
 		registerConfig(new CommandPrivilegesConfig());
-		registerConfig(new DeveloperConfig());
 
 		// Network
 		registerConfig(new NetworkConfig());
@@ -100,7 +99,6 @@ public class Config extends L2Config
 		registerConfig(new RatesConfig());
 		registerConfig(new SkillsConfig());
 		registerConfig(new VitalityConfig());
-		registerConfig(new ScriptsConfig());
 
 		// Main/Events
 		registerConfig(new FortSiegeConfig());
@@ -1999,40 +1997,6 @@ public class Config extends L2Config
 			ALT_ITEM_AUCTION_ENABLED = Boolean.valueOf(auctionSettings.getProperty("AltItemAuctionEnabled", "True"));
 			ALT_ITEM_AUCTION_EXPIRED_AFTER = Integer.valueOf(auctionSettings.getProperty("AltItemAuctionExpiredAfter", "14"));
 			ALT_ITEM_AUCTION_TIME_EXTENDS_ON_BID = 1000 * (long) Integer.valueOf(auctionSettings.getProperty("AltItemAuctionTimeExtendsOnBid", "0"));
-		}
-	}
-
-	// *******************************************************************************************
-	public static final String	DEVELOPER_FILE	= "./config/administration/developer.properties";
-	// *******************************************************************************************
-	public static boolean		ASSERT;															// Enable/disable assertions
-	public static boolean		DEVELOPER;															// Enable/disable DEVELOPER TREATMENT
-	public static boolean		ALT_DEV_NO_SPAWNS;													// Alt Settings for devs
-	public static boolean		ALT_DEV_NO_HTMLS;													// Alt Settings for devs
-	public static boolean		ENABLE_JYTHON_SHELL;												// JythonShell
-	public static boolean		ALT_DEV_VERIFY_NPC_SKILLS;											// Alt Settings for devs
-	public static int			DEADLOCKCHECK_INTERVAL;
-
-	// *******************************************************************************************
-	private static final class DeveloperConfig extends ConfigPropertiesLoader
-	{
-		@Override
-		protected String getName()
-		{
-			return "administration/developer";
-		}
-
-		@Override
-		protected void loadImpl(L2Properties developerSettings)
-		{
-			ASSERT = Boolean.parseBoolean(developerSettings.getProperty("Assert", "false"));
-			DEVELOPER = Boolean.parseBoolean(developerSettings.getProperty("Developer", "false"));
-
-			ALT_DEV_NO_SPAWNS = Boolean.parseBoolean(developerSettings.getProperty("AltDevNoSpawns", "False"));
-			ALT_DEV_NO_HTMLS = Boolean.parseBoolean(developerSettings.getProperty("AltDevNoHtmls", "False"));
-			ENABLE_JYTHON_SHELL = Boolean.parseBoolean(developerSettings.getProperty("EnableJythonShell", "False"));
-			ALT_DEV_VERIFY_NPC_SKILLS = Boolean.parseBoolean(developerSettings.getProperty("AltDevVerifyNpcSkills", "False"));
-			DEADLOCKCHECK_INTERVAL = Integer.parseInt(developerSettings.getProperty("DeadLockCheck", "10000"));
 		}
 	}
 
@@ -4167,163 +4131,6 @@ public class Config extends L2Config
 			TITLE_COLOR_FOR_PK_AMOUNT4 = Integer.decode("0x" + customSettings.getProperty("TitleForAmount4", "00FF00"));
 			TITLE_COLOR_FOR_PK_AMOUNT5 = Integer.decode("0x" + customSettings.getProperty("TitleForAmount5", "00FF00"));
 			//PK Title Color System configs - End
-		}
-	}
-
-	// *******************************************************************************************
-	public static final String	SCRIPTS_FILE			= "./config/main/scripts.properties";
-	// *******************************************************************************************
-	// April Fools
-	public static boolean		ALLOW_APRIL_FOOLS;
-	public static int			APRIL_FOOLS_DATE;
-	public static int			APRIL_FOOLS_DROP_CHANCE	= 7;
-
-	// Bunny
-	public static boolean		ALLOW_BUNNY;
-	public static String		BUNNY_DATE;
-	public static int			BUNNY_DROP_CHANCE;
-	public static int			BUNNY_DROP_FLY_CHANCE;
-
-	// Fifth Anniversary
-	public static boolean		ALLOW_FIFTH_ANNIVERSARY;
-	public static String		FIFTH_ANNIVERSARY_DATE;
-
-	// Gift of Vitality
-	public static boolean		ALLOW_GIFT_OF_VITALITY;
-
-	// Heavy Medal
-	public static boolean		ALLOW_HEAVY_MEDAL;
-	public static int			HEAVY_MEDAL_WIN_CHANCE;
-
-	// Holly Cow
-	public static boolean		ALLOW_HOLLY_COW;
-
-	// New Era
-	public static boolean		ALLOW_NEW_ERA;
-	public static String		NEW_ERA_DATE;
-	public static int			NEW_ERA_DROP_CHANCE;
-
-	// Rabbits To Riches
-	public static boolean		ALLOW_RABBITS_TO_RICHES;
-	public static String		RABBITS_TO_RICHES_DATE;
-	public static int			RABBITS_TO_RICHES_DROP_CHANCE;
-	public static int			RABBITS_TO_RICHES_MIN_LVL;
-
-	// Saving Santa
-	public static boolean		ALLOW_SAVING_SANTA;
-	public static String		SAVING_SANTA_DATE;
-	public static int			SAVING_SANTA_DROP_CHANCE;
-
-	// Squash Event
-	public static boolean		ALLOW_SQUASH_EVENT;
-
-	// The Valentine
-	public static boolean		ALLOW_THE_VALENTINE;
-	public static String		THE_VALENTINE_DATE;
-	public static int			THE_VALENTINE_DROP_CHANCE;
-
-	// Zaken's Curse
-	public static boolean		ALLOW_ZAKENS_CURSE;
-	public static String		ZAKENS_CURSE_DATE;
-	public static int			ZAKENS_CURSE_DROP_CHANCE;
-	public static int			ZAKENS_CURSE_DROP_FLY_CHANCE;
-	public static byte			ZAKENS_CURSE_EVENT_TYPE;
-
-	// Freya Celebration
-	public static boolean		ALLOW_FREYA_CELEBRATION;
-
-	// Christmas Gift
-	public static boolean		ALLOW_CHRISTMAS_GIFT;
-
-	// Christmas Event
-	public static boolean		ALLOW_CHRISTMAS_EVENT;
-	public static int			CHRISTMAS_EVENT_DROP_CHANCE;
-	public static String		CHRISTMAS_EVENT_DATE;
-
-	// Santa Claus
-	public static boolean		ALLOW_SANTA_CLAUS_EVENT;
-
-	// *******************************************************************************************
-	private static final class ScriptsConfig extends ConfigPropertiesLoader
-	{
-		@Override
-		protected String getName()
-		{
-			return "main/scripts";
-		}
-
-		@Override
-		protected void loadImpl(L2Properties scriptsSettings)
-		{
-			// April Fools
-			ALLOW_APRIL_FOOLS = Boolean.parseBoolean(scriptsSettings.getProperty("AllowAprilFools", "False"));
-			APRIL_FOOLS_DATE = Integer.parseInt(scriptsSettings.getProperty("AprilFoolsDate", "20110401"));
-			APRIL_FOOLS_DROP_CHANCE = Integer.parseInt(scriptsSettings.getProperty("AprilFoolsDropChance", "7"));
-
-			// Bunny
-			ALLOW_BUNNY = Boolean.parseBoolean(scriptsSettings.getProperty("AllowBunny", "False"));
-			BUNNY_DATE = scriptsSettings.getProperty("BunnyDate", "26 03 2011-04 6 2011");
-			BUNNY_DROP_CHANCE = Integer.parseInt(scriptsSettings.getProperty("BunnyDropChance", "25"));
-			BUNNY_DROP_FLY_CHANCE = Integer.parseInt(scriptsSettings.getProperty("BunnyDropFlyChance", "50"));
-
-			// Fifth Anniversary
-			ALLOW_FIFTH_ANNIVERSARY = Boolean.parseBoolean(scriptsSettings.getProperty("AllowFifthAnniversary", "False"));
-			FIFTH_ANNIVERSARY_DATE = scriptsSettings.getProperty("FifthAnniversaryDate", "28 03 2011-05 05 2011");
-
-			// Gift of Vitality
-			ALLOW_GIFT_OF_VITALITY = Boolean.parseBoolean(scriptsSettings.getProperty("AllowGiftOfVitality", "False"));
-
-			// Heavy Medal
-			ALLOW_HEAVY_MEDAL = Boolean.parseBoolean(scriptsSettings.getProperty("AllowHeavyMedal", "False"));
-			HEAVY_MEDAL_WIN_CHANCE = Integer.parseInt(scriptsSettings.getProperty("HeavyMedalWinChance", "50"));
-
-			// Holly Cow
-			ALLOW_HOLLY_COW = Boolean.parseBoolean(scriptsSettings.getProperty("AllowHollyCow", "False"));
-
-			// New Era
-			ALLOW_NEW_ERA = Boolean.parseBoolean(scriptsSettings.getProperty("AllowNewEra", "False"));
-			NEW_ERA_DATE = scriptsSettings.getProperty("NewEraDate", "28 03 2011-05 05 2011");
-			NEW_ERA_DROP_CHANCE = Integer.parseInt(scriptsSettings.getProperty("NewEraDropChance", "25"));
-
-			// Rabbits To Riches
-			ALLOW_RABBITS_TO_RICHES = Boolean.parseBoolean(scriptsSettings.getProperty("AllowRabbitsToRiches", "False"));
-			RABBITS_TO_RICHES_DATE = scriptsSettings.getProperty("RabbitsToRichesDate", "1 09 2011-10 09 2011");
-			RABBITS_TO_RICHES_DROP_CHANCE = Integer.parseInt(scriptsSettings.getProperty("RabbitsToRichesDropChance", "10"));
-			RABBITS_TO_RICHES_MIN_LVL = Integer.parseInt(scriptsSettings.getProperty("RabbitsToRichesMinLvl", "40"));
-
-			// Saving Santa
-			ALLOW_SAVING_SANTA = Boolean.parseBoolean(scriptsSettings.getProperty("AllowSavingSanta", "False"));
-			SAVING_SANTA_DATE = scriptsSettings.getProperty("SavingSantaDate", "15 12 2011-10 01 2012");
-			SAVING_SANTA_DROP_CHANCE = Integer.parseInt(scriptsSettings.getProperty("SavingSantaDropChance", "3"));
-
-			// Squash Event
-			ALLOW_SQUASH_EVENT = Boolean.parseBoolean(scriptsSettings.getProperty("AllowSquashEvent", "False"));
-
-			// The Valentine
-			ALLOW_THE_VALENTINE = Boolean.parseBoolean(scriptsSettings.getProperty("AllowTheValentine", "False"));
-			THE_VALENTINE_DATE = scriptsSettings.getProperty("TheValentineDate", "10 02 2011-17 02 2011");
-			THE_VALENTINE_DROP_CHANCE = Integer.parseInt(scriptsSettings.getProperty("TheValentineDropChance", "5"));
-
-			// Zaken's Curse
-			ALLOW_ZAKENS_CURSE = Boolean.parseBoolean(scriptsSettings.getProperty("AllowZakensCurse", "False"));
-			ZAKENS_CURSE_DATE = scriptsSettings.getProperty("ZakensCurseDate", "23 08 2011-31 07 2011");
-			ZAKENS_CURSE_DROP_CHANCE = Integer.parseInt(scriptsSettings.getProperty("ZakensCurseDropChance", "1"));
-			ZAKENS_CURSE_DROP_FLY_CHANCE = Integer.parseInt(scriptsSettings.getProperty("ZakensCurseDropFlyChance", "2"));
-			ZAKENS_CURSE_EVENT_TYPE = Byte.parseByte(scriptsSettings.getProperty("ZakensCurseEventType", "1"));
-
-			// Freya Celebration
-			ALLOW_FREYA_CELEBRATION = Boolean.parseBoolean(scriptsSettings.getProperty("AllowFreyaCelebration", "False"));
-
-			// Christmas Gift
-			ALLOW_CHRISTMAS_GIFT = Boolean.parseBoolean(scriptsSettings.getProperty("AllowChristmasGift", "False"));
-
-			// Christmas Event
-			ALLOW_CHRISTMAS_EVENT = Boolean.parseBoolean(scriptsSettings.getProperty("AllowChristmasEvent", "False"));
-			CHRISTMAS_EVENT_DATE = scriptsSettings.getProperty("ChristmasEventDate", "23 12 2011-06 01 2012");
-			CHRISTMAS_EVENT_DROP_CHANCE = Integer.parseInt(scriptsSettings.getProperty("ChristmasEventDropChance", "3"));
-
-			// Santa Claus
-			ALLOW_SANTA_CLAUS_EVENT = Boolean.parseBoolean(scriptsSettings.getProperty("AllowSantaClausEvent", "False"));
 		}
 	}
 

@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.Set;
 
 import javolution.util.FastSet;
-import net.l2emuproject.Config;
 import net.l2emuproject.gameserver.Shutdown;
 import net.l2emuproject.gameserver.Shutdown.ShutdownMode;
 import net.l2emuproject.gameserver.system.util.Util;
@@ -90,7 +89,7 @@ public final class DeadlockDetector extends L2Thread
 	@Override
 	protected void sleepTurn() throws InterruptedException
 	{
-		Thread.sleep(Config.DEADLOCKCHECK_INTERVAL);
+		Thread.sleep(1000);
 	}
 	
 	private long[] findDeadlockedThreadIds()

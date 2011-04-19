@@ -66,8 +66,7 @@ public final class HtmCache
 	
 	private HtmCache()
 	{
-		if (!Config.ALT_DEV_NO_HTMLS)
-			reload(Config.REBUILD_HTML_CACHE_ON_BOOT);
+		reload(Config.REBUILD_HTML_CACHE_ON_BOOT);
 	}
 	
 	@SuppressWarnings("unchecked")

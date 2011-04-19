@@ -58,10 +58,7 @@ public class SpawnTable
 
 	private SpawnTable()
 	{
-		if (!Config.ALT_DEV_NO_SPAWNS)
-			fillSpawnTable();
-		else
-			_log.debug("Spawns Disabled");
+		fillSpawnTable();
 	}
 
 	public Map<Integer, L2Spawn> getSpawnTable()

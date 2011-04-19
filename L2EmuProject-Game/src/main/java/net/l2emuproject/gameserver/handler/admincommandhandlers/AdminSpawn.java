@@ -436,14 +436,10 @@ public class AdminSpawn implements IAdminCommandHandler
 				spawn.setRespawnDelay(Config.STANDARD_RESPAWN_DELAY);
 				spawn.setInstanceId(activeChar.getInstanceId());
 
-				if (saveInDb && !Config.ALT_DEV_NO_SPAWNS && spawn.getInstanceId() == 0)
-				{
+				if (saveInDb && spawn.getInstanceId() == 0)
 					SpawnTable.getInstance().addNewSpawn(spawn, respawn);
-				}
 				else
-				{
 					spawn.spawnOne(false);
-				}
 
 				spawn.init();
 

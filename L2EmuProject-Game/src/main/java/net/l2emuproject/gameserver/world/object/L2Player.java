@@ -1204,7 +1204,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 			if ((questId > 19999) || (questId < 1))
 				continue;
 
-			if (!qs.isStarted() && !Config.DEVELOPER)
+			if (!qs.isStarted())
 				continue;
 
 			quests.add(qs.getQuest());

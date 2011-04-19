@@ -69,11 +69,6 @@ public final class ValidatePosition extends L2GameClientPacket
 		final double dz = _z - realZ;
 		final double diffSq = (dx * dx + dy * dy);
 		
-		if (Config.DEVELOPER)
-		{
-			_log.info("client pos: " + _x + " " + _y + " " + _z + " head " + _heading);
-			_log.info("server pos: " + realX + " " + realY + " " + realZ + " head " + activeChar.getHeading());
-		}
 		if (Config.ACCEPT_GEOEDITOR_CONN)
 			if (GeoEditorListener.getInstance().getThread() != null
 					&& GeoEditorListener.getInstance().getThread().isWorking()
@@ -126,8 +121,6 @@ public final class ValidatePosition extends L2GameClientPacket
 				}
 				else
 				{
-					if (Config.DEVELOPER)
-						_log.info(activeChar.getName() + ": Synchronizing position Server --> Client");
 					if (activeChar.isInBoat())
 						sendPacket(new ValidateLocationInVehicle(activeChar));
 					else if (activeChar.isInAirShip())

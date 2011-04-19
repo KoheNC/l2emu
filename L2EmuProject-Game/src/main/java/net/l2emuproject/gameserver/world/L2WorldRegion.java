@@ -352,9 +352,6 @@ public final class L2WorldRegion
 	 */
 	public void addVisibleObject(L2Object object, boolean addToKnownLists)
 	{
-		if (Config.ASSERT)
-			assert object.getWorldRegion() == this;
-		
 		if (object == null)
 			return;
 		
@@ -391,9 +388,6 @@ public final class L2WorldRegion
 	 */
 	public void removeVisibleObject(L2Object object, boolean removeFromKnownlist)
 	{
-		if (Config.ASSERT)
-			assert object.getWorldRegion() == this || object.getWorldRegion() == null;
-		
 		if (object == null)
 			return;
 		
