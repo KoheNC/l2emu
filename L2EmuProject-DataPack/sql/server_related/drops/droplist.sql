@@ -40034,3 +40034,4297 @@ INSERT INTO `droplist` VALUES
 (25677,6577,1,1,1,4423), -- bews
 (25677,10222,1,1,1,735), -- icarus hall
 (25677,10220,1,1,1,735); -- icarus hammer
+
+-- L2EmuProject Addons Part.II:
+
+INSERT INTO `droplist` VALUES
+-- Blood Queen lvl 60
+(18002,1806,1,1,-1,10868), -- Recipe: Soulshot: B-Grade
+(18002,57,918,1834,0,700000), -- Adena
+(18002,12166,1,1,1,160), -- Common Item - Avadon Robe
+(18002,12175,1,1,1,220), -- Common Item - Tunic of Zubei
+(18002,12176,1,1,1,360), -- Common Item - Stockings of Zubei
+(18002,4071,1,1,1,1615), -- Avadon Robe Fabric
+(18002,4069,1,1,1,2102), -- Tunic of Zubei Fabric
+(18002,4070,1,1,1,3192), -- Stockings of Zubei Fabric
+(18002,4197,1,1,2,68), -- Recipe: Demon Dagger (100%)
+(18002,1889,1,1,2,5945), -- Compound Braid
+(18002,1885,1,1,2,7431), -- High Grade Suede
+(18002,1878,1,1,2,35670), -- Braided Hemp
+(18002,1866,1,1,2,59450), -- Suede
+(18002,1864,1,1,2,178349), -- Stem
+(18002,1419,1,1,3,200000), -- Blood Mark
+-- Limal Karinness lvl 69
+(18007,1807,1,1,-1,2645), -- Recipe: Soulshot: A-Grade
+(18007,5479,1,1,-1,11738), -- Sealed Tallum Leather Armor Pattern
+(18007,1895,1,1,-1,566762), -- Metallic Fiber
+(18007,57,972,1943,0,700000), -- Adena
+(18007,12235,1,1,1,378), -- Common Item - Sealed Tallum Stockings
+(18007,5486,1,1,1,978), -- Sealed Dark Crystal Robe Fabric
+(18007,5485,1,1,1,1390), -- Sealed Tallum Tunic Texture
+(18007,5489,1,1,1,2182), -- Sealed Tallum Stockings Fabric
+(18007,4988,1,1,2,963), -- Recipe: Blue Wolf Stockings (60%)
+(18007,4042,1,1,2,2424), -- Enria
+(18007,4040,1,1,2,2909), -- Mold Lubricant
+(18007,4043,1,1,2,4849), -- Asofe
+(18007,1895,1,1,2,41563), -- Metallic Fiber
+(18007,4401,1,1,3,539), -- Green Dimensional Stone
+-- Karik lvl 70
+(18008,3035,1,1,-1,2831), -- Recipe: Spiritshot A
+(18008,4078,1,1,-1,31016), -- Blue Wolf Breastplate Part
+(18008,4077,1,1,-1,95517), -- Doom Shield Fragment
+(18008,57,1040,2080,0,700000), -- Adena
+(18008,12226,1,1,1,377), -- Common Item - Sealed Dark Crystal Helmet
+(18008,12225,1,1,1,566), -- Common Item - Sealed Dark Crystal Shield
+(18008,5525,1,1,1,2188), -- Sealed Dark Crystal Helmet Design
+(18008,5526,1,1,1,2188), -- Sealed Tallum Helm Design
+(18008,5494,1,1,1,2973), -- Sealed Dark Crystal Shield Fragment
+(18008,5006,1,1,2,99), -- Recipe: Bellion Cestus (60%)
+(18008,4042,1,1,2,2163), -- Enria
+(18008,1876,1,1,2,25952), -- Mithril Ore
+(18008,1895,1,1,2,37074), -- Metallic Fiber
+(18008,1873,1,1,2,51904), -- Silver Nugget
+(18008,1868,1,1,2,259519), -- Thread
+-- Dark Choir Captain lvl 85
+(18334,8192,2,10,0,800000), -- Soul Breaking Arrow
+-- Kamael Guard lvl 22
+(18352,9703,1,1,3,1000000), -- Gate Key: Kamael
+-- Guardian of Records lvl 22
+(18353,9704,1,1,3,1000000), -- Gate Key: Archives
+-- Guardian of Observation lvl 22
+(18354,9705,1,1,3,1000000), -- Gate Key: Observation
+-- Spicula's Guard lvl 22
+(18355,9706,1,1,3,1000000), -- Gate Key: Spicula
+-- Harkilgamed's Gatekeeper lvl 22
+(18356,9707,1,1,3,1000000), -- Gate Key: Harkilgamed
+-- Rodenpicula's Gatekeeper lvl 22
+(18357,9708,1,1,3,1000000), -- Gate Key: Rodenpicula
+-- Guardian of Secrets lvl 22
+(18358,9713,1,1,3,1000000), -- Nornil's Power
+-- Arviterre's Guardian lvl 22
+(18359,9709,1,1,3,1000000), -- Gate Key: Arviterre
+-- Katenar's Gatekeeper lvl 22
+(18360,9710,1,1,3,1000000), -- Gate Key: Katenar
+-- Guardian of Prediction lvl 22
+(18361,9711,1,1,1,1000000), -- Gate Key: Prediction
+-- Remnant Diabolist lvl 83
+(18463,6710,1,2,-1,713790), -- Sealed Draconic Leather Helmet Pattern
+(18463,4042,1,2,-1,733359), -- Enria
+(18463,1895,12,26,-1,992516), -- Metallic Fiber
+(18463,57,26560,53120,0,700000), -- Adena
+(18463,11973,1,1,1,1749), -- Common Item - Soul Separator
+(18463,5537,1,1,1,25196), -- Soul Separator Head
+(18463,9675,1,1,2,0), -- Prayer Fragment
+(18463,1808,1,1,2,1122), -- Recipe: Soulshot: S Grade
+(18463,4042,1,1,2,42093), -- Enria
+(18463,1876,3,7,2,101023), -- Mithril Ore
+(18463,1873,6,12,2,112248), -- Silver Nugget
+(18463,1895,4,8,2,120265), -- Metallic Fiber
+(18463,1868,27,55,2,123199), -- Thread
+(18463,1344,842,1684,3,49992), -- Mithril Arrow
+-- Remnant Diviner lvl 83
+(18464,6901,1,1,-1,127432), -- Recipe: Shining Arrow (100%)
+(18464,6711,1,1,-1,631401), -- Sealed Major Arcana Robe Part
+(18464,57,34187,68374,0,700000), -- Adena
+(18464,11976,1,1,1,2252), -- Common Item - Tallum Glaive
+(18464,5541,1,1,1,32418), -- Tallum Glaive Edge
+(18464,9675,1,1,2,0), -- Prayer Fragment
+(18464,6901,1,1,2,3251), -- Recipe: Shining Arrow (100%)
+(18464,4041,1,1,2,28268), -- Mold Hardener
+(18464,1877,1,3,2,65016), -- Adamantite Nugget
+(18464,4040,1,1,2,65016), -- Mold Lubricant
+(18464,1866,12,24,2,120400), -- Suede
+(18464,1871,18,36,2,120400), -- Charcoal
+(18464,1344,1084,2168,3,49982), -- Mithril Arrow
+-- Derek First Generation Seer lvl 83
+(18465,6901,1,1,-1,231473), -- Recipe: Shining Arrow (100%)
+(18465,7579,1,1,-1,281174), -- Draconic Bow Shaft
+(18465,6714,1,5,-1,695358), -- Sealed Major Arcana Circlet Pattern
+(18465,57,116439,237651,0,700000), -- Adena
+(18465,5319,1,1,1,1214), -- Sealed Majestic Boots
+(18465,5318,1,1,1,1214), -- Sealed Majestic Gauntlets
+(18465,5314,1,1,1,1214), -- Sealed Boots of Nightmare
+(18465,5313,1,1,1,1214), -- Sealed Gauntlets of Nightmare
+(18465,5515,1,1,1,180416), -- Sealed Majestic Gauntlets Design
+(18465,5503,1,1,1,180416), -- Sealed Majestic Boots Lining
+(18465,5514,1,1,1,180416), -- Sealed Gauntlets of Nightmare Design
+(18465,5502,1,1,1,180416), -- Sealed Boots of Nightmare Lining
+(18465,959,1,1,2,570), -- Scroll: Enchant Weapon (S)
+(18465,1885,22,66,2,26379), -- High Grade Suede
+(18465,1879,32,96,2,37095), -- Cokes
+(18465,5549,10,30,2,67831), -- Metallic Thread
+(18465,1875,3,9,2,158272), -- Stone of Purity
+(18465,5550,1,1,2,189927), -- Durable Metal Plate
+-- Beleth's Slave lvl 86
+(18490,57,5380,10776,0,700000), -- Adena
+(18490,213,1,1,1,4), -- Branch of the Mother Tree
+(18490,7895,1,1,1,4), -- Flaming Dragon Skull
+(18490,7902,1,1,1,4), -- Doom Crusher
+(18490,5544,1,1,1,1548), -- Branch of the Mother Tree Head
+(18490,8349,1,1,1,1549), -- Doom Crusher Head
+(18490,5533,1,1,1,1550), -- Elysian Head
+(18490,8342,1,1,1,1550), -- Flaming Dragon Skull Piece
+(18490,164,1,1,2,4), -- Elysian
+(18490,960,1,1,2,259), -- Scroll: Enchant Armor (S)
+(18490,6901,1,1,2,646), -- Recipe: Shining Arrow (100%)
+(18490,4042,1,1,2,10769), -- Enria
+(18490,1868,15,45,2,43075), -- Thread
+(18490,1873,2,6,2,64613), -- Silver Nugget
+(18490,1876,1,1,2,129226), -- Mithril Ore
+(18490,1895,1,1,2,184609), -- Metallic Fiber
+-- Ancient Experiment Event Monster lvl 45
+(18545,4553,1,1,-1,38625), -- Greater Dye of STR 
+(18545,1871,1,21,-1,877846), -- Charcoal
+(18545,1908,1,1,-1,914423), -- Moonstone Earring Wire
+(18545,354,1,1,1,587), -- Chain Mail Shirt
+(18545,381,1,1,1,939), -- Chain Gaiters
+(18545,1959,1,1,1,30731), -- Chain Mail Shirt Material
+(18545,1960,1,1,1,62514), -- Chain Gaiters Part
+(18545,4041,1,1,2,6614), -- Mold Hardener
+(18545,4040,1,1,2,15212), -- Mold Lubricant
+(18545,1877,1,1,2,30425), -- Adamantite Nugget
+(18545,2164,1,1,2,58509), -- Recipe: Ring of Protection
+(18545,1871,4,12,2,95078), -- Charcoal
+(18545,1866,1,3,2,169026), -- Suede
+-- Ancient Experiment Event Monster lvl 45
+(18546,2163,1,7,-1,745273), -- Recipe: Earring of Protection
+(18546,1909,1,17,-1,876726), -- Aquastone Ring Wire
+(18546,2164,1,9,-1,898914), -- Recipe: Ring of Protection
+(18546,232,1,1,1,783), -- Dark Elven Dagger
+(18546,2070,1,1,1,54819), -- Cursed Dagger Blade
+(18546,2072,1,1,1,54819), -- Dark Elven Dagger Edge
+(18546,226,1,1,2,783), -- Cursed Dagger
+(18546,4043,5,15,2,15342), -- Asofe
+(18546,2165,4,12,2,19594), -- Recipe: Necklace of Protection
+(18546,1874,4,12,2,38354), -- Oriharukon Ore
+(18546,1865,52,156,2,43833), -- Varnish
+(18546,1870,24,72,2,95884), -- Coal
+(18546,4039,1,1,2,153415), -- Mold Glue
+-- Ancient Experiment Event Monster lvl 45
+(18547,1866,1,159,-1,941262), -- Suede
+(18547,1910,1,17,-1,945042), -- Aquastone Necklace Chain
+(18547,1871,1,237,-1,949172), -- Charcoal
+(18547,72,1,1,1,1009), -- Stormbringer
+(18547,71,1,1,1,1009), -- Flamberge
+(18547,2059,1,1,1,66090), -- Flamberge Blade
+(18547,8334,1,1,1,70651), -- Mysterious Sword Blade
+(18547,7887,1,1,2,1009), -- Mysterious Sword
+(18547,1871,240,720,2,18535), -- Charcoal
+(18547,5220,4,12,2,39543), -- Metal Hardener
+(18547,1866,60,180,2,49428), -- Suede
+(18547,2060,1,1,2,70648), -- Stormbringer Blade
+(18547,4041,1,1,2,77366), -- Mold Hardener
+(18547,1885,3,9,2,105918), -- High Grade Suede
+(18547,2213,1,1,2,138153), -- Recipe: Dwarven Chain Mail Shirt
+-- Ancient Experiment lvl 45
+(18548,4554,1,1,-1,115844), -- Greater Dye of STR 
+(18548,2165,1,3,-1,554808), -- Recipe: Necklace of Protection
+(18548,1954,1,3,-1,769829), -- Karmian Stocking Design
+(18548,302,1,1,1,259), -- Body Slasher
+(18548,298,1,1,1,259), -- Orcish Glaive
+(18548,96,1,1,1,259), -- Scythe
+(18548,2076,1,1,1,17892), -- Body Slasher Blade
+(18548,2062,1,1,1,17892), -- Scythe Edge
+(18548,2075,1,1,1,17892), -- Orcish Glaive Blade
+(18548,1884,22,66,2,31197), -- Cord
+(18548,2214,1,1,2,56606), -- Recipe: Dwarven Chain Gaiters
+(18548,1869,16,48,2,71289), -- Iron Ore
+(18548,4039,1,1,2,76041), -- Mold Glue
+(18548,1864,21,63,2,108630), -- Stem
+(18548,1878,3,9,2,152082), -- Braided Hemp
+-- Ancient Experiment lvl 45
+(18549,2213,1,1,-1,94357), -- Recipe: Dwarven Chain Mail Shirt
+(18549,1959,1,1,-1,163679), -- Chain Mail Shirt Material
+(18549,1958,1,1,-1,546211), -- Mithril Boots Design
+(18549,2454,1,1,1,329), -- Karmian Gloves
+(18549,2453,1,1,1,329), -- Chain Gloves
+(18549,2452,1,1,1,329), -- Reinforced Mithril Gloves
+(18549,2433,1,1,1,329), -- Boots of Seal
+(18549,2432,1,1,1,329), -- Dwarven Chain Boots
+(18549,2431,1,1,1,329), -- Plated Leather Boots
+(18549,2430,1,1,1,329), -- Karmian Boots
+(18549,2429,1,1,1,329), -- Chain Boots
+(18549,62,1,1,1,329), -- Mithril Boots
+(18549,2942,1,1,1,14342), -- Reinforced Mithril Gloves Design
+(18549,2943,1,1,1,14342), -- Chain Gloves Design
+(18549,2944,1,1,1,14342), -- Karmian Gloves Fabric
+(18549,1958,1,1,1,14342), -- Mithril Boots Design
+(18549,2937,1,1,1,14342), -- Chain Boots Part
+(18549,2938,1,1,1,14342), -- Karmian Boots Fabric
+(18549,2939,1,1,1,14342), -- Plate Leather Boot Lining
+(18549,2940,1,1,1,14342), -- Dwarven Chain Boots Part
+(18549,2941,1,1,1,14342), -- Boots of Seal Pattern
+(18549,2215,1,1,2,6097), -- Recipe: Robe of Seal
+(18549,4043,1,1,2,15955), -- Asofe
+(18549,4039,1,1,2,15955), -- Mold Glue
+(18549,1874,1,1,2,31910), -- Oriharukon Ore
+(18549,1865,1,3,2,159550), -- Varnish
+(18549,1870,1,3,2,239324), -- Coal
+-- Cruma Phantom Event Monster lvl 50
+(18550,4601,1,1,-1,261950), -- Greater Dye of STR 
+(18550,1885,1,21,-1,893011), -- High Grade Suede
+(18550,5220,1,9,-1,943019), -- Metal Hardener
+(18550,7882,1,1,0,211), -- Pa'agrian Sword
+(18550,75,1,1,1,211), -- Caliburs
+(18550,145,1,1,1,211), -- Sword of Whispering Death
+(18550,134,1,1,1,211), -- Sword of Nightmare
+(18550,84,1,1,1,211), -- Homunkulus's Sword
+(18550,77,1,1,1,211), -- Tsurugi
+(18550,76,1,1,1,211), -- Sword of Delusion
+(18550,8329,1,1,1,18129), -- Pa'agrian Sword Blade
+(18550,2089,1,1,1,18978), -- Caliburs Edge
+(18550,2090,1,1,1,18978), -- Delusional Blade
+(18550,2091,1,1,1,18978), -- Tsurugi Blade
+(18550,2092,1,1,1,18978), -- Homunkulus's Sword Blade
+(18550,2095,1,1,1,18978), -- Sword of Nightmare Blade
+(18550,2096,1,1,1,18978), -- Sword of Whispering Death Blade
+(18550,1871,240,720,2,16926), -- Charcoal
+(18550,5220,4,12,2,36108), -- Metal Hardener
+(18550,1866,60,180,2,45136), -- Suede
+(18550,4041,1,1,2,70647), -- Mold Hardener
+(18550,1885,3,9,2,96720), -- High Grade Suede
+(18550,2169,1,1,2,143796), -- Recipe: Necklace of Binding
+-- Cruma Phantom Event Monster lvl 50
+(18551,2169,1,5,-1,688912), -- Recipe: Necklace of Binding
+(18551,1539,1,55,-1,926751), -- Greater Healing Potion
+(18551,1914,1,13,-1,937164), -- Earring of Binding Gemstone
+(18551,7898,1,1,0,162), -- Karik Horn
+(18551,8345,1,1,0,14577), -- Karik Horn Piece
+(18551,162,1,1,1,162), -- War Axe
+(18551,174,1,1,1,162), -- Nirvana Axe
+(18551,196,1,1,1,162), -- Stick of Eternity
+(18551,197,1,1,1,162), -- Paradia Staff
+(18551,199,1,1,1,162), -- Pa'agrian Hammer
+(18551,200,1,1,1,162), -- Sage's Staff
+(18551,201,1,1,1,162), -- Club of Nature
+(18551,202,1,1,1,162), -- Mace of the Underworld
+(18551,2097,1,1,1,14367), -- War Axe Blade
+(18551,2098,1,1,1,14367), -- Nirvana Axe Blade
+(18551,2105,1,1,1,14367), -- Mace of the Underworld Head
+(18551,2102,1,1,1,14578), -- Pa'agrian Hammer Head
+(18551,2099,1,1,1,15120), -- Stick of Eternity Shaft
+(18551,2100,1,1,1,15120), -- Paradia Staff Head
+(18551,2103,1,1,1,15120), -- Sage's Staff Head
+(18551,2104,1,1,1,15120), -- Club of Nature Head
+(18551,1871,240,720,2,16767), -- Charcoal
+(18551,2170,4,12,2,21091), -- Recipe: Nassen's Earring
+(18551,1877,4,12,2,40241), -- Adamantite Nugget
+(18551,1866,52,156,2,51100), -- Suede
+(18551,4041,1,1,2,69985), -- Mold Hardener
+(18551,4040,1,1,2,160965), -- Mold Lubricant
+-- Cruma Phantom lvl 50
+(18552,2170,1,3,-1,664514), -- Recipe: Nassen's Earring
+(18552,1916,1,5,-1,799302), -- Necklace of Mermaid Teardrop
+(18552,1915,1,11,-1,827471), -- Ring of Ages Gemstone
+(18552,283,1,1,1,705), -- Akat Long Bow
+(18552,2109,1,1,1,65329), -- Akat Longbow Shaft
+(18552,2231,1,1,2,16741), -- Recipe: Full Plate Armor
+(18552,1872,60,180,2,43154), -- Animal Bone
+(18552,4042,1,1,2,64731), -- Enria
+(18552,1867,28,84,2,92473), -- Animal Skin
+(18552,1894,1,1,2,136276), -- Crafted Leather
+(18552,1882,3,9,2,143847), -- Leather
+-- Cruma Phantom lvl 50
+(18553,4602,1,1,-1,128815), -- Greater Dye of STR 
+(18553,1865,1,123,-1,934946), -- Varnish
+(18553,1870,1,123,-1,934946), -- Coal
+(18553,1916,1,1,1,169991), -- Necklace of Mermaid Teardrop
+(18553,1914,1,1,1,224428), -- Earring of Binding Gemstone
+(18553,1915,1,1,1,351966), -- Ring of Ages Gemstone
+(18553,917,1,1,2,2645), -- Necklace of Mermaid
+(18553,854,1,1,2,3526), -- Earring of Binding
+(18553,885,1,1,2,5287), -- Ring of Ages
+(18553,2232,1,1,2,22961), -- Recipe: Drake Leather Armor
+(18553,1875,4,12,2,29595), -- Stone of Purity
+(18553,1870,60,180,2,33294), -- Coal
+(18553,1865,28,84,2,71344), -- Varnish
+(18553,4040,1,1,2,79905), -- Mold Lubricant
+(18553,1879,3,9,2,110979), -- Cokes
+-- Tomlan Kamos Kaneus lvl 23
+(18554,32,1,1,0,211302), -- Piece Bone Gaiters
+-- Bloom lvl 36
+(18616,13033,1,10,2,1000000), -- Quick Healing Potion
+-- Frightened Ragna Orc lvl 80
+(18807,9630,1,1,-1,5000), -- Orichalcum
+(18807,9619,1,1,-1,10000), -- Dynasty Bow Piece
+(18807,9544,1,1,-1,12000), -- Sealed Dynasty Shoes Piece
+(18807,9628,1,1,1,200), -- Leonard
+(18807,9629,1,1,1,200), -- Adamantine
+(18807,9630,1,1,1,200), -- Orichalcum
+(18807,5167,1,1,1,1000), -- Recipe: Blessed Spiritshot (S) Compressed Package (100%)
+(18807,1885,1,1,1,20000), -- High Grade Suede
+(18807,1879,1,1,1,30000), -- Cokes
+(18807,5522,1,1,2,70), -- Sealed Armor of Nightmare Pattern
+(18807,5523,1,1,2,70), -- Sealed Majestic Plate Armor Pattern
+-- Dark Shaman Varangka lvl 82
+(18808,9629,1,1,1,25700), -- Adamantine
+(18808,9630,1,1,1,69400), -- Orichalcum
+(18808,9628,1,1,1,138900), -- Leonard
+(18808,9629,1,1,2,100000), -- Adamantine
+(18808,9628,1,1,3,100000), -- Leonard
+(18808,9630,1,1,4,100000), -- Orichalcum
+(18808,9551,1,1,8,100000), -- Divine Stone
+(18808,9550,1,1,9,100000), -- Dark Stone
+(18808,9575,1,1,200,7700), -- High-Grade Life Stone: level 80
+(18808,9574,1,1,200,97200), -- Mid-Grade Life Stone: level 80
+(18808,9573,2,6,200,111100), -- Life Stone: level 80
+(18808,9551,1,3,200,138900), -- Divine Stone
+(18808,9550,1,3,200,180600), -- Dark Stone
+-- Nihil Invader Treasure Chest lvl 70
+(18820,4043,3,4,1,33700), -- Asofe
+(18820,4044,3,4,2,31500), -- Thons
+(18820,4042,2,3,3,19500), -- Enria
+(18820,9628,1,2,4,10500), -- Leonard
+-- Mutant Treasure Chest lvl 80
+(18823,4043,3,4,1,28800), -- Asofe
+(18823,4044,3,4,2,27300), -- Thons
+(18823,4042,2,3,3,20800), -- Enria
+(18823,9628,1,2,4,11300), -- Leonard
+-- Cave Maiden lvl 59
+(20134,12161,1,1,1,233), -- Common Item - Zubei's Breastplate
+(20134,12172,1,1,1,233), -- Common Item - Avadon Plate Gaiters
+(20134,12173,1,1,1,233), -- Common Item - Avadon Breastplate
+(20134,12152,1,1,1,465), -- Common Item - Zubei's Gaiters
+-- Oel Mahum lvl 53
+(20161,11839,1,1,1,98), -- Common Item - Great Pata
+-- Royal Cave Servant lvl 51
+(20240,11827,1,1,1,115), -- Common Item - Fisted Blade
+-- Hunter Gargoyle lvl 52
+(20241,12334,1,1,1,1704), -- Common Item - Necklace of Mermaid
+(20241,12332,1,1,1,1949), -- Common Item - Earring of Binding
+(20241,12333,1,1,1,2849), -- Common Item - Ring of Ages
+-- Dustwind Gargoyle lvl 53
+(20242,12135,1,1,1,245), -- Common Item - Drake Leather Armor
+(20242,12133,1,1,1,452), -- Common Item - Theca Leather Armor
+(20242,12130,1,1,1,716), -- Common Item - Theca Leather Gaiters
+-- Thunder Wyrm lvl 54
+(20243,11838,1,1,1,2), -- Common Item - Ghoul's Staff
+(20243,11842,1,1,1,2), -- Common Item - Deadman's Staff
+(20243,11855,1,1,1,2), -- Common Item - Demon's Staff
+(20243,11856,1,1,1,2), -- Common Item - Yaksa Mace
+(20243,11833,1,1,1,3), -- Common Item - Pa'agrian Axe
+-- Malruk Succubus lvl 55
+(20244,12133,1,1,1,422), -- Common Item - Theca Leather Armor
+(20244,12135,1,1,1,422), -- Common Item - Drake Leather Armor
+(20244,12130,1,1,1,1267), -- Common Item - Theca Leather Gaiters
+-- Elder Tarlk Basilisk lvl 51
+(20574,11805,1,1,1,33), -- Common Item - Sword of Whispering Death
+(20574,11807,1,1,1,33), -- Common Item - Sword of Delusion
+(20574,11815,1,1,1,33), -- Common Item - Sword of Nightmare
+(20574,11820,1,1,1,33), -- Common Item - Tsurugi
+(20574,11821,1,1,1,33), -- Common Item - Caliburs
+(20574,11829,1,1,1,33), -- Common Item - Homunkulus's Sword
+-- Oel Mahum Warrior lvl 54
+(20575,11843,1,1,1,21), -- Common Item - Berserker Blade
+(20575,11853,1,1,1,186), -- Common Item - Samurai Long Sword
+-- Oel Mahum Witch Doctor lvl 55
+(20576,12336,1,1,1,1248), -- Common Item - Necklace of Binding
+(20576,12335,1,1,1,2421), -- Common Item - Nassen's Earring
+(20576,12337,1,1,1,2639), -- Common Item - Ring of Binding
+-- Fline Elder lvl 51
+(20595,11800,1,1,1,86), -- Common Item - Grace Dagger
+(20595,11803,1,1,1,86), -- Common Item - Dark Screamer
+-- Liele Elder lvl 52
+(20596,11804,1,1,1,76), -- Common Item - Club of Nature
+(20596,11806,1,1,1,76), -- Common Item - Mace of the Underworld
+(20596,11816,1,1,1,76), -- Common Item - War Axe
+(20596,11824,1,1,1,76), -- Common Item - Pa'agrian Hammer
+(20596,11825,1,1,1,76), -- Common Item - Paradia Staff
+(20596,11828,1,1,1,76), -- Common Item - Sage's Staff
+(20596,11802,1,1,1,152), -- Common Item - Nirvana Axe
+(20596,11799,1,1,1,227), -- Common Item - Stick of Eternity
+-- Valley Treant Elder lvl 53
+(20597,12138,1,1,1,1344), -- Common Item - Divine Tunic
+(20597,12139,1,1,1,1934), -- Common Item - Divine Stockings
+-- Satyr Elder lvl 54
+(20598,12138,1,1,1,1869), -- Common Item - Divine Tunic
+(20598,12139,1,1,1,1972), -- Common Item - Divine Stockings
+-- Unicorn Elder lvl 55
+(20599,12134,1,1,1,786), -- Common Item - Drake Leather Gloves
+(20599,12141,1,1,1,983), -- Common Item - Full Plate Gauntlet
+(20599,12142,1,1,1,1081), -- Common Item - Full Plate Boots
+(20599,12137,1,1,1,1179), -- Common Item - Divine Gloves
+(20599,12132,1,1,1,1869), -- Common Item - Theca Leather Boots
+(20599,12136,1,1,1,2066), -- Common Item - Drake Leather Boots
+(20599,12131,1,1,1,2558), -- Common Item - Theca Leather Gloves
+-- Cave Beast lvl 61
+(20620,11889,1,1,1,59), -- Common Item - Great Sword
+(20620,11900,1,1,1,59), -- Common Item - Sword of Valhalla
+(20620,11916,1,1,1,59), -- Common Item - Keshanberk
+-- Death Wave lvl 62
+(20621,12194,1,1,1,428), -- Common Item - Blue Wolf Leather Armor
+(20621,12186,1,1,1,1436), -- Common Item - Leather Armor of Doom
+-- Malruk Soldier lvl 63
+(20622,12341,1,1,1,908), -- Common Item - Earring of Black Ore
+(20622,12342,1,1,1,1198), -- Common Item - Necklace of Black Ore
+(20622,12343,1,1,1,2227), -- Common Item - Ring of Black Ore
+-- Plando lvl 64
+(20623,12202,1,1,1,1451), -- Common Item - Blue Wolf Helmet
+(20623,12185,1,1,1,2049), -- Common Item - Doom Helmet
+(20623,12183,1,1,1,2817), -- Common Item - Doom Shield
+-- Cave Howler lvl 65
+(20624,11929,1,1,1,68), -- Common Item - Guardian Sword
+(20624,11930,1,1,1,68), -- Common Item - Sword of Damascus
+(20624,11943,1,1,1,68), -- Common Item - Wizard's Tear
+-- Malruk Knight lvl 66
+(20625,11933,1,1,1,710), -- Common Item - Bellion Cestus
+-- Malruk Berserker lvl 67
+(20626,12184,1,1,1,243), -- Common Item - Doom Plate Armor
+(20626,12204,1,1,1,567), -- Common Item - Blue Wolf Breastplate
+(20626,12193,1,1,1,1053), -- Common Item - Blue Wolf Gaiters
+-- Malruk Lord lvl 68
+(20627,12221,1,1,1,1218), -- Common Item - Sealed Dark Crystal Gloves
+(20627,12231,1,1,1,1319), -- Common Item - Sealed Tallum Boots
+(20627,12224,1,1,1,1522), -- Common Item - Sealed Dark Crystal Boots
+(20627,12229,1,1,1,2028), -- Common Item - Sealed Tallum Gloves
+-- Limal Karinness lvl 69
+(20628,12223,1,1,1,195), -- Common Item - Sealed Dark Crystal Robe
+(20628,12232,1,1,1,586), -- Common Item - Sealed Tallum Tunic
+(20628,12235,1,1,1,586), -- Common Item - Sealed Tallum Stockings
+-- Karik lvl 70
+(20629,12226,1,1,1,439), -- Common Item - Sealed Dark Crystal Helmet
+(20629,12234,1,1,1,1318), -- Common Item - Sealed Tallum Helmet
+(20629,12225,1,1,1,2924), -- Common Item - Sealed Dark Crystal Shield
+-- Harit Lizardman Grunt lvl 51
+(20641,12332,1,1,1,924), -- Common Item - Earring of Binding
+(20641,12334,1,1,1,1385), -- Common Item - Necklace of Mermaid
+(20641,12333,1,1,1,3460), -- Common Item - Ring of Ages
+-- Harit Lizardman Archer lvl 52
+(20642,11814,1,1,1,293), -- Common Item - Akat Long Bow
+-- Harit Lizardman Warrior lvl 53
+(20643,12145,1,1,1,851), -- Common Item - Full Plate Helmet
+(20643,12143,1,1,1,1984), -- Common Item - Full Plate Shield
+-- Harit Lizardman Shaman lvl 54
+(20644,12138,1,1,1,239), -- Common Item - Divine Tunic
+(20644,12139,1,1,1,717), -- Common Item - Divine Stockings
+-- Harit Lizardman Matriarch lvl 55
+(20645,11857,1,1,1,491), -- Common Item - Eminence Bow
+-- Halingka lvl 55
+(20646,11830,1,1,1,614), -- Common Item - Scorpion
+(20646,11832,1,1,1,614), -- Common Item - Widow Maker
+(20646,11858,1,1,1,614), -- Common Item - Orcish Poleaxe
+-- Yintzu lvl 56
+(20647,12149,1,1,1,372), -- Common Item - Sealed Avadon Boots
+(20647,12147,1,1,1,744), -- Common Item - Sealed Zubei's Boots
+(20647,12146,1,1,1,1862), -- Common Item - Sealed Zubei's Gauntlet
+(20647,12148,1,1,1,2232), -- Common Item - Sealed Avadon Gloves
+-- Paliote lvl 57
+(20648,12146,1,1,1,972), -- Common Item - Sealed Zubei's Gauntlet
+(20648,12147,1,1,1,1458), -- Common Item - Sealed Zubei's Boots
+(20648,12149,1,1,1,1458), -- Common Item - Sealed Avadon Boots
+(20648,12148,1,1,1,2915), -- Common Item - Sealed Avadon Gloves
+-- Hamrut lvl 58
+(20649,11889,1,1,1,73), -- Common Item - Great Sword
+(20649,11900,1,1,1,220), -- Common Item - Sword of Valhalla
+(20649,11916,1,1,1,293), -- Common Item - Keshanberk
+-- Kranrot lvl 59
+(20650,12339,1,1,1,1083), -- Common Item - Adamantite Necklace
+(20650,12338,1,1,1,1247), -- Common Item - Adamantite Earring
+(20650,12340,1,1,1,2101), -- Common Item - Adamantite Ring
+-- Gamlin lvl 60
+(20651,11889,1,1,1,47), -- Common Item - Great Sword
+(20651,11900,1,1,1,47), -- Common Item - Sword of Valhalla
+(20651,11916,1,1,1,47), -- Common Item - Keshanberk
+-- Leogul lvl 61
+(20652,12150,1,1,1,266), -- Common Item - Zubei's Leather Gaiters
+(20652,12165,1,1,1,266), -- Common Item - Avadon Leather Armor
+(20652,12151,1,1,1,532), -- Common Item - Zubei's Leather Shirt
+-- Lesser Giant Soldier lvl 62
+(20654,12203,1,1,1,321), -- Common Item - Blue Wolf Stockings
+(20654,12205,1,1,1,321), -- Common Item - Stockings of Doom
+(20654,12192,1,1,1,642), -- Common Item - Tunic of Doom
+(20654,12201,1,1,1,642), -- Common Item - Blue Wolf Tunic
+-- Lesser Giant Shooter lvl 63
+(20655,12185,1,1,1,250), -- Common Item - Doom Helmet
+(20655,12202,1,1,1,250), -- Common Item - Blue Wolf Helmet
+(20655,12183,1,1,1,750), -- Common Item - Doom Shield
+-- Lesser Giant Scout lvl 63
+(20656,12192,1,1,1,242), -- Common Item - Tunic of Doom
+(20656,12205,1,1,1,485), -- Common Item - Stockings of Doom
+(20656,12203,1,1,1,728), -- Common Item - Blue Wolf Stockings
+(20656,12201,1,1,1,1214), -- Common Item - Blue Wolf Tunic
+-- Lesser Giant Mage lvl 64
+(20657,12203,1,1,1,235), -- Common Item - Blue Wolf Stockings
+(20657,12205,1,1,1,235), -- Common Item - Stockings of Doom
+(20657,12192,1,1,1,939), -- Common Item - Tunic of Doom
+(20657,12201,1,1,1,939), -- Common Item - Blue Wolf Tunic
+-- Lesser Giant Elder lvl 65
+(20658,12341,1,1,1,228), -- Common Item - Earring of Black Ore
+(20658,12342,1,1,1,228), -- Common Item - Necklace of Black Ore
+(20658,12343,1,1,1,456), -- Common Item - Ring of Black Ore
+-- Taik Orc Supply lvl 51
+(20665,11799,1,1,1,3), -- Common Item - Stick of Eternity
+(20665,11802,1,1,1,3), -- Common Item - Nirvana Axe
+(20665,11806,1,1,1,3), -- Common Item - Mace of the Underworld
+(20665,11816,1,1,1,3), -- Common Item - War Axe
+(20665,11825,1,1,1,3), -- Common Item - Paradia Staff
+(20665,11828,1,1,1,3), -- Common Item - Sage's Staff
+(20665,11824,1,1,1,8), -- Common Item - Pa'agrian Hammer
+(20665,11804,1,1,1,693), -- Common Item - Club of Nature
+-- Taik Orc Seeker lvl 52
+(20666,12125,1,1,1,3106), -- Common Item - Composite Boots
+(20666,12119,1,1,1,3247), -- Common Item - Mithril Gauntlet
+-- Farcran lvl 53
+(20667,11830,1,1,1,2), -- Common Item - Scorpion
+(20667,11832,1,1,1,6), -- Common Item - Widow Maker
+(20667,11858,1,1,1,6), -- Common Item - Orcish Poleaxe
+-- Grave Guard lvl 54
+(20668,11838,1,1,1,2), -- Common Item - Ghoul's Staff
+(20668,11842,1,1,1,2), -- Common Item - Deadman's Staff
+(20668,11855,1,1,1,2), -- Common Item - Demon's Staff
+(20668,11856,1,1,1,2), -- Common Item - Yaksa Mace
+(20668,11833,1,1,1,3), -- Common Item - Pa'agrian Axe
+-- Taik Orc Supply Leader lvl 55
+(20669,11857,1,1,1,94), -- Common Item - Eminence Bow
+-- Kadios lvl 62
+(20671,12204,1,1,1,9), -- Common Item - Blue Wolf Breastplate
+(20671,12184,1,1,1,43), -- Common Item - Doom Plate Armor
+(20671,12193,1,1,1,130), -- Common Item - Blue Wolf Gaiters
+-- Trives lvl 63
+(20672,12187,1,1,1,148), -- Common Item - Sealed Doom Gloves
+(20672,12188,1,1,1,148), -- Common Item - Sealed Doom Boots
+(20672,12189,1,1,1,326), -- Common Item - Sealed Blue Wolf Boots
+(20672,12190,1,1,1,326), -- Common Item - Sealed Blue Wolf Gloves
+-- Falibati lvl 64
+(20673,11929,1,1,1,22), -- Common Item - Guardian Sword
+(20673,11930,1,1,1,44), -- Common Item - Sword of Damascus
+(20673,11943,1,1,1,44), -- Common Item - Wizard's Tear
+-- Doom Knight lvl 65
+(20674,12188,1,1,1,325), -- Common Item - Sealed Doom Boots
+(20674,12190,1,1,1,415), -- Common Item - Sealed Blue Wolf Gloves
+(20674,12187,1,1,1,494), -- Common Item - Sealed Doom Gloves
+(20674,12189,1,1,1,595), -- Common Item - Sealed Blue Wolf Boots
+-- Tortured Undead lvl 53
+(20678,11839,1,1,1,171), -- Common Item - Great Pata
+-- Marsh Stalker lvl 54
+(20679,11833,1,1,1,80), -- Common Item - Pa'agrian Axe
+(20679,11838,1,1,1,80), -- Common Item - Ghoul's Staff
+(20679,11842,1,1,1,80), -- Common Item - Deadman's Staff
+(20679,11855,1,1,1,80), -- Common Item - Demon's Staff
+(20679,11856,1,1,1,80), -- Common Item - Yaksa Mace
+-- Marsh Drake lvl 55
+(20680,11830,1,1,1,40), -- Common Item - Scorpion
+(20680,11832,1,1,1,40), -- Common Item - Widow Maker
+(20680,11858,1,1,1,40), -- Common Item - Orcish Poleaxe
+-- Pytan lvl 69
+(20761,12233,1,1,1,192), -- Common Item - Sealed Tallum Plate Armor
+(20761,12220,1,1,1,385), -- Common Item - Sealed Dark Crystal Gaiters
+(20761,12227,1,1,1,577), -- Common Item - Sealed Dark Crystal Breastplate
+-- Pytan Knight lvl 68
+(20762,12230,1,1,1,96), -- Common Item - Sealed Tallum Leather Armor
+(20762,12222,1,1,1,288), -- Common Item - Sealed Dark Crystal Leather Armor
+(20762,12228,1,1,1,769), -- Common Item - Sealed Dark Crystal Leggings
+-- Barif lvl 64
+(20771,11934,1,1,1,4), -- Common Item - Staff of Evil Spirits
+(20771,11935,1,1,1,4), -- Common Item - Deadman's Glory
+(20771,11938,1,1,1,4), -- Common Item - Art of Battle Axe
+-- Barif's Pet lvl 61
+(20772,11890,1,1,1,3300), -- Common Item - Great Axe
+-- Conjurer Bat Lord lvl 72
+(20773,12344,1,1,1,218), -- Common Item - Sealed Phoenix Necklace
+(20773,12345,1,1,1,218), -- Common Item - Sealed Phoenix Earring
+(20773,12346,1,1,1,611), -- Common Item - Sealed Phoenix Ring
+-- Conjurer Bat lvl 70
+(20774,12229,1,1,1,352), -- Common Item - Sealed Tallum Gloves
+(20774,12231,1,1,1,442), -- Common Item - Sealed Tallum Boots
+(20774,12221,1,1,1,497), -- Common Item - Sealed Dark Crystal Gloves
+(20774,12224,1,1,1,497), -- Common Item - Sealed Dark Crystal Boots
+-- Ghost of the Tower lvl 60
+(20809,12161,1,1,1,138), -- Common Item - Zubei's Breastplate
+(20809,12173,1,1,1,138), -- Common Item - Avadon Breastplate
+(20809,12152,1,1,1,415), -- Common Item - Zubei's Gaiters
+(20809,12172,1,1,1,553), -- Common Item - Avadon Plate Gaiters
+-- Seer of Hallate lvl 60
+(20810,11918,1,1,1,101), -- Common Item - Heavy War Axe
+(20810,11908,1,1,1,201), -- Common Item - Sprite's Staff
+-- Ghastly Warrior lvl 61
+(20811,11889,1,1,1,267), -- Common Item - Great Sword
+(20811,11916,1,1,1,267), -- Common Item - Keshanberk
+(20811,11900,1,1,1,667), -- Common Item - Sword of Valhalla
+-- Archer of Despair lvl 61
+(20812,11896,1,1,1,483), -- Common Item - Dark Elven Long Bow
+-- Crendion lvl 62
+(20813,12192,1,1,1,469), -- Common Item - Tunic of Doom
+(20813,12201,1,1,1,469), -- Common Item - Blue Wolf Tunic
+(20813,12203,1,1,1,469), -- Common Item - Blue Wolf Stockings
+(20813,12205,1,1,1,469), -- Common Item - Stockings of Doom
+-- Blader of Despair lvl 62
+(20814,12187,1,1,1,789), -- Common Item - Sealed Doom Gloves
+(20814,12188,1,1,1,1052), -- Common Item - Sealed Doom Boots
+(20814,12189,1,1,1,1842), -- Common Item - Sealed Blue Wolf Boots
+(20814,12190,1,1,1,2101), -- Common Item - Sealed Blue Wolf Gloves
+-- Hound Dog of Hallate lvl 63
+(20815,12186,1,1,1,260), -- Common Item - Leather Armor of Doom
+(20815,12194,1,1,1,260), -- Common Item - Blue Wolf Leather Armor
+-- Hallate's Royal Guard lvl 63
+(20816,12186,1,1,1,377), -- Common Item - Leather Armor of Doom
+(20816,12194,1,1,1,1321), -- Common Item - Blue Wolf Leather Armor
+-- Corrupt Sage lvl 64
+(20817,11933,1,1,1,482), -- Common Item - Bellion Cestus
+-- Hallate's Warrior lvl 64
+(20818,11944,1,1,1,680), -- Common Item - Bow of Peril
+-- Archer of Abyss lvl 65
+(20819,11934,1,1,1,147), -- Common Item - Staff of Evil Spirits
+(20819,11935,1,1,1,147), -- Common Item - Deadman's Glory
+(20819,11938,1,1,1,147), -- Common Item - Art of Battle Axe
+-- Hallate's Knight lvl 65
+(20820,12341,1,1,1,1377), -- Common Item - Earring of Black Ore
+(20820,12342,1,1,1,1835), -- Common Item - Necklace of Black Ore
+(20820,12343,1,1,1,4808), -- Common Item - Ring of Black Ore
+-- Erin Ediunce lvl 66
+(20821,11932,1,1,1,297), -- Common Item - Lance
+-- Hallate's Maid lvl 66
+(20822,11932,1,1,1,231), -- Common Item - Lance
+-- Platinum Tribe Soldier lvl 67
+(20823,12205,1,1,1,345), -- Common Item - Stockings of Doom
+(20823,12192,1,1,1,691), -- Common Item - Tunic of Doom
+(20823,12201,1,1,1,2415), -- Common Item - Blue Wolf Tunic
+(20823,12203,1,1,1,2762), -- Common Item - Blue Wolf Stockings
+-- Hallate's Commander lvl 67
+(20824,12342,1,1,1,1522), -- Common Item - Necklace of Black Ore
+(20824,12341,1,1,1,2558), -- Common Item - Earring of Black Ore
+(20824,12343,1,1,1,2865), -- Common Item - Ring of Black Ore
+-- Hallate's Inspector lvl 68
+(20825,12234,1,1,1,926), -- Common Item - Sealed Tallum Helmet
+(20825,12225,1,1,1,1389), -- Common Item - Sealed Dark Crystal Shield
+(20825,12226,1,1,1,2114), -- Common Item - Sealed Dark Crystal Helmet
+-- Platinum Tribe Archer lvl 68
+(20826,12233,1,1,1,347), -- Common Item - Sealed Tallum Plate Armor
+(20826,12227,1,1,1,1041), -- Common Item - Sealed Dark Crystal Breastplate
+(20826,12220,1,1,1,2079), -- Common Item - Sealed Dark Crystal Gaiters
+-- Platinum Tribe Warrior lvl 69
+(20827,12230,1,1,1,259), -- Common Item - Sealed Tallum Leather Armor
+(20827,12222,1,1,1,517), -- Common Item - Sealed Dark Crystal Leather Armor
+(20827,12228,1,1,1,1292), -- Common Item - Sealed Dark Crystal Leggings
+-- Platinum Tribe Shaman lvl 70
+(20828,12223,1,1,1,612), -- Common Item - Sealed Dark Crystal Robe
+(20828,12232,1,1,1,1225), -- Common Item - Sealed Tallum Tunic
+(20828,12235,1,1,1,1225), -- Common Item - Sealed Tallum Stockings
+-- Platinum Tribe Overlord lvl 71
+(20829,12227,1,1,1,483), -- Common Item - Sealed Dark Crystal Breastplate
+(20829,12233,1,1,1,483), -- Common Item - Sealed Tallum Plate Armor
+(20829,12220,1,1,1,1449), -- Common Item - Sealed Dark Crystal Gaiters
+-- Kaim Vanul lvl 51
+(20844,12334,1,1,1,38), -- Common Item - Necklace of Mermaid
+(20844,12332,1,1,1,51), -- Common Item - Earring of Binding
+(20844,12333,1,1,1,76), -- Common Item - Ring of Ages
+-- Pirate's Zombie Captain lvl 52
+(20845,11805,1,1,1,3), -- Common Item - Sword of Whispering Death
+(20845,11807,1,1,1,3), -- Common Item - Sword of Delusion
+(20845,11815,1,1,1,3), -- Common Item - Sword of Nightmare
+(20845,11820,1,1,1,3), -- Common Item - Tsurugi
+(20845,11821,1,1,1,3), -- Common Item - Caliburs
+(20845,11829,1,1,1,3), -- Common Item - Homunkulus's Sword
+-- Doll Blader lvl 53
+(20846,12135,1,1,1,11), -- Common Item - Drake Leather Armor
+(20846,12133,1,1,1,20), -- Common Item - Theca Leather Armor
+(20846,12130,1,1,1,31), -- Common Item - Theca Leather Gaiters
+-- Vale Master lvl 54
+(20847,12134,1,1,1,19), -- Common Item - Drake Leather Gloves
+(20847,12136,1,1,1,19), -- Common Item - Drake Leather Boots
+(20847,12137,1,1,1,19), -- Common Item - Divine Gloves
+(20847,12141,1,1,1,19), -- Common Item - Full Plate Gauntlet
+(20847,12142,1,1,1,19), -- Common Item - Full Plate Boots
+(20847,12131,1,1,1,24), -- Common Item - Theca Leather Gloves
+(20847,12132,1,1,1,24), -- Common Item - Theca Leather Boots
+-- Guardian Angel lvl 72
+(20859,12233,1,1,1,428), -- Common Item - Sealed Tallum Plate Armor
+(20859,12227,1,1,1,713), -- Common Item - Sealed Dark Crystal Breastplate
+(20859,12220,1,1,1,2421), -- Common Item - Sealed Dark Crystal Gaiters
+-- Seal Angel lvl 73
+(20860,12227,1,1,1,1316), -- Common Item - Sealed Dark Crystal Breastplate
+(20860,12220,1,1,1,1842), -- Common Item - Sealed Dark Crystal Gaiters
+(20860,12233,1,1,1,1842), -- Common Item - Sealed Tallum Plate Armor
+-- Sanhidro lvl 52
+(20946,12126,1,1,1,902), -- Common Item - Composite Shield
+(20946,12120,1,1,1,1127), -- Common Item - Shining Circlet
+(20946,12127,1,1,1,1802), -- Common Item - Composite Helmet
+(20946,12129,1,1,1,2028), -- Common Item - Tower Shield
+-- Connabi lvl 54
+(20947,12144,1,1,1,138), -- Common Item - Full Plate Armor
+-- Pobby's Maid lvl 53
+(20951,11839,1,1,1,119), -- Common Item - Great Pata
+-- Pobby Escort lvl 55
+(20952,11857,1,1,1,415), -- Common Item - Eminence Bow
+-- Huge Footmark lvl 70
+(20964,3035,1,1,-1,2449), -- Recipe: Spiritshot A
+(20964,1874,1,1,-1,122460), -- Oriharukon Ore
+(20964,1875,1,1,-1,122460), -- Stone of Purity
+(20964,57,890,1808,0,700000), -- Adena
+(20964,12225,1,1,1,283), -- Common Item - Sealed Dark Crystal Shield
+(20964,12226,1,1,1,283), -- Common Item - Sealed Dark Crystal Helmet
+(20964,12234,1,1,1,283), -- Common Item - Sealed Tallum Helmet
+(20964,5525,1,1,1,1398), -- Sealed Dark Crystal Helmet Design
+(20964,5526,1,1,1,1398), -- Sealed Tallum Helm Design
+(20964,5494,1,1,1,1899), -- Sealed Dark Crystal Shield Fragment
+(20964,4174,1,1,2,283), -- Recipe: Zubei's Boots (100%)
+(20964,4042,1,1,2,1701), -- Enria
+(20964,1876,1,1,2,15625), -- Mithril Ore
+(20964,1895,1,1,2,18868), -- Metallic Fiber
+(20964,1873,1,1,2,23256), -- Silver Nugget
+(20964,1868,1,1,2,142857), -- Thread
+-- Forgotten Ancient People lvl 77
+(20973,7657,1,1,2,3378), -- Spellbook - Wizard Servitor
+(20973,7659,1,1,2,3378), -- Spellbook - Final Servitor
+(20973,7658,1,1,2,4566), -- Spellbook - Assassin Servitor
+(20973,7656,1,1,2,32158), -- Spellbook - Warrior Servitor
+-- Spiteful Soul Leader lvl 65
+(20974,5276,1,1,2,224), -- Recipe: Greater Spiritshot (A) Compressed Package(100%)
+-- Spiteful Soul Wizard lvl 63
+(20975,12202,1,1,1,285), -- Common Item - Blue Wolf Helmet
+(20975,12183,1,1,1,571), -- Common Item - Doom Shield
+(20975,12185,1,1,1,1427), -- Common Item - Doom Helmet
+-- Spiteful Soul Fighter lvl 62
+(20976,12184,1,1,1,210), -- Common Item - Doom Plate Armor
+(20976,12193,1,1,1,421), -- Common Item - Blue Wolf Gaiters
+(20976,12204,1,1,1,421), -- Common Item - Blue Wolf Breastplate
+-- Elmoradan's Lady lvl 65
+(20977,12341,1,1,1,2232), -- Common Item - Earring of Black Ore
+(20977,12342,1,1,1,2232), -- Common Item - Necklace of Black Ore
+(20977,12343,1,1,1,11111), -- Common Item - Ring of Black Ore
+-- Elmoradan's Archer Escort lvl 64
+(20978,11930,1,1,1,12), -- Common Item - Sword of Damascus
+(20978,11943,1,1,1,15), -- Common Item - Wizard's Tear
+-- Elmoradan's Maid lvl 64
+(20979,11934,1,1,1,4), -- Common Item - Staff of Evil Spirits
+(20979,11935,1,1,1,4), -- Common Item - Deadman's Glory
+(20979,11938,1,1,1,4), -- Common Item - Art of Battle Axe
+-- Hallate's Follower Mul lvl 68
+(20980,12233,1,1,1,339), -- Common Item - Sealed Tallum Plate Armor
+(20980,12220,1,1,1,1357), -- Common Item - Sealed Dark Crystal Gaiters
+(20980,12227,1,1,1,1695), -- Common Item - Sealed Dark Crystal Breastplate
+-- Mul's Wizard lvl 67
+(20981,10303,1,1,1,159), -- Transform Sealbook - Vale Master
+(20981,12184,1,1,1,353), -- Common Item - Doom Plate Armor
+(20981,12193,1,1,1,353), -- Common Item - Blue Wolf Gaiters
+(20981,12204,1,1,1,353), -- Common Item - Blue Wolf Breastplate
+-- Mul's Knight lvl 67
+(20982,5230,1,1,-1,6034), -- Recipe: Mithril Arrow (100%)
+(20982,10303,1,1,1,313), -- Transform Sealbook - Vale Master
+(20982,12192,1,1,1,341), -- Common Item - Tunic of Doom
+(20982,12201,1,1,1,341), -- Common Item - Blue Wolf Tunic
+(20982,12203,1,1,1,683), -- Common Item - Blue Wolf Stockings
+(20982,12205,1,1,1,683), -- Common Item - Stockings of Doom
+(20982,5276,1,1,2,223), -- Recipe: Greater Spiritshot (A) Compressed Package(100%)
+-- Binder lvl 73
+(20983,12230,1,1,1,402), -- Common Item - Sealed Tallum Leather Armor
+(20983,12222,1,1,1,536), -- Common Item - Sealed Dark Crystal Leather Armor
+(20983,12228,1,1,1,804), -- Common Item - Sealed Dark Crystal Leggings
+-- Bound Warrior lvl 72
+(20984,12223,1,1,1,404), -- Common Item - Sealed Dark Crystal Robe
+(20984,12232,1,1,1,808), -- Common Item - Sealed Tallum Tunic
+(20984,12235,1,1,1,808), -- Common Item - Sealed Tallum Stockings
+-- Bound Archer lvl 72
+(20985,12344,1,1,1,794), -- Common Item - Sealed Phoenix Necklace
+(20985,12345,1,1,1,1590), -- Common Item - Sealed Phoenix Earring
+(20985,12346,1,1,1,1590), -- Common Item - Sealed Phoenix Ring
+-- Sairon lvl 54
+(20986,12145,1,1,1,126), -- Common Item - Full Plate Helmet
+(20986,12143,1,1,1,180), -- Common Item - Full Plate Shield
+-- Sairon's Doll lvl 53
+(20987,11858,1,1,1,7), -- Common Item - Orcish Poleaxe
+(20987,11830,1,1,1,9), -- Common Item - Scorpion
+(20987,11832,1,1,1,9), -- Common Item - Widow Maker
+-- Sairon's Puppet lvl 53
+(20988,12135,1,1,1,29), -- Common Item - Drake Leather Armor
+(20988,12133,1,1,1,55), -- Common Item - Theca Leather Armor
+(20988,12130,1,1,1,87), -- Common Item - Theca Leather Gaiters
+-- Soldier of Grief lvl 51
+(20997,12128,1,1,1,529), -- Common Item - Composite Armor
+-- Cruel Punisher lvl 52
+(20998,11799,1,1,1,64), -- Common Item - Stick of Eternity
+(20998,11802,1,1,1,64), -- Common Item - Nirvana Axe
+(20998,11804,1,1,1,64), -- Common Item - Club of Nature
+(20998,11806,1,1,1,64), -- Common Item - Mace of the Underworld
+(20998,11816,1,1,1,64), -- Common Item - War Axe
+(20998,11824,1,1,1,64), -- Common Item - Pa'agrian Hammer
+(20998,11825,1,1,1,64), -- Common Item - Paradia Staff
+(20998,11828,1,1,1,64), -- Common Item - Sage's Staff
+-- Roving Soul lvl 53
+(20999,11863,1,1,1,113), -- Common Item - Crystal Dagger
+-- Soul of Ruins lvl 54
+(21000,11830,1,1,1,40), -- Common Item - Scorpion
+(21000,11832,1,1,1,40), -- Common Item - Widow Maker
+(21000,11858,1,1,1,40), -- Common Item - Orcish Poleaxe
+-- Wretched Archer lvl 55
+(21001,11857,1,1,1,125), -- Common Item - Eminence Bow
+-- Doom Servant lvl 60
+(21006,12161,1,1,1,176), -- Common Item - Zubei's Breastplate
+(21006,12152,1,1,1,234), -- Common Item - Zubei's Gaiters
+(21006,12172,1,1,1,241), -- Common Item - Avadon Plate Gaiters
+(21006,12173,1,1,1,285), -- Common Item - Avadon Breastplate
+-- Fallen Orc lvl 55
+(21017,12135,1,1,1,116), -- Common Item - Drake Leather Armor
+(21017,12133,1,1,1,694), -- Common Item - Theca Leather Armor
+(21017,12130,1,1,1,1099), -- Common Item - Theca Leather Gaiters
+-- Fallen Orc Shaman lvl 58
+(21020,11889,1,1,1,54), -- Common Item - Great Sword
+(21020,11900,1,1,1,54), -- Common Item - Sword of Valhalla
+(21020,11916,1,1,1,54), -- Common Item - Keshanberk
+-- Beast Lord lvl 60
+(21058,11889,1,1,1,264), -- Common Item - Great Sword
+(21058,11900,1,1,1,264), -- Common Item - Sword of Valhalla
+(21058,11916,1,1,1,264), -- Common Item - Keshanberk
+-- Beast Guardian lvl 59
+(21059,11896,1,1,1,843), -- Common Item - Dark Elven Long Bow
+-- Beast Seer lvl 59
+(21060,11915,1,1,1,159), -- Common Item - Kris
+(21060,11919,1,1,1,159), -- Common Item - Hell Knife
+-- Hallate's Guardian lvl 69
+(21061,12227,1,1,1,245), -- Common Item - Sealed Dark Crystal Breastplate
+(21061,12233,1,1,1,551), -- Common Item - Sealed Tallum Plate Armor
+(21061,12220,1,1,1,858), -- Common Item - Sealed Dark Crystal Gaiters
+-- Messenger Angel lvl 70
+(21063,12233,1,1,1,252), -- Common Item - Sealed Tallum Plate Armor
+(21063,12227,1,1,1,1511), -- Common Item - Sealed Dark Crystal Breastplate
+(21063,12220,1,1,1,1761), -- Common Item - Sealed Dark Crystal Gaiters
+-- Platinum Guardian Archer lvl 71
+(21064,12227,1,1,1,392), -- Common Item - Sealed Dark Crystal Breastplate
+(21064,12233,1,1,1,392), -- Common Item - Sealed Tallum Plate Armor
+(21064,12220,1,1,1,1176), -- Common Item - Sealed Dark Crystal Gaiters
+-- Platinum Guardian Warrior lvl 72
+(21065,12224,1,1,1,1003), -- Common Item - Sealed Dark Crystal Boots
+(21065,12229,1,1,1,1754), -- Common Item - Sealed Tallum Gloves
+(21065,12221,1,1,1,2004), -- Common Item - Sealed Dark Crystal Gloves
+(21065,12231,1,1,1,2257), -- Common Item - Sealed Tallum Boots
+-- Platinum Guardian Shaman lvl 73
+(21066,12226,1,1,1,1332), -- Common Item - Sealed Dark Crystal Helmet
+(21066,12234,1,1,1,1730), -- Common Item - Sealed Tallum Helmet
+(21066,12225,1,1,1,2132), -- Common Item - Sealed Dark Crystal Shield
+-- Guardian Archangel lvl 74
+(21068,12233,1,1,1,752), -- Common Item - Sealed Tallum Plate Armor
+(21068,12227,1,1,1,1754), -- Common Item - Sealed Dark Crystal Breastplate
+(21068,12220,1,1,1,2506), -- Common Item - Sealed Dark Crystal Gaiters
+-- Platinum Guardian Prefect lvl 74
+(21069,12221,1,1,1,2155), -- Common Item - Sealed Dark Crystal Gloves
+(21069,12229,1,1,1,2463), -- Common Item - Sealed Tallum Gloves
+(21069,12224,1,1,1,2667), -- Common Item - Sealed Dark Crystal Boots
+(21069,12231,1,1,1,3279), -- Common Item - Sealed Tallum Boots
+-- Seal Archangel lvl 75
+(21071,12230,1,1,1,1147), -- Common Item - Sealed Tallum Leather Armor
+(21071,12222,1,1,1,2985), -- Common Item - Sealed Dark Crystal Leather Armor
+(21071,12228,1,1,1,3215), -- Common Item - Sealed Dark Crystal Leggings
+-- Platinum Guardian Chief lvl 75
+(21072,12234,1,1,1,352), -- Common Item - Sealed Tallum Helmet
+(21072,12226,1,1,1,3165), -- Common Item - Sealed Dark Crystal Helmet
+(21072,12225,1,1,1,3876), -- Common Item - Sealed Dark Crystal Shield
+-- Guardian Warrior of Elmoreden lvl 64
+(21073,11944,1,1,1,11), -- Common Item - Bow of Peril
+-- Bound Shaman lvl 72
+(21074,12221,1,1,1,1580), -- Common Item - Sealed Dark Crystal Gloves
+(21074,12224,1,1,1,1580), -- Common Item - Sealed Dark Crystal Boots
+(21074,12229,1,1,1,1580), -- Common Item - Sealed Tallum Gloves
+(21074,12231,1,1,1,1580), -- Common Item - Sealed Tallum Boots
+-- Slaughter Bathin lvl 63
+(21075,12187,1,1,1,415), -- Common Item - Sealed Doom Gloves
+(21075,12188,1,1,1,415), -- Common Item - Sealed Doom Boots
+(21075,12189,1,1,1,415), -- Common Item - Sealed Blue Wolf Boots
+(21075,12190,1,1,1,415), -- Common Item - Sealed Blue Wolf Gloves
+-- Bathin's Knight lvl 62
+(21076,12192,1,1,1,795), -- Common Item - Tunic of Doom
+(21076,12201,1,1,1,795), -- Common Item - Blue Wolf Tunic
+(21076,12203,1,1,1,795), -- Common Item - Blue Wolf Stockings
+(21076,12205,1,1,1,795), -- Common Item - Stockings of Doom
+-- Bathin's Wizard lvl 62
+(21077,12342,1,1,1,813), -- Common Item - Necklace of Black Ore
+(21077,12341,1,1,1,1076), -- Common Item - Earring of Black Ore
+(21077,12343,1,1,1,1603), -- Common Item - Ring of Black Ore
+-- Magus Valac lvl 70
+(21078,12226,1,1,1,212), -- Common Item - Sealed Dark Crystal Helmet
+(21078,12234,1,1,1,212), -- Common Item - Sealed Tallum Helmet
+(21078,12225,1,1,1,299), -- Common Item - Sealed Dark Crystal Shield
+-- Valac's Creature lvl 69
+(21079,12223,1,1,1,432), -- Common Item - Sealed Dark Crystal Robe
+(21079,12232,1,1,1,590), -- Common Item - Sealed Tallum Tunic
+(21079,12235,1,1,1,944), -- Common Item - Sealed Tallum Stockings
+-- Valac's Guardian Spirit lvl 69
+(21080,12344,1,1,1,1221), -- Common Item - Sealed Phoenix Necklace
+(21080,12345,1,1,1,1613), -- Common Item - Sealed Phoenix Earring
+(21080,12346,1,1,1,2398), -- Common Item - Sealed Phoenix Ring
+-- Power Angel Amon lvl 75
+(21081,12230,1,1,1,323), -- Common Item - Sealed Tallum Leather Armor
+(21081,12222,1,1,1,485), -- Common Item - Sealed Dark Crystal Leather Armor
+(21081,12228,1,1,1,755), -- Common Item - Sealed Dark Crystal Leggings
+-- Amon's Captain of the Guards lvl 74
+(21082,12223,1,1,1,1565), -- Common Item - Sealed Dark Crystal Robe
+(21082,12232,1,1,1,2217), -- Common Item - Sealed Tallum Tunic
+(21082,12235,1,1,1,3521), -- Common Item - Sealed Tallum Stockings
+-- Amon's Spirits lvl 74
+(21083,12344,1,1,1,1792), -- Common Item - Sealed Phoenix Necklace
+(21083,12345,1,1,1,2407), -- Common Item - Sealed Phoenix Earring
+(21083,12346,1,1,1,3584), -- Common Item - Sealed Phoenix Ring
+-- Bloody Lady lvl 60
+(21084,11900,1,1,1,137), -- Common Item - Sword of Valhalla
+(21084,11889,1,1,1,274), -- Common Item - Great Sword
+(21084,11916,1,1,1,274), -- Common Item - Keshanberk
+-- Bloody Sniper lvl 71
+(21085,12230,1,1,1,498), -- Common Item - Sealed Tallum Leather Armor
+(21085,12228,1,1,1,996), -- Common Item - Sealed Dark Crystal Leggings
+(21085,12222,1,1,1,1992), -- Common Item - Sealed Dark Crystal Leather Armor
+-- Bloody Liviona lvl 72
+(21086,12233,1,1,1,173), -- Common Item - Sealed Tallum Plate Armor
+(21086,12220,1,1,1,347), -- Common Item - Sealed Dark Crystal Gaiters
+(21086,12227,1,1,1,347), -- Common Item - Sealed Dark Crystal Breastplate
+-- Bloody Knight lvl 73
+(21087,12233,1,1,1,524), -- Common Item - Sealed Tallum Plate Armor
+(21087,12220,1,1,1,1152), -- Common Item - Sealed Dark Crystal Gaiters
+(21087,12227,1,1,1,1466), -- Common Item - Sealed Dark Crystal Breastplate
+-- Bloody Banshee lvl 74
+(21088,5338,1,1,-1,12863), -- Recipe: Sealed Majestic Leather Armor(60%)
+-- Bloody Lord lvl 75
+(21089,12232,1,1,1,521), -- Common Item - Sealed Tallum Tunic
+(21089,12223,1,1,1,781), -- Common Item - Sealed Dark Crystal Robe
+(21089,12235,1,1,1,1821), -- Common Item - Sealed Tallum Stockings
+-- Bloody Guardian lvl 75
+(21090,12227,1,1,1,184), -- Common Item - Sealed Dark Crystal Breastplate
+(21090,12233,1,1,1,368), -- Common Item - Sealed Tallum Plate Armor
+(21090,12220,1,1,1,1473), -- Common Item - Sealed Dark Crystal Gaiters
+-- Bloody Keeper lvl 74
+(21091,12222,1,1,1,729), -- Common Item - Sealed Dark Crystal Leather Armor
+(21091,12228,1,1,1,729), -- Common Item - Sealed Dark Crystal Leggings
+(21091,12230,1,1,1,912), -- Common Item - Sealed Tallum Leather Armor
+-- Bloody Mystic lvl 74
+(21092,12226,1,1,1,1114), -- Common Item - Sealed Dark Crystal Helmet
+(21092,12225,1,1,1,1299), -- Common Item - Sealed Dark Crystal Shield
+(21092,12234,1,1,1,1669), -- Common Item - Sealed Tallum Helmet
+-- Purgatory Wisp lvl 53
+(21152,12135,1,1,1,1290), -- Common Item - Drake Leather Armor
+(21152,12133,1,1,1,1506), -- Common Item - Theca Leather Armor
+(21152,12130,1,1,1,3226), -- Common Item - Theca Leather Gaiters
+-- Purgatory Serpent lvl 56
+(21153,12152,1,1,1,391), -- Common Item - Zubei's Gaiters
+(21153,12161,1,1,1,489), -- Common Item - Zubei's Breastplate
+(21153,12173,1,1,1,587), -- Common Item - Avadon Breastplate
+(21153,12172,1,1,1,684), -- Common Item - Avadon Plate Gaiters
+-- Hell Keeper Medusa lvl 58
+(21154,12166,1,1,1,221), -- Common Item - Avadon Robe
+(21154,12175,1,1,1,772), -- Common Item - Tunic of Zubei
+(21154,12176,1,1,1,1103), -- Common Item - Stockings of Zubei
+-- Purgatory Conjurer lvl 59
+(21155,12339,1,1,1,1082), -- Common Item - Adamantite Necklace
+(21155,12338,1,1,1,1730), -- Common Item - Adamantite Earring
+(21155,12340,1,1,1,3788), -- Common Item - Adamantite Ring
+-- Purgatory Shadow lvl 61
+(21156,12146,1,1,1,1563), -- Common Item - Sealed Zubei's Gauntlet
+(21156,12148,1,1,1,1613), -- Common Item - Sealed Avadon Gloves
+(21156,12147,1,1,1,2101), -- Common Item - Sealed Zubei's Boots
+(21156,12149,1,1,1,2151), -- Common Item - Sealed Avadon Boots
+-- Purgatory Tarantula lvl 64
+(21157,12185,1,1,1,762), -- Common Item - Doom Helmet
+(21157,12202,1,1,1,1016), -- Common Item - Blue Wolf Helmet
+(21157,12183,1,1,1,1112), -- Common Item - Doom Shield
+-- Hell Keeper Crimson Doll lvl 67
+(21158,12194,1,1,1,438), -- Common Item - Blue Wolf Leather Armor
+(21158,12186,1,1,1,657), -- Common Item - Leather Armor of Doom
+-- Purgatory Gargoyle lvl 68
+(21159,12223,1,1,1,212), -- Common Item - Sealed Dark Crystal Robe
+(21159,12232,1,1,1,212), -- Common Item - Sealed Tallum Tunic
+(21159,12235,1,1,1,1186), -- Common Item - Sealed Tallum Stockings
+-- Purgatory Liviona lvl 71
+(21160,12223,1,1,1,260), -- Common Item - Sealed Dark Crystal Robe
+(21160,12232,1,1,1,520), -- Common Item - Sealed Tallum Tunic
+(21160,12235,1,1,1,1560), -- Common Item - Sealed Tallum Stockings
+-- Lesser Ancient Soldier lvl 73
+(21161,12344,1,1,1,1003), -- Common Item - Sealed Phoenix Necklace
+(21161,12345,1,1,1,2066), -- Common Item - Sealed Phoenix Earring
+(21161,12346,1,1,1,4132), -- Common Item - Sealed Phoenix Ring
+-- Lesser Ancient Scout lvl 74
+(21162,12230,1,1,1,310), -- Common Item - Sealed Tallum Leather Armor
+(21162,12222,1,1,1,597), -- Common Item - Sealed Dark Crystal Leather Armor
+(21162,12228,1,1,1,847), -- Common Item - Sealed Dark Crystal Leggings
+-- Lesser Ancient Shaman lvl 76
+(21163,12224,1,1,1,1247), -- Common Item - Sealed Dark Crystal Boots
+(21163,12221,1,1,1,1330), -- Common Item - Sealed Dark Crystal Gloves
+(21163,12229,1,1,1,1387), -- Common Item - Sealed Tallum Gloves
+(21163,12231,1,1,1,1783), -- Common Item - Sealed Tallum Boots
+(21163,7654,1,1,2,10417), -- Spellbook - Mass Warrior Bane
+(21163,7655,1,1,2,10417), -- Spellbook - Mass Mage Bane
+(21163,7660,1,1,2,10753), -- Spellbook - Warrior Bane
+(21163,7661,1,1,2,11111), -- Spellbook - Mage Bane
+-- Guardian Spirit of Ancient Holy Ground lvl 78
+(21164,12350,1,1,1,843), -- Common Item - Sealed Majestic Necklace
+(21164,12352,1,1,1,1206), -- Common Item - Sealed Majestic Earring
+(21164,12351,1,1,1,2841), -- Common Item - Sealed Majestic Ring
+-- Lesser Ancient Warrior lvl 78
+(21165,12258,1,1,1,425), -- Common Item - Sealed Majestic Leather Armor
+(21165,12265,1,1,1,1477), -- Common Item - Sealed Leather Armor of Nightmare
+-- Lilim Magus lvl 51
+(21176,11817,1,1,1,975), -- Common Item - Heathen's Book
+-- Lilim Knight Errant lvl 54
+(21177,11830,1,1,1,188), -- Common Item - Scorpion
+(21177,11858,1,1,1,188), -- Common Item - Orcish Poleaxe
+(21177,11832,1,1,1,1130), -- Common Item - Widow Maker
+-- Lilim Marauder lvl 57
+(21178,12165,1,1,1,577), -- Common Item - Avadon Leather Armor
+(21178,12151,1,1,1,824), -- Common Item - Zubei's Leather Shirt
+(21178,12150,1,1,1,1730), -- Common Item - Zubei's Leather Gaiters
+-- Lilim Priest lvl 60
+(21179,12173,1,1,1,352), -- Common Item - Avadon Breastplate
+(21179,12161,1,1,1,400), -- Common Item - Zubei's Breastplate
+(21179,12152,1,1,1,824), -- Common Item - Zubei's Gaiters
+(21179,12172,1,1,1,934), -- Common Item - Avadon Plate Gaiters
+-- Lilim Knight lvl 63
+(21180,12192,1,1,1,321), -- Common Item - Tunic of Doom
+(21180,12201,1,1,1,481), -- Common Item - Blue Wolf Tunic
+(21180,12203,1,1,1,642), -- Common Item - Blue Wolf Stockings
+(21180,12205,1,1,1,642), -- Common Item - Stockings of Doom
+-- Lilim Assassin lvl 66
+(21181,12342,1,1,1,1292), -- Common Item - Necklace of Black Ore
+(21181,12341,1,1,1,1812), -- Common Item - Earring of Black Ore
+(21181,12343,1,1,1,2762), -- Common Item - Ring of Black Ore
+-- Lilim Soldier lvl 69
+(21182,12221,1,1,1,898), -- Common Item - Sealed Dark Crystal Gloves
+(21182,12224,1,1,1,1170), -- Common Item - Sealed Dark Crystal Boots
+(21182,12231,1,1,1,1468), -- Common Item - Sealed Tallum Boots
+(21182,12229,1,1,1,1522), -- Common Item - Sealed Tallum Gloves
+-- Lilim Knight Commander lvl 72
+(21183,12234,1,1,1,1006), -- Common Item - Sealed Tallum Helmet
+(21183,12226,1,1,1,1136), -- Common Item - Sealed Dark Crystal Helmet
+(21183,12225,1,1,1,2012), -- Common Item - Sealed Dark Crystal Shield
+-- Lilim Slayer lvl 75
+(21184,12223,1,1,1,488), -- Common Item - Sealed Dark Crystal Robe
+(21184,12232,1,1,1,674), -- Common Item - Sealed Tallum Tunic
+(21184,12235,1,1,1,1524), -- Common Item - Sealed Tallum Stockings
+(21184,7645,1,1,2,17241), -- Spellbook - Balance Life
+(21184,7673,1,1,2,18519), -- Amulet - Chant of Victory
+(21184,7672,1,1,2,19608), -- Amulet - Chant of Spirit
+-- Lilim Great Mystic lvl 78
+(21185,12223,1,1,1,370), -- Common Item - Sealed Dark Crystal Robe
+(21185,12232,1,1,1,728), -- Common Item - Sealed Tallum Tunic
+(21185,12235,1,1,1,1142), -- Common Item - Sealed Tallum Stockings
+(21185,7667,1,1,2,15385), -- Spellbook - Prophecy of Wind
+(21185,7666,1,1,2,16129), -- Spellbook - Prophecy of Fire
+(21185,7665,1,1,2,16393), -- Spellbook - Prophecy of Water
+-- Lilim Court Knight lvl 78
+(21186,12261,1,1,1,834), -- Common Item - Sealed Majestic Circlet
+(21186,12269,1,1,1,1140), -- Common Item - Sealed Helm of Nightmare
+(21186,12268,1,1,1,1534), -- Common Item - Sealed Shield of Nightmare
+-- Nephilim Priest lvl 51
+(21197,11817,1,1,1,618), -- Common Item - Heathen's Book
+-- Nephilim Swordsman lvl 54
+(21198,11830,1,1,1,721), -- Common Item - Scorpion
+(21198,11832,1,1,1,721), -- Common Item - Widow Maker
+(21198,11858,1,1,1,721), -- Common Item - Orcish Poleaxe
+-- Nephilim Guard lvl 57
+(21199,12165,1,1,1,647), -- Common Item - Avadon Leather Armor
+(21199,12150,1,1,1,906), -- Common Item - Zubei's Leather Gaiters
+(21199,12151,1,1,1,1035), -- Common Item - Zubei's Leather Shirt
+-- Nephilim Bishop lvl 60
+(21200,12173,1,1,1,499), -- Common Item - Avadon Breastplate
+(21200,12161,1,1,1,624), -- Common Item - Zubei's Breastplate
+(21200,12172,1,1,1,791), -- Common Item - Avadon Plate Gaiters
+(21200,12152,1,1,1,957), -- Common Item - Zubei's Gaiters
+-- Nephilim Centurion lvl 63
+(21201,12192,1,1,1,539), -- Common Item - Tunic of Doom
+(21201,12203,1,1,1,539), -- Common Item - Blue Wolf Stockings
+(21201,12205,1,1,1,539), -- Common Item - Stockings of Doom
+(21201,12201,1,1,1,809), -- Common Item - Blue Wolf Tunic
+-- Nephilim Scout lvl 66
+(21202,12342,1,1,1,1348), -- Common Item - Necklace of Black Ore
+(21202,12341,1,1,1,1572), -- Common Item - Earring of Black Ore
+(21202,12343,1,1,1,1946), -- Common Item - Ring of Black Ore
+-- Nephilim Archbishop lvl 69
+(21203,12224,1,1,1,554), -- Common Item - Sealed Dark Crystal Boots
+(21203,12231,1,1,1,951), -- Common Item - Sealed Tallum Boots
+(21203,12229,1,1,1,1425), -- Common Item - Sealed Tallum Gloves
+(21203,12221,1,1,1,1821), -- Common Item - Sealed Dark Crystal Gloves
+-- Nephilim Praetorian lvl 72
+(21204,12234,1,1,1,655), -- Common Item - Sealed Tallum Helmet
+(21204,12225,1,1,1,2212), -- Common Item - Sealed Dark Crystal Shield
+(21204,12226,1,1,1,2786), -- Common Item - Sealed Dark Crystal Helmet
+-- Nephilim Royal Guard lvl 75
+(21205,12230,1,1,1,516), -- Common Item - Sealed Tallum Leather Armor
+(21205,12222,1,1,1,654), -- Common Item - Sealed Dark Crystal Leather Armor
+(21205,12228,1,1,1,1410), -- Common Item - Sealed Dark Crystal Leggings
+-- Nephilim Cardinal lvl 78
+(21206,12233,1,1,1,392), -- Common Item - Sealed Tallum Plate Armor
+(21206,12227,1,1,1,535), -- Common Item - Sealed Dark Crystal Breastplate
+(21206,12220,1,1,1,1028), -- Common Item - Sealed Dark Crystal Gaiters
+(21206,7835,1,1,2,12821), -- Amulet: Seal of Disease
+(21206,7674,1,1,2,13158), -- Amulet - Pa'agrio's Eye
+(21206,7675,1,1,2,13158), -- Amulet - Pa'agrio's Soul
+(21206,7676,1,1,2,13158), -- Amulet - Seal of Despair
+-- Nephilim Commander lvl 78
+(21207,12261,1,1,1,1205), -- Common Item - Sealed Majestic Circlet
+(21207,12269,1,1,1,1597), -- Common Item - Sealed Helm of Nightmare
+(21207,12268,1,1,1,2278), -- Common Item - Sealed Shield of Nightmare
+-- Sepulcher Inquisitor lvl 52
+(21221,12119,1,1,1,4926), -- Common Item - Mithril Gauntlet
+(21221,12125,1,1,1,7407), -- Common Item - Composite Boots
+-- Sepulcher Archon lvl 55
+(21222,12145,1,1,1,1484), -- Common Item - Full Plate Helmet
+(21222,12143,1,1,1,2227), -- Common Item - Full Plate Shield
+-- Sepulcher Inquisitor lvl 57
+(21223,11889,1,1,1,77), -- Common Item - Great Sword
+(21223,11916,1,1,1,77), -- Common Item - Keshanberk
+(21223,11900,1,1,1,461), -- Common Item - Sword of Valhalla
+-- Sepulcher Guardian lvl 60
+(21224,11908,1,1,1,474), -- Common Item - Sprite's Staff
+(21224,11918,1,1,1,677), -- Common Item - Heavy War Axe
+-- Sepulcher Sage lvl 62
+(21225,12186,1,1,1,246), -- Common Item - Leather Armor of Doom
+(21225,12194,1,1,1,308), -- Common Item - Blue Wolf Leather Armor
+-- Sepulcher Guardian lvl 65
+(21226,11930,1,1,1,104), -- Common Item - Sword of Damascus
+(21226,11943,1,1,1,104), -- Common Item - Wizard's Tear
+(21226,11929,1,1,1,311), -- Common Item - Guardian Sword
+-- Sepulcher Sage lvl 67
+(21227,11944,1,1,1,336), -- Common Item - Bow of Peril
+-- Sepulcher Guard lvl 70
+(21228,12233,1,1,1,77), -- Common Item - Sealed Tallum Plate Armor
+(21228,12227,1,1,1,386), -- Common Item - Sealed Dark Crystal Breastplate
+(21228,12220,1,1,1,617), -- Common Item - Sealed Dark Crystal Gaiters
+-- Sepulcher Preacher lvl 72
+(21229,12344,1,1,1,774), -- Common Item - Sealed Phoenix Necklace
+(21229,12345,1,1,1,1309), -- Common Item - Sealed Phoenix Earring
+(21229,12346,1,1,1,2083), -- Common Item - Sealed Phoenix Ring
+-- Sepulcher Guard lvl 75
+(21230,12234,1,1,1,1163), -- Common Item - Sealed Tallum Helmet
+(21230,12226,1,1,1,1284), -- Common Item - Sealed Dark Crystal Helmet
+(21230,12225,1,1,1,1410), -- Common Item - Sealed Dark Crystal Shield
+-- Sepulcher Preacher lvl 77
+(21231,12225,1,1,1,1321), -- Common Item - Sealed Dark Crystal Shield
+(21231,12234,1,1,1,1618), -- Common Item - Sealed Tallum Helmet
+(21231,12226,1,1,1,2387), -- Common Item - Sealed Dark Crystal Helmet
+-- Crypt Inquisitor lvl 52
+(21245,12128,1,1,1,2088), -- Common Item - Composite Armor
+-- Tomb Archon lvl 55
+(21246,12336,1,1,1,312), -- Common Item - Necklace of Binding
+(21246,12335,1,1,1,2809), -- Common Item - Nassen's Earring
+(21246,12337,1,1,1,6579), -- Common Item - Ring of Binding
+-- Tomb Inquisitor lvl 57
+(21247,12147,1,1,1,637), -- Common Item - Sealed Zubei's Boots
+(21247,12146,1,1,1,956), -- Common Item - Sealed Zubei's Gauntlet
+(21247,12148,1,1,1,1592), -- Common Item - Sealed Avadon Gloves
+(21247,12149,1,1,1,1912), -- Common Item - Sealed Avadon Boots
+-- Crypt Guardian lvl 60
+(21248,12170,1,1,1,1114), -- Common Item - Avadon Circlet
+(21248,12160,1,1,1,1376), -- Common Item - Zubei's Helmet
+(21248,12159,1,1,1,1965), -- Common Item - Zubei's Shield
+(21248,12171,1,1,1,1965), -- Common Item - Avadon Shield
+-- Crypt Sage lvl 62
+(21249,12184,1,1,1,473), -- Common Item - Doom Plate Armor
+(21249,12193,1,1,1,473), -- Common Item - Blue Wolf Gaiters
+(21249,12204,1,1,1,473), -- Common Item - Blue Wolf Breastplate
+-- Tomb Guardian lvl 65
+(21250,11934,1,1,1,60), -- Common Item - Staff of Evil Spirits
+(21250,11935,1,1,1,60), -- Common Item - Deadman's Glory
+(21250,11938,1,1,1,60), -- Common Item - Art of Battle Axe
+-- Tomb Sage lvl 67
+(21251,12201,1,1,1,306), -- Common Item - Blue Wolf Tunic
+(21251,12205,1,1,1,613), -- Common Item - Stockings of Doom
+(21251,12192,1,1,1,674), -- Common Item - Tunic of Doom
+(21251,12203,1,1,1,980), -- Common Item - Blue Wolf Stockings
+-- Crypt Guard lvl 70
+(21252,12228,1,1,1,302), -- Common Item - Sealed Dark Crystal Leggings
+(21252,12230,1,1,1,302), -- Common Item - Sealed Tallum Leather Armor
+(21252,12222,1,1,1,907), -- Common Item - Sealed Dark Crystal Leather Armor
+(21252,5276,1,1,2,402), -- Recipe: Greater Spiritshot (A) Compressed Package(100%)
+-- Tomb Preacher lvl 77
+(21255,12230,1,1,1,400), -- Common Item - Sealed Tallum Leather Armor
+(21255,12222,1,1,1,489), -- Common Item - Sealed Dark Crystal Leather Armor
+(21255,12228,1,1,1,1600), -- Common Item - Sealed Dark Crystal Leggings
+(21255,7663,1,1,2,15625), -- Spellbook - Divine Protection
+(21255,7662,1,1,2,15873), -- Spellbook - Elemental Protection
+(21255,7664,1,1,2,16667), -- Spellbook - Arcane Protection
+-- Fallen Orc Shaman lvl 59
+(21259,11915,1,1,1,227), -- Common Item - Kris
+(21259,11919,1,1,1,313), -- Common Item - Hell Knife
+-- Ol Mahum Transcender lvl 53
+(21262,11863,1,1,1,16), -- Common Item - Crystal Dagger
+-- Ol Mahum Transcender lvl 55
+(21263,11863,1,1,1,24), -- Common Item - Crystal Dagger
+-- Bandersnatch lvl 69
+(21282,730,1,1,2,64), -- Scroll: Enchant Armor (A)
+-- Bandersnatch lvl 69
+(21283,730,1,1,2,64), -- Scroll: Enchant Armor (A)
+-- Bandersnatch lvl 69
+(21284,730,1,1,2,64), -- Scroll: Enchant Armor (A)
+-- Grendel lvl 71
+(21290,1808,1,1,2,36), -- Recipe: Soulshot: S Grade
+-- Grendel lvl 71
+(21291,1808,1,1,2,36), -- Recipe: Soulshot: S Grade
+-- Grendel lvl 71
+(21292,1808,1,1,2,36), -- Recipe: Soulshot: S Grade
+-- Canyon Antelope Slave lvl 69
+(21295,5448,1,1,2,91), -- Recipe: Soul Separator(60%)
+-- Canyon Bandersnatch lvl 70
+(21296,5456,1,1,2,136), -- Recipe: Tallum Glaive(60%)
+-- Canyon Bandersnatch Slave lvl 71
+(21297,5162,1,1,2,163), -- Recipe: Spiritshot (S) Compressed Package (100%)
+-- Claws of Splendor lvl 60
+(21521,11889,1,1,1,152), -- Common Item - Great Sword
+(21521,11900,1,1,1,152), -- Common Item - Sword of Valhalla
+(21521,11916,1,1,1,152), -- Common Item - Keshanberk
+-- Claws of Splendor lvl 60
+(21522,11889,1,1,1,156), -- Common Item - Great Sword
+(21522,11900,1,1,1,156), -- Common Item - Sword of Valhalla
+(21522,11916,1,1,1,156), -- Common Item - Keshanberk
+-- Flash of Splendor lvl 61
+(21523,12173,1,1,1,187), -- Common Item - Avadon Breastplate
+(21523,12161,1,1,1,219), -- Common Item - Zubei's Breastplate
+(21523,12152,1,1,1,281), -- Common Item - Zubei's Gaiters
+(21523,12172,1,1,1,281), -- Common Item - Avadon Plate Gaiters
+-- Punishment of Splendor lvl 64
+(21531,5392,1,1,2,600), -- Recipe: Sealed Dark Crystal Gloves(60%)
+-- Alliance of Splendor lvl 65
+(21533,4078,1,1,-1,38254), -- Blue Wolf Breastplate Part
+-- Wailing of Splendor lvl 67
+(21539,5394,1,1,2,786), -- Recipe: Sealed Tallum Gloves(60%)
+-- Trampled Man lvl 65
+(21554,6329,1,1,-1,12146), -- Recipe: Sealed Phoenix Necklace(70%)
+-- Bone Caster lvl 71
+(21580,6901,1,1,2,129), -- Recipe: Shining Arrow (100%)
+(21580,6671,1,1,2,14280), -- Deluxe Chest Key - Grade 7
+-- Bone Scavenger lvl 72
+(21583,6901,1,1,2,163), -- Recipe: Shining Arrow (100%)
+-- Bone Scavenger lvl 72
+(21584,6901,1,1,2,152), -- Recipe: Shining Arrow (100%)
+-- Zaken's Elite Guard lvl 50
+(21625,4601,1,1,-1,8314), -- Greater Dye of STR 
+(21625,1539,1,1,-1,831383), -- Greater Healing Potion
+(21625,1882,1,2,-1,831383), -- Leather
+(21625,57,1896,3653,0,700000), -- Adena
+(21625,4042,1,1,2,16577), -- Enria
+(21625,2169,1,1,2,17604), -- Recipe: Necklace of Binding
+(21625,1894,1,1,2,34898), -- Crafted Leather
+(21625,1882,3,9,2,36837), -- Leather
+(21625,1872,7,21,2,88408), -- Animal Bone
+(21625,1867,4,12,2,165765), -- Animal Skin
+-- Kaim Vanul lvl 51
+(21626,12334,1,1,1,38), -- Common Item - Necklace of Mermaid
+(21626,12332,1,1,1,51), -- Common Item - Earring of Binding
+(21626,12333,1,1,1,76), -- Common Item - Ring of Ages
+-- Kaim Vanul lvl 51
+(21627,12334,1,1,1,38), -- Common Item - Necklace of Mermaid
+(21627,12332,1,1,1,51), -- Common Item - Earring of Binding
+(21627,12333,1,1,1,76), -- Common Item - Ring of Ages
+-- Kaim Vanul Lad lvl 51
+(21628,11799,1,1,1,5); -- Common Item - Stick of Eternity
+
+INSERT INTO `droplist` VALUES
+(21628,11802,1,1,1,5), -- Common Item - Nirvana Axe
+(21628,11804,1,1,1,5), -- Common Item - Club of Nature
+(21628,11806,1,1,1,5), -- Common Item - Mace of the Underworld
+(21628,11816,1,1,1,5), -- Common Item - War Axe
+(21628,11824,1,1,1,5), -- Common Item - Pa'agrian Hammer
+(21628,11825,1,1,1,5), -- Common Item - Paradia Staff
+(21628,11828,1,1,1,5), -- Common Item - Sage's Staff
+-- Pirate Zombie Captain lvl 52
+(21629,11805,1,1,1,4), -- Common Item - Sword of Whispering Death
+(21629,11807,1,1,1,4), -- Common Item - Sword of Delusion
+(21629,11815,1,1,1,4), -- Common Item - Sword of Nightmare
+(21629,11820,1,1,1,4), -- Common Item - Tsurugi
+(21629,11821,1,1,1,4), -- Common Item - Caliburs
+(21629,11829,1,1,1,4), -- Common Item - Homunkulus's Sword
+-- Pirate Zombie Captain lvl 52
+(21630,11805,1,1,1,4), -- Common Item - Sword of Whispering Death
+(21630,11807,1,1,1,4), -- Common Item - Sword of Delusion
+(21630,11815,1,1,1,4), -- Common Item - Sword of Nightmare
+(21630,11820,1,1,1,4), -- Common Item - Tsurugi
+(21630,11821,1,1,1,4), -- Common Item - Caliburs
+(21630,11829,1,1,1,4), -- Common Item - Homunkulus's Sword
+-- Zombie Captain's Spiritual Body lvl 52
+(21631,12120,1,1,1,9494), -- Common Item - Shining Circlet
+(21631,12126,1,1,1,9494), -- Common Item - Composite Shield
+(21631,12127,1,1,1,9494), -- Common Item - Composite Helmet
+(21631,12129,1,1,1,9494), -- Common Item - Tower Shield
+-- Doll Blader lvl 53
+(21632,12135,1,1,1,14), -- Common Item - Drake Leather Armor
+(21632,12133,1,1,1,27), -- Common Item - Theca Leather Armor
+(21632,12130,1,1,1,42), -- Common Item - Theca Leather Gaiters
+-- Doll Blader lvl 53
+(21633,12135,1,1,1,14), -- Common Item - Drake Leather Armor
+(21633,12133,1,1,1,27), -- Common Item - Theca Leather Armor
+(21633,12130,1,1,1,42), -- Common Item - Theca Leather Gaiters
+-- Crimson Doll Blader lvl 53
+(21634,11843,1,1,1,14), -- Common Item - Berserker Blade
+(21634,11853,1,1,1,14), -- Common Item - Samurai Long Sword
+-- Vale Master lvl 54
+(21635,12134,1,1,1,25), -- Common Item - Drake Leather Gloves
+(21635,12136,1,1,1,25), -- Common Item - Drake Leather Boots
+(21635,12137,1,1,1,25), -- Common Item - Divine Gloves
+(21635,12141,1,1,1,25), -- Common Item - Full Plate Gauntlet
+(21635,12142,1,1,1,25), -- Common Item - Full Plate Boots
+(21635,12131,1,1,1,33), -- Common Item - Theca Leather Gloves
+(21635,12132,1,1,1,33), -- Common Item - Theca Leather Boots
+-- Vale Master lvl 54
+(21636,12134,1,1,1,25), -- Common Item - Drake Leather Gloves
+(21636,12136,1,1,1,25), -- Common Item - Drake Leather Boots
+(21636,12137,1,1,1,25), -- Common Item - Divine Gloves
+(21636,12141,1,1,1,25), -- Common Item - Full Plate Gauntlet
+(21636,12142,1,1,1,25), -- Common Item - Full Plate Boots
+(21636,12131,1,1,1,33), -- Common Item - Theca Leather Gloves
+(21636,12132,1,1,1,33), -- Common Item - Theca Leather Boots
+-- Crimson Vale Master lvl 54
+(21637,11843,1,1,1,14), -- Common Item - Berserker Blade
+(21637,11853,1,1,1,14), -- Common Item - Samurai Long Sword
+-- Tasaba Lizardman Shaman lvl 37
+(21640,6036,1,1,-1,15233), -- Greater Magic Haste Potion
+(21640,57,155,308,0,700000), -- Adena
+(21640,1825,1,1,2,22727), -- Recipe: Oriharukon
+(21640,6667,1,1,2,200000), -- Deluxe Chest Key - Grade 3
+-- Dimension Invader Soldier lvl 40
+(21691,11606,1,1,1,90), -- Common Item - Strengthened Bow
+-- Purgatory Invader Soldier lvl 55
+(21706,11843,1,1,1,14), -- Common Item - Berserker Blade
+(21706,11853,1,1,1,14), -- Common Item - Samurai Long Sword
+-- Purgatory Invader Archer lvl 53
+(21707,11857,1,1,1,21), -- Common Item - Eminence Bow
+-- Purgatory Invader Elite Soldier lvl 55
+(21708,11857,1,1,1,2778), -- Common Item - Eminence Bow
+-- Purgatory Invader Shaman lvl 53
+(21709,11833,1,1,1,858), -- Common Item - Pa'agrian Axe
+(21709,11838,1,1,1,858), -- Common Item - Ghoul's Staff
+(21709,11842,1,1,1,858), -- Common Item - Deadman's Staff
+(21709,11855,1,1,1,858), -- Common Item - Demon's Staff
+(21709,11856,1,1,1,858), -- Common Item - Yaksa Mace
+-- Purgatory Invader Magus lvl 55
+(21711,11838,1,1,1,5), -- Common Item - Ghoul's Staff
+(21711,11842,1,1,1,5), -- Common Item - Deadman's Staff
+(21711,11855,1,1,1,5), -- Common Item - Demon's Staff
+(21711,11856,1,1,1,5), -- Common Item - Yaksa Mace
+(21711,11833,1,1,1,6), -- Common Item - Pa'agrian Axe
+-- Purgatory Invader Warrior lvl 53
+(21713,11843,1,1,1,10), -- Common Item - Berserker Blade
+(21713,11853,1,1,1,10), -- Common Item - Samurai Long Sword
+-- Purgatory Invader Disciples lvl 53
+(21715,12138,1,1,1,2591), -- Common Item - Divine Tunic
+(21715,12139,1,1,1,2591), -- Common Item - Divine Stockings
+-- Purgatory Invader Berserker lvl 55
+(21716,11843,1,1,1,12), -- Common Item - Berserker Blade
+(21716,11853,1,1,1,12), -- Common Item - Samurai Long Sword
+-- Purgatory Invader Elite Soldier lvl 55
+(21718,12138,1,1,1,3676), -- Common Item - Divine Tunic
+(21718,12139,1,1,1,3861), -- Common Item - Divine Stockings
+-- Purgatory Invader Elite Soldier lvl 55
+(21719,12134,1,1,1,1115), -- Common Item - Drake Leather Gloves
+(21719,12141,1,1,1,1115), -- Common Item - Full Plate Gauntlet
+(21719,12142,1,1,1,1859), -- Common Item - Full Plate Boots
+(21719,12136,1,1,1,2232), -- Common Item - Drake Leather Boots
+(21719,12137,1,1,1,3344), -- Common Item - Divine Gloves
+(21719,12131,1,1,1,4464), -- Common Item - Theca Leather Gloves
+(21719,12132,1,1,1,4831), -- Common Item - Theca Leather Boots
+-- Purgatory Invader Elite Soldier lvl 55
+(21720,11830,1,1,1,1), -- Common Item - Scorpion
+(21720,11832,1,1,1,1), -- Common Item - Widow Maker
+(21720,11858,1,1,1,1), -- Common Item - Orcish Poleaxe
+-- Purgatory Invader Warrior lvl 53
+(21722,11830,1,1,1,165), -- Common Item - Scorpion
+(21722,11832,1,1,1,165), -- Common Item - Widow Maker
+(21722,11858,1,1,1,165), -- Common Item - Orcish Poleaxe
+-- Purgatory Invader Elite Soldier lvl 55
+(21726,12336,1,1,1,2841), -- Common Item - Necklace of Binding
+(21726,12335,1,1,1,6098), -- Common Item - Nassen's Earring
+(21726,12337,1,1,1,8547), -- Common Item - Ring of Binding
+-- Purgatory Invader Magus lvl 53
+(21727,12335,1,1,1,4348), -- Common Item - Nassen's Earring
+(21727,12336,1,1,1,5650), -- Common Item - Necklace of Binding
+(21727,12337,1,1,1,5650), -- Common Item - Ring of Binding
+-- Forbidden Path Invader Elite Soldier lvl 60
+(21728,12161,1,1,1,18), -- Common Item - Zubei's Breastplate
+(21728,12173,1,1,1,18), -- Common Item - Avadon Breastplate
+(21728,12152,1,1,1,29), -- Common Item - Zubei's Gaiters
+(21728,12172,1,1,1,29), -- Common Item - Avadon Plate Gaiters
+-- Forbidden Path Invader Elite Soldier lvl 65
+(21729,11932,1,1,1,15), -- Common Item - Lance
+-- Forbidden Path Invader Archer lvl 63
+(21730,11944,1,1,1,12), -- Common Item - Bow of Peril
+-- Forbidden Path Invader Elite Soldier lvl 65
+(21731,12185,1,1,1,44), -- Common Item - Doom Helmet
+(21731,12202,1,1,1,44), -- Common Item - Blue Wolf Helmet
+(21731,12183,1,1,1,63), -- Common Item - Doom Shield
+-- Forbidden Path Invader Shaman lvl 63
+(21732,11939,1,1,1,13), -- Common Item - Demon Dagger
+-- Forbidden Path Invader Priest lvl 60
+(21733,11908,1,1,1,6), -- Common Item - Sprite's Staff
+(21733,11918,1,1,1,6), -- Common Item - Heavy War Axe
+-- Forbidden Path Invader Magus lvl 65
+(21734,12186,1,1,1,20), -- Common Item - Leather Armor of Doom
+(21734,12194,1,1,1,20), -- Common Item - Blue Wolf Leather Armor
+-- Forbidden Path Invader Martyrs lvl 60
+(21735,11890,1,1,1,14), -- Common Item - Great Axe
+-- Forbidden Path Invader Warrior lvl 63
+(21736,11932,1,1,1,11), -- Common Item - Lance
+-- Forbidden Path Invader Soldier lvl 60
+(21737,11915,1,1,1,8), -- Common Item - Kris
+(21737,11919,1,1,1,8), -- Common Item - Hell Knife
+-- Forbidden Path Invader Disciple lvl 63
+(21738,11929,1,1,1,11), -- Common Item - Guardian Sword
+(21738,11930,1,1,1,11), -- Common Item - Sword of Damascus
+(21738,11943,1,1,1,11), -- Common Item - Wizard's Tear
+-- Forbidden Path Invader Berserker lvl 65
+(21739,12341,1,1,1,1344), -- Common Item - Earring of Black Ore
+(21739,12342,1,1,1,2688), -- Common Item - Necklace of Black Ore
+(21739,12343,1,1,1,5376), -- Common Item - Ring of Black Ore
+-- Forbidden Path Invader Food lvl 60
+(21740,12152,1,1,1,108), -- Common Item - Zubei's Gaiters
+(21740,12161,1,1,1,108), -- Common Item - Zubei's Breastplate
+(21740,12172,1,1,1,108), -- Common Item - Avadon Plate Gaiters
+(21740,12173,1,1,1,108), -- Common Item - Avadon Breastplate
+-- Forbidden Path Invader Elite Soldier lvl 65
+(21741,11930,1,1,1,64), -- Common Item - Sword of Damascus
+(21741,11943,1,1,1,64), -- Common Item - Wizard's Tear
+(21741,11929,1,1,1,128), -- Common Item - Guardian Sword
+-- Forbidden Path Invader Elite Soldier lvl 65
+(21742,11939,1,1,1,450), -- Common Item - Demon Dagger
+-- Forbidden Path Invader Elite Soldier lvl 65
+(21743,12184,1,1,1,1), -- Common Item - Doom Plate Armor
+(21743,12204,1,1,1,2), -- Common Item - Blue Wolf Breastplate
+(21743,12193,1,1,1,3), -- Common Item - Blue Wolf Gaiters
+-- Forbidden Path Invader Elite Soldier lvl 60
+(21744,12175,1,1,1,114), -- Common Item - Tunic of Zubei
+(21744,12166,1,1,1,227), -- Common Item - Avadon Robe
+(21744,12176,1,1,1,227), -- Common Item - Stockings of Zubei
+-- Forbidden Path Invader Warrior lvl 63
+(21745,11933,1,1,1,422), -- Common Item - Bellion Cestus
+-- Forbidden Path Invader Elite Soldier lvl 60
+(21748,11903,1,1,1,330), -- Common Item - Arthro Nail
+-- Forbidden Path Invader Elite Soldier lvl 65
+(21749,12188,1,1,1,1464), -- Common Item - Sealed Doom Boots
+(21749,12187,1,1,1,2732), -- Common Item - Sealed Doom Gloves
+(21749,12190,1,1,1,2732), -- Common Item - Sealed Blue Wolf Gloves
+(21749,12189,1,1,1,2833), -- Common Item - Sealed Blue Wolf Boots
+-- Forbidden Path Invader Magus lvl 63
+(21750,12185,1,1,1,923), -- Common Item - Doom Helmet
+(21750,12202,1,1,1,1502), -- Common Item - Blue Wolf Helmet
+(21750,12183,1,1,1,3344), -- Common Item - Doom Shield
+-- Dark Omen Invader Soldier lvl 70
+(21751,11950,1,1,1,12), -- Common Item - Blood Tornado
+-- Dark Omen Invader Soldier lvl 75
+(21752,11950,1,1,1,12), -- Common Item - Blood Tornado
+-- Dark Omen Invader Archer lvl 73
+(21753,12220,1,1,1,456), -- Common Item - Sealed Dark Crystal Gaiters
+(21753,12227,1,1,1,456), -- Common Item - Sealed Dark Crystal Breastplate
+(21753,12233,1,1,1,456), -- Common Item - Sealed Tallum Plate Armor
+-- Dark Omen Invader Elite Soldier lvl 75
+(21754,11955,1,1,1,352), -- Common Item - Carnage Bow
+-- Dark Omen Invader Shaman lvl 73
+(21755,12345,1,1,1,517), -- Common Item - Sealed Phoenix Earring
+(21755,12344,1,1,1,1033), -- Common Item - Sealed Phoenix Necklace
+(21755,12346,1,1,1,1550), -- Common Item - Sealed Phoenix Ring
+-- Dark Omen Invader Priest lvl 70
+(21756,11955,1,1,1,8), -- Common Item - Carnage Bow
+-- Dark Omen Invader Magus lvl 75
+(21757,11951,1,1,1,11), -- Common Item - Bloody Orchid
+-- Dark Omen Invader Martyrs lvl 70
+(21758,11951,1,1,1,10), -- Common Item - Bloody Orchid
+-- Dark Omen Invader Warrior lvl 73
+(21759,11946,1,1,1,5), -- Common Item - Dasparion's Staff
+(21759,11949,1,1,1,5), -- Common Item - Meteor Shower
+-- Dark Omen Invader Soldier lvl 70
+(21760,12221,1,1,1,668), -- Common Item - Sealed Dark Crystal Gloves
+(21760,12224,1,1,1,668), -- Common Item - Sealed Dark Crystal Boots
+(21760,12229,1,1,1,668), -- Common Item - Sealed Tallum Gloves
+(21760,12231,1,1,1,668), -- Common Item - Sealed Tallum Boots
+-- Dark Omen Invader Disciple lvl 73
+(21761,11950,1,1,1,1209), -- Common Item - Blood Tornado
+-- Dark Omen Invader Berserker lvl 75
+(21762,11950,1,1,1,12), -- Common Item - Blood Tornado
+-- Dark Omen Invader Food lvl 70
+(21763,11946,1,1,1,2), -- Common Item - Dasparion's Staff
+(21763,11949,1,1,1,2), -- Common Item - Meteor Shower
+(21763,11953,1,1,1,2), -- Common Item - Spiritual Eye
+(21763,11958,1,1,1,2), -- Common Item - Destroyer Hammer
+-- Dark Omen Invader Elite Soldier lvl 75
+(21764,11950,1,1,1,708), -- Common Item - Blood Tornado
+-- Dark Omen Invader Elite Soldier lvl 75
+(21765,11955,1,1,1,415), -- Common Item - Carnage Bow
+-- Dark Omen Invader Elite Soldier lvl 75
+(21766,11951,1,1,1,69), -- Common Item - Bloody Orchid
+-- Dark Omen Invader Elite Soldier lvl 70
+(21767,11950,1,1,1,3), -- Common Item - Blood Tornado
+-- Dark Omen Invader Warrior lvl 73
+(21768,11951,1,1,1,711), -- Common Item - Bloody Orchid
+-- Dark Omen Invader Elite Soldier lvl 70
+(21771,11951,1,1,1,598), -- Common Item - Bloody Orchid
+-- Dark Omen Invader Elite Soldier lvl 75
+(21772,11953,1,1,1,60), -- Common Item - Spiritual Eye
+(21772,11946,1,1,1,120), -- Common Item - Dasparion's Staff
+(21772,11958,1,1,1,120), -- Common Item - Destroyer Hammer
+(21772,11949,1,1,1,179), -- Common Item - Meteor Shower
+-- Dark Omen Invader Magus lvl 73
+(21773,11955,1,1,1,137), -- Common Item - Carnage Bow
+-- Messenger Invader Soldier lvl 78
+(21774,11976,1,1,1,469), -- Common Item - Tallum Glaive
+-- Messenger Invader Soldier lvl 78
+(21775,12262,1,1,1,410), -- Common Item - Sealed Majestic Plate Armor
+(21775,12263,1,1,1,1232), -- Common Item - Sealed Armor of Nightmare
+-- Messenger Invader Archer lvl 78
+(21776,12259,1,1,1,332), -- Common Item - Sealed Majestic Robe
+(21776,12266,1,1,1,663), -- Common Item - Sealed Nightmare Robe
+-- Messenger Invader Elite Soldier lvl 78
+(21777,12259,1,1,1,361), -- Common Item - Sealed Majestic Robe
+(21777,12266,1,1,1,361), -- Common Item - Sealed Nightmare Robe
+-- Messenger Invader Shaman lvl 78
+(21778,12350,1,1,1,543), -- Common Item - Sealed Majestic Necklace
+(21778,12351,1,1,1,2174), -- Common Item - Sealed Majestic Ring
+(21778,12352,1,1,1,3802), -- Common Item - Sealed Majestic Earring
+-- Messenger Invader Priest lvl 78
+(21779,12258,1,1,1,351), -- Common Item - Sealed Majestic Leather Armor
+(21779,12265,1,1,1,351), -- Common Item - Sealed Leather Armor of Nightmare
+-- Messenger Invader Magus lvl 78
+(21780,12350,1,1,1,441), -- Common Item - Sealed Majestic Necklace
+(21780,12352,1,1,1,575), -- Common Item - Sealed Majestic Earring
+(21780,12351,1,1,1,870), -- Common Item - Sealed Majestic Ring
+-- Messenger Invader Martyrs lvl 78
+(21781,12262,1,1,1,427), -- Common Item - Sealed Majestic Plate Armor
+(21781,12263,1,1,1,427), -- Common Item - Sealed Armor of Nightmare
+-- Messenger Invader Warrior lvl 78
+(21782,12257,1,1,1,1122), -- Common Item - Sealed Majestic Gauntlet
+(21782,12260,1,1,1,1122), -- Common Item - Sealed Majestic Boots
+(21782,12264,1,1,1,1122), -- Common Item - Sealed Gauntlet of Nightmare
+(21782,12267,1,1,1,1122), -- Common Item - Sealed Boots of Nightmare
+-- Messenger Invader Soldier lvl 78
+(21783,12259,1,1,1,465), -- Common Item - Sealed Majestic Robe
+(21783,12266,1,1,1,465), -- Common Item - Sealed Nightmare Robe
+-- Messenger Invader Disciple lvl 78
+(21784,12261,1,1,1,355), -- Common Item - Sealed Majestic Circlet
+(21784,12269,1,1,1,355), -- Common Item - Sealed Helm of Nightmare
+(21784,12268,1,1,1,510), -- Common Item - Sealed Shield of Nightmare
+-- Messenger Invader Berserker lvl 78
+(21785,12257,1,1,1,869), -- Common Item - Sealed Majestic Gauntlet
+(21785,12260,1,1,1,869), -- Common Item - Sealed Majestic Boots
+(21785,12264,1,1,1,869), -- Common Item - Sealed Gauntlet of Nightmare
+(21785,12267,1,1,1,869), -- Common Item - Sealed Boots of Nightmare
+-- Messenger Invader Food lvl 78
+(21786,12350,1,1,1,512), -- Common Item - Sealed Majestic Necklace
+(21786,12351,1,1,1,512), -- Common Item - Sealed Majestic Ring
+(21786,12352,1,1,1,512), -- Common Item - Sealed Majestic Earring
+-- Messenger Invader Elite Soldier lvl 78
+(21787,12269,1,1,1,1361), -- Common Item - Sealed Helm of Nightmare
+(21787,12261,1,1,1,1862), -- Common Item - Sealed Majestic Circlet
+(21787,12268,1,1,1,2747), -- Common Item - Sealed Shield of Nightmare
+-- Messenger Invader Elite Soldier lvl 78
+(21788,11964,1,1,1,179), -- Common Item - Dark Legion
+(21788,11968,1,1,1,179), -- Common Item - Dragon Slayer
+(21788,11971,1,1,1,327), -- Common Item - Sword of Miracles
+-- Messenger Invader Elite Soldier lvl 78
+(21789,11966,1,1,1,1), -- Common Item - Doom Crusher
+(21789,11969,1,1,1,1), -- Common Item - Flaming Dragon Skull
+(21789,11970,1,1,1,1), -- Common Item - Branch of the Mother Tree
+(21789,11974,1,1,1,1), -- Common Item - Elysian
+-- Messenger Invader Elite Soldier lvl 78
+(21790,12257,1,1,1,106), -- Common Item - Sealed Majestic Gauntlet
+(21790,12264,1,1,1,106), -- Common Item - Sealed Gauntlet of Nightmare
+(21790,12267,1,1,1,211), -- Common Item - Sealed Boots of Nightmare
+(21790,12260,1,1,1,317), -- Common Item - Sealed Majestic Boots
+-- Messenger Invader Warrior lvl 78
+(21791,11966,1,1,1,64), -- Common Item - Doom Crusher
+(21791,11969,1,1,1,64), -- Common Item - Flaming Dragon Skull
+(21791,11970,1,1,1,64), -- Common Item - Branch of the Mother Tree
+(21791,11974,1,1,1,64), -- Common Item - Elysian
+-- Messenger Invader Elite Soldier lvl 78
+(21794,11964,1,1,1,145), -- Common Item - Dark Legion
+(21794,11968,1,1,1,145), -- Common Item - Dragon Slayer
+(21794,11971,1,1,1,217), -- Common Item - Sword of Miracles
+-- Messenger Invader Elite Soldier lvl 78
+(21795,11975,1,1,1,504), -- Common Item - Soul Bow
+-- Messenger Invader Magus lvl 78
+(21796,11975,1,1,1,449), -- Common Item - Soul Bow
+-- Spirit of Timiniel lvl 55
+(21797,12143,1,1,1,404), -- Common Item - Full Plate Shield
+(21797,12145,1,1,1,404), -- Common Item - Full Plate Helmet
+-- Treasure Chest lvl 51
+(21811,12119,1,1,1,1136), -- Common Item - Mithril Gauntlet
+(21811,12125,1,1,1,1136), -- Common Item - Composite Boots
+-- Treasure Chest lvl 54
+(21812,12143,1,1,1,904), -- Common Item - Full Plate Shield
+(21812,12145,1,1,1,904), -- Common Item - Full Plate Helmet
+-- Alpen Kookaburra lvl 65
+(21824,1807,1,1,-1,13889), -- Recipe: Soulshot: A-Grade
+(21824,4052,1,1,-1,200000), -- Earring of Black Ore Piece
+(21824,1894,1,2,-1,250000), -- Crafted Leather
+(21824,4039,1,1,1,499998), -- Mold Glue
+(21824,1894,1,1,1,500002), -- Crafted Leather
+(21824,4118,1,1,2,499998), -- Evil Spirit Head
+(21824,4116,1,1,2,500002), -- Deadman's Glory Stone
+-- Alpen Kookaburra lvl 65
+(21825,3035,1,1,-1,10000), -- Recipe: Spiritshot A
+(21825,4054,1,1,-1,60606), -- Necklace of Black Ore Beads
+(21825,4053,1,1,-1,333333), -- Ring of Black Ore Gemstone
+(21825,1880,1,1,1,23803), -- Steel
+(21825,4043,1,1,1,119018), -- Asofe
+(21825,1869,2,6,1,214484), -- Iron Ore
+(21825,1864,7,14,1,238035), -- Stem
+(21825,1343,33,85,1,404660), -- Silver Arrow
+(21825,12204,1,1,2,1797), -- Common Item - Blue Wolf Breastplate
+(21825,4078,1,1,2,998203), -- Blue Wolf Breastplate Part
+-- Alpen Buffalo lvl 67
+(21826,4043,1,1,-1,109409), -- Asofe
+(21826,4077,1,1,-1,165837), -- Doom Shield Fragment
+(21826,1874,1,2,-1,251256), -- Oriharukon Ore
+(21826,6339,1,1,1,2090), -- Recipe: Sealed Majestic Ring(70%)
+(21826,4043,1,1,1,16988), -- Asofe
+(21826,4039,1,1,1,46714), -- Mold Glue
+(21826,1874,1,1,1,76428), -- Oriharukon Ore
+(21826,1865,1,3,1,335398), -- Varnish
+(21826,1870,1,3,1,522382), -- Coal
+(21826,12184,1,1,2,5490), -- Common Item - Doom Plate Armor
+(21826,12204,1,1,2,27448), -- Common Item - Blue Wolf Breastplate
+(21826,12193,1,1,2,39212), -- Common Item - Blue Wolf Gaiters
+(21826,4081,1,1,2,223151), -- Doom Plate Armor Temper
+(21826,4078,1,1,2,223153), -- Blue Wolf Breastplate Part
+(21826,4080,1,1,2,481546), -- Blue Wolf Gaiters Material
+-- Alpen Buffalo lvl 67
+(21827,3956,1,1,-1,6667), -- Recipe: Blessed Spiritshot A
+(21827,5156,1,1,-1,10000), -- Recipe: Soulshot (A) Compressed Package (100%)
+(21827,4078,1,1,-1,86655), -- Blue Wolf Breastplate Part
+(21827,1877,1,1,1,11920), -- Adamantite Nugget
+(21827,4040,1,1,1,23840), -- Mold Lubricant
+(21827,1343,85,230,1,187049), -- Silver Arrow
+(21827,1871,1,3,1,290865), -- Charcoal
+(21827,1866,1,1,1,486327), -- Suede
+(21827,11929,1,1,2,30303), -- Common Item - Guardian Sword
+(21827,11930,1,1,2,30303), -- Common Item - Sword of Damascus
+(21827,11943,1,1,2,30304), -- Common Item - Wizard's Tear
+(21827,4114,1,1,2,303030), -- Sword of Damascus Blade
+(21827,8336,1,1,2,303030), -- Blade of the Wizard's Tear
+(21827,8330,1,1,2,303031), -- Guardian Sword Blade
+-- Alpen Cougar lvl 69
+(21828,729,1,1,-1,2000), -- Scroll: Enchant Weapon (A)
+(21828,5478,1,1,-1,168350), -- Sealed Dark Crystal Leather Armor Pattern
+(21828,1875,1,2,-1,990099), -- Stone of Purity
+(21828,4040,1,1,1,24272), -- Mold Lubricant
+(21828,1875,1,1,1,42334), -- Stone of Purity
+(21828,1879,1,1,1,158479), -- Cokes
+(21828,1870,1,3,1,359346), -- Coal
+(21828,1865,1,3,1,415569), -- Varnish
+(21828,11946,1,1,2,30300), -- Common Item - Dasparion's Staff
+(21828,11949,1,1,2,30300), -- Common Item - Meteor Shower
+(21828,11958,1,1,2,30300), -- Common Item - Destroyer Hammer
+(21828,5532,1,1,2,303033), -- Meteor Shower Head
+(21828,5543,1,1,2,303033), -- Dasparion's Staff Edge
+(21828,8346,1,1,2,303033), -- Hammer Piece of Destroyer
+-- Alpen Cougar lvl 69
+(21829,3035,1,1,-1,8000), -- Recipe: Spiritshot A
+(21829,4054,1,1,-1,357143), -- Necklace of Black Ore Beads
+(21829,4053,1,1,-1,714286), -- Ring of Black Ore Gemstone
+(21829,4043,1,1,1,61811), -- Asofe
+(21829,1880,1,1,1,222629), -- Steel
+(21829,1864,5,15,1,357780), -- Stem
+(21829,1869,2,6,1,357780), -- Iron Ore
+(21829,12223,1,1,2,47619), -- Common Item - Sealed Dark Crystal Robe
+(21829,12232,1,1,2,47619), -- Common Item - Sealed Tallum Tunic
+(21829,12235,1,1,2,47619), -- Common Item - Sealed Tallum Stockings
+(21829,5485,1,1,2,190476), -- Sealed Tallum Tunic Texture
+(21829,5486,1,1,2,190476), -- Sealed Dark Crystal Robe Fabric
+(21829,5489,1,1,2,476190), -- Sealed Tallum Stockings Fabric
+(21829,1343,30,90,3,1000000), -- Silver Arrow
+-- Frozen Wasteland Werewolf lvl 38
+(22025,352,1,1,1,65), -- Brigandine Tunic
+(22025,2377,1,1,1,105), -- Mithril Scale Gaiters
+(22025,2378,1,1,1,105), -- Brigandine Gaiters
+-- Ragna Orc Mage lvl 45
+(22035,2166,1,1,-1,30000), -- Recipe: Earrings of Binding (100%)
+(22035,2166,1,1,1,5882), -- Recipe: Earrings of Binding (100%)
+-- Ragna Orc Sorcerer lvl 50
+(22044,1539,1,1,1,27240), -- Greater Healing Potion
+-- Horrifying Excavator Golem III lvl 51
+(22058,12334,1,1,1,1984), -- Common Item - Necklace of Mermaid
+(22058,12333,1,1,1,2907), -- Common Item - Ring of Ages
+(22058,12332,1,1,1,3333), -- Common Item - Earring of Binding
+-- Horrifying Cannon Golem III lvl 51
+(22061,2231,1,1,-1,13544), -- Recipe: Full Plate Armor
+(22061,1977,1,1,-1,46483), -- Composite Armor Temper
+(22061,1978,1,1,-1,201428), -- Tower Shield Fragment
+(22061,8308,1,1,0,193), -- Recipe: Ecliptic Axe (100%)
+(22061,57,1244,2528,0,700000), -- Adena
+(22061,326,1,1,1,39), -- Heathen's Book
+(22061,2110,1,1,1,3663), -- Heathen's Book Page
+(22061,4041,1,1,2,1027), -- Mold Hardener
+(22061,4040,1,1,2,2363), -- Mold Lubricant
+(22061,1877,1,1,2,4725), -- Adamantite Nugget
+(22061,1539,1,1,2,26252), -- Greater Healing Potion
+(22061,1866,1,1,2,78755), -- Suede
+(22061,1871,1,1,2,118132), -- Charcoal
+-- Horrifying Jackhammer Golem lvl 52
+(22062,2166,1,1,-1,13584), -- Recipe: Earrings of Binding (100%)
+(22062,2167,1,1,-1,15241), -- Recipe: Ring of Ages
+(22062,1912,1,1,-1,85521), -- Ring of Protection Gemstone
+(22062,11800,1,1,1,906), -- Common Item - Grace Dagger
+(22062,11803,1,1,1,906), -- Common Item - Dark Screamer
+-- Horrifying Ginzu Golem V lvl 53
+(22065,1864,13,13,-1,189351), -- Stem
+-- Deadly Ginzu Golem V lvl 53
+(22076,1869,1,1,-1,125000), -- Iron Ore
+-- Lost Bandersnatch lvl 53
+(22079,12138,1,1,1,274), -- Common Item - Divine Tunic
+(22079,12139,1,1,1,821), -- Common Item - Divine Stockings
+-- Massive Maze Bandersnatch lvl 54
+(22080,12335,1,1,1,399), -- Common Item - Nassen's Earring
+(22080,12336,1,1,1,399), -- Common Item - Necklace of Binding
+(22080,12337,1,1,1,1595), -- Common Item - Ring of Binding
+-- Lost Watcher lvl 53
+(22081,12142,1,1,1,298), -- Common Item - Full Plate Boots
+(22081,12134,1,1,1,321), -- Common Item - Drake Leather Gloves
+(22081,12131,1,1,1,458), -- Common Item - Theca Leather Gloves
+(22081,12137,1,1,1,458), -- Common Item - Divine Gloves
+(22081,12136,1,1,1,527), -- Common Item - Drake Leather Boots
+(22081,12141,1,1,1,572), -- Common Item - Full Plate Gauntlet
+(22081,12132,1,1,1,664), -- Common Item - Theca Leather Boots
+-- Elder Lost Watcher lvl 54
+(22082,12145,1,1,1,1362), -- Common Item - Full Plate Helmet
+(22082,12143,1,1,1,1779), -- Common Item - Full Plate Shield
+-- Baby Panthera lvl 55
+(22083,12336,1,1,1,981), -- Common Item - Necklace of Binding
+(22083,12337,1,1,1,1965), -- Common Item - Ring of Binding
+(22083,12335,1,1,1,2208), -- Common Item - Nassen's Earring
+-- Panthera lvl 56
+(22084,4129,1,1,-1,13197), -- Recipe: Earrings of Black Ore (100%)
+-- Lost Gargoyle lvl 55
+(22085,12336,1,1,1,690), -- Common Item - Necklace of Binding
+(22085,12335,1,1,1,1227), -- Common Item - Nassen's Earring
+(22085,12337,1,1,1,1572), -- Common Item - Ring of Binding
+-- Frost Iron Golem lvl 59
+(22092,4158,1,1,-1,3533), -- Recipe: Doom Plate Armor (100%)
+-- Frost Buffalo lvl 61
+(22094,4615,1,1,-1,5904), -- Greater Dye of CON 
+(22094,4067,1,1,-1,173432), -- Zubei's Leather Gaiter Texture
+-- Freya's Buffalo lvl 57
+(22099,11889,1,1,1,377), -- Common Item - Great Sword
+(22099,11900,1,1,1,377), -- Common Item - Sword of Valhalla
+(22099,11916,1,1,1,377), -- Common Item - Keshanberk
+-- Freya's Dog lvl 58
+(22104,12146,1,1,1,4644), -- Common Item - Sealed Zubei's Gauntlet
+(22104,12147,1,1,1,4644), -- Common Item - Sealed Zubei's Boots
+(22104,12148,1,1,1,4644), -- Common Item - Sealed Avadon Gloves
+(22104,12149,1,1,1,4644), -- Common Item - Sealed Avadon Boots
+(22104,5757,1,1,1,27189), -- Sealed Zubei's Gauntlet Part
+-- Spiked Stakato lvl 72
+(22105,11946,1,1,1,115), -- Common Item - Dasparion's Staff
+(22105,11949,1,1,1,115), -- Common Item - Meteor Shower
+(22105,11953,1,1,1,115), -- Common Item - Spiritual Eye
+(22105,11958,1,1,1,115), -- Common Item - Destroyer Hammer
+-- Spiked Stakato Worker lvl 73
+(22106,11953,1,1,1,36), -- Common Item - Spiritual Eye
+(22106,11958,1,1,1,73), -- Common Item - Destroyer Hammer
+(22106,11949,1,1,1,145), -- Common Item - Meteor Shower
+(22106,11946,1,1,1,254), -- Common Item - Dasparion's Staff
+(22106,8487,1,1,2,500), -- Recipe: Destroyer Hammer (60%)
+-- Spiked Stakato Guard lvl 74
+(22107,11960,1,1,1,248), -- Common Item - Halberd
+-- Female Spiked Stakato lvl 74
+(22108,12230,1,1,1,440), -- Common Item - Sealed Tallum Leather Armor
+(22108,12222,1,1,1,704), -- Common Item - Sealed Dark Crystal Leather Armor
+(22108,12228,1,1,1,1495), -- Common Item - Sealed Dark Crystal Leggings
+(22108,5272,1,1,2,563), -- Recipe: Greater Soulshot (S) Compressed Package(100%)
+-- Male Spiked Stakato lvl 74
+(22109,12233,1,1,1,604), -- Common Item - Sealed Tallum Plate Armor
+(22109,12220,1,1,1,705), -- Common Item - Sealed Dark Crystal Gaiters
+(22109,12227,1,1,1,1107), -- Common Item - Sealed Dark Crystal Breastplate
+(22109,5162,1,1,2,970), -- Recipe: Spiritshot (S) Compressed Package (100%)
+-- Male Spiked Stakato lvl 74
+(22110,5167,1,1,2,4016), -- Recipe: Blessed Spiritshot (S) Compressed Package (100%)
+-- Spiked Stakato Sorcerer lvl 75
+(22111,5548,1,1,1,1209), -- Tallum Blade Edge
+-- Cannibalistic Stakato Follower lvl 74
+(22112,12234,1,1,1,1008), -- Common Item - Sealed Tallum Helmet
+(22112,12226,1,1,1,1511), -- Common Item - Sealed Dark Crystal Helmet
+(22112,12225,1,1,1,3021), -- Common Item - Sealed Dark Crystal Shield
+(22112,5277,1,1,2,1483), -- Recipe: Greater Spiritshot (S) Compressed Package(100%)
+-- Cannibalistic Stakato Leader lvl 75
+(22113,11952,1,1,1,102), -- Common Item - Elemental Sword
+(22113,11954,1,1,1,102), -- Common Item - Inferno Master
+(22113,11957,1,1,1,102), -- Common Item - Tallum Blade
+-- Spiked Stakato Soldier lvl 76
+(22115,11952,1,1,1,660), -- Common Item - Elemental Sword
+(22115,11954,1,1,1,660), -- Common Item - Inferno Master
+(22115,11957,1,1,1,660), -- Common Item - Tallum Blade
+-- Spiked Stakato Drone lvl 77
+(22116,11950,1,1,1,376), -- Common Item - Blood Tornado
+-- Spiked Stakato Captain lvl 78
+(22117,11960,1,1,1,1739), -- Common Item - Halberd
+-- Spiked Stakato Nurse lvl 79
+(22118,12350,1,1,1,1560), -- Common Item - Sealed Majestic Necklace
+(22118,12352,1,1,1,1718), -- Common Item - Sealed Majestic Earring
+(22118,12351,1,1,1,2342), -- Common Item - Sealed Majestic Ring
+-- Spiked Stakato Nurse lvl 79
+(22119,12350,1,1,1,2381), -- Common Item - Sealed Majestic Necklace
+(22119,12351,1,1,1,2381), -- Common Item - Sealed Majestic Ring
+(22119,12352,1,1,1,2381), -- Common Item - Sealed Majestic Earring
+-- Spiked Stakato Baby lvl 79
+(22120,12257,1,1,1,1044), -- Common Item - Sealed Majestic Gauntlet
+(22120,12264,1,1,1,1342), -- Common Item - Sealed Gauntlet of Nightmare
+(22120,12267,1,1,1,1789), -- Common Item - Sealed Boots of Nightmare
+(22120,12260,1,1,1,1938), -- Common Item - Sealed Majestic Boots
+-- Spiked Stakato Shaman lvl 80
+(22121,12266,1,1,1,357), -- Common Item - Sealed Nightmare Robe
+(22121,12259,1,1,1,535), -- Common Item - Sealed Majestic Robe
+-- Monastic Pilgrim lvl 78
+(22122,12257,1,1,1,1236), -- Common Item - Sealed Majestic Gauntlet
+(22122,12264,1,1,1,1395), -- Common Item - Sealed Gauntlet of Nightmare
+(22122,12267,1,1,1,1475), -- Common Item - Sealed Boots of Nightmare
+(22122,12260,1,1,1,1634), -- Common Item - Sealed Majestic Boots
+-- Monastic Crusader lvl 78
+(22123,12269,1,1,1,1192), -- Common Item - Sealed Helm of Nightmare
+(22123,12268,1,1,1,1629), -- Common Item - Sealed Shield of Nightmare
+(22123,12261,1,1,1,1908), -- Common Item - Sealed Majestic Circlet
+-- Solina Brother lvl 78
+(22124,12352,1,1,1,1220), -- Common Item - Sealed Majestic Earring
+(22124,12350,1,1,1,1828), -- Common Item - Sealed Majestic Necklace
+(22124,12351,1,1,1,2288), -- Common Item - Sealed Majestic Ring
+-- Solina Lay Brother lvl 78
+(22125,11976,1,1,1,314), -- Common Item - Tallum Glaive
+-- Silent Seeker lvl 78
+(22126,12263,1,1,1,347), -- Common Item - Sealed Armor of Nightmare
+(22126,12262,1,1,1,532), -- Common Item - Sealed Majestic Plate Armor
+-- Silent Brother lvl 78
+(22127,11966,1,1,1,35), -- Common Item - Doom Crusher
+(22127,11969,1,1,1,35), -- Common Item - Flaming Dragon Skull
+(22127,11970,1,1,1,35), -- Common Item - Branch of the Mother Tree
+(22127,11974,1,1,1,35), -- Common Item - Elysian
+-- Monastery Guardian lvl 78
+(22128,11975,1,1,1,8), -- Common Item - Soul Bow
+-- Warrior Monk lvl 78
+(22129,12258,1,1,1,536), -- Common Item - Sealed Majestic Leather Armor
+(22129,12265,1,1,1,567), -- Common Item - Sealed Leather Armor of Nightmare
+-- Divine Advocate lvl 78
+(22130,11973,1,1,1,629), -- Common Item - Soul Separator
+-- Pilgrim of Light lvl 78
+(22131,12266,1,1,1,736), -- Common Item - Sealed Nightmare Robe
+(22131,12259,1,1,1,876), -- Common Item - Sealed Majestic Robe
+-- Judge of Light lvl 78
+(22132,6703,1,2,-1,207000), -- Sealed Imperial Crusader Gauntlets Design
+(22132,11971,1,1,1,50), -- Common Item - Sword of Miracles
+(22132,11964,1,1,1,100), -- Common Item - Dark Legion
+(22132,11968,1,1,1,133), -- Common Item - Dragon Slayer
+-- Guardian of the Grail lvl 78
+(22133,6901,1,1,-1,5000), -- Recipe: Shining Arrow (100%)
+(22133,6696,1,1,-1,25000), -- Heavens Divider Edge
+(22133,11973,1,1,1,8), -- Common Item - Soul Separator
+-- Beholder of Light lvl 78
+(22135,12350,1,1,1,2132), -- Common Item - Sealed Majestic Necklace
+(22135,12352,1,1,1,2326), -- Common Item - Sealed Majestic Earring
+(22135,12351,1,1,1,3367), -- Common Item - Sealed Majestic Ring
+-- Old Aristocrat's Soldier lvl 78
+(22139,11976,1,1,1,37), -- Common Item - Tallum Glaive
+-- Zombie Worker lvl 78
+(22140,12260,1,1,1,711), -- Common Item - Sealed Majestic Boots
+(22140,12257,1,1,1,1011), -- Common Item - Sealed Majestic Gauntlet
+(22140,12267,1,1,1,1048), -- Common Item - Sealed Boots of Nightmare
+(22140,12264,1,1,1,2358), -- Common Item - Sealed Gauntlet of Nightmare
+-- Forgotten Victim lvl 78
+(22141,12261,1,1,1,340), -- Common Item - Sealed Majestic Circlet
+(22141,12269,1,1,1,681), -- Common Item - Sealed Helm of Nightmare
+(22141,12268,1,1,1,1059), -- Common Item - Sealed Shield of Nightmare
+-- Triol's Layperson lvl 78
+(22142,12261,1,1,1,828), -- Common Item - Sealed Majestic Circlet
+(22142,12269,1,1,1,1266), -- Common Item - Sealed Helm of Nightmare
+(22142,12268,1,1,1,1736), -- Common Item - Sealed Shield of Nightmare
+-- Triol's Believer lvl 78
+(22143,12257,1,1,1,277), -- Common Item - Sealed Majestic Gauntlet
+(22143,12267,1,1,1,1435), -- Common Item - Sealed Boots of Nightmare
+(22143,12260,1,1,1,1499), -- Common Item - Sealed Majestic Boots
+(22143,12264,1,1,1,3344), -- Common Item - Sealed Gauntlet of Nightmare
+-- Resurrected Temple Knight lvl 78
+(22144,11964,1,1,1,7), -- Common Item - Dark Legion
+(22144,11968,1,1,1,7), -- Common Item - Dragon Slayer
+(22144,11971,1,1,1,7), -- Common Item - Sword of Miracles
+-- Ritual Sacrifice lvl 78
+(22145,12352,1,1,1,903), -- Common Item - Sealed Majestic Earring
+(22145,12350,1,1,1,1600), -- Common Item - Sealed Majestic Necklace
+(22145,12351,1,1,1,2506), -- Common Item - Sealed Majestic Ring
+-- Triol's Priest lvl 78
+(22146,12259,1,1,1,68), -- Common Item - Sealed Majestic Robe
+(22146,12266,1,1,1,68), -- Common Item - Sealed Nightmare Robe
+-- Ritual Offering lvl 78
+(22147,12352,1,1,1,845), -- Common Item - Sealed Majestic Earring
+(22147,12351,1,1,1,1014), -- Common Item - Sealed Majestic Ring
+(22147,12350,1,1,1,1183), -- Common Item - Sealed Majestic Necklace
+-- Ritual Offering lvl 78
+(22149,11964,1,1,1,77), -- Common Item - Dark Legion
+(22149,11968,1,1,1,77), -- Common Item - Dragon Slayer
+(22149,11971,1,1,1,77), -- Common Item - Sword of Miracles
+-- Triol's Believer lvl 78
+(22150,11964,1,1,1,116), -- Common Item - Dark Legion
+(22150,11968,1,1,1,116), -- Common Item - Dragon Slayer
+(22150,11971,1,1,1,116), -- Common Item - Sword of Miracles
+-- Temple Guard lvl 78
+(22152,11973,1,1,1,167), -- Common Item - Soul Separator
+-- Ritual Sacrifice lvl 78
+(22154,12352,1,1,1,845), -- Common Item - Sealed Majestic Earring
+(22154,12351,1,1,1,1014), -- Common Item - Sealed Majestic Ring
+(22154,12350,1,1,1,1183), -- Common Item - Sealed Majestic Necklace
+-- Triol's High Priest lvl 78
+(22155,12259,1,1,1,907), -- Common Item - Sealed Majestic Robe
+(22155,12266,1,1,1,907), -- Common Item - Sealed Nightmare Robe
+-- Triol's Priest lvl 78
+(22156,6690,1,1,-1,175000), -- Imperial Staff Head
+(22156,12350,1,1,1,920), -- Common Item - Sealed Majestic Necklace
+(22156,12352,1,1,1,1838), -- Common Item - Sealed Majestic Earring
+(22156,12351,1,1,1,3676), -- Common Item - Sealed Majestic Ring
+-- Triol's Priest lvl 78
+(22157,12350,1,1,1,920), -- Common Item - Sealed Majestic Necklace
+(22157,12352,1,1,1,1838), -- Common Item - Sealed Majestic Earring
+(22157,12351,1,1,1,3676), -- Common Item - Sealed Majestic Ring
+-- Triol's Believer lvl 78
+(22158,12257,1,1,1,1070), -- Common Item - Sealed Majestic Gauntlet
+(22158,12260,1,1,1,1070), -- Common Item - Sealed Majestic Boots
+(22158,12264,1,1,1,1070), -- Common Item - Sealed Gauntlet of Nightmare
+(22158,12267,1,1,1,1070), -- Common Item - Sealed Boots of Nightmare
+-- Triol's High Priest lvl 78
+(22159,12259,1,1,1,1686), -- Common Item - Sealed Majestic Robe
+(22159,12266,1,1,1,1686), -- Common Item - Sealed Nightmare Robe
+-- Triol's Priest lvl 78
+(22160,12350,1,1,1,1754), -- Common Item - Sealed Majestic Necklace
+(22160,12351,1,1,1,1754), -- Common Item - Sealed Majestic Ring
+(22160,12352,1,1,1,3509), -- Common Item - Sealed Majestic Earring
+-- Ritual Sacrifice lvl 78
+(22161,12269,1,1,1,893), -- Common Item - Sealed Helm of Nightmare
+(22161,12261,1,1,1,3571), -- Common Item - Sealed Majestic Circlet
+(22161,12268,1,1,1,4464), -- Common Item - Sealed Shield of Nightmare
+-- Triol's Believer lvl 78
+(22162,11964,1,1,1,116), -- Common Item - Dark Legion
+(22162,11968,1,1,1,116), -- Common Item - Dragon Slayer
+(22162,11971,1,1,1,116), -- Common Item - Sword of Miracles
+-- Triol's High Priest lvl 78
+(22163,11973,1,1,1,185), -- Common Item - Soul Separator
+-- Triol's Believer lvl 78
+(22164,12352,1,1,1,831), -- Common Item - Sealed Majestic Earring
+(22164,12351,1,1,1,2494), -- Common Item - Sealed Majestic Ring
+(22164,12350,1,1,1,4149), -- Common Item - Sealed Majestic Necklace
+-- Triol's Priest lvl 78
+(22165,12257,1,1,1,424), -- Common Item - Sealed Majestic Gauntlet
+(22165,12260,1,1,1,424), -- Common Item - Sealed Majestic Boots
+(22165,12264,1,1,1,424), -- Common Item - Sealed Gauntlet of Nightmare
+(22165,12267,1,1,1,424), -- Common Item - Sealed Boots of Nightmare
+-- Triol's Believer lvl 78
+(22166,12350,1,1,1,1238), -- Common Item - Sealed Majestic Necklace
+(22166,12352,1,1,1,2475), -- Common Item - Sealed Majestic Earring
+(22166,12351,1,1,1,4132), -- Common Item - Sealed Majestic Ring
+-- Triol's High Priest lvl 78
+(22167,12259,1,1,1,1188), -- Common Item - Sealed Majestic Robe
+(22167,12266,1,1,1,1484), -- Common Item - Sealed Nightmare Robe
+-- Triol's Priest lvl 78
+(22168,12258,1,1,1,152), -- Common Item - Sealed Majestic Leather Armor
+(22168,12265,1,1,1,152), -- Common Item - Sealed Leather Armor of Nightmare
+-- Ritual Sacrifice lvl 78
+(22169,4040,1,1,-1,400000), -- Mold Lubricant
+(22169,12262,1,1,1,1247), -- Common Item - Sealed Majestic Plate Armor
+(22169,12263,1,1,1,1247), -- Common Item - Sealed Armor of Nightmare
+-- Triol's Believer lvl 78
+(22170,12259,1,1,1,711), -- Common Item - Sealed Majestic Robe
+(22170,12266,1,1,1,1016), -- Common Item - Sealed Nightmare Robe
+-- Triol's High Priest lvl 78
+(22171,11966,1,1,1,620), -- Common Item - Doom Crusher
+(22171,11969,1,1,1,620), -- Common Item - Flaming Dragon Skull
+(22171,11970,1,1,1,620), -- Common Item - Branch of the Mother Tree
+(22171,11974,1,1,1,620), -- Common Item - Elysian
+-- Ritual Sacrifice lvl 78
+(22172,12261,1,1,1,429), -- Common Item - Sealed Majestic Circlet
+(22172,12268,1,1,1,429), -- Common Item - Sealed Shield of Nightmare
+(22172,12269,1,1,1,429), -- Common Item - Sealed Helm of Nightmare
+-- Triol's Priest lvl 78
+(22173,12266,1,1,1,577), -- Common Item - Sealed Nightmare Robe
+(22173,12259,1,1,1,1443), -- Common Item - Sealed Majestic Robe
+-- Triol's Priest lvl 78
+(22174,12266,1,1,1,478), -- Common Item - Sealed Nightmare Robe
+(22174,12259,1,1,1,1196), -- Common Item - Sealed Majestic Robe
+(22174,5481,1,1,1,2849), -- Sealed Majestic Leather Armor Fabric
+(22174,5480,1,1,1,5347), -- Sealed Leather Armor of Nightmare Fabric
+-- Andreas' Captain of the Royal Guard lvl 78
+(22191,57,2618,4749,0,1000000), -- Adena
+(22191,4042,1,1,1,250000), -- Enria
+(22191,4043,1,1,1,250000), -- Asofe
+(22191,1895,1,1,1,500000), -- Metallic Fiber
+-- Andreas' Royal Guards lvl 78
+(22192,57,1312,2498,0,1000000), -- Adena
+-- Andreas' Royal Guards lvl 78
+(22193,57,1351,2192,0,1000000), -- Adena
+(22193,1895,1,1,1,1000000), -- Metallic Fiber
+-- Ritual Sacrifice lvl 78
+(22195,57,8054,16107,0,700000), -- Adena
+(22195,1895,3,6,1,970900), -- Metallic Fiber
+-- Velociraptor lvl 80
+(22197,5545,1,1,1,1990), -- Dark Legion's Edge Blade
+(22197,5529,1,1,1,1990), -- Dragon Slayer Edge
+(22197,5546,1,1,1,2186), -- Sword of Miracles Edge
+(22197,81,1,1,2,7), -- Dragon Slayer
+(22197,151,1,1,2,7), -- Sword of Miracles
+(22197,2500,1,1,2,7), -- Dark Legion's Edge
+-- Pachycephalosaurus lvl 80
+(22209,5537,1,1,1,6213), -- Soul Separator Head
+(22209,236,1,1,2,22), -- Soul Separator
+-- Pachycephalosaurus lvl 80
+(22210,5537,1,1,1,6758), -- Soul Separator Head
+(22210,236,1,1,2,24), -- Soul Separator
+-- Wild Strider lvl 80
+(22212,5538,1,1,1,6102), -- Dragon Grinder Edge
+(22212,270,1,1,2,21), -- Dragon Grinder
+-- Tyrannosaurus lvl 80
+(22216,8900,1,1,1,140000), -- Ancient Spellbook: Cyclone
+(22216,8905,1,1,1,140000), -- Ancient Spellbook: Purification Field
+(22216,8633,1,1,2,58823), -- Elixir of Mental Strength (S-Grade)
+(22216,8627,1,1,2,350000), -- Elixir of Life (S-Grade)
+-- Tyrannosaurus lvl 80
+(22217,8954,1,1,2,11235), -- Blue Primeval Crystal
+(22217,8627,1,1,2,33333), -- Elixir of Life (S-Grade)
+(22217,8903,1,1,2,52632), -- Ancient Spellbook: Gehenna
+(22217,8908,1,1,2,52632), -- Ancient Spellbook: Mass Recharge
+(22217,8633,1,1,2,58824), -- Elixir of Mental Strength (S-Grade)
+-- Ornithomimus lvl 80
+(22219,5544,1,1,1,1409), -- Branch of the Mother Tree Head
+(22219,8349,1,1,1,1410), -- Doom Crusher Head
+(22219,5533,1,1,1,1410), -- Elysian Head
+(22219,8342,1,1,1,1410), -- Flaming Dragon Skull Piece
+(22219,164,1,1,2,5), -- Elysian
+(22219,213,1,1,2,5), -- Branch of the Mother Tree
+(22219,7895,1,1,2,5), -- Flaming Dragon Skull
+(22219,7902,1,1,2,5), -- Doom Crusher
+-- Deinonychus lvl 80
+(22220,5534,1,1,1,5263), -- Soul Bow Stave
+(22220,8956,1,1,2,438), -- Red Primeval Crystal
+(22220,8627,1,1,2,1314), -- Elixir of Life (S-Grade)
+(22220,8955,1,1,2,1314), -- Green Primeval Crystal
+(22220,8954,1,1,2,1751), -- Blue Primeval Crystal
+(22220,8633,1,1,2,2188), -- Elixir of Mental Strength (S-Grade)
+(22220,8880,1,1,2,19608), -- Spellbook: Summon Spectral Knight
+-- Wild Strider lvl 80
+(22222,5538,1,1,1,5297), -- Dragon Grinder Edge
+(22222,270,1,1,2,19), -- Dragon Grinder
+-- Velociraptor lvl 80
+(22223,8898,1,1,1,47619), -- Ancient Tactical Manual: Symbol of the Assassin
+(22223,8627,1,1,2,2070), -- Elixir of Life (S-Grade)
+(22223,8633,1,1,2,4149), -- Elixir of Mental Strength (S-Grade)
+-- Ornithomimus lvl 80
+(22224,11966,1,1,1,259), -- Common Item - Doom Crusher
+(22224,11969,1,1,1,259), -- Common Item - Flaming Dragon Skull
+(22224,11970,1,1,1,259), -- Common Item - Branch of the Mother Tree
+(22224,11974,1,1,1,259), -- Common Item - Elysian
+(22224,5533,1,1,1,704), -- Elysian Head
+(22224,8349,1,1,1,704), -- Doom Crusher Head
+(22224,8342,1,1,1,2114), -- Flaming Dragon Skull Piece
+(22224,5544,1,1,1,2817), -- Branch of the Mother Tree Head
+-- Deinonychus lvl 80
+(22225,289,1,1,1,19), -- Soul Bow
+(22225,5534,1,1,1,5508), -- Soul Bow Stave
+-- Pachycephalosaurus lvl 80
+(22226,6704,1,1,-1,250000), -- Sealed Imperial Crusader Boots Design
+(22226,1894,1,1,-1,640000), -- Crafted Leather
+(22226,11973,1,1,1,1185), -- Common Item - Soul Separator
+-- Wild Strider lvl 80
+(22227,11967,1,1,1,617), -- Common Item - Dragon Grinder
+-- Shady Muertos Wizard lvl 19
+(22256,1717,1,1,-1,142857), -- Leather Gloves Lining
+(22256,2143,1,1,1,17857), -- Recipe: Synthetic Cokes
+-- Kleopora lvl 80
+(22260,10203,1,1,2,847), -- Spellbook - Empowering Echo
+(22260,10101,1,1,2,981), -- Spellbook - Throne of Ice
+(22260,10100,1,1,2,1389), -- Spellbook - Diamond Dust
+(22260,10099,1,1,2,1965), -- Spellbook - Count of Fire
+(22260,9546,1,1,200,1575), -- Fire Stone
+-- Seychelles lvl 81
+(22261,10104,1,1,2,990), -- Spellbook - Mana Gain
+(22261,10069,1,1,2,1145), -- Battle Manual - Leopold
+(22261,10068,1,1,2,1362), -- Battle Manual - Enuma Elish
+(22261,10103,1,1,2,1486), -- Spellbook - Divine Power
+(22261,10102,1,1,2,1672), -- Spellbook - Throne of Wind
+(22261,9546,1,1,200,1672), -- Fire Stone
+-- Naiad lvl 81
+(22262,10090,1,1,2,1010), -- Battle Manual - Prahnah
+(22262,10106,1,1,2,1460), -- Amulet - Seal of Blockade
+(22262,10105,1,1,2,1645), -- Amulet - Chant of Protection
+(22262,10107,1,1,2,1795), -- Spellbook - Fire Vortex Buster
+(22262,10598,1,1,2,3401), -- Battle Manual - Soul Vortex
+-- Sonneratia lvl 82
+(22263,10091,1,1,2,1592), -- Battle Manual - Final Form
+(22263,10109,1,1,2,1934), -- Spellbook - Wind Vortex Slug
+(22263,10108,1,1,2,2008), -- Spellbook - Ice Vortex Crusher
+(22263,10602,1,1,2,5128), -- Battle Manual - Soul Strike
+-- Fire Opal lvl 82
+(22294,5515,1,1,-1,100000), -- Sealed Majestic Gauntlets Design
+-- Dolph's Minion lvl 82
+(22300,1344,10,302,2,142857), -- Mithril Arrow
+-- Darnel's Guardian lvl 82
+(22302,1344,255,662,2,111111), -- Mithril Arrow
+-- Kechi's Captain lvl 82
+(22307,1870,38,38,2,9091), -- Coal
+(22307,1869,20,54,2,27027), -- Iron Ore
+(22307,1871,43,58,2,35714), -- Charcoal
+(22307,1867,13,32,2,71429), -- Animal Skin
+(22307,1872,9,20,2,125000), -- Animal Bone
+-- Kechi's Guard lvl 82
+(22308,1867,2,2,2,700000), -- Animal Skin
+(22308,1869,4,4,2,700000), -- Iron Ore
+(22308,1870,3,3,2,700000), -- Coal
+-- Kechi's Guard lvl 82
+(22309,4042,1,1,2,3861), -- Enria
+(22309,1868,18,41,2,55556), -- Thread
+(22309,1873,2,5,2,58824), -- Silver Nugget
+(22309,1876,1,1,2,100000), -- Mithril Ore
+-- Kechi's Guard lvl 82
+(22310,1873,6,6,2,9091), -- Silver Nugget
+(22310,1868,4,12,2,142857), -- Thread
+-- Garden Poison Moth lvl 83
+(22314,4041,1,1,2,5405), -- Mold Hardener
+(22314,1877,1,1,2,27027), -- Adamantite Nugget
+(22314,1866,1,3,2,111111), -- Suede
+(22314,1871,1,11,2,166667), -- Charcoal
+-- Junior Watchman lvl 83
+(22320,12262,1,1,1,1064), -- Common Item - Sealed Majestic Plate Armor
+(22320,12261,1,1,1,1852), -- Common Item - Sealed Majestic Circlet
+-- Junior Summoner lvl 83
+(22321,12259,1,1,1,1572), -- Common Item - Sealed Majestic Robe
+(22321,12266,1,1,1,2183), -- Common Item - Sealed Nightmare Robe
+-- Blind Huntsman lvl 83
+(22324,12269,1,1,1,564), -- Common Item - Sealed Helm of Nightmare
+(22324,12261,1,1,1,846), -- Common Item - Sealed Majestic Circlet
+(22324,12268,1,1,1,1410), -- Common Item - Sealed Shield of Nightmare
+-- Blind Watchman lvl 83
+(22325,12268,1,1,1,631), -- Common Item - Sealed Shield of Nightmare
+(22325,12269,1,1,1,631), -- Common Item - Sealed Helm of Nightmare
+(22325,12261,1,1,1,1214), -- Common Item - Sealed Majestic Circlet
+-- Arcane Scout lvl 83
+(22327,11969,1,1,1,145), -- Common Item - Flaming Dragon Skull
+(22327,11974,1,1,1,218), -- Common Item - Elysian
+(22327,11966,1,1,1,363), -- Common Item - Doom Crusher
+(22327,11970,1,1,1,653), -- Common Item - Branch of the Mother Tree
+-- Arcane Guardian lvl 83
+(22328,11967,1,1,1,3401), -- Common Item - Dragon Grinder
+-- Arcane Watchman lvl 83
+(22329,11975,1,1,1,3460), -- Common Item - Soul Bow
+-- Remnant Wraith lvl 83
+(22330,11973,1,1,1,252), -- Common Item - Soul Separator
+-- Sand Scorpion lvl 84
+(22334,12262,1,1,1,1681), -- Common Item - Sealed Majestic Plate Armor
+(22334,12263,1,1,1,1681), -- Common Item - Sealed Armor of Nightmare
+-- Desert Scorpion lvl 84
+(22335,12266,1,1,1,1319), -- Common Item - Sealed Nightmare Robe
+(22335,12259,1,1,1,1715), -- Common Item - Sealed Majestic Robe
+-- Desiccator lvl 84
+(22337,12257,1,1,1,380), -- Common Item - Sealed Majestic Gauntlet
+(22337,12267,1,1,1,760), -- Common Item - Sealed Boots of Nightmare
+(22337,12260,1,1,1,1520), -- Common Item - Sealed Majestic Boots
+(22337,12264,1,1,1,1520), -- Common Item - Sealed Gauntlet of Nightmare
+-- Wandering Caravan lvl 84
+(22339,11964,1,1,1,198), -- Common Item - Dark Legion
+(22339,11968,1,1,1,198), -- Common Item - Dragon Slayer
+(22339,11971,1,1,1,198), -- Common Item - Sword of Miracles
+(22339,9629,1,1,2,1779), -- Adamantine
+(22339,1879,1,1,2,40000), -- Cokes
+-- Darion's Enforcer lvl 84
+(22342,11973,1,1,1,108), -- Common Item - Soul Separator
+-- Darion's Executioner lvl 84
+(22343,11967,1,1,1,87), -- Common Item - Dragon Grinder
+-- Chimera of Earth lvl 84
+(22349,12258,1,1,1,3472), -- Common Item - Sealed Majestic Leather Armor
+(22349,12265,1,1,1,3704), -- Common Item - Sealed Leather Armor of Nightmare
+-- Chimera of Darkness lvl 84
+(22350,12265,1,1,1,3155), -- Common Item - Sealed Leather Armor of Nightmare
+(22350,12258,1,1,1,4854), -- Common Item - Sealed Majestic Leather Armor
+-- Chimera of Wind lvl 84
+(22351,11964,1,1,1,241), -- Common Item - Dark Legion
+(22351,11968,1,1,1,241), -- Common Item - Dragon Slayer
+(22351,11971,1,1,1,241), -- Common Item - Sword of Miracles
+-- Chimera of Fire lvl 84
+(22352,11964,1,1,1,728), -- Common Item - Dark Legion
+(22352,11968,1,1,1,1093), -- Common Item - Dragon Slayer
+(22352,11971,1,1,1,2183), -- Common Item - Sword of Miracles
+-- Body Destroyer lvl 85
+(22363,9686,1,1,101,200000), -- Gate Key: Destruction
+-- Master's Minion lvl 86
+(22379,8712,1,1,-1,66667), -- Sirra's Blade Edge
+(22379,12258,1,1,2,3984), -- Common Item - Sealed Majestic Leather Armor
+-- Mystic's Toy lvl 1
+(22384,6901,1,1,-1,9455), -- Recipe: Shining Arrow (100%)
+(22384,6690,1,1,-1,20475), -- Imperial Staff Head
+(22384,4041,1,1,-1,82214), -- Mold Hardener
+(22384,57,5540,11096,0,700000), -- Adena
+(22384,5316,1,1,1,26), -- Sealed Majestic Plate Armor
+(22384,5311,1,1,1,26), -- Sealed Armor of Nightmare
+(22384,5523,1,1,1,3966), -- Sealed Majestic Plate Armor Pattern
+(22384,5522,1,1,1,3966), -- Sealed Armor of Nightmare Pattern
+(22384,6901,1,1,2,665), -- Recipe: Shining Arrow (100%)
+(22384,4041,1,1,2,5786), -- Mold Hardener
+(22384,4040,1,1,2,13307), -- Mold Lubricant
+(22384,1877,1,1,2,26614), -- Adamantite Nugget
+(22384,1871,4,12,2,83168), -- Charcoal
+(22384,1866,1,3,2,147855), -- Suede
+(22384,9599,1,1,100,485100), -- Ancient Tome of the Demon
+(22384,9551,1,1,200,5323), -- Divine Stone
+-- Failed Experimental Timetwister Golem lvl 86
+(22392,6901,1,1,-1,8143), -- Recipe: Shining Arrow (100%)
+(22392,4041,1,1,-1,70808), -- Mold Hardener
+(22392,6700,1,1,-1,97486), -- Sealed Tateossian Necklace Chain
+(22392,57,4772,9557,0,700000), -- Adena
+(22392,289,1,1,1,19), -- Soul Bow
+(22392,960,1,1,2,160), -- Scroll: Enchant Armor (S)
+(22392,4041,1,1,2,3488), -- Mold Hardener
+(22392,5534,1,1,2,5507), -- Soul Bow Stave
+(22392,4039,1,1,2,13371), -- Mold Glue
+(22392,4044,1,1,2,13371), -- Thons
+(22392,1894,1,1,2,14075), -- Crafted Leather
+(22392,9599,1,1,100,417800), -- Ancient Tome of the Demon
+(22392,9551,1,1,200,3209), -- Divine Stone
+-- Beleth's Follower lvl 86
+(22393,6901,1,1,-1,59156), -- Recipe: Shining Arrow (100%)
+(22393,6701,1,1,-1,314955), -- Sealed Imperial Crusader Breastplate Part
+(22393,6702,1,1,-1,405431), -- Sealed Imperial Crusader Gaiters Pattern
+(22393,57,34666,69427,0,700000), -- Adena
+(22393,5323,1,1,1,221), -- Sealed Majestic Leather Armor
+(22393,5320,1,1,1,221), -- Sealed Leather Armor of Nightmare
+(22393,5480,1,1,1,32695), -- Sealed Leather Armor of Nightmare Fabric
+(22393,5481,1,1,1,32695), -- Sealed Majestic Leather Armor Fabric
+(22393,6901,1,1,2,4857), -- Recipe: Shining Arrow (100%)
+(22393,9630,1,1,2,25563), -- Orichalcum
+(22393,9628,1,1,2,38093), -- Leonard
+(22393,4040,1,1,2,97137), -- Mold Lubricant
+(22393,1895,3,9,2,231279), -- Metallic Fiber
+(22393,9599,2,6,100,758900), -- Ancient Tome of the Demon
+(22393,9551,1,1,200,38855), -- Divine Stone
+-- Beleth's Devotee lvl 86
+(22394,959,1,1,-1,2796), -- Scroll: Enchant Weapon (S)
+(22394,4041,1,1,-1,607905), -- Mold Hardener
+(22394,1875,1,9,-1,932122), -- Stone of Purity
+(22394,57,40967,82047,0,700000), -- Adena
+(22394,270,1,1,1,166), -- Dragon Grinder
+(22394,5538,1,1,1,47233), -- Dragon Grinder Edge
+(22394,959,1,1,2,197), -- Scroll: Enchant Weapon (S)
+(22394,1875,4,12,2,36442), -- Stone of Purity
+(22394,4041,1,1,2,42780), -- Mold Hardener
+(22394,1867,60,180,2,54663), -- Animal Skin
+(22394,1881,3,9,2,93709), -- Coarse Bone Powder
+(22394,1872,24,72,2,136659), -- Animal Bone
+(22394,9599,2,6,100,896800), -- Ancient Tome of the Demon
+(22394,9551,1,1,200,39358), -- Divine Stone
+-- Beleth's Projection lvl 86
+(22395,6901,1,1,-1,89409), -- Recipe: Shining Arrow (100%)
+(22395,6703,1,3,-1,636500), -- Sealed Imperial Crusader Gauntlets Design
+(22395,6704,1,3,-1,636500), -- Sealed Imperial Crusader Boots Design
+(22395,57,52395,104932,0,700000), -- Adena
+(22395,270,1,1,1,212), -- Dragon Grinder
+(22395,5538,1,1,1,60408), -- Dragon Grinder Edge
+(22395,960,1,1,2,1601), -- Scroll: Enchant Armor (S)
+(22395,1895,30,90,2,19067), -- Metallic Fiber
+(22395,1868,135,405,2,29659), -- Thread
+(22395,1873,16,48,2,50050), -- Silver Nugget
+(22395,4042,1,1,2,66733), -- Enria
+(22395,1876,3,9,2,114400), -- Mithril Ore
+(22395,9599,3,9,100,764700), -- Ancient Tome of the Demon
+(22395,9551,1,1,200,32032), -- Divine Stone
+-- Foundry Laborer lvl 86
+(22396,960,1,1,-1,824), -- Scroll: Enchant Armor (S)
+(22396,6901,1,1,-1,2061), -- Recipe: Shining Arrow (100%)
+(22396,6705,1,1,-1,28744), -- Sealed Imperial Crusader Shield Part
+(22396,57,1208,2419,0,700000), -- Adena
+(22396,289,1,1,1,5), -- Soul Bow
+(22396,6901,1,1,2,145), -- Recipe: Shining Arrow (100%)
+(22396,4041,1,1,2,1261), -- Mold Hardener
+(22396,5534,1,1,2,1394), -- Soul Bow Stave
+(22396,4040,1,1,2,2901), -- Mold Lubricant
+(22396,1877,1,1,2,5802), -- Adamantite Nugget
+(22396,1866,1,1,2,96696), -- Suede
+(22396,1871,1,1,2,145043), -- Charcoal
+(22396,9599,1,1,100,105800), -- Ancient Tome of the Demon
+(22396,9551,1,1,200,1160), -- Divine Stone
+-- Foundry Foreman lvl 86
+(22397,6706,1,1,-1,339938), -- Sealed Imperial Crusader Helmet Pattern
+(22397,4042,1,1,-1,349258), -- Enria
+(22397,1894,1,1,-1,735279), -- Crafted Leather
+(22397,57,12280,24594,0,700000), -- Adena
+(22397,289,1,1,1,50), -- Soul Bow
+(22397,959,1,1,2,59), -- Scroll: Enchant Weapon (S)
+(22397,9629,1,1,2,6412), -- Adamantine
+(22397,9630,1,1,2,7761), -- Orichalcum
+(22397,9628,1,1,2,11566), -- Leonard
+(22397,5534,1,1,2,14170), -- Soul Bow Stave
+(22397,1885,1,1,2,122891), -- High Grade Suede
+(22397,1879,1,1,2,245783), -- Cokes
+(22397,9599,1,3,100,537700), -- Ancient Tome of the Demon
+(22397,9551,1,1,200,11798), -- Divine Stone
+-- Lesser Evil lvl 85
+(22398,6901,1,1,-1,38027), -- Recipe: Shining Arrow (100%)
+(22398,6707,1,1,-1,188414), -- Sealed Draconic Leather Armor Part
+(22398,57,22284,44629,0,700000), -- Adena
+(22398,5316,1,1,1,106), -- Sealed Majestic Plate Armor
+(22398,5311,1,1,1,106), -- Sealed Armor of Nightmare
+(22398,5522,1,1,1,15949), -- Sealed Armor of Nightmare Pattern
+(22398,5523,1,1,1,15949), -- Sealed Majestic Plate Armor Pattern
+(22398,960,1,1,2,749), -- Scroll: Enchant Armor (S)
+(22398,4042,1,1,2,31221), -- Enria
+(22398,4040,1,1,2,37465), -- Mold Lubricant
+(22398,4043,1,1,2,62441), -- Asofe
+(22398,1895,1,3,2,267605), -- Metallic Fiber
+(22398,9551,1,1,200,14986), -- Divine Stone
+-- Greater Evil lvl 85
+(22399,959,1,1,-1,2164), -- Scroll: Enchant Weapon (S)
+(22399,6708,1,1,-1,770235), -- Sealed Draconic Leather Gloves Fabric
+(22399,1885,1,9,-1,901624), -- High Grade Suede
+(22399,57,31702,63490,0,700000), -- Adena
+(22399,7895,1,1,1,32), -- Flaming Dragon Skull
+(22399,7902,1,1,1,32), -- Doom Crusher
+(22399,213,1,1,1,32), -- Branch of the Mother Tree
+(22399,5544,1,1,1,9129), -- Branch of the Mother Tree Head
+(22399,8349,1,1,1,9136), -- Doom Crusher Head
+(22399,8342,1,1,1,9138), -- Flaming Dragon Skull Piece
+(22399,5533,1,1,1,9138), -- Elysian Head
+(22399,164,1,1,2,32), -- Elysian
+(22399,6901,1,1,2,2961), -- Recipe: Shining Arrow (100%)
+(22399,6857,1,1,2,5514), -- Recipe: Sealed Imperial Crusader Gauntlets (60%)
+(22399,6877,1,1,2,5514), -- Recipe: Sealed Major Arcana Boots (60%)
+(22399,9629,1,1,2,12874), -- Adamantine
+(22399,9630,1,1,2,15584), -- Orichalcum
+(22399,9628,1,1,2,23223), -- Leonard
+(22399,1879,3,9,2,82250), -- Cokes
+(22399,1885,1,1,2,246750), -- High Grade Suede
+(22399,9551,1,1,200,23688), -- Divine Stone
+-- Parme's Healer lvl 82
+(22400,1808,1,1,-1,793), -- Recipe: Soulshot: S Grade
+(22400,5480,1,1,-1,8008), -- Sealed Leather Armor of Nightmare Fabric
+(22400,4040,1,1,-1,35693), -- Mold Lubricant
+(22400,57,1195,2447,0,700000), -- Adena
+(22400,5529,1,1,1,402), -- Dragon Slayer Edge
+(22400,5545,1,1,1,402), -- Dark Legion's Edge Blade
+(22400,5546,1,1,1,441), -- Sword of Miracles Edge
+(22400,151,1,1,2,1), -- Sword of Miracles
+(22400,2500,1,1,2,1), -- Dark Legion's Edge
+(22400,81,1,1,2,1), -- Dragon Slayer
+(22400,959,1,1,2,7), -- Scroll: Enchant Weapon (S)
+(22400,4042,1,1,2,2930), -- Enria
+(22400,4040,1,1,2,3517), -- Mold Lubricant
+(22400,4043,1,1,2,5861), -- Asofe
+(22400,1895,1,1,2,50237), -- Metallic Fiber
+-- Parme's Healer lvl 1
+(22401,3036,1,1,-1,793), -- Recipe: Spiritshot S
+(22401,5481,1,1,-1,8008), -- Sealed Majestic Leather Armor Fabric
+(22401,5487,1,1,-1,8037), -- Sealed Nightmare Robe Fabric
+(22401,57,1195,2447,0,700000), -- Adena
+(22401,7902,1,1,1,1), -- Doom Crusher
+(22401,7895,1,1,1,1), -- Flaming Dragon Skull
+(22401,213,1,1,1,1), -- Branch of the Mother Tree
+(22401,5544,1,1,1,301), -- Branch of the Mother Tree Head
+(22401,8349,1,1,1,301), -- Doom Crusher Head
+(22401,8342,1,1,1,302), -- Flaming Dragon Skull Piece
+(22401,5533,1,1,1,302), -- Elysian Head
+(22401,164,1,1,2,1), -- Elysian
+(22401,960,1,1,2,32), -- Scroll: Enchant Armor (S)
+(22401,4044,1,1,2,2664), -- Thons
+(22401,1889,1,1,2,5328), -- Compound Braid
+(22401,5549,1,1,2,7992), -- Metallic Thread
+(22401,1873,1,1,2,31969), -- Silver Nugget
+(22401,1344,10,30,2,99903), -- Mithril Arrow
+(22401,1868,1,1,2,159845), -- Thread
+-- Shadow Column lvl 82
+(22402,5488,1,1,-1,7722), -- Sealed Majestic Robe Fabric
+(22402,4040,1,1,-1,34298), -- Mold Lubricant
+(22402,1895,1,1,-1,489975), -- Metallic Fiber
+(22402,57,1148,2352,0,700000), -- Adena
+(22402,289,1,1,1,4), -- Soul Bow
+(22402,6901,1,1,2,169), -- Recipe: Shining Arrow (100%)
+(22402,9630,1,1,2,889), -- Orichalcum
+(22402,5534,1,1,2,1160), -- Soul Bow Stave
+(22402,9628,1,1,2,1325), -- Leonard
+(22402,4040,1,1,2,3379), -- Mold Lubricant
+(22402,1895,1,1,2,48273), -- Metallic Fiber
+-- Foundry Foreman lvl 86
+(22403,6901,1,1,-1,21189), -- Recipe: Shining Arrow (100%)
+(22403,6688,1,1,-1,45799), -- Forgotten Blade Edge
+(22403,57,12417,24868,0,700000), -- Adena
+(22403,5529,1,1,1,4771), -- Dragon Slayer Edge
+(22403,5545,1,1,1,4771), -- Dark Legion's Edge Blade
+(22403,5546,1,1,1,5240), -- Sword of Miracles Edge
+(22403,151,1,1,2,17), -- Sword of Miracles
+(22403,2500,1,1,2,17), -- Dark Legion's Edge
+(22403,81,1,1,2,17), -- Dragon Slayer
+(22403,959,1,1,2,35), -- Scroll: Enchant Weapon (S)
+(22403,4042,1,1,2,14497), -- Enria
+(22403,1895,3,9,2,35503), -- Metallic Fiber
+(22403,1868,18,54,2,48323), -- Thread
+(22403,1873,2,6,2,69586), -- Silver Nugget
+(22403,1345,40,120,2,144969), -- Shining Arrow
+(22403,1876,1,1,2,173964), -- Mithril Ore
+(22403,9599,1,3,100,543600), -- Ancient Tome of the Demon
+(22403,9551,1,1,200,6959), -- Divine Stone
+-- Arcane Captain lvl 1
+(22404,960,1,1,-1,39853), -- Scroll: Enchant Armor (S)
+(22404,6689,1,1,-1,211298), -- Basalt Battlehammer Head
+(22404,4040,1,5,-1,664223), -- Mold Lubricant
+(22404,57,58301,116945,0,700000), -- Adena
+(22404,5320,1,1,1,372), -- Sealed Leather Armor of Nightmare
+(22404,5323,1,1,1,372), -- Sealed Majestic Leather Armor
+(22404,5480,1,1,1,55066), -- Sealed Leather Armor of Nightmare Fabric
+(22404,5481,1,1,1,55066), -- Sealed Majestic Leather Armor Fabric
+(22404,960,1,1,2,2454), -- Scroll: Enchant Armor (S)
+(22404,6871,1,1,2,7617), -- Recipe: Sealed Draconic Leather Helmet (60%)
+(22404,9630,1,1,2,32290), -- Orichalcum
+(22404,1344,2100,6300,2,36518), -- Mithril Arrow
+(22404,9628,1,1,2,48118), -- Leonard
+(22404,1895,12,36,2,73037), -- Metallic Fiber
+(22404,4040,1,1,2,122702), -- Mold Lubricant
+(22404,9599,4,12,100,6391), -- Ancient Tome of the Demon
+(22404,9551,1,1,200,49081), -- Divine Stone
+-- Darion's Faithful Servant lvl 86
+(22405,6901,1,1,-1,14997), -- Recipe: Shining Arrow (100%)
+(22405,6690,1,1,-1,32478), -- Imperial Staff Head
+(22405,13099,1,1,-1,209151), -- Sealed Arcana Sigil Piece
+(22405,57,8788,17601,0,700000), -- Adena
+(22405,5313,1,1,1,136), -- Sealed Gauntlets of Nightmare
+(22405,5314,1,1,1,136), -- Sealed Boots of Nightmare
+(22405,5318,1,1,1,136), -- Sealed Majestic Gauntlets
+(22405,5319,1,1,1,136), -- Sealed Majestic Boots
+(22405,5502,1,1,1,15596), -- Sealed Boots of Nightmare Lining
+(22405,5503,1,1,1,15596), -- Sealed Majestic Boots Lining
+(22405,5514,1,1,1,15596), -- Sealed Gauntlets of Nightmare Design
+(22405,5515,1,1,1,15596), -- Sealed Majestic Gauntlets Design
+(22405,6901,1,1,2,1055), -- Recipe: Shining Arrow (100%)
+(22405,9629,1,1,2,4589), -- Adamantine
+(22405,9630,1,1,2,5555), -- Orichalcum
+(22405,9628,1,1,2,8277), -- Leonard
+(22405,1885,1,1,2,87950), -- High Grade Suede
+(22405,1879,1,1,2,175900), -- Cokes
+(22405,9599,1,3,100,384800), -- Ancient Tome of the Demon
+(22405,9551,1,1,200,8444), -- Divine Stone
+-- Darion's Faithful Servant lvl 86
+(22406,6901,1,1,-1,26374), -- Recipe: Shining Arrow (100%)
+(22406,6691,1,1,-1,57006), -- Angel Slayer Blade
+(22406,6693,1,1,-1,58039), -- Dragon Hunter Axe Blade
+(22406,57,15455,30952,0,700000), -- Adena
+(22406,213,1,1,1,16), -- Branch of the Mother Tree
+(22406,7895,1,1,1,16), -- Flaming Dragon Skull
+(22406,7902,1,1,1,16), -- Doom Crusher
+(22406,5544,1,1,1,4450), -- Branch of the Mother Tree Head
+(22406,8349,1,1,1,4454), -- Doom Crusher Head
+(22406,5533,1,1,1,4455), -- Elysian Head
+(22406,8342,1,1,1,4455), -- Flaming Dragon Skull Piece
+(22406,164,1,1,2,16), -- Elysian
+(22406,959,1,1,2,47), -- Scroll: Enchant Weapon (S)
+(22406,4042,1,1,2,19685), -- Enria
+(22406,4040,1,1,2,23622), -- Mold Lubricant
+(22406,4043,1,1,2,39370), -- Asofe
+(22406,1895,2,6,2,84363), -- Metallic Fiber
+(22406,1345,60,180,2,131231), -- Shining Arrow
+(22406,9599,2,6,100,338300), -- Ancient Tome of the Demon
+(22406,9551,1,1,200,9449), -- Divine Stone
+-- Darion's Faithful Servant lvl 86
+(22407,959,1,1,-1,1376), -- Scroll: Enchant Weapon (S)
+(22407,13099,1,1,-1,479694), -- Sealed Arcana Sigil Piece
+(22407,4044,1,3,-1,573274), -- Thons
+(22407,5549,1,7,-1,859912), -- Metallic Thread
+(22407,57,26876,53824,0,700000), -- Adena
+(22407,5312,1,1,1,371), -- Sealed Helm of Nightmare
+(22407,5317,1,1,1,371), -- Sealed Majestic Circlet
+(22407,5315,1,1,1,530), -- Sealed Shield of Nightmare
+(22407,5527,1,1,1,45017), -- Sealed Helm of Nightmare Design
+(22407,5528,1,1,1,45017), -- Sealed Majestic Circlet Design
+(22407,5495,1,1,1,57175), -- Sealed Shield of Nightmare Fragment
+(22407,960,1,1,2,1004), -- Scroll: Enchant Armor (S)
+(22407,6879,1,1,2,3116), -- Recipe: Sealed Major Arcana Circlet (60%)
+(22407,1889,5,15,2,16735), -- Compound Braid
+(22407,1873,22,66,2,22313), -- Silver Nugget
+(22407,5549,4,12,2,31378), -- Metallic Thread
+(22407,1345,280,840,2,59767), -- Shining Arrow
+(22407,4044,1,1,2,83674), -- Thons
+(22407,1868,18,54,2,139457), -- Thread
+(22407,9599,2,6,100,588300), -- Ancient Tome of the Demon
+(22407,9551,1,1,200,20082), -- Divine Stone
+-- Darion's Faithful Servant lvl 86
+(22408,6901,1,1,-1,42079), -- Recipe: Shining Arrow (100%)
+(22408,6695,1,1,-1,89239), -- Demon Splinter Blade
+(22408,6694,1,1,-1,92601), -- Saint Spear Blade
+(22408,57,28156,57715,0,700000), -- Adena
+(22408,5323,1,1,1,157), -- Sealed Majestic Leather Armor
+(22408,5320,1,1,1,157), -- Sealed Leather Armor of Nightmare
+(22408,5480,1,1,1,23256), -- Sealed Leather Armor of Nightmare Fabric
+(22408,5481,1,1,1,23256), -- Sealed Majestic Leather Armor Fabric
+(22408,6901,1,1,2,2961), -- Recipe: Shining Arrow (100%)
+(22408,9629,1,1,2,12875), -- Adamantine
+(22408,9630,1,1,2,15585), -- Orichalcum
+(22408,9628,1,1,2,23225), -- Leonard
+(22408,1879,3,9,2,82256), -- Cokes
+(22408,1885,1,1,2,246767), -- High Grade Suede
+(22408,9599,2,6,100,539800), -- Ancient Tome of the Demon
+(22408,9551,1,1,200,23690), -- Divine Stone
+-- Darion's Faithful Servant lvl 86
+(22409,960,1,1,-1,37967), -- Scroll: Enchant Armor (S)
+(22409,6901,1,1,-1,94917), -- Recipe: Shining Arrow (100%)
+(22409,6696,1,1,-1,208420), -- Heavens Divider Edge
+(22409,57,63511,130188,0,700000), -- Adena
+(22409,5545,1,1,1,21370), -- Dark Legion's Edge Blade
+(22409,5529,1,1,1,21371), -- Dragon Slayer Edge
+(22409,5546,1,1,1,23474), -- Sword of Miracles Edge
+(22409,81,1,1,2,75), -- Dragon Slayer
+(22409,151,1,1,2,75), -- Sword of Miracles
+(22409,2500,1,1,2,75), -- Dark Legion's Edge
+(22409,959,1,1,2,170), -- Scroll: Enchant Weapon (S)
+(22409,1864,216,648,2,19679), -- Stem
+(22409,1869,60,180,2,35422), -- Iron Ore
+(22409,5550,1,1,2,56675); -- Durable Metal Plate
+
+INSERT INTO `droplist` VALUES
+(22409,1880,3,9,2,60724), -- Steel
+(22409,4043,1,1,2,141688), -- Asofe
+(22409,9599,3,9,100,811800), -- Ancient Tome of the Demon
+(22409,9551,1,1,200,34005), -- Divine Stone
+-- Darion's Faithful Servant lvl 86
+(22410,6697,1,1,-1,236482), -- Arcana Mace Head
+(22410,13099,1,3,-1,777550), -- Sealed Arcana Sigil Piece
+(22410,1885,1,19,-1,929237), -- High Grade Suede
+(22410,57,74613,152946,0,700000), -- Adena
+(22410,5320,1,1,1,416), -- Sealed Leather Armor of Nightmare
+(22410,5323,1,1,1,416), -- Sealed Majestic Leather Armor
+(22410,5480,1,1,1,61629), -- Sealed Leather Armor of Nightmare Fabric
+(22410,5481,1,1,1,61629), -- Sealed Majestic Leather Armor Fabric
+(22410,960,1,1,2,2747), -- Scroll: Enchant Armor (S)
+(22410,6863,1,1,2,8524), -- Recipe: Sealed Imperial Crusader Helmet (60%)
+(22410,9629,1,1,2,29853), -- Adamantine
+(22410,9630,1,1,2,36138), -- Orichalcum
+(22410,1879,15,45,2,38146), -- Cokes
+(22410,9628,1,1,2,53853), -- Leonard
+(22410,1885,2,6,2,143048), -- High Grade Suede
+(22410,9599,4,12,100,715200), -- Ancient Tome of the Demon
+(22410,9551,1,1,200,54931), -- Divine Stone
+-- Beleth's Retainer lvl 86
+(22411,6901,1,1,-1,64694), -- Recipe: Shining Arrow (100%)
+(22411,6698,1,3,-1,635377), -- Sealed Tateossian Earring Part
+(22411,57,37911,75926,0,700000), -- Adena
+(22411,5313,1,1,1,588), -- Sealed Gauntlets of Nightmare
+(22411,5314,1,1,1,588), -- Sealed Boots of Nightmare
+(22411,5318,1,1,1,588), -- Sealed Majestic Gauntlets
+(22411,5319,1,1,1,588), -- Sealed Majestic Boots
+(22411,5502,1,1,1,67278), -- Sealed Boots of Nightmare Lining
+(22411,5503,1,1,1,67278), -- Sealed Majestic Boots Lining
+(22411,5514,1,1,1,67278), -- Sealed Gauntlets of Nightmare Design
+(22411,5515,1,1,1,67278), -- Sealed Majestic Gauntlets Design
+(22411,6901,1,1,2,4553), -- Recipe: Shining Arrow (100%)
+(22411,1889,4,12,2,33724), -- Compound Braid
+(22411,1868,120,360,2,37939), -- Thread
+(22411,5549,3,9,2,65039), -- Metallic Thread
+(22411,1873,12,36,2,75879), -- Silver Nugget
+(22411,4044,1,1,2,151758), -- Thons
+(22411,9599,3,9,100,553300), -- Ancient Tome of the Demon
+(22411,9551,1,1,200,36421), -- Divine Stone
+-- Beleth's Fighter lvl 86
+(22412,959,1,1,-1,7749), -- Scroll: Enchant Weapon (S)
+(22412,6699,1,9,-1,844475), -- Sealed Tateossian Ring Gem
+(22412,4044,1,13,-1,922488), -- Thons
+(22412,57,113523,227356,0,700000), -- Adena
+(22412,213,1,1,1,115), -- Branch of the Mother Tree
+(22412,7895,1,1,1,115), -- Flaming Dragon Skull
+(22412,7902,1,1,1,115), -- Doom Crusher
+(22412,5544,1,1,1,32689), -- Branch of the Mother Tree Head
+(22412,8349,1,1,1,32715), -- Doom Crusher Head
+(22412,5533,1,1,1,32722), -- Elysian Head
+(22412,8342,1,1,1,32722), -- Flaming Dragon Skull Piece
+(22412,164,1,1,2,115), -- Elysian
+(22412,959,1,1,2,636), -- Scroll: Enchant Weapon (S)
+(22412,4039,9,27,2,29454), -- Mold Glue
+(22412,1894,5,15,2,55807), -- Crafted Leather
+(22412,4044,2,6,2,132541), -- Thons
+(22412,4041,1,1,2,138304), -- Mold Hardener
+(22412,9599,6,20,100,764700), -- Ancient Tome of the Demon
+(22412,9551,1,1,200,127239), -- Divine Stone
+-- Beleth's Low Servant lvl 86
+(22413,6901,1,1,-1,76053), -- Recipe: Shining Arrow (100%)
+(22413,1876,1,33,-1,894743), -- Mithril Ore
+(22413,6700,1,1,-1,910489), -- Sealed Tateossian Necklace Chain
+(22413,57,44568,89257,0,700000), -- Adena
+(22413,6344,1,1,1,91525), -- Sealed Majestic Necklace Beads
+(22413,6342,1,1,1,141429), -- Sealed Majestic Earring Gemstone
+(22413,6326,1,1,2,625), -- Sealed Majestic Necklace
+(22413,6327,1,1,2,834), -- Sealed Majestic Earring
+(22413,6328,1,1,2,1250), -- Sealed Majestic Ring
+(22413,960,1,1,2,1362), -- Scroll: Enchant Armor (S)
+(22413,9629,1,1,2,14808), -- Adamantine
+(22413,9630,1,1,2,17925), -- Orichalcum
+(22413,9628,1,1,2,26713), -- Leonard
+(22413,1879,3,9,2,94608), -- Cokes
+(22413,6346,1,1,2,203267), -- Sealed Majestic Ring Gemstone
+(22413,1885,1,1,2,283823), -- High Grade Suede
+(22413,9599,2,6,100,975600), -- Ancient Tome of the Demon
+(22413,9551,1,1,200,27248), -- Divine Stone
+-- Beleth's Follower lvl 86
+(22414,6901,1,1,-1,59156), -- Recipe: Shining Arrow (100%)
+(22414,6701,1,1,-1,314955), -- Sealed Imperial Crusader Breastplate Part
+(22414,6702,1,1,-1,405431), -- Sealed Imperial Crusader Gaiters Pattern
+(22414,57,34666,69427,0,700000), -- Adena
+(22414,305,1,1,1,140), -- Tallum Glaive
+(22414,5541,1,1,1,39957), -- Tallum Glaive Edge
+(22414,6901,1,1,2,4857), -- Recipe: Shining Arrow (100%)
+(22414,9630,1,1,2,25563), -- Orichalcum
+(22414,9628,1,1,2,38093), -- Leonard
+(22414,4040,1,1,2,97137), -- Mold Lubricant
+(22414,1895,3,9,2,231279), -- Metallic Fiber
+(22414,9599,2,6,100,758900), -- Ancient Tome of the Demon
+(22414,9551,1,1,200,38855), -- Divine Stone
+-- Beleth's Devotee lvl 86
+(22415,960,1,1,-1,27964), -- Scroll: Enchant Armor (S)
+(22415,13099,1,3,-1,487477), -- Sealed Arcana Sigil Piece
+(22415,1885,1,13,-1,832251), -- High Grade Suede
+(22415,57,40967,82047,0,700000), -- Adena
+(22415,236,1,1,1,166), -- Soul Separator
+(22415,5537,1,1,1,47246), -- Soul Separator Head
+(22415,959,1,1,2,197), -- Scroll: Enchant Weapon (S)
+(22415,9629,1,1,2,21390), -- Adamantine
+(22415,9630,1,1,2,25893), -- Orichalcum
+(22415,9628,1,1,2,38586), -- Leonard
+(22415,1885,2,6,2,102494), -- High Grade Suede
+(22415,1879,3,9,2,136659), -- Cokes
+(22415,9599,3,9,100,597900), -- Ancient Tome of the Demon
+(22415,9551,1,1,200,39358), -- Divine Stone
+-- Kechi's Captain lvl 82
+(22416,57,32797,65593,0,700000), -- Adena
+(22416,12258,1,1,1,3044), -- Common Item - Sealed Majestic Leather Armor
+(22416,12265,1,1,1,3044), -- Common Item - Sealed Leather Armor of Nightmare
+(22416,5480,1,1,1,20486), -- Sealed Leather Armor of Nightmare Fabric
+(22416,5481,1,1,1,20486), -- Sealed Majestic Leather Armor Fabric
+(22416,4042,1,1,2,55800), -- Enria
+(22416,1873,5,10,2,178560), -- Silver Nugget
+(22416,1868,23,48,2,188620), -- Thread
+(22416,1876,2,5,2,191314), -- Mithril Ore
+(22416,1895,3,7,2,191314), -- Metallic Fiber
+(22416,1344,1116,2232,3,50000), -- Mithril Arrow
+-- Kechi's Guard lvl 82
+(22417,57,6776,13552,0,700000), -- Adena
+(22417,1875,1,1,1,138343), -- Stone of Purity
+(22417,1881,1,1,1,276687), -- Coarse Bone Powder
+(22417,1867,6,13,1,291249), -- Animal Skin
+(22417,1872,6,13,1,291249), -- Animal Bone
+-- Burning Iris lvl 82
+(22418,12257,1,1,1,853), -- Common Item - Sealed Majestic Gauntlet
+(22418,12260,1,1,1,853), -- Common Item - Sealed Majestic Boots
+(22418,12264,1,1,1,853), -- Common Item - Sealed Gauntlet of Nightmare
+(22418,12267,1,1,1,853), -- Common Item - Sealed Boots of Nightmare
+(22418,1344,188,376,3,49931), -- Mithril Arrow
+-- Brimstone Iris lvl 82
+(22420,5549,1,1,1,115476), -- Metallic Thread
+-- Failan's Guard lvl 83
+(22422,959,1,1,-1,481), -- Scroll: Enchant Weapon (S)
+(22422,6689,1,1,-1,25489), -- Basalt Battlehammer Head
+(22422,4042,1,1,-1,200313), -- Enria
+(22422,57,7033,14107,0,700000), -- Adena
+(22422,5323,1,1,1,45), -- Sealed Majestic Leather Armor
+(22422,5320,1,1,1,45), -- Sealed Leather Armor of Nightmare
+(22422,5480,1,1,1,6643), -- Sealed Leather Armor of Nightmare Fabric
+(22422,5481,1,1,1,6643), -- Sealed Majestic Leather Armor Fabric
+(22422,960,1,1,2,296), -- Scroll: Enchant Armor (S)
+(22422,4042,1,1,2,12334), -- Enria
+(22422,1895,3,9,2,30207), -- Metallic Fiber
+(22422,1868,18,54,2,41115), -- Thread
+(22422,1873,2,6,2,59206), -- Silver Nugget
+(22422,1345,40,120,2,123346), -- Shining Arrow
+(22422,1876,1,1,2,148014), -- Mithril Ore
+(22422,9599,1,1,100,616700), -- Ancient Tome of the Demon
+(22422,9551,1,1,200,5921), -- Divine Stone
+-- Beleth's Assassin lvl 86
+(22439,960,1,1,-1,41612), -- Scroll: Enchant Armor (S)
+(22439,6901,1,1,-1,104031), -- Recipe: Shining Arrow (100%)
+(22439,6709,1,3,-1,740591), -- Sealed Draconic Leather Boots Design
+(22439,57,60963,122093,0,700000), -- Adena
+(22439,289,1,1,1,247), -- Soul Bow
+(22439,6901,1,1,2,4659), -- Recipe: Shining Arrow (100%)
+(22439,4039,3,9,2,25882), -- Mold Glue
+(22439,1894,2,6,2,32693), -- Crafted Leather
+(22439,4041,1,1,2,40512), -- Mold Hardener
+(22439,5534,1,1,2,70347), -- Soul Bow Stave
+(22439,1345,240,720,2,129412), -- Shining Arrow
+(22439,4044,1,1,2,155294), -- Thons
+(22439,9599,4,8,100,889700), -- Ancient Tome of the Demon
+(22439,9551,1,1,200,37270), -- Divine Stone
+-- Beleth's Assassin lvl 86
+(22440,4040,1,5,-1,713725), -- Mold Lubricant
+(22440,6710,1,3,-1,868348), -- Sealed Draconic Leather Helmet Pattern
+(22440,1895,1,65,-1,926915), -- Metallic Fiber
+(22440,57,62737,125646,0,700000), -- Adena
+(22440,7902,1,1,1,64), -- Doom Crusher
+(22440,7895,1,1,1,64), -- Flaming Dragon Skull
+(22440,213,1,1,1,64), -- Branch of the Mother Tree
+(22440,5544,1,1,1,18065), -- Branch of the Mother Tree Head
+(22440,8349,1,1,1,18080), -- Doom Crusher Head
+(22440,8342,1,1,1,18083), -- Flaming Dragon Skull Piece
+(22440,5533,1,1,1,18083), -- Elysian Head
+(22440,164,1,1,2,64), -- Elysian
+(22440,959,1,1,2,352), -- Scroll: Enchant Weapon (S)
+(22440,9630,1,1,2,46261), -- Orichalcum
+(22440,9628,1,1,2,68939), -- Leonard
+(22440,1895,12,36,2,104639), -- Metallic Fiber
+(22440,4040,1,1,2,175794), -- Mold Lubricant
+(22440,9599,4,12,100,686700), -- Ancient Tome of the Demon
+(22440,9551,1,1,200,70318), -- Divine Stone
+-- Beleth's Minion lvl 86
+(22441,5157,1,1,-1,45455), -- Recipe: Soulshot (S) Compressed Package (100%)
+(22441,5502,1,1,-1,100000), -- Sealed Boots of Nightmare Lining
+(22441,5503,1,1,-1,100000), -- Sealed Majestic Boots Lining
+(22441,57,2190,4484,0,1000000), -- Adena
+(22441,4042,1,1,1,10255), -- Enria
+(22441,1876,1,1,1,109949), -- Mithril Ore
+(22441,1895,1,1,1,171794), -- Metallic Fiber
+(22441,1868,4,12,1,183248), -- Thread
+(22441,1344,53,81,1,249883), -- Mithril Arrow
+(22441,1873,1,1,1,274871), -- Silver Nugget
+(22441,6328,1,1,2,2711), -- Sealed Majestic Ring
+(22441,6901,1,1,2,15564), -- Recipe: Shining Arrow (100%)
+(22441,6344,1,1,2,186977), -- Sealed Majestic Necklace Beads
+(22441,6342,1,1,2,390089), -- Sealed Majestic Earring Gemstone
+(22441,6346,1,1,2,404660), -- Sealed Majestic Ring Gemstone
+-- Beleth's Minion lvl 86
+(22442,959,1,1,-1,2059), -- Scroll: Enchant Weapon (S)
+(22442,6712,1,1,-1,732969), -- Sealed Major Arcana Gloves fabric
+(22442,1876,1,21,-1,936002), -- Mithril Ore
+(22442,57,30168,60418,0,700000), -- Adena
+(22442,289,1,1,1,122), -- Soul Bow
+(22442,6901,1,1,2,3623), -- Recipe: Shining Arrow (100%)
+(22442,1868,135,405,2,26836), -- Thread
+(22442,5534,1,1,2,34812), -- Soul Bow Stave
+(22442,1873,16,48,2,45285), -- Silver Nugget
+(22442,4042,1,1,2,60380), -- Enria
+(22442,1876,3,9,2,103509), -- Mithril Ore
+(22442,1895,3,9,2,172515), -- Metallic Fiber
+(22442,9599,2,6,100,660400), -- Ancient Tome of the Demon
+(22442,9551,1,1,200,28982), -- Divine Stone
+-- Kertang's Messenger lvl 1
+(22443,4553,1,1,-1,5005), -- Greater Dye of STR 
+(22443,1908,1,1,-1,118499), -- Moonstone Earring Wire
+(22443,1871,1,3,-1,625677), -- Charcoal
+(22443,57,505,1026,0,700000), -- Adena
+(22443,232,1,1,1,17), -- Dark Elven Dagger
+(22443,2070,1,1,1,1174), -- Cursed Dagger Blade
+(22443,2072,1,1,1,1174), -- Dark Elven Dagger Edge
+(22443,226,1,1,2,17), -- Cursed Dagger
+(22443,4041,1,1,2,857), -- Mold Hardener
+(22443,4040,1,1,2,1971), -- Mold Lubricant
+(22443,1877,1,1,2,3943), -- Adamantite Nugget
+(22443,2163,1,1,2,5029), -- Recipe: Earring of Protection
+(22443,1866,1,1,2,65712), -- Suede
+(22443,1871,1,1,2,98568), -- Charcoal
+-- Kertang's Messenger lvl 1
+(22444,1806,1,1,-1,3775), -- Recipe: Soulshot: B-Grade
+(22444,3034,1,1,-1,3775), -- Recipe: Spiritshot B
+(22444,1918,1,1,-1,81736), -- Nassen's Earring Gemstone
+(22444,57,761,1550,0,700000), -- Adena
+(22444,228,1,1,1,15), -- Crystal Dagger
+(22444,2119,1,1,1,1587), -- Crystal Dagger Blade
+(22444,1806,1,1,2,232), -- Recipe: Soulshot: B-Grade
+(22444,4042,1,1,2,1936), -- Enria
+(22444,1894,1,1,2,4075), -- Crafted Leather
+(22444,1882,1,1,2,25809), -- Leather
+(22444,1867,1,1,2,154854), -- Animal Skin
+(22444,1872,1,1,2,154854), -- Animal Bone
+-- Kertang's Messenger lvl 1
+(22445,4042,1,1,-1,43820), -- Enria
+(22445,4040,1,1,-1,52584), -- Mold Lubricant
+(22445,4052,1,1,-1,93086), -- Earring of Black Ore Piece
+(22445,57,1063,2155,0,700000), -- Adena
+(22445,11932,1,1,1,127), -- Common Item - Lance
+(22445,4115,1,1,1,1694), -- Lance Blade
+(22445,729,1,1,2,17), -- Scroll: Enchant Weapon (A)
+(22445,4042,1,1,2,2589), -- Enria
+(22445,4040,1,1,2,3107), -- Mold Lubricant
+(22445,4043,1,1,2,5178), -- Asofe
+(22445,1895,1,1,2,44379), -- Metallic Fiber
+-- Kertang's Messenger lvl 1
+(22446,1808,1,1,-1,1189), -- Recipe: Soulshot: S Grade
+(22446,5480,1,1,-1,12009), -- Sealed Leather Armor of Nightmare Fabric
+(22446,5481,1,1,-1,12009), -- Sealed Majestic Leather Armor Fabric
+(22446,57,1347,2748,0,700000), -- Adena
+(22446,11955,1,1,1,136), -- Common Item - Carnage Bow
+(22446,5535,1,1,1,1686), -- Carnage Bow Stave
+(22446,1808,1,1,2,73), -- Recipe: Soulshot: S Grade
+(22446,9629,1,1,2,716), -- Adamantine
+(22446,9630,1,1,2,867), -- Orichalcum
+(22446,9628,1,1,2,1292), -- Leonard
+(22446,1885,1,1,2,13725), -- High Grade Suede
+(22446,1879,1,1,2,27450), -- Cokes
+-- Kertang's Messenger lvl 1
+(22447,3036,1,1,-1,951), -- Recipe: Spiritshot S
+(22447,5487,1,1,-1,9639), -- Sealed Nightmare Robe Fabric
+(22447,4043,1,1,-1,71350), -- Asofe
+(22447,57,1436,2932,0,700000), -- Adena
+(22447,12258,1,1,1,147), -- Common Item - Sealed Majestic Leather Armor
+(22447,12265,1,1,1,147), -- Common Item - Sealed Leather Armor of Nightmare
+(22447,5480,1,1,1,1183), -- Sealed Leather Armor of Nightmare Fabric
+(22447,5481,1,1,1,1183), -- Sealed Majestic Leather Armor Fabric
+(22447,959,1,1,2,8), -- Scroll: Enchant Weapon (S)
+(22447,4042,1,1,2,3515), -- Enria
+(22447,4040,1,1,2,4218), -- Mold Lubricant
+(22447,4043,1,1,2,7030), -- Asofe
+(22447,1895,1,1,2,60253), -- Metallic Fiber
+-- Leodas Resistance Commander lvl 1
+(22448,6901,1,1,-1,220513), -- Recipe: Shining Arrow (100%)
+(22448,6688,1,1,-1,476636), -- Forgotten Blade Edge
+(22448,1889,1,31,-1,918806), -- Compound Braid
+(22448,57,129223,258799,0,700000), -- Adena
+(22448,270,1,1,1,52400), -- Dragon Grinder
+(22448,5538,1,1,1,148986), -- Dragon Grinder Edge
+(22448,5549,42,126,2,21553), -- Metallic Thread
+(22448,1873,132,396,2,27431), -- Silver Nugget
+(22448,4044,5,15,2,60349), -- Thons
+(22448,1889,4,12,2,134107), -- Compound Braid
+(22448,1868,120,360,2,150871), -- Thread
+(22448,960,1,1,2,724200), -- Scroll: Enchant Armor (S)
+(22448,9599,6,20,100,870400), -- Ancient Tome of the Demon
+-- Native Elite Soldier lvl 1
+(22451,6710,1,1,-1,47824), -- Sealed Draconic Leather Helmet Pattern
+(22451,4040,1,1,-1,58962), -- Mold Lubricant
+(22451,1895,1,1,-1,842320), -- Metallic Fiber
+(22451,57,1728,3460,0,700000), -- Adena
+(22451,12258,1,1,1,203), -- Common Item - Sealed Majestic Leather Armor
+(22451,12265,1,1,1,203), -- Common Item - Sealed Leather Armor of Nightmare
+(22451,5480,1,1,1,1629), -- Sealed Leather Armor of Nightmare Fabric
+(22451,5481,1,1,1,1629), -- Sealed Majestic Leather Armor Fabric
+(22451,960,1,1,2,97), -- Scroll: Enchant Armor (S)
+(22451,9629,1,1,2,1052), -- Adamantine
+(22451,9630,1,1,2,1274), -- Orichalcum
+(22451,9628,1,1,2,1898), -- Leonard
+(22451,1885,1,1,2,20171), -- High Grade Suede
+(22451,1879,1,1,2,40341), -- Cokes
+-- White Skull Kanabion lvl 1
+(22452,955,1,1,0,1113), -- Scroll: Enchant Weapon (D)
+-- White Skull Kanabion Doppler lvl 1
+(22453,955,1,1,0,1113), -- Scroll: Enchant Weapon (D)
+-- White Skull Kanabion Void lvl 1
+(22454,955,1,1,0,1113), -- Scroll: Enchant Weapon (D)
+-- Begrudged Kanabion lvl 1
+(22455,955,1,1,0,1292), -- Scroll: Enchant Weapon (D)
+-- Begrudged Kanabion Doppler lvl 1
+(22456,955,1,1,0,1292), -- Scroll: Enchant Weapon (D)
+-- Begrudged Kanabion Void lvl 1
+(22457,955,1,1,0,1292), -- Scroll: Enchant Weapon (D)
+-- Rotten Kanabion lvl 1
+(22458,955,1,1,0,1690), -- Scroll: Enchant Weapon (D)
+-- Rotten Kanabion Doppler lvl 1
+(22459,955,1,1,0,1690), -- Scroll: Enchant Weapon (D)
+-- Rotten Kanabion Void lvl 1
+(22460,955,1,1,0,1690), -- Scroll: Enchant Weapon (D)
+-- Gluttonous Kanabion lvl 1
+(22461,955,1,1,0,1896), -- Scroll: Enchant Weapon (D)
+-- Gluttonous Kanabion Doppler lvl 1
+(22462,955,1,1,0,1896), -- Scroll: Enchant Weapon (D)
+-- Gluttonous Kanabion Void lvl 1
+(22463,955,1,1,0,1896), -- Scroll: Enchant Weapon (D)
+-- Callous Kanabion lvl 1
+(22464,951,1,1,0,1001), -- Scroll: Enchant Weapon (C)
+-- Callous Kanabion Doppler lvl 1
+(22465,951,1,1,0,1001), -- Scroll: Enchant Weapon (C)
+-- Callous Kanabion Void lvl 1
+(22466,951,1,1,0,1001), -- Scroll: Enchant Weapon (C)
+-- Savage Kanabion lvl 1
+(22467,951,1,1,0,1224), -- Scroll: Enchant Weapon (C)
+-- Savage Kanabion Doppler lvl 1
+(22468,951,1,1,0,1224), -- Scroll: Enchant Weapon (C)
+-- Savage Kanabion Void lvl 1
+(22469,951,1,1,0,1224), -- Scroll: Enchant Weapon (C)
+-- Peerless Kanabion lvl 1
+(22470,947,1,1,0,294), -- Scroll: Enchant Weapon (B)
+-- Peerless Kanabion Doppler lvl 1
+(22471,947,1,1,0,294), -- Scroll: Enchant Weapon (B)
+-- Peerless Kanabion Void lvl 1
+(22472,947,1,1,0,294), -- Scroll: Enchant Weapon (B)
+-- Massive Kanabion lvl 1
+(22473,947,1,1,0,329), -- Scroll: Enchant Weapon (B)
+-- Massive Kanabion Doppler lvl 1
+(22474,947,1,1,0,329), -- Scroll: Enchant Weapon (B)
+-- Massive Kanabion Void lvl 1
+(22475,947,1,1,0,329), -- Scroll: Enchant Weapon (B)
+-- Fervent Kanabion lvl 1
+(22476,729,1,1,0,96), -- Scroll: Enchant Weapon (A)
+-- Fervent Kanabion Doppler lvl 1
+(22477,729,1,1,0,96), -- Scroll: Enchant Weapon (A)
+-- Fervent Kanabion Void lvl 1
+(22478,729,1,1,0,96), -- Scroll: Enchant Weapon (A)
+-- Ruptured Kanabion lvl 1
+(22479,729,1,1,0,104), -- Scroll: Enchant Weapon (A)
+-- Ruptured Kanabion Doppler lvl 1
+(22480,729,1,1,0,104), -- Scroll: Enchant Weapon (A)
+-- Ruptured Kanabion Void lvl 1
+(22481,729,1,1,0,104), -- Scroll: Enchant Weapon (A)
+-- Sword Kanabion lvl 1
+(22482,959,1,1,0,41), -- Scroll: Enchant Weapon (S)
+-- Sword Kanabion Doppler lvl 1
+(22483,959,1,1,0,41), -- Scroll: Enchant Weapon (S)
+-- Sword Kanabion Void lvl 1
+(22484,959,1,1,0,41), -- Scroll: Enchant Weapon (S)
+-- Rotten Messenger lvl 77
+(22510,3036,1,1,2,493), -- Recipe: Spiritshot S
+-- Rotten Messenger lvl 83
+(22518,3036,1,1,-1,4420), -- Recipe: Spiritshot S
+-- Emissary of Death lvl 83
+(22524,960,1,1,-1,4359), -- Scroll: Enchant Armor (S)
+(22524,6901,1,1,-1,10896), -- Recipe: Shining Arrow (100%)
+(22524,6688,1,1,-1,23552), -- Forgotten Blade Edge
+(22524,57,6376,12790,0,700000), -- Adena
+(22524,5326,1,1,1,41), -- Sealed Nightmare Robe
+(22524,5329,1,1,1,41), -- Sealed Majestic Robe
+(22524,5487,1,1,1,6042), -- Sealed Nightmare Robe Fabric
+(22524,5488,1,1,1,6042), -- Sealed Majestic Robe Fabric
+(22524,6863,1,1,2,1111), -- Recipe: Sealed Imperial Crusader Helmet (60%)
+(22524,9630,1,1,2,4709), -- Orichalcum
+(22524,9628,1,1,2,7017), -- Leonard
+(22524,4040,1,1,2,17892), -- Mold Lubricant
+(22524,1345,60,180,2,99402), -- Shining Arrow
+(22524,1895,1,1,2,255605), -- Metallic Fiber
+-- Emissary of Death lvl 84
+(22525,6689,1,1,-1,23685), -- Basalt Battlehammer Head
+(22525,1894,1,1,-1,391868), -- Crafted Leather
+(22525,57,6545,13102,0,700000), -- Adena
+(22525,6344,1,1,1,13440), -- Sealed Majestic Necklace Beads
+(22525,6342,1,1,1,20769), -- Sealed Majestic Earring Gemstone
+(22525,6326,1,1,2,92), -- Sealed Majestic Necklace
+(22525,6327,1,1,2,122), -- Sealed Majestic Earring
+(22525,6328,1,1,2,184), -- Sealed Majestic Ring
+(22525,6865,1,1,2,422), -- Recipe: Sealed Draconic Leather Armor (60%)
+(22525,9630,1,1,2,5791), -- Orichalcum
+(22525,9628,1,1,2,8630), -- Leonard
+(22525,4040,1,1,2,22006), -- Mold Lubricant
+(22525,6346,1,1,2,29849), -- Sealed Majestic Ring Gemstone
+(22525,1895,1,1,2,314377), -- Metallic Fiber
+-- Emissary of Death lvl 83
+(22526,6847,1,1,-1,20177), -- Recipe: Sealed Tateossian Earring (70%)
+(22526,6690,1,1,-1,24251), -- Imperial Staff Head
+(22526,6849,1,1,-1,30225), -- Recipe: Sealed Tateossian Ring(70%)
+(22526,57,6553,13144,0,700000), -- Adena
+(22526,5313,1,1,1,102), -- Sealed Gauntlets of Nightmare
+(22526,5314,1,1,1,102), -- Sealed Boots of Nightmare
+(22526,5318,1,1,1,102), -- Sealed Majestic Gauntlets
+(22526,5319,1,1,1,102), -- Sealed Majestic Boots
+(22526,5502,1,1,1,11645), -- Sealed Boots of Nightmare Lining
+(22526,5503,1,1,1,11645), -- Sealed Majestic Boots Lining
+(22526,5514,1,1,1,11645), -- Sealed Gauntlets of Nightmare Design
+(22526,5515,1,1,1,11645), -- Sealed Majestic Gauntlets Design
+(22526,6867,1,1,2,1712), -- Recipe: Sealed Draconic Leather Gloves (60%)
+(22526,9630,1,1,2,4839), -- Orichalcum
+(22526,9628,1,1,2,7211), -- Leonard
+(22526,4040,1,1,2,18388), -- Mold Lubricant
+(22526,1345,60,180,2,102156), -- Shining Arrow
+(22526,1895,1,1,2,262685), -- Metallic Fiber
+-- Emissary of Death lvl 84
+(22527,959,1,1,-1,459), -- Scroll: Enchant Weapon (S)
+(22527,6691,1,1,-1,24809), -- Angel Slayer Blade
+(22527,1894,1,1,-1,402724), -- Crafted Leather
+(22527,57,6726,13465,0,700000), -- Adena
+(22527,5312,1,1,1,93), -- Sealed Helm of Nightmare
+(22527,5317,1,1,1,93), -- Sealed Majestic Circlet
+(22527,5315,1,1,1,133), -- Sealed Shield of Nightmare
+(22527,5527,1,1,1,11266), -- Sealed Helm of Nightmare Design
+(22527,5528,1,1,1,11266), -- Sealed Majestic Circlet Design
+(22527,5495,1,1,1,14309), -- Sealed Shield of Nightmare Fragment
+(22527,6869,1,1,2,1755), -- Recipe: Sealed Draconic Leather Boots (60%)
+(22527,9629,1,1,2,4097), -- Adamantine
+(22527,9630,1,1,2,4960), -- Orichalcum
+(22527,9628,1,1,2,7391), -- Leonard
+(22527,1885,1,1,2,78528), -- High Grade Suede
+(22527,1879,1,1,2,157056), -- Cokes
+-- Cursed Prefect lvl 83
+(22528,6851,1,1,-1,19071), -- Recipe: Sealed Tateossian Necklace(70%)
+(22528,6693,1,1,-1,31098), -- Dragon Hunter Axe Blade
+(22528,1894,1,1,-1,495837), -- Crafted Leather
+(22528,57,8269,16587,0,700000), -- Adena
+(22528,5529,1,1,1,3182), -- Dragon Slayer Edge
+(22528,5545,1,1,1,3182), -- Dark Legion's Edge Blade
+(22528,5546,1,1,1,3495), -- Sword of Miracles Edge
+(22528,81,1,1,2,11), -- Dragon Slayer
+(22528,151,1,1,2,11), -- Sword of Miracles
+(22528,2500,1,1,2,11), -- Dark Legion's Edge
+(22528,6871,1,1,2,1235), -- Recipe: Sealed Draconic Leather Helmet (60%)
+(22528,9629,1,1,2,4324), -- Adamantine
+(22528,9630,1,1,2,5234), -- Orichalcum
+(22528,9628,1,1,2,7800), -- Leonard
+(22528,1885,1,1,2,82872), -- High Grade Suede
+(22528,1345,60,180,2,110496), -- Shining Arrow
+(22528,1879,1,1,2,165744), -- Cokes
+-- Cursed Prefect lvl 84
+(22529,6853,1,1,-1,6752), -- Recipe: Sealed Imperial Crusader Breastplate (60%)
+(22529,6695,1,1,-1,30717), -- Demon Splinter Blade
+(22529,6694,1,1,-1,31874), -- Saint Spear Blade
+(22529,57,8488,16992,0,700000), -- Adena
+(22529,7902,1,1,1,9), -- Doom Crusher
+(22529,7895,1,1,1,9), -- Flaming Dragon Skull
+(22529,213,1,1,1,9), -- Branch of the Mother Tree
+(22529,5544,1,1,1,2444), -- Branch of the Mother Tree Head
+(22529,8342,1,1,1,2446), -- Flaming Dragon Skull Piece
+(22529,8349,1,1,1,2446), -- Doom Crusher Head
+(22529,5533,1,1,1,2446), -- Elysian Head
+(22529,164,1,1,2,9), -- Elysian
+(22529,6873,1,1,2,456), -- Recipe: Sealed Major Arcana Robe (60%)
+(22529,9629,1,1,2,5170), -- Adamantine
+(22529,9630,1,1,2,6259), -- Orichalcum
+(22529,9628,1,1,2,9327), -- Leonard
+(22529,1885,1,1,2,99096), -- High Grade Suede
+(22529,1879,1,1,2,198192), -- Cokes
+-- Cursed Prefect lvl 83
+(22530,960,1,1,-1,4514), -- Scroll: Enchant Armor (S)
+(22530,1894,1,1,-1,395922), -- Crafted Leather
+(22530,57,6603,13244,0,700000), -- Adena
+(22530,270,1,1,1,27), -- Dragon Grinder
+(22530,5538,1,1,1,7623), -- Dragon Grinder Edge
+(22530,6875,1,1,2,1479), -- Recipe: Sealed Major Arcana Gloves (60%)
+(22530,9629,1,1,2,3453), -- Adamantine
+(22530,9630,1,1,2,4179), -- Orichalcum
+(22530,9628,1,1,2,6228), -- Leonard
+(22530,1885,1,1,2,66173), -- High Grade Suede
+(22530,1879,1,1,2,132346), -- Cokes
+(22530,1345,20,60,2,264692), -- Shining Arrow
+-- Cursed Prefect lvl 84
+(22531,6855,1,1,-1,8605), -- Recipe: Sealed Imperial Crusader Gaiters (60%)
+(22531,6697,1,1,-1,24527), -- Arcana Mace Head
+(22531,6696,1,1,-1,25395), -- Heavens Divider Edge
+(22531,57,6777,13568,0,700000), -- Adena
+(22531,289,1,1,1,27), -- Soul Bow
+(22531,6877,1,1,2,1768), -- Recipe: Sealed Major Arcana Boots (60%)
+(22531,9629,1,1,2,4128), -- Adamantine
+(22531,9630,1,1,2,4998), -- Orichalcum
+(22531,9628,1,1,2,7447), -- Leonard
+(22531,5534,1,1,2,7821), -- Soul Bow Stave
+(22531,1885,1,1,2,79127), -- High Grade Suede
+(22531,1879,1,1,2,158254), -- Cokes
+-- Law Scholar of Conclusions lvl 83
+(22532,959,1,1,-1,427), -- Scroll: Enchant Weapon (S)
+(22532,6857,1,1,-1,19862), -- Recipe: Sealed Imperial Crusader Gauntlets (60%)
+(22532,6698,1,1,-1,209509), -- Sealed Tateossian Earring Part
+(22532,57,6241,12519,0,700000), -- Adena
+(22532,236,1,1,1,25), -- Soul Separator
+(22532,5537,1,1,1,7209), -- Soul Separator Head
+(22532,6879,1,1,2,932), -- Recipe: Sealed Major Arcana Circlet (60%)
+(22532,9629,1,1,2,3264), -- Adamantine
+(22532,9630,1,1,2,3950), -- Orichalcum
+(22532,9628,1,1,2,5887), -- Leonard
+(22532,1885,1,1,2,62551), -- High Grade Suede
+(22532,1879,1,1,2,125101), -- Cokes
+(22532,1345,20,60,2,250202), -- Shining Arrow
+-- Law Scholar of Conclusions lvl 84
+(22533,6699,1,1,-1,238278), -- Sealed Tateossian Ring Gem
+(22533,1894,1,1,-1,383585), -- Crafted Leather
+(22533,57,6406,12825,0,700000), -- Adena
+(22533,5320,1,1,1,41), -- Sealed Leather Armor of Nightmare
+(22533,5323,1,1,1,41), -- Sealed Majestic Leather Armor
+(22533,5480,1,1,1,6042), -- Sealed Leather Armor of Nightmare Fabric
+(22533,5481,1,1,1,6042), -- Sealed Majestic Leather Armor Fabric
+(22533,6847,1,1,2,1617), -- Recipe: Sealed Tateossian Earring (70%)
+(22533,9629,1,1,2,3903), -- Adamantine
+(22533,9630,1,1,2,4724), -- Orichalcum
+(22533,9628,1,1,2,7040), -- Leonard
+(22533,1885,1,1,2,74796), -- High Grade Suede
+(22533,1879,1,1,2,149592), -- Cokes
+-- Law Scholar of Conclusions lvl 83
+(22534,6861,1,1,-1,18036), -- Recipe: Sealed Imperial Crusader Shield (60%)
+(22534,6859,1,1,-1,18943), -- Recipe: Sealed Imperial Crusader Boots (60%)
+(22534,6700,1,1,-1,121781), -- Sealed Tateossian Necklace Chain
+(22534,57,5952,11940,0,700000), -- Adena
+(22534,5316,1,1,1,28), -- Sealed Majestic Plate Armor
+(22534,5311,1,1,1,28), -- Sealed Armor of Nightmare
+(22534,5522,1,1,1,4267), -- Sealed Armor of Nightmare Pattern
+(22534,5523,1,1,1,4267), -- Sealed Majestic Plate Armor Pattern
+(22534,6849,1,1,2,1932), -- Recipe: Sealed Tateossian Ring(70%)
+(22534,9629,1,1,2,3113), -- Adamantine
+(22534,9630,1,1,2,3768), -- Orichalcum
+(22534,9628,1,1,2,5614), -- Leonard
+(22534,1885,1,1,2,59655), -- High Grade Suede
+(22534,1879,1,1,2,119309), -- Cokes
+(22534,1345,20,60,2,238619), -- Shining Arrow
+-- Law Scholar of Conclusions lvl 84
+(22535,960,1,1,-1,4170), -- Scroll: Enchant Armor (S)
+(22535,6701,1,1,-1,55510), -- Sealed Imperial Crusader Breastplate Part
+(22535,1894,1,1,-1,365827), -- Crafted Leather
+(22535,57,6110,12231,0,700000), -- Adena
+(22535,5329,1,1,1,39), -- Sealed Majestic Robe
+(22535,5326,1,1,1,39), -- Sealed Nightmare Robe
+(22535,5487,1,1,1,5782), -- Sealed Nightmare Robe Fabric
+(22535,5488,1,1,1,5782), -- Sealed Majestic Robe Fabric
+(22535,6851,1,1,2,1155), -- Recipe: Sealed Tateossian Necklace(70%)
+(22535,9629,1,1,2,3722), -- Adamantine
+(22535,9630,1,1,2,4505), -- Orichalcum
+(22535,9628,1,1,2,6714), -- Leonard
+(22535,1885,1,1,2,71333), -- High Grade Suede
+(22535,1879,1,1,2,142667), -- Cokes
+-- White Dragon Leader lvl 81
+(22540,3036,1,1,-1,5346), -- Recipe: Spiritshot S
+-- Wife of the Dragon of Darkness lvl 83
+(22545,960,1,1,-1,12178), -- Scroll: Enchant Armor (S)
+(22545,6688,1,1,-1,65807), -- Forgotten Blade Edge
+(22545,1894,1,3,-1,534125), -- Crafted Leather
+(22545,57,17815,35735,0,700000), -- Adena
+(22545,5316,1,1,1,85), -- Sealed Majestic Plate Armor
+(22545,5311,1,1,1,85), -- Sealed Armor of Nightmare
+(22545,5522,1,1,1,12769), -- Sealed Armor of Nightmare Pattern
+(22545,5523,1,1,1,12769), -- Sealed Majestic Plate Armor Pattern
+(22545,6871,1,1,2,3103), -- Recipe: Sealed Draconic Leather Helmet (60%)
+(22545,9629,1,1,2,10868), -- Adamantine
+(22545,9630,1,1,2,13156), -- Orichalcum
+(22545,9628,1,1,2,19605), -- Leonard
+(22545,1879,1,3,2,208300), -- Cokes
+(22545,1885,1,1,2,208300), -- High Grade Suede
+-- Priest of Darkness lvl 76
+(22551,3036,1,1,-1,6967), -- Recipe: Spiritshot S
+(22551,3036,1,1,2,429), -- Recipe: Spiritshot S
+-- Soldiers of Bravery Tiat's Bodyguard lvl 85
+(22569,960,1,1,-1,99136), -- Scroll: Enchant Armor (S)
+(22569,6688,1,1,-1,535703), -- Forgotten Blade Edge
+(22569,1894,1,19,-1,869615), -- Crafted Leather
+(22569,57,145170,290746,0,700000), -- Adena
+(22569,6344,1,1,1,298259), -- Sealed Majestic Necklace Beads
+(22569,6342,1,1,1,460885), -- Sealed Majestic Earring Gemstone
+(22569,6326,1,1,2,2037), -- Sealed Majestic Necklace
+(22569,6327,1,1,2,2716), -- Sealed Majestic Earring
+(22569,6328,1,1,2,4074), -- Sealed Majestic Ring
+(22569,9628,4,12,2,17099), -- Leonard
+(22569,6861,1,1,2,30924), -- Recipe: Sealed Imperial Crusader Shield (60%)
+(22569,1885,14,42,2,51909), -- High Grade Suede
+(22569,9629,1,1,2,75832), -- Adamantine
+(22569,9630,1,1,2,91796), -- Orichalcum
+(22569,1879,15,45,2,96896), -- Cokes
+(22569,6346,1,1,2,662403), -- Sealed Majestic Ring Gemstone
+(22569,14052,3,9,101,72673), -- Noble Enhancement Stone
+-- Royal Guard Captain lvl 1
+(22570,6901,1,1,-1,450072), -- Recipe: Shining Arrow (100%)
+(22570,6689,1,3,-1,477247), -- Basalt Battlehammer Head
+(22570,1894,1,33,-1,928942), -- Crafted Leather
+(22570,14052,4,12,0,86605), -- Noble Enhancement Stone
+(22570,57,263749,528002,0,700000), -- Adena
+(22570,5319,1,1,1,4091), -- Sealed Majestic Boots
+(22570,5318,1,1,1,4091), -- Sealed Majestic Gauntlets
+(22570,5314,1,1,1,4091), -- Sealed Boots of Nightmare
+(22570,5313,1,1,1,4091), -- Sealed Gauntlets of Nightmare
+(22570,5514,1,1,1,468047), -- Sealed Gauntlets of Nightmare Design
+(22570,5502,1,1,1,468047), -- Sealed Boots of Nightmare Lining
+(22570,5515,1,1,1,468047), -- Sealed Majestic Gauntlets Design
+(22570,5503,1,1,1,468047), -- Sealed Majestic Boots Lining
+(22570,9630,6,18,2,11220), -- Orichalcum
+(22570,1879,168,504,2,13747), -- Cokes
+(22570,9628,5,15,2,19760), -- Leonard
+(22570,6863,1,1,2,34405), -- Recipe: Sealed Imperial Crusader Helmet (60%)
+(22570,1885,30,90,2,38491), -- High Grade Suede
+(22570,1345,2700,8100,2,68429), -- Shining Arrow
+(22570,9629,1,1,2,120494), -- Adamantine
+-- Dragon Steed Troop Grand Magician lvl 1
+(22571,6847,1,1,-1,143186), -- Recipe: Sealed Tateossian Earring (70%)
+(22571,6691,1,1,-1,171769), -- Angel Slayer Blade
+(22571,6690,1,1,-1,172097), -- Imperial Staff Head
+(22571,57,46570,93228,0,700000), -- Adena
+(22571,5317,1,1,1,642), -- Sealed Majestic Circlet
+(22571,5312,1,1,1,642), -- Sealed Helm of Nightmare
+(22571,5315,1,1,1,918), -- Sealed Shield of Nightmare
+(22571,5527,1,1,1,78004), -- Sealed Helm of Nightmare Design
+(22571,5528,1,1,1,78004), -- Sealed Majestic Circlet Design
+(22571,5495,1,1,1,99070), -- Sealed Shield of Nightmare Fragment
+(22571,6865,1,1,2,2143), -- Recipe: Sealed Draconic Leather Armor (60%)
+(22571,9629,1,1,2,24315), -- Adamantine
+(22571,9630,1,1,2,29434), -- Orichalcum
+(22571,1879,15,45,2,31069), -- Cokes
+(22571,9628,1,1,2,43862), -- Leonard
+(22571,1885,2,6,2,116509), -- High Grade Suede
+(22571,14052,1,1,101,139811), -- Noble Enhancement Stone
+-- Dragon Steed Troop Commander lvl 1
+(22572,959,1,1,-1,7406), -- Scroll: Enchant Weapon (S)
+(22572,1894,1,13,-1,928078), -- Crafted Leather
+(22572,57,108343,217323,0,700000), -- Adena
+(22572,5529,1,1,1,41687), -- Dragon Slayer Edge
+(22572,5545,1,1,1,41687), -- Dark Legion's Edge Blade
+(22572,5546,1,1,1,45790), -- Sword of Miracles Edge
+(22572,151,1,1,2,147), -- Sword of Miracles
+(22572,2500,1,1,2,147), -- Dark Legion's Edge
+(22572,81,1,1,2,147), -- Dragon Slayer
+(22572,1885,30,90,2,15835), -- High Grade Suede
+(22572,6867,1,1,2,21231), -- Recipe: Sealed Draconic Leather Gloves (60%)
+(22572,1345,2700,8100,2,28151), -- Shining Arrow
+(22572,9629,1,1,2,49569), -- Adamantine
+(22572,9630,1,1,2,60005), -- Orichalcum
+(22572,1879,14,42,2,67863), -- Cokes
+(22572,9628,1,1,2,89419), -- Leonard
+(22572,14052,4,12,101,35628), -- Noble Enhancement Stone
+-- Dragon Steed Troops No 1 Battalion Commander lvl 1
+(22573,1808,1,1,-1,22519), -- Recipe: Soulshot: S Grade
+(22573,5480,1,1,-1,227357), -- Sealed Leather Armor of Nightmare Fabric
+(22573,5481,1,1,-1,227357), -- Sealed Majestic Leather Armor Fabric
+(22573,57,33921,69481,0,700000), -- Adena
+(22573,7902,1,1,1,30), -- Doom Crusher
+(22573,7895,1,1,1,30), -- Flaming Dragon Skull
+(22573,213,1,1,1,30), -- Branch of the Mother Tree
+(22573,5544,1,1,1,8550), -- Branch of the Mother Tree Head
+(22573,8349,1,1,1,8556), -- Doom Crusher Head
+(22573,8342,1,1,1,8558), -- Flaming Dragon Skull Piece
+(22573,5533,1,1,1,8558), -- Elysian Head
+(22573,164,1,1,2,30), -- Elysian
+(22573,6869,1,1,2,6640), -- Recipe: Sealed Draconic Leather Boots (60%)
+(22573,9629,1,1,2,15503), -- Adamantine
+(22573,9630,1,1,2,18766), -- Orichalcum
+(22573,9628,1,1,2,27966), -- Leonard
+(22573,1885,2,6,2,74284), -- High Grade Suede
+(22573,1879,3,9,2,99045), -- Cokes
+(22573,14052,1,1,101,89141), -- Noble Enhancement Stone
+-- White Dragon Leader lvl 1
+(22574,3036,1,1,-1,18882), -- Recipe: Spiritshot S
+(22574,5487,1,1,-1,191316), -- Sealed Nightmare Robe Fabric
+(22574,1894,1,3,-1,745360), -- Crafted Leather
+(22574,57,28447,58252,0,700000), -- Adena
+(22574,270,1,1,1,101), -- Dragon Grinder
+(22574,5538,1,1,1,28704), -- Dragon Grinder Edge
+(22574,6871,1,1,2,3248), -- Recipe: Sealed Draconic Leather Helmet (60%)
+(22574,9629,1,1,2,11374), -- Adamantine
+(22574,9630,1,1,2,13769), -- Orichalcum
+(22574,9628,1,1,2,20518), -- Leonard
+(22574,1345,300,900,2,58136), -- Shining Arrow
+(22574,1879,2,6,2,109004), -- Cokes
+(22574,1885,1,1,2,218009), -- High Grade Suede
+(22574,14052,1,1,101,65402), -- Noble Enhancement Stone
+-- Dragon Steed Troop Infantry lvl 1
+(22575,3957,1,1,-1,19360), -- Recipe: Blessed Spiritshot S
+(22575,5488,1,1,-1,196152), -- Sealed Majestic Robe Fabric
+(22575,1894,1,3,-1,764201), -- Crafted Leather
+(22575,57,29224,59662,0,700000), -- Adena
+(22575,289,1,1,1,103), -- Soul Bow
+(22575,6873,1,1,2,1175), -- Recipe: Sealed Major Arcana Robe (60%)
+(22575,9629,1,1,2,13328), -- Adamantine
+(22575,9630,1,1,2,16134), -- Orichalcum
+(22575,9628,1,1,2,24043), -- Leonard
+(22575,5534,1,1,2,29456), -- Soul Bow Stave
+(22575,1879,3,9,2,85150), -- Cokes
+(22575,1885,1,1,2,255450), -- High Grade Suede
+(22575,14052,1,1,101,76635), -- Noble Enhancement Stone
+-- Dragon Steed Troop Magic Leader lvl 1
+(22576,5157,1,1,-1,8486), -- Recipe: Soulshot (S) Compressed Package (100%)
+(22576,5495,1,1,-1,289945), -- Sealed Shield of Nightmare Fragment
+(22576,5502,1,1,-1,322485), -- Sealed Boots of Nightmare Lining
+(22576,57,12783,26184,0,700000), -- Adena
+(22576,236,1,1,1,45), -- Soul Separator
+(22576,5537,1,1,1,12905), -- Soul Separator Head
+(22576,6875,1,1,2,2189), -- Recipe: Sealed Major Arcana Gloves (60%)
+(22576,9629,1,1,2,5112), -- Adamantine
+(22576,9630,1,1,2,6188), -- Orichalcum
+(22576,9628,1,1,2,9221), -- Leonard
+(22576,1885,1,1,2,97980), -- High Grade Suede
+(22576,1345,60,180,2,130640), -- Shining Arrow
+(22576,1879,1,1,2,195960), -- Cokes
+(22576,14052,1,1,101,29394), -- Noble Enhancement Stone
+-- Dragon Steed Troop Magician lvl 1
+(22577,5503,1,1,-1,323981), -- Sealed Majestic Boots Lining
+(22577,1894,1,1,-1,673085), -- Crafted Leather
+(22577,57,12844,26302,0,700000), -- Adena
+(22577,5320,1,1,1,72), -- Sealed Leather Armor of Nightmare
+(22577,5323,1,1,1,72), -- Sealed Majestic Leather Armor
+(22577,5480,1,1,1,10602), -- Sealed Leather Armor of Nightmare Fabric
+(22577,5481,1,1,1,10602), -- Sealed Majestic Leather Armor Fabric
+(22577,6877,1,1,2,2514), -- Recipe: Sealed Major Arcana Boots (60%)
+(22577,9629,1,1,2,5870), -- Adamantine
+(22577,9630,1,1,2,7105), -- Orichalcum
+(22577,9628,1,1,2,10588), -- Leonard
+(22577,1885,1,1,2,112497), -- High Grade Suede
+(22577,1879,1,1,2,224993), -- Cokes
+(22577,14052,1,1,101,33749), -- Noble Enhancement Stone
+-- Dragon Steed Troop Magic Soldier lvl 1
+(22578,5167,1,1,-1,9636), -- Recipe: Blessed Spiritshot (S) Compressed Package (100%)
+(22578,5162,1,1,-1,9636), -- Recipe: Spiritshot (S) Compressed Package (100%)
+(22578,5514,1,1,-1,366160), -- Sealed Gauntlets of Nightmare Design
+(22578,57,14545,29695,0,700000), -- Adena
+(22578,5316,1,1,1,61), -- Sealed Majestic Plate Armor
+(22578,5311,1,1,1,61), -- Sealed Armor of Nightmare
+(22578,5522,1,1,1,9093), -- Sealed Armor of Nightmare Pattern
+(22578,5523,1,1,1,9093), -- Sealed Majestic Plate Armor Pattern
+(22578,6879,1,1,2,1657), -- Recipe: Sealed Major Arcana Circlet (60%)
+(22578,9629,1,1,2,5804), -- Adamantine
+(22578,9630,1,1,2,7026), -- Orichalcum
+(22578,9628,1,1,2,10471), -- Leonard
+(22578,1879,2,6,2,55625), -- Cokes
+(22578,1885,1,1,2,111250), -- High Grade Suede
+(22578,1345,60,180,2,148333), -- Shining Arrow
+(22578,14052,1,1,101,33375), -- Noble Enhancement Stone
+-- Warrior of Light lvl 1
+(22579,5515,1,1,-1,380360), -- Sealed Majestic Gauntlets Design
+(22579,1894,1,1,-1,790214), -- Crafted Leather
+(22579,57,15112,30841,0,700000), -- Adena
+(22579,5329,1,1,1,84), -- Sealed Majestic Robe
+(22579,5326,1,1,1,84), -- Sealed Nightmare Robe
+(22579,5487,1,1,1,12488), -- Sealed Nightmare Robe Fabric
+(22579,5488,1,1,1,12488), -- Sealed Majestic Robe Fabric
+(22579,6847,1,1,2,2856), -- Recipe: Sealed Tateossian Earring (70%)
+(22579,9629,1,1,2,6891), -- Adamantine
+(22579,9630,1,1,2,8341), -- Orichalcum
+(22579,9628,1,1,2,12430), -- Leonard
+(22579,1885,1,1,2,132073), -- High Grade Suede
+(22579,1879,1,1,2,264146), -- Cokes
+(22579,14052,1,1,101,39622), -- Noble Enhancement Stone
+-- Dragon Steed Troop Healer lvl 1
+(22580,5272,1,1,-1,6528), -- Recipe: Greater Soulshot (S) Compressed Package(100%)
+(22580,5522,1,1,-1,50019), -- Sealed Armor of Nightmare Pattern
+(22580,5523,1,1,-1,50019), -- Sealed Majestic Plate Armor Pattern
+(22580,57,9856,20114,0,700000), -- Adena
+(22580,6344,1,1,1,17676), -- Sealed Majestic Necklace Beads
+(22580,6342,1,1,1,27313), -- Sealed Majestic Earring Gemstone
+(22580,6326,1,1,2,121), -- Sealed Majestic Necklace
+(22580,6327,1,1,2,161), -- Sealed Majestic Earring
+(22580,6328,1,1,2,241), -- Sealed Majestic Ring
+(22580,6849,1,1,2,2790), -- Recipe: Sealed Tateossian Ring(70%)
+(22580,9629,1,1,2,4494), -- Adamantine
+(22580,9630,1,1,2,5440), -- Orichalcum
+(22580,9628,1,1,2,8107), -- Leonard
+(22580,6346,1,1,2,39256), -- Sealed Majestic Ring Gemstone
+(22580,1885,1,1,2,86135), -- High Grade Suede
+(22580,1345,60,180,2,114847), -- Shining Arrow
+(22580,1879,1,1,2,172269), -- Cokes
+-- Dragon Steed Troop Javelin Thrower lvl 1
+(22582,5282,1,1,-1,10955), -- Recipe: Greater Blessed Spiritshot (S) Compressed Package(100%)
+(22582,5528,1,1,-1,294709), -- Sealed Majestic Circlet Design
+(22582,1894,1,1,-1,864895), -- Crafted Leather
+(22582,57,16537,33762,0,700000), -- Adena
+(22582,5317,1,1,1,199), -- Sealed Majestic Circlet
+(22582,5312,1,1,1,199), -- Sealed Helm of Nightmare
+(22582,5315,1,1,1,285), -- Sealed Shield of Nightmare
+(22582,5527,1,1,1,24196), -- Sealed Helm of Nightmare Design
+(22582,5528,1,1,1,24196), -- Sealed Majestic Circlet Design
+(22582,5495,1,1,1,30730), -- Sealed Shield of Nightmare Fragment
+(22582,6853,1,1,2,809), -- Recipe: Sealed Imperial Crusader Breastplate (60%)
+(22582,9629,1,1,2,7542), -- Adamantine
+(22582,9630,1,1,2,9130), -- Orichalcum
+(22582,9628,1,1,2,13605), -- Leonard
+(22582,1879,2,6,2,72277), -- Cokes
+(22582,1885,1,1,2,144554), -- High Grade Suede
+(22582,1345,60,180,2,192739), -- Shining Arrow
+-- Dragon Steed Troop Magic Leader lvl 1
+(22583,1808,1,1,-1,8736), -- Recipe: Soulshot: S Grade
+(22583,5533,1,1,-1,53915), -- Elysian Head
+(22583,5529,1,1,-1,53926), -- Dragon Slayer Edge
+(22583,57,13159,26954,0,700000), -- Adena
+(22583,5529,1,1,1,4426), -- Dragon Slayer Edge
+(22583,5545,1,1,1,4426), -- Dark Legion's Edge Blade
+(22583,5546,1,1,1,4861), -- Sword of Miracles Edge
+(22583,81,1,1,2,16), -- Dragon Slayer
+(22583,151,1,1,2,16), -- Sword of Miracles
+(22583,2500,1,1,2,16), -- Dark Legion's Edge
+(22583,6855,1,1,2,1201), -- Recipe: Sealed Imperial Crusader Gaiters (60%)
+(22583,9629,1,1,2,7016), -- Adamantine
+(22583,9630,1,1,2,8494), -- Orichalcum
+(22583,9628,1,1,2,12657), -- Leonard
+(22583,1885,1,1,2,134483), -- High Grade Suede
+(22583,1879,1,1,2,268965), -- Cokes
+-- Dragon Steed Troop Magician lvl 1
+(22584,5534,1,1,-1,55359), -- Soul Bow Stave
+(22584,1894,1,1,-1,707527), -- Crafted Leather
+(22584,57,13502,27648,0,700000), -- Adena
+(22584,213,1,1,1,12), -- Branch of the Mother Tree
+(22584,7895,1,1,1,12), -- Flaming Dragon Skull
+(22584,7902,1,1,1,12), -- Doom Crusher
+(22584,5544,1,1,1,3403), -- Branch of the Mother Tree Head
+(22584,8349,1,1,1,3405), -- Doom Crusher Head
+(22584,5533,1,1,1,3406), -- Elysian Head
+(22584,8342,1,1,1,3406), -- Flaming Dragon Skull Piece
+(22584,164,1,1,2,12), -- Elysian
+(22584,6857,1,1,2,2643), -- Recipe: Sealed Imperial Crusader Gauntlets (60%)
+(22584,9629,1,1,2,6170), -- Adamantine
+(22584,9630,1,1,2,7469), -- Orichalcum
+(22584,9628,1,1,2,11130), -- Leonard
+(22584,1879,2,6,2,59126), -- Cokes
+(22584,1885,1,1,2,118253), -- High Grade Suede
+(22584,1345,60,180,2,157671), -- Shining Arrow
+-- Dragon Steed Troop Magic Soldier lvl 1
+(22585,3036,1,1,-1,5715), -- Recipe: Spiritshot S
+(22585,3957,1,1,-1,5715), -- Recipe: Blessed Spiritshot S
+(22585,5537,1,1,-1,35279), -- Soul Separator Head
+(22585,57,8627,17613,0,700000), -- Adena
+(22585,270,1,1,1,31), -- Dragon Grinder
+(22585,5538,1,1,1,8688), -- Dragon Grinder Edge
+(22585,6859,1,1,2,1966), -- Recipe: Sealed Imperial Crusader Boots (60%)
+(22585,9629,1,1,2,4590), -- Adamantine
+(22585,9630,1,1,2,5557), -- Orichalcum
+(22585,9628,1,1,2,8280), -- Leonard
+(22585,1885,1,1,2,87981), -- High Grade Suede
+(22585,1879,1,1,2,175962), -- Cokes
+-- Dragon Steed Troop Commander lvl 1
+(22586,960,1,1,-1,75153), -- Scroll: Enchant Armor (S)
+(22586,6688,1,1,-1,406104), -- Forgotten Blade Edge
+(22586,1894,1,13,-1,941764), -- Crafted Leather
+(22586,57,109941,220528,0,700000), -- Adena
+(22586,289,1,1,1,446), -- Soul Bow
+(22586,6861,1,1,2,27350), -- Recipe: Sealed Imperial Crusader Shield (60%)
+(22586,1885,12,36,2,53561), -- High Grade Suede
+(22586,9629,1,1,2,67067), -- Adamantine
+(22586,9630,1,1,2,81187), -- Orichalcum
+(22586,1879,15,45,2,85697), -- Cokes
+(22586,9628,1,1,2,120984), -- Leonard
+(22586,5534,1,1,2,127048), -- Soul Bow Stave
+-- Dragon Steed Troop Captain #1 lvl 1
+(22587,5157,1,1,-1,23327), -- Recipe: Soulshot (S) Compressed Package (100%)
+(22587,5480,1,1,-1,235513), -- Sealed Leather Armor of Nightmare Fabric
+(22587,1894,1,3,-1,920794), -- Crafted Leather
+(22587,57,35138,71973,0,700000), -- Adena
+(22587,236,1,1,1,125), -- Soul Separator
+(22587,5537,1,1,1,35471), -- Soul Separator Head
+(22587,6863,1,1,2,5350), -- Recipe: Sealed Imperial Crusader Helmet (60%)
+(22587,9630,1,1,2,22680), -- Orichalcum
+(22587,9628,1,1,2,33797), -- Leonard
+(22587,1895,12,36,2,51299), -- Metallic Fiber
+(22587,4040,1,1,2,86183), -- Mold Lubricant
+(22587,1345,300,900,2,95759), -- Shining Arrow
+-- White Dragon Leader lvl 1
+(22588,5162,1,1,-1,17370), -- Recipe: Spiritshot (S) Compressed Package (100%)
+(22588,5481,1,1,-1,175370), -- Sealed Majestic Leather Armor Fabric
+(22588,5487,1,1,-1,175990), -- Sealed Nightmare Robe Fabric
+(22588,57,26168,53586,0,700000), -- Adena
+(22588,5320,1,1,1,146), -- Sealed Leather Armor of Nightmare
+(22588,5323,1,1,1,146), -- Sealed Majestic Leather Armor
+(22588,5480,1,1,1,21600), -- Sealed Leather Armor of Nightmare Fabric
+(22588,5481,1,1,1,21600), -- Sealed Majestic Leather Armor Fabric
+(22588,6865,1,1,2,1476), -- Recipe: Sealed Draconic Leather Armor (60%)
+(22588,9630,1,1,2,20265), -- Orichalcum
+(22588,9628,1,1,2,30200), -- Leonard
+(22588,4040,1,1,2,77009), -- Mold Lubricant
+(22588,1895,3,9,2,183355), -- Metallic Fiber
+-- Dragon Steed Troop Infantry lvl 1
+(22589,5488,1,1,-1,180592), -- Sealed Majestic Robe Fabric
+(22589,1894,1,3,-1,703582), -- Crafted Leather
+(22589,57,26906,54930,0,700000), -- Adena
+(22589,5311,1,1,1,112), -- Sealed Armor of Nightmare
+(22589,5316,1,1,1,112), -- Sealed Majestic Plate Armor
+(22589,5522,1,1,1,16821), -- Sealed Armor of Nightmare Pattern
+(22589,5523,1,1,1,16821), -- Sealed Majestic Plate Armor Pattern
+(22589,6867,1,1,2,6131), -- Recipe: Sealed Draconic Leather Gloves (60%)
+(22589,9630,1,1,2,17329), -- Orichalcum
+(22589,9628,1,1,2,25824), -- Leonard
+(22589,4040,1,1,2,65853), -- Mold Lubricant
+(22589,1345,300,900,2,73170), -- Shining Arrow
+(22589,1895,2,6,2,235188), -- Metallic Fiber
+-- lvl 1
+(22590,8690,1,1,-1,2276), -- Recipe: Sirra's Blade (60%)
+(22590,8692,1,1,-1,2276), -- Recipe: Sword of Ipos (60%)
+(22590,5478,1,1,-1,135121), -- Sealed Dark Crystal Leather Armor Pattern
+(22590,57,8094,16481,0,700000), -- Adena
+(22590,5308,1,1,1,46), -- Sealed Dark Crystal Robe
+(22590,5304,1,1,1,74), -- Sealed Tallum Tunic
+(22590,5305,1,1,1,118), -- Sealed Tallum Stockings
+(22590,5486,1,1,1,5851), -- Sealed Dark Crystal Robe Fabric
+(22590,5485,1,1,1,8315), -- Sealed Tallum Tunic Texture
+(22590,5489,1,1,1,13051), -- Sealed Tallum Stockings Fabric
+(22590,1808,1,1,2,527), -- Recipe: Soulshot: S Grade
+(22590,9630,1,1,2,6245), -- Orichalcum
+(22590,9628,1,1,2,9307), -- Leonard
+(22590,4040,1,1,2,23732), -- Mold Lubricant
+(22590,1895,1,1,2,339029), -- Metallic Fiber
+-- Dragon Steed Troop Magic Leader lvl 1
+(22591,5480,1,1,-1,53597), -- Sealed Leather Armor of Nightmare Fabric
+(22591,1894,1,1,-1,419102), -- Crafted Leather
+(22591,57,7997,16379,0,700000), -- Adena
+(22591,6344,1,1,1,14374), -- Sealed Majestic Necklace Beads
+(22591,6342,1,1,1,22212), -- Sealed Majestic Earring Gemstone
+(22591,959,1,1,2,47), -- Scroll: Enchant Weapon (S)
+(22591,6326,1,1,2,98), -- Sealed Majestic Necklace
+(22591,6327,1,1,2,131), -- Sealed Majestic Earring
+(22591,6328,1,1,2,196), -- Sealed Majestic Ring
+(22591,9630,1,1,2,6194), -- Orichalcum
+(22591,9628,1,1,2,9230), -- Leonard
+(22591,4040,1,1,2,23536), -- Mold Lubricant
+(22591,6346,1,1,2,31924), -- Sealed Majestic Ring Gemstone
+(22591,1895,1,1,2,336226), -- Metallic Fiber
+-- Dragon Steed Troop Magician lvl 1
+(22592,1808,1,1,-1,5339), -- Recipe: Soulshot: S Grade
+(22592,5481,1,1,-1,53905), -- Sealed Majestic Leather Armor Fabric
+(22592,5487,1,1,-1,54096), -- Sealed Nightmare Robe Fabric
+(22592,57,8044,16471,0,700000), -- Adena
+(22592,5313,1,1,1,109), -- Sealed Gauntlets of Nightmare
+(22592,5314,1,1,1,109), -- Sealed Boots of Nightmare
+(22592,5318,1,1,1,109), -- Sealed Majestic Gauntlets
+(22592,5319,1,1,1,109), -- Sealed Majestic Boots
+(22592,5502,1,1,1,12493), -- Sealed Boots of Nightmare Lining
+(22592,5503,1,1,1,12493), -- Sealed Majestic Boots Lining
+(22592,5514,1,1,1,12493), -- Sealed Gauntlets of Nightmare Design
+(22592,5515,1,1,1,12493), -- Sealed Majestic Gauntlets Design
+(22592,960,1,1,2,395), -- Scroll: Enchant Armor (S)
+(22592,9630,1,1,2,5191), -- Orichalcum
+(22592,9628,1,1,2,7736), -- Leonard
+(22592,4040,1,1,2,19726), -- Mold Lubricant
+(22592,1345,60,180,2,109587), -- Shining Arrow
+(22592,1895,1,1,2,281797), -- Metallic Fiber
+-- Dragon Steed Troop Magic Soldier lvl 1
+(22593,3036,1,1,-1,5767), -- Recipe: Spiritshot S
+-- Dragon Steed Troop Commander lvl 1
+(22594,6901,1,1,-1,52934), -- Recipe: Shining Arrow (100%)
+(22594,6688,1,1,-1,114417), -- Forgotten Blade Edge
+(22594,1894,1,3,-1,928673), -- Crafted Leather
+(22594,57,30975,62132,0,700000), -- Adena
+(22594,5529,1,1,1,11918), -- Dragon Slayer Edge
+(22594,5545,1,1,1,11918), -- Dark Legion's Edge Blade
+(22594,5546,1,1,1,13091), -- Sword of Miracles Edge
+(22594,81,1,1,2,42), -- Dragon Slayer
+(22594,151,1,1,2,42), -- Sword of Miracles
+(22594,2500,1,1,2,42), -- Dark Legion's Edge
+(22594,6847,1,1,2,7831), -- Recipe: Sealed Tateossian Earring (70%)
+(22594,9630,1,1,2,22874), -- Orichalcum
+(22594,9628,1,1,2,34086), -- Leonard
+(22594,1895,12,36,2,51738), -- Metallic Fiber
+(22594,4040,1,1,2,86920), -- Mold Lubricant
+(22594,1345,300,900,2,96578), -- Shining Arrow
+-- Dragon Steed Troops No 1 Battalion Commander lvl 1
+(22595,1808,1,1,-1,23992), -- Recipe: Soulshot: S Grade
+(22595,5480,1,1,-1,242230), -- Sealed Leather Armor of Nightmare Fabric
+(22595,5481,1,1,-1,242230), -- Sealed Majestic Leather Armor Fabric
+(22595,57,36140,74026,0,700000), -- Adena
+(22595,213,1,1,1,32), -- Branch of the Mother Tree
+(22595,7895,1,1,1,32), -- Flaming Dragon Skull
+(22595,7902,1,1,1,32), -- Doom Crusher
+(22595,5544,1,1,1,9109), -- Branch of the Mother Tree Head
+(22595,8349,1,1,1,9116), -- Doom Crusher Head
+(22595,5533,1,1,1,9118), -- Elysian Head
+(22595,8342,1,1,1,9118), -- Flaming Dragon Skull Piece
+(22595,164,1,1,2,32), -- Elysian
+(22595,6849,1,1,2,11962), -- Recipe: Sealed Tateossian Ring(70%)
+(22595,9630,1,1,2,23326), -- Orichalcum
+(22595,9628,1,1,2,34761), -- Leonard
+(22595,1895,12,36,2,52762), -- Metallic Fiber
+(22595,4040,1,1,2,88640), -- Mold Lubricant
+(22595,1345,300,900,2,98489), -- Shining Arrow
+-- Dragon Steed Troop Infantry lvl 1
+(22597,3036,1,1,-1,5892), -- Recipe: Spiritshot S
+(22597,3957,1,1,-1,5892), -- Recipe: Blessed Spiritshot S
+-- Mutated Drake Wing lvl 1
+(22610,57,2086,4172,0,700000), -- Adena
+-- Mutated Drake Wing lvl 1
+(22611,57,2050,4099,0,700000), -- Adena
+-- Drak lvl 1
+(22612,57,1995,3991,0,700000), -- Adena
+-- Drak lvl 1
+(22613,57,2044,4088,0,700000), -- Adena
+-- Vulture Rider lvl 1
+(22614,57,1500,3000,0,700000), -- Adena
+-- Vulture Rider lvl 1
+(22615,57,1500,3000,0,700000), -- Adena
+-- Spiked Stakato Worker lvl 82
+(22618,3036,1,1,-1,48952), -- Recipe: Spiritshot S
+-- Male Spiked Stakato lvl 82
+(22621,5162,1,1,-1,3726), -- Recipe: Spiritshot (S) Compressed Package (100%)
+(22621,9993,1,1,-1,41436), -- Sealed Dynasty Ring Gemstone
+(22621,1894,7,14,-1,693342), -- Crafted Leather
+(22621,9447,1,1,1,4), -- Dynasty Halberd
+(22621,9621,1,1,1,1171), -- Dynasty Halberd Piece
+(22621,9548,1,1,2,1300), -- Earth Stone
+(22621,9630,1,1,2,30103), -- Orichalcum
+-- Male Spiked Stakato lvl 83
+(22622,5157,1,1,-1,3726), -- Recipe: Soulshot (S) Compressed Package (100%)
+(22622,9622,1,1,-1,6769), -- Halberd Cudgel Piece
+(22622,9446,1,1,1,5), -- Dynasty Knife
+(22622,9620,1,1,1,1538), -- Dynasty Knife Piece
+(22622,9547,1,1,2,1300), -- Water Stone
+(22622,4042,1,1,2,8322), -- Enria
+(22622,4043,1,1,2,16644), -- Asofe
+-- Cannibalistic Stakato Follower lvl 82
+(22624,9530,1,1,-1,238365), -- Sealed Dynasty Breast Plate Piece
+-- Cannibalistic Stakato Leader lvl 83
+(22625,960,1,1,-1,43645), -- Scroll: Enchant Armor (S)
+(22625,9630,1,1,-1,69374), -- Orichalcum
+(22625,9624,1,1,-1,88101), -- Dynasty Bagh-Nakh Piece
+(22625,9453,1,1,1,17), -- Sealed Dynasty Necklace
+(22625,9452,1,1,1,23), -- Sealed Dynasty Earring
+(22625,9454,1,1,1,34), -- Sealed Dynasty Ring
+(22625,9992,1,1,1,1227), -- Sealed Dynasty Necklace Gemstone
+(22625,9991,1,1,1,1599), -- Sealed Dynasty Earring Gemstone
+(22625,9993,1,1,1,2247), -- Sealed Dynasty Ring Gemstone
+(22625,959,1,1,2,14), -- Scroll: Enchant Weapon (S)
+(22625,9629,1,1,2,24868), -- Adamantine
+(22625,9630,1,1,2,30103), -- Orichalcum
+(22625,9628,1,1,2,44860), -- Leonard
+(22625,1879,4,8,2,155574), -- Cokes
+(22625,1885,2,4,2,155574), -- High Grade Suede
+-- Cannibalistic Stakato Leader lvl 83
+(22626,5272,1,1,-1,2942), -- Recipe: Greater Soulshot (S) Compressed Package(100%)
+(22626,5277,1,1,-1,2942), -- Recipe: Greater Spiritshot (S) Compressed Package(100%)
+(22626,9619,1,1,-1,5557), -- Dynasty Bow Piece
+(22626,9524,1,1,1,8), -- Sealed Dynasty Tunic
+(22626,9525,1,1,1,12), -- Sealed Dynasty Stockings
+(22626,9540,1,1,1,1917), -- Sealed Dynasty Tunic Piece
+(22626,9541,1,1,1,2818), -- Sealed Dynasty Stocking Piece
+(22626,9551,1,1,2,1300), -- Divine Stone
+(22626,4042,1,1,2,8322), -- Enria
+(22626,4043,1,1,2,16644), -- Asofe
+(22626,4040,1,1,2,135683), -- Mold Lubricant
+(22626,1895,7,13,2,193833), -- Metallic Fiber
+-- Spike Stakato Nurse lvl 83
+(22630,5157,1,1,-1,3726), -- Recipe: Soulshot (S) Compressed Package (100%)
+(22630,5162,1,1,-1,3726), -- Recipe: Spiritshot (S) Compressed Package (100%)
+(22630,9624,1,1,-1,88101), -- Dynasty Bagh-Nakh Piece
+(22630,1894,7,14,-1,693342), -- Crafted Leather
+(22630,5272,1,1,2,155), -- Recipe: Greater Soulshot (S) Compressed Package(100%)
+(22630,6901,1,1,2,277), -- Recipe: Shining Arrow (100%)
+-- Spike Stakato Nurse lvl 83
+(22631,5157,1,1,-1,3726), -- Recipe: Soulshot (S) Compressed Package (100%)
+(22631,9622,1,1,-1,6769), -- Halberd Cudgel Piece
+(22631,9530,1,1,-1,238365), -- Sealed Dynasty Breast Plate Piece
+(22631,5272,1,1,2,155), -- Recipe: Greater Soulshot (S) Compressed Package(100%)
+-- Spiked Stakato Baby lvl 82
+(22632,5167,1,1,-1,4409), -- Recipe: Blessed Spiritshot (S) Compressed Package (100%)
+-- Scarlet Stakato Worker lvl 78
+(22634,5167,1,1,2,30), -- Recipe: Blessed Spiritshot (S) Compressed Package (100%)
+-- Scarlet Stakato Noble lvl 78
+(22636,6712,1,1,2,4310), -- Sealed Major Arcana Gloves fabric
+(22636,6708,1,1,2,4310), -- Sealed Draconic Leather Gloves Fabric
+(22636,6709,1,1,2,4310), -- Sealed Draconic Leather Boots Design
+(22636,6713,1,1,2,4310), -- Sealed Major Arcana Boots Design
+(22636,6704,1,1,2,4310), -- Sealed Imperial Crusader Boots Design
+-- Assassin Beetle lvl 80
+(22639,6706,1,1,1,7353), -- Sealed Imperial Crusader Helmet Pattern
+(22639,6714,1,1,1,7353), -- Sealed Major Arcana Circlet Pattern
+-- Knight of Destruction lvl 80
+(22641,6708,1,1,-1,17000), -- Sealed Draconic Leather Gloves Fabric
+-- Lavastone Golem lvl 80
+(22642,3036,1,1,-1,7194), -- Recipe: Spiritshot S
+-- Phantoms of the Mine lvl 81
+(22687,57,2693,5386,0,700000), -- Adena
+(22687,960,1,1,1,239), -- Scroll: Enchant Armor (S)
+(22687,9629,1,1,1,2596), -- Adamantine
+(22687,9630,1,1,1,3142), -- Orichalcum
+(22687,9628,1,1,1,4682), -- Leonard
+(22687,1885,1,1,1,49748), -- High Grade Suede
+(22687,1879,1,1,1,99496), -- Cokes
+(22687,1345,159,319,2,49956), -- Shining Arrow
+-- Varangka's Guardian lvl 80
+(22700,57,3597,7194,0,700000), -- Adena
+-- Contaminated Morek Warrior lvl 81
+(22703,9447,1,1,1,1), -- Dynasty Halberd
+-- Contaminated Batur Warrior lvl 81
+(22704,9623,1,1,-1,12000), -- Dynasty Mace Piece
+(22704,9514,1,1,1,3), -- Sealed Dynasty Breast Plate
+(22704,9515,1,1,1,3), -- Sealed Dynasty Gaiter
+(22704,5167,1,1,2,300), -- Recipe: Blessed Spiritshot (S) Compressed Package (100%)
+-- Contaminated Batur Commander lvl 82
+(22705,9624,1,1,-1,8000), -- Dynasty Bagh-Nakh Piece
+(22705,9519,1,1,1,3), -- Sealed Dynasty Leather Armor
+(22705,9520,1,1,1,3), -- Sealed Dynasty Leather Leggings
+-- Turka Follower's Ghost lvl 80
+(22706,1808,1,1,-1,9955), -- Recipe: Soulshot: S Grade
+(22706,9623,1,1,-1,18086); -- Dynasty Mace Piece
+
+INSERT INTO `droplist` VALUES
+(22706,1882,3,7,-1,995541), -- Leather
+(22706,9524,1,1,1,17), -- Sealed Dynasty Tunic
+(22706,9525,1,1,1,27), -- Sealed Dynasty Stockings
+-- Turka Commander's Ghost Grave Guardian Spirit lvl 80
+(22707,9453,1,1,1,38), -- Sealed Dynasty Necklace
+(22707,9452,1,1,1,51), -- Sealed Dynasty Earring
+(22707,9454,1,1,1,77), -- Sealed Dynasty Ring
+-- Invader Healer of Nightmare lvl 81
+(22709,5277,1,1,-1,12885), -- Recipe: Greater Spiritshot (S) Compressed Package(100%)
+(22709,9529,1,1,1,26), -- Sealed Dynasty Shield
+(22709,13886,1,1,1,26), -- Sealed Dynasty Sigil
+-- Invader Guide of Nightmare lvl 81
+(22710,9531,1,1,-1,119395), -- Sealed Dynasty Gaiter Piece
+-- Invader Destroyer of Nightmare lvl 81
+(22711,9629,1,1,2,5714), -- Adamantine
+-- Invader Assassin of Nightmare lvl 81
+(22712,3036,1,1,-1,8431), -- Recipe: Spiritshot S
+(22712,9536,1,1,-1,74825), -- Sealed Dynasty Leather Leggings Piece
+(22712,9629,1,1,2,4259), -- Adamantine
+-- Invader Shaman of Nightmare lvl 81
+(22713,9543,1,1,-1,171008), -- Sealed Dynasty Glove Piece
+(22713,959,1,1,2,49), -- Scroll: Enchant Weapon (S)
+-- Invader Soldier of Nightmare lvl 81
+(22715,5157,1,1,2,103), -- Recipe: Soulshot (S) Compressed Package (100%)
+-- Invader Soldier of Nightmare lvl 81
+(22716,3036,1,1,-1,3169), -- Recipe: Spiritshot S
+(22716,3957,1,1,-1,3169), -- Recipe: Blessed Spiritshot S
+(22716,5157,1,1,2,164), -- Recipe: Soulshot (S) Compressed Package (100%)
+-- Invader Disciple of Nightmare lvl 81
+(22717,5282,1,1,2,870), -- Recipe: Greater Blessed Spiritshot (S) Compressed Package(100%)
+-- Grave Robber Warrior lvl 82
+(22741,5162,1,1,-1,2942), -- Recipe: Spiritshot (S) Compressed Package (100%)
+(22741,9622,1,1,-1,5344), -- Halberd Cudgel Piece
+(22741,9540,1,1,-1,17761), -- Sealed Dynasty Tunic Piece
+(22741,57,2630,5259,0,700000), -- Adena
+(22741,9519,1,1,1,5), -- Sealed Dynasty Leather Armor
+(22741,9520,1,1,1,8), -- Sealed Dynasty Leather Leggings
+(22741,9535,1,1,1,1251), -- Sealed Dynasty Leather Armor Piece
+(22741,9536,1,1,1,1839), -- Sealed Dynasty Leather Leggings Piece
+(22741,9629,1,1,2,1783), -- Adamantine
+(22741,9630,1,1,2,2159), -- Orichalcum
+(22741,9628,1,1,2,3217), -- Leonard
+(22741,1885,1,1,2,34180), -- High Grade Suede
+(22741,1879,1,1,2,68361), -- Cokes
+-- Furious Thieles Raid Boss lvl 55
+(25010,8171,1,1,100,250000), -- Angelic Essence: B-Grade
+-- Ghost of Peasant Leader Raid Boss lvl 50
+(25013,8159,4,4,100,250000), -- Memento Mori: B-Grade
+-- Katu Van Leader Atui Raid Boss lvl 49
+(25026,8158,4,6,100,250000), -- Memento Mori: C-Grade
+-- Shilen's Messenger Cabrio Raid Boss lvl 70
+(25035,8160,1,3,100,250000), -- Memento Mori: A-Grade
+-- Barion Raid Boss lvl 47
+(25044,8158,1,2,100,250000), -- Memento Mori: C-Grade
+-- Karte Raid Boss lvl 49
+(25047,8158,9,9,100,250000), -- Memento Mori: C-Grade
+-- Verfa Raid Boss lvl 51
+(25050,8159,2,3,100,250000), -- Memento Mori: B-Grade
+-- Rahha Raid Boss lvl 65
+(25051,8160,1,3,100,250000), -- Memento Mori: A-Grade
+-- Biconne of Blue Sky Raid Boss lvl 45
+(25057,8164,5,5,100,250000), -- Earth Egg: C-Grade
+-- Wizard of Storm Teruk Raid Boss lvl 40
+(25064,8170,5,5,100,250000), -- Angelic Essence: C-Grade
+-- Captain of Red Flag Shaka Raid Boss lvl 52
+(25067,8165,1,1,100,250000), -- Earth Egg: B-Grade
+-- Enchanted Forest Watcher Ruell Raid Boss lvl 55
+(25070,8171,1,2,100,250000), -- Angelic Essence: B-Grade
+-- Bloody Priest Rudelto Raid Boss lvl 69
+(25073,8160,1,3,100,250000), -- Memento Mori: A-Grade
+-- Timak Orc Chief Ranger Raid Boss lvl 44
+(25085,8164,3,3,100,250000), -- Earth Egg: C-Grade
+-- Soulless Wild Boar Raid Boss lvl 59
+(25089,8165,1,3,100,250000), -- Earth Egg: B-Grade
+-- Korim Raid Boss lvl 70
+(25092,8160,1,3,100,250000), -- Memento Mori: A-Grade
+-- Rotten Tree Repiro Raid Boss lvl 44
+(25099,8164,1,1,100,250000), -- Earth Egg: C-Grade
+-- Sorcerer Isirr Raid Boss lvl 55
+(25103,8165,1,3,100,250000), -- Earth Egg: B-Grade
+-- Ghost of the Well Lidia Raid Boss lvl 60
+(25106,8159,4,4,100,250000), -- Memento Mori: B-Grade
+-- Antharas Priest Cloe Raid Boss lvl 74
+(25109,8160,1,3,100,250000), -- Memento Mori: A-Grade
+-- Icarus Sample 1 Raid Boss lvl 40
+(25115,8167,6,8,100,250000), -- Nonliving Nucleus: C-Grade
+-- Refugee Hopeful Leo Raid Boss lvl 56
+(25122,8165,2,2,100,250000), -- Earth Egg: B-Grade
+-- Fierce Tiger King Angel Raid Boss lvl 65
+(25125,8166,2,2,100,250000), -- Earth Egg: A-Grade
+-- Carnage Lord Gato Raid Boss lvl 50
+(25131,8159,2,3,100,250000), -- Memento Mori: B-Grade
+-- Leto Chief Talkin Raid Boss lvl 40
+(25134,8164,3,6,100,250000), -- Earth Egg: C-Grade
+-- Beleth's Seer Sephia Raid Boss lvl 55
+(25137,8159,1,1,100,250000), -- Memento Mori: B-Grade
+-- Hekaton Prime Raid Boss lvl 65
+(25140,8169,1,3,100,250000), -- Nonliving Nucleus: A-Grade
+-- Shaman King Selu Raid Boss lvl 40
+(25155,8158,4,4,100,250000), -- Memento Mori: C-Grade
+-- King Tarlk Raid Boss lvl 48
+(25158,8167,1,1,100,250000), -- Nonliving Nucleus: C-Grade
+-- Paniel the Unicorn Raid Boss lvl 54
+(25159,8171,2,2,100,250000), -- Angelic Essence: B-Grade
+-- Giant Marpanak Raid Boss lvl 60
+(25162,8168,4,8,100,250000), -- Nonliving Nucleus: B-Grade
+-- Roaring Skylancer Raid Boss lvl 70
+(25163,8163,1,3,100,250000), -- Dragon Heart: A-Grade
+-- Black Lily Raid Boss lvl 55
+(25176,8159,1,3,100,250000), -- Memento Mori: B-Grade
+-- Guardian of the Statue of Giant Karum Raid Boss lvl 60
+(25179,8168,1,3,100,250000), -- Nonliving Nucleus: B-Grade
+(25179,8169,1,1,100,250000), -- Nonliving Nucleus: A-Grade
+-- Earth Protector Panathen Raid Boss lvl 43
+(25192,8164,4,4,100,250000), -- Earth Egg: C-Grade
+-- Fafurion's Herald Lokness Raid Boss lvl 70
+(25198,8163,1,3,100,250000), -- Dragon Heart: A-Grade
+-- Water Dragon Seer Sheshark Raid Boss lvl 72
+(25199,8166,1,3,100,250000), -- Earth Egg: A-Grade
+-- Krokian Padisha Sobekk Raid Boss lvl 74
+(25202,8166,1,3,100,250000), -- Earth Egg: A-Grade
+-- Water Couatle Ateka Raid Boss lvl 40
+(25208,8164,6,9,100,250000), -- Earth Egg: C-Grade
+-- Fafurion's Page Sika Raid Boss lvl 40
+(25214,8161,5,6,100,250000), -- Dragon Heart: C-Grade
+(25214,8167,1,1,100,250000), -- Nonliving Nucleus: C-Grade
+-- Cursed Clara Raid Boss lvl 50
+(25217,8165,1,3,100,250000), -- Earth Egg: B-Grade
+-- Death Lord Hallate Raid Boss lvl 73
+(25220,8160,1,3,100,250000), -- Memento Mori: A-Grade
+-- Roaring Lord Kastor Raid Boss lvl 62
+(25226,8166,1,3,100,250000), -- Earth Egg: A-Grade
+-- Timak Seer Ragoth Raid Boss lvl 57
+(25230,8165,1,3,100,250000), -- Earth Egg: B-Grade
+-- Spirit of Andras, the Betrayer Raid Boss lvl 69
+(25233,8160,1,1,100,250000), -- Memento Mori: A-Grade
+-- Ancient Weird Drake Raid Boss lvl 60
+(25234,8162,4,9,100,250000), -- Dragon Heart: B-Grade
+-- Vanor Chief Kandra Raid Boss lvl 72
+(25235,8160,1,3,100,250000), -- Memento Mori: A-Grade
+-- Abyss Brukunt Raid Boss lvl 59
+(25238,8162,1,3,100,250000), -- Dragon Heart: B-Grade
+-- Doom Blade Tanatos Raid Boss lvl 72
+(25248,8160,1,1,100,250000), -- Memento Mori: A-Grade
+-- Palibati Queen Themis Raid Boss lvl 70
+(25252,8166,1,3,100,250000), -- Earth Egg: A-Grade
+-- Gargoyle Lord Tiphon Raid Boss lvl 65
+(25255,8166,1,1,100,250000), -- Earth Egg: A-Grade
+(25255,8169,2,2,100,250000), -- Nonliving Nucleus: A-Grade
+-- Taik High Prefect Arak Raid Boss lvl 60
+(25256,8159,5,8,100,250000), -- Memento Mori: B-Grade
+-- Iron Giant Totem Raid Boss lvl 45
+(25260,8167,6,6,100,250000), -- Nonliving Nucleus: C-Grade
+-- Kernon's Faithful Servant Kelone Raid Boss lvl 67
+(25263,8166,1,3,100,250000), -- Earth Egg: A-Grade
+-- Beast Lord Behemoth Raid Boss lvl 70
+(25269,8166,1,1,100,250000), -- Earth Egg: A-Grade
+(25269,8169,1,3,100,250000), -- Nonliving Nucleus: A-Grade
+-- Carnamakos Raid Boss lvl 50
+(25273,2381,1,1,0,20466), -- Doom Plate Armor
+(25273,358,1,1,0,33257), -- Blue Wolf Breastplate
+(25273,2380,1,1,0,53204), -- Blue Wolf Gaiters
+(25273,4081,20,60,0,101410), -- Doom Plate Armor Temper
+(25273,4080,28,84,0,151172), -- Blue Wolf Gaiters Material
+(25273,4078,9,27,0,333981), -- Blue Wolf Breastplate Part
+(25273,287,1,1,1,36705), -- Bow of Peril
+(25273,4121,12,36,1,336070), -- Bow of Peril Shaft
+(25273,6571,1,1,2,17148), -- Blessed Scroll: Enchant Weapon (B)
+(25273,4621,2,6,2,206961), -- Greater Dye of MEN 
+(25273,4620,2,4,2,275947), -- Greater Dye of INT 
+(25273,4619,1,3,2,413921), -- Greater Dye of INT 
+-- Pagan Watcher Cerberon Raid Boss lvl 55
+(25280,8171,6,6,100,250000), -- Angelic Essence: B-Grade
+-- Anakim's Nemesis Zakaron Raid Boss lvl 70
+(25281,8160,3,3,100,250000), -- Memento Mori: A-Grade
+-- Icicle Emperor Bumbalump Raid Boss lvl 74
+(25296,8160,1,3,100,250000), -- Memento Mori: A-Grade
+(25296,8169,1,3,100,250000), -- Nonliving Nucleus: A-Grade
+-- Demon's Agent Falston Raid Boss lvl 66
+(25322,8160,1,2,100,250000), -- Memento Mori: A-Grade
+-- Flame of Splendor Barakiel Raid Boss lvl 70
+(25325,8172,1,3,100,250000), -- Angelic Essence: A-Grade
+-- Eilhalder von Hellmann Raid Boss lvl 71
+(25328,8160,1,3,100,250000), -- Memento Mori: A-Grade
+-- Anakazel Invaders' Leader lvl 48
+(25335,8158,3,3,100,250000), -- Memento Mori: C-Grade
+-- Anakazel Invaders' Leader lvl 58
+(25336,8159,1,3,100,250000), -- Memento Mori: B-Grade
+-- Anakazel Invaders' Leader lvl 68
+(25337,8160,1,1,100,250000), -- Memento Mori: A-Grade
+-- Lord Ishka Raid Boss lvl 60
+(25407,8159,4,5,100,250000), -- Memento Mori: B-Grade
+-- Road Scavenger Leader Raid Boss lvl 40
+(25410,8158,4,9,100,250000), -- Memento Mori: C-Grade
+-- Necrosentinel Royal Guard Raid Boss lvl 47
+(25412,8158,1,2,100,250000), -- Memento Mori: C-Grade
+-- Nakondas Raid Boss lvl 40
+(25415,8161,4,4,100,250000), -- Dragon Heart: C-Grade
+-- Dread Avenger Kraven Raid Boss lvl 44
+(25418,8158,5,5,100,250000), -- Memento Mori: C-Grade
+-- Orfen's Handmaiden Raid Boss lvl 48
+(25420,8164,9,9,100,250000), -- Earth Egg: C-Grade
+-- Fairy Queen Timiniel Raid Boss lvl 61
+(25423,8172,1,1,100,250000), -- Angelic Essence: A-Grade
+-- Bandit Leader Barda Raid Boss lvl 55
+(25434,8159,1,1,100,250000), -- Memento Mori: B-Grade
+-- Timak Orc Gosmos Raid Boss lvl 45
+(25437,8158,2,2,100,250000), -- Memento Mori: C-Grade
+-- Thief Kelbar Raid Boss lvl 44
+(25438,8158,5,5,100,250000), -- Memento Mori: C-Grade
+-- Evil Spirit Cyrion Raid Boss lvl 45
+(25441,8161,4,4,100,250000), -- Dragon Heart: C-Grade
+-- Enmity Ghost Ramdal Raid Boss lvl 65
+(25444,8160,1,1,100,250000), -- Memento Mori: A-Grade
+-- Immortal Savior Mardil Raid Boss lvl 71
+(25447,8160,1,3,100,250000), -- Memento Mori: A-Grade
+-- Meanas Anor Raid Boss lvl 70
+(25453,8163,1,3,100,250000), -- Dragon Heart: A-Grade
+-- Deadman Ereve Raid Boss lvl 51
+(25460,8159,1,2,100,250000), -- Memento Mori: B-Grade
+-- Harit Guardian Garangky Raid Boss lvl 56
+(25463,8165,1,1,100,250000), -- Earth Egg: B-Grade
+-- Gorgolos Raid Boss lvl 64
+(25467,8169,1,1,100,250000), -- Nonliving Nucleus: A-Grade
+-- Last Titan Utenus Raid Boss lvl 66
+(25470,8169,1,1,100,250000), -- Nonliving Nucleus: A-Grade
+-- Grave Robber Kim Raid Boss lvl 52
+(25473,8165,2,2,100,250000), -- Earth Egg: B-Grade
+-- Ghost Knight Kabed Raid Boss lvl 55
+(25475,8159,1,1,100,250000), -- Memento Mori: B-Grade
+-- Shilen's Priest Hisilrome Raid Boss lvl 65
+(25478,8166,1,1,100,250000), -- Earth Egg: A-Grade
+-- Water Spirit Lian Raid Boss lvl 40
+(25487,8170,4,9,100,250000), -- Angelic Essence: C-Grade
+-- Gwindorr Raid Boss lvl 40
+(25490,8164,4,9,100,250000), -- Earth Egg: C-Grade
+-- Eva's Spirit Niniel Raid Boss lvl 55
+(25493,8165,3,3,100,250000), -- Earth Egg: B-Grade
+-- Fafurion's Henchman Istary Raid Boss lvl 45
+(25498,8164,4,5,100,250000), -- Earth Egg: C-Grade
+-- Rayito the Looter Raid Boss lvl 37
+(25506,1981,26,54,0,235849), -- Mithril Gauntlets Design
+(25506,4589,1,2,1,356394), -- Greater Dye of STR 
+(25506,4590,1,1,1,534591), -- Greater Dye of STR 
+-- Queen Shyeed Raid Boss lvl 80
+(25514,6689,16,48,1,45752), -- Basalt Battlehammer Head
+(25514,6690,11,31,1,71191), -- Imperial Staff Head
+(25514,6693,6,18,1,80504), -- Dragon Hunter Axe Blade
+(25514,6697,3,7,1,186193), -- Arcana Mace Head
+-- Plague Golem Raid Boss lvl 73
+(25523,8169,1,2,100,250000), -- Nonliving Nucleus: A-Grade
+-- Flamestone Giant Raid Boss lvl 76
+(25524,6699,43,108,0,106317), -- Sealed Tateossian Ring Gem
+(25524,6700,25,37,0,166845), -- Sealed Tateossian Necklace Chain
+(25524,6698,11,27,0,425832), -- Sealed Tateossian Earring Part
+(25524,6697,3,6,1,115235), -- Arcana Mace Head
+(25524,6689,2,6,1,322913), -- Basalt Battlehammer Head
+(25524,6690,2,4,1,425832), -- Imperial Staff Head
+(25524,6726,1,1,2,15799), -- Sealed Tateossian Necklace
+(25524,6725,1,1,2,31598), -- Sealed Tateossian Ring
+-- Tiberias Prime Inspector lvl 22
+(25528,1937,24,72,0,90720), -- Scale Gaiters Fragment
+(25528,348,1,1,0,100670), -- Scale Mail
+(25528,377,1,1,0,170070), -- Scale Gaiters
+(25528,1935,8,8,0,200380), -- Scale Mail Fragment
+(25528,125,1,1,1,20650), -- Spinebone Sword
+(25528,126,1,1,1,20650), -- Artisan's Sword
+(25528,128,1,1,1,20650), -- Knight's Sword
+(25528,1297,1,1,1,20650), -- Bastard Sword
+(25528,2021,1,1,1,410450), -- Spinebone Sword Blade
+(25528,6575,1,1,2,10580), -- Blessed Scroll: Enchant Weapon (D)
+(25528,6576,1,1,2,140800), -- Blessed Scroll: Enchant Armor (D)
+(25528,956,3,9,2,390400), -- Scroll: Enchant Armor (D)
+(25528,9712,1,1,2,1000000), -- Gate Key: Massive Cavern
+(25528,9712,1,1,3,1000000), -- Gate Key: Massive Cavern
+-- Kechi Fire lvl 82
+(25532,6577,1,1,2,8327), -- Blessed Scroll: Enchant Weapon (S)
+-- Hannibal Raid Boss lvl 84
+(25536,6679,1,1,0,44285), -- Sealed Imperial Crusader Helmet
+(25536,6683,1,1,0,44285), -- Sealed Draconic Leather Helmet
+(25536,6687,1,1,0,44285), -- Sealed Major Arcana Circlet
+(25536,6714,192,576,0,44835), -- Sealed Major Arcana Circlet Pattern
+(25536,6678,1,1,0,63266), -- Sealed Imperial Crusader Shield
+(25536,6710,116,346,0,74530), -- Sealed Draconic Leather Helmet Pattern
+(25536,6706,60,180,0,143469), -- Sealed Imperial Crusader Helmet Pattern
+(25536,6364,1,1,1,6619), -- Forgotten Blade
+(25536,6372,1,1,1,6619), -- Heaven's Divider
+(25536,6688,8,22,1,203910), -- Forgotten Blade Edge
+(25536,6705,23,67,1,328909), -- Sealed Imperial Crusader Shield Part
+(25536,6696,4,12,1,388405), -- Heavens Divider Edge
+-- Typhoon Raid Boss lvl 84
+(25539,6708,320,960,0,15781), -- Sealed Draconic Leather Gloves Fabric
+(25539,6704,203,607,0,24938), -- Sealed Imperial Crusader Boots Design
+(25539,6676,1,1,0,44404), -- Sealed Imperial Crusader Gauntlet
+(25539,6677,1,1,0,44404), -- Sealed Imperial Crusader Boots
+(25539,6681,1,1,0,44404), -- Sealed Draconic Leather Glove
+(25539,6682,1,1,0,44404), -- Sealed Draconic Leather Boots
+(25539,6685,1,1,0,44404), -- Sealed Major Arcana Glove
+(25539,6686,1,1,0,44404), -- Sealed Major Arcana Boots
+(25539,6703,112,336,0,45088), -- Sealed Imperial Crusader Gauntlets Design
+(25539,6713,46,136,0,110988), -- Sealed Major Arcana Boots Design
+(25539,6712,36,108,0,140275), -- Sealed Major Arcana Gloves fabric
+(25539,6709,28,82,0,183633), -- Sealed Draconic Leather Boots Design
+(25539,7575,1,1,1,13272), -- Draconic Bow
+(25539,7579,12,36,1,258499), -- Draconic Bow Shaft
+-- Temenir Darion's Challenger lvl 87
+(25600,6680,1,1,0,11438), -- Sealed Draconic Leather Armor
+(25600,6707,3,9,0,735655), -- Sealed Draconic Leather Armor Part
+(25600,6364,1,1,1,1389), -- Forgotten Blade
+(25600,6372,1,1,1,1389), -- Heaven's Divider
+(25600,6688,2,4,1,213954), -- Forgotten Blade Edge
+(25600,6696,1,3,1,326031), -- Heavens Divider Edge
+(25600,6578,1,1,2,25662), -- Blessed Scroll: Enchant Armor (S)
+(25600,3936,1,1,2,288700), -- Blessed Scroll of Resurrection
+-- Draksius Darion's Challenger lvl 87
+(25601,6674,1,1,0,11399), -- Sealed Imperial Crusader Breastplate
+(25601,6675,1,1,0,18239), -- Sealed Imperial Crusader Gaiters
+(25601,6702,24,72,0,104011), -- Sealed Imperial Crusader Gaiters Pattern
+(25601,6701,8,22,0,258561), -- Sealed Imperial Crusader Breastplate Part
+(25601,6364,1,1,1,2272), -- Forgotten Blade
+(25601,6372,1,1,1,2272), -- Heaven's Divider
+(25601,6696,4,12,1,133304), -- Heavens Divider Edge
+(25601,6688,2,4,1,349918), -- Forgotten Blade Edge
+-- Kiretcenah Darion's Challenger lvl 87
+(25602,6726,1,1,0,8539), -- Sealed Tateossian Necklace
+(25602,6724,1,1,0,11388), -- Sealed Tateossian Earring
+(25602,6725,1,1,0,17082), -- Sealed Tateossian Ring
+(25602,6700,14,42,0,79611), -- Sealed Tateossian Necklace Chain
+(25602,6698,9,27,0,203187), -- Sealed Tateossian Earring Part
+(25602,6699,5,15,0,405835), -- Sealed Tateossian Ring Gem
+(25602,6370,1,1,1,3919), -- Saint Spear
+(25602,6694,3,9,1,307318), -- Saint Spear Blade
+(25602,6577,1,1,2,2414), -- Blessed Scroll: Enchant Weapon (S)
+(25602,959,1,1,2,14482), -- Scroll: Enchant Weapon (S)
+(25602,960,1,1,2,144821), -- Scroll: Enchant Armor (S)
+-- Epidos Naia Shambler lvl 85
+(25609,6712,648,1944,0,11597), -- Sealed Major Arcana Gloves fabric
+(25609,6709,468,1402,0,16074), -- Sealed Draconic Leather Boots Design
+(25609,6708,320,960,0,23484), -- Sealed Draconic Leather Gloves Fabric
+(25609,6704,203,607,0,37110), -- Sealed Imperial Crusader Boots Design
+(25609,6676,1,1,0,66079), -- Sealed Imperial Crusader Gauntlet
+(25609,6677,1,1,0,66079), -- Sealed Imperial Crusader Boots
+(25609,6681,1,1,0,66079), -- Sealed Draconic Leather Glove
+(25609,6682,1,1,0,66079), -- Sealed Draconic Leather Boots
+(25609,6685,1,1,0,66079), -- Sealed Major Arcana Glove
+(25609,6686,1,1,0,66079), -- Sealed Major Arcana Boots
+(25609,6703,112,336,0,67096), -- Sealed Imperial Crusader Gauntlets Design
+(25609,6713,46,136,0,165159), -- Sealed Major Arcana Boots Design
+(25609,7575,1,1,1,19750), -- Draconic Bow
+(25609,7579,12,36,1,384675), -- Draconic Bow Shaft
+(25609,6578,1,1,2,182450), -- Blessed Scroll: Enchant Armor (S)
+(25609,3936,3,9,2,342095), -- Blessed Scroll of Resurrection
+-- Epidos Naia Shambler lvl 85
+(25610,6705,293,877,0,37747), -- Sealed Imperial Crusader Shield Part
+(25610,6679,1,1,0,66072), -- Sealed Imperial Crusader Helmet
+(25610,6683,1,1,0,66072), -- Sealed Draconic Leather Helmet
+(25610,6687,1,1,0,66072), -- Sealed Major Arcana Circlet
+(25610,6714,192,576,0,66892), -- Sealed Major Arcana Circlet Pattern
+(25610,6678,1,1,0,94391), -- Sealed Imperial Crusader Shield
+(25610,6710,116,346,0,111195), -- Sealed Draconic Leather Helmet Pattern
+(25610,6706,60,180,0,214049), -- Sealed Imperial Crusader Helmet Pattern
+(25610,6365,1,1,1,4937), -- Basalt Battlehammer
+(25610,6366,1,1,1,4937), -- Imperial Staff
+(25610,6369,1,1,1,4937), -- Dragon Hunter Axe
+(25610,6579,1,1,1,4937), -- Arcana Mace
+(25610,6697,23,67,1,49750), -- Arcana Mace Head
+(25610,6689,16,48,1,69959), -- Basalt Battlehammer Head
+(25610,6690,11,31,1,108860), -- Imperial Staff Head
+(25610,6693,6,18,1,193588), -- Dragon Hunter Axe Blade
+(25610,6577,1,1,2,18245), -- Blessed Scroll: Enchant Weapon (S)
+(25610,959,1,1,2,109470), -- Scroll: Enchant Weapon (S)
+(25610,960,1,3,2,547352), -- Scroll: Enchant Armor (S)
+-- Epidos Naia Shambler lvl 85
+(25611,6680,1,1,0,22589), -- Sealed Draconic Leather Armor
+(25611,6707,24,72,0,181609), -- Sealed Draconic Leather Armor Part
+(25611,6365,1,1,1,8229), -- Basalt Battlehammer
+(25611,6366,1,1,1,8229), -- Imperial Staff
+(25611,6369,1,1,1,8229), -- Dragon Hunter Axe
+(25611,6579,1,1,1,8229), -- Arcana Mace
+(25611,6689,33,99,1,56533), -- Basalt Battlehammer Head
+(25611,6690,25,75,1,76201), -- Imperial Staff Head
+(25611,6697,53,157,1,118449), -- Arcana Mace Head
+(25611,6693,24,72,1,268868), -- Dragon Hunter Axe Blade
+-- Epidos Naia Shambler lvl 85
+(25612,6684,1,1,0,81320), -- Sealed Major Arcana Robe
+(25612,6711,60,180,0,261516), -- Sealed Major Arcana Robe Part
+(25612,7575,1,1,1,19750), -- Draconic Bow
+(25612,7579,12,36,1,384675), -- Draconic Bow Shaft
+(25612,6577,1,1,2,18245), -- Blessed Scroll: Enchant Weapon (S)
+(25612,959,1,1,2,109470), -- Scroll: Enchant Weapon (S)
+(25612,960,1,3,2,547352), -- Scroll: Enchant Armor (S)
+-- Cohemenes Soul Collector lvl 84
+(25634,6726,1,1,0,11942), -- Sealed Tateossian Necklace
+(25634,6724,1,1,0,15927), -- Sealed Tateossian Earring
+(25634,6725,1,1,0,23890), -- Sealed Tateossian Ring
+(25634,6699,40,120,0,70948), -- Sealed Tateossian Ring Gem
+(25634,6700,14,42,0,111342), -- Sealed Tateossian Necklace Chain
+(25634,6698,9,27,0,284171), -- Sealed Tateossian Earring Part
+(25634,6364,1,1,1,2741), -- Forgotten Blade
+(25634,6372,1,1,1,2741), -- Heaven's Divider
+(25634,6696,4,12,1,160827), -- Heavens Divider Edge
+(25634,6688,2,4,1,422164), -- Forgotten Blade Edge
+(25634,6577,1,1,2,3376), -- Blessed Scroll: Enchant Weapon (S)
+(25634,959,1,1,2,20254), -- Scroll: Enchant Weapon (S)
+(25634,960,1,1,2,202538), -- Scroll: Enchant Armor (S)
+-- Argekunte Vacuous Soul lvl 84
+(25635,6676,1,1,0,8150), -- Sealed Imperial Crusader Gauntlet
+(25635,6677,1,1,0,8150), -- Sealed Imperial Crusader Boots
+(25635,6681,1,1,0,8150), -- Sealed Draconic Leather Glove
+(25635,6682,1,1,0,8150), -- Sealed Draconic Leather Boots
+(25635,6685,1,1,0,8150), -- Sealed Major Arcana Glove
+(25635,6686,1,1,0,8150), -- Sealed Major Arcana Boots
+(25635,6712,36,108,0,25747), -- Sealed Major Arcana Gloves fabric
+(25635,6709,28,82,0,33705), -- Sealed Draconic Leather Boots Design
+(25635,6708,20,60,0,46345), -- Sealed Draconic Leather Gloves Fabric
+(25635,6704,14,40,0,68659), -- Sealed Imperial Crusader Boots Design
+(25635,6703,8,24,0,115862), -- Sealed Imperial Crusader Gauntlets Design
+(25635,6713,4,10,0,264827), -- Sealed Major Arcana Boots Design
+(25635,7575,1,1,1,5481), -- Draconic Bow
+(25635,7579,3,9,1,427015), -- Draconic Bow Shaft
+(25635,6577,1,1,2,3376), -- Blessed Scroll: Enchant Weapon (S)
+(25635,959,1,1,2,20254), -- Scroll: Enchant Weapon (S)
+(25635,960,1,1,2,202538), -- Scroll: Enchant Armor (S)
+-- Ravenous Soul Devourer lvl 84
+(25636,6679,1,1,0,8268), -- Sealed Imperial Crusader Helmet
+(25636,6683,1,1,0,8268), -- Sealed Draconic Leather Helmet
+(25636,6687,1,1,0,8268), -- Sealed Major Arcana Circlet
+(25636,6678,1,1,0,11811), -- Sealed Imperial Crusader Shield
+(25636,6705,23,67,0,61403), -- Sealed Imperial Crusader Shield Part
+(25636,6714,16,48,0,100439), -- Sealed Major Arcana Circlet Pattern
+(25636,6710,11,31,0,153050), -- Sealed Draconic Leather Helmet Pattern
+(25636,6706,6,18,0,267836), -- Sealed Imperial Crusader Helmet Pattern
+(25636,6365,1,1,1,1390), -- Basalt Battlehammer
+(25636,6366,1,1,1,1390), -- Imperial Staff
+(25636,6369,1,1,1,1390), -- Dragon Hunter Axe
+(25636,6579,1,1,1,1390), -- Arcana Mace
+(25636,6693,6,18,1,54505), -- Dragon Hunter Axe Blade
+(25636,6697,3,7,1,126063), -- Arcana Mace Head
+(25636,6689,2,6,1,157579), -- Basalt Battlehammer Head
+(25636,6690,2,4,1,214548), -- Imperial Staff Head
+(25636,6577,1,1,2,3425), -- Blessed Scroll: Enchant Weapon (S)
+(25636,959,1,1,2,20546), -- Scroll: Enchant Weapon (S)
+(25636,960,1,1,2,205465), -- Scroll: Enchant Armor (S)
+-- Karpencharr Prophet of Lies lvl 84
+(25637,6674,1,1,0,6201), -- Sealed Imperial Crusader Breastplate
+(25637,6675,1,1,0,9922), -- Sealed Imperial Crusader Gaiters
+(25637,6701,8,22,0,140651), -- Sealed Imperial Crusader Breastplate Part
+(25637,6702,4,12,0,339479), -- Sealed Imperial Crusader Gaiters Pattern
+(25637,6367,1,1,1,5560), -- Angel Slayer
+(25637,6691,3,9,1,428257), -- Angel Slayer Blade
+(25637,6577,1,1,2,3425), -- Blessed Scroll: Enchant Weapon (S)
+(25637,959,1,1,2,20546), -- Scroll: Enchant Weapon (S)
+(25637,960,1,1,2,205465), -- Scroll: Enchant Armor (S)
+-- Romerohiv Betrayer of Oblivion lvl 85
+(25638,6679,1,1,0,8268), -- Sealed Imperial Crusader Helmet
+(25638,6683,1,1,0,8268), -- Sealed Draconic Leather Helmet
+(25638,6687,1,1,0,8268), -- Sealed Major Arcana Circlet
+(25638,6678,1,1,0,11811), -- Sealed Imperial Crusader Shield
+(25638,6705,23,67,0,61403), -- Sealed Imperial Crusader Shield Part
+(25638,6714,16,48,0,100439), -- Sealed Major Arcana Circlet Pattern
+(25638,6710,11,31,0,153050), -- Sealed Draconic Leather Helmet Pattern
+(25638,6706,6,18,0,267836), -- Sealed Imperial Crusader Helmet Pattern
+(25638,6371,1,1,1,5560), -- Demon Splinter
+(25638,6695,3,9,1,420185), -- Demon Splinter Blade
+(25638,6577,1,1,2,3425), -- Blessed Scroll: Enchant Weapon (S)
+(25638,959,1,1,2,20546), -- Scroll: Enchant Weapon (S)
+(25638,960,1,1,2,205465), -- Scroll: Enchant Armor (S)
+-- Hitchkarshiek Wise Retainer of Suffering lvl 84
+(25639,6674,1,1,0,6201), -- Sealed Imperial Crusader Breastplate
+(25639,6675,1,1,0,9922), -- Sealed Imperial Crusader Gaiters
+(25639,6701,8,22,0,140651), -- Sealed Imperial Crusader Breastplate Part
+(25639,6702,4,12,0,339479), -- Sealed Imperial Crusader Gaiters Pattern
+(25639,6364,1,1,1,2780), -- Forgotten Blade
+(25639,6372,1,1,1,2780), -- Heaven's Divider
+(25639,6696,4,12,1,163151), -- Heavens Divider Edge
+(25639,6688,2,4,1,428265), -- Forgotten Blade Edge
+(25639,6577,1,1,2,3425), -- Blessed Scroll: Enchant Weapon (S)
+(25639,959,1,1,2,20546), -- Scroll: Enchant Weapon (S)
+(25639,960,1,1,2,205465), -- Scroll: Enchant Armor (S)
+-- Freedkyilla Hand of Night lvl 84
+(25640,6680,1,1,0,10175), -- Sealed Draconic Leather Armor
+(25640,6707,3,9,0,654446), -- Sealed Draconic Leather Armor Part
+(25640,7575,1,1,1,5560), -- Draconic Bow
+(25640,7579,3,9,1,433186), -- Draconic Bow Shaft
+(25640,6577,1,1,2,3425), -- Blessed Scroll: Enchant Weapon (S)
+(25640,959,1,1,2,20546), -- Scroll: Enchant Weapon (S)
+(25640,960,1,1,2,205465), -- Scroll: Enchant Armor (S)
+-- Yehan Cravenizad Bloodsucker lvl 85
+(25641,6684,1,1,0,10175), -- Sealed Major Arcana Robe
+(25641,6711,3,9,0,654446), -- Sealed Major Arcana Robe Part
+(25641,6365,1,1,1,1390), -- Basalt Battlehammer
+(25641,6366,1,1,1,1390), -- Imperial Staff
+(25641,6369,1,1,1,1390), -- Dragon Hunter Axe
+(25641,6579,1,1,1,1390), -- Arcana Mace
+(25641,6693,6,18,1,54505), -- Dragon Hunter Axe Blade
+(25641,6697,3,7,1,126063), -- Arcana Mace Head
+(25641,6689,2,6,1,157579), -- Basalt Battlehammer Head
+(25641,6690,2,4,1,214548), -- Imperial Staff Head
+(25641,6578,1,1,2,34244), -- Blessed Scroll: Enchant Armor (S)
+(25641,3936,1,1,2,385245), -- Blessed Scroll of Resurrection
+-- Yehan Jaxsibhan Dark Guardian lvl 85
+(25642,6684,1,1,0,10175), -- Sealed Major Arcana Robe
+(25642,6711,3,9,0,654446), -- Sealed Major Arcana Robe Part
+(25642,6364,1,1,1,2780), -- Forgotten Blade
+(25642,6372,1,1,1,2780), -- Heaven's Divider
+(25642,6696,4,12,1,163151), -- Heavens Divider Edge
+(25642,6688,2,4,1,428265), -- Forgotten Blade Edge
+(25642,6578,1,1,2,34244), -- Blessed Scroll: Enchant Armor (S)
+(25642,3936,1,1,2,385245), -- Blessed Scroll of Resurrection
+-- Gwindorr Raid Boss lvl 83
+(25674,10399,2,5,1,13500), -- Icarus Spirit Piece
+(25674,9515,1,1,2,47600), -- Sealed Dynasty Gaiter
+-- Water Spirit Lian Raid Boss lvl 84
+(25677,9529,1,1,2,15000), -- Sealed Dynasty Shield
+-- Giant Marpanak Raid Boss lvl 82
+(25680,9529,1,1,0,18579), -- Sealed Dynasty Shield
+(25680,13886,1,1,0,18579), -- Sealed Dynasty Sigil
+-- Gorgolos Raid Boss lvl 82
+(25681,9515,1,1,0,9948), -- Sealed Dynasty Gaiter
+-- Benom Triol's Leader lvl 75
+(29054,6577,1,1,1,9444), -- Blessed Scroll: Enchant Weapon (S)
+(29054,959,1,1,1,56667), -- Scroll: Enchant Weapon (S)
+-- Captain of the Ice Queen's Royal Guard Raid Boss lvl 59
+(29060,287,1,1,0,6776), -- Bow of Peril
+(29060,2391,1,1,0,25105), -- Blue Wolf Leather Armor
+(29060,2392,1,1,0,25105), -- Leather Armor of Doom
+(29060,4082,5,12,0,454294), -- Blue Wolf Leather Armor Texture
+(29060,4083,5,11,0,482687), -- Leather Armor of Doom Design
+(29060,4616,1,2,1,196404), -- Greater Dye of CON 
+(29060,4617,1,2,1,196404), -- Greater Dye of DEX 
+(29060,4124,21,44,1,292087), -- Recipe: Craftsman Mold (100%)
+(29060,4618,1,1,1,294605), -- Greater Dye of DEX 
+-- Andreas Van Halter Seer of Pagan lvl 80
+(29062,6578,1,1,1,45565), -- Blessed Scroll: Enchant Armor (S)
+-- Anais Lord of Splendor lvl 80
+(29096,6578,1,1,1,106550), -- Blessed Scroll: Enchant Armor (S)
+-- Splendor Disciple Raid Fighter lvl 80
+(29097,1344,61,115,1,700000), -- Mithril Arrow
+-- Splendor Worshiper Raid Fighter lvl 80
+(29098,1344,61,115,1,700000), -- Mithril Arrow
+-- Crystal Prison Guard lvl 83
+(29100,10015,1,1,1,1000000), -- Prison Gate Key
+-- Lost Captain lvl 29
+(29129,274,1,1,0,8719), -- Strengthened Bow
+-- Ekimus Lord of Immortality lvl 85
+(29150,13145,1,1,0,294000), -- Sealed Vesper Circlet
+(29150,13887,1,1,0,294000), -- Sealed Vesper Sigil
+(29150,14107,1,1,0,294000), -- Sealed Vesper Tunic
+(29150,14115,1,1,0,294000), -- Sealed Vesper Stockings
+(29150,14116,1,1,0,294000), -- Sealed Vesper Gloves
+(29150,14117,1,1,0,296000), -- Sealed Vesper Shoes
+(29150,9526,1,1,1,294000), -- Sealed Dynasty Circlet
+(29150,13886,1,1,1,294000), -- Sealed Dynasty Sigil
+(29150,9524,1,1,1,294000), -- Sealed Dynasty Tunic
+(29150,9525,1,1,1,294000), -- Sealed Dynasty Stockings
+(29150,9527,1,1,1,294000), -- Sealed Dynasty Gloves
+(29150,9528,1,1,1,296000), -- Sealed Dynasty Shoes
+(29150,9521,1,1,2,294000), -- Sealed Dynasty Leather Helmet
+(29150,9519,1,1,2,294000), -- Sealed Dynasty Leather Armor
+(29150,9520,1,1,2,294000), -- Sealed Dynasty Leather Leggings
+(29150,9522,1,1,2,294000), -- Sealed Dynasty Leather Gloves
+(29150,9523,1,1,2,294000), -- Sealed Dynasty Leather Boots
+(29150,9516,1,1,3,294000), -- Sealed Dynasty Helmet
+(29150,9514,1,1,3,294000), -- Sealed Dynasty Breast Plate
+(29150,9515,1,1,3,294000), -- Sealed Dynasty Gaiter
+(29150,9517,1,1,3,294000), -- Sealed Dynasty Gauntlets
+(29150,9518,1,1,3,294000), -- Sealed Dynasty Boots
+(29150,9529,1,1,3,294000), -- Sealed Dynasty Shield
+(29150,13143,1,1,4,294000), -- Sealed Vesper Helmet
+(29150,14105,1,1,4,294000), -- Sealed Vesper Breastplate
+(29150,14108,1,1,4,294000), -- Sealed Vesper Gaiters
+(29150,14109,1,1,4,294000), -- Sealed Vesper Gauntlet
+(29150,14110,1,1,4,294000), -- Sealed Vesper Boots
+(29150,14111,1,1,4,294000), -- Sealed Vesper Shield
+(29150,13144,1,1,5,294000), -- Sealed Vesper Leather Helmet
+(29150,14106,1,1,5,294000), -- Sealed Vesper Leather Breastplate
+(29150,14112,1,1,5,294000), -- Sealed Vesper Leather Leggings
+(29150,14113,1,1,5,294000), -- Sealed Vesper Leather Gloves
+(29150,14114,1,1,5,294000), -- Sealed Vesper Leather Boots
+(29150,14161,1,1,6,300000), -- Sealed Vesper Necklace
+(29150,14160,1,1,6,350000), -- Sealed Vesper Earring
+(29150,14162,1,1,6,350000), -- Sealed Vesper Ring
+(29150,10552,1,1,7,300000), -- Forgotten Scroll - Fighter's Will
+(29150,10553,1,1,7,300000), -- Forgotten Scroll - Archer's Will
+(29150,14219,1,1,7,300000), -- Forgotten Scroll - Magician's Will
+(29150,13893,1,1,8,100000), -- Sealed Holy Spirit's Cloak
+-- Zaken lvl 60
+(29176,57,180000,220000,1,1000000), -- Adena
+(29176,57,180000,220000,2,1000000), -- Adena
+(29176,57,180000,220000,3,1000000), -- Adena
+(29176,80,1,1,4,22400), -- Tallum Blade
+(29176,150,1,1,4,41000), -- Elemental Sword
+(29176,5548,28,71,5,149000), -- Tallum Blade Edge
+(29176,5547,8,22,5,470000), -- Elemental Sword Edge
+(29176,6569,1,1,6,16800), -- Blessed Scroll: Enchant Weapon (A)
+(29176,729,1,1,6,60000), -- Scroll: Enchant Weapon (A)
+(29176,947,1,1,6,60000), -- Scroll: Enchant Weapon (B)
+(29176,6659,1,1,7,87000), -- Zaken's Earring
+(29176,8922,1,1,8,1700), -- Pirate Hat
+-- Crystal Water Bottle lvl 36
+(32492,13032,1,5,2,500000), -- Pailaka Instant Shield
+(32492,13033,1,10,2,600000), -- Quick Healing Potion
+-- Burning Brazier lvl 36
+(32493,13033,1,10,2,500000), -- Quick Healing Potion
+(32493,13032,1,5,2,600000), -- Pailaka Instant Shield
+-- Guard lvl 66
+(35678,9912,4,7,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(35714,9912,2,4,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(35747,9912,1,3,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(35783,9912,4,4,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(35816,9912,1,3,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(35847,9912,1,3,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(35883,9912,1,3,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(35916,9912,5,7,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(35952,9912,1,3,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(35990,9912,1,3,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(36023,9912,2,6,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(36059,9912,6,7,1,1000000), -- Knight's Epaulette
+-- Mercenary Captain lvl 70
+(36069,9912,1,3,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(36097,9912,3,3,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(36130,9912,1,3,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(36161,9912,2,7,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(36197,9912,1,3,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(36235,9912,4,8,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(36273,9912,4,4,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(36306,9912,1,3,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(36342,9912,1,3,1,1000000), -- Knight's Epaulette
+-- Guard lvl 66
+(36380,9912,1,3,1,1000000); -- Knight's Epaulette
