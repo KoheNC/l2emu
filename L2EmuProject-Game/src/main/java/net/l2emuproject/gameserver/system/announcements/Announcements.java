@@ -18,8 +18,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,21 +67,21 @@ public final class Announcements
 
 	private final class AnnounceDates
 	{
-		private final Date	_startDate;
-		private final Date	_endDate;
+		private final Timestamp	_startDate;
+		private final Timestamp	_endDate;
 
-		private AnnounceDates(final Date startDate, final Date endDate)
+		private AnnounceDates(final Timestamp startDate, final Timestamp endDate)
 		{
 			_startDate = startDate;
 			_endDate = endDate;
 		}
 
-		public final Date getDateStart()
+		public Timestamp getDateStart()
 		{
 			return _startDate;
 		}
 
-		public final Date getDateEnd()
+		public Timestamp getDateEnd()
 		{
 			return _endDate;
 		}
@@ -91,8 +91,8 @@ public final class Announcements
 	{
 		for (AnnounceDates dates : _dates)
 		{
-			final Date startDate = dates.getDateStart();
-			final Date endDate = dates.getDateEnd();
+			final Timestamp startDate = dates.getDateStart();
+			final Timestamp endDate = dates.getDateEnd();
 			final long current = System.currentTimeMillis();
 
 			if (startDate == null && endDate == null)
@@ -155,8 +155,8 @@ public final class Announcements
 			{
 				final int announceId = rset.getInt("announceId");
 				final String announcement = rset.getString("announcement");
-				final Date dateStart = rset.getDate("dateStart");
-				final Date dateEnd = rset.getDate("dateEnd");
+				final Timestamp dateStart = rset.getTimestamp("dateStart");
+				final Timestamp dateEnd = rset.getTimestamp("dateEnd");
 
 				_announcements.put(announceId, announcement);
 				_dates.add(new AnnounceDates(dateStart, dateEnd));
@@ -176,7 +176,7 @@ public final class Announcements
 		}
 	}
 
-	public final void addAnnouncement(boolean saveToDB, final String announcement, final Date dateStart, final Date dateEnd)
+	public final void addAnnouncement(boolean saveToDB, final String announcement, final Timestamp dateStart, final Timestamp dateEnd)
 	{
 		final int announceId = _nextId++;
 
@@ -191,8 +191,8 @@ public final class Announcements
 
 				statement.setInt(1, announceId);
 				statement.setString(2, announcement);
-				statement.setDate(3, (java.sql.Date) dateStart);
-				statement.setDate(4, (java.sql.Date) dateEnd);
+				statement.setTimestamp(3, dateStart);
+				statement.setTimestamp(4, dateEnd);
 				statement.execute();
 				statement.close();
 			}

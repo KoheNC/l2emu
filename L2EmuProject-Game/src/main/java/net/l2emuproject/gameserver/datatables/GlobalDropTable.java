@@ -18,11 +18,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import javolution.util.FastList;
 import net.l2emuproject.gameserver.system.database.L2DatabaseFactory;
 
 import org.apache.commons.logging.Log;
@@ -54,7 +53,7 @@ public final class GlobalDropTable
 		load();
 	}
 
-	private final void load()
+	private void load()
 	{
 		Connection con = null;
 
@@ -70,8 +69,8 @@ public final class GlobalDropTable
 				final int countMin = rset.getInt("countMin");
 				final int countMax = rset.getInt("countMax");
 				final int chance = rset.getInt("chance");
-				final Date dateStart = rset.getDate("dateStart");
-				final Date dateEnd = rset.getDate("dateEnd");
+				final Timestamp dateStart = rset.getTimestamp("dateStart");
+				final Timestamp dateEnd = rset.getTimestamp("dateEnd");
 
 				_table.add(new GlobalDrop(itemId, countMin, countMax, chance, dateStart, dateEnd));
 			}
@@ -93,14 +92,14 @@ public final class GlobalDropTable
 
 	public final class GlobalDrop
 	{
-		private final int	_itemId;
-		private final int	_countMin;
-		private final int	_countMax;
-		private final int	_chance;
-		private final Date	_dateStart;
-		private final Date	_dateEnd;
+		private final int		_itemId;
+		private final int		_countMin;
+		private final int		_countMax;
+		private final int		_chance;
+		private final Timestamp	_dateStart;
+		private final Timestamp	_dateEnd;
 
-		private GlobalDrop(final int itemId, final int countMin, final int countMax, final int chance, final Date dateStart, final Date dateEnd)
+		private GlobalDrop(final int itemId, final int countMin, final int countMax, final int chance, final Timestamp dateStart, final Timestamp dateEnd)
 		{
 			_itemId = itemId;
 			_countMin = countMin;
@@ -110,50 +109,51 @@ public final class GlobalDropTable
 			_dateEnd = dateEnd;
 		}
 
-		public final int getItemId()
+		public int getItemId()
 		{
 			return _itemId;
 		}
 
-		public final int getCountMin()
+		public int getCountMin()
 		{
 			return _countMin;
 		}
 
-		public final int getCountMax()
+		public int getCountMax()
 		{
 			return _countMax;
 		}
 
-		public final int getChance()
+		public int getChance()
 		{
 			return _chance;
 		}
 
-		public final Date getDateStart()
+		public Timestamp getDateStart()
 		{
 			return _dateStart;
 		}
 
-		public final Date getDateEnd()
+		public Timestamp getDateEnd()
 		{
 			return _dateEnd;
 		}
 	}
 
-	public final void addGlobalDrop(int itemId, int countMin, int countMax, int chance, Date dateStart, Date dateEnd)
+	public final void addGlobalDrop(final int itemId, final int countMin, final int countMax, final int chance, final Timestamp dateStart,
+			final Timestamp dateEnd)
 	{
 		_table.add(new GlobalDrop(itemId, countMin, countMax, chance, dateStart, dateEnd));
 	}
 
-	public final FastList<GlobalDrop> getDrops()
+	public final ArrayList<GlobalDrop> getDrops()
 	{
-		final FastList<GlobalDrop> list = new FastList<GlobalDrop>();
+		final ArrayList<GlobalDrop> list = new ArrayList<GlobalDrop>();
 
 		for (GlobalDrop drop : _table)
 		{
-			final Date startDate = drop.getDateStart();
-			final Date endDate = drop.getDateEnd();
+			final Timestamp startDate = drop.getDateStart();
+			final Timestamp endDate = drop.getDateEnd();
 			final long current = System.currentTimeMillis();
 
 			if (startDate == null && endDate == null || current >= startDate.getTime() && current <= endDate.getTime())
