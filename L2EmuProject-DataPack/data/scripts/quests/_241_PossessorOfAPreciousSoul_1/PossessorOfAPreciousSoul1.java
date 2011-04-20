@@ -481,6 +481,6 @@ public class PossessorOfAPreciousSoul1 extends Quest
 
 	public static void main(String[] args)
 	{
-		new PossessorOfAPreciousSoul1(237, QN, "Possessor Of A Precious Soul 1");
+		new PossessorOfAPreciousSoul1(241, QN, "Possessor Of A Precious Soul 1");
 	}
 }
