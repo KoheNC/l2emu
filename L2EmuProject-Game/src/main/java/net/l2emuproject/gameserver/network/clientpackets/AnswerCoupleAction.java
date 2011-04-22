@@ -29,60 +29,61 @@ public final class AnswerCoupleAction extends L2GameClientPacket
 {
 	private static final String	_S__3D_SOCIALACTION	= "[C] D0:7A AnswerCoupleAction";
 
-	private int					_charObjId;
+	private int					_objectId;
 	private int					_actionId;
 	private int					_answer;
 
 	@Override
-	protected final void readImpl()
+	protected void readImpl()
 	{
 		_actionId = readD();
 		_answer = readD();
-		_charObjId = readD();
+		_objectId = readD();
 	}
 
 	@Override
-	protected final void runImpl()
+	protected void runImpl()
 	{
-		L2Player activeChar = getClient().getActiveChar();
-		L2Player target = L2World.getInstance().getPlayer(_charObjId);
+		final L2Player activeChar = getClient().getActiveChar();
+		final L2Player target = L2World.getInstance().getPlayer(_objectId);
 		if (activeChar == null || target == null)
 			return;
 		if (target.getMultiSocialTarget() != activeChar.getObjectId() || target.getMultiSociaAction() != _actionId)
 			return;
-		if (_answer == 0) // cancel
+
+		switch (_answer)
 		{
-			target.setMultiSocialAction(0, 0);
-			target.sendPacket(SystemMessageId.COUPLE_ACTION_DENIED);
-		}
-		else if (_answer == 1) // approve
-		{
-			double distance = activeChar.getPlanDistanceSq(target);
-			if (distance > 2000 || distance < 70)
-			{
-				activeChar.sendPacket(SystemMessageId.TARGET_DO_NOT_MEET_LOC_REQUIREMENTS);
-				target.sendPacket(SystemMessageId.TARGET_DO_NOT_MEET_LOC_REQUIREMENTS);
-				return;
-			}
-			int heading = Util.calculateHeadingFrom(activeChar, target);
-			activeChar.broadcastPacket(new ExRotation(activeChar.getObjectId(), heading));
-			activeChar.setHeading(heading);
-			heading = Util.calculateHeadingFrom(target, activeChar);
-			target.setHeading(heading);
-			target.broadcastPacket(new ExRotation(target.getObjectId(), heading));
-			activeChar.broadcastPacket(new SocialAction(activeChar.getObjectId(), _actionId));
-			target.broadcastPacket(new SocialAction(_charObjId, _actionId));
-		}
-		else if (_answer == -1) // refused
-		{
-			SystemMessage sm = new SystemMessage(SystemMessageId.C1_IS_SET_TO_REFUSE_COUPLE_ACTIONS);
-			sm.addPcName(activeChar);
-			target.sendPacket(sm);
+			case 0:
+				target.setMultiSocialAction(0, 0);
+				target.sendPacket(SystemMessageId.COUPLE_ACTION_DENIED);
+				break;
+			case 1:
+				final double distance = activeChar.getPlanDistanceSq(target);
+				if (distance > 2000 || distance < 70)
+				{
+					activeChar.sendPacket(SystemMessageId.TARGET_DO_NOT_MEET_LOC_REQUIREMENTS);
+					target.sendPacket(SystemMessageId.TARGET_DO_NOT_MEET_LOC_REQUIREMENTS);
+					return;
+				}
+				int heading = Util.calculateHeadingFrom(activeChar, target);
+				activeChar.broadcastPacket(new ExRotation(activeChar.getObjectId(), heading));
+				activeChar.setHeading(heading);
+				heading = Util.calculateHeadingFrom(target, activeChar);
+				target.setHeading(heading);
+				target.broadcastPacket(new ExRotation(target.getObjectId(), heading));
+				activeChar.broadcastPacket(new SocialAction(activeChar, _actionId));
+				target.broadcastPacket(new SocialAction(activeChar, _actionId));
+				break;
+			case -1:
+				SystemMessage sm = new SystemMessage(SystemMessageId.C1_IS_SET_TO_REFUSE_COUPLE_ACTIONS);
+				sm.addPcName(activeChar);
+				target.sendPacket(sm);
+				break;
 		}
 	}
 
 	@Override
-	public final String getType()
+	public String getType()
 	{
 		return _S__3D_SOCIALACTION;
 	}

@@ -14,34 +14,32 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.world.object.L2Character;
-
-public final class SocialAction extends L2GameServerPacket
+/**
+ * @author mochitto
+ *
+ * Format: (ch)d
+ * d: time to left effect in seconds
+ */
+public final class ExNavitAdventEffect extends L2GameServerPacket
 {
-	private static final String	_S__3D_SOCIALACTION	= "[S] 2D SocialAction";
+	private final int	_timeToLeft;
 
-	private final int			_objectId;
-	private final int			_actionId;
-
-	public static final int		LEVEL_UP			= 2122;
-
-	public SocialAction(final L2Character cha, final int actionId)
+	public ExNavitAdventEffect(final int timeToLeft)
 	{
-		_objectId = cha.getObjectId();
-		_actionId = actionId;
+		_timeToLeft = timeToLeft;
 	}
 
 	@Override
 	protected void writeImpl()
 	{
-		writeC(0x27);
-		writeD(_objectId);
-		writeD(_actionId);
+		writeC(0xFE);
+		writeH(0xE0);
+		writeD(_timeToLeft);
 	}
 
 	@Override
 	public String getType()
 	{
-		return _S__3D_SOCIALACTION;
+		return "[S] FE:E0 ExNavitAdventEffect";
 	}
 }

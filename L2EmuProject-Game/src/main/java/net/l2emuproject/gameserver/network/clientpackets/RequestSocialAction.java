@@ -74,7 +74,7 @@ public class RequestSocialAction extends L2GameClientPacket
 			return;
 		}
 
-		activeChar.broadcastPacket(new SocialAction(activeChar.getObjectId(), _actionId));
+		activeChar.broadcastPacket(new SocialAction(activeChar, _actionId));
 
 		sendAF();
 	}

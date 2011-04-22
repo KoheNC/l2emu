@@ -104,7 +104,7 @@ public final class L2TrapInstance extends L2Trap implements Runnable
 		_timeRemaining -= 1000;
 		
 		if (_timeRemaining < _totalLifeTime - 15000)
-			broadcastPacket(new SocialAction(getObjectId(), 2));
+			broadcastPacket(new SocialAction(this, 2));
 		
 		if (_timeRemaining < 0)
 		{

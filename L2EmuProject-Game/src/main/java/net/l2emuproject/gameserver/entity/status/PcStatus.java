@@ -93,6 +93,9 @@ public final class PcStatus extends CharStatus
 	@Override
 	void reduceHp0(double value, L2Character attacker, boolean awake, boolean isDOT, boolean isConsume)
 	{
+		if (getActiveChar().isInvul() && !(isDOT || isConsume))
+			return;
+		
 		if (!isConsume)
 		{
 			if (awake && getActiveChar().isSleeping())

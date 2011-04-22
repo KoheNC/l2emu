@@ -14,34 +14,41 @@
  */
 package net.l2emuproject.gameserver.network.serverpackets;
 
-import net.l2emuproject.gameserver.world.object.L2Character;
-
-public final class SocialAction extends L2GameServerPacket
+/**
+ * @author mochitto
+ *
+ * Format: (ch)cd
+ * c: state 0 - pause 1 - started
+ * d: left time in ms max is 16000 its 4m and state is automatically changed to quit
+ */
+public final class ExNavitAdventTimeChange extends L2GameServerPacket
 {
-	private static final String	_S__3D_SOCIALACTION	= "[S] 2D SocialAction";
+	private boolean	_paused;
+	private int		_time	= 0;
 
-	private final int			_objectId;
-	private final int			_actionId;
-
-	public static final int		LEVEL_UP			= 2122;
-
-	public SocialAction(final L2Character cha, final int actionId)
+	public ExNavitAdventTimeChange(final int time)
 	{
-		_objectId = cha.getObjectId();
-		_actionId = actionId;
+		if (time >= 0)
+		{
+			_time = time > 16000 ? 16000 : time;
+			_paused = false;
+		}
+		else
+			_paused = true;
 	}
 
 	@Override
 	protected void writeImpl()
 	{
-		writeC(0x27);
-		writeD(_objectId);
-		writeD(_actionId);
+		writeC(0xFE);
+		writeH(0xE1);
+		writeC(_paused ? 0x00 : 0x01);
+		writeD(_time); // time in ms (16000 = 4mins = state quit)
 	}
 
 	@Override
 	public String getType()
 	{
-		return _S__3D_SOCIALACTION;
+		return "[S] FE:E1 ExNavitAdventTimeChange";
 	}
 }

@@ -8878,7 +8878,7 @@ public final class L2Player extends L2Playable implements ICharacterInfo
 			getPlayerSettings().getShortCuts().restore();
 			sendPacket(new ShortCutInit(this));
 
-			broadcastPacket(new SocialAction(getObjectId(), SocialAction.LEVEL_UP));
+			broadcastPacket(new SocialAction(this, SocialAction.LEVEL_UP));
 			sendSkillCoolTime();
 			sendPacket(new ExStorageMaxCount(this));
 

@@ -403,7 +403,7 @@ public final class ProofOfClanAlliance extends QuestJython
 						qs.giveItems(ALLIANCE_MANIFESTO, 1);
 						qs.addExpAndSp(0, 120000);
 						talker.sendPacket(SND_FINISH);
-						talker.broadcastPacket(new SocialAction(talker.getObjectId(), 3));
+						talker.broadcastPacket(new SocialAction(talker, 3));
 						return buildReply(npc, 9);
 					}
 					else

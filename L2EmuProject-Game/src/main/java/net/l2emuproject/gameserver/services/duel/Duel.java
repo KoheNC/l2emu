@@ -616,9 +616,9 @@ public class Duel
 		if (_partyDuel && looser.getParty() != null)
 		{
 			for (L2Player temp : looser.getParty().getPartyMembers())
-				temp.broadcastPacket(new SocialAction(temp.getObjectId(), 7));
+				temp.broadcastPacket(new SocialAction(temp, 7));
 		}
-		else looser.broadcastPacket(new SocialAction(looser.getObjectId(), 7));
+		else looser.broadcastPacket(new SocialAction(looser, 7));
 	}
 
 	/**

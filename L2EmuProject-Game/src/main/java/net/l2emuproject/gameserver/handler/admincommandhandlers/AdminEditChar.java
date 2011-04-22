@@ -466,7 +466,7 @@ public class AdminEditChar implements IAdminCommandHandler
 				return false;
 			player.setHero(!player.isHero());
 			if (player.isHero())
-				player.broadcastPacket(new SocialAction(player.getObjectId(), 16));
+				player.broadcastPacket(new SocialAction(player, 16));
 			player.sendMessage("Admin changed your hero status");
 			player.broadcastUserInfo();
 		}

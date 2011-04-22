@@ -323,7 +323,7 @@ public class Hero
 
 			if (player != null)
 			{
-				player.broadcastPacket(new SocialAction(player.getObjectId(), 16));
+				player.broadcastPacket(new SocialAction(player, 16));
 				player.setHero(true);
 				L2Clan clan = player.getClan();
 				if (clan != null)

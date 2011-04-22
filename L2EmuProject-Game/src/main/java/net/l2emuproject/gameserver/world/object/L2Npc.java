@@ -225,9 +225,9 @@ public class L2Npc extends L2Character
 				{
 					SocialAction sa;
 					if (force) // on talk/interact
-						sa = new SocialAction(getObjectId(), Rnd.get(8));
+						sa = new SocialAction(this, Rnd.get(8));
 					else // periodic
-						sa = new SocialAction(getObjectId(), Rnd.get(2, 3));
+						sa = new SocialAction(this, Rnd.get(2, 3));
 					broadcastPacket(sa);
 
 					int minWait = isMob() ? Config.MIN_MONSTER_ANIMATION : Config.MIN_NPC_ANIMATION;

@@ -85,7 +85,7 @@ public class DrChaos extends QuestJython
 			startQuestTimer("3", 10000, npc, player);
 		}
 		else if (event.equalsIgnoreCase("2"))
-			npc.broadcastPacket(new SocialAction(npc.getObjectId(), 3));
+			npc.broadcastPacket(new SocialAction(npc, 3));
 		else if (event.equalsIgnoreCase("3"))
 		{
 			npc.broadcastPacket(new SpecialCamera(npc.getObjectId(), 1, -150, 10, 3000, 20000));

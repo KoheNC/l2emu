@@ -140,7 +140,7 @@ public class Unlock implements ISkillHandler
 				}
 				if (Rnd.get(100) <= chestChance)
 				{
-					activeChar.broadcastPacket(new SocialAction(activeChar.getObjectId(), 3));
+					activeChar.broadcastPacket(new SocialAction(activeChar, 3));
 					chest.setSpecialDrop();
 					chest.setMustRewardExpSp(false);
 					chest.setInteracted();
@@ -148,7 +148,7 @@ public class Unlock implements ISkillHandler
 				}
 				else
 				{
-					activeChar.broadcastPacket(new SocialAction(activeChar.getObjectId(), 13));
+					activeChar.broadcastPacket(new SocialAction(activeChar, 13));
 					if (Rnd.get(100) < chestTrapLimit)
 						chest.chestTrap(activeChar);
 					chest.setInteracted();

@@ -744,7 +744,7 @@ public class RequestActionUse extends L2GameClientPacket
 		
 		if (activeChar.canMakeSocialAction())
 		{
-			activeChar.broadcastPacket(new SocialAction(activeChar.getObjectId(), socialId));
+			activeChar.broadcastPacket(new SocialAction(activeChar, socialId));
 		}
 	}
 	

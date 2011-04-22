@@ -232,7 +232,7 @@ public class AdminTest implements IAdminCommandHandler
 		else
 			target = activeChar;
 
-		SocialAction sa = new SocialAction(target.getObjectId(), socId);
+		SocialAction sa = new SocialAction((L2Character) target, socId);
 		((L2Character) target).broadcastPacket(sa);
 	}
 

@@ -229,7 +229,7 @@ public final class Benom extends QuestJython
 		{
 			npc.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);
 			npc.broadcastPacket(new SpecialCamera(npc.getObjectId(), 200, 0, 150, 0, 5000));
-			npc.broadcastPacket(new SocialAction(npc.getObjectId(), 3));
+			npc.broadcastPacket(new SocialAction(npc, 3));
 			startQuestTimer("BenomWalk", 5000, npc, null);
 			BenomWalkRouteStep = 0;
 		}

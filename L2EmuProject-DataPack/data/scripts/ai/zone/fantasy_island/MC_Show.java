@@ -378,7 +378,7 @@ public final class MC_Show extends QuestJython
 				startQuestTimer("timer_check", 60000, null, null, true);
 			}
 			else if (event.equalsIgnoreCase("social1"))
-				npc.broadcastPacket(new SocialAction(npc.getObjectId(),1));
+				npc.broadcastPacket(new SocialAction(npc,1));
 			else if (event.equalsIgnoreCase("clean_npc"))
 			{
 				isStarted = false;

@@ -37,9 +37,12 @@ import net.l2emuproject.gameserver.network.SystemMessageId;
 import net.l2emuproject.gameserver.network.serverpackets.Die;
 import net.l2emuproject.gameserver.network.serverpackets.ExBasicActionList;
 import net.l2emuproject.gameserver.network.serverpackets.ExGetBookMarkInfoPacket;
+import net.l2emuproject.gameserver.network.serverpackets.ExNavitAdventPointInfoPacket;
+import net.l2emuproject.gameserver.network.serverpackets.ExNavitAdventTimeChange;
 import net.l2emuproject.gameserver.network.serverpackets.ExNoticePostArrived;
 import net.l2emuproject.gameserver.network.serverpackets.ExNotifyBirthDay;
 import net.l2emuproject.gameserver.network.serverpackets.ExStorageMaxCount;
+import net.l2emuproject.gameserver.network.serverpackets.ExVoteSystemInfo;
 import net.l2emuproject.gameserver.network.serverpackets.FriendList;
 import net.l2emuproject.gameserver.network.serverpackets.HennaInfo;
 import net.l2emuproject.gameserver.network.serverpackets.ItemList;
@@ -76,7 +79,7 @@ import net.l2emuproject.gameserver.world.object.L2Player;
 import net.l2emuproject.gameserver.world.object.instance.L2ClassMasterInstance;
 import net.l2emuproject.gameserver.world.zone.L2Zone;
 
-public class EnterWorld extends L2GameClientPacket
+public final class EnterWorld extends L2GameClientPacket
 {
 	private static final String	_C__ENTERWORLD	= "[C] 11 EnterWorld c[bddddbdcccccccccccccccccccc] (unk)";
 
@@ -100,8 +103,8 @@ public class EnterWorld extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		L2Player activeChar = getActiveChar();
-		if (activeChar == null)
+		final L2Player player = getActiveChar();
+		if (player == null)
 		{
 			_log.warn("EnterWorld failed! activeChar is null...");
 			getClient().closeNow();
@@ -112,45 +115,45 @@ public class EnterWorld extends L2GameClientPacket
 		for (int i = 0; i < 5; i++)
 			adress[i] = _tracert[i][0] + "." + _tracert[i][1] + "." + _tracert[i][2] + "." + _tracert[i][3];
 		
-		LoginServerThread.getInstance().sendClientTracert(activeChar.getAccountName(), adress);
+		LoginServerThread.getInstance().sendClientTracert(player.getAccountName(), adress);
 		
 		getClient().setClientTracert(_tracert);
 
 		getClient().initServerPacketQueue();
 		
-		if (Config.GM_EVERYBODY_HAS_ADMIN_RIGHTS && !(activeChar.isGM()))
-			activeChar.setAccessLevel(200);
+		if (Config.GM_EVERYBODY_HAS_ADMIN_RIGHTS && !(player.isGM()))
+			player.setAccessLevel(200);
 
 		// restore instance
-		Instance ins = InstanceManager.getInstance().getDynamicInstance(activeChar);
+		Instance ins = InstanceManager.getInstance().getDynamicInstance(player);
 		if (ins != null)
 		{
 			if (Config.RESTORE_PLAYER_INSTANCE)
-				activeChar.setInstanceId(ins.getId());
+				player.setInstanceId(ins.getId());
 			else
-				ins.removePlayer(activeChar.getObjectId());
+				ins.removePlayer(player.getObjectId());
 		}
 
 		// Restore Vitality
 		if (Config.ENABLE_VITALITY && Config.RECOVER_VITALITY_ON_RECONNECT)
 		{
-			float points = Config.RATE_RECOVERY_ON_RECONNECT * (System.currentTimeMillis() - activeChar.getLastAccess()) / 60000;
+			float points = Config.RATE_RECOVERY_ON_RECONNECT * (System.currentTimeMillis() - player.getLastAccess()) / 60000;
 			if (points > 0)
-				activeChar.getPlayerVitality().updateVitalityPoints(points, false, true);
+				player.getPlayerVitality().updateVitalityPoints(points, false, true);
 		}
 
 		if (Config.PLAYER_SPAWN_PROTECTION > 0)
-			activeChar.setProtection(true);
-		activeChar.spawnMe(activeChar.getX(), activeChar.getY(), activeChar.getZ());
+			player.setProtection(true);
+		player.spawnMe(player.getX(), player.getY(), player.getZ());
 
-		activeChar.getKnownList().updateKnownObjects();
+		player.getKnownList().updateKnownObjects();
 
 		sendPacket(new SSQInfo());
-		activeChar.broadcastUserInfo();
-		sendPacket(new ItemList(activeChar, false));
-		activeChar.getPlayerSettings().getMacroses().sendUpdate();
-		sendPacket(new ShortCutInit(activeChar));
-		activeChar.sendSkillList();
+		player.broadcastUserInfo();
+		sendPacket(new ItemList(player, false));
+		player.getPlayerSettings().getMacroses().sendUpdate();
+		sendPacket(new ShortCutInit(player));
+		player.sendSkillList();
 		sendPacket(SystemMessageId.WELCOME_TO_LINEAGE);
 		if (Config.SERVER_AGE_LIM >= 18 || Config.SERVER_PVP)
 			sendPacket(SystemMessageId.ENTERED_ADULTS_ONLY_SERVER);
@@ -158,140 +161,145 @@ public class EnterWorld extends L2GameClientPacket
 			sendPacket(SystemMessageId.ENTERED_COMMON_SERVER);
 		else
 			sendPacket(SystemMessageId.ENTERED_JUVENILES_SERVER);
-		sendPacket(new HennaInfo(activeChar));
+		sendPacket(new HennaInfo(player));
 
-		Announcements.getInstance().showAnnouncements(activeChar);
+		Announcements.getInstance().showAnnouncements(player);
 		
 		// L2EMU_EDIT
 		if (Config.ANNOUNCE_7S_AT_START_UP)
-			SevenSigns.getInstance().sendCurrentPeriodMsg(activeChar);
+			SevenSigns.getInstance().sendCurrentPeriodMsg(player);
 		// L2EMU_EDIT
 		
-		Siege quickfix = SiegeManager.getInstance().getSiege(activeChar);
+		Siege quickfix = SiegeManager.getInstance().getSiege(player);
 		if (quickfix != null && quickfix.getIsInProgress()
-				&& !quickfix.checkIsDefender(activeChar.getClan()))
+				&& !quickfix.checkIsDefender(player.getClan()))
 		{
-			if (activeChar.isInsideZone(L2Zone.FLAG_NO_HQ) // no such zones yet, so
-					|| activeChar.isInsideZone(L2Zone.FLAG_CASTLE))
-				activeChar.teleToLocation(TeleportWhereType.Town);
+			if (player.isInsideZone(L2Zone.FLAG_NO_HQ) // no such zones yet, so
+					|| player.isInsideZone(L2Zone.FLAG_CASTLE))
+				player.teleToLocation(TeleportWhereType.Town);
 		}
 
 		// send user info again .. just like the real client
-		sendPacket(new UserInfo(activeChar));
+		sendPacket(new UserInfo(player));
 
-		if (activeChar.getClanId() != 0 && activeChar.getClan() != null)
+		if (player.getClanId() != 0 && player.getClan() != null)
 		{
-			sendPacket(new PledgeShowMemberListAll(activeChar.getClan()));
-			sendPacket(new PledgeStatusChanged(activeChar.getClan()));
+			sendPacket(new PledgeShowMemberListAll(player.getClan()));
+			sendPacket(new PledgeStatusChanged(player.getClan()));
 
 			// Residential skills support
-			activeChar.enableResidentialSkills(true);
+			player.enableResidentialSkills(true);
 		}
 
-		if (activeChar.getStatus().getCurrentHp() < 0.5) // is dead
-			activeChar.setIsDead(true);
-		if (activeChar.isAlikeDead()) // dead or fake dead
+		if (player.getStatus().getCurrentHp() < 0.5) // is dead
+			player.setIsDead(true);
+		if (player.isAlikeDead()) // dead or fake dead
 			// no broadcast needed since the player will already spawn dead to others
-			sendPacket(new Die(activeChar));
+			sendPacket(new Die(player));
 
 		// engage and notify Partner
 		if (Config.ALLOW_WEDDING)
 		{
-			engage(activeChar);
-			notifyPartner(activeChar);
+			engage(player);
+			notifyPartner(player);
 
 			// Check if player is married and remove if necessary Cupid's Bow
-			if (!activeChar.isMaried())
+			if (!player.isMaried())
 			{
-				L2ItemInstance item = activeChar.getInventory().getItemByItemId(9140);
+				L2ItemInstance item = player.getInventory().getItemByItemId(9140);
 				// Remove Cupid's Bow
 				if (item != null)
 				{
-					activeChar.destroyItem("Removing Cupid's Bow", item, activeChar, true);
+					player.destroyItem("Removing Cupid's Bow", item, player, true);
 
 					// No need to update every item in the inventory
 					//activeChar.getInventory().updateDatabase();
 
 					// Log it
 					if (_log.isDebugEnabled())
-						_log.debug("Character " + activeChar.getName() + " of account " + activeChar.getAccountName() + " got Cupid's Bow removed.");
+						_log.debug("Character " + player.getName() + " of account " + player.getAccountName() + " got Cupid's Bow removed.");
 				}
 			}
 		}
 
-		L2ItemInstance weapon = activeChar.getInventory().getPaperdollItem(Inventory.PAPERDOLL_LRHAND);
+		L2ItemInstance weapon = player.getInventory().getPaperdollItem(Inventory.PAPERDOLL_LRHAND);
 		if (weapon == null)
-			weapon = activeChar.getInventory().getPaperdollItem(Inventory.PAPERDOLL_RHAND);
+			weapon = player.getInventory().getPaperdollItem(Inventory.PAPERDOLL_RHAND);
 		if (weapon != null)
 		{
-			if ((weapon.isHeroItem() && !activeChar.isHero() && !activeChar.isGM())
-					|| (activeChar.getPkKills() > 0 && weapon.getItemId() > 7815 && weapon.getItemId() < 7832))
-				activeChar.getInventory().unEquipItemInBodySlotAndRecord(weapon.getItem().getBodyPart());
+			if ((weapon.isHeroItem() && !player.isHero() && !player.isGM())
+					|| (player.getPkKills() > 0 && weapon.getItemId() > 7815 && weapon.getItemId() < 7832))
+				player.getInventory().unEquipItemInBodySlotAndRecord(weapon.getItem().getBodyPart());
 		}
 
-		activeChar.updateEffectIcons();
-		activeChar.sendSkillCoolTime();
+		player.updateEffectIcons();
+		player.sendSkillCoolTime();
 
-		Quest.playerEnter(activeChar);
-		loadTutorial(activeChar);
+		Quest.playerEnter(player);
+		loadTutorial(player);
 		for (Quest quest : QuestService.getInstance().getAllManagedScripts())
 		{
 			if (quest != null && quest.getOnEnterWorld())
-				quest.notifyEnterWorld(activeChar);
+				quest.notifyEnterWorld(player);
 		}
 
-		activeChar.notifyFriends();
-		notifyClanMembers(activeChar);
-		notifySponsorOrApprentice(activeChar);
+		player.notifyFriends();
+		notifyClanMembers(player);
+		notifySponsorOrApprentice(player);
 
-		L2Clan clan = activeChar.getClan();
+		final L2Clan clan = player.getClan();
 		if (clan != null)
 			sendPacket(new PledgeSkillList(clan));
 
-		sendPacket(new ExStorageMaxCount(activeChar));
-		sendPacket(new QuestList(activeChar));
+		sendPacket(new ExStorageMaxCount(player));
+		sendPacket(new QuestList(player));
 
-		activeChar.broadcastUserInfo();
+		player.broadcastUserInfo();
 		
-		for (L2ItemInstance i : activeChar.getWarehouse().getItems())
+		for (L2ItemInstance i : player.getWarehouse().getItems())
 			if (i.isTimeLimitedItem())
 				i.scheduleLifeTimeTask();
 
-		if (Olympiad.getInstance().playerInStadia(activeChar))
+		if (Olympiad.getInstance().playerInStadia(player))
 		{
-			activeChar.doRevive();
-			activeChar.teleToLocation(TeleportWhereType.Town);
-			activeChar.sendMessage("You have been teleported to the nearest town due to you being in an Olympiad Stadium.");
+			player.doRevive();
+			player.teleToLocation(TeleportWhereType.Town);
+			player.sendMessage("You have been teleported to the nearest town due to you being in an Olympiad Stadium.");
 		}
 
-		activeChar.revalidateZone(true);
-		activeChar.sendEtcStatusUpdate();
+		player.revalidateZone(true);
+		player.sendEtcStatusUpdate();
+		
+		sendPacket(new ExVoteSystemInfo(player)); // TODO: Rework...
+		
+		sendPacket(new ExNavitAdventPointInfoPacket(0));
+		sendPacket(new ExNavitAdventTimeChange(-1)); // only set pause state...
 
-		if (DimensionalRiftManager.getInstance().checkIfInRiftZone(activeChar.getX(), activeChar.getY(), activeChar.getZ(), true)) // Exclude waiting room
-			DimensionalRiftManager.getInstance().teleportToWaitingRoom(activeChar);
+		if (DimensionalRiftManager.getInstance().checkIfInRiftZone(player.getX(), player.getY(), player.getZ(), true)) // Exclude waiting room
+			DimensionalRiftManager.getInstance().teleportToWaitingRoom(player);
 
 		// Wherever these should be?
-		sendPacket(new ShortCutInit(activeChar));
+		sendPacket(new ShortCutInit(player));
 
-		if (Hero.getInstance().getHeroes() != null && Hero.getInstance().getHeroes().containsKey(activeChar.getObjectId()))
-			activeChar.setHero(true);
+		if (Hero.getInstance().getHeroes() != null && Hero.getInstance().getHeroes().containsKey(player.getObjectId()))
+			player.setHero(true);
 
 		// Restore character's siege state
-		if (activeChar.getClan() != null)
+		if (player.getClan() != null)
 		{
 			for (Siege siege : SiegeManager.getInstance().getSieges())
 			{
 				if (!siege.getIsInProgress())
 					continue;
-				if (siege.checkIsAttacker(activeChar.getClan()))
+				if (siege.checkIsAttacker(player.getClan()))
 				{
-					activeChar.setSiegeState((byte) 1);
-					activeChar.setSiegeSide(siege.getCastle().getCastleId());
+					player.setSiegeState((byte) 1);
+					player.setSiegeSide(siege.getCastle().getCastleId());
 				}
-				else if (siege.checkIsDefender(activeChar.getClan()))
+				else if (siege.checkIsDefender(player.getClan()))
 				{
-					activeChar.setSiegeState((byte) 2);
-					activeChar.setSiegeSide(siege.getCastle().getCastleId());
+					player.setSiegeState((byte) 2);
+					player.setSiegeSide(siege.getCastle().getCastleId());
 				}
 			}
 
@@ -299,26 +307,26 @@ public class EnterWorld extends L2GameClientPacket
 			{
 				if (!fsiege.getIsInProgress())
 					continue;
-				if (fsiege.checkIsAttacker(activeChar.getClan()))
+				if (fsiege.checkIsAttacker(player.getClan()))
 				{
-					activeChar.setSiegeState((byte) 1);
-					activeChar.setSiegeSide(fsiege.getFort().getFortId());
+					player.setSiegeState((byte) 1);
+					player.setSiegeSide(fsiege.getFort().getFortId());
 					
 				}
-				else if (fsiege.checkIsDefender(activeChar.getClan()))
+				else if (fsiege.checkIsDefender(player.getClan()))
 				{
-					activeChar.setSiegeState((byte) 2);
-					activeChar.setSiegeSide(fsiege.getFort().getFortId());
+					player.setSiegeState((byte) 2);
+					player.setSiegeSide(fsiege.getFort().getFortId());
 				}
 			}
 		}
 		
-		if (TerritoryWarManager.getInstance().getRegisteredTerritoryId(activeChar) > 0)
+		if (TerritoryWarManager.getInstance().getRegisteredTerritoryId(player) > 0)
 		{
 			if (TerritoryWarManager.getInstance().isTWInProgress())
-				activeChar.setSiegeState((byte) 1);
+				player.setSiegeState((byte) 1);
 			
-			activeChar.setSiegeSide(TerritoryWarManager.getInstance().getRegisteredTerritoryId(activeChar));
+			player.setSiegeSide(TerritoryWarManager.getInstance().getRegisteredTerritoryId(player));
 		}
 
 		//Updating Seal of Strife Buff/Debuff
@@ -327,58 +335,58 @@ public class EnterWorld extends L2GameClientPacket
 			int owner = SevenSigns.getInstance().getSealOwner(SevenSigns.SEAL_STRIFE);
 			if (owner != SevenSigns.CABAL_NULL)
 			{
-				int cabal = SevenSigns.getInstance().getPlayerCabal(activeChar);
+				int cabal = SevenSigns.getInstance().getPlayerCabal(player);
 				if (cabal == owner)
-					activeChar.addSkill(SkillTable.getInstance().getInfo(5074, 1), false);
+					player.addSkill(SkillTable.getInstance().getInfo(5074, 1), false);
 				else if (cabal != SevenSigns.CABAL_NULL)
-					activeChar.addSkill(SkillTable.getInstance().getInfo(5075, 1), false);
+					player.addSkill(SkillTable.getInstance().getInfo(5075, 1), false);
 			}
 		}
 
-		for (L2ItemInstance i : activeChar.getInventory().getItems())
+		for (L2ItemInstance i : player.getInventory().getItems())
 			if (i.isTimeLimitedItem())
 				i.scheduleLifeTimeTask();
 
-		activeChar.queryGameGuard();
+		player.queryGameGuard();
 
-		sendPacket(new FriendList(activeChar));
+		sendPacket(new FriendList(player));
 		
 		// Send "Friend has logged in" message to all player friends
-		SystemMessage sm0 = new SystemMessage(SystemMessageId.FRIEND_S1_HAS_LOGGED_IN).addString(activeChar.getName());
-		for (int objectId : activeChar.getFriendList().getFriendIds())
+		SystemMessage sm0 = new SystemMessage(SystemMessageId.FRIEND_S1_HAS_LOGGED_IN).addString(player.getName());
+		for (int objectId : player.getFriendList().getFriendIds())
 		{
-			L2Player player = L2World.getInstance().findPlayer(objectId);
-			if (player != null)
-				player.sendPacket(sm0);
+			final L2Player friend = L2World.getInstance().findPlayer(objectId);
+			if (friend != null)
+				friend.sendPacket(sm0);
 		}
 
 		if (Config.SHOW_LICENSE)
 		{
-			activeChar.sendMessage("Welcome to L2Emu Project.");
-			activeChar.sendMessage("L2Server Version: " + VersionService.getGameRevision());
-			activeChar.sendMessage("L2DataPack Version: " + Config.DATAPACK_REVISION);
-			activeChar.sendMessage("Enjoy our project: L2EmuProject " + VersionService.getGameVersion() + "!");
+			player.sendMessage("Welcome to L2Emu Project.");
+			player.sendMessage("L2Server Version: " + VersionService.getGameRevision());
+			player.sendMessage("L2DataPack Version: " + Config.DATAPACK_REVISION);
+			player.sendMessage("Enjoy our project: L2EmuProject " + VersionService.getGameVersion() + "!");
 		}
 
-		if (Config.SHOW_HTML_NEWBIE && activeChar.getLevel() < Config.LEVEL_HTML_NEWBIE)
+		if (Config.SHOW_HTML_NEWBIE && player.getLevel() < Config.LEVEL_HTML_NEWBIE)
 		{
 			String Newbie_Path = "data/npc_data/html/newbie.htm";
 			if (HtmCache.getInstance().pathExists(Newbie_Path))
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(1);
 				html.setFile(Newbie_Path);
-				html.replace("%name%", activeChar.getName()); // replaces %name%, so you can say like "welcome to the server %name%"
+				html.replace("%name%", player.getName()); // replaces %name%, so you can say like "welcome to the server %name%"
 				sendPacket(html);
 			}
 		}
-		else if (Config.SHOW_HTML_GM && activeChar.isGM())
+		else if (Config.SHOW_HTML_GM && player.isGM())
 		{
 			String Gm_Path = "data/npc_data/html/gm.htm";
 			if (HtmCache.getInstance().pathExists(Gm_Path))
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(1);
 				html.setFile(Gm_Path);
-				html.replace("%name%", activeChar.getName()); // replaces %name%, so you can say like "welcome to the server %name%"
+				html.replace("%name%", player.getName()); // replaces %name%, so you can say like "welcome to the server %name%"
 				sendPacket(html);
 			}
 		}
@@ -389,22 +397,22 @@ public class EnterWorld extends L2GameClientPacket
 			{
 				NpcHtmlMessage html = new NpcHtmlMessage(1);
 				html.setFile(Welcome_Path);
-				html.replace("%name%", activeChar.getName()); // replaces %name%, so you can say like "welcome to the server %name%"
+				html.replace("%name%", player.getName()); // replaces %name%, so you can say like "welcome to the server %name%"
 				sendPacket(html);
 			}
 		}
 
 		// Resume paused restrictions
-		ObjectRestrictions.getInstance().resumeTasks(activeChar.getObjectId());
+		ObjectRestrictions.getInstance().resumeTasks(player.getObjectId());
 
 		// check player skills
-		activeChar.checkAllowedSkills();
+		player.checkAllowedSkills();
 
 		// check for academy
-		activeChar.academyCheck(activeChar.getClassId().getId());
+		player.academyCheck(player.getClassId().getId());
 
 		// check for crowns
-		CrownManager.checkCrowns(activeChar);
+		CrownManager.checkCrowns(player);
 
 		if (Config.ONLINE_PLAYERS_AT_STARTUP)
 		{
@@ -416,11 +424,11 @@ public class EnterWorld extends L2GameClientPacket
 			sendPacket(sm);
 		}
 
-		PetitionService.getInstance().checkPetitionMessages(activeChar);
+		PetitionService.getInstance().checkPetitionMessages(player);
 
-		activeChar.onPlayerEnter();
+		player.onPlayerEnter();
 
-		if (activeChar.getClanJoinExpiryTime() > System.currentTimeMillis())
+		if (player.getClanJoinExpiryTime() > System.currentTimeMillis())
 			sendPacket(SystemMessageId.CLAN_MEMBERSHIP_TERMINATED);
 /*
 		if (activeChar.getClan() != null)
@@ -436,51 +444,51 @@ public class EnterWorld extends L2GameClientPacket
 		}
 */
 		//Sets the appropriate Pledge Class for the clannie (e.g. Viscount, Count, Baron, Marquiz)
-		activeChar.setPledgeClass(L2ClanMember.getCurrentPledgeClass(activeChar));
+		player.setPledgeClass(L2ClanMember.getCurrentPledgeClass(player));
 
-		L2ShortCut[] allShortCuts = activeChar.getPlayerSettings().getAllShortCuts();
+		L2ShortCut[] allShortCuts = player.getPlayerSettings().getAllShortCuts();
 		for (L2ShortCut sc : allShortCuts)
 			sendPacket(new ShortCutRegister(sc));
 
 		// remove combat flag before teleporting
-		L2ItemInstance flag = activeChar.getInventory().getItemByItemId(9819);
+		L2ItemInstance flag = player.getInventory().getItemByItemId(9819);
 		if (flag != null)
 		{
-			Fort fort = FortManager.getInstance().getFort(activeChar);
+			Fort fort = FortManager.getInstance().getFort(player);
 			if (fort != null)
 			{
-				FortSiegeManager.getInstance().dropCombatFlag(activeChar);
+				FortSiegeManager.getInstance().dropCombatFlag(player);
 			}
 			else
 			{
 				int slot = flag.getItem().getBodyPart();
-				activeChar.getInventory().unEquipItemInBodySlotAndRecord(slot);
-				activeChar.destroyItem("CombatFlag", flag, null, true);
+				player.getInventory().unEquipItemInBodySlotAndRecord(slot);
+				player.destroyItem("CombatFlag", flag, null, true);
 			}
 		}
-		if (!activeChar.isGM()
+		if (!player.isGM()
 		// inside siege zone
-				&& activeChar.isInsideZone(L2Zone.FLAG_SIEGE)
+				&& player.isInsideZone(L2Zone.FLAG_SIEGE)
 				// but non-participant or attacker
-				&& (!activeChar.isInSiege() || activeChar.getSiegeState() < 2))
+				&& (!player.isInSiege() || player.getSiegeState() < 2))
 		{
 			// Attacker or spectator logging in to a siege zone. Actually should be checked for inside castle only?
-			activeChar.teleToLocation(TeleportWhereType.Town);
+			player.teleToLocation(TeleportWhereType.Town);
 			//activeChar.sendMessage("You have been teleported to the nearest town due to you being in siege zone"); - custom
 		}
 
-		if (MailService.getInstance().hasUnreadPost(activeChar))
+		if (MailService.getInstance().hasUnreadPost(player))
 			sendPacket(new ExNoticePostArrived(false));
 		
-		if (!activeChar.getPlayerTransformation().isTransformed())
-			activeChar.regiveTemporarySkills();
+		if (!player.getPlayerTransformation().isTransformed())
+			player.regiveTemporarySkills();
 
 		// Send Teleport Bookmark List
 		sendPacket(new ExGetBookMarkInfoPacket());
 
-		ExBasicActionList.sendTo(activeChar);
+		ExBasicActionList.sendTo(player);
 
-		int daysLeft = activeChar.getPlayerBirthday().canReceiveAnnualPresent();
+		int daysLeft = player.getPlayerBirthday().canReceiveAnnualPresent();
 		if (daysLeft < 8 && daysLeft != -1)
 		{
 			if (daysLeft == 0)			
@@ -489,15 +497,12 @@ public class EnterWorld extends L2GameClientPacket
 				sendPacket(new SystemMessage(SystemMessageId.THERE_ARE_S1_DAYS_UNTIL_YOUR_CHARACTERS_BIRTHDAY).addNumber(daysLeft));
 		}
 
-		L2ClassMasterInstance.showQuestionMark(activeChar);
+		L2ClassMasterInstance.showQuestionMark(player);
 
-		if (activeChar.getLevel() == 28)
+		if (player.getLevel() == 28)
 			sendPacket(new TutorialShowQuestionMark(1002));
-		
-		//if (!activeChar.getPremiumItemList().isEmpty())
-			//activeChar.sendPacket(ExNotifyPremiumItem.PACKET);
 
-		GlobalRestrictions.playerLoggedIn(activeChar);
+		GlobalRestrictions.playerLoggedIn(player);
 	}
 
 	/**
